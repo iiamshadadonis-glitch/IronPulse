@@ -1,10 +1,16 @@
 # IronPulse Gym
 
-Complete Cloudflare Pages, Pages Functions/Workers and D1 replacement project, release **V1.01**, package **1.1.0**.
+The complete working application is at this project root. All 1,829 original V1.00 files are preserved under archive/V1.00/. Read COMPARISON.md for the audited counts and FILE-COMPARISON.csv for every original file.
+
+Complete Cloudflare Pages, Pages Functions/Workers and D1 replacement project, release **V1.03**, package **1.3.0**.
+
+This folder contains the complete application, rather than changed files only. The frontend, backend, assets and all migrations are included. See PACKAGE-CONTENTS.txt for the full inventory and GITHUB-SUMMARY.txt for the commit title/description.
+
+For the publishing error in the screenshot, open **CLOUDFLARE-FIX.md**.
 
 Start with **START-HERE.md** for the noncoder deployment instructions. The existing D1 binding DB points to **893e7d29-fa72-413d-9415-5d93b1c3bc6e**.
 
-This release retains the existing membership, scheduling, checkout, payment, notifications, CRM, Admin and portal logic. The 177 inherited CSS files retain their theme declarations. Physical filenames and remaining display/default brand text were cleaned up for the gym instance. Old release notes, old deployment scripts and historical verification files were removed.
+This release retains the existing membership, scheduling, checkout, payment, notifications, CRM, Admin and portal logic. The 177 inherited CSS files retain their theme declarations. Physical filenames and remaining display/default brand text were cleaned up for the gym instance. Historical release notes, deployment scripts and verification files are preserved in archive/ for comparison; the current root project supplies the live gym configuration.
 
 ## Compatibility
 
@@ -20,6 +26,7 @@ Requires Node 24.
 
     npm ci
     npm test
+    npm run check:complete
     npm run build
     npm run test:gym:browser
     npm run test:gym:runtime

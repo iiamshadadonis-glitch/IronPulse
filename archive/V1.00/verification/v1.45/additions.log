@@ -1,0 +1,21 @@
+V1.45 additions: Sales remains usable after closing the subscription wizard
+V1.45 additions: Product image native upload retains the original file binding
+V1.45 additions: Product placements choices and complete record cards
+V1.45 additions: Members Current/Past use first-paint CSS cards on both class screens
+  class panel onlineClasses
+  member controls Current Members, Past Members
+  class panel offlineClasses
+  member controls Current Members, Past Members
+V1.45 additions: Running classes native actions and coach choice sheet
+V1.45 additions: Dance Tips full-screen form, media binding, Review and desktop recovery
+V1.45 additions: Social QA navigation is free; final Publish validates all steps
+V1.45 additions: Poll modals keep header and sticky footer in the viewport
+V1.45 additions: Vertical DM and comment builders insert source-owned workflow nodes
+V1.45 additions: Lead nurturing rules and follow-up insertion
+V1.45 additions: Email child dialogs are above the builder and dismiss correctly
+V1.45 additions: Existing Pages save individual editor values, New Page and Custom Code
+V1.45 additions: Student Stories grouped actions and approvals carousel
+V1.45 additions: Tracking review uses platform labels rather than generic Enable
+V1.45 additions: Heat preview lazy activation and non-colliding navigation/FAB
+V1.45 additions: Desktop layout restores original accordions, buttons and media slot numbers
+V1.45 mobile additions passed.

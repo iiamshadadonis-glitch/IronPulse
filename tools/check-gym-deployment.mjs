@@ -7,7 +7,10 @@ try{
   if(!existsSync(join(projectRoot,path)))throw Error('Missing project file '+path+'. Use the complete ZIP at your repository root.');
  }
  const pkg=JSON.parse(readFileSync(join(projectRoot,'package.json'),'utf8'));
- console.log('IronPulse Gym V1.01 (package '+pkg.version+')');
+ const release=JSON.parse(readFileSync(join(projectRoot,'public/release.json'),'utf8'));
+ if(release.name!=='IronPulse Gym'||release.version!=='V1.03'||release.package_version!==pkg.version)throw Error('Release identification does not match this package. Use the complete V1.03 replacement.');
+ console.log('IronPulse Gym V1.03 (package '+pkg.version+')');
+ console.log('Git commit: '+(process.env.CF_PAGES_COMMIT_SHA||process.env.GITHUB_SHA||'local verification'));
  console.log('Pages project: '+config.name+' | output: public');
  console.log('D1 binding DB: '+db.database_id);
  console.log('Local configuration check passed. Cloudflare account access is checked separately by npm run check:cloudflare.');

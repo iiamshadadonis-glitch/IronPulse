@@ -1,0 +1,13 @@
+{
+  "results": [
+    "Public home, Member signup, Member dashboard role routing and Coach dashboard at 390px",
+    "Public home, Member signup, Member dashboard role routing and Coach dashboard at 1440px",
+    "Plan editor and placeholder audit: gym specialties with existing field names and action handlers",
+    "Gym manifest and install icon inventory",
+    "Existing full-screen payments modal and Info helper preserve viewport layout and gym terminology"
+  ],
+  "synthetic": true,
+  "errors": [],
+  "sourceVerificationRelease": "IronPulse Gym V1.01",
+  "applicationCodeUnchangedInV102": true
+}

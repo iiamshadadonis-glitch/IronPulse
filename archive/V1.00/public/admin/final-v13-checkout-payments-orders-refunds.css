@@ -1,0 +1,21 @@
+/* V13 — checkout/payment identity, order grid, client refunds and visual cleanup. */
+#ucClientModal .uc-client-actionbar .btn{box-shadow:none!important;filter:none!important}
+#ucClientModal .uc-client-actionbar .btn::before,#ucClientModal .uc-client-actionbar .btn::after{box-shadow:none!important;filter:none!important}
+.uc-v13-order-wrap{width:100%;overflow-x:auto;padding-bottom:5px}
+.uc-v13-order-table{width:100%;min-width:920px;border-collapse:separate;border-spacing:0;table-layout:fixed}
+.uc-v13-order-table th,.uc-v13-order-table td{padding:14px 15px;vertical-align:top;border-bottom:1px solid #ead7bf;text-align:left}
+.uc-v13-order-table th{white-space:nowrap;background:#fff0cb;color:#4b202b;font-weight:900}
+.uc-v13-order-table th:nth-child(1),.uc-v13-order-table td:nth-child(1){width:24%}
+.uc-v13-order-table th:nth-child(2),.uc-v13-order-table td:nth-child(2){width:24%}
+.uc-v13-order-table th:nth-child(3),.uc-v13-order-table td:nth-child(3){width:12%}
+.uc-v13-order-table th:nth-child(4),.uc-v13-order-table td:nth-child(4){width:12%}
+.uc-v13-order-table th:nth-child(5),.uc-v13-order-table td:nth-child(5){width:12%}
+.uc-v13-order-table th:nth-child(6),.uc-v13-order-table td:nth-child(6){width:16%}
+.uc-v13-order-id{white-space:nowrap;display:block;overflow:hidden;text-overflow:ellipsis}
+.uc-v13-order-customer{display:grid;gap:4px;min-width:0}.uc-v13-order-customer .link-button{width:max-content;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.uc-v13-order-customer small{white-space:nowrap;color:#6f5961}
+.uc-v13-order-action-stack{display:grid;gap:8px;min-width:120px}.uc-v13-order-action-stack select{width:100%;min-width:0}.uc-v13-order-action-stack .btn{width:100%;box-shadow:none!important}
+.uc-v13-existing-actions{display:flex;gap:7px;flex-wrap:wrap}.uc-v13-existing-actions .btn{box-shadow:none!important}
+#dashboard .uc-v13-dashboard-payment-card{cursor:pointer!important;transition:transform .15s ease,border-color .15s ease}.uc-v13-dashboard-payment-card:hover{transform:translateY(-1px);border-color:#d69d64}.uc-v13-dashboard-payment-card:focus-visible{outline:3px solid rgba(75,85,190,.2);outline-offset:2px}
+#ucTabRefunds{min-height:280px}.uc-v13-refund-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}.uc-v13-refund-payments,.uc-v13-refund-history{display:grid;gap:10px}.uc-v13-refund-row{display:grid;grid-template-columns:minmax(150px,1.3fr) minmax(120px,1fr) minmax(105px,.7fr) minmax(120px,.8fr) auto;gap:12px;align-items:center;border:1px solid #ead7bf;border-radius:14px;padding:12px;background:#ffffff}.uc-v13-refund-row small{display:block;color:#765e66;margin-top:3px}.uc-v13-refund-row .btn{box-shadow:none!important}.uc-v13-refund-history-row{display:grid;grid-template-columns:130px 115px 1fr 130px;gap:12px;padding:10px 12px;border-bottom:1px solid #ead7bf;align-items:start}.uc-v13-refund-status{font-weight:900;text-transform:capitalize}
+.uc-v13-refund-modal .modal-card{max-width:700px}.uc-v13-confirm-box{border:1px solid #f0c8a8;background:#f6f5fb;border-radius:14px;padding:16px;line-height:1.55}.uc-v13-confirm-box strong{color:#9b0b17}.uc-v13-refund-msg{margin-top:12px}
+@media(max-width:760px){.uc-v13-refund-row{grid-template-columns:1fr}.uc-v13-refund-history-row{grid-template-columns:1fr}.uc-v13-refund-toolbar{display:grid}.uc-v13-order-table{min-width:820px}}

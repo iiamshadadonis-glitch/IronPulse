@@ -1,0 +1,37 @@
+/* SEO/performance/accessibility polish - additive only. */
+.hero-shell{min-height:620px;background:linear-gradient(135deg,#fff3e4,#ffe7b7 55%,#fff0e8);position:relative;overflow:hidden}
+@media(max-width:900px){.hero-shell{min-height:540px}}
+@media(max-width:640px){.hero-shell{min-height:500px}}
+#offersGrid + .notice{margin-top:30px!important}
+#festivalGrid .festival-empty a{text-decoration:underline;text-underline-offset:3px}
+
+/* Keep stable image boxes while media downloads/decodes. */
+.product-card .gallery img,.story-card img{background:#f0f0f7}
+.product-card .gallery img{aspect-ratio:900/1100}
+.story-card img{aspect-ratio:16/9;object-fit:cover}
+
+/* Cookie / optional tracking consent. */
+.cookie-consent{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1000;width:min(980px,calc(100vw - 28px));display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 18px;border-radius:20px;background:#fff;border:1px solid rgba(75,85,190,.20);box-shadow:0 24px 80px rgba(34,36,79,.20);color:#454545}
+.cookie-consent-copy{display:grid;gap:4px;max-width:720px}.cookie-consent-copy strong{font-size:16px;color:#4B55BE}.cookie-consent-copy span{font-size:13px;line-height:1.5;color:#454545}.cookie-consent-copy a{font-size:12px;color:#4B55BE;text-decoration:underline;text-underline-offset:2px}.cookie-consent-actions{display:flex;gap:9px;flex:0 0 auto}
+.cookie-consent-close{position:absolute;right:10px;top:8px;width:30px;height:30px;border:0;border-radius:50%;background:transparent;color:#4B55BE;font-size:24px;line-height:1;cursor:pointer}.cookie-consent-copy{padding-right:30px}
+@media(max-width:760px){.cookie-consent{align-items:stretch;flex-direction:column}.cookie-consent-actions{justify-content:flex-end;flex-wrap:wrap}}
+
+/* Honeypot: deliberately inaccessible to normal visitors but present for spam bots. */
+.hp-field{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+
+/* Accessible keyboard focus without changing the approved mouse UI. */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #A469A8!important;outline-offset:3px!important}
+
+/* Respect users who request less motion. */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Clean printing for articles, legal pages, receipts/order content. */
+@media print{
+  @page{margin:14mm}
+  body{background:#fff!important;color:#111!important;display:block!important;font-family:Arial,sans-serif!important;font-size:11pt!important}
+  .topbar,.footer,.wa-float,.cookie-consent,.nav-actions,.hero-dots,.gallery-btn,.gallery-dots,.btn,.menu-toggle,.ad-slot,.ad-network-body-code{display:none!important}
+  main,.section,.container,.legal,.card{width:100%!important;max-width:none!important;margin:0!important;padding:0!important;box-shadow:none!important;border:0!important;background:#fff!important;color:#111!important}
+  h1,h2,h3,p,li,strong,span{color:#111!important;background:none!important;text-shadow:none!important;-webkit-text-fill-color:#111!important}
+  a{color:#111!important;text-decoration:underline!important}
+  img{max-width:100%!important;page-break-inside:avoid}
+}

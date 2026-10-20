@@ -1,0 +1,3 @@
+sku,name,slug,short_description,description,regular_price,offer_price,badge,eligibility,features,status,page_keys
+UC-LAUNCH,Launch Offer,launch-offer,Limited-time audition update plan,Monthly WhatsApp casting updates for new members,399,199,Launch Offer,Freshers and beginners,"WhatsApp audition updates|Open casting calls|Order tracking access",active,"home,offers"
+UC-SPECIAL-DEAL,Special Festival Offer,special-festival-offer,Festival discount for selected profiles,Special access for character and experienced role updates,799,499,Special,Experienced actors,"Selected character roles|Higher-value opportunities|Priority onboarding",active,"offers"

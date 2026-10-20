@@ -1,0 +1,6 @@
+V1.59: Cold dynamic state and stable default names on mobile/desktop
+V1.59: Renamed labels, public header/footer, dictionary actions and request deduplication
+V1.59: Initial configuration errors, Retry, invalid payloads and bounded timeouts
+V1.59: Schedule lifecycle at 390px
+V1.59: Schedule lifecycle at 1440px
+V1.59 navigation/Schedule browser regression passed: 5 workflow groups.

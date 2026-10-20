@@ -1,0 +1,6 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ironpulse-gym-cloudflare@1.1.0 test:gym:runtime
+> node tools/verify-gym-runtime.mjs
+
+Real Cloudflare local runtime checks passed (migrated D1): 6 groups.

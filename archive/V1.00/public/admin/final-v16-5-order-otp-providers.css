@@ -1,0 +1,10 @@
+/* V16.5 OTP provider layout; uses the existing admin theme variables/colors. */
+#socialMediaIntegrations .uc-v165-otp-toggle{margin-bottom:16px}
+#socialMediaIntegrations .uc-v165-provider-choice{margin-top:18px;margin-bottom:14px}
+#socialMediaIntegrations .uc-v165-provider-fields{margin-top:8px}
+#socialMediaIntegrations .uc-v165-provider-fields[hidden]{display:none!important}
+#socialMediaIntegrations .uc-v165-provider-fields .row{gap:16px;align-items:start}
+#socialMediaIntegrations .uc-v165-provider-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;padding-top:4px}
+#socialMediaIntegrations .uc-v165-provider-actions .btn{min-width:150px}
+#socialMediaIntegrations .uc-v9-gmail-card .uc-v165-otp-toggle{margin-top:10px;margin-bottom:16px}
+@media(max-width:760px){#socialMediaIntegrations .uc-v165-provider-fields .row{grid-template-columns:1fr}.uc-v165-provider-actions .btn{width:100%}}

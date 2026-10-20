@@ -1,0 +1,31 @@
+V1.46 polish: Sales CTA top alignment and unchanged full-screen subscription flow
+V1.46 polish: Overview sheets: safe-area clearance and independently stacked sources
+V1.46 polish: No redundant mobile FAQ launcher
+V1.46 polish: Gmail review values stay unchanged and stop mutating between paints
+V1.46 polish: Integration headings and endpoint card copy binding
+V1.46 polish: Brand Profile, media bindings and draft-preserving legal review
+V1.46 polish: Website Colors / Theme segmented navigation and original theme selection
+V1.46 polish: All Brand sections use working chevron routes and final Review
+  Brand banners
+    Add Home Banner
+    Add Fixture Dance Studio Images
+  Brand social
+    Social Media
+  Brand checkout
+    Coupon Codes
+  Brand maps
+    Google Map — Contact Page
+    Google Reviews — Home Page
+  Brand coach
+    Coach Onboarding & Leave Rules
+  Brand login
+    Admin Display Name
+    Change Local Admin Password
+    Change Admin Email
+    Google Account Login
+V1.46 polish: Email template action sheet, preview layering, edit and guarded save
+V1.46 polish: Coupon and banner records retain Status and Actions without headers
+V1.46 polish: Safe Cleanup cards and help sheet retain original Review handler
+V1.46 polish: Desktop restoration and narrow mobile viewports
+V1.46 polish: Refresh icon is the shared single-arrow asset and keeps dimensions
+V1.46 polish browser workflows passed.

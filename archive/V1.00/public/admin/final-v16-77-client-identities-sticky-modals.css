@@ -1,0 +1,147 @@
+/* V16.77 — conditional social identities + contained modal scrolling.
+   Theme tokens and existing component colors are intentionally unchanged. */
+
+/* Client Details: title, client overview/tabs, and action footer never join the
+   tab's scroll area. Summary/Profile/History/Payments/Refunds/Invoice share the
+   single contained panel scroller in the middle row. */
+#ucClientModal.uc-client-details-screen .uc-client-modal-card{
+  width:min(1500px,97vw)!important;
+  max-width:none!important;
+  height:min(95dvh,1120px)!important;
+  max-height:95dvh!important;
+  display:grid!important;
+  grid-template-rows:auto minmax(0,1fr)!important;
+  overflow:hidden!important;
+}
+#ucClientModal.uc-client-details-screen #ucClientModalBody{
+  min-height:0!important;
+  overflow:hidden!important;
+  display:grid!important;
+  grid-template-rows:auto minmax(0,1fr) auto!important;
+  padding:18px 22px 0!important;
+}
+#ucClientModal .uc-client-fixed{min-width:0;position:relative;z-index:2}
+#ucClientModal .uc-client-panel-scroll{
+  min-height:0;
+  min-width:0;
+  overflow:auto;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+  padding:2px 4px 22px 0;
+}
+#ucClientModal .uc-client-panel-scroll>.uc-client-tab-panel{min-width:0}
+#ucClientModal .uc-client-actionbar.uc-client-sticky-actions{
+  position:static!important;
+  inset:auto!important;
+  z-index:5!important;
+  flex:0 0 auto;
+  display:flex!important;
+  align-items:center;
+  justify-content:flex-start;
+  gap:9px!important;
+  flex-wrap:wrap!important;
+  width:auto;
+  margin:0 -22px!important;
+  padding:13px 22px 15px!important;
+  border-top:1px solid var(--uc-crm-line,var(--line,#dedfec));
+  background:rgba(255,255,255,.98)!important;
+  backdrop-filter:blur(10px);
+  box-shadow:0 -10px 24px rgba(24,22,55,.06);
+}
+#ucClientModal .uc-client-actionbar .btn{flex:0 1 auto;white-space:nowrap}
+#ucClientModal .uc-summary-grid .uc-social-identity,
+#ucClientModal .uc-profile-grid .uc-social-identity{min-width:0}
+#ucClientModal .uc-social-identity strong,
+#ucClientModal .uc-social-identity a,
+#ucClientModal .uc-social-identity span{overflow-wrap:anywhere;word-break:break-word}
+#ucClientModal .uc-contact-link{display:inline-flex;max-width:100%;align-items:center}
+
+/* Dashboard result modals: the title/Close row remains fixed. In lead lists the
+   first pager is also the fixed result header; only cards below it scroll. */
+#listModal>.modal-card{
+  height:min(90dvh,1040px)!important;
+  max-height:90dvh!important;
+  display:grid!important;
+  grid-template-rows:auto minmax(0,1fr)!important;
+  overflow:hidden!important;
+}
+#listModal>.modal-card>.top{
+  position:relative;
+  z-index:5;
+  margin:0 0 12px!important;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line,#dedfec);
+  background:var(--card,#ffffff);
+}
+#dashboardListBox{
+  min-height:0!important;
+  min-width:0;
+  overflow:auto;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+  padding-right:3px;
+}
+#dashboardListBox>.uc-card-pager:first-child{
+  position:sticky;
+  top:0;
+  z-index:6;
+  margin-top:0;
+  background:rgba(255,255,255,.98);
+  backdrop-filter:blur(8px);
+  box-shadow:0 8px 16px rgba(24,22,55,.05);
+}
+#dashboardListBox:has(.uc-v15-visitor-wrap){overflow:hidden!important;padding-right:0}
+#dashboardListBox .uc-v15-visitor-wrap{
+  width:100%;
+  height:100%;
+  max-height:100%;
+  overflow:auto!important;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+}
+#dashboardListBox .uc-v15-visitor-table thead th{
+  position:sticky;
+  top:0;
+  z-index:5;
+  background:#f0f0f7;
+  box-shadow:0 1px 0 var(--line,#dedfec);
+}
+
+/* Total Subscriptions: title, description, filters and status stay outside the
+   data scroller; the ledger column headers stick inside the rows scroller. */
+#ucMultiSubscriptionModal .uc-multi-sub-card{
+  height:min(92dvh,1080px)!important;
+  max-height:92dvh!important;
+  display:grid!important;
+  grid-template-rows:auto auto auto minmax(0,1fr)!important;
+  overflow:hidden!important;
+}
+#ucMultiSubscriptionModal .uc-sub-modal-head{margin-bottom:0!important}
+#ucMultiSubscriptionModal .uc-multi-sub-filters{margin:12px 0!important}
+#ucMultiSubscriptionModal #ucMultiSubStatus{min-height:0}
+#ucMultiSubscriptionModal #ucMultiSubBody{
+  min-height:0!important;
+  min-width:0;
+  overflow:hidden!important;
+  display:flex;
+  flex-direction:column;
+}
+#ucMultiSubscriptionModal #ucMultiSubBody>.uc-period-summary{flex:0 0 auto;margin:0 0 10px!important}
+#ucMultiSubscriptionModal .uc-multi-sub-grid-wrap{
+  flex:1 1 auto;
+  min-height:0!important;
+  margin-top:0!important;
+  overflow:auto!important;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable both-edges;
+}
+#ucMultiSubscriptionModal .uc-multi-sub-head{position:sticky!important;top:0!important;z-index:6!important}
+
+@media(max-width:720px){
+  #ucClientModal.uc-client-details-screen .uc-client-modal-card{width:100%!important;height:96dvh!important;max-height:96dvh!important}
+  #ucClientModal.uc-client-details-screen #ucClientModalBody{padding:12px 14px 0!important}
+  #ucClientModal .uc-client-actionbar.uc-client-sticky-actions{margin:0 -14px!important;padding:10px 14px 12px!important}
+  #ucClientModal .uc-client-actionbar .btn{flex:1 1 145px}
+  #listModal>.modal-card,#ucMultiSubscriptionModal .uc-multi-sub-card{height:94dvh!important;max-height:94dvh!important}
+  #ucMultiSubscriptionModal .uc-multi-sub-filters{max-height:34dvh;overflow:auto;scrollbar-gutter:stable}
+}

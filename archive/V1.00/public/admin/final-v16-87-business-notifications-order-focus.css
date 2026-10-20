@@ -1,0 +1,103 @@
+/* V16.91 — Business Ops notification polish, focused order views, and Telegram helper spacing. */
+
+/* Keep the Business Ops label on one line and reserve the final position for the arrow. */
+.side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle{
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+}
+.side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle>span:first-child{
+  min-width:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle>.nav-arrow{
+  order:3;
+  margin-left:0!important;
+  flex:0 0 auto;
+}
+
+/* Reuse the established red notification treatment used by the other admin tabs. */
+.uc86-hub-tabs .pill,.uc86-inner-tabs .pill,.side .nav .nav-subitem{
+  position:relative!important;
+  overflow:visible!important;
+}
+.uc86-hub-tabs .uc86-count-badge,
+.uc86-inner-tabs .uc86-count-badge,
+.side .nav .nav-subitem>.uc86-count-badge{
+  position:absolute!important;
+  top:-10px!important;
+  right:-10px!important;
+  z-index:7!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-width:22px!important;
+  height:22px!important;
+  padding:0 6px!important;
+  margin:0!important;
+  border:2px solid #fffaf4!important;
+  border-radius:999px!important;
+  background:#e11d2e!important;
+  color:#fff!important;
+  box-shadow:0 4px 12px rgba(106,0,0,.24)!important;
+  font-size:12px!important;
+  font-weight:950!important;
+  line-height:1!important;
+}
+.uc86-count-badge[hidden],.uc86-count-badge:empty{display:none!important}
+
+/* The group badge is deliberately inline: label, badge, then the edge-aligned arrow. */
+.side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle>.uc87-group-count{
+  order:2;
+  position:static!important;
+  z-index:1!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-width:21px!important;
+  height:21px!important;
+  padding:0 6px!important;
+  margin-left:auto!important;
+  margin-right:1px!important;
+  border:2px solid #ffffff!important;
+  border-radius:999px!important;
+  background:#e11d2e!important;
+  color:#fff!important;
+  box-shadow:0 3px 10px rgba(70,0,15,.28)!important;
+  font-size:11px!important;
+  font-weight:950!important;
+  line-height:1!important;
+  flex:0 0 auto!important;
+}
+.side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle>.uc86-count-badge,
+.side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle>.nav-badge{
+  background:#e11d2e!important;
+  color:#fff!important;
+  border-color:#fffaf4!important;
+}
+.side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle>.uc87-group-count[hidden],
+.side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle>.uc87-group-count:empty{display:none!important}
+
+/* One order category is a complete view; unrelated order cards are not repeated below it. */
+#orders [data-order-bucket][hidden]{display:none!important}
+
+/* Keep Telegram's themed helper/back control comfortably inside the expanded card. */
+[data-social-card="telegram"] .uc84-tg-view-actions{
+  min-height:42px!important;
+  padding:14px 20px 6px!important;
+  margin:0 0 6px!important;
+  box-sizing:border-box!important;
+}
+[data-social-card="telegram"] .uc84-tg-help,
+[data-social-card="telegram"] .uc84-tg-front{
+  padding-left:18px!important;
+  padding-right:18px!important;
+  box-sizing:border-box!important;
+}
+
+@media(max-width:760px){
+  .side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle>span:first-child{font-size:13px}
+  [data-social-card="telegram"] .uc84-tg-view-actions{padding-left:16px!important;padding-right:16px!important}
+}

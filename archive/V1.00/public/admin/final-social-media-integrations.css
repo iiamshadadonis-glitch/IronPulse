@@ -1,0 +1,25 @@
+/* Settings > Social Media. Keeps the same compact card/toggle language as Payments. */
+#socialMediaIntegrations .uc-social-card{margin-bottom:14px;overflow:visible}
+#socialMediaIntegrations .uc-social-card>summary{cursor:pointer;font-weight:900;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
+#socialMediaIntegrations .uc-social-card>summary::-webkit-details-marker{display:none}
+#socialMediaIntegrations .uc-social-card>summary:after{content:'⌄';font-weight:900;transition:transform .18s ease}
+#socialMediaIntegrations .uc-social-card[open]>summary:after{transform:rotate(180deg)}
+#socialMediaIntegrations .uc-social-card .form{padding-top:16px}
+#socialMediaIntegrations .uc-social-toggle-item{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-bottom:14px}
+#socialMediaIntegrations .uc-social-toggle-capsule{display:inline-flex;align-items:center;gap:10px;width:auto;max-width:100%;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#fcfcfe;cursor:pointer;line-height:1.15}
+#socialMediaIntegrations .uc-social-toggle-capsule strong{font-size:14px;white-space:nowrap}
+#socialMediaIntegrations .uc-social-toggle-capsule .switch{width:44px;height:24px;flex:0 0 44px}
+#socialMediaIntegrations .uc-social-toggle-capsule .switch input{opacity:0;width:0;height:0;margin:0;padding:0;border:0}
+#socialMediaIntegrations .uc-social-toggle-capsule .slider:before{height:18px;width:18px;left:3px;top:3px}
+#socialMediaIntegrations .uc-social-toggle-capsule .switch input:checked+.slider:before{transform:translateX(20px)}
+#socialMediaIntegrations .uc-social-toggle-helper{display:block;margin-left:11px;color:var(--muted,#64676a);font-size:11px;line-height:1.3}
+#socialMediaIntegrations .field>.hint{display:block;margin-top:6px;line-height:1.35}
+#socialMediaIntegrations .uc-social-info{margin:4px 0 14px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#ffffff;color:var(--muted);font-size:12px;line-height:1.45}
+#socialMediaIntegrations .uc-social-info strong{color:var(--dark,#1A1A1A)}
+#socialMediaIntegrations .uc-social-warning{margin:4px 0 14px;padding:10px 12px;border-left:3px solid var(--primary,#4B55BE);border-radius:9px;background:#fff4f3;color:#6c3139;font-size:12px;line-height:1.45}
+#socialMediaIntegrations .form-actions{margin-top:14px}
+#socialMediaIntegrations #socialMediaMsg{margin-top:12px}
+#socialMediaIntegrations .uc-social-webhook-label{display:block;margin:8px 0 5px;font-size:12px;font-weight:850;color:#3f4259}
+@media(max-width:800px){
+  #socialMediaIntegrations .uc-social-toggle-capsule strong{white-space:normal}
+}

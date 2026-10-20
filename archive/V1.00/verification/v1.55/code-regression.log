@@ -1,0 +1,112 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:dance-v1.55
+> node tests/dance-studio-v1-55-header-icons.mjs && node tests/dance-studio-v1-51-cache.mjs && node tests/dance-studio-v1-51-sync.mjs && node tests/dance-studio-v1-49-schedule.mjs && node tests/dance-studio-v1-40-plan-import.mjs && npm run test:dance
+
+V1.55 header icon checks passed: 1583 unchanged V1.54 files, original business JavaScript unchanged; only Home glyph rendering updated, mobile-only header CSS, unchanged contrast/filter rules and valid cache-busted assets.
+V1.51 Edge SWR/read-budget checks passed: warm zero-read hits, 40-way deduplication, bounded stale refresh, error backoff, purge race and origin isolation.
+V1.51 client SWR/read-budget checks passed: 50-way deduplication, one-minute minimum checks, clones, public-only persistence, distinct filters, no focus polling and normalized zero-GET settings saves.
+V1.51 sync regressions passed: public mount/return refresh, unchanged-payload stability, private isolation, 30-way Edge/page deduplication, post-save purge and one-minute D1 budget.
+V1.49 Schedule database regressions passed: bounded mobile reads, stable three-page union, scoped coach assignments, unchanged default desktop response and retained class/student records.
+V1.40 real SQLite import checks passed: complete sample, quoted CSV, create/update, one-time class mapping, trial/billing/capacity, placements/images, retries, invalid rows, duplicate SKUs, legacy CSV, authorization and zero remote gateway calls.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:dance
+> node tests/dance-studio-conversion.mjs && npm run test:deployment && npm run test:v17.09
+
+Dance Studio conversion checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:deployment
+> node tests/dance-studio-deployment.mjs
+
+Dance Studio Pages deployment, D1 binding and static asset checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.09
+> node tests/v17-09-navigation-email-parity.mjs && npm run test:v17.08
+
+V17.09 navigation removal and Email & OTP card parity checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.08
+> node tests/v17-08-workflows-members-ui.mjs && npm run test:v17.07
+
+V17.08 integration parity, automation branches, CRM birthday and member workflow checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.07
+> node tests/v17-07-webinar-email-ui.mjs && npm run test:v17.06
+
+V17.07 webinar branching, editor controls and Email & OTP integration checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.06
+> node tests/v17-06-email-followup-providers.mjs && npm run test:v17.05
+
+V17.06 stable email follow-up UI, branded templates, provider routing, OTP and recovery checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.05
+> node tests/v17-05-email-automations.mjs && npm run test:v17.04
+
+V17.05 email automation UI, templates, persistence, version, tracking and unsubscribe checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.04
+> node tests/v17-04-visitor-read-guard.mjs && npm run test:v17.03
+
+V17.04 visitor cache, explicit refresh, export and badge guard checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.03
+> node tests/v17-03-visitor-dashboard-freshness.mjs && npm run test:v17.02
+
+V17.03 visit recording, bounded refresh, repeat-list and UI checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.02
+> node tests/v17-02-visitor-customer-recovery.mjs && npm run test:v17.01
+
+V17.02 visitor and customer recovery checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.01
+> node tests/v17-01-d1-read-optimization.mjs && npm run test:v17.00
+
+V17.01 D1 read optimization checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v17.00
+> node tests/v17-00-smoke.mjs && npm run test:v16.99
+
+V17.00 smoke checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v16.99
+> node tests/v16-99-smoke.mjs && npm run test:v16.98
+
+V16.99 smoke checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v16.98
+> node tests/v16-98-smoke.mjs && npm run test:v16.97
+
+V16.98 smoke checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v16.97
+> node tests/v16-97-smoke.mjs && npm run test:v16.96
+
+V16.97 smoke checks passed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> dropbeat-dance-studio-cloudflare@1.55.0 test:v16.96
+> node tests/v16-96-smoke.mjs && node tests/v16-95-smoke.mjs && node tests/v16-93-smoke.mjs && node tests/v16-90-d1-read.mjs && node tests/v16-89-periods.mjs && node tests/v16-88-data-integration.mjs
+
+V16.96 smoke checks passed.
+V16.95 smoke checks passed.
+V16.93 smoke checks passed.
+V16.90 D1 read-path checks passed.
+V16.89 period aggregation checks passed.
+V16.88 data integration checks passed.

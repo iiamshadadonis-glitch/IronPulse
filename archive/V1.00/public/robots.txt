@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /checkout
+Disallow: /my-orders
+Disallow: /payment
+Disallow: /payment-success
+Disallow: /payment-failed
+
+Sitemap: https://ironpulse-gym.pages.dev/sitemap.xml
+
+Disallow: /member-dashboard
+Disallow: /coach-dashboard
+Disallow: /login

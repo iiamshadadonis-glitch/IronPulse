@@ -1,0 +1,16 @@
+/* Final admin UI addendum: tracking toggles + compact payment toggle row. */
+.uc-track-toggle-field{position:relative!important;padding-top:2px!important}
+.uc-track-toggle-field>label:first-child{padding-right:110px}
+.uc-track-toggle{position:absolute;right:0;top:-4px;display:inline-flex;align-items:center;gap:7px;width:auto!important;padding:5px 8px!important;border:1px solid var(--line);border-radius:999px;background:#fcfcfe;color:#3f4259;font-size:12px;font-weight:800;white-space:nowrap}
+.uc-track-toggle input{appearance:none;-webkit-appearance:none;width:36px!important;height:20px!important;min-width:36px!important;border:0!important;border-radius:999px!important;background:#cfc3c4!important;padding:0!important;margin:0!important;position:relative;cursor:pointer}
+.uc-track-toggle input:before{content:"";position:absolute;width:14px;height:14px;left:3px;top:3px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:.16s ease}
+.uc-track-toggle input:checked{background:#16a34a!important}.uc-track-toggle input:checked:before{transform:translateX(16px)}
+#tracking .setup-note>summary{display:inline-flex!important;width:auto!important;list-style:none!important;border:1px solid var(--line)!important;border-radius:999px!important;background:#fcfcfe!important;padding:7px 11px!important;font-size:12px!important;font-weight:850!important;color:#5a1724!important;cursor:pointer!important}
+#tracking .setup-note>summary::-webkit-details-marker{display:none!important}#tracking .setup-note>summary::marker{content:""!important}#tracking .setup-note>summary:after{display:none!important;content:none!important}
+#tracking .setup-note .notice{margin-top:10px!important}
+.uc-payment-toggle-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 12px!important;padding:0!important;min-height:0!important}
+#payments .pay-detail form{gap:12px!important;padding-top:10px!important}
+#payments .pay-detail .row{margin:0!important}
+#payments .final-payment-toggle{margin:0!important}
+#payments .uc-payment-toggle-row + .row{margin-top:0!important}
+@media(max-width:760px){.uc-track-toggle{position:static;margin-top:6px}.uc-track-toggle-field>label:first-child{padding-right:0}.uc-payment-toggle-row{align-items:flex-start;flex-direction:column}}

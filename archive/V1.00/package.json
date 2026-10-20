@@ -1,0 +1,34 @@
+{
+  "name": "ironpulse-gym-cloudflare",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IronPulse Gym fitness membership platform for Cloudflare Pages, Pages Functions/Workers and D1. Forked from DropBeat V1.59 with existing backend contracts retained.",
+  "scripts": {
+    "dev": "wrangler pages dev public --compatibility-date=2026-08-01",
+    "deploy": "node tools/deploy-gym.mjs",
+    "deploy:cloudflare": "node tools/deploy-gym.mjs",
+    "d1:create": "wrangler d1 create ironpulse-gym-db",
+    "d1:migrate:local": "wrangler d1 migrations apply DB --local",
+    "d1:migrate:remote": "node tools/deploy-gym.mjs --migrate-only",
+    "secret:razorpay:key": "wrangler pages secret put RAZORPAY_KEY_ID --project-name ironpulse-gym",
+    "secret:razorpay:secret": "wrangler pages secret put RAZORPAY_KEY_SECRET --project-name ironpulse-gym",
+    "secret:razorpay:webhook": "wrangler pages secret put RAZORPAY_WEBHOOK_SECRET --project-name ironpulse-gym",
+    "secret:stripe:secret": "wrangler pages secret put STRIPE_SECRET_KEY --project-name ironpulse-gym",
+    "secret:stripe:webhook": "wrangler pages secret put STRIPE_WEBHOOK_SECRET --project-name ironpulse-gym",
+    "secret:whatsapp": "wrangler pages secret put WHATSAPP_CLOUD_TOKEN --project-name ironpulse-gym",
+    "secret:greenapi": "wrangler pages secret put GREEN_API_TOKEN --project-name ironpulse-gym",
+    "secret:automation": "wrangler pages secret put AUTOMATION_API_KEY --project-name ironpulse-gym",
+    "setup:gym": "node tools/setup-gym.mjs",
+    "build": "wrangler pages functions build --outdir .build",
+    "test": "node tools/verify-gym-release.mjs",
+    "test:gym": "npm test",
+    "test:gym:browser": "node tools/verify-gym-browser.mjs",
+    "test:gym:runtime": "node tools/verify-gym-runtime.mjs"
+  },
+  "devDependencies": {
+    "@babel/parser": "7.28.5",
+    "playwright": "1.61.1",
+    "wrangler": "4.128.0"
+  },
+  "type": "module"
+}

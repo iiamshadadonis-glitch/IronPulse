@@ -1,0 +1,8 @@
+V1.49 controls: Storage status colors, theme surfaces and original selection/delete confirmation
+V1.49 controls: Manage Current Class uses circular labeled checkbox and shared downward selectors
+V1.49 controls: Bulk CSV uses the shared native upload and original FileList/import handler
+V1.49 controls: Payments clean key/value rows, uniform controls, original click binding
+V1.49 controls: Growth controls share aligned parent in all modes at 320/390/430px
+V1.49 controls: Calendar disclosure equals global component, refresh arc has a distinct open gap
+V1.49 controls: All portals share controls, semantic text hit targets and desktop CSS separation
+V1.49 shared controls and layout regressions passed.

@@ -1,0 +1,23 @@
+V1.49 final: Dark/light warning contrast and sticky selection row
+V1.49 final: Payments navigation, dedicated full-screen data, pagination and cancellation safety
+V1.49 final: Nested menu rows and padded Edit Sub-option header
+V1.49 final: All connected integration switches stay pill-shaped
+V1.49 final: Schedule tabs work during pending fetch, timeout/error/retry and bounded paging
+V1.49 final: Desktop CSV drag/drop keeps the exact FileList and original import handler
+V1.49 final: Desktop and mobile shared upload support across Admin, Coach and Student
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"role":"coach","ratio":1.1312541395929925,"bg":"color(srgb 0.201412 0.187529 0.180549)","color":"rgb(37, 38, 58)"}
+    at runWorkflows (file:///workspace/scratch/962726b4d20e/v149-verification-candidate/dropbeat-dance-studio-complete-replacement-v1.49/tools/v149-final-cases.mjs:79:211)
+    at async file:///workspace/scratch/962726b4d20e/v149-verification-candidate/dropbeat-dance-studio-complete-replacement-v1.49/tools/verify-mobile-v1-49-final.mjs:157:2 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

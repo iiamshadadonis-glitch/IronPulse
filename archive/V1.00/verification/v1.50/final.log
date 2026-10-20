@@ -1,0 +1,8 @@
+V1.49 final: Dark/light warning contrast and sticky selection row
+V1.49 final: Payments navigation, dedicated full-screen data, pagination and cancellation safety
+V1.49 final: Nested menu rows and padded Edit Sub-option header
+V1.49 final: All connected integration switches stay pill-shaped
+V1.49 final: Schedule tabs work during pending fetch, timeout/error/retry and bounded paging
+V1.49 final: Desktop CSV drag/drop keeps the exact FileList and original import handler
+V1.49 final: Desktop and mobile shared upload support across Admin, Coach and Student
+V1.49 final regression cases passed.

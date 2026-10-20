@@ -1,0 +1,163 @@
+/* Last-mile UI polish: centered empty states, rectangular success thumbnails, centered 404. */
+
+/* Empty Festival Offers: keep the message visually centered in the available page area. */
+body[data-uc-load="festival"] main .section{padding-bottom:42px;}
+#festivalGrid.festival-grid-empty{
+  min-height:clamp(360px,48vh,560px)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+#festivalGrid.festival-grid-empty .festival-empty{
+  width:min(840px,100%)!important;
+  max-width:840px!important;
+  margin:0 auto!important;
+  padding:30px 34px!important;
+  border-radius:20px!important;
+  line-height:1.7!important;
+}
+
+/* Empty Auditions: same clean centered rectangular treatment as Festival Offers. */
+#blogGrid.audition-grid-empty{
+  min-height:clamp(360px,48vh,560px)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+#blogGrid.audition-grid-empty .audition-empty{
+  width:min(860px,100%)!important;
+  max-width:860px!important;
+  margin:0 auto!important;
+  padding:30px 34px!important;
+  border-radius:20px!important;
+  line-height:1.7!important;
+  text-align:left!important;
+}
+
+/* Restore the original full-bleed video-thumbnail look.
+   The thumbnail must fill the complete 16:9 media frame with no cream/empty gutters.
+   YouTube hqdefault thumbnails are often 4:3, so cover intentionally crops only the
+   excess edge area while preserving the clean rectangular card presentation. */
+.story-card img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:16 / 9!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  background:transparent!important;
+}
+.stories-strip .story-card{
+  flex:0 0 300px!important;
+  min-width:300px!important;
+  max-width:300px!important;
+  padding:12px!important;
+}
+.stories-strip .story-card .play{top:43%!important;}
+.success-page-grid .story-card{
+  min-width:0!important;
+  width:100%!important;
+  max-width:none!important;
+  padding:14px!important;
+}
+.success-page-grid{align-items:start!important;}
+@media(max-width:760px){
+  .stories-strip .story-card{flex-basis:280px!important;min-width:280px!important;max-width:280px!important;}
+}
+
+/* 404 is an intentional full-page focal state, not a normal legal/content card. */
+body[data-uc-load="page:404"] main{
+  min-height:clamp(620px,72vh,900px)!important;
+  display:flex!important;
+  align-items:center!important;
+}
+body[data-uc-load="page:404"] main>.section{
+  width:100%!important;
+  padding:48px 0!important;
+}
+body[data-uc-load="page:404"] .not-found-card{
+  width:min(1040px,100%)!important;
+  min-height:500px!important;
+  margin:0 auto!important;
+  padding:54px clamp(28px,6vw,80px)!important;
+  display:grid!important;
+  grid-template-rows:1fr auto 1fr!important;
+  align-items:center!important;
+  gap:24px!important;
+  text-align:center!important;
+  border-radius:30px!important;
+  box-shadow:0 28px 90px rgba(34,36,79,.10)!important;
+}
+body[data-uc-load="page:404"] .not-found-card h1{
+  margin:0!important;
+  font-size:clamp(52px,7vw,92px)!important;
+  line-height:.98!important;
+  letter-spacing:-.045em!important;
+  color:#650713!important;
+}
+.not-found-top,.not-found-bottom{width:min(780px,100%);margin:auto;color:#52323b;line-height:1.75;font-size:17px;}
+.not-found-top p,.not-found-bottom p{margin:0 0 12px;}
+.not-found-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px;}
+@media(max-width:760px){
+  body[data-uc-load="page:404"] main{min-height:620px!important;}
+  body[data-uc-load="page:404"] .not-found-card{min-height:470px!important;padding:38px 22px!important;}
+  body[data-uc-load="page:404"] .not-found-card h1{font-size:clamp(44px,13vw,64px)!important;}
+  .not-found-top,.not-found-bottom{font-size:15px;}
+}
+
+/* Final contact form quality controls */
+.contact-phone-grid{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:start}
+.contact-phone-grid .field{min-width:0}
+.contact-form .hint{display:block;margin-top:4px;color:#7a5c64;font-size:12px;line-height:1.45}
+#contactResult .notice.error{border-color:#ef9b9b;background:#fff0f0;color:#9e1111}
+@media(max-width:640px){.contact-phone-grid{grid-template-columns:1fr}}
+
+.checkout-add-more{display:grid;gap:7px;margin:8px 0 16px;padding:13px 14px;border:1px solid rgba(75,85,190,.13);border-radius:16px;background:#fff8e9}
+.checkout-add-more strong{color:#3f4259}
+.checkout-add-more span{font-size:13px;color:#64676a;line-height:1.45}
+.checkout-add-more .btn{justify-self:start;margin-top:2px}
+
+/* Final contact alignment: Country Code and WhatsApp Number share the same
+   label/control/helper rows so neither field sits higher or lower. */
+.contact-phone-grid{align-items:start!important}
+.contact-phone-grid>.field{display:grid!important;grid-template-rows:auto 52px minmax(34px,auto)!important;align-content:start!important;gap:7px!important}
+.contact-phone-grid>.field>select,.contact-phone-grid>.field>input{height:52px!important;min-height:52px!important;margin:0!important}
+.contact-phone-grid>.field>.hint{margin:0!important;align-self:start!important}
+@media(max-width:640px){.contact-phone-grid>.field{grid-template-rows:auto 52px auto!important}}
+
+/* Submit Profile + contact-form alignment add-on. */
+.contact-phone-grid{grid-template-columns:170px minmax(0,1fr)!important;column-gap:18px!important;row-gap:10px!important;align-items:start!important}
+.contact-form .hint{width:100%;padding:0 8px!important;text-align:center!important;box-sizing:border-box!important;margin-top:5px!important;color:#7a5c64!important}
+.contact-phone-grid>.field{min-width:0!important}
+.contact-phone-grid>.field>select,.contact-phone-grid>.field>input{width:100%!important;box-sizing:border-box!important}
+.profile-intro{max-width:900px;margin-bottom:24px}
+.profile-intro .profile-callout{margin:18px 0 0;padding:16px 18px;border:1px solid #efc675;border-radius:16px;background:#fff0bd;color:#633713;font-weight:800;line-height:1.55}
+.submit-profile-form{max-width:1000px}
+.profile-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px;align-items:start}
+.profile-form-grid .field{min-width:0}
+.submit-profile-form .required-star{color:#c80020;font-weight:900;margin-left:3px}
+.submit-profile-form .hint{display:block;width:100%;box-sizing:border-box;margin:5px 0 0;padding:0 8px;color:#7a5c64;font-size:12px;line-height:1.35;text-align:center}
+.submit-profile-form textarea[name="profile_message"]{min-height:180px}
+.profile-submit-actions{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+@media(max-width:700px){.contact-phone-grid,.profile-form-grid{grid-template-columns:1fr!important}.contact-phone-grid{gap:14px!important}}
+
+/* Final Contact form phone-row alignment: separate controls, centered helpers. */
+.contact-form .contact-phone-grid{grid-template-columns:170px minmax(0,1fr)!important;column-gap:22px!important;row-gap:12px!important;width:100%!important}
+.contact-form .contact-phone-grid>.field{min-width:0!important;margin:0!important}
+.contact-form .contact-phone-grid>.field>select,.contact-form .contact-phone-grid>.field>input{width:100%!important;min-width:0!important;margin:0!important;box-sizing:border-box!important}
+.contact-form .contact-phone-grid>.field>.hint,.contact-form>.field>.hint{display:block!important;width:100%!important;box-sizing:border-box!important;margin:6px 0 0!important;padding:0 10px!important;text-align:center!important;line-height:1.35!important}
+@media(max-width:640px){.contact-form .contact-phone-grid{grid-template-columns:1fr!important;column-gap:0!important;row-gap:15px!important}}
+
+/* v4 final helper-text alignment: natural left alignment under each control. */
+.contact-form .hint,
+.contact-form .contact-phone-grid>.field>.hint,
+.contact-form>.field>.hint,
+.submit-profile-form .hint{
+  width:100%!important;
+  box-sizing:border-box!important;
+  margin:6px 0 0!important;
+  padding:0 10px!important;
+  text-align:left!important;
+  line-height:1.4!important;
+}
+.contact-form .contact-phone-grid{column-gap:22px!important}

@@ -1,0 +1,1 @@
+V1.57 layout API/SQLite tests passed: four real theme schemas, separate viewport constraints, exact confirmation, atomic layout/name/dictionary saves, concurrency guards and rollback, protected URL aliases, two-way names, both-cache invalidation, 50-way/four-row freshness deduplication, warm zero-read hits and outage fallback.

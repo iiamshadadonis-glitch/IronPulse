@@ -1,0 +1,15 @@
+{
+  "pass": true,
+  "localOnly": true,
+  "initialDatabase": "migrated",
+  "results": [
+    "All 56 migrations on a separate temporary local D1",
+    "Real Worker serves the gym manifest",
+    "Dashboard alias, query retention, private caching and indexing headers",
+    "Real public site, layout and button configuration backed by local D1",
+    "Configured first Admin login, HttpOnly session and authenticated settings/context",
+    "Revoked session is rejected after logout"
+  ],
+  "sourceVerificationRelease": "IronPulse Gym V1.01",
+  "applicationCodeUnchangedInV102": true
+}

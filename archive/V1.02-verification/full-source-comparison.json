@@ -1,0 +1,27 @@
+{
+  "sourceArchive": "IronPulse-Gym-V1.01-D1-Configured-Verified.zip",
+  "allPreviousApplicationFilesRetainedByteIdentical": true,
+  "counts": {
+    "public": {
+      "previousFiles": 490,
+      "retainedByteIdentical": 490,
+      "newFiles": [
+        "public/release.json"
+      ]
+    },
+    "functions": {
+      "previousFiles": 268,
+      "retainedByteIdentical": 268,
+      "newFiles": []
+    },
+    "migrations": {
+      "previousFiles": 56,
+      "retainedByteIdentical": 56,
+      "newFiles": []
+    }
+  },
+  "releaseOnlyAddition": "public/release.json",
+  "businessLogicChange": false,
+  "schemaOrMigrationChange": false,
+  "themeChange": false
+}

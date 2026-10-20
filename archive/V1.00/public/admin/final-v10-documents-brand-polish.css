@@ -1,0 +1,34 @@
+/* V10 document stacking, one-line CRM actions, invoice history and small layout polish. */
+#ucV9DocumentModal.uc-v9-doc-modal{z-index:1600!important;align-items:center!important;padding:18px!important}
+#ucV9DocumentModal .uc-v9-doc-card{z-index:1601!important;box-shadow:0 30px 100px rgba(25,4,10,.34)!important}
+.uc-v10-single-line-actions{display:flex!important;align-items:center!important;gap:9px!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;padding-bottom:5px!important;scrollbar-gutter:stable!important}
+.uc-v10-single-line-actions>.btn{flex:0 0 auto!important;white-space:nowrap!important}
+.uc-client-tabs{overflow-x:auto;flex-wrap:nowrap!important;scrollbar-width:thin}
+.uc-client-tabs>button{flex:0 0 auto}
+.uc-v10-invoice-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:2px 0 16px}
+.uc-v10-invoice-toolbar h3{margin:0 0 4px}
+.uc-v10-invoice-history-wrap{overflow-x:auto!important;max-width:100%}
+.uc-v10-invoice-history{min-width:980px!important;table-layout:fixed!important}
+.uc-v10-invoice-history th{white-space:nowrap!important}
+.uc-v10-invoice-history th:nth-child(1){width:180px}.uc-v10-invoice-history th:nth-child(2){width:145px}.uc-v10-invoice-history th:nth-child(3){width:200px}.uc-v10-invoice-history th:nth-child(4){width:120px}.uc-v10-invoice-history th:nth-child(5){width:220px}.uc-v10-invoice-history th:nth-child(6){width:115px}
+.uc-v10-invoice-history td{vertical-align:top!important;overflow-wrap:anywhere!important;line-height:1.35!important}
+.uc-v10-location-btn{white-space:nowrap!important;min-width:120px!important;padding-inline:16px!important}
+#mapsReviews .form-actions,#mapsReviews .block-head{gap:14px!important}
+#pages .uc-v10-about-cover>h3,#pages .uc-v10-about-cover .uc-about-cover-heading{margin-right:12px!important}
+#pages .uc-v10-about-cover small,#pages .uc-v10-about-cover .hint{margin-left:0!important}
+#pages .uc-v10-about-cover .uc-about-cover-title-row{display:flex!important;align-items:baseline!important;gap:12px!important;flex-wrap:wrap!important}
+#settings label:has(+ input[name="siteName"]),#settings input[name="siteName"]{scroll-margin-top:100px}
+#settings .uc-v7-help-master>div{column-gap:12px!important;row-gap:4px!important}
+@media(max-width:760px){.uc-v10-invoice-toolbar{flex-direction:column}.uc-v10-invoice-toolbar>.btn{align-self:flex-start}.uc-v10-single-line-actions{padding-bottom:8px}}
+
+/* V10 exact spacing fixes requested from current screenshots. */
+.uc-v7-about-media-head>div{display:flex!important;align-items:baseline!important;gap:12px!important;flex-wrap:wrap!important;margin-bottom:14px!important}
+.uc-v7-about-media-head strong{display:inline-block!important}
+.uc-v7-about-media-head small{display:inline-block!important;line-height:1.35!important;opacity:.72!important}
+.uc-v7-help-master>div,.uc-v7-help-master-copy{display:flex!important;align-items:baseline!important;gap:12px!important;flex-wrap:wrap!important}
+.uc-v7-help-master>div>strong,.uc-v7-help-master-copy strong{margin:0!important;flex:0 0 auto!important}
+.uc-v7-help-master>div>small,.uc-v7-help-master-copy small{margin:0!important;min-width:220px!important;flex:1 1 420px!important}
+#mapsReviews .uc-map-head{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:18px!important}
+#mapsReviews .uc-map-head>.btn{flex:0 0 auto!important;white-space:nowrap!important}
+#ucV9DocumentModal{position:fixed!important;inset:0!important;z-index:2147483000!important}
+#ucV9DocumentModal .uc-v9-doc-card{position:relative!important;z-index:2147483001!important}

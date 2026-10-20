@@ -1,0 +1,4 @@
+V1.55 header/contrast: One full-width header, identical controls at 320/390/760px in all three portals
+V1.55 header/contrast: Student dark row/tab text, settings form/review and ticket overlays
+V1.55 header/contrast: Filter Apply primary styling, safe footer, original filter grid and request binding
+V1.55 header/contrast browser regression passed: 3 workflow groups, 183 measured text contrasts.

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-IN">
+<head><link rel="stylesheet" href="/assets/dropbeat-dynamic-labels-v1-59.css?build=1.59&gym=1.00"><script src="/assets/dropbeat-dynamic-labels-v1-59.js?build=1.59&gym=1.00"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login or Sign Up | IronPulse Gym</title>
+  <meta name="description" content="Secure login and account registration for IronPulse Gym members, coaches and administrators.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="icon" href="/assets/ironpulse-logo.svg">
+  <link rel="stylesheet" href="/assets/portal-v1-14.css?v=1.16&gym=1.00">
+  <link rel="stylesheet" href="/assets/portal-v1-16.css?v=1.16&gym=1.00">
+  <link rel="stylesheet" href="/assets/portal-auth-v1-22.css?v=1.22&gym=1.00">
+  <script src="/assets/dropbeat-color-mode-v1-25.js?v=1.26&gym=1.00"></script>
+  <link rel="stylesheet" href="/assets/dropbeat-color-mode-v1-25.css?v=1.26&gym=1.00">
+<link rel="stylesheet" href="/assets/dropbeat-theme-v1-29.css?v=1.29&gym=1.00"><link rel="stylesheet" href="/assets/dropbeat-dark-mode-v1-30.css?v=1.30&gym=1.00"><link rel="stylesheet" href="/assets/dropbeat-dark-mode-v1-31.css?v=1.31&gym=1.00"><link rel="stylesheet" href="/assets/dropbeat-mobile-v1-32.css?v=1.32&gym=1.00"><link rel="stylesheet" href="/assets/dropbeat-mobile-v1-33.css?build=dropbeat-1.33-20261012&gym=1.00"><link rel="stylesheet" href="/assets/dropbeat-mobile-v1-34.css?build=dropbeat-1.34-20261012&gym=1.00"><link rel="stylesheet" href="/assets/dropbeat-ui-v1-35.css?build=dropbeat-1.35-20261012&gym=1.00"><meta name="theme-color" content="#4B55BE"><meta name="background-color" content="#ffffff"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"></head>
+<body>
+  <header class="portal-public-header"><div><a class="portal-brand" href="/"><img data-site-logo src="/assets/ironpulse-logo.svg" alt="IronPulse Gym"><span data-site-name hidden>IronPulse Gym</span></a><a class="portal-back" href="/">← Back to website</a></div></header>
+  <main class="auth-page">
+    <div class="auth-intro"><span class="eyebrow">Secure Account Access</span><h1>Login or create your account</h1><p>Choose one option below. Login opens the correct dashboard automatically for administrators, members and coaches.</p></div>
+    <section class="auth-shell auth-shell-single">
+      <div class="auth-mode-tabs" role="tablist" aria-label="Account access">
+        <button class="auth-mode-tab active" type="button" role="tab" aria-selected="true" data-auth-mode="login">Login</button>
+        <button class="auth-mode-tab" type="button" role="tab" aria-selected="false" data-auth-mode="student">Member Sign Up</button>
+        <button class="auth-mode-tab" type="button" role="tab" aria-selected="false" data-auth-mode="coach">Coach Sign Up</button>
+      </div>
+
+      <div class="auth-mode-panel" data-auth-panel="login">
+        <div class="auth-pane auth-pane-wide"><h2>Login</h2><p>Use your account email and password. We identify your role and open the correct dashboard.</p>
+          <form id="portalLoginForm" class="auth-form auth-form-focused">
+            <div class="portal-row"><div class="portal-field"><label for="loginEmail">Email ID</label><input id="loginEmail" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div><div class="portal-field"><label for="loginPassword">Password</label><input id="loginPassword" name="password" type="password" autocomplete="current-password" required></div></div>
+            <label><input name="remember" type="checkbox" checked> Keep me securely signed in</label>
+            <button class="portal-btn" type="submit">Login</button>
+          </form>
+          <div class="auth-divider">or</div>
+          <button class="portal-btn google-btn" type="button" data-google-login><span class="google-mark">G</span> Continue with Google</button>
+        </div>
+      </div>
+
+      <div class="auth-mode-panel" data-auth-panel="student" hidden>
+        <div class="auth-pane auth-pane-wide"><h2>Member Sign Up</h2><p>Create an account with the same email used for payment so your approved classes can be connected automatically.</p>
+          <form id="studentSignupForm" class="auth-form" enctype="multipart/form-data">
+            <input name="role" type="hidden" value="student">
+            <div class="portal-row"><div class="portal-field"><label>Name</label><input name="name" required maxlength="180" autocomplete="name"></div><div class="portal-field"><label>Email ID</label><input name="email" type="email" required autocomplete="email"></div></div>
+            <div class="portal-row"><div class="portal-field"><label>Phone / WhatsApp</label><div class="phone-entry"><select name="countryCode" aria-label="Country code"><option value="+91" selected>🇮🇳 +91</option><option value="+1">🇺🇸/🇨🇦 +1</option><option value="+44">🇬🇧 +44</option><option value="+61">🇦🇺 +61</option><option value="+64">🇳🇿 +64</option><option value="+65">🇸🇬 +65</option><option value="+971">🇦🇪 +971</option><option value="+974">🇶🇦 +974</option><option value="+966">🇸🇦 +966</option><option value="+968">🇴🇲 +968</option><option value="+965">🇰🇼 +965</option><option value="+973">🇧🇭 +973</option><option value="+60">🇲🇾 +60</option><option value="+94">🇱🇰 +94</option><option value="+977">🇳🇵 +977</option><option value="+880">🇧🇩 +880</option><option value="+92">🇵🇰 +92</option><option value="+27">🇿🇦 +27</option><option value="+49">🇩🇪 +49</option><option value="+33">🇫🇷 +33</option><option value="+39">🇮🇹 +39</option><option value="+34">🇪🇸 +34</option><option value="+31">🇳🇱 +31</option><option value="+81">🇯🇵 +81</option><option value="+82">🇰🇷 +82</option></select><input name="phone" type="tel" required autocomplete="tel-national" inputmode="tel" placeholder="Phone number"></div></div><div class="portal-field"><label>Profile Photo Optional</label><input name="profilePhoto" type="file" accept="image/*" data-max-bytes="15728640"><small class="portal-hint">Any common image format, maximum 15 MB. Images are stored in the connected Google Drive.</small></div></div>
+            <div class="portal-row"><div class="portal-field"><label>Password</label><input name="password" type="password" required minlength="8" autocomplete="new-password"></div><div class="portal-field"><label>Confirm Password</label><input name="confirmPassword" type="password" required minlength="8" autocomplete="new-password"></div></div>
+            <button class="portal-btn" type="submit">Create Member Account</button>
+            <div class="auth-divider">or</div><button class="portal-btn google-btn" type="button" data-google-signup="student"><span class="google-mark">G</span> Sign Up with Google</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="auth-mode-panel" data-auth-panel="coach" hidden>
+        <div class="auth-pane auth-pane-wide"><h2>Coach Sign Up</h2><p>Submit your teaching profile and precise availability. Your account remains private until the gym approves it.</p>
+          <form id="coachSignupForm" class="auth-form" enctype="multipart/form-data">
+            <input name="role" type="hidden" value="coach">
+            <div class="portal-row"><div class="portal-field"><label>Name</label><input name="name" required maxlength="180" autocomplete="name"></div><div class="portal-field"><label>Email ID</label><input name="email" type="email" required autocomplete="email"></div></div>
+            <div class="portal-row"><div class="portal-field"><label>Phone / WhatsApp</label><div class="phone-entry"><select name="countryCode" aria-label="Country code"><option value="+91" selected>🇮🇳 +91</option><option value="+1">🇺🇸/🇨🇦 +1</option><option value="+44">🇬🇧 +44</option><option value="+61">🇦🇺 +61</option><option value="+64">🇳🇿 +64</option><option value="+65">🇸🇬 +65</option><option value="+971">🇦🇪 +971</option><option value="+974">🇶🇦 +974</option><option value="+966">🇸🇦 +966</option><option value="+968">🇴🇲 +968</option><option value="+965">🇰🇼 +965</option><option value="+973">🇧🇭 +973</option><option value="+60">🇲🇾 +60</option><option value="+94">🇱🇰 +94</option><option value="+977">🇳🇵 +977</option><option value="+880">🇧🇩 +880</option><option value="+92">🇵🇰 +92</option><option value="+27">🇿🇦 +27</option><option value="+49">🇩🇪 +49</option><option value="+33">🇫🇷 +33</option><option value="+39">🇮🇹 +39</option><option value="+34">🇪🇸 +34</option><option value="+31">🇳🇱 +31</option><option value="+81">🇯🇵 +81</option><option value="+82">🇰🇷 +82</option></select><input name="phone" type="tel" required autocomplete="tel-national" inputmode="tel" placeholder="Phone number"></div></div><div class="portal-field"><label>Profile Photo Optional</label><input name="profilePhoto" type="file" accept="image/*" data-max-bytes="15728640"><small class="portal-hint">Maximum 15 MB. Images are stored in the connected Google Drive.</small></div></div>
+            <div class="portal-row"><div class="portal-field"><label>Password</label><input name="password" type="password" required minlength="8" autocomplete="new-password"></div><div class="portal-field"><label>Confirm Password</label><input name="confirmPassword" type="password" required minlength="8" autocomplete="new-password"></div></div>
+            <div class="portal-row"><div class="portal-field"><label>Designation</label><select name="designation" required><option>Fitness Coach</option><option>Senior Fitness Coach</option><option>Fitness Teacher</option><option>Fitness Master</option></select></div><div class="portal-field"><label>Profile Badge</label><select name="badge" required><option>Coach</option><option>Senior Coach</option><option>Teacher</option><option>Master</option></select></div></div>
+            <div class="portal-field"><label>About You</label><textarea name="bio" required maxlength="5000" placeholder="Your teaching approach, fitness background and what members can expect"></textarea></div>
+            <div class="portal-field"><label>Experience</label><textarea name="experience" maxlength="2000" placeholder="Experience, qualifications, performances and teaching highlights"></textarea></div>
+            <section class="coach-schedule-builder" aria-labelledby="coachScheduleHeading"><div class="schedule-builder-head"><div><h3 id="coachScheduleHeading">Teaching Availability</h3><p>Add each day, time, one class type and the Fitness Specialties you are available to teach. You may add more than one session on the same day.</p></div><button class="portal-btn secondary small" type="button" data-add-availability>+ Sessions</button></div><div id="coachScheduleRows" class="schedule-row-list"></div></section>
+            <div class="portal-row"><div class="portal-field"><label>Instagram Profile Optional</label><input name="instagramUrl" type="url" placeholder="https://instagram.com/..."></div><div class="portal-field"><label>Facebook Profile Optional</label><input name="facebookUrl" type="url" placeholder="https://facebook.com/..."></div></div>
+            <button class="portal-btn" type="submit">Create Coach Account</button>
+            <div class="auth-divider">or</div><button class="portal-btn google-btn" type="button" data-google-signup="coach"><span class="google-mark">G</span> Sign Up with Google</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div id="portalAuthResult" class="portal-result" role="status" aria-live="polite"></div>
+  </main>
+  <script src="/assets/portal-auth-v1-16.js?v=1.16&gym=1.00" defer></script>
+  <script src="/assets/dropbeat-media-v1-21.js?v=1.22&gym=1.00" defer></script>
+  <script src="/assets/portal-auth-v1-22.js?v=1.22&gym=1.00" defer></script>
+<script src="/assets/dropbeat-theme-v1-29.js?v=1.29&gym=1.00"></script><script src="/assets/dropbeat-dark-mode-v1-30.js?v=1.30&gym=1.00"></script><script src="/assets/dropbeat-mobile-v1-34.js?build=dropbeat-1.34-20261012&gym=1.00"></script><script src="/assets/dropbeat-ui-v1-35.js?build=dropbeat-1.35-20261012&gym=1.00"></script><script src="/assets/dropbeat-data-cache-v1-50.js?build=dropbeat-1.58-20261019&gym=1.00"></script><script type="module" src="/assets/dropbeat-button-dictionary-v1-56.js?build=1.59&gym=1.00"></script><script type="module" src="/assets/dropbeat-layout-v1-57.js?build=1.59&gym=1.00"></script><script src="/assets/app-session-v1-58.js?build=1.58&gym=1.00"></script></body>
+</html>

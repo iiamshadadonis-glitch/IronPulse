@@ -1,0 +1,6 @@
+V1.56 Buttons: Buttons tab, shared row layout and two-step mobile editor
+V1.56 Buttons: Exact confirmation, cancellation, atomic save and cross-tab synchronization
+V1.56 Buttons: Desktop dialogs, preserved booking/cart behavior and Admin category
+V1.56 Buttons: Refresh/return validation, deduplication, native toggles and reset
+V1.56 Buttons: Invalid fields, dark styling, outage fallback and quiet rendering
+V1.56 Buttons browser regression passed: 4 workflow groups.

@@ -1,0 +1,28 @@
+/* V16 Taxes — layout only; existing theme variables remain authoritative. */
+#settings .uc-v160-taxes-card{margin-top:16px!important;position:relative;overflow:hidden}
+#settings .uc-v160-taxes-card>summary{padding-right:62px!important}
+#settings .uc-v160-tax-body{padding:16px 18px 20px;display:grid;gap:16px}
+#settings .uc-v160-tax-toggle{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 16px;border:1px solid var(--line,#ead2bc);border-radius:14px;background:var(--surface,#fffaf2)}
+#settings .uc-v160-tax-toggle>div{min-width:0;display:grid;gap:4px}
+#settings .uc-v160-tax-toggle small{display:block;color:var(--muted,#765f69);line-height:1.4}
+#settings .uc-v160-tax-options{display:grid;gap:14px}
+#settings .uc-v160-tax-block{padding:14px;border:1px solid var(--line,#ead2bc);border-radius:16px;background:rgba(255,255,255,.26)}
+#settings .uc-v160-tax-block>.uc-v160-tax-toggle{border:0;padding:2px 2px 12px;background:transparent}
+#settings .uc-v160-tax-fields{padding:2px 2px 0;gap:14px!important}
+#settings .uc-v160-tax-fields[hidden],#settings .uc-v160-tax-options[hidden]{display:none!important}
+#settings .uc-v160-percent-input{position:relative}
+#settings .uc-v160-percent-input input{padding-right:44px!important}
+#settings .uc-v160-percent-input span{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-weight:800;color:var(--muted,#765f69);pointer-events:none}
+#settings .uc-v160-tax-actions{display:flex;justify-content:flex-end;padding-top:2px}
+#settings #ucTaxesMsg .notice,#settings #ucTaxesMsg .error{margin:0!important}
+#settings .uc-v160-taxes-card[open]>.uc-detail-info-toolbar{position:relative!important;inset:auto!important;display:flex!important;justify-content:flex-end!important;margin:8px 18px 4px!important;min-height:34px!important;z-index:7!important}
+#settings .uc-v160-taxes-card:not([open])>.uc-detail-info-toolbar{display:none!important}
+#settings .uc-v160-taxes-card>.uc-info-back-panel{padding:22px 24px 26px!important}
+@media(max-width:760px){#settings .uc-v160-tax-body{padding:14px}#settings .uc-v160-tax-toggle{padding:13px}.uc-v160-tax-fields{grid-template-columns:1fr!important}}
+/* Comments reply polish */
+.uc-v160-reply-icon{width:18px;height:18px;display:block}
+#ucV154ReplyModal .uc-v160-emoji-field{min-width:0}
+#ucV154ReplyModal .uc-v160-emoji-picker{display:flex;gap:7px;overflow-x:auto;overflow-y:hidden;padding:9px 4px 11px;scrollbar-gutter:stable;scroll-snap-type:x proximity;border:1px solid var(--line,#ead2bc);border-radius:13px;background:var(--surface,#fffaf2)}
+#ucV154ReplyModal .uc-v160-emoji{flex:0 0 38px;width:38px;height:38px;border:1px solid var(--line,#ead2bc);border-radius:10px;background:var(--surface,#fffaf2);display:grid;place-items:center;font-size:21px;cursor:pointer;scroll-snap-align:start}
+#ucV154ReplyModal .uc-v160-emoji:hover,#ucV154ReplyModal .uc-v160-emoji:focus-visible{transform:translateY(-1px);box-shadow:0 4px 12px rgba(70,16,28,.12);outline:none}
+#ucV154ReplyModal .uc-v154-reply-modal .field{margin-bottom:14px}

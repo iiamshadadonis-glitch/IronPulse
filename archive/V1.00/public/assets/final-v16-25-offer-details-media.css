@@ -1,0 +1,19 @@
+/* V16.25 offer details + uncropped service image polish. Existing theme variables/colors remain authoritative. */
+.product-card .gallery{background:#fffaf4;overflow:hidden}
+.product-card .gallery img{object-fit:contain!important;object-position:center!important;background:#fffaf4}
+.uc-offer-detail-shell{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,.75fr);gap:30px;align-items:start;margin-top:24px}
+.uc-offer-detail-main,.uc-offer-book-card{background:#fffaf4;border:1px solid #dedfec;border-radius:22px;padding:24px;box-shadow:0 14px 34px rgba(62,18,31,.08)}
+.uc-offer-detail-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+.uc-offer-detail-title-row h1{margin:0;line-height:1.2}
+.uc-offer-detail-media{width:100%;min-height:360px;max-height:680px;border-radius:18px;overflow:hidden;background:#f7f1ea;display:flex;align-items:center;justify-content:center;border:1px solid #dedfec}
+.uc-offer-detail-media img{display:block;width:100%;height:auto;max-height:680px;object-fit:contain;object-position:center;background:#fffaf4}
+.uc-interest-row{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin:14px 0 0;min-height:44px}
+.uc-interest-btn{white-space:nowrap}.uc-interest-btn.is-active{background:#fff4cf;color:#6b2a08;border-color:#eed38a}
+.uc-offer-about{margin-top:28px}.uc-offer-about h2,.uc-offer-know h2{margin:0 0 12px}.uc-offer-about p{line-height:1.75;margin:0;white-space:pre-line;color:#503943}
+.uc-offer-know{margin-top:26px}.uc-offer-know .notice{margin:0;padding:18px 20px;line-height:1.65}
+.uc-offer-book-card{position:sticky;top:110px}.uc-offer-book-card h2{margin-top:0;margin-bottom:16px}
+.uc-offer-detail-features{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px}.uc-offer-detail-features li{display:flex;gap:9px;line-height:1.45}.uc-offer-detail-features li:before{content:'★';color:#c68b00;flex:0 0 auto}
+.uc-offer-detail-price{border-top:1px solid #dedfec;padding-top:18px;margin-top:8px}.uc-offer-detail-price .old{text-decoration:line-through;color:#8a777d;margin-right:10px}.uc-offer-detail-price .new,.uc-offer-detail-price .regular{font-size:28px;font-weight:900;color:#4c0715}.uc-offer-detail-price .trial{display:block;color:#980b0b;font-size:26px;font-weight:900;margin-top:8px}
+.uc-offer-detail-meta{display:grid;gap:8px;margin:16px 0;color:#755e67}.uc-offer-detail-meta strong{color:#35111d}.uc-offer-book-card .btn{width:100%;justify-content:center;margin-top:10px}
+.uc-plan-interest-list{display:grid;gap:8px;margin-top:8px}.uc-plan-interest-list>div{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid #dedfec;border-radius:12px;background:#fffaf4}.uc-plan-interest-list small{color:#755e67;white-space:nowrap}
+@media(max-width:850px){.uc-offer-detail-shell{grid-template-columns:1fr}.uc-offer-book-card{position:static}.uc-offer-detail-main,.uc-offer-book-card{padding:18px}.uc-offer-detail-media{min-height:260px}.uc-offer-detail-title-row{flex-direction:column}.uc-interest-row{justify-content:flex-start}}

@@ -1,0 +1,4 @@
+V1.50: nine payment records use the full-height body; last card reachable on short and tall phones.
+V1.50: nested menu inputs and three 44px actions stay on one row.
+V1.50: public welcome overlay, two-column plans and aligned footer actions; desktop separation.
+V1.50 mobile layout and desktop separation checks passed.

@@ -1,0 +1,211 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Frame-Options: SAMEORIGIN
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self' https: data: blob:; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' https: data: blob:; media-src 'self' https: blob:; font-src 'self' https: data:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob:; connect-src 'self' https:; frame-src https:; form-action 'self' https:; upgrade-insecure-requests
+
+/
+  Cache-Control: no-store, no-cache, max-age=0, must-revalidate
+  CDN-Cache-Control: no-store
+  Cloudflare-CDN-Cache-Control: no-store
+  X-DropBeat-Release: 1.59.0
+
+/*.html
+  Cache-Control: no-store, no-cache, max-age=0, must-revalidate
+  CDN-Cache-Control: no-store
+  Cloudflare-CDN-Cache-Control: no-store
+  X-DropBeat-Release: 1.59.0
+
+/assets/app.js
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/assets/platform-polish-v2.css
+  Cache-Control: no-cache, max-age=0, must-revalidate
+
+/assets/final-v16-34-custom-pages.js
+  Cache-Control: public, max-age=300, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+
+/payment
+  Cache-Control: no-store
+
+/payment-success
+  Cache-Control: no-store
+
+/payment-failed
+  Cache-Control: no-store
+
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml; charset=utf-8
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json
+
+/admin/*
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
+
+/admin
+  Cache-Control: no-store, no-cache, max-age=0, must-revalidate
+  CDN-Cache-Control: no-store
+  Cloudflare-CDN-Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
+  X-DropBeat-Release: 1.59.0
+
+/assets/*.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/*.svg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/dropbeat-theme.css
+  Cache-Control: no-cache, must-revalidate
+
+/assets/dropbeat-dance-language.js
+  Cache-Control: no-cache, must-revalidate
+
+/assets/dropbeat-mobile-v1-33.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.36.0
+
+/assets/dropbeat-mobile-v1-34.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.36.0
+
+/assets/dropbeat-mobile-v1-34.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.36.0
+
+/admin/dropbeat-admin-v1-33.css
+  Cache-Control: no-store
+  X-DropBeat-Release: 1.36.0
+
+/admin/dropbeat-admin-v1-33.js
+  Cache-Control: no-store
+  X-DropBeat-Release: 1.36.0
+
+/admin/dropbeat-admin-v1-34.css
+  Cache-Control: no-store
+  X-DropBeat-Release: 1.36.0
+
+/admin/dropbeat-admin-v1-34.js
+  Cache-Control: no-store
+  X-DropBeat-Release: 1.36.0
+
+/assets/dropbeat-ui-v1-35.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.36.0
+
+/assets/dropbeat-dashboard-mobile-v1-36.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.36.0
+
+/assets/dropbeat-dashboard-mobile-v1-36.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.36.0
+
+/assets/dropbeat-dashboard-mobile-v1-37.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.59.0
+
+/assets/dropbeat-dashboard-mobile-v1-40.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/dropbeat-dashboard-mobile-v1-40.css
+  Cache-Control: public, max-age=31536000, immutable
+/sample-plan-import.csv
+  Cache-Control: no-store, max-age=0
+/sample-product-import.csv
+  Cache-Control: no-store, max-age=0
+/assets/dropbeat-plan-import-v1-40.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/dropbeat-dashboard-mobile-v1-37.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.59.0
+
+/assets/dropbeat-ui-v1-35.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.36.0
+
+/admin/dropbeat-admin-v1-35-dark.css
+  Cache-Control: no-store, no-cache, max-age=0, must-revalidate
+  X-DropBeat-Release: 1.36.0
+
+/assets/final-public-seo-ssl-speed.js
+  Cache-Control: no-cache, must-revalidate
+
+/assets/final-v16-37-navigation.js
+  Cache-Control: no-cache, must-revalidate
+
+/.well-known/security.txt
+  Cache-Control: public, max-age=86400
+
+/assets/dropbeat-dashboard-mobile-v1-38.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.59.0
+
+/assets/dropbeat-dashboard-mobile-v1-38.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.59.0
+
+/assets/dropbeat-dashboard-mobile-v1-39.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.59.0
+/assets/dropbeat-dashboard-mobile-v1-39.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-DropBeat-Release: 1.59.0
+
+/assets/dropbeat-dashboard-mobile-v1-41.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/dropbeat-dashboard-mobile-v1-41.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/dropbeat-dashboard-mobile-v1-44.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/dropbeat-dashboard-mobile-v1-44.css
+  Cache-Control: public, max-age=31536000, immutable
+/assets/dropbeat-ui-components-v1-44.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/dropbeat-dashboard-mobile-v1-45.js
+  Cache-Control: no-cache, must-revalidate
+/assets/dropbeat-dashboard-mobile-v1-45.css
+  Cache-Control: no-cache, must-revalidate
+/assets/dropbeat-ui-components-v1-45.js
+  Cache-Control: no-cache, must-revalidate
+
+/uc-notifications-sw.js
+  Cache-Control: no-store, max-age=0, must-revalidate
+  Service-Worker-Allowed: /
+
+/api/portal/notifications/*
+  Cache-Control: private, no-store, max-age=0
+
+/api/admin/notification-routing
+  Cache-Control: private, no-store, max-age=0
+
+/api/portal/auth/context
+  Cache-Control: private, no-store, max-age=0
+
+/member-dashboard
+  Cache-Control: private, no-store, max-age=0
+  X-Robots-Tag: noindex, nofollow
+
+/member-dashboard.html
+  Cache-Control: private, no-store, max-age=0
+  X-Robots-Tag: noindex, nofollow
+
+/manifest.json
+  Cache-Control: no-cache, must-revalidate
+  Content-Type: application/manifest+json

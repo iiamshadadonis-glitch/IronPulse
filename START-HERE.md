@@ -1,4 +1,4 @@
-# IronPulse Gym V1.01 — start here
+# IronPulse Gym V1.03 — start here
 
 Your existing gym database is already selected in this replacement:
 
@@ -10,6 +10,8 @@ Your existing gym database is already selected in this replacement:
 
 The screenshot's failure happened after asset upload, when publishing tried to bind a database that was not present in the selected account. That deployment was using older configuration. Retrying that same old commit will keep the old binding.
 
+This release includes every original V1.00 file under archive/V1.00/ alongside the complete working project. Copy the archive folder too: the build verifies the complete source package. Use the root configuration and current instructions. COMPARISON.md explains the file counts.
+
 ## 1. Replace the gym repository contents
 
 Use the **gym repository**, separate from your other website.
@@ -18,7 +20,7 @@ With GitHub Desktop, choose Repository → Show in Explorer/Finder. Move the old
 
 At the repository root, you must see wrangler.jsonc, package.json, public/, functions/ and migrations/. Do not leave these files inside an extra nested ZIP folder. Do not keep another wrangler.toml or wrangler.json from the old project.
 
-Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **IronPulse Gym V1.01 — use existing gym D1**.
+Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **V1.03: Preserve complete source and verify the gym release**. GITHUB-SUMMARY.txt contains the complete description.
 
 ## 2. Set the gym Pages project
 
@@ -46,10 +48,10 @@ In Pages → Settings → Variables and Secrets → Production, add **ADMIN_LOGI
 
 Deploy the latest pushed commit. In its build log, confirm these exact lines:
 
-    IronPulse Gym V1.01 (package 1.1.0)
+    IronPulse Gym V1.03 (package 1.3.0)
     D1 binding DB: 893e7d29-fa72-413d-9415-5d93b1c3bc6e
 
-The log should use Wrangler 4.128.0 and compile the Worker successfully. If it still shows an older project, old login email or different D1 ID, check the connected repository, branch, commit and root directory.
+The npm run build step uses the pinned project Wrangler and should compile the Worker successfully. Use the printed release, UUID and commit to identify the source being deployed. If it still shows an older project, old login email or different D1 ID, check the connected repository, branch, commit and root directory.
 
 If the new UUID is reported as not found, the Pages project and this D1 database must be placed in the **same Cloudflare account**. A database ID cannot grant access to another account's database.
 
@@ -85,4 +87,4 @@ For an account/binding check only:
 
 For a Git-connected project, commit and push any configuration updates made by setup/check. The Pages deployment uses the committed configuration.
 
-Open RELEASE-VERIFICATION-GYM.md for the exact local test results.
+Open CLOUDFLARE-FIX.md for the screenshot-specific fix, PACKAGE-CONTENTS.txt for all included files, and RELEASE-VERIFICATION-GYM.md for the exact local test results. After a successful deployment, /release.json identifies this package as V1.03.

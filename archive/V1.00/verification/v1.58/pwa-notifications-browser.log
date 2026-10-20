@@ -1,0 +1,6 @@
+V1.58: Role-based mobile category rows, two-step forms and exact confirmation
+V1.58: Desktop two-tier tabs, guarded reset, opt-in device and reviewed broadcast
+V1.58: Admin closed-context restart restores account-scoped Brand Settings role/category
+V1.58: Student/Coach restart, account isolation, expired logout and unsafe-route rejection
+V1.58: Dark surfaces, read-only review and API-outage stability
+V1.58 PWA/Notifications browser regression passed: 5 workflow groups.

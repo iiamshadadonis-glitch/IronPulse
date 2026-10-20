@@ -1,0 +1,7 @@
+V1.53 portals: Student mobile header and avatar shortcut
+V1.53 portals: Session stack, join/status bindings and desktop layout
+V1.53 portals: Statement compact summary, anchored Filter FAB and existing filter/PDF actions
+V1.53 portals: Tickets navigation, original form submit and separate list/empty state
+V1.53 portals: Uniform Login Information/Google rows and profile shortcut
+V1.53 portals: Coach/Admin header compatibility and mobile-to-desktop restoration
+V1.53 portal browser regression passed: 6 workflow groups.

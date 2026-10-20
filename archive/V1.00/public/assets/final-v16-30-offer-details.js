@@ -1,0 +1,52 @@
+/* V16.30 — Offer Details: original 16:9 image, clean trial pricing, real availability thresholds. */
+(()=>{
+  const H=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const money=n=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(Number(n||0)/100);
+  function priceHtml(p){
+    const reg=Number(p.regular_price_paise||0),offerEnabled=Number(p.offer_price_enabled??1)!==0,offer=offerEnabled?Number(p.offer_price_paise||reg):reg,trial=Number(p.trial_enabled||0)===1&&String(p.payment_type||'subscription')==='subscription';
+    if(trial){
+      const offerStrike=offerEnabled&&offer!==reg?`<span class="trial-offer-old">${money(offer)}</span>`:'';
+      return `<div class="uc-offer-detail-price trial-price"><span class="old regular-old">${money(reg)}</span>${offerStrike}<span class="trial">Try for ${money(Number(p.trial_amount_paise||100))}</span></div>`;
+    }
+    return offerEnabled&&offer!==reg?`<div class="uc-offer-detail-price"><span class="old">${money(reg)}</span><span class="new">${money(offer)}</span></div>`:`<div class="uc-offer-detail-price"><span class="regular">${money(reg)}</span></div>`;
+  }
+  function variantFor(p){return String(p?.billing_period||'monthly')==='yearly'?(p?.variants||[]).find(v=>Number(v.billing_months)===12)||p?.variants?.[0]:p?.variants?.[0];}
+  function detailImageUrl(img){
+    const raw=String(img?.source_url||img?.public_url||'/assets/product-generic.svg').trim()||'/assets/product-generic.svg';
+    if(/res\.cloudinary\.com/i.test(raw)&&raw.includes('/image/upload/'))return raw.replace('/image/upload/','/image/upload/c_pad,w_1280,h_720,g_center,b_rgb:FFFAF4,q_auto:good,f_auto/');
+    return raw;
+  }
+  function availabilityFor(p,products=[]){
+    const limit=Math.max(0,Number(p.spot_limit||0)),sold=Math.max(0,Number(p.sold_count||0)),left=limit>0?Math.max(0,limit-sold):null,fillAt=Math.max(0,Number(p.filling_fast_limit||0)),lowAt=Math.max(0,Number(p.low_spot_limit||0)),soldTotal=Math.max(0,Number(p.sold_count||0));
+    const maxSold=Math.max(0,...(products||[]).map(x=>Math.max(0,Number(x.sold_count||0)))),popular=maxSold>0&&soldTotal===maxSold;
+    if(limit>0){
+      if(left<=0)return{label:'Currently full',className:'full',full:true};
+      if(lowAt>0&&left<=lowAt)return{label:`Only ${left} spot${left===1?'':'s'} left`,className:'low',full:false};
+      if(fillAt>0&&left<=fillAt)return{label:'Filling fast',className:'hot',full:false};
+      if(popular)return{label:'Popular now',className:'hot',full:false};
+      return{label:'Available',className:'available',full:false};
+    }
+    if(popular)return{label:'Popular now',className:'hot',full:false};
+    return{label:'Available',className:'available',full:false};
+  }
+  async function saveInterest(p,btn){
+    if(btn?.disabled)return;btn.disabled=true;
+    try{await api('/api/public/product-interest',{method:'POST',body:JSON.stringify({visitor_id:getVisitorId(),product_id:p.id,product_slug:p.slug,source_path:location.pathname+location.search})});btn.textContent='Interested ✓';btn.classList.add('is-active');localStorage.setItem(`uc_interest_${p.id}`,'1');}
+    catch(e){btn.disabled=false;btn.textContent="I'm Interested";alert(e.message||'Could not save your interest.');}
+  }
+  async function load(){
+    const box=document.querySelector('#offerDetail');if(!box)return;
+    const slug=new URLSearchParams(location.search).get('plan')||'';
+    box.innerHTML='<div class="notice">Loading plan details…</div>';
+    try{
+      const [productData,siteData]=await Promise.all([api('/api/public/products'),api('/api/public/site')]),products=productData.products||[],settings=siteData.settings||{};prepareCommon(settings);
+      const p=products.find(x=>String(x.slug)===String(slug));if(!p){box.innerHTML='<div class="notice">This plan / offer could not be found. <a href="/offers">View current offers</a>.</div>';return;}
+      const imgs=p.images||[],cover=imgs.find(x=>Number(x.is_cover||0)===1)||imgs[0],image=detailImageUrl(cover),features=(p.features||[]).filter(Boolean),desc=String(p.description||p.short_description||'').trim(),availability=availabilityFor(p,products);
+      document.title=`${p.name} | ${settings?.siteName||'IronPulse Gym'}`;
+      box.innerHTML=`<div class="uc-offer-detail-title-row"><div><span class="eyebrow">Membership plan</span><h1>${H(p.name)}</h1></div></div><div class="uc-offer-detail-shell"><div class="uc-offer-detail-main"><div class="uc-offer-detail-media"><img src="${H(image)}" alt="${H(cover?.alt_text||p.name)}" width="1280" height="720"></div><div class="uc-interest-row"><button id="ucOfferInterest" class="btn secondary uc-interest-btn" type="button">I'm Interested</button></div><section class="uc-offer-about"><h2>About the Plan</h2><p>${H(desc||'Plan details will be updated soon.')}</p></section><section class="uc-offer-know"><h2>You Should Know</h2><div class="notice"><ul class="uc-offer-know-list"><li>Membership provides access to the class schedule and services shown in this plan.</li><li>Gym access or online joining details are shared during onboarding, based on the selected plan.</li><li>Availability, rescheduling and cancellations follow the gym’s published policies.</li></ul></div></section></div><aside class="uc-offer-book-card"><h2>${H(p.name)}</h2>${features.length?`<ul class="uc-offer-detail-features">${features.map(x=>`<li>${H(x)}</li>`).join('')}</ul>`:''}${priceHtml(p)}<button id="ucOfferBook" class="btn" type="button" ${availability.full?'disabled':''}>${availability.full?'Currently Full':'Book Now'}</button><a class="btn secondary" href="/offers">View More Plans</a><div class="uc-offer-availability ${H(availability.className)}">${H(availability.label)}</div></aside></div>`;
+      const ib=document.querySelector('#ucOfferInterest');if(localStorage.getItem(`uc_interest_${p.id}`)==='1'){ib.textContent='Interested ✓';ib.classList.add('is-active');ib.disabled=true;}ib?.addEventListener('click',()=>saveInterest(p,ib));
+      document.querySelector('#ucOfferBook')?.addEventListener('click',()=>{if(!availability.full)addToCart(p,variantFor(p));});
+    }catch(e){box.innerHTML=`<div class="notice">${H(e.message||'Could not load plan details.')}</div>`;}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load);else load();
+})();

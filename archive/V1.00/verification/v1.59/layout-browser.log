@@ -1,0 +1,7 @@
+V1.57 Layout: Compact mobile Buttons, shared segments and exact primary selection
+V1.57 Layout: Desktop accordions, one refresh SVG, retained button editor and live dictionary
+V1.57 Layout: Theme wireframe, viewport drafts, remove/reorder and destructive confirmation
+V1.57 Layout: Four theme-dependent skeletons, independent saved layouts and public refresh
+V1.57 Layout: Mobile editor/footer, restoration of original nodes, dark surfaces and outage fallback
+V1.57 Layout: Shared Login rename, native authentication/booking and guarded dictionary reset
+V1.57 Layout browser regression passed: 6 workflow groups.

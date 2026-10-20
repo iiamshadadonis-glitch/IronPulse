@@ -1,0 +1,2 @@
+/* V16.31 additive plan-save diagnostics. */
+.uc-plan-save-diagnostic{display:grid;gap:4px;margin:14px 0;padding:12px 14px;border-radius:14px;border:1px solid #dedfec;background:#f7f7fc;font-size:13px;line-height:1.5}.uc-plan-save-diagnostic[hidden]{display:none!important}.uc-plan-save-diagnostic strong{font-size:13px}.uc-plan-save-diagnostic.error{background:#fff0f0;border-color:#efb8b8;color:#a3161d}.uc-plan-save-diagnostic.success{background:#ecfbf1;border-color:#bdebcf;color:#176b39}

@@ -1,0 +1,38 @@
+/* V16.52 — Brand Settings hub. Layout only; existing color variables are reused. */
+.side .nav button[data-tab="checkoutSettings"],
+.side .nav button[data-tab="mapsReviews"],
+.side .nav button[data-tab="storage"],
+.side .nav button[data-tab="security"]{display:none!important;}
+
+.uc-v1652-brand-tabs{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin:0 0 14px;padding:0;min-width:0;
+}
+.uc-v1652-brand-tab{
+  appearance:none;border:1px solid var(--border,#ead2b4);background:var(--panel,#ffffff);
+  color:inherit;border-radius:999px;padding:10px 16px;font:inherit;font-weight:700;
+  line-height:1;cursor:pointer;white-space:nowrap;min-height:38px;
+}
+.uc-v1652-brand-tab:hover{box-shadow:0 4px 14px rgba(64,0,18,.07);}
+.uc-v1652-brand-tab.active{
+  background:linear-gradient(135deg,var(--brand,#a3080f),var(--brand-2,#ef2b74));
+  color:#fff;border-color:transparent;
+}
+.uc-v1652-brand-context{margin:0 0 18px;min-width:0;}
+.uc-v1652-brand-context h2{margin:0 0 5px;font-size:20px;line-height:1.25;}
+.uc-v1652-brand-context p{margin:0;color:var(--muted,#765d63);font-size:13px;line-height:1.45;}
+
+#settings form>.uc-v1652-section-hidden{display:none!important;}
+#settings form>[data-uc-v1652-section]{min-width:0;}
+#settings .form-actions[data-uc-v1652-section="shared"]{margin-top:18px;}
+
+/* Keep the merged pages visually aligned with the existing Brand Settings workspace. */
+#checkoutSettings>.uc-v1652-brand-tabs,#mapsReviews>.uc-v1652-brand-tabs,
+#storage>.uc-v1652-brand-tabs,#security>.uc-v1652-brand-tabs,#settings>.uc-v1652-brand-tabs{margin-top:2px;}
+#checkoutSettings>.top,#mapsReviews>.top,#storage>.top,#security>.top,#settings>.top{margin-bottom:12px;}
+
+@media(max-width:760px){
+  .uc-v1652-brand-tabs{gap:8px;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;scrollbar-width:thin;}
+  .uc-v1652-brand-tab{padding:9px 13px;flex:0 0 auto;}
+  .uc-v1652-brand-context{margin-bottom:14px;}
+}

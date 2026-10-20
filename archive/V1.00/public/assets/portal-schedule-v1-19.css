@@ -1,0 +1,7 @@
+/* DropBeat V1.19 portal additions. Existing personal dashboard colours are reused. */
+.db119-leave-layout{grid-template-columns:minmax(300px,.75fr) minmax(0,1.25fr)}
+.db119-portal-leave-table{min-width:880px;table-layout:fixed}.db119-portal-leave-table td{white-space:normal;overflow-wrap:anywhere}.db119-portal-leave-table td small{display:block;margin-top:5px;color:#777985}
+.db119-holiday-notice{text-align:center;border-top-color:var(--dash-accent)}.db119-holiday-notice>small{display:block;color:var(--dash-accent);font-weight:800;text-transform:uppercase;letter-spacing:.1em}.db119-holiday-notice h2{margin:8px 0 18px}.db119-holiday-notice>img{display:block;width:auto;max-width:100%;max-height:340px;object-fit:contain;margin:0 auto 18px;border-radius:6px}.db119-holiday-notice>p{white-space:pre-wrap;line-height:1.7;color:#4c4d56}.db119-holiday-dates{display:grid;gap:3px;margin:20px 0;padding:13px;border:1px solid var(--portal-line);background:#f7f7fb}.db119-holiday-dates strong{color:var(--dash-primary)}
+.notice-item>span{display:block;white-space:pre-wrap;line-height:1.65;margin:5px 0;overflow-wrap:anywhere}
+.portal-pill.approved{background:#e8f8ef;color:#147247}.portal-pill.denied,.portal-pill.cancelled{background:#fff0ee;color:#a1281f}.portal-pill.pending{background:#fff7da;color:#8b6100}
+@media(max-width:900px){.db119-leave-layout{grid-template-columns:1fr}}

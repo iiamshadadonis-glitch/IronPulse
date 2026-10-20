@@ -1,48 +1,51 @@
-# IronPulse Gym V1.01 — release verification
+# IronPulse Gym V1.03 — release verification
 
-Verified on 20 October 2026 with Node 24.19.0 and Wrangler 4.128.0.
+Verified 20 October 2026 with Node 24.19.0 and Wrangler 4.128.0. Package version: 1.3.0.
 
-## Configured destination
-
-Pages project: **ironpulse-gym**. D1 binding: **DB**. Existing D1 UUID: **893e7d29-fa72-413d-9415-5d93b1c3bc6e**.
-
-The old/incorrect database IDs are rejected by the deployment preflight. Setup resolves the real database name by this UUID in the authenticated account. It never creates a database or Pages project. Normal publishing uses the existing runtime schema initialization; the original migration history is retained for intentional fresh-database migrations.
-
-## Results
+## Current checks
 
 | Check | Result |
 | --- | --- |
-| Current release and functional regression suites | 32/32 passed |
-| Cloudflare Pages Functions/Worker build | Compiled successfully |
-| Mobile/desktop browser workflows | 10/10 groups passed |
-| Dynamic-label frame samples | 539; all expected labels stayed stable |
-| Browser page errors | 0 |
-| Real local Worker + migrated local D1 | 6/6 groups passed |
-| Real local Worker + completely empty local D1 | 6/6 groups passed |
-| Original migrations applied to a fresh local D1 | All 56 passed |
-| CSS/theme comparisons | All 177 match after paths and comment copy are normalized |
-| Backend/frontend source compatibility | All 268 backend and 236 frontend modules match after documented filename and text/default substitutions |
-| Runtime schema and migration DDL | Preserved |
-| Existing API file paths | All 183 preserved |
-| JavaScript parsing | All 504 application scripts parsed |
-| HTML inventories | 27 full pages checked for theme metadata, touch icons and assets |
-| PWA icons | Standard and maskable 192/512px; Apple icon 180px checked |
+| All original V1.00 files preserved | 1,829 / 1,829; every archived byte checked |
+| Current application file inventory | All 815 expected files present |
+| Frontend/backend/migrations | 491 / 268 / 56 |
+| Current regression suites | 32 / 32 passed |
+| Cloudflare Worker build | Compiled successfully |
+| Browser workflows | 10 / 10 groups passed |
+| Label samples | 458 stable frames; zero page errors |
+| Real local Worker + migrated D1 | 8 / 8 groups passed |
+| Real local Worker + empty D1 | 8 / 8 groups passed |
+| Original migrations | All 56 applied successfully to fresh local D1 |
+| Archived configuration isolation | Archive configuration was not returned through the app URL |
+| Release identification | Actual local Worker serves V1.03 release.json |
+| ZIP and file checks | CRC, byte comparisons, extraction and checksum verification |
 
-The browser checks cover Member sign-up, Member/Coach dashboards, fitness specialties in the plan editor, placeholders, the payments/subscriptions full-screen modal and its Info helper, dictionary/cache first paint, renamed navigation, mobile submenu routing, delayed/malformed/failed configuration, Retry, and Schedule timeout/late-response behaviour at mobile and desktop widths.
+## Original-source comparison
 
-The local Cloudflare checks exercise the actual compiled Functions with real temporary D1 storage, first-admin bootstrap with a unique password, authenticated settings/context and logout/session revocation. They use temporary databases and do not mutate the remote UUID.
+Both user-attached ZIPs were read directly. COMPARISON.md explains why V1.00 has 1,829 total files and V1.02 has 931, despite their different top-level item counts. FILE-COMPARISON.csv maps every original file and records its hashes and preserved location.
 
-The existing theme colours, account roles, schema/table/column names, JSON keys and business decisions remain compatible. Gym labels/default values and physical asset filenames were cleaned up. The 447 obsolete root documents/scripts and historical reports were excluded. Remaining technical schema/API names are explained in README.md.
+Every original frontend file (490), backend file (268) and migration (56) has a current mapped counterpart. The V1.00-to-current audit checks all 504 JavaScript application files and 177 CSS files against the documented filename, gym text/default and metadata substitutions. All 268 backend structures, 268 runtime schema fingerprints, 56 migration DDL sets and 183 API endpoint file paths match. There are no additional control-flow, theme-colour, schema or API-key changes.
 
-## Live status
+The current production directories also match the attached V1.02 byte-for-byte for all 814 files other than the release.json version metadata. Membership, checkout, payment, schedules, CRM, authentication and portal logic are retained.
 
-Cloudflare currently presents a sign-in screen in this session. **The remote database's account ownership/access and a production deployment have not been verified or performed.** This ZIP is configured for the supplied UUID and has passed the local checks above. START-HERE.md gives the exact Git-connected Pages settings and the two build-log lines that identify this replacement.
+## Source preservation
 
-Live Razorpay/webhook and Google OAuth configuration require the gym's own provider credentials and deployed origin. No live charges, messages or provider OAuth requests were performed during verification.
+All 1,829 original V1.00 files are stored byte-for-byte in archive/V1.00/. The 44 V1.02 verification records are also preserved separately in archive/V1.02-verification/. Additional archive README/ignore files clarify its purpose and keep release evidence available to source control.
+
+The archive sits outside the live public/functions folders. The current root configuration is used for deployment. The real local Worker checks confirm that the old archived configuration is not exposed through its URL.
+
+The original archive includes historical, version-specific tests and reports. They are retained as original source; the current npm test command runs all 32 current regression suites. Current browser and real local Worker/D1 checks were rerun for V1.03.
+
+## Deployment configuration
+
+Binding DB selects existing D1 UUID 893e7d29-fa72-413d-9415-5d93b1c3bc6e. Deployment validation rejects incorrect/old/placeholder IDs, confirms the current release and checks the complete source before compiling the Worker. Setup never creates another database. Read START-HERE.md and CLOUDFLARE-FIX.md for exact Pages settings.
+
+The screenshot showed an older configuration being deployed. The corrected repository contents must be committed and pushed, then the new commit deployed. Remote account ownership/access and production publishing have not been verified in this signed-out session. Local verification does not make live payment, email or OAuth calls.
 
 ## Reproduce
 
     npm ci
+    npm run check:complete
     npm test
     npm run build
     npx playwright install chromium
@@ -51,8 +54,6 @@ Live Razorpay/webhook and Google OAuth configuration require the gym's own provi
     npm run test:gym:runtime:empty
     node tools/verify-gym-package.mjs
 
-In this environment the pinned application dependencies were available from the existing local dependency cache; an offline reinstall was unable to fetch one uncached transitive package. No dependency installation cache or node_modules is included in the ZIP. The project lockfile is retained for a normal npm ci on Cloudflare.
+This environment used the pinned dependencies already available locally, the available Chromium executable and a test-only loopback interface shim for the local Cloudflare runner. Those environment accommodations do not alter the delivered application. Browser screenshots and temporary dependency/build/database state are excluded from the package.
 
-This environment also required a test-only loopback network-interface shim for the local Cloudflare runner and the available Chromium executable for headless browser tests. Neither changes the shipped application or production network behaviour.
-
-Machine-readable results and command logs are in verification/ironpulse-v1.01/. Browser screenshots were used only for local inspection and are excluded from this ZIP. FILES.sha256 checks the delivered source files; local configuration edits intentionally change those checksums.
+Machine results and logs are in verification/ironpulse-v1.03/. FILES.sha256 verifies the delivered files before you make configuration edits.

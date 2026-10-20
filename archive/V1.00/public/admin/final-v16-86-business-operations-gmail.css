@@ -1,0 +1,23 @@
+/* V16.86 — nested Business Operations workspaces, Telegram helper placement, and Gmail offer actions. */
+.uc84-tg-view-actions{display:flex;justify-content:flex-end;align-items:center;min-height:34px;padding:12px 4px 4px;margin:0 0 4px}
+[data-social-card="telegram"] .uc84-tg-view-actions .uc-info-btn,[data-social-card="telegram"] .uc84-tg-view-actions .uc-info-back-btn{width:30px;height:30px;min-width:30px;padding:0;border-radius:50%;display:inline-grid;place-items:center}
+[data-social-card="telegram"] .uc84-tg-view-actions .uc-info-svg,[data-social-card="telegram"] .uc84-tg-view-actions .uc-back-svg{width:25px;height:25px}
+[data-social-card="telegram"] .uc84-tg-view-actions [hidden]{display:none!important}
+[data-social-card="telegram"] summary .uc84-summary-actions{display:none!important}
+.uc84-tg-help{padding:4px 4px 10px}.uc84-help-head{margin:0 0 10px}
+.uc86-hub-tabs,.uc86-inner-tabs{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px}
+.uc86-inner-tabs{margin:0 0 14px;padding:12px;border:1px solid var(--line,#dedfec);border-radius:16px;background:rgba(255,255,255,.5)}
+.uc86-hub-body,.uc86-hub-pane{min-width:0}.uc86-hub-pane[hidden],.uc86-customer-section[hidden],.uc86-refund-section[hidden]{display:none!important}
+#customersHub details[hidden],#customersHub>.uc86-hub-body>.uc86-hub-pane>.card[hidden]{display:none!important}
+.uc86-hub-pane>.top{margin-top:0}.uc86-hub-pane>.top>h1{font-size:22px}
+.uc86-search-hint{margin:12px 0;border-color:#e2ad00!important;background:#fff8cc!important;color:#40290b!important}
+.uc86-refund-record-search{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 14px}.uc86-refund-record-search .search-input{flex:1 1 260px}
+.uc86-order-bucket-search{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px}.uc86-order-bucket-search .search-input{flex:1 1 260px}
+.uc86-field-error{outline:3px solid rgba(190,22,22,.24);border-radius:14px}.uc86-field-error input,.uc86-field-error textarea{border-color:#c1122f!important;box-shadow:0 0 0 3px rgba(193,18,47,.12)!important}
+.uc86-email-hint{display:block;margin-top:6px}.uc86-gmail-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.uc86-gmail-diagnostic{display:grid;gap:10px;margin-top:12px}.uc86-gmail-diagnostic ul{margin:0;padding-left:20px}.uc86-gmail-diagnostic li+li{margin-top:6px}
+.uc86-gmail-diagnostic .uc81-inline-recovery{margin:0}
+.side .nav .nav-group[data-group-title="Business Operations"] .nav-group-toggle>span:first-child{display:inline-flex;align-items:center;gap:8px}
+.uc86-count-badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#ffe7a8;color:#6b3f00;font-size:11px;font-weight:850;margin-left:6px}
+.uc86-count-badge[hidden],.uc86-count-badge:empty{display:none!important}
+@media(max-width:760px){.uc86-hub-tabs,.uc86-inner-tabs{display:grid;grid-template-columns:1fr 1fr}.uc86-gmail-actions{align-items:stretch}.uc86-gmail-actions .btn{width:100%}}

@@ -1,0 +1,26 @@
+/* V16.33 additive polish: Client Details footer/payment scroll + Google Drive product upload. */
+#ucClientModalBody{padding-bottom:24px}
+.uc-client-sticky-actions{
+  position:sticky;bottom:0;z-index:7;
+  margin:20px -22px -24px!important;padding:12px 22px 14px!important;
+  border-top:1px solid var(--uc-crm-line);background:rgba(255,255,255,.97);
+  backdrop-filter:blur(10px);box-shadow:0 -12px 26px rgba(75,6,20,.08);
+}
+.uc-client-tab-panel.active{padding-bottom:8px}
+.uc-payment-records{
+  max-height:330px!important;overflow:auto!important;overscroll-behavior:contain;
+  scrollbar-gutter:stable;border-radius:14px;
+}
+.uc-payment-records table{margin:0!important}
+.uc-payment-records thead th{position:sticky;top:0;z-index:3;background:#fff1d1!important;box-shadow:0 1px 0 var(--uc-crm-line)}
+.uc-v1633-drive-upload-field{padding:2px 0}
+.uc-v1633-drive-upload-field input[type="file"]{width:100%;box-sizing:border-box;padding:12px;border:1px solid var(--uc-crm-line);border-radius:13px;background:#fcfcfe;color:var(--uc-crm-ink)}
+.uc-v1633-drive-upload-field input[type="file"]::file-selector-button{border:0;border-radius:999px;padding:9px 14px;margin-right:12px;background:linear-gradient(135deg,var(--uc-crm-wine),#A469A8 58%,var(--uc-crm-pink));color:#fff;font-weight:900;cursor:pointer}
+.uc-v1633-google-drive .row{align-items:start}
+.uc-v1633-google-drive .copyline{margin-bottom:12px}
+.uc-v1633-google-drive .uc-v167-connection-state small{display:inline-block;margin-top:4px;line-height:1.45}
+@media(max-width:760px){
+  .uc-client-sticky-actions{margin:18px -14px -18px!important;padding:11px 14px 12px!important;gap:7px}
+  .uc-client-sticky-actions .btn{flex:1 1 calc(50% - 7px)}
+  .uc-payment-records{max-height:300px!important}
+}

@@ -1,0 +1,26 @@
+/* V16.35 — Offer Details image frame. A saved 1280×720 manual crop must render exactly as previewed. */
+#offerDetail .uc-offer-detail-media{
+  aspect-ratio:16/9!important;
+  width:100%!important;
+  overflow:hidden!important;
+  border-radius:18px!important;
+  background:#ffffff!important;
+  display:block!important;
+}
+#offerDetail .uc-offer-detail-media img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:100%!important;
+  min-height:100%!important;
+  object-position:center!important;
+  object-fit:cover!important;
+}
+/* The manually saved detail crop is already exactly 1280×720. Do not crop it a second time. */
+#offerDetail .uc-offer-detail-media img[data-manual-detail-crop="1"]{
+  object-fit:fill!important;
+  object-position:center!important;
+}
+@media(max-width:760px){
+  #offerDetail .uc-offer-detail-media{aspect-ratio:16/9!important;}
+}

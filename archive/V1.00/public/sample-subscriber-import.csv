@@ -1,0 +1,2 @@
+name,phone,email,city,plan_name,subscription_status,gateway,gateway_subscription_id,notes
+Ravi Kumar,919999999999,ravi@example.com,Hyderabad,Starter Access,active,razorpay,sub_example123,Imported sample subscriber

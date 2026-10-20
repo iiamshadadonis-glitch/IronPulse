@@ -1,6 +1,6 @@
 {
   "name": "ironpulse-gym-cloudflare",
-  "version": "1.1.0",
+  "version": "1.3.0",
   "private": true,
   "description": "IronPulse Gym fitness membership platform for Cloudflare Pages, Functions and the existing gym D1 database.",
   "scripts": {
@@ -18,14 +18,15 @@
     "secret:greenapi": "wrangler pages secret put GREEN_API_TOKEN --project-name ironpulse-gym",
     "secret:automation": "wrangler pages secret put AUTOMATION_API_KEY --project-name ironpulse-gym",
     "setup:gym": "node tools/setup-gym.mjs",
-    "build": "npm run check:deployment && wrangler pages functions build --outdir .build",
+    "build": "npm run check:deployment && npm run check:complete && wrangler pages functions build --outdir .build",
     "test": "node tools/verify-gym-release.mjs",
     "test:gym": "npm test",
     "test:gym:browser": "node tools/verify-gym-browser.mjs",
     "test:gym:runtime": "node tools/verify-gym-runtime.mjs",
     "check:deployment": "node tools/check-gym-deployment.mjs",
     "check:cloudflare": "node tools/check-gym-cloudflare.mjs",
-    "test:gym:runtime:empty": "node tools/verify-gym-runtime.mjs --empty"
+    "test:gym:runtime:empty": "node tools/verify-gym-runtime.mjs --empty",
+    "check:complete": "node tools/verify-gym-completeness.mjs"
   },
   "devDependencies": {
     "@babel/parser": "7.28.5",

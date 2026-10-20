@@ -1,0 +1,72 @@
+/* V16.49 — Integrations hub + Brand Settings marquee control.
+   Additive layout only; reuses the existing Urgent Casting theme variables. */
+#socialMediaIntegrations[data-uc-v1649-integrations="1"]{--uc49-gap:16px}
+#socialMediaIntegrations .uc49-integration-shell{display:grid;gap:var(--uc49-gap)}
+#socialMediaIntegrations .uc49-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0}
+#socialMediaIntegrations .uc49-pane{display:none;min-width:0;gap:16px}
+#socialMediaIntegrations .uc49-pane.active{display:grid}
+#socialMediaIntegrations .uc49-pane-copy{display:grid;gap:4px}
+#socialMediaIntegrations .uc49-pane-copy h2{margin:0;color:var(--dark);font-size:22px}
+#socialMediaIntegrations .uc49-pane-copy p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+#socialMediaIntegrations .uc49-card-stack{display:grid;gap:12px;min-width:0}
+#socialMediaIntegrations .uc49-card-stack>details,
+#socialMediaIntegrations .uc49-embedded-panel>details,
+#socialMediaIntegrations .uc49-embedded-panel>.card{margin:0;min-width:0}
+#socialMediaIntegrations .uc49-embedded-panel{display:grid!important;gap:12px!important;min-width:0}
+#socialMediaIntegrations .uc49-embedded-panel>.top{display:none!important}
+#socialMediaIntegrations .uc49-embedded-panel>.card.below{margin-top:0}
+#socialMediaIntegrations #uc48SocialGroup,#socialMediaIntegrations #uc48ServiceGroup{display:none!important}
+#socialMediaIntegrations .uc49-grid-card{padding:18px;display:grid;gap:12px;min-width:0}
+#socialMediaIntegrations .uc49-grid-head-copy h3{margin:0;color:var(--dark)}
+#socialMediaIntegrations .uc49-grid-head-copy p{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.45}
+#socialMediaIntegrations .uc49-grid-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fcfcfe;max-width:100%}
+#socialMediaIntegrations .uc49-grid{display:grid;grid-template-columns:minmax(190px,1.05fr) minmax(330px,2.05fr) minmax(140px,.7fr) minmax(195px,.9fr);min-width:890px;align-items:stretch}
+#socialMediaIntegrations .uc49-grid-col{background:#f0f0f7;color:#3f4259;font-weight:950;padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+#socialMediaIntegrations .uc49-grid-cell{padding:13px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;min-width:0;line-height:1.4}
+#socialMediaIntegrations .uc49-grid-cell.uc49-cap-cell{align-items:flex-start}
+#socialMediaIntegrations .uc49-grid-cell strong{color:var(--dark)}
+#socialMediaIntegrations .uc49-grid>.uc49-grid-cell:nth-last-child(-n+4){border-bottom:0}
+#socialMediaIntegrations .uc49-capabilities{display:flex;gap:6px;flex-wrap:wrap;align-items:flex-start}
+#socialMediaIntegrations .uc49-cap{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 8px;background:#ffffff;color:#5b3942;font-size:10px;font-weight:850;white-space:nowrap}
+#socialMediaIntegrations .uc49-status{display:inline-flex;align-items:center;border-radius:999px;padding:5px 9px;font-size:10px;font-weight:950;white-space:nowrap;background:#fef3c7;color:#92400e}
+#socialMediaIntegrations .uc49-status.connected,#socialMediaIntegrations .uc49-status.ready,#socialMediaIntegrations .uc49-status.primary,#socialMediaIntegrations .uc49-status.active{background:#dcfce7;color:#166534}
+#socialMediaIntegrations .uc49-status.oauth,#socialMediaIntegrations .uc49-status.limited,#socialMediaIntegrations .uc49-status.configured,#socialMediaIntegrations .uc49-status.token{background:#fff1bf;color:#7a4a00}
+#socialMediaIntegrations .uc49-status.disconnected,#socialMediaIntegrations .uc49-status.inactive{background:#fee2e2;color:#991b1b}
+#socialMediaIntegrations .uc49-status.deleted{background:#f2e8e9;color:#64676a}
+#socialMediaIntegrations .uc49-actions{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+#socialMediaIntegrations .uc49-mini-switch{position:relative;display:inline-block;width:44px;height:24px;flex:0 0 44px}
+#socialMediaIntegrations .uc49-mini-switch input{opacity:0;width:0;height:0}
+#socialMediaIntegrations .uc49-mini-slider{position:absolute;cursor:pointer;inset:0;background:#c9c0bd;border-radius:999px;transition:.2s}
+#socialMediaIntegrations .uc49-mini-slider:before{content:"";position:absolute;height:18px;width:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+#socialMediaIntegrations .uc49-mini-switch input:checked+.uc49-mini-slider{background:#16a34a}
+#socialMediaIntegrations .uc49-mini-switch input:checked+.uc49-mini-slider:before{transform:translateX(20px)}
+#socialMediaIntegrations .uc49-grid-btn{width:32px;height:32px;min-width:32px;padding:0;border-radius:999px}
+#socialMediaIntegrations .uc49-summary-status{margin-left:auto;margin-right:8px}
+#socialMediaIntegrations details>summary{gap:10px}
+#socialMediaIntegrations details>summary .uc49-summary-status{flex:0 0 auto}
+#socialMediaIntegrations .uc49-global-msg:empty{display:none}
+#socialMediaIntegrations .uc49-global-msg{margin:0}
+#socialMediaIntegrations .uc49-category-note{margin:0}
+#socialMediaIntegrations .uc49-info-line{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+#socialMediaIntegrations .uc49-info-btn{width:34px;height:34px;min-width:34px;border:1px solid var(--line);border-radius:999px;background:#fcfcfe;color:var(--blue);font-weight:950;cursor:pointer;box-shadow:0 7px 20px rgba(24,22,55,.08)}
+#socialMediaIntegrations .uc49-info-help{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fcfcfe;color:var(--muted);font-size:12px;line-height:1.55}
+#socialMediaIntegrations .uc49-info-help[hidden]{display:none}
+#socialMediaIntegrations .uc49-info-help strong{color:var(--dark)}
+#socialMediaIntegrations .uc49-info-help ul{margin:8px 0 0;padding-left:20px}
+#socialMediaIntegrations .uc49-grid-empty{grid-column:1/-1;padding:16px;color:var(--muted)}
+#socialMediaIntegrations .uc49-ad-old-grid{display:none!important}
+
+#settings .uc-v1649-marquee-master{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;border:1px solid var(--line);border-radius:18px;background:#fcfcfe;padding:14px;margin-top:14px}
+#settings .uc-v1649-marquee-master strong{color:var(--dark)}
+#settings .uc-v1649-marquee-master small{display:inline;margin-left:8px;color:var(--muted);line-height:1.45}
+#settings .uc-v1649-marquee-master .switch{align-self:center}
+
+@media(max-width:760px){
+  #socialMediaIntegrations .uc49-pane-copy h2{font-size:19px}
+  #socialMediaIntegrations .uc49-grid-card{padding:14px}
+  #settings .uc-v1649-marquee-master{grid-template-columns:1fr auto;gap:10px}
+  #settings .uc-v1649-marquee-master small{display:block;margin:5px 0 0}
+}
+/* V16.49 owns the summary status badge inside the unified hub, avoiding duplicate badges. */
+#socialMediaIntegrations details>summary:has(.uc49-summary-status)>.uc-v168-status-badge,
+#socialMediaIntegrations details>summary:has(.uc49-summary-status)>#uc48SeoBadge{display:none!important}

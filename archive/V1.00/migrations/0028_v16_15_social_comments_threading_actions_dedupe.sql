@@ -1,0 +1,10 @@
+ALTER TABLE social_comments ADD COLUMN post_published_at TEXT NOT NULL DEFAULT '';
+ALTER TABLE social_comments ADD COLUMN parent_comment_id TEXT NOT NULL DEFAULT '';
+ALTER TABLE social_comments ADD COLUMN admin_reply_text TEXT NOT NULL DEFAULT '';
+ALTER TABLE social_comments ADD COLUMN admin_reply_at TEXT NOT NULL DEFAULT '';
+ALTER TABLE social_comments ADD COLUMN admin_reply_author TEXT NOT NULL DEFAULT '';
+ALTER TABLE social_comments ADD COLUMN admin_reply_external_id TEXT NOT NULL DEFAULT '';
+ALTER TABLE social_comments ADD COLUMN remote_liked INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE social_comments ADD COLUMN remote_hidden INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE social_comments ADD COLUMN remote_deleted INTEGER NOT NULL DEFAULT 0;
+CREATE INDEX IF NOT EXISTS idx_social_comments_parent ON social_comments(platform,parent_comment_id);

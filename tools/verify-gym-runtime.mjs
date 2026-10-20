@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {request as httpsRequest} from 'node:https';
-import {mkdtemp,rm,mkdir,writeFile} from 'node:fs/promises';
+import {mkdtemp,rm,mkdir,writeFile,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -17,6 +17,8 @@ try{
  server=spawn(process.execPath,[cli,'pages','dev','public','--ip','127.0.0.1','--port',String(port),'--inspector-port',String(port+1),'--local-protocol','https','--persist-to',state,'--binding','SITE_URL=https://127.0.0.1:'+port,'--binding','ADMIN_LOGIN_EMAIL=gym-owner@example.test','--binding','ADMIN_LOGIN_PASSWORD='+password],{cwd:root,env:childEnv});
  let log='';await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Local worker startup timed out: '+log.slice(-2000))),30000),read=bytes=>{log+=bytes;if(log.includes('Ready on')){clearTimeout(timer);resolve();}};server.stdout.on('data',read);server.stderr.on('data',read);server.once('exit',code=>{clearTimeout(timer);reject(Error('Local worker exited '+code+': '+log.slice(-2000)));});});
  let response=await get('/manifest.webmanifest');assert.equal(response.status,200);assert.equal(JSON.parse(response.text).name,'IronPulse Gym');results.push('Real Worker serves the gym manifest');
+ response=await get('/release.json');assert.equal(response.status,200);assert.deepEqual(JSON.parse(response.text),JSON.parse(await readFile(join(root,'public/release.json'),'utf8')));results.push('Current release identifier served by the actual local Worker');
+ response=await get('/archive/V1.00/wrangler.jsonc');assert.notEqual(response.text.trim(),(await readFile(join(root,'archive/V1.00/wrangler.jsonc'),'utf8')).trim());assert.doesNotMatch(response.text,/\"pages_build_output_dir\"/);results.push('Preserved source configuration is outside the served application and is not exposed through archive URLs');
  response=await get('/student-dashboard?view=memberships');assert.equal(response.status,301);assert.equal(response.headers.location,'https://127.0.0.1:'+port+'/member-dashboard?view=memberships');
  response=await get('/member-dashboard');assert.equal(response.status,200);assert.match(response.headers['cache-control'],/no-store/);assert.match(response.headers['x-robots-tag'],/noindex/);assert.match(response.text,/Member Dashboard/);results.push('Dashboard alias, query retention, private caching and indexing headers');
  response=await get('/api/public/site');assert.equal(response.status,200);assert.equal(JSON.parse(response.text).settings.siteName,'IronPulse Gym');
@@ -27,5 +29,5 @@ try{
  response=await get('/api/portal/auth/context?role=admin',{cookie});assert.equal(response.status,200);assert.equal(JSON.parse(response.text).home,'/admin/');results.push('Configured first Admin login, HttpOnly session and authenticated settings/context');
  response=await get('/api/admin/auth/logout',{method:'POST',cookie,body:{}});assert.equal(response.status,200);
  response=await get('/api/admin/settings',{cookie});assert.equal(response.status,401);results.push('Revoked session is rejected after logout');
- const output=join(root,'verification/ironpulse-v1.01');await mkdir(output,{recursive:true});await writeFile(join(output,empty?'runtime-empty-results.json':'runtime-results.json'),JSON.stringify({pass:true,localOnly:true,initialDatabase:empty?'empty':'migrated',results},null,2)+'\n');console.log('Real Cloudflare local runtime checks passed ('+(empty?'empty':'migrated')+' D1): '+results.length+' groups.');
+ const output=join(root,'verification/ironpulse-v1.03');await mkdir(output,{recursive:true});await writeFile(join(output,empty?'runtime-empty-results.json':'runtime-results.json'),JSON.stringify({pass:true,localOnly:true,initialDatabase:empty?'empty':'migrated',results},null,2)+'\n');console.log('Real Cloudflare local runtime checks passed ('+(empty?'empty':'migrated')+' D1): '+results.length+' groups.');
 }finally{server?.kill('SIGTERM');if(server)await new Promise(resolve=>{server.once('exit',resolve);setTimeout(resolve,1000);});await rm(state,{recursive:true,force:true});}

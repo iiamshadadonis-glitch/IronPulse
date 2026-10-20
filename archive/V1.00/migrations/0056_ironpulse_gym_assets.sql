@@ -1,0 +1,6 @@
+-- Presentation-only defaults for the separate gym instance. No schema changes.
+UPDATE banners SET desktop_image_url='/assets/gym-hero.jpg',mobile_image_url='/assets/gym-hero.jpg',subtitle='Show up for yourself. Train anywhere with guided online fitness sessions.' WHERE sort_order=1 AND link_value='online-gym-membership';
+UPDATE banners SET desktop_image_url='/assets/gym-training.jpg',mobile_image_url='/assets/gym-training.jpg',title='Build Strength. Build Consistency.' WHERE sort_order=2 AND link_value='private-coaching-circle';
+UPDATE banners SET desktop_image_url='/assets/gym-interior.jpg',mobile_image_url='/assets/gym-interior.jpg',subtitle='Your goals. Your pace. Consistent training, online and in the gym.' WHERE sort_order=3 AND link_value='hybrid-fitness-membership';
+INSERT INTO studio_gallery_images(image_url,alt_text,visible,sort_order) SELECT '/assets/gym-interior.jpg','IronPulse Gym strength and cardio training space',1,1 WHERE NOT EXISTS(SELECT 1 FROM studio_gallery_images);
+INSERT INTO studio_gallery_images(image_url,alt_text,visible,sort_order) SELECT '/assets/gym-training.jpg','Guided strength training at IronPulse Gym',1,2 WHERE NOT EXISTS(SELECT 1 FROM studio_gallery_images WHERE image_url='/assets/gym-training.jpg');

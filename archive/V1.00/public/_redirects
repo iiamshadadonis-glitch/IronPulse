@@ -1,0 +1,11 @@
+/sitemap /sitemap.xml 301
+/admin /admin/ 301
+/plans /offers 301
+/memberships /offers 301
+/dance-classes /blog 301
+/auditions /blog 301
+/auditions-sitemap.xml /sitemap.xml 301
+/student-dashboard /member-dashboard 301
+/student-dashboard.html /member-dashboard 301
+/fitness-tips /blog 301
+/gym-memberships /offers 301

@@ -1,0 +1,2 @@
+Compatibility: 177 unchanged CSS files, 268 matching runtime-schema fingerprints, 55 unchanged migration DDL sets, 183 API paths and 265 backend structures. Three small routing/authentication changes are tested separately.
+Gym routing, bootstrap isolation, deployment isolation, fresh SQLite defaults, specialties, dictionary defaults, PWA dimensions, 504 parsed scripts and 27 page asset inventories passed.

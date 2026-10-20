@@ -1,0 +1,1 @@
+V1.58 service-worker tests passed: actual push handler, latest rules, manual broadcast, account/logout isolation, offline privacy, same-origin clicks and preserved legacy Inbox routing.

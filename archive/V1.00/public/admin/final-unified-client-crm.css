@@ -1,0 +1,300 @@
+/* Unified Urgent Casting client CRM — additive styling only. */
+:root{
+  --uc-crm-wine:#4B55BE;
+  --uc-crm-wine-dark:#4b0614;
+  --uc-crm-pink:#A469A8;
+  --uc-crm-gold:#A469A8;
+  --uc-crm-cream:#ffffff;
+  --uc-crm-cream-2:#f6f6fa;
+  --uc-crm-line:#dedfec;
+  --uc-crm-ink:#261118;
+  --uc-crm-muted:#64676a;
+  --uc-crm-green:#15803d;
+  --uc-crm-green-bg:#dcfce7;
+  --uc-crm-blue:#1d4ed8;
+  --uc-crm-blue-bg:#dbeafe;
+  --uc-crm-red:#b91c1c;
+  --uc-crm-red-bg:#fee2e2;
+  --uc-crm-orange:#a34a00;
+  --uc-crm-orange-bg:#f0f0f7;
+}
+
+/* Contact form: labels, controls and helper lines stay aligned in the same row. */
+.contact-phone-grid{align-items:start!important}
+.contact-phone-grid>.field{grid-template-rows:auto minmax(46px,auto) minmax(32px,auto);align-content:start}
+.contact-phone-grid>.field>label{align-self:end}
+.contact-phone-grid>.field>.hint{display:block;line-height:1.35;margin-top:2px}
+
+/* Search is a standalone primary navigation item directly beneath Dashboard. */
+.side .nav>button[data-tab="search"]{background:rgba(241,239,247,.08)}
+.side .nav>button[data-tab="search"].active,
+.side .nav>button[data-tab="search"]:hover{background:linear-gradient(135deg,rgba(75,85,190,.22),rgba(164,105,168,.18));color:#ffffff}
+
+/* Dashboard list cards — same information architecture as the reference CRM,
+   recolored for Urgent Casting. */
+.uc-dashboard-client-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:14px 0 4px}
+.uc-dashboard-client-card{position:relative;border:1px solid var(--uc-crm-line);border-radius:20px;background:linear-gradient(180deg,#fcfcfe,#ffffff);padding:18px;box-shadow:0 12px 34px rgba(74,6,20,.07);cursor:pointer;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;min-width:0}
+.uc-dashboard-client-card:hover,.uc-dashboard-client-card:focus{transform:translateY(-2px);border-color:rgba(75,85,190,.38);box-shadow:0 18px 42px rgba(74,6,20,.12);outline:none}
+.uc-card-title{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding-right:2px}
+.uc-card-title h3{margin:0 0 4px;font-size:20px;color:var(--uc-crm-ink);line-height:1.15;word-break:break-word}
+.uc-card-title p{margin:0;color:var(--uc-crm-muted);font-size:13px;word-break:break-word}
+.uc-time-pill{flex:0 0 auto;display:inline-flex;align-items:center;border:1px solid #f2c58f;background:#f6f5fb;color:#8a3c16;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:900;white-space:nowrap}
+.uc-card-chip-row,.uc-card-money-row,.uc-client-heading-chips,.uc-client-analytics-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.uc-card-chip-row{margin:13px 0 12px}
+.uc-card-money-row{margin-top:12px}
+.uc-crm-chip{display:inline-flex;align-items:center;border-radius:999px;padding:6px 10px;font-size:12px;line-height:1;font-weight:900;background:#f5ebe4;color:#5e4650;border:1px solid transparent}
+.uc-crm-chip.green{background:var(--uc-crm-green-bg);color:var(--uc-crm-green)}
+.uc-crm-chip.blue{background:var(--uc-crm-blue-bg);color:var(--uc-crm-blue)}
+.uc-crm-chip.red{background:var(--uc-crm-red-bg);color:var(--uc-crm-red)}
+.uc-crm-chip.gold{background:#fff1bf;color:#865200}
+.uc-card-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.uc-card-info-grid>div,.uc-summary-grid>div,.uc-payment-client-grid>div,.uc-sub-grid>div{background:#f7f7fc;border:1px solid rgba(75,85,190,.16);border-radius:14px;padding:11px 12px;min-width:0}
+.uc-card-info-grid span,.uc-summary-grid span,.uc-payment-client-grid span,.uc-sub-grid span{display:block;color:var(--uc-crm-muted);font-size:11px;font-weight:850;margin-bottom:4px}
+.uc-card-info-grid strong,.uc-summary-grid strong,.uc-payment-client-grid strong,.uc-sub-grid strong{display:block;color:var(--uc-crm-ink);font-size:14px;line-height:1.28;word-break:break-word}
+.uc-page-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.uc-page-chip{display:inline-flex;align-items:center;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;background:#fff1bf;color:#795000;border:1px solid #f2d27b;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.uc-page-chip.top{background:var(--uc-crm-green-bg);color:var(--uc-crm-green);border-color:#a7e6bc}
+.uc-page-chip.low{background:#fff0df;color:#a34000;border-color:#f6c68e}
+.uc-card-pager{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:10px 0 14px;padding:10px 12px;border:1px solid var(--uc-crm-line);background:#fcfcfe;border-radius:14px;color:var(--uc-crm-muted);font-size:12px;font-weight:800}
+.uc-card-pager label{display:flex;align-items:center;gap:7px}
+.uc-card-pager select{width:auto;min-width:72px;padding:7px 8px;border:1px solid var(--uc-crm-line);border-radius:10px;background:#fff}
+.uc-card-pager>div{display:flex;gap:8px}
+.uc-card-pager .btn[disabled]{opacity:.42;cursor:not-allowed;box-shadow:none}
+
+/* Unified Client Details modal. */
+.uc-client-modal{z-index:240!important;align-items:center!important;padding:20px!important}
+.uc-client-modal-card{width:min(1180px,96vw)!important;max-height:92vh!important;overflow:auto!important;padding:0!important;background:var(--uc-crm-cream)!important;border:1px solid rgba(75,85,190,.18);box-shadow:0 36px 100px rgba(23,24,52,.28)}
+.uc-client-modal-head{position:sticky;top:0;z-index:8;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 22px;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--uc-crm-line)}
+.uc-client-modal-head h2{margin:0;color:var(--uc-crm-ink)}
+#ucClientModalBody{padding:20px 22px 24px}
+.uc-client-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:14px}
+.uc-client-heading h2{margin:0 0 4px;font-size:26px;line-height:1.1;color:var(--uc-crm-ink)}
+.uc-client-heading p{margin:0;color:var(--uc-crm-muted);font-weight:750;word-break:break-word}
+.uc-client-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}
+.uc-client-stat{border:1px solid var(--uc-crm-line);border-radius:17px;background:linear-gradient(180deg,#ffffff,#f7f7fc);padding:14px;min-width:0;min-height:102px}
+.uc-client-stat>span{display:block;color:var(--uc-crm-muted);font-size:12px;font-weight:900}
+.uc-client-stat>strong{display:block;color:var(--uc-crm-wine);font-size:23px;line-height:1.1;margin:8px 0 6px;word-break:break-word}
+.uc-client-stat>small{display:block;color:var(--uc-crm-muted);font-size:11px;line-height:1.35}
+.uc-client-analytics-row{margin:4px 0 8px}
+.uc-client-actionbar{display:flex;gap:9px;flex-wrap:wrap;margin:17px 0 13px;padding-top:3px}
+.uc-client-actionbar .btn{min-width:auto!important}
+.uc-client-tabs,.uc-payhub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}
+.uc-client-tabs button,.uc-payhub-tabs button{border:1px solid var(--uc-crm-line);background:#f7f7fc;color:#3f4259;border-radius:999px;padding:9px 14px;font:inherit;font-weight:900;cursor:pointer;box-shadow:none}
+.uc-client-tabs button.active,.uc-payhub-tabs button.active{background:linear-gradient(135deg,var(--uc-crm-wine),#A469A8 58%,var(--uc-crm-pink));border-color:transparent;color:#fff}
+.uc-client-tab-panel{display:none}
+.uc-client-tab-panel.active{display:block}
+.uc-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.uc-client-note{margin-top:12px;padding:14px;border:1px solid var(--uc-crm-line);border-radius:15px;background:#fcfcfe}
+.uc-client-note>span{display:block;font-size:12px;font-weight:900;color:var(--uc-crm-muted);margin-bottom:5px}
+.uc-client-note p{margin:0;white-space:pre-wrap;line-height:1.55}
+.uc-history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.uc-history-card{border:1px solid var(--uc-crm-line);border-radius:17px;background:#fcfcfe;padding:14px;min-width:0}
+.uc-history-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.uc-history-top strong{display:block;font-size:15px}
+.uc-history-top small{display:block;color:var(--uc-crm-muted);margin-top:4px}
+.uc-history-card p{margin:10px 0 0;white-space:pre-wrap;line-height:1.45;word-break:break-word}
+.uc-history-foot{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.uc-history-foot span{font-size:11px;font-weight:800;padding:5px 8px;border-radius:999px;background:#fff1bf;color:#795000}
+
+/* Forms inside the unified modal. */
+.uc-crm-form{gap:14px}
+.uc-form-grid{display:grid;gap:13px}
+.uc-form-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.uc-form-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.uc-form-grid>.field{min-width:0;align-content:start}
+.uc-form-grid>.field>.hint{min-height:32px;line-height:1.35}
+.uc-form-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:5px}
+.uc-search-card{padding:18px!important}
+.uc-search-grid{display:grid;grid-template-columns:minmax(260px,2fr) 180px 180px auto;gap:12px;align-items:end}
+
+/* Payment area. */
+.uc-payment-client-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:15px}
+.uc-payment-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px}
+.uc-payment-toolbar h3{margin:0 0 4px}
+.uc-payment-toolbar p{margin:0}
+.uc-subscriptions-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.uc-subscription-card{border:1px solid var(--uc-crm-line);border-radius:18px;background:#fcfcfe;padding:15px;min-width:0}
+.uc-sub-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
+.uc-sub-head span{display:block;color:var(--uc-crm-muted);font-size:11px;font-weight:850}
+.uc-sub-head strong{display:block;margin-top:3px;font-size:13px;word-break:break-all}
+.uc-sub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.uc-sub-grid small{display:block;color:var(--uc-crm-muted);margin-top:3px;font-size:11px}
+.uc-sub-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.uc-payment-record-title{margin:22px 0 10px}
+.uc-payment-records{max-width:100%;overflow:auto;border-radius:14px}
+.uc-payment-records table{min-width:1040px}
+.uc-payment-records th,.uc-payment-records td{vertical-align:middle!important}
+.uc-generated-qr{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:12px 0}
+.uc-generated-qr img{width:min(260px,100%);height:auto;border:1px solid var(--uc-crm-line);border-radius:14px;background:#fff;padding:8px}
+
+.uc-crm-toast{position:fixed;right:18px;bottom:18px;z-index:320;max-width:min(420px,90vw);background:#dcfce7;color:#166534;border:1px solid #86d39e;border-radius:14px;padding:12px 16px;font-weight:900;box-shadow:0 18px 50px rgba(0,0,0,.16);opacity:0;transform:translateY(12px);pointer-events:none;transition:.18s ease}
+.uc-crm-toast.bad{background:#fee2e2;color:#991b1b;border-color:#f6a4a4}
+.uc-crm-toast.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:980px){
+  .uc-dashboard-client-grid,.uc-history-grid,.uc-subscriptions-grid{grid-template-columns:1fr}
+  .uc-client-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .uc-form-grid.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .uc-search-grid{grid-template-columns:1fr 1fr}
+  .uc-search-grid .btn{justify-self:start}
+}
+@media(max-width:700px){
+  .uc-client-modal{padding:8px!important;align-items:flex-start!important}
+  .uc-client-modal-card{width:100%!important;max-height:96vh!important;border-radius:18px!important}
+  .uc-client-modal-head{padding:14px}
+  #ucClientModalBody{padding:14px}
+  .uc-client-heading,.uc-payment-toolbar{display:grid;grid-template-columns:1fr}
+  .uc-client-stat-grid,.uc-summary-grid,.uc-form-grid.two,.uc-form-grid.three,.uc-payment-client-grid,.uc-sub-grid,.uc-search-grid,.uc-card-info-grid{grid-template-columns:1fr}
+  .uc-client-actionbar .btn{flex:1 1 145px}
+  .uc-card-title{display:block}
+  .uc-time-pill{margin-top:8px}
+}
+
+/* v3 compact CRM polish: uniform page badges, helper lines, refresh controls and expandable history. */
+.uc-page-chip{
+  width:104px!important;height:28px!important;min-width:104px!important;max-width:104px!important;
+  padding:0 9px!important;justify-content:center!important;line-height:28px!important;
+  font-size:10.5px!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;
+}
+.uc-client-name-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.uc-contact-sep{display:inline-block;margin:0 6px;color:#b88a8e}
+.uc-change-star{display:inline-flex;color:#ef8a00;font-size:20px;line-height:1;animation:ucBlinkStar 1.05s ease-in-out infinite;filter:drop-shadow(0 2px 5px rgba(239,138,0,.2))}
+.uc-change-star.small{font-size:14px;vertical-align:middle}
+@keyframes ucBlinkStar{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.85)}}
+.uc-refresh-icon{width:34px;height:34px;min-width:34px;border-radius:999px;border:1px solid #dedfec;background:#ffffff;color:#9d0912;font-size:20px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 5px 14px rgba(92,0,15,.08);padding:0}
+.uc-refresh-icon:hover{background:#f1effa;transform:translateY(-1px)}
+.uc-refresh-icon.inline{width:31px;height:31px;min-width:31px;font-size:17px}
+.uc-refresh-icon.spinning{animation:ucSpin .7s linear infinite}
+@keyframes ucSpin{to{transform:rotate(360deg)}}
+.uc-profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.uc-profile-grid>div{background:#f7f7fc;border:1px solid rgba(75,85,190,.16);border-radius:14px;padding:11px 12px;min-width:0}
+.uc-profile-grid span{display:block;color:var(--uc-crm-muted);font-size:11px;font-weight:850;margin-bottom:4px}
+.uc-profile-grid strong{display:block;color:var(--uc-crm-ink);font-size:14px;line-height:1.3;word-break:break-word}
+.uc-history-card.clickable{cursor:pointer;transition:.15s ease}
+.uc-history-card.clickable:hover{border-color:#eab77e;box-shadow:0 9px 24px rgba(102,28,32,.08);transform:translateY(-1px)}
+.uc-history-more{display:none;margin-top:12px;padding-top:11px;border-top:1px dashed #e4c8ad;color:#624c54;font-size:12px;line-height:1.6}
+.uc-history-more>div{margin:3px 0}
+.uc-history-card.open .uc-history-more{display:block}
+.uc-form-grid>.field>.hint,.uc-crm-form>.field>.hint{
+  display:block!important;min-height:0!important;height:17px!important;line-height:17px!important;margin:5px 2px 0!important;
+  font-size:10.5px!important;color:#62647a!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;
+}
+.uc-form-grid>.field{display:flex;flex-direction:column;min-width:0}
+.uc-form-grid>.field input,.uc-form-grid>.field select{flex:0 0 auto}
+.uc-form-grid.two,.uc-form-grid.three{align-items:start}
+.uc-empty-payment-row td{text-align:center!important;color:#62647a!important;background:#f7f7fc!important;padding:18px!important}
+.uc-fallback-note{margin-top:10px;padding:10px 12px;border-radius:12px;background:#fff1bf;color:#6f4600;font-weight:800;font-size:12px}
+.uc-generated-link{display:inline-block;max-width:100%;word-break:break-all;margin:8px 0}
+@media(max-width:980px){.uc-profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.uc-profile-grid{grid-template-columns:1fr}.uc-page-chip{width:96px!important;min-width:96px!important;max-width:96px!important}.uc-form-grid>.field>.hint,.uc-crm-form>.field>.hint{font-size:10px!important}}
+
+/* v3.1 final alignment safeguards. */
+.uc-frequency-wrap{display:contents!important}
+.uc-client-heading-chips{display:flex;align-items:center;justify-content:flex-end;gap:7px;flex-wrap:wrap}
+.uc-page-chips{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+
+/* v4 final page-activity alignment: fixed badge cells create true rows instead of uneven flex wrapping. */
+.uc-page-chips{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fill,104px)!important;
+  grid-auto-rows:28px!important;
+  column-gap:8px!important;
+  row-gap:8px!important;
+  align-items:center!important;
+  justify-content:start!important;
+  width:100%!important;
+  margin-top:12px!important;
+}
+.uc-page-chip{
+  display:flex!important;
+  width:104px!important;
+  min-width:104px!important;
+  max-width:104px!important;
+  height:28px!important;
+  min-height:28px!important;
+  max-height:28px!important;
+  margin:0!important;
+  padding:0 9px!important;
+  box-sizing:border-box!important;
+  align-items:center!important;
+  justify-content:center!important;
+  align-self:center!important;
+  line-height:1!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+  white-space:nowrap!important;
+  text-overflow:ellipsis!important;
+}
+@media(max-width:700px){
+  .uc-page-chips{grid-template-columns:repeat(auto-fill,96px)!important;column-gap:7px!important;row-gap:7px!important}
+  .uc-page-chip{width:96px!important;min-width:96px!important;max-width:96px!important}
+}
+
+/* Keep the abbreviated Time Spent metric on one visual line. */
+.uc-client-stat-grid>.uc-client-stat:nth-child(2)>strong{
+  white-space:nowrap!important;
+  word-break:normal!important;
+  font-size:clamp(16px,1.65vw,23px)!important;
+  letter-spacing:-.15px!important;
+}
+
+/* Time Spent uses readable number-over-unit blocks rather than code-like abbreviations. */
+.uc-client-stat.uc-time-stat{display:flex;flex-direction:column}
+.uc-time-parts{display:flex;align-items:flex-start;gap:18px;margin:8px 0 6px;min-height:42px;white-space:nowrap}
+.uc-time-part{display:flex;flex-direction:column;align-items:flex-start;min-width:38px}
+.uc-time-part>strong{display:block;color:var(--uc-crm-wine);font-size:24px;line-height:1;font-weight:900;margin:0}
+.uc-time-part>small{display:block;color:var(--uc-crm-muted);font-size:11px;line-height:1.1;margin-top:5px;text-transform:lowercase;font-weight:700}
+.uc-client-stat-grid>.uc-client-stat.uc-time-stat>small{margin-top:auto}
+.uc-client-stat-grid>.uc-client-stat.uc-time-stat>strong{white-space:normal!important}
+@media(max-width:700px){.uc-time-parts{gap:14px}.uc-time-part>strong{font-size:22px}}
+
+/* V6 duplicate-candidate picker: replaces the browser datalist popup with the same clean admin dropdown language. */
+.uc-candidate-combo{position:relative;min-width:0}
+.uc-candidate-combo>input{width:100%;padding-right:50px!important}
+.uc-candidate-combo:not(.has-options)>input{padding-right:14px!important}
+.uc-candidate-toggle{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:28px;height:28px;border:1.7px solid var(--uc-crm-wine);border-radius:999px;background:#ffffff;display:inline-flex;align-items:center;justify-content:center;padding:0;cursor:pointer;z-index:3}
+.uc-candidate-toggle span{width:8px;height:8px;border-right:2px solid var(--uc-crm-wine);border-bottom:2px solid var(--uc-crm-wine);transform:translateY(-2px) rotate(45deg);transition:transform .18s ease}
+.uc-candidate-combo.open .uc-candidate-toggle span{transform:translateY(2px) rotate(225deg)}
+.uc-candidate-menu{display:none;position:absolute;left:0;right:0;top:calc(100% + 5px);z-index:120;max-height:230px;overflow:auto;background:#fff;border:1px solid #b9a89f;border-radius:0 0 12px 12px;box-shadow:0 16px 34px rgba(32,5,12,.16);padding:0;overscroll-behavior:contain}
+.uc-candidate-combo.open .uc-candidate-menu{display:block}
+.uc-candidate-menu button{display:flex!important;width:100%;min-width:0!important;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px!important;border:0!important;border-bottom:1px solid #eee2d8!important;border-radius:0!important;background:#fff!important;color:#111!important;text-align:left!important;font:inherit!important;cursor:pointer!important;box-shadow:none!important}
+.uc-candidate-menu button:last-child{border-bottom:0!important}
+.uc-candidate-menu button:hover,.uc-candidate-menu button:focus{background:#e7f0ff!important;outline:none!important}
+.uc-candidate-value{overflow-wrap:anywhere}
+.uc-candidate-menu small{flex:0 0 auto;color:#64676a;font-size:10px;font-weight:750;white-space:nowrap}
+.uc-candidate-field{overflow:visible!important}
+.uc-crm-form,.uc-form-grid{overflow:visible!important}
+
+/* Contact shortcuts stay visually clean: only the saved value is shown, but the value itself is clickable. */
+.uc-contact-link{color:inherit!important;text-decoration:none!important;border-bottom:1px dashed rgba(75,85,190,.35);cursor:pointer}
+.uc-contact-link:hover{color:var(--uc-crm-wine)!important;border-bottom-color:var(--uc-crm-wine)}
+.uc-card-name-line{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.uc-fav-badge{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:4px 8px;background:linear-gradient(135deg,#4B55BE,#A469A8);border:1px solid #A469A8;color:#A469A8;font-size:10px;line-height:1;font-weight:950;letter-spacing:.4px;box-shadow:0 3px 9px rgba(74,6,20,.12)}
+.uc-favorite-toggle{display:inline-flex;align-items:center;gap:6px;border:1px solid #dedfec;background:#ffffff;color:#6e4d57;border-radius:999px;padding:7px 10px;font:inherit;font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap}
+.uc-favorite-toggle .uc-fav-star{font-size:15px;color:#bda89d;line-height:1}
+.uc-favorite-toggle.active{background:#fff1bf;color:#7b4c00;border-color:#A469A8}
+.uc-favorite-toggle.active .uc-fav-star{color:#4B55BE}
+.uc-favorite-toggle:hover{transform:translateY(-1px);box-shadow:0 5px 12px rgba(74,6,20,.08)}
+
+/* Time spent can now grow to months/days while keeping each non-zero unit readable. */
+.uc-time-parts{flex-wrap:wrap!important;row-gap:8px!important;white-space:normal!important}
+.uc-time-part{min-width:34px!important}
+
+@media(max-width:700px){
+  .uc-candidate-menu{max-height:190px}
+  .uc-client-heading-chips{justify-content:flex-start!important}
+}
+.uc-candidate-combo.open-up .uc-candidate-menu{top:auto;bottom:calc(100% + 5px);border-radius:12px 12px 0 0}
+
+/* V14.7 history/source/payment readability */
+.uc-crm-chip.source,.uc-source-pill{background:#e8f2ff!important;color:#1553a3!important;border:1px solid #b9d5ff!important}.uc-source-pill{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:800}.uc-history-tags{display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:wrap}.uc-crm-chip.request{background:#e5f8ed!important;color:#087a3d!important}.uc-request-history-card{border-color:#cde9d7!important}.uc-payment-records table{min-width:1320px!important;table-layout:fixed!important}.uc-payment-records th,.uc-payment-records td{padding:12px 14px!important;vertical-align:top!important;line-height:1.35!important}.uc-payment-records th:nth-child(1){width:150px}.uc-payment-records th:nth-child(2){width:140px}.uc-payment-records th:nth-child(3){width:150px}.uc-payment-records th:nth-child(4){width:180px}.uc-payment-records th:nth-child(5){width:145px}.uc-payment-records th:nth-child(6){width:135px}.uc-payment-records th:nth-child(7){width:155px}.uc-payment-records th:nth-child(8){width:115px}.uc-payment-records th:nth-child(9){width:130px}.uc-payment-records th:nth-child(10){width:210px}.uc-payment-records td{overflow-wrap:anywhere}.uc-payment-date-cell{white-space:normal!important}.uc-pay-date-line,.uc-pay-time-line{display:block;white-space:nowrap}.uc-pay-time-line{margin-top:3px;color:var(--uc-crm-muted);font-size:11px}
+
+/* V16.7: Generate Payment can generate locally or deliver the same request by WhatsApp/Gmail. */
+.uc-payment-delivery-actions{align-items:center;gap:10px!important}
+.uc-payment-delivery-actions .btn{min-height:38px}
+.uc-payment-delivery-success{margin-top:10px}
+@media(max-width:760px){
+  .uc-payment-delivery-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+  .uc-payment-delivery-actions .btn{width:100%;justify-content:center}
+}
+@media(max-width:480px){.uc-payment-delivery-actions{grid-template-columns:1fr}}
