@@ -8,6 +8,6 @@ export async function onRequestPost({request,env}){
   try{
     const data=await loadSeoPosts(env,{statuses:['live','draft'],maxPages:20,cacheSeconds:0});
     const published=(data.posts||[]).filter(x=>x.status==='published').length,drafts=(data.posts||[]).filter(x=>x.status==='draft').length;
-    return json({ok:true,total:(data.posts||[]).length,published,drafts,imported:0,updated:0,message:`Loaded ${published} published and ${drafts} Draft dance class article(s) directly from ${data.blogName||'the selected SEO'}. No website database copy was created.`});
-  }catch(e){return json({error:`SEO refresh failed: ${e.message}`,hint:'Confirm SEO is connected in Settings → Integrations → SEO, then try Load Dance Class Updates again.'},502);}
+    return json({ok:true,total:(data.posts||[]).length,published,drafts,imported:0,updated:0,message:`Loaded ${published} published and ${drafts} Draft fitness class fitness tip(s) directly from ${data.blogName||'the selected SEO'}. No website database copy was created.`});
+  }catch(e){return json({error:`SEO refresh failed: ${e.message}`,hint:'Confirm SEO is connected in Settings → Integrations → SEO, then try Load Fitness Tips again.'},502);}
 }

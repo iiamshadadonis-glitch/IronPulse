@@ -70,7 +70,7 @@
   }
   function fallbackStoryTable(stories){
     const box=$('#storyTable');if(!box)return;
-    box.innerHTML=stories.length?`<table class="table fixed-table clean-actions story-admin-table"><thead><tr><th>Story</th><th>Preview</th><th>Status</th><th>Sort</th><th>Actions</th></tr></thead><tbody>${stories.map(story=>`<tr><td class="text-cell"><strong>${H(story.title||'Untitled story')}</strong><br><small>${H(story.url||'')}</small></td><td><img class="story-thumb" src="${H(story.thumbnail_url||'/assets/product-generic.svg')}" alt=""></td><td><span class="status ${story.status==='draft'?'draft':'active'}">${H(story.status||'active')}</span></td><td><div class="sort-actions nowrap"><button class="btn secondary small icon-action" type="button" title="Move up" onclick="moveStory(${Number(story.id)},-1)">↑</button><button class="btn secondary small icon-action" type="button" title="Move down" onclick="moveStory(${Number(story.id)},1)">↓</button></div></td><td><div class="action-row nowrap"><button class="btn secondary small icon-action" type="button" title="Edit" onclick="editStory(${Number(story.id)})">✎</button><button class="btn danger small icon-action" type="button" title="Delete" onclick="deleteStory(${Number(story.id)})">×</button></div></td></tr>`).join('')}</tbody></table>`:'<div class="notice">No Student Stories added yet.</div>';
+    box.innerHTML=stories.length?`<table class="table fixed-table clean-actions story-admin-table"><thead><tr><th>Story</th><th>Preview</th><th>Status</th><th>Sort</th><th>Actions</th></tr></thead><tbody>${stories.map(story=>`<tr><td class="text-cell"><strong>${H(story.title||'Untitled story')}</strong><br><small>${H(story.url||'')}</small></td><td><img class="story-thumb" src="${H(story.thumbnail_url||'/assets/product-generic.svg')}" alt=""></td><td><span class="status ${story.status==='draft'?'draft':'active'}">${H(story.status||'active')}</span></td><td><div class="sort-actions nowrap"><button class="btn secondary small icon-action" type="button" title="Move up" onclick="moveStory(${Number(story.id)},-1)">↑</button><button class="btn secondary small icon-action" type="button" title="Move down" onclick="moveStory(${Number(story.id)},1)">↓</button></div></td><td><div class="action-row nowrap"><button class="btn secondary small icon-action" type="button" title="Edit" onclick="editStory(${Number(story.id)})">✎</button><button class="btn danger small icon-action" type="button" title="Delete" onclick="deleteStory(${Number(story.id)})">×</button></div></td></tr>`).join('')}</tbody></table>`:'<div class="notice">No Member Stories added yet.</div>';
   }
   function applyStoryRows(stories){
     let rendered=false;
@@ -87,16 +87,16 @@
       }catch(error){lastError=error;}
       if(attempt<2)await pause(180*(attempt+1));
     }
-    throw lastError||new Error('The Student Story list could not be refreshed.');
+    throw lastError||new Error('The Member Story list could not be refreshed.');
   }
 
   async function saveStudentStory(form){
     form=repairStoryForm()||form;if(!form||form.dataset.dropbeatStorySaving==='1')return;
     const button=$('[data-dropbeat-story-save],button[type="submit"]',form),originalLabel=button?.textContent||'Save Success Story';
     const payload=Object.fromEntries(new FormData(form).entries());payload.url=normalizeStoryUrl(payload.url);
-    if(!payload.url){showStatus('<strong>Student Story was not saved.</strong> Paste a YouTube or Instagram link.','error');form.elements?.url?.focus?.();return;}
+    if(!payload.url){showStatus('<strong>Member Story was not saved.</strong> Paste a YouTube or Instagram link.','error');form.elements?.url?.focus?.();return;}
     form.dataset.dropbeatStorySaving='1';form.setAttribute('aria-busy','true');if(button){button.disabled=true;button.textContent='Saving…';}
-    showStatus('<strong>Saving Student Story…</strong> The entry is being stored and verified.');
+    showStatus('<strong>Saving Member Story…</strong> The entry is being stored and verified.');
     try{
       const saved=await requestJson('/api/admin/success-stories',{method:'POST',body:JSON.stringify(payload)});
       if(!saved?.id&&!saved?.story?.id)throw new Error(`The server did not confirm a saved record. Reference: ${saved?.diagnostic_id||'not supplied'}`);
@@ -104,15 +104,15 @@
       try{rows=await readStories(saved);}catch(refreshError){
         const current=[];try{if(typeof A!=='undefined'&&Array.isArray(A?.stories))current.push(...A.stories);}catch(_){ }
         const story=saved.story||{...payload,id:saved.id};rows=[story,...current.filter(item=>Number(item.id)!==Number(story.id))];applyStoryRows(rows);
-        showStatus(`<strong>Student Story saved.</strong> The record is stored, but the list refresh needs another page refresh. ${H(refreshError.message)} Reference: ${H(saved.diagnostic_id||'not supplied')}`,'success');
+        showStatus(`<strong>Member Story saved.</strong> The record is stored, but the list refresh needs another page refresh. ${H(refreshError.message)} Reference: ${H(saved.diagnostic_id||'not supplied')}`,'success');
         form.reset();const hidden=$('[name="id"]',form);if(hidden)hidden.value='';return;
       }
       applyStoryRows(rows);form.reset();const hidden=$('[name="id"]',form);if(hidden)hidden.value='';
       const publication=String(payload.status||'active')==='draft'?'saved as a draft':'published and available to the website';
-      showStatus(`<strong>Student Story saved successfully.</strong> It is visible in Existing Student Stories and ${publication}. Reference: ${H(saved.diagnostic_id||'not supplied')}`,'success');
+      showStatus(`<strong>Member Story saved successfully.</strong> It is visible in Existing Member Stories and ${publication}. Reference: ${H(saved.diagnostic_id||'not supplied')}`,'success');
       if(String(payload.status||'active')!=='draft')requestJson(`/api/public/success-stories?dropbeat=1.08&fresh=${Date.now()}`,{},12000).catch(()=>{});
     }catch(error){
-      showStatus(`<strong>Student Story was not saved.</strong> ${H(error?.message||'Please check the link and try again.')}`,'error');
+      showStatus(`<strong>Member Story was not saved.</strong> ${H(error?.message||'Please check the link and try again.')}`,'error');
     }finally{
       delete form.dataset.dropbeatStorySaving;form.removeAttribute('aria-busy');if(button){button.disabled=false;button.textContent=originalLabel;}
     }

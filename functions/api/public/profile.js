@@ -34,7 +34,7 @@ export async function onRequestPost({request,env}){
     visitor_id:clean(b.visitor_id,80),source_detail:clean(b.source_detail||'/submit-profile',300),...context
   };
   const merged=await mergeLeadSubmission(env,payload,{submissionType:'profile',source:'submit_profile'});
-  const adminNumber=env.WHATSAPP_ADMIN_NUMBER||'9193919375';
-  await sendWhatsAppText(env,adminNumber,`DropBeat Dance Studio trial class request\nName: ${name}\nDate of birth: ${birth.dob}\nGender: ${gender}\nPhone: +${phone}\nEmail: ${email}\nAbout: ${payload.profile_message||'-'}${merged.duplicate?`\nMerged with existing client by: ${merged.matched_by}`:''}`).catch(()=>{});
+  const adminNumber=env.WHATSAPP_ADMIN_NUMBER||'919381521966';
+  await sendWhatsAppText(env,adminNumber,`IronPulse Gym trial class request\nName: ${name}\nDate of birth: ${birth.dob}\nGender: ${gender}\nPhone: +${phone}\nEmail: ${email}\nAbout: ${payload.profile_message||'-'}${merged.duplicate?`\nMerged with existing client by: ${merged.matched_by}`:''}`).catch(()=>{});
   return json({ok:true,lead_id:merged.lead.id,duplicate:merged.duplicate,matched_by:merged.matched_by,message:merged.duplicate?'Your trial request was added to your existing profile.':'Your trial class request has been submitted successfully.'});
 }

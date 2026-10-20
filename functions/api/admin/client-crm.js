@@ -303,7 +303,7 @@ async function buildClient(env,ident){
   const socialProfiles=socialProfileBundle(lead||{},candidateBundle,identityResult?.results||[]);client.social_profiles=socialProfiles;
   for(const cfg of SOCIAL_PROFILES){const first=socialProfiles.find(x=>x.field===cfg.field);if(cfg.field!=='instagram_id')client[cfg.field]=first?.id||'';}
   const history=[];
-  const normalizeCommentText=v=>String(v||'').replace(/^Blog comment on /i,'Comment on article ');
+  const normalizeCommentText=v=>String(v||'').replace(/^Blog comment on /i,'Comment on fitness tip ');
   const legacyIsComment=lead&&(/comment/i.test(String(lead.source||''))||/^Blog comment on |^Comment on article /i.test(String(lead.message||'')));
   // Preserve the original interaction for legacy leads, but do not duplicate it when
   // lead_submissions already contains the exact first interaction.
@@ -556,7 +556,7 @@ async function createStripeLink(env,{oid,lead,name,phone,email,amount,service,ki
     'line_items[0][quantity]':1,
     'metadata[order_id]':oid,'metadata[lead_id]':String(lead.id),
     'after_completion[type]':'hosted_confirmation',
-    'after_completion[hosted_confirmation][custom_message]':'Payment received. DropBeat Dance Studio will verify and continue your onboarding.'
+    'after_completion[hosted_confirmation][custom_message]':'Payment received. IronPulse Gym will verify and continue your onboarding.'
   };
   let warning='';
   if(recurring && billingMonths<=36){
@@ -597,7 +597,7 @@ async function createStripeLink(env,{oid,lead,name,phone,email,amount,service,ki
 async function createRazorpayRequest(env,{oid,lead,name,phone,email,amount,service,kind,b}){
   let data=null,url='';
   if(kind==='qr'){
-    data=await razorpayApi(env,'/payments/qr_codes',{payload:{type:'upi_qr',name:`DropBeat Dance Studio ${name}`.slice(0,50),usage:'single_use',fixed_amount:true,payment_amount:amount,description:service.slice(0,120),notes:{order_id:oid,lead_id:String(lead.id)}}});url=data.image_url||data.short_url||'';
+    data=await razorpayApi(env,'/payments/qr_codes',{payload:{type:'upi_qr',name:`IronPulse Gym ${name}`.slice(0,50),usage:'single_use',fixed_amount:true,payment_amount:amount,description:service.slice(0,120),notes:{order_id:oid,lead_id:String(lead.id)}}});url=data.image_url||data.short_url||'';
   }else if(kind==='payment_link'){
     data=await razorpayApi(env,'/payment_links',{payload:{amount,currency:'INR',accept_partial:false,description:service,customer:{name,contact:phone,email},notify:{sms:false,email:!!email},reminder_enable:false,notes:{order_id:oid,lead_id:String(lead.id)}}});url=data.short_url||'';
   }else{
@@ -654,7 +654,7 @@ async function sendExistingPaymentRequest(request,env,b){
   const order=await env.DB.prepare('SELECT * FROM orders WHERE order_id=? LIMIT 1').bind(orderIdValue).first();if(!order)throw new Error('The generated payment request could not be found. Generate it again and retry sending.');
   const item=await env.DB.prepare('SELECT * FROM order_items WHERE order_id=? ORDER BY id LIMIT 1').bind(order.id).first().catch(()=>null);
   const channel=clean(b.channel||b.delivery_channel,30).toLowerCase(),kind=String(order.status||'').toLowerCase()==='qr_created'?'qr':(String(order.payment_mode||'').toLowerCase()==='subscription'?'subscription':'payment_link');
-  const [site,social]=await Promise.all([getSiteSettings(env),getSocialIntegrationSettings(env)]),brand=clean(site.siteName,160)||'DropBeat Dance Studio',amount=paymentRequestNowPaise(order,item),service=clean(item?.product_name||item?.variant_name||'Payment Request',300),publicUrl=paymentRequestPublicUrl(request,env,order);
+  const [site,social]=await Promise.all([getSiteSettings(env),getSocialIntegrationSettings(env)]),brand=clean(site.siteName,160)||'IronPulse Gym',amount=paymentRequestNowPaise(order,item),service=clean(item?.product_name||item?.variant_name||'Payment Request',300),publicUrl=paymentRequestPublicUrl(request,env,order);
   const customerName=clean(order.customer_name||'Customer',160),phone=normalizePhone(order.customer_phone||order.website_phone||''),email=clean(order.customer_email,240).toLowerCase();
   const nativeQrImage=kind==='qr'&&String(order.gateway||'').toLowerCase()==='razorpay'&&/^https?:\/\//i.test(clean(order.fallback_url,2000));
   if(channel==='whatsapp'){
@@ -682,9 +682,9 @@ async function sendExistingPaymentRequest(request,env,b){
 }
 
 async function createGatewayRequest(env,b,kind){
-  const lead=await ensureLead(env,b),phone=normalizePhone(b.phone||lead.phone||''),email=clean(b.email||lead.email,220),name=clean(b.name||lead.name||'DropBeat Dance Studio Customer',160);
+  const lead=await ensureLead(env,b),phone=normalizePhone(b.phone||lead.phone||''),email=clean(b.email||lead.email,220),name=clean(b.name||lead.name||'IronPulse Gym Customer',160);
   const amount=rupeesToPaise(b.amount_rupees||b.subscription_amount||0);if(amount<=0)throw new Error('Enter the amount to collect.');
-  const service=clean(b.service_summary||b.plan_name||'DropBeat Dance Studio Membership',500),oid=orderId(),origin=clean(b.origin,500)||clean(env.PUBLIC_SITE_URL,500)||clean(env.SITE_URL,500)||'https://dance-class-at2.pages.dev';
+  const service=clean(b.service_summary||b.plan_name||'IronPulse Gym Membership',500),oid=orderId(),origin=clean(b.origin,500)||clean(env.PUBLIC_SITE_URL,500)||clean(env.SITE_URL,500)||'https://ironpulse-gym.pages.dev';
   const paymentKind=kind==='subscription'?'subscription':'one_time',billingMonths=Math.max(1,Number(b.billing_months||1)),totalCount=Math.max(1,Number(b.total_count||1)),setupAmount=rupeesToPaise(paymentKind==='subscription'?b.setup_amount||0:0);
   const startDate=clean(b.start_date,20);let startAt=0;if(paymentKind==='subscription'&&startDate){const x=Math.floor(new Date(`${startDate}T00:00:00+05:30`).getTime()/1000);if(Number.isFinite(x)&&x>Math.floor(Date.now()/1000)+60)startAt=x;}
   const isTrial=paymentKind==='subscription'&&setupAmount>0&&startAt>0;

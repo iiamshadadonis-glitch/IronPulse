@@ -34,7 +34,7 @@
       '/api/admin/api-settings':'API settings saved successfully.',
       '/api/admin/subscribers':'Customer record saved successfully.',
       '/api/admin/refunds':'Refund record saved successfully.',
-      '/api/admin/blogs':'Audition update saved successfully.',
+      '/api/admin/blogs':'Fitness Tip update saved successfully.',
       '/api/admin/auth/security':'Admin security saved successfully.',
       '/api/admin/import-products':'Bulk import completed successfully.',
       '/api/admin/custom-subscription':'Payment link created successfully.',
@@ -65,7 +65,7 @@
     if(current){try{new FormData(current).forEach((v,k)=>formValues[k]=v); current.querySelectorAll('input[type="checkbox"]').forEach(x=>formValues[x.name]=x.checked);}catch(_){}}
     panel.innerHTML=`
       <div class="top"><h1>Ad Integrations</h1><button class="btn secondary compact" type="button" onclick="load_adIntegrations()">Refresh</button></div>
-      <div class="notice">Paste the ad-network code given by Google AdSense or another ad network. This is only for connecting ad networks to the website. Advertisement placements inside individual Auditions can still be managed from the Auditions page.</div>
+      <div class="notice">Paste the ad-network code given by Google AdSense or another ad network. This is only for connecting ad networks to the website. Advertisement placements inside individual Fitness Tips can still be managed from the Fitness Tips page.</div>
       <form id="adIntegrationsForm" class="form ad-clean-form" onsubmit="saveAdIntegrations(event)">
         <details class="card ad-clean-detail"><summary>Google AdSense</summary><div class="ad-clean-body">
           <div class="ad-toggle-row"><label class="ad-toggle"><input type="checkbox" name="googleAdsenseEnabled"> Enable Google AdSense</label></div>
@@ -125,13 +125,13 @@
   function addBlogHints(){
     const panel=$('#blogs'); if(!panel || panel.dataset.finalBlogHints==='1') return;
     panel.dataset.finalBlogHints='1';
-    const summary=panel.querySelector('details summary'); if(summary) summary.textContent='Post New Audition Update';
+    const summary=panel.querySelector('details summary'); if(summary) summary.textContent='Post New Fitness Tip Update';
     const form=$('#blogForm'); if(!form) return;
-    form.insertAdjacentHTML('afterbegin','<div class="blogger-required-note"><strong>SEO connection required for posting:</strong> Published audition updates should be posted after SEO is configured in API Settings. Drafts can be saved for preparation.</div>');
+    form.insertAdjacentHTML('afterbegin','<div class="blogger-required-note"><strong>SEO connection required for posting:</strong> Published fitness updates should be posted after SEO is configured in API Settings. Drafts can be saved for preparation.</div>');
     const title=form.elements.title; if(title){title.maxLength=90; title.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Maximum 90 characters. Keep the audition title short and clear.</small>');}
     const slug=form.elements.slug; if(slug){slug.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Optional. If left blank, the link ending is created from the audition title.</small>');}
     const tags=form.elements.tags; if(tags){tags.maxLength=180; tags.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Use up to 12 tags, separated with commas. Example: audition, casting, ott, hyderabad.</small>');}
-    const excerpt=form.elements.excerpt; if(excerpt){excerpt.maxLength=220; excerpt.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Maximum 220 characters. This appears as the short summary on the Auditions page.</small>');}
+    const excerpt=form.elements.excerpt; if(excerpt){excerpt.maxLength=220; excerpt.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Maximum 220 characters. This appears as the short summary on the Fitness Tips page.</small>');}
     const body=form.elements.body_text; if(body){body.maxLength=10000; body.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Recommended: 150 to 1,500 words. Maximum 10,000 characters. Write normal paragraphs; the website formats them automatically.</small>');}
     const cover=form.elements.cover_image_url; if(cover){cover.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Paste a direct public image URL, website media URL, CDN URL, or direct image link.</small>');}
     const status=form.elements.status; if(status){status.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Draft keeps it hidden. Published only after SEO is configured.</small>');}
@@ -148,16 +148,16 @@
     const f=$('#blogForm'); if(!f) return;
     const status=statusOverride || f.status?.value || 'draft';
     if(status==='published' && !(await bloggerReady())){
-      writeMsg('#blogMsg','Kindly configure SEO in API Settings before posting audition updates. Save as Draft is available until SEO is connected.','error');
-      toast('SEO connection is required before posting audition updates.','error');
+      writeMsg('#blogMsg','Kindly configure SEO in API Settings before posting fitness updates. Save as Draft is available until SEO is connected.','error');
+      toast('SEO connection is required before posting fitness updates.','error');
       return;
     }
     try{
       if(typeof oldSaveBlogAudition==='function') await oldSaveBlogAudition(ev,statusOverride);
-      writeMsg('#blogMsg',status==='published'?'Audition update posted successfully. Public link will use /blog/your-link-ending.':'Audition update saved as draft successfully.','success');
+      writeMsg('#blogMsg',status==='published'?'Fitness Tip update posted successfully. Public link will use /blog/your-link-ending.':'Fitness Tip update saved as draft successfully.','success');
     }catch(err){
-      writeMsg('#blogMsg',err.message||'Audition update could not be saved.','error');
-      toast(err.message||'Audition update could not be saved.','error');
+      writeMsg('#blogMsg',err.message||'Fitness Tip update could not be saved.','error');
+      toast(err.message||'Fitness Tip update could not be saved.','error');
     }
   };
 
@@ -165,7 +165,7 @@
   window.load_apiSettings=async function(){
     if(typeof oldLoadApiSettings==='function') await oldLoadApiSettings();
     const docs=$('#apiDocs');
-    if(docs) docs.innerHTML += '<br><br><strong>Auditions / SEO:</strong> To publish audition updates, first save the SEO/Blogger connection details here and connect through your automation/OAuth setup. Without this connection, the Auditions page will allow drafts but block publishing.';
+    if(docs) docs.innerHTML += '<br><br><strong>Fitness Tips / SEO:</strong> To publish fitness updates, first save the SEO/Blogger connection details here and connect through your automation/OAuth setup. Without this connection, the Fitness Tips page will allow drafts but block publishing.';
   };
 
   // Public blog path support in admin table: show /blog/slug style links.

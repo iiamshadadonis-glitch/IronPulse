@@ -32,7 +32,7 @@ function imageFiles(form) {
 export async function onRequestGet({ request, env }) {
   const auth = await authenticate(request, env); if (auth) return auth;
   try { return reply({ ok:true, images:await rows(env), maxImages:MAX_IMAGES }); }
-  catch (error) { return reply({ ok:false, error:error.message || 'Studio images could not be loaded.' }, 500); }
+  catch (error) { return reply({ ok:false, error:error.message || 'Gym images could not be loaded.' }, 500); }
 }
 
 export async function onRequestPost({ request, env }) {
@@ -42,17 +42,17 @@ export async function onRequestPost({ request, env }) {
   try {
     const form = await request.formData();
     const files = imageFiles(form);
-    if (!files.length) return reply({ ok:false, error:'Choose at least one DropBeat Studio image.' }, 400);
+    if (!files.length) return reply({ ok:false, error:'Choose at least one IronPulse Gym image.' }, 400);
     const count = Number((await withD1Retry(() => env.DB.prepare('SELECT COUNT(*) n FROM studio_gallery_images').first()))?.n || 0);
     if (count + files.length > MAX_IMAGES) {
-      return reply({ ok:false, error:`You can keep up to ${MAX_IMAGES} DropBeat Studio images. Remove an image or select fewer files.` }, 400);
+      return reply({ ok:false, error:`You can keep up to ${MAX_IMAGES} IronPulse Gym images. Remove an image or select fewer files.` }, 400);
     }
     const max = await withD1Retry(() => env.DB.prepare('SELECT COALESCE(MAX(sort_order),0) n FROM studio_gallery_images').first());
     const firstSort = Number(max?.n || 0) + 1;
-    const baseAlt = text(form.get('alt_text')) || 'DropBeat Studio dance class';
+    const baseAlt = text(form.get('alt_text')) || 'IronPulse Gym fitness class';
     const visible = form.get('visible') === '0' ? 0 : 1;
     for (let index = 0; index < files.length; index++) {
-      const asset = await uploadWebsiteImageToGoogleDrive(env, files[index], { maxBytes:15*1024*1024, folderName:'DropBeat Studio Gallery', settingsPrefix:'studioGallery' });
+      const asset = await uploadWebsiteImageToGoogleDrive(env, files[index], { maxBytes:15*1024*1024, folderName:'IronPulse Gym Gallery', settingsPrefix:'studioGallery' });
       stored.push(asset);
       const alt = files.length > 1 ? `${baseAlt} ${index + 1}`.slice(0, 160) : baseAlt;
       const result = await withD1Retry(() => env.DB.prepare(
@@ -60,11 +60,11 @@ export async function onRequestPost({ request, env }) {
       ).bind(asset.url, `drive:${asset.id}`, alt, visible, firstSort + index).run());
       created.push(Number(result?.meta?.last_row_id || 0));
     }
-    return reply({ ok:true, ids:created, images:await rows(env), message:`${files.length} studio image${files.length === 1 ? '' : 's'} saved.` }, 201);
+    return reply({ ok:true, ids:created, images:await rows(env), message:`${files.length} gym image${files.length === 1 ? '' : 's'} saved.` }, 201);
   } catch (error) {
     if (stored.length) await env.DB.batch(stored.map(asset => env.DB.prepare('DELETE FROM studio_gallery_images WHERE object_key=?').bind(`drive:${asset.id}`))).catch(() => {});
     await Promise.all(stored.map(asset => deleteGoogleDriveFile(env, asset.id).catch(() => {})));
-    return reply({ ok:false, error:error.message || 'Studio images could not be saved.' }, 400);
+    return reply({ ok:false, error:error.message || 'Gym images could not be saved.' }, 400);
   }
 }
 
@@ -77,9 +77,9 @@ export async function onRequestPut({ request, env }) {
       const body = await request.json().catch(() => ({}));
       if (body.action !== 'move') return reply({ ok:false, error:'Unsupported studio-image action.' }, 400);
       const id = Number(body.id || 0), direction = Number(body.dir || 0);
-      if (!id || !direction) return reply({ ok:false, error:'Studio image and direction are required.' }, 400);
+      if (!id || !direction) return reply({ ok:false, error:'Gym image and direction are required.' }, 400);
       const ordered = await rows(env), index = ordered.findIndex(item => Number(item.id) === id);
-      if (index < 0) return reply({ ok:false, error:'Studio image not found.' }, 404);
+      if (index < 0) return reply({ ok:false, error:'Gym image not found.' }, 404);
       const swap = direction < 0 ? index - 1 : index + 1;
       if (swap < 0 || swap >= ordered.length) return reply({ ok:true, unchanged:true, images:ordered });
       const ids = ordered.map(item => item.id);
@@ -92,17 +92,17 @@ export async function onRequestPut({ request, env }) {
 
     const form = await request.formData();
     const id = Number(form.get('id') || 0);
-    if (!id) return reply({ ok:false, error:'Studio image id is required.' }, 400);
+    if (!id) return reply({ ok:false, error:'Gym image id is required.' }, 400);
     const current = await withD1Retry(() => env.DB.prepare('SELECT * FROM studio_gallery_images WHERE id=?').bind(id).first());
-    if (!current) return reply({ ok:false, error:'Studio image not found.' }, 404);
+    if (!current) return reply({ ok:false, error:'Gym image not found.' }, 404);
     const file = imageFiles(form)[0] || null;
-    if (file) replacement = await uploadWebsiteImageToGoogleDrive(env, file, { maxBytes:15*1024*1024, folderName:'DropBeat Studio Gallery', settingsPrefix:'studioGallery' });
+    if (file) replacement = await uploadWebsiteImageToGoogleDrive(env, file, { maxBytes:15*1024*1024, folderName:'IronPulse Gym Gallery', settingsPrefix:'studioGallery' });
     await withD1Retry(() => env.DB.prepare(
       'UPDATE studio_gallery_images SET image_url=?,object_key=?,alt_text=?,visible=?,updated_at=CURRENT_TIMESTAMP WHERE id=?'
     ).bind(
       replacement?.url || current.image_url,
       replacement?.id ? `drive:${replacement.id}` : current.object_key || '',
-      text(form.get('alt_text')) || current.alt_text || 'DropBeat Studio dance class',
+      text(form.get('alt_text')) || current.alt_text || 'IronPulse Gym fitness class',
       form.get('visible') === '0' ? 0 : 1,
       id
     ).run());
@@ -110,7 +110,7 @@ export async function onRequestPut({ request, env }) {
     return reply({ ok:true, image:(await rows(env)).find(item => Number(item.id) === id) || null, images:await rows(env) });
   } catch (error) {
     if (replacement) await deleteGoogleDriveFile(env, replacement.id).catch(() => {});
-    return reply({ ok:false, error:error.message || 'Studio image could not be updated.' }, 400);
+    return reply({ ok:false, error:error.message || 'Gym image could not be updated.' }, 400);
   }
 }
 
@@ -118,9 +118,9 @@ export async function onRequestDelete({ request, env }) {
   const auth = await authenticate(request, env); if (auth) return auth;
   try {
     const id = Number(new URL(request.url).searchParams.get('id') || 0);
-    if (!id) return reply({ ok:false, error:'Studio image id is required.' }, 400);
+    if (!id) return reply({ ok:false, error:'Gym image id is required.' }, 400);
     const current = await withD1Retry(() => env.DB.prepare('SELECT * FROM studio_gallery_images WHERE id=?').bind(id).first());
-    if (!current) return reply({ ok:false, error:'Studio image not found.' }, 404);
+    if (!current) return reply({ ok:false, error:'Gym image not found.' }, 404);
     await withD1Retry(() => env.DB.prepare('DELETE FROM studio_gallery_images WHERE id=?').bind(id).run());
     await deleteGoogleDriveFile(env, current.object_key || current.image_url).catch(() => {});
     const ordered = await rows(env);
@@ -129,6 +129,6 @@ export async function onRequestDelete({ request, env }) {
     ).bind(index + 1, item.id))));
     return reply({ ok:true, images:await rows(env) });
   } catch (error) {
-    return reply({ ok:false, error:error.message || 'Studio image could not be removed.' }, 400);
+    return reply({ ok:false, error:error.message || 'Gym image could not be removed.' }, 400);
   }
 }

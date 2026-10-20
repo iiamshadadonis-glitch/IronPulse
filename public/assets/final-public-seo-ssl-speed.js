@@ -1,6 +1,6 @@
 /* Public SEO/security/UX helpers. Business logic remains in app.js/app-extra.js. */
 (function(){
-  const BASE=String(location.origin||'https://dance-class-at2.pages.dev').replace(/\/$/,'');
+  const BASE=String(location.origin||'https://ironpulse-gym.pages.dev').replace(/\/$/,'');
   function ready(fn){document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn):fn();}
   function h(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
@@ -15,7 +15,7 @@
   function addDropbeatHomeSections(){
     if(document.body?.dataset?.ucLoad!=='home'||document.querySelector('.dropbeat-quick-strip'))return;
     const hero=document.querySelector('.hero-shell');if(!hero)return;
-    hero.insertAdjacentHTML('afterend',`<section class="dropbeat-quick-strip" aria-label="Dance class highlights"><div class="container dropbeat-quick-strip-inner"><div><span>Dance Classes</span><strong>Studio &amp; Online</strong></div><div><span>All Levels</span><strong>Learn at Your Pace</strong></div><div><span>Flexible Access</span><strong>Plans That Fit</strong></div><a class="dropbeat-strip-action" href="/submit-profile">Book the Class <span aria-hidden="true">→</span></a></div></section><section class="dropbeat-welcome section"><div class="container dropbeat-welcome-grid"><div id="dropbeatStudioVisual" class="dropbeat-welcome-visual" role="region" aria-roledescription="carousel" aria-label="DropBeat Studio images"></div><div class="dropbeat-welcome-copy"><span class="eyebrow">Welcome to</span><h2>DropBeat Studio</h2><p class="lead">Move with confidence in dance classes designed for beginners, enthusiasts and experienced dancers—online or in the studio.</p><div class="dropbeat-feature-list"><div><span>01</span><strong>Multiple dance styles</strong><small>Explore classes and workshops that match your interests.</small></div><div><span>02</span><strong>Friendly instruction</strong><small>Build technique, rhythm and confidence step by step.</small></div><div><span>03</span><strong>Flexible ways to learn</strong><small>Choose studio, online or hybrid membership options.</small></div></div><a class="btn" href="/about">Discover DropBeat</a></div></div></section>`);
+    hero.insertAdjacentHTML('afterend',`<section class="dropbeat-quick-strip" aria-label="Fitness class highlights"><div class="container dropbeat-quick-strip-inner"><div><span>Fitness Classes</span><strong>Gym &amp; Online</strong></div><div><span>All Levels</span><strong>Learn at Your Pace</strong></div><div><span>Flexible Access</span><strong>Plans That Fit</strong></div><a class="dropbeat-strip-action" href="/submit-profile">Book the Class <span aria-hidden="true">→</span></a></div></section><section class="dropbeat-welcome section"><div class="container dropbeat-welcome-grid"><div id="dropbeatStudioVisual" class="dropbeat-welcome-visual" role="region" aria-roledescription="carousel" aria-label="IronPulse Gym images"></div><div class="dropbeat-welcome-copy"><span class="eyebrow">Welcome to</span><h2>IronPulse Gym</h2><p class="lead">Move with confidence in fitness classes designed for beginners, enthusiasts and experienced athletes—online or in the gym.</p><div class="dropbeat-feature-list"><div><span>01</span><strong>Multiple Fitness Specialties</strong><small>Explore classes and workshops that match your interests.</small></div><div><span>02</span><strong>Friendly instruction</strong><small>Build technique, rhythm and confidence step by step.</small></div><div><span>03</span><strong>Flexible ways to learn</strong><small>Choose gym, online or hybrid membership options.</small></div></div><a class="btn" href="/about">Discover IronPulse</a></div></div></section>`);
     loadDropbeatStudioGallery();
   }
 
@@ -26,10 +26,10 @@
       const images=Array.isArray(data.images)?data.images.filter(item=>item&&item.image_url):[];
       if(!images.length){host.dataset.galleryState='fallback';return;}
       const fragment=document.createDocumentFragment(),slides=document.createElement('div'),dots=document.createElement('div');
-      slides.className='dropbeat-studio-slides';dots.className='dropbeat-studio-dots';dots.setAttribute('aria-label','Choose a DropBeat Studio image');
+      slides.className='dropbeat-studio-slides';dots.className='dropbeat-studio-dots';dots.setAttribute('aria-label','Choose a IronPulse Gym image');
       images.forEach((item,index)=>{
-        const img=document.createElement('img');img.className='dropbeat-studio-slide';img.src=String(item.image_url);img.alt=String(item.alt_text||'DropBeat Studio dance class');img.loading=index===0?'eager':'lazy';img.decoding='async';img.dataset.studioSlide=String(index);slides.appendChild(img);
-        if(images.length>1){const dot=document.createElement('button');dot.type='button';dot.className='dropbeat-studio-dot';dot.dataset.studioDot=String(index);dot.setAttribute('aria-label',`Show studio image ${index+1} of ${images.length}`);dots.appendChild(dot);}
+        const img=document.createElement('img');img.className='dropbeat-studio-slide';img.src=String(item.image_url);img.alt=String(item.alt_text||'IronPulse Gym fitness class');img.loading=index===0?'eager':'lazy';img.decoding='async';img.dataset.studioSlide=String(index);slides.appendChild(img);
+        if(images.length>1){const dot=document.createElement('button');dot.type='button';dot.className='dropbeat-studio-dot';dot.dataset.studioDot=String(index);dot.setAttribute('aria-label',`Show gym image ${index+1} of ${images.length}`);dots.appendChild(dot);}
       });
       const tint=document.createElement('span');tint.className='dropbeat-studio-tint';tint.setAttribute('aria-hidden','true');
       fragment.append(slides,tint);if(images.length>1)fragment.append(dots);host.replaceChildren(fragment);host.dataset.galleryState='ready';
@@ -84,7 +84,7 @@
   }
 
   function addBaseSchema(settings=window.__ucLatestSettings||{}){
-    const brand=String(settings.siteName||'DropBeat Dance Studio').trim()||'DropBeat Dance Studio',logo=new URL(settings.logoUrl||'/assets/dropbeat-logo.svg',location.origin).href;
+    const brand=String(settings.siteName||'IronPulse Gym').trim()||'IronPulse Gym',logo=new URL(settings.logoUrl||'/assets/ironpulse-logo.svg',location.origin).href;
     const data={
       '@context':'https://schema.org','@graph':[
         {'@type':'Organization','@id':BASE+'/#organization','name':brand,'url':BASE+'/','logo':{'@type':'ImageObject','url':logo}},
@@ -103,7 +103,7 @@
       ...(p.images?.[0]?.public_url?{'image':new URL(p.images[0].public_url,BASE).href}:{}),
       'offers':{'@type':'Offer','priceCurrency':'INR','price':String(Number(p.offer_price_paise||0)/100),'availability':'https://schema.org/InStock','url':BASE+'/offers#'+encodeURIComponent(p.slug||'')}
     }));
-    const brand=String(window.__ucLatestSettings?.siteName||'DropBeat Dance Studio').trim()||'DropBeat Dance Studio',s=document.createElement('script');s.id='uc-products-jsonld';s.type='application/ld+json';s.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList','name':selector==='#festivalGrid'?'Festival Offers':`${brand} Memberships`,'itemListElement':items});document.head.appendChild(s);
+    const brand=String(window.__ucLatestSettings?.siteName||'IronPulse Gym').trim()||'IronPulse Gym',s=document.createElement('script');s.id='uc-products-jsonld';s.type='application/ld+json';s.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList','name':selector==='#festivalGrid'?'Festival Offers':`${brand} Memberships`,'itemListElement':items});document.head.appendChild(s);
   };
 
   const oldApply=window.applySettings;

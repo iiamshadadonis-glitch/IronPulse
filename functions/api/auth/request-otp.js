@@ -7,15 +7,15 @@ const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
 const clean=(v,n=500)=>String(v??'').trim().slice(0,n);
 
 async function sendEmailOtp(env,site,to,otp,customerName=''){
-  const brand=clean(site?.siteName,160)||'DropBeat Dance Studio';
+  const brand=clean(site?.siteName,160)||'IronPulse Gym';
   const subject=`${brand} - Order Verification Code`;
   const html=brandedEmailHtml({
     site,env,title:'Order Verification Code',eyebrow:'Secure Order Access',customerName:customerName||'Customer',
     introHtml:'<p style="margin:0">Use the verification code below to securely view your private order and payment information.</p>',
     summaryTitle:'Your Verification Code',summaryRows:[['Verification Code',otp],['Valid For','10 minutes']],
-    bodyHtml:'<p style="margin:0">Enter this code only on the official Student Dashboard sign-in page. For your security, do not share the code with anyone.</p>',
+    bodyHtml:'<p style="margin:0">Enter this code only on the official Member Dashboard sign-in page. For your security, do not share the code with anyone.</p>',
     noteHtml:'If you did not request this verification code, you can safely ignore this email.',
-    ctaLabel:'Open Student Dashboard',ctaUrl:`${brandHomeUrl(env)}/student-dashboard`
+    ctaLabel:'Open Member Dashboard',ctaUrl:`${brandHomeUrl(env)}/member-dashboard`
   });
   const text=`Your ${brand} order verification code is ${otp}. It is valid for 10 minutes. Do not share this code.`;
   return sendConfiguredEmail(env,{to,subject,html,text,fromName:brand},{purpose:'otp'});
@@ -59,7 +59,7 @@ export async function onRequestPost({ request, env }) {
   try{
     if(channel==='email')await sendEmailOtp(env,site,lookupValue,otp,account.customer_name||'');
     else {
-      const brand=clean(site?.siteName,160)||'DropBeat Dance Studio';
+      const brand=clean(site?.siteName,160)||'IronPulse Gym';
       const sent=await sendWhatsAppText(env,lookupValue,`Your ${brand} verification code is ${otp}. It is valid for 10 minutes. Do not share this code.`);
       if(!sent?.ok)throw new Error('WhatsApp verification is not fully connected. Please use Contact to ask the admin for help.');
     }

@@ -197,7 +197,7 @@
     if(picker.dataset.db138Picker==='1')return;
     picker.dataset.db138Picker='1';picker.classList.add('db138-original-picker');
     const trigger=document.createElement('button');trigger.type='button';trigger.className='db137-choice-trigger';
-    const sync=()=>{const selected=$$('input:checked',picker).map(input=>input.value);trigger.textContent=selected.length?selected.join(', '):clean($('summary',picker)?.textContent)||'Choose dance styles';};
+    const sync=()=>{const selected=$$('input:checked',picker).map(input=>input.value);trigger.textContent=selected.length?selected.join(', '):clean($('summary',picker)?.textContent)||'Choose Fitness Specialties';};
     trigger.onclick=()=>{const render=content=>{content.replaceChildren();$$('input[type="checkbox"]',picker).filter(input=>!input.hidden).forEach(input=>{const button=document.createElement('button');button.type='button';button.className='db137-choice-option';button.textContent=clean(input.closest('label')?.textContent||input.value);button.classList.toggle('selected',input.checked);button.disabled=input.disabled;button.onclick=()=>{input.click();sync();render(content);};content.appendChild(button);});};openChoiceSheet({title:controlLabel(picker),trigger,render,done:true});};
     picker.after(trigger);picker.addEventListener('change',sync);sync();
   }
@@ -270,7 +270,7 @@
     if(form.dataset.db144Integration){const groups=[],labels=['Connection Details','Options','Advanced Settings'];for(let i=0;i<units.length;i+=6)groups.push({label:labels[groups.length]||'Additional Settings '+(groups.length-2),items:units.slice(i,i+6)});return reviewed(groups);}
     if(form.dataset.db143PageEditor)return reviewed([{label:'Editor',items:units}]);
     if(form.matches('[data-db122-class-change-form]'))return reviewed(['Class & Coach','Schedule & Reason'].map((label,index)=>({label,items:units.filter(unit=>(/changeType|newCoachId/.test(unitNames(unit))?0:1)===index)})));
-    if(form.getAttribute('id')==='blogForm')return reviewed(['Dance Tip','Image & Publishing','Social & Schedule'].map((label,index)=>({label,items:units.filter(unit=>blogStep(unit)===index)})).filter(step=>step.items.length));
+    if(form.getAttribute('id')==='blogForm')return reviewed(['Fitness Tip','Image & Publishing','Social & Schedule'].map((label,index)=>({label,items:units.filter(unit=>blogStep(unit)===index)})).filter(step=>step.items.length));
     if(form.getAttribute('id')==='db140AdvertisementForm')return reviewed([{label:'Advertisements',items:units}]);
     if(form.matches('[data-coach-form]'))return reviewed(['Coach Details','Schedule & Availability','Approved Remuneration','Social Profiles'].map((label,index)=>({label,items:units.filter(unit=>specializedStep(form,unit)===index)})).filter(step=>step.items.length));
     if(form.getAttribute('id')==='subscriptionBox'||form.getAttribute('id')==='oneTimeBox')return ['Customer Details','Class Details','Payment Details','Review & Create'].map((label,index)=>({label,items:units.filter(unit=>specializedStep(form,unit)===index)}));
@@ -287,7 +287,7 @@
   function blogStep(unit){
     const names=unitNames(unit);
     if(/social_first_comment|is_featured|auto_ads|schedule|poll/i.test(names+' '+unit.id))return 2;
-    if(/cover_image|status|uc54ArticleImage/.test(names+' '+unit.id))return 1;
+    if(/cover_image|status|uc54Fitness TipsImage/.test(names+' '+unit.id))return 1;
     return 0;
   }
   function clearLegacyWizard(form){
@@ -1137,7 +1137,7 @@
       if(!form&&$('#auditionAdsBox',body)){
         form=document.createElement('form');form.setAttribute('id','db140AdvertisementForm');form.className='form';form.onsubmit=event=>{event.preventDefault();window.saveBlogAudition?.(event,'published');};
         const nodes=[...body.childNodes];body.appendChild(form);nodes.forEach(node=>form.appendChild(node));
-        const post=$$('button',form).find(button=>/Post Dance Tip With|Post.*With Advertisements/i.test(clean(button.textContent)));if(post){post.type='submit';post.removeAttribute('onclick');}
+        const post=$$('button',form).find(button=>/Post Fitness Tip With|Post.*With Advertisements/i.test(clean(button.textContent)));if(post){post.type='submit';post.removeAttribute('onclick');}
         const add=$$('button',form).find(button=>/Add More Advertisement/i.test(clean(button.textContent)));
         if(add){const unit=document.createElement('div');unit.dataset.db140AdRow='1';add.closest('.form-actions').before(unit);unit.appendChild(add);}
       }
@@ -1605,7 +1605,7 @@
     form.dataset.db142Social=socialKey(form);form.classList.add('db142-social-form');
     const body=$(':scope>.db138-form-content',form)||form;
     if(form.getAttribute('id')==='uc48StoryForm'&&!$('[name="tags"]',form)){
-      const tags=document.createElement('div');tags.className='uc48-field-shell db142-story-addon';tags.innerHTML='<label>Tags / Hashtags Optional</label><input name="tags" maxlength="2000" placeholder="dance, classes"><small class="uc48-helper">Separate tags with commas. Publishing uses the supported platform fields.</small>';
+      const tags=document.createElement('div');tags.className='uc48-field-shell db142-story-addon';tags.innerHTML='<label>Tags / Hashtags Optional</label><input name="tags" maxlength="2000" placeholder="fitness, classes"><small class="uc48-helper">Separate tags with commas. Publishing uses the supported platform fields.</small>';
       const caption=$('[name="caption"]',form)?.closest('.uc48-field-shell'),media=$('.uc48-media-box',form);(caption||media)?.after(tags);
       if(window.ucV1676PollMarkup&&!$('[data-uc75-poll]',form)){const wrap=document.createElement('div');wrap.innerHTML=window.ucV1676PollMarkup('story');const poll=wrap.firstElementChild;poll.classList.add('db142-story-addon');$('.uc48-schedule-box',form)?.after(poll);}
     }
@@ -1620,7 +1620,7 @@
         const index=carousel&&!node.matches('.uc56-carousel-slots,.uc56-add-more')?1:0;groups[index].appendChild(node);
       });
     }
-    $$('input[type="file"]',form).forEach(input=>window.DropBeatUI.nativeUpload(input,{label:'Upload Media',kind:'media',areaClass:'db142-upload-area',captionTag:'small',placeholder:'Tap to choose a photo or video'}));
+    $$('input[type="file"]',form).forEach(input=>window.DropBeatUI.nativeUpload(input,{label:'Upload Media',kind:'media',areaClass:'db142-upload-area',captionTag:'small',placeholder:'Kickboxing to choose a photo or video'}));
   }
   function restoreSocialForms(){
     socialOpenKey=null;
@@ -1822,7 +1822,7 @@
     const name=control.name||control.getAttribute('id')||'';
     const social=name.match(/^social_(\d+)_(url|enabled)$/);
     if(social){const platform=$('[name="social_'+social[1]+'_label"]',control.form||control.closest('form'))?.value||'Social profile';return platform+(social[2]==='enabled'?' Visibility':' URL');}
-    const exact={siteName:'Brand Name',tagline:'Tagline',logoUrl:'Logo URL',logoFile:'Logo Image',faviconUrl:'Favicon URL',faviconFile:'Favicon Image',whatsappNumber:'Floating WhatsApp Number',ucAdminHelpEnabled:'Admin Information Help',adminHelpEnabled:'Admin Information Help',marqueeTabTitleEnabled:'Marquee Tab Title Effect',legalEntityEnabled:'Enable Legal Entity',legalEntityName:'Organization / Legal Name',legalEntityAddress:'Legal Address',ucTaxMaster:'Enable Taxes',ucTaxGst:'GST',ucTaxService:'Service Charge',ucTaxOther:'Other Tax',emailEnabled:'Email Notifications',whatsappEnabled:'WhatsApp Notifications',images:'Studio Images',alt_text:'Alt Text',visible:'Visibility'};
+    const exact={siteName:'Brand Name',tagline:'Tagline',logoUrl:'Logo URL',logoFile:'Logo Image',faviconUrl:'Favicon URL',faviconFile:'Favicon Image',whatsappNumber:'Floating WhatsApp Number',ucAdminHelpEnabled:'Admin Information Help',adminHelpEnabled:'Admin Information Help',marqueeTabTitleEnabled:'Marquee Tab Title Effect',legalEntityEnabled:'Enable Legal Entity',legalEntityName:'Organization / Legal Name',legalEntityAddress:'Legal Address',ucTaxMaster:'Enable Taxes',ucTaxGst:'GST',ucTaxService:'Service Charge',ucTaxOther:'Other Tax',emailEnabled:'Email Notifications',whatsappEnabled:'WhatsApp Notifications',images:'Gym Images',alt_text:'Alt Text',visible:'Visibility'};
     if(exact[name])return exact[name];
     if(control.type==='file'){const label=$(':scope>label:not(.db143-upload-area)',control.closest('.field'));return clean(label?.textContent)||'Upload Image';}
     if(control.matches('[data-map-field]'))return titleCase(control.dataset.mapField.replaceAll('_',' '));
@@ -1874,7 +1874,7 @@
   }
   function v146BannerActions(panel){
     let box=$(':scope>.db146-banner-actions',panel);if(!box){box=document.createElement('div');box.className='db146-banner-actions';const after=$(':scope>.uc54-brand-context',panel)||panel.firstElementChild;after.after(box);}
-    [['#bannerForm','Home Banner'],['[data-studio-gallery-form]','Studio Images']].forEach(([selector,title])=>{
+    [['#bannerForm','Home Banner'],['[data-studio-gallery-form]','Gym Images']].forEach(([selector,title])=>{
       const form=$(selector,panel),state=v145BrandStates.get(form);if(!form||!state)return;
       state.owner.classList.add('db146-banner-source');const key=selector==='#bannerForm'?'banner':'studio';let row=$('[data-db146-banner="'+key+'"]',box);
       if(!row){row=document.createElement('button');row.type='button';row.dataset.db146Banner=key;v145SetRow(row,title);box.appendChild(row);}
@@ -1914,7 +1914,7 @@
           const more=document.createElement('button');more.type='button';more.className='db138-icon-button db146-brand-more';more.setAttribute('aria-label','More form actions');more.innerHTML=icon('more');more.onclick=()=>v145ShowBrandActions(form,more);const actions=headerActions(head);actions.insertBefore(more,$('.db141-header-close',actions));
         }
       }
-      $$('input[type=file]',form).forEach(input=>{const caption=$('span',input.closest('.db143-upload-area'));if(caption){const label=[...input.files].map(file=>file.name).join(', ')||'Tap to choose an image';if(caption.textContent!==label)caption.textContent=label;}});
+      $$('input[type=file]',form).forEach(input=>{const caption=$('span',input.closest('.db143-upload-area'));if(caption){const label=[...input.files].map(file=>file.name).join(', ')||'Kickboxing to choose an image';if(caption.textContent!==label)caption.textContent=label;}});
 
       $$('.db138-page-header .db138-header-icons>[data-db139-action=info]',form).forEach(proxy=>{if(!proxy.classList.contains('db145-brand-help'))proxy.remove();});
       if(form.dataset.db145Brand==='settings')$$('.db138-open-form',root).filter(row=>row.__form===form).forEach(row=>{if(!v145RemovedNodes.has(row)){const marker=document.createComment('Original desktop settings launcher');row.before(marker);row.remove();v145RemovedNodes.set(row,marker);}});
@@ -2383,9 +2383,9 @@
     $$('.uc56-carousel-slot>.uc56-slot-number',root).forEach(node=>{const marker=document.createComment('Desktop media number');node.before(marker);removedNumbers.push({node,marker});node.remove();});
     const blogs=root.id==='blogs'?root:$('#blogs',root);if(!blogs)return;
     $$('details.admin-collapsed-card',blogs).forEach(nativeDetail);
-    const blog=$('#blogForm',blogs);if(blog)contextHelp(blog,'Dance Tip — Help & Instructions',$$('.blogger-required-note,:scope>.notice',blog));
-    const heading=$$('h2,h3',blogs).find(node=>/^Existing Dance Tips$/i.test(clean(node.textContent))),card=heading?.closest('.card');contextHelp(card,'Dance Tips — Help & Instructions',$$('.notice',card).filter(node=>/Dance Tip publishing:|SEO connection required/i.test(node.textContent)));
-    const load=$$('button',blogs).find(button=>/Load Dance Tips/i.test(button.textContent));if(load){const head=$(':scope>.top',blogs);if(head)proxyIcon(load,headerActions(head),'refresh','Load Dance Tips');}
+    const blog=$('#blogForm',blogs);if(blog)contextHelp(blog,'Fitness Tip — Help & Instructions',$$('.blogger-required-note,:scope>.notice',blog));
+    const heading=$$('h2,h3',blogs).find(node=>/^Existing Fitness Tips$/i.test(clean(node.textContent))),card=heading?.closest('.card');contextHelp(card,'Fitness Tips — Help & Instructions',$$('.notice',card).filter(node=>/Fitness Tip publishing:|SEO connection required/i.test(node.textContent)));
+    const load=$$('button',blogs).find(button=>/Load Fitness Tips/i.test(button.textContent));if(load){const head=$(':scope>.top',blogs);if(head)proxyIcon(load,headerActions(head),'refresh','Load Fitness Tips');}
   }
   function nativeHeat(root){
     const panel=root.id==='heatMaps'?root:$('#heatMaps',root);if(!panel)return;const button=$('.db139-engagement-open',panel);if(!button)return;

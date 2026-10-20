@@ -77,7 +77,7 @@
     const ai=normalizeAdIntegrations((A.settings||{}).adIntegrations||{});
     panel.innerHTML=`
       <div class="top"><h1>Ad Integrations</h1><button class="btn secondary compact" type="button" onclick="load_adIntegrations()">Refresh</button></div>
-      <div class="notice">Paste the ad-network code given by Google AdSense or another ad network. This is only for connecting ad networks to the website. Advertisement placements inside individual Auditions can still be managed from the Auditions page.</div>
+      <div class="notice">Paste the ad-network code given by Google AdSense or another ad network. This is only for connecting ad networks to the website. Advertisement placements inside individual Fitness Tips can still be managed from the Fitness Tips page.</div>
       <details class="card ad-clean-detail" id="adsenseCard"><summary>Google AdSense</summary><div class="ad-clean-body">
         <form id="googleAdsenseForm" class="form" onsubmit="saveGoogleAdsense(event)">
           <div class="ad-toggle-row"><label class="ad-switch-pill"><input type="checkbox" name="enabled" ${ai.googleAdsense.enabled?'checked':''}><span>Enable Google AdSense</span></label></div>
@@ -157,11 +157,11 @@
     const form=$('#blogForm'); if(!form)return;
     // Remove old helper notes created by earlier patch so text does not duplicate.
     panel.querySelectorAll('.blogger-required-note,.blog-limit-hint,.char-counter').forEach(x=>x.remove());
-    form.insertAdjacentHTML('afterbegin','<div class="blogger-required-note"><strong>SEO connection required for posting:</strong> Published audition updates should be posted after SEO is configured in API Settings. Drafts can be saved for preparation.</div>');
+    form.insertAdjacentHTML('afterbegin','<div class="blogger-required-note"><strong>SEO connection required for posting:</strong> Published fitness updates should be posted after SEO is configured in API Settings. Drafts can be saved for preparation.</div>');
     const title=form.elements.title; if(title){counterFor(title,90); title.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Maximum 90 characters. Keep the audition title short and clear.</small>');}
     const slug=form.elements.slug; if(slug){slug.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Optional. If left blank, the link ending is created from the audition title.</small>');}
     const tags=form.elements.tags; if(tags){tags.maxLength=180; tags.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Use up to 12 tags, separated with commas. Example: audition, casting, ott, hyderabad.</small>');}
-    const excerpt=form.elements.excerpt; if(excerpt){counterFor(excerpt,220); excerpt.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Maximum 220 characters. This appears as the short summary on the Auditions page.</small>');}
+    const excerpt=form.elements.excerpt; if(excerpt){counterFor(excerpt,220); excerpt.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Maximum 220 characters. This appears as the short summary on the Fitness Tips page.</small>');}
     const body=form.elements.body_text; if(body){counterFor(body,10000); body.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Recommended: 150 to 1,500 words. Maximum 10,000 characters. Write normal paragraphs; the website formats them automatically.</small>');}
     const cover=form.elements.cover_image_url; if(cover){cover.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Paste a direct public image URL, website media URL, CDN URL, or direct image link.</small>');}
     const status=form.elements.status; if(status){status.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Draft keeps it hidden. Published only after SEO is configured.</small>');}
@@ -172,7 +172,7 @@
     if(status==='published'){
       try{ if(!A.api && typeof window.load_apiSettings==='function') await window.load_apiSettings(); }catch(_){ }
       if(!(A.api && String(A.api.bloggerBlogId||'').trim())){
-        ev?.preventDefault?.(); msg('#blogMsg','Kindly configure SEO in API Settings before posting audition updates. Save as Draft is available until SEO is connected.','error'); toast('SEO connection is required before posting audition updates.','error'); return;
+        ev?.preventDefault?.(); msg('#blogMsg','Kindly configure SEO in API Settings before posting fitness updates. Save as Draft is available until SEO is connected.','error'); toast('SEO connection is required before posting fitness updates.','error'); return;
       }
     }
     if(typeof previousSaveBlog==='function') return previousSaveBlog(ev,statusOverride);

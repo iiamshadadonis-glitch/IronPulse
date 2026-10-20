@@ -3,10 +3,10 @@ import {APP_SESSION_SECONDS} from '../../../_lib/app-session-v1-58.js';
 import { ensureAuthSchema } from '../../../_lib/auth-schema.js';
 
 function defaultEmail(env) {
-  return String(env.ADMIN_LOGIN_EMAIL || env.DEFAULT_ADMIN_EMAIL || 'admin@dropbeat-dance-studio.local').trim().toLowerCase();
+  return String(env.ADMIN_LOGIN_EMAIL || env.DEFAULT_ADMIN_EMAIL || 'admin@ironpulse-gym.local').trim().toLowerCase();
 }
 function defaultPassword(env) {
-  return String(env.ADMIN_LOGIN_PASSWORD || env.DEFAULT_ADMIN_PASSWORD || 'ChangeMe@123');
+  return String(env.ADMIN_LOGIN_PASSWORD || env.DEFAULT_ADMIN_PASSWORD || '');
 }
 async function hashPassword(password, salt) {
   return sha256Hex(`${salt}:${password}`);
@@ -14,11 +14,11 @@ async function hashPassword(password, salt) {
 async function createFirstAdminIfNeeded(env, email, password) {
   const row = await withD1Retry(() => env.DB.prepare("SELECT COUNT(*) c FROM admin_users WHERE status='active'").first());
   if ((row?.c || 0) > 0) return;
-  if (email !== defaultEmail(env) || password !== defaultPassword(env)) return;
+  if (!defaultPassword(env) || email !== defaultEmail(env) || password !== defaultPassword(env)) return;
   const salt = crypto.randomUUID();
   const passwordHash = await hashPassword(password, salt);
   await withD1Retry(() => env.DB.prepare('INSERT INTO admin_users(email,name,password_hash,salt,role,status) VALUES(?,?,?,?,?,?)')
-    .bind(email, 'DropBeat Dance Studio Admin', passwordHash, salt, 'admin', 'active').run());
+    .bind(email, 'IronPulse Gym Admin', passwordHash, salt, 'admin', 'active').run());
 }
 export async function onRequestPost({ request, env }) {
   try {

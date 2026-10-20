@@ -28,8 +28,13 @@ const CSP = [
 
 export async function onRequest(context) {
   const url = new URL(context.request.url);
-  const privateDocument = ['/checkout','/my-orders','/payment','/payment-success','/payment-failed','/login','/student-dashboard','/coach-dashboard'].some(path => url.pathname === path || url.pathname.startsWith(`${path}/`));
-  const dashboardDocument = ['/student-dashboard','/coach-dashboard'].some(path => url.pathname === path || url.pathname.startsWith(`${path}/`));
+  // Presentation route alias only: stored account roles and API keys stay unchanged.
+  if (['/student-dashboard','/student-dashboard/','/student-dashboard.html'].includes(url.pathname)) {
+    url.pathname='/member-dashboard';
+    return Response.redirect(url.toString(),301);
+  }
+  const privateDocument = ['/checkout','/my-orders','/payment','/payment-success','/payment-failed','/login','/member-dashboard','/coach-dashboard'].some(path => url.pathname === path || url.pathname === `${path}.html` || url.pathname.startsWith(`${path}/`));
+  const dashboardDocument = ['/member-dashboard','/coach-dashboard'].some(path => url.pathname === path || url.pathname === `${path}.html` || url.pathname.startsWith(`${path}/`));
 
   // Force HTTPS when the original request reaches Pages over HTTP.
   const forwardedProto = context.request.headers.get('x-forwarded-proto');
@@ -152,6 +157,7 @@ export async function onRequest(context) {
   headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
   headers.set('Content-Security-Policy', CSP);
   headers.set('X-DropBeat-Release', '1.59.0');
+  headers.set('X-IronPulse-Release', '1.00.0');
 
   if (url.pathname.startsWith('/admin') || url.pathname.startsWith('/api/') || privateDocument) {
     headers.set('X-Robots-Tag', 'noindex, nofollow');
@@ -182,7 +188,7 @@ export async function onRequest(context) {
     const publicOrigin=preferredPublicOrigin(context.request,context.env);
     let html=await response.text();
     if(!url.pathname.startsWith('/admin')&&publicOrigin){
-      html=html.replaceAll('https://dance-class.pages.dev',publicOrigin).replaceAll('https://dance-class-at2.pages.dev',publicOrigin);
+      html=html.replaceAll('https://ironpulse-gym.pages.dev',publicOrigin).replaceAll('https://ironpulse-gym.pages.dev',publicOrigin);
     }
     if(url.searchParams.get('db_heat_preview')==='1'&&!url.pathname.startsWith('/admin')){
       html=html.replace(/<img\b(?![^>]*\bloading=)/gi,'<img loading="lazy" decoding="async" fetchpriority="low"').replace(/<video\b/gi,'<video preload="none"');

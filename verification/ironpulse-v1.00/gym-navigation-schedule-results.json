@@ -1,0 +1,184 @@
+{
+  "results": [
+    "Null initial models and pre-paint placeholders; no hardcoded Article fallback; default Fitness Tips remains owned and stable over repeated renders/reloads at 320/390/760/1440px",
+    "Saved navigation and button names are stable in Admin, desktop/mobile public headers and footers; stale navigation builders cannot overwrite them; mobile submenu routes and 30-way refresh deduplication are retained",
+    "Failed and malformed initial configuration responses show Retry rather than old labels; stalled requests exit loading within eight seconds and recover",
+    "Mobile Schedule: responsive tabs during pending fetch; 15-second timeout; HTTP/JSON/nested-data errors; successful Retry; late response isolation and original bounded query",
+    "Desktop Schedule: responsive tabs during pending fetch; 15-second timeout; HTTP/JSON/nested-data errors; successful Retry; late response isolation; 24px header gap"
+  ],
+  "frames": [
+    {
+      "selector": ".side .nav [data-tab=\"blogs\"]",
+      "expected": "Fitness Tips",
+      "count": 100,
+      "unique": [
+        "Fitness Tips"
+      ]
+    },
+    {
+      "selector": ".side .nav [data-tab=\"blogs\"]",
+      "expected": "Fitness Tips",
+      "count": 5,
+      "unique": [
+        "Fitness Tips"
+      ]
+    },
+    {
+      "selector": ".side .nav [data-tab=\"blogs\"]",
+      "expected": "Fitness Tips",
+      "count": 5,
+      "unique": [
+        "Fitness Tips"
+      ]
+    },
+    {
+      "selector": ".side .nav [data-tab=\"blogs\"]",
+      "expected": "Fitness Tips",
+      "count": 3,
+      "unique": [
+        "Fitness Tips"
+      ]
+    },
+    {
+      "selector": ".side .nav [data-tab=\"blogs\"]",
+      "expected": "Fitness Tips",
+      "count": 14,
+      "unique": [
+        "Fitness Tips"
+      ]
+    },
+    {
+      "selector": ".side .nav [data-tab=\"blogs\"]",
+      "expected": "Gym Journal",
+      "count": 88,
+      "unique": [
+        "Gym Journal"
+      ]
+    },
+    {
+      "selector": ".navlinks [data-db159-name=\"blog\"]",
+      "expected": "Gym Journal",
+      "count": 76,
+      "unique": [
+        "Gym Journal"
+      ]
+    },
+    {
+      "selector": ".navlinks [data-uc-nav-key=\"blog\"]",
+      "expected": "Gym Journal",
+      "count": 62,
+      "unique": [
+        "Gym Journal"
+      ]
+    },
+    {
+      "selector": ".side .nav [data-tab=\"blogs\"]",
+      "expected": "Fitness Tips",
+      "count": 92,
+      "unique": [
+        "Fitness Tips"
+      ]
+    }
+  ],
+  "dimensions": [
+    {
+      "width": 390,
+      "margin": 16,
+      "gap": 16
+    },
+    {
+      "width": 1440,
+      "margin": 24,
+      "gap": 24
+    }
+  ],
+  "requests": [
+    "/api/public/layout",
+    "/api/admin/button-dictionary",
+    "/api/public/layout",
+    "/api/admin/button-dictionary",
+    "/api/public/layout",
+    "/api/admin/button-dictionary",
+    "/api/public/layout",
+    "/api/admin/button-dictionary",
+    "/api/public/layout",
+    "/api/admin/button-dictionary",
+    "/api/public/layout",
+    "/api/admin/button-dictionary",
+    "/api/public/button-dictionary",
+    "/api/public/layout",
+    "/api/public/layout",
+    "/api/public/layout",
+    "/api/public/button-dictionary",
+    "/api/public/layout",
+    "/api/public/button-dictionary",
+    "/api/public/layout",
+    "/api/public/button-dictionary",
+    "/api/public/layout",
+    "/api/public/button-dictionary",
+    "/api/public/layout",
+    "/api/public/button-dictionary",
+    "/api/public/layout"
+  ],
+  "scheduleRequests": [
+    {
+      "query": "?view=mobile&page=1&pageSize=50",
+      "mode": "success"
+    },
+    {
+      "query": "?view=mobile&page=1&pageSize=50",
+      "mode": "pending"
+    },
+    {
+      "query": "?view=mobile&page=1&pageSize=50",
+      "mode": "error"
+    },
+    {
+      "query": "?view=mobile&page=1&pageSize=50",
+      "mode": "invalid-json"
+    },
+    {
+      "query": "?view=mobile&page=1&pageSize=50",
+      "mode": "invalid-data"
+    },
+    {
+      "query": "?view=mobile&page=1&pageSize=50",
+      "mode": "success"
+    },
+    {
+      "query": "?view=mobile&page=1&pageSize=50",
+      "mode": "paging"
+    },
+    {
+      "query": "?view=mobile&page=2&pageSize=50",
+      "mode": "paging"
+    },
+    {
+      "query": "",
+      "mode": "success"
+    },
+    {
+      "query": "",
+      "mode": "pending"
+    },
+    {
+      "query": "",
+      "mode": "error"
+    },
+    {
+      "query": "",
+      "mode": "invalid-json"
+    },
+    {
+      "query": "",
+      "mode": "invalid-data"
+    },
+    {
+      "query": "",
+      "mode": "success"
+    }
+  ],
+  "errors": [],
+  "synthetic": true,
+  "actualConfigurationHandlersAndSqlite": true
+}

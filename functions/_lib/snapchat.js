@@ -62,7 +62,7 @@ export async function testSnapchatConnection(env){
   }
 }
 
-export async function uploadSnapchatStoryMedia(env,sourceUrl,name='DropBeat Dance Studio Story'){
+export async function uploadSnapchatStoryMedia(env,sourceUrl,name='IronPulse Gym Story'){
   const social=await getSocialIntegrationSettings(env),c=social.snapchat||{},profile=await resolveSnapchatPublicProfile(env),token=profile.token,id=profile.publicProfileId,url=clean(sourceUrl,2400);
   if(!/^https:\/\//i.test(url))throw new Error('Snapchat Story publishing requires a public HTTPS image or video URL.');
   const r=await fetch(url,{headers:{accept:'image/*,video/*,application/octet-stream'}});if(!r.ok)throw new Error(`Snapchat could not download the Story media (HTTP ${r.status}).`);
@@ -70,7 +70,7 @@ export async function uploadSnapchatStoryMedia(env,sourceUrl,name='DropBeat Danc
   const original=new Uint8Array(await r.arrayBuffer());if(!original.byteLength)throw new Error('Snapchat Story media download returned an empty file.');if(original.byteLength>50*1024*1024)throw new Error('Snapchat Story media is larger than the 50 MB automatic-upload safety limit in this Worker build.');
   const mime=clean(r.headers.get('content-type')||'',120).split(';')[0].toLowerCase(),type=mime.startsWith('video/')?'VIDEO':'IMAGE';
   const key=crypto.getRandomValues(new Uint8Array(32)),iv=crypto.getRandomValues(new Uint8Array(16)),cryptoKey=await crypto.subtle.importKey('raw',key,{name:'AES-CBC'},false,['encrypt']),encrypted=new Uint8Array(await crypto.subtle.encrypt({name:'AES-CBC',iv},cryptoKey,original));
-  const create=await snapJson(await fetch(`${API}/v1/public_profiles/${encodeURIComponent(id)}/media`,{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify({type,name:clean(name,200)||'DropBeat Dance Studio Story',key:b64(key),iv:b64(iv)})}),'Snapchat media container creation');
+  const create=await snapJson(await fetch(`${API}/v1/public_profiles/${encodeURIComponent(id)}/media`,{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify({type,name:clean(name,200)||'IronPulse Gym Story',key:b64(key),iv:b64(iv)})}),'Snapchat media container creation');
   const mediaId=clean(create.media_id,300);if(!mediaId||!create.add_path||!create.finalize_path)throw new Error('Snapchat created no usable media upload container.');
   const chunkSize=32*1024*1024;let part=1;
   for(let off=0;off<encrypted.byteLength;off+=chunkSize,part++){

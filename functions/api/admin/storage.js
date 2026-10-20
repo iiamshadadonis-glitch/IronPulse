@@ -105,8 +105,8 @@ const CATEGORIES = {
   },
   legacy_blogs: {
     label:'Delete Existing Blog Copies',
-    description:'Review D1-only dance article data: old legacy article copies plus the rebuildable admin Dance Classes index. Blogger/SEO remains the live publishing source.',
-    warning:'D1 ONLY: deleting here never calls Blogger/SEO and never deletes a live website article. Current SEO comments are protected. Legacy rows remove only their old D1 children; admin-index rows are rebuildable from Blogger the next time Dance Class Updates are loaded.',
+    description:'Review D1-only fitness fitness tip data: old legacy fitness tip copies plus the rebuildable admin Fitness Classes index. Blogger/SEO remains the live publishing source.',
+    warning:'D1 ONLY: deleting here never calls Blogger/SEO and never deletes a live website fitness tip. Current SEO comments are protected. Legacy rows remove only their old D1 children; admin-index rows are rebuildable from Blogger the next time Fitness Tips are loaded.',
     key:'id',
     custom:'legacy_blogs'
   }
@@ -183,7 +183,7 @@ async function legacyBlogSummary(env){
 }
 async function legacyBlogList(env){
   const legacy=(await env.DB.prepare(`SELECT id,
-      COALESCE(NULLIF(title,''),'Legacy dance article/blog copy') title,
+      COALESCE(NULLIF(title,''),'Legacy fitness article/blog copy') title,
       ('Legacy D1 copy • '||COALESCE(NULLIF(status,''),'unknown')||CASE WHEN TRIM(COALESCE(slug,''))!='' THEN ' • /blog/'||slug ELSE '' END) detail,
       COALESCE(NULLIF(blogger_updated_at,''),NULLIF(updated_at,''),NULLIF(published_at,''),created_at) date_value,
       (length(COALESCE(title,''))+length(COALESCE(slug,''))+length(COALESCE(excerpt,''))+length(COALESCE(body_html,''))+
@@ -192,8 +192,8 @@ async function legacyBlogList(env){
     FROM blog_posts ORDER BY id DESC LIMIT ${MAX_LIST}`).all().catch(()=>({results:[]}))).results||[];
   const remaining=Math.max(0,MAX_LIST-legacy.length);if(!remaining)return legacy;
   const cache=(await env.DB.prepare(`SELECT ('cache:'||blog_id||':'||post_id) id,
-      COALESCE(NULLIF(title,''),'Dance class index item') title,
-      ('Admin dance class index • '||COALESCE(NULLIF(status,''),NULLIF(remote_status,''),'unknown')||CASE WHEN TRIM(COALESCE(slug,''))!='' THEN ' • /blog/'||slug ELSE '' END) detail,
+      COALESCE(NULLIF(title,''),'Fitness class index item') title,
+      ('Admin fitness class index • '||COALESCE(NULLIF(status,''),NULLIF(remote_status,''),'unknown')||CASE WHEN TRIM(COALESCE(slug,''))!='' THEN ' • /blog/'||slug ELSE '' END) detail,
       COALESCE(NULLIF(updated_at_remote,''),last_seen_at) date_value,
       (length(COALESCE(row_json,''))+length(COALESCE(title,''))+length(COALESCE(slug,''))+length(COALESCE(post_id,''))+length(COALESCE(blog_id,''))+128) approx_bytes
     FROM audition_post_cache ORDER BY updated_at_remote DESC,post_id DESC LIMIT ?`).bind(remaining).all().catch(()=>({results:[]}))).results||[];
@@ -220,7 +220,7 @@ async function deleteLegacyBlogRows(env,action,ids){
   let selected=[];
   if(action==='delete_selected'){
     selected=(Array.isArray(ids)?ids:[]).map(v=>String(v||'').trim()).filter(Boolean).slice(0,MAX_SELECTED);
-    if(!selected.length)throw new Error('Select at least one D1 dance article/blog item to delete.');
+    if(!selected.length)throw new Error('Select at least one D1 fitness article/blog item to delete.');
   }
   let approxCleared=before.approx_bytes;
   if(selected.length){const preview=await legacyBlogList(env),set=new Set(selected);approxCleared=preview.filter(r=>set.has(String(r.id))).reduce((a,r)=>a+num(r.approx_bytes),0);}
@@ -324,10 +324,10 @@ async function detailCategory(env,key,id){
     ];
   }else if(key==='legacy_blogs'){
     details=[
-      ['D1 Record ID',row.id],['D1 Record Type',row._cache?'Admin Dance Class Index':'Legacy Blog Copy'],['Title',row.title],['Slug',row.slug],['Status',row.status],['Blogger Post ID (reference only)',row.blogger_post_id],
+      ['D1 Record ID',row.id],['D1 Record Type',row._cache?'Admin Fitness Class Index':'Legacy Blog Copy'],['Title',row.title],['Slug',row.slug],['Status',row.status],['Blogger Post ID (reference only)',row.blogger_post_id],
       ['Blogger URL (reference only)',row.blogger_post_url],['Legacy D1 Tags',num(row.legacy_tag_count)],['Legacy Local Comments',num(row.legacy_comment_count)],
       ['Published At',row.published_at],['Blogger Updated At',row.blogger_updated_at],['D1 Created At',row.created_at],['D1 Updated At',row.updated_at],
-      ['Safety',row._cache?'Deleting this removes only the rebuildable D1 admin index row. It never calls Blogger/SEO; a later Dance Class Updates load can rebuild the index from Blogger.':'Deleting this removes only the legacy D1 copy and old D1 child records. The connected Blogger/SEO article and current seo_comments are not deleted.']
+      ['Safety',row._cache?'Deleting this removes only the rebuildable D1 admin index row. It never calls Blogger/SEO; a later Fitness Tips load can rebuild the index from Blogger.':'Deleting this removes only the legacy D1 copy and old D1 child records. The connected Blogger/SEO fitness tip and current seo_comments are not deleted.']
     ];
   }else if(key==='coupons'){
     const discount=row.discount_type==='percent'?`${row.discount_value}%`:row.discount_type==='free_member'?`${row.discount_value} free member(s)`:`₹${(num(row.discount_value)/100).toFixed(2)}`;

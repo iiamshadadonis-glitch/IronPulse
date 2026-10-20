@@ -138,12 +138,12 @@ export async function ensurePostsFolder(env,{persist=true}={}){
 export async function ensureArticleImagesFolder(env,{persist=true}={}){
   const auth=await getGoogleDriveAccessToken(env),{c}=auth,token=auth.accessToken;
   const rootRef=parseDriveReference(c.rootFolderUrl||c.rootFolderId||'');
-  if(!rootRef.id)throw new Error('Destination Root Folder URL is missing or invalid. Paste the Google Drive folder URL that should contain the Article Images subfolder, save Google Drive settings, then try the upload again.');
+  if(!rootRef.id)throw new Error('Destination Root Folder URL is missing or invalid. Paste the Google Drive folder URL that should contain the Fitness Tips Images subfolder, save Google Drive settings, then try the upload again.');
   const rootQ=new URLSearchParams({fields:'id,name,mimeType,driveId,capabilities(canAddChildren)',supportsAllDrives:'true'});if(rootRef.resourceKey)rootQ.set('resourceKey',rootRef.resourceKey);
   const root=await driveJson(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(rootRef.id)}?${rootQ}`,{token});
   if(root.mimeType!=='application/vnd.google-apps.folder')throw new Error(`The configured Drive destination “${root.name||rootRef.id}” is not a folder. Paste a normal Google Drive folder link.`);
   if(root.capabilities&&root.capabilities.canAddChildren===false)throw new Error(`The connected Google account cannot add files to “${root.name||'the selected Drive folder'}”. Give this account Editor access or choose another folder.`);
-  const folderName='Article Images';
+  const folderName='Fitness Tips Images';
   const q=`'${qEscape(root.id)}' in parents and name = '${qEscape(folderName)}' and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
   const lp=new URLSearchParams({q,fields:'files(id,name,mimeType,driveId)',pageSize:'10',spaces:'drive',supportsAllDrives:'true',includeItemsFromAllDrives:'true'});
   const listed=await driveJson(`https://www.googleapis.com/drive/v3/files?${lp}`,{token});let folder=(listed.files||[])[0]||null;
@@ -225,8 +225,8 @@ export async function uploadStoryStatusImageToGoogleDrive(env,file){
 
 
 export async function uploadArticleImageToGoogleDrive(env,file){
-  if(!file||typeof file==='string'||typeof file.arrayBuffer!=='function')throw new Error('Choose an Article image file to upload.');
-  const mime=clean(file.type,120).toLowerCase();if(mime&&!mime.startsWith('image/'))throw new Error('Choose an image file for the Article cover image.');
+  if(!file||typeof file==='string'||typeof file.arrayBuffer!=='function')throw new Error('Choose an Fitness Tips image file to upload.');
+  const mime=clean(file.type,120).toLowerCase();if(mime&&!mime.startsWith('image/'))throw new Error('Choose an image file for the Fitness Tips cover image.');
   const {token,folder}=await ensureArticleImagesFolder(env,{persist:true}),name=safeFileName(file.name||`article-image-${Date.now()}.jpg`,mime||'image/jpeg');
   const boundary=`uc_drive_${crypto.randomUUID().replace(/-/g,'')}`;
   const metadata=JSON.stringify({name,parents:[folder.id]});
@@ -239,8 +239,8 @@ export async function uploadArticleImageToGoogleDrive(env,file){
   await makePublic(token,uploaded.id);
   const publicUrl=uploadedMediaUrl(uploaded.id,uploaded.mimeType||mime);
   const latest=await getSocialIntegrationSettings(env),g={...(latest.googleDrive||{})};
-  g.lastArticleImageUploadedAt=new Date().toISOString();g.lastArticleImageFileId=uploaded.id;g.lastArticleImageFileName=uploaded.name||name;g.articleImagesFolderId=folder.id;g.articleImagesFolderName=folder.name||'Article Images';g.lastError='';g.uploadReady=true;latest.googleDrive=g;await setSetting(env,'social_integration_settings',latest);
-  return {id:uploaded.id,name:uploaded.name||name,mimeType:uploaded.mimeType||mime,size:Number(uploaded.size||file.size||0),url:publicUrl,viewUrl:uploaded.webViewLink||`https://drive.google.com/file/d/${uploaded.id}/view`,folderId:folder.id,folderName:folder.name||'Article Images'};
+  g.lastArticleImageUploadedAt=new Date().toISOString();g.lastArticleImageFileId=uploaded.id;g.lastArticleImageFileName=uploaded.name||name;g.articleImagesFolderId=folder.id;g.articleImagesFolderName=folder.name||'Fitness Tips Images';g.lastError='';g.uploadReady=true;latest.googleDrive=g;await setSetting(env,'social_integration_settings',latest);
+  return {id:uploaded.id,name:uploaded.name||name,mimeType:uploaded.mimeType||mime,size:Number(uploaded.size||file.size||0),url:publicUrl,viewUrl:uploaded.webViewLink||`https://drive.google.com/file/d/${uploaded.id}/view`,folderId:folder.id,folderName:folder.name||'Fitness Tips Images'};
 }
 
 

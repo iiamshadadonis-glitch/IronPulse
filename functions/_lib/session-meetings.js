@@ -15,7 +15,7 @@ const online=new Set(['online_class','demo','webinar','trial']);
 async function occurrenceBlock(env,row,date){
   await ensureStudioScheduleSchema(env);
   const holiday=await env.DB.prepare("SELECT event_name FROM studio_holidays WHERE status='active' AND start_date<=? AND end_date>=? ORDER BY id LIMIT 1").bind(date,date).first();
-  if(holiday)return {blocked:true,reason:`Studio holiday: ${holiday.event_name||'Holiday'}`};
+  if(holiday)return {blocked:true,reason:`Gym holiday: ${holiday.event_name||'Holiday'}`};
   if(Number(row?.coach_id||0)>0){const leave=await env.DB.prepare("SELECT purpose FROM coach_leave_requests WHERE coach_id=? AND status='approved' AND from_date<=? AND to_date>=? ORDER BY id LIMIT 1").bind(Number(row.coach_id),date,date).first();if(leave)return {blocked:true,reason:`Coach leave: ${leave.purpose||'Approved leave'}`};}
   return {blocked:false,reason:''};
 }
@@ -34,8 +34,8 @@ export async function ensureOccurrenceMeeting(env,{sourceType='product',sourceId
   await ensureV122Schema(env);
   const type=sourceType==='assignment'?'assignment':'product',id=Number(sourceId),sessionDate=clean(date,10),row=source||await sessionSource(env,type,id);
   if(!row||Number(row.enabled)!==1||row.status!=='active')throw new Error('This class is no longer active.');
-  if(!online.has(row.class_type||row.event_type))throw new Error('This studio class does not need an online meeting.');
-  if(Number(row.current_students||0)<1)throw new Error('A meeting is created only after at least one current paid student is enrolled.');
+  if(!online.has(row.class_type||row.event_type))throw new Error('This gym class does not need an online meeting.');
+  if(Number(row.current_students||0)<1)throw new Error('A meeting is created only after at least one current paid member is enrolled.');
   if(Number(row.coach_id||0)<1)throw new Error('Assign a coach before creating this meeting.');
   if(!/^\d{4}-\d{2}-\d{2}$/.test(sessionDate))throw new Error('Choose a valid session date.');
   const effective=row.access_start_date||row.schedule_start_date||row.member_start_date||'';
@@ -51,7 +51,7 @@ export async function ensureOccurrenceMeeting(env,{sourceType='product',sourceId
     if(current)return existing;
     if(existing.status==='started')throw new Error('This live meeting belongs to an earlier coach or schedule. End it before starting the updated class.');
   }
-  const event={title:row.class_name||'Dance Class',eventType:row.class_type||row.event_type||'online_class',deliveryMode:'online',provider,customerName:'',customerEmail:'',startsAt,durationMinutes:duration,timezone:row.timezone||'Asia/Kolkata',notes:`Unique ${type} ${id} occurrence for ${sessionDate}.`,uniqueKey:`${type}-${id}-${sessionDate}-${Number(row.coach_id)}`},created=await createProviderMeeting(env,event);if(!created?.url)throw new Error(`${provider==='zoom'?'Zoom':provider==='external'?'External provider':'Google Meet'} did not return a meeting address.`);
+  const event={title:row.class_name||'Fitness Class',eventType:row.class_type||row.event_type||'online_class',deliveryMode:'online',provider,customerName:'',customerEmail:'',startsAt,durationMinutes:duration,timezone:row.timezone||'Asia/Kolkata',notes:`Unique ${type} ${id} occurrence for ${sessionDate}.`,uniqueKey:`${type}-${id}-${sessionDate}-${Number(row.coach_id)}`},created=await createProviderMeeting(env,event);if(!created?.url)throw new Error(`${provider==='zoom'?'Zoom':provider==='external'?'External provider':'Google Meet'} did not return a meeting address.`);
   await env.DB.prepare(`INSERT INTO class_session_meetings(source_type,source_id,session_date,coach_id,provider,starts_at,duration_minutes,provider_event_id,meeting_url,status,revoked_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,'scheduled','',CURRENT_TIMESTAMP) ON CONFLICT(source_type,source_id,session_date) DO UPDATE SET coach_id=excluded.coach_id,provider=excluded.provider,starts_at=excluded.starts_at,duration_minutes=excluded.duration_minutes,provider_event_id=excluded.provider_event_id,meeting_url=excluded.meeting_url,status='scheduled',started_at='',ended_at='',revoked_at='',updated_at=CURRENT_TIMESTAMP`).bind(type,id,sessionDate,Number(row.coach_id),provider,startsAt,Number(row.duration_minutes||60),clean(created.id,600),clean(created.url,2400)).run();return meetingForOccurrence(env,{sourceType:type,sourceId:id,date:sessionDate});
 }
 
@@ -59,7 +59,7 @@ export async function adminOccurrenceJoinState(env,{sourceType='product',sourceI
   const type=sourceType==='assignment'?'assignment':'product',row=await sessionSource(env,type,sourceId),sessionDate=clean(date,10);if(!row)return {joinEnabled:false,joinLabel:'Class unavailable'};
   const startBoundary=row.access_start_date||row.schedule_start_date||row.member_start_date||'',allowed=new Set(list(row.class_days_json)),start=Date.parse(indiaClassIsoV122(sessionDate,row.class_time)),end=start+Math.max(15,Number(row.duration_minutes||60))*60000,nowMs=Number(now)||Date.now();let label='Join unavailable',enabled=false;
   if(Number(row.enabled)!==1||row.status!=='active')label='Class inactive';
-  else if(!online.has(row.class_type||row.event_type))label='Studio Class';
+  else if(!online.has(row.class_type||row.event_type))label='Gym Class';
   else if(!/^\d{4}-\d{2}-\d{2}$/.test(sessionDate)||startBoundary&&sessionDate<startBoundary||row.access_end_date&&sessionDate>row.access_end_date||!allowed.has(dayCode(sessionDate)))label='Not scheduled today';
   else{const block=await occurrenceBlock(env,row,sessionDate);if(block.blocked)label=block.reason;else if(nowMs<start-5*60000)label='Opens 5 min before';else if(nowMs>=end)label='Session ended';else{enabled=true;label='Join Session';}}
   return {joinEnabled:enabled,joinLabel:label,joinDate:sessionDate,joinUrl:enabled?`/api/portal/session-access?action=admin_join&source=${encodeURIComponent(type)}&sourceId=${Number(row.source_id)}&date=${encodeURIComponent(sessionDate)}`:'',sessionStartsAt:new Date(start).toISOString(),sessionEndsAt:new Date(end).toISOString()};
@@ -74,7 +74,7 @@ export async function startOccurrenceMeeting(env,identity){
 }
 
 export async function endOccurrenceMeeting(env,account,{sourceType='product',sourceId=0,date=''}={}){
-  await ensureV122Schema(env);const profile=await env.DB.prepare('SELECT dance_coach_id FROM portal_coach_profiles WHERE account_id=?').bind(Number(account.id)).first(),coachId=Number(profile?.dance_coach_id||0),source=await sessionSource(env,sourceType,sourceId);if(!coachId||!source||Number(source.coach_id)!==coachId)throw new Error('Only the currently assigned coach can end this session.');const meeting=await meetingForOccurrence(env,{sourceType,sourceId,date});if(!meeting)throw new Error('The meeting has not been created yet.');await env.DB.prepare("UPDATE class_session_meetings SET status='ended',ended_at=CURRENT_TIMESTAMP,meeting_url='',updated_at=CURRENT_TIMESTAMP WHERE id=?").bind(meeting.id).run();return {ok:true,message:'The session was ended and student access to its meeting link was closed.'};
+  await ensureV122Schema(env);const profile=await env.DB.prepare('SELECT dance_coach_id FROM portal_coach_profiles WHERE account_id=?').bind(Number(account.id)).first(),coachId=Number(profile?.dance_coach_id||0),source=await sessionSource(env,sourceType,sourceId);if(!coachId||!source||Number(source.coach_id)!==coachId)throw new Error('Only the currently assigned coach can end this session.');const meeting=await meetingForOccurrence(env,{sourceType,sourceId,date});if(!meeting)throw new Error('The meeting has not been created yet.');await env.DB.prepare("UPDATE class_session_meetings SET status='ended',ended_at=CURRENT_TIMESTAMP,meeting_url='',updated_at=CURRENT_TIMESTAMP WHERE id=?").bind(meeting.id).run();return {ok:true,message:'The session was ended and member access to its meeting link was closed.'};
 }
 
 export async function revokeSourceMeetings(env,{sourceType='product',sourceId=0,from='',to='',reason='Class assignment changed'}={}){

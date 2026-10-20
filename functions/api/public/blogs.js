@@ -32,8 +32,8 @@ async function loadBlogsResponse({request,env}){
       const published=(cached||[]).filter(p=>String(p.status||'').toLowerCase()==='published');
       if(!published.length)throw remoteError;
       fallbackWarning=String(remoteError?.code||remoteError?.cause?.code||'')==='SEO_RECONNECT_REQUIRED'
-        ?'Google SEO authorization needs reconnection. Showing the last synchronized dance class updates until an admin reconnects SEO.'
-        :'The live SEO source could not be reached. Showing the last synchronized dance class updates.';
+        ?'Google SEO authorization needs reconnection. Showing the last synchronized Fitness Tips until an admin reconnects SEO.'
+        :'The live SEO source could not be reached. Showing the last synchronized Fitness Tips.';
       remote={posts:published,blogId,blogName:String(settings.bloggerBlogName||''),cacheFallback:true};
     }
     const views=await viewMap(env);let all=addViews((remote.posts||[]).filter(p=>p.status==='published'),views).sort(byNewest);
@@ -49,7 +49,7 @@ async function loadBlogsResponse({request,env}){
     const liveAll=addViews((remote.posts||[]).filter(p=>p.status==='published'),views).sort(byNewest),posts=all.slice(offset,offset+pageSize),side=sideData(liveAll);
     return json({posts,...side,tags:tagsCloud(liveAll),source:remote.cacheFallback?'synchronized-cache':'live-seo',warning:fallbackWarning,pagination:{page:safePage,pageSize,total,pages,hasPrev:safePage>1,hasNext:safePage<pages,tag}},200,responseHeaders());
   }catch(e){
-    return json({error:'Dance class updates could not be loaded from the connected SEO right now.',detail:String(e?.message||'')},502,{'cache-control':'no-store'});
+    return json({error:'Fitness Tips could not be loaded from the connected SEO right now.',detail:String(e?.message||'')},502,{'cache-control':'no-store'});
   }
 }
 export async function onRequestGet({request,env,waitUntil,data}){

@@ -8,17 +8,17 @@
 
   function danceTipText(value=''){
     return String(value)
-      .replace(/Post New (?:Dance Class Update|Article)/gi,'Post New Dance Tip')
-      .replace(/Post (?:Dance Class Update|Article)/gi,'Post Dance Tip')
-      .replace(/Load (?:Dance Class Updates|Article Updates)/gi,'Load Dance Tips')
-      .replace(/Add Advertisements to This (?:Dance Class Update|Article)/gi,'Add Advertisements to These Dance Tips')
-      .replace(/Existing (?:Dance Classes|Articles)/gi,'Existing Dance Tips')
-      .replace(/Dance Class Updates/gi,'Dance Tips')
-      .replace(/Dance Class Update/gi,'Dance Tip')
-      .replace(/\bArticles\b/g,'Dance Tips')
-      .replace(/\barticles\b/g,'dance tips')
-      .replace(/\bArticle\b/g,'Dance Tip')
-      .replace(/\barticle\b/g,'dance tip');
+      .replace(/Post New (?:Fitness Tip|Fitness Tips)/gi,'Post New Fitness Tip')
+      .replace(/Post (?:Fitness Tip|Fitness Tips)/gi,'Post Fitness Tip')
+      .replace(/Load (?:Fitness Tips|Fitness Tips Updates)/gi,'Load Fitness Tips')
+      .replace(/Add Advertisements to This (?:Fitness Tip|Fitness Tips)/gi,'Add Advertisements to These Fitness Tips')
+      .replace(/Existing (?:Fitness Classes|Fitness Tips)/gi,'Existing Fitness Tips')
+      .replace(/Fitness Tips/gi,'Fitness Tips')
+      .replace(/Fitness Tip/gi,'Fitness Tip')
+      .replace(/\bFitness Tips\b/g,'Fitness Tips')
+      .replace(/\barticles\b/g,'Fitness Tips')
+      .replace(/\bFitness Tips\b/g,'Fitness Tip')
+      .replace(/\barticle\b/g,'Fitness Tip');
   }
 
   function setSidebarLabel(button,label){

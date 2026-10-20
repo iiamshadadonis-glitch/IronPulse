@@ -309,19 +309,19 @@
 
   function enhanceAuditionHelp(){
     const details=$$('#blogs details.admin-collapsed-card');
-    const post=details.find(d=>/Post New Audition Update/i.test(d.querySelector('summary')?.textContent||''));
+    const post=details.find(d=>/Post New Fitness Tip/i.test(d.querySelector('summary')?.textContent||''));
     if(post){
-      infoBody(post,`<h3>Post New Audition Update — Field Guide</h3>
-      <ul><li><strong>Audition Title:</strong> main article heading. Write the casting opportunity clearly.</li>
-      <li><strong>Link Extension (Optional):</strong> use lowercase words separated by hyphens, such as <strong>casting-call-big-banner-movie</strong>. Do not type slashes. If left blank, the Audition Title is automatically converted into the link extension.</li>
-      <li><strong>Tags:</strong> comma-separated keywords used to organize/filter the article.</li>
-      <li><strong>Short Summary:</strong> one useful preview sentence for article listings and fallback search/share description.</li>
-      <li><strong>Audition Details:</strong> full article: role, age range, city, requirements, dates, contact instructions and any safety note.</li>
-      <li><strong>Cover Image URL:</strong> large public image shown below the article title and above its content. Use a direct image/CDN URL that opens without login.</li>
+      infoBody(post,`<h3>Post New Fitness Tip Update — Field Guide</h3>
+      <ul><li><strong>Fitness Tip Title:</strong> main fitness tip heading. Write the casting opportunity clearly.</li>
+      <li><strong>Link Extension (Optional):</strong> use lowercase words separated by hyphens, such as <strong>casting-call-big-banner-movie</strong>. Do not type slashes. If left blank, the Fitness Tip Title is automatically converted into the link extension.</li>
+      <li><strong>Tags:</strong> comma-separated keywords used to organize/filter the fitness tip.</li>
+      <li><strong>Short Summary:</strong> one useful preview sentence for fitness tip listings and fallback search/share description.</li>
+      <li><strong>Fitness Tip Details:</strong> full fitness tip: role, age range, city, requirements, dates, contact instructions and any safety note.</li>
+      <li><strong>Cover Image URL:</strong> large public image shown below the fitness tip title and above its content. Use a direct image/CDN URL that opens without login.</li>
       <li><strong>Status:</strong> Draft keeps it unpublished; Published makes it available according to the current publishing rules.</li>
-      <li><strong>Automatic Ads:</strong> lets enabled website ad integrations place ads automatically. Turn it off for an ad-free article or when placing controlled manual/custom ads.</li></ul>
+      <li><strong>Automatic Ads:</strong> lets enabled website ad integrations place ads automatically. Turn it off for an ad-free fitness tip or when placing controlled manual/custom ads.</li></ul>
       <div class="uc-example"><strong>Link example:</strong> title “Hyderabad Web Series Casting” → optional link extension <strong>hyderabad-web-series-casting</strong>. Leaving the field blank creates the link extension from the title automatically.</div>
-      <div class="uc-warning"><strong>Before publishing:</strong> preview the title, cover image and article details. If the image is blank, confirm the URL is a direct public image rather than a private share page.</div>`);
+      <div class="uc-warning"><strong>Before publishing:</strong> preview the title, cover image and fitness tip details. If the image is blank, confirm the URL is a direct public image rather than a private share page.</div>`);
     }
   }
 
@@ -340,7 +340,7 @@
       <div class="uc-v7-about-media-head"><div><strong>About Us Cover Image Optional</strong><small>Shown after the first paragraph on the public About Us page.</small></div></div>
       <div class="row"><div class="field"><label>Cover Image URL Optional</label><input data-page-field="cover_image_url" value="${H(page?.cover_image_url||'')}" placeholder="https://cdn.example.com/about-team.webp"><small class="hint">Paste a public direct image/CDN URL, or upload an image in the next field.</small></div>
       <div class="field"><label>Upload Cover Image Optional</label><input data-about-cover-file type="file" accept="image/webp,image/jpeg,image/png,image/svg+xml"><small class="hint">When saved, the crop editor opens so you can zoom, move or fit the image. Recommended frame: 1200 × 800 px. Max 900 KB after crop.</small></div></div>
-      <div class="field"><label>Image Alt Text Optional</label><input data-page-field="cover_image_alt" value="${H(page?.cover_image_alt||'')}" placeholder="DropBeat Dance Studio team / office"><small class="hint">Short description for accessibility. If blank, the About Us page title is used.</small></div>
+      <div class="field"><label>Image Alt Text Optional</label><input data-page-field="cover_image_alt" value="${H(page?.cover_image_alt||'')}" placeholder="IronPulse Gym team / office"><small class="hint">Short description for accessibility. If blank, the About Us page title is used.</small></div>
       <div class="uc-v7-about-preview">${page?.cover_image_url?`<img src="${H(page.cover_image_url)}" alt="${H(page.cover_image_alt||page.title||'About Us')}">`:'<small>No About Us cover image saved yet.</small>'}</div>
     </div>`;
   }

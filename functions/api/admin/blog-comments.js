@@ -2,7 +2,7 @@ import { json, readJson, requireAdmin } from '../../_lib/utils.js';
 
 function clean(v='',max=1000){return String(v||'').replace(/[<>]/g,'').replace(/\s+/g,' ').trim().slice(0,max);}
 function normalizeStatus(v='new'){const s=String(v||'new').toLowerCase();return ['new','in_progress','responded','resolved','all'].includes(s)?s:'new';}
-function articleMessage(parent){return `Comment on article ${String(parent?.post_title||'Dance Class Update')}: ${String(parent?.comment_text||'')}`.trim();}
+function articleMessage(parent){return `Comment on fitness tip ${String(parent?.post_title||'Fitness Tip')}: ${String(parent?.comment_text||'')}`.trim();}
 
 async function findCommentInquiry(env,parent){
   if(!parent)return null;
@@ -24,7 +24,7 @@ async function findCommentInquiry(env,parent){
 async function setInquiryStatus(env,parent,status){
   const inquiry=await findCommentInquiry(env,parent);if(!inquiry)return null;
   const resolved=status==='resolved'||status==='responded';
-  await env.DB.prepare(`UPDATE lead_submissions SET status=?,resolved_at=${resolved?'CURRENT_TIMESTAMP':'NULL'},updated_at=CURRENT_TIMESTAMP,source_detail='article_comment',message=CASE WHEN message LIKE 'Blog comment on %' THEN replace(message,'Blog comment on ','Comment on article ') ELSE message END WHERE id=?`)
+  await env.DB.prepare(`UPDATE lead_submissions SET status=?,resolved_at=${resolved?'CURRENT_TIMESTAMP':'NULL'},updated_at=CURRENT_TIMESTAMP,source_detail='article_comment',message=CASE WHEN message LIKE 'Blog comment on %' THEN replace(message,'Blog comment on ','Comment on fitness tip ') ELSE message END WHERE id=?`)
     .bind(resolved?'resolved':status,Number(inquiry.id)).run().catch(()=>{});
   return inquiry;
 }
@@ -33,7 +33,7 @@ async function addReplyHistory(env,parent,reply,image=''){
   const payload={seo_comment_id:Number(parent.id||0),parent_comment_id:Number(parent.id||0),seo_post_id:String(parent.seo_post_id||''),article_slug:String(parent.post_slug||''),article_title:String(parent.post_title||''),reply:String(reply||''),image_url:String(image||''),source:'article_comment_reply'};
   await env.DB.prepare(`INSERT INTO lead_submissions(lead_id,submission_type,visitor_id,source_detail,message,payload_json,status,resolved_at,updated_at,created_at)
     VALUES(?,'comment_reply','','article_comment_reply',?,?,'responded',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)`)
-    .bind(Number(parent.lead_id),`Admin replied on article ${parent.post_title||'Dance Class Update'}: ${reply||'[image reply]'}`,JSON.stringify(payload)).run().catch(()=>{});
+    .bind(Number(parent.lead_id),`Admin replied on fitness tip ${parent.post_title||'Fitness Tip'}: ${reply||'[image reply]'}`,JSON.stringify(payload)).run().catch(()=>{});
 }
 
 export async function onRequestGet({request,env}){
@@ -70,7 +70,7 @@ export async function onRequestPost({request,env}){
     const reply=clean(b.reply,1200),image=String(b.image_url||'').trim().slice(0,2000);if(!reply&&!image)return json({error:'Write a reply, add an emoji, or add an image URL before sending.'},400);
     if(image){try{const u=new URL(image);if(!['http:','https:'].includes(u.protocol))throw new Error('bad protocol');}catch(_){return json({error:'Image URL must be a valid public http:// or https:// link.'},400);}}
     await env.DB.prepare(`INSERT INTO seo_comments(seo_post_id,post_slug,post_title,post_image,parent_comment_id,lead_id,name,whatsapp,comment_text,image_url,is_admin,workflow_status,visibility,visitor_id,ip_hash,created_at,updated_at)
-      VALUES(?,?,?,?,?,?,?,'',?,?,1,'responded','published','','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)`).bind(parent.seo_post_id,parent.post_slug,parent.post_title,parent.post_image,id,parent.lead_id||null,'DropBeat Dance Studio Admin',reply,image).run();
+      VALUES(?,?,?,?,?,?,?,'',?,?,1,'responded','published','','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)`).bind(parent.seo_post_id,parent.post_slug,parent.post_title,parent.post_image,id,parent.lead_id||null,'IronPulse Gym Admin',reply,image).run();
     await env.DB.prepare("UPDATE seo_comments SET workflow_status='responded',updated_at=CURRENT_TIMESTAMP WHERE id=?").bind(id).run();
     await setInquiryStatus(env,parent,'responded');
     await addReplyHistory(env,parent,reply,image);

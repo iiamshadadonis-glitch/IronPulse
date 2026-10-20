@@ -36,7 +36,7 @@ export async function onRequestPost({request,env}){
   const rid=requestId();
   await env.DB.prepare(`INSERT INTO service_requests(request_id,lead_id,customer_name,customer_phone,customer_email,request_type,request_label,pause_months,pause_until,statement_period,statement_from,statement_to,message,status,source)
     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,'new','website')`).bind(rid,merged.lead.id,name,phone,email,type,TYPES[type],pauseMonths||null,pauseUntil||null,statementPeriod||null,statementFrom||null,statementTo||null,message||null).run();
-  const adminNumber=env.WHATSAPP_ADMIN_NUMBER||'9193919375';
+  const adminNumber=env.WHATSAPP_ADMIN_NUMBER||'919381521966';
   await sendWhatsAppText(env,adminNumber,`${TYPES[type]} request\nReference: ${rid}\nName: ${name}\nPhone: +${phone}\nEmail: ${email}${requestSummary?`\nDetails: ${requestSummary}`:''}`).catch(()=>{});
   return json({ok:true,request_id:rid,lead_id:merged.lead.id,duplicate:merged.duplicate,message:'Your request has been received. Our team will review it.'});
 }

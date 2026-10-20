@@ -38,7 +38,7 @@ export async function onRequestPost({request,env}){
       VALUES(?,?,?,?,?,'authenticated','razorpay',?,?,CURRENT_TIMESTAMP)
       ON CONFLICT(phone) DO UPDATE SET name=excluded.name,email=excluded.email,plan_name=excluded.plan_name,subscription_status='authenticated',gateway='razorpay',gateway_subscription_id=excluded.gateway_subscription_id,updated_at=CURRENT_TIMESTAMP`).bind(order.customer_name||'',order.customer_phone,order.customer_email||'','',items.map(x=>x.product_name).filter(Boolean).join(', ')||'Membership',subscriptionId,`Authenticated trial/upfront payment ${paymentId}; recurring charge is still pending.`).run().catch(()=>{});
     await mergeGatewayIdentity(env,{name:order.customer_name,phone:order.customer_phone,email:order.customer_email,gateway:'razorpay',subscription_id:subscriptionId,payment_id:paymentId,order_id:order.order_id}).catch(()=>{});
-    await notifyAdmin(env,`DropBeat Dance Studio trial/upfront payment verified\nOrder ID: ${order.order_id}\nGateway: Razorpay\nAmount received: ₹${(paymentAmount/100).toFixed(2)}`).catch(()=>{});
+    await notifyAdmin(env,`IronPulse Gym trial/upfront payment verified\nOrder ID: ${order.order_id}\nGateway: Razorpay\nAmount received: ₹${(paymentAmount/100).toFixed(2)}`).catch(()=>{});
     await sendOrderPaidEmail(env,order.order_id).catch(()=>{});
     await bumpAdminActivity(env,'orders').catch(()=>{});
     await bumpAdminActivity(env,'subscriptions').catch(()=>{});

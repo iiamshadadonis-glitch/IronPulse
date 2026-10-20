@@ -5,7 +5,7 @@
   'use strict';
   const crawler=/bot|crawler|spider|slurp|bingpreview|google-inspectiontool|googleother|googlebot|bingbot|duckduckbot|baiduspider|yandexbot/i.test(navigator.userAgent||'');
   const isHome=location.pathname==='/'||location.pathname==='/index.html';
-  const seoTitle=String(document.querySelector('meta[property="og:title"]')?.content||document.title||'DropBeat Dance Studio').trim();
+  const seoTitle=String(document.querySelector('meta[property="og:title"]')?.content||document.title||'IronPulse Gym').trim();
   let titleObserver=null;
   function stopLegacy(){try{if(window.__ucTitleMarqueeTimer){clearTimeout(window.__ucTitleMarqueeTimer);window.__ucTitleMarqueeTimer=null;}window.__ucTitleMarqueeStarted=false;}catch(_){}}
   function keepHomeFixed(){

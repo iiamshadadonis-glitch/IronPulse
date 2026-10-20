@@ -83,7 +83,7 @@ export function decorateSeoPost(post={},statusHint=''){
     blogger_post_id:String(post.id||''),
     blogger_post_url:String(post.url||''),
     blogger_updated_at:String(post.updated||''),
-    title:String(post.title||'Untitled Dance Class Update'),
+    title:String(post.title||'Untitled Fitness Tip'),
     slug,
     excerpt:String(meta.excerpt||excerptFromHtml(body,230)),
     body_html:body,
@@ -271,7 +271,7 @@ export async function saveDeletedAuditionSnapshot(env,post,{blogId=''}={}){
   if(!blogId){const x=await auditionSettings(env);blogId=x.blogId;}
   const now=new Date().toISOString();
   const safe={...post,id:String(post?.id||post?.blogger_post_id||''),blogger_post_id:String(post?.id||post?.blogger_post_id||''),blogger_post_url:'',status:'deleted',remote_status:'deleted',is_deleted:1,deleted_at:now,updated_at:now};
-  if(!safe.id)throw new Error('Dance class update ID is required.');
+  if(!safe.id)throw new Error('Fitness Tip ID is required.');
   await upsertAuditionPostCache(env,blogId,[safe]);
   return safe;
 }

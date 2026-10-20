@@ -37,7 +37,7 @@ function autoThumb(url = '') {
   const id = youtubeId(url);
   return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : instagramMedia(url);
 }
-function cleanTitle(value = '') { return String(value || '').trim().slice(0, 160) || 'Student Story'; }
+function cleanTitle(value = '') { return String(value || '').trim().slice(0, 160) || 'Member Story'; }
 function cleanStatus(value = '') { return String(value).toLowerCase() === 'draft' ? 'draft' : 'active'; }
 async function authorize(request, env) {
   try { await requireAdmin(request, env); return null; }
@@ -54,7 +54,7 @@ export async function onRequestGet({ request, env }) {
     await ensureSuccessStoriesSchema(env);
     return reply({ ok:true, stories:await allStories(env) });
   }
-  catch (error) { return reply({ ok:false, error:error.message || 'Student Stories could not be loaded.' }, 500); }
+  catch (error) { return reply({ ok:false, error:error.message || 'Member Stories could not be loaded.' }, 500); }
 }
 
 export async function onRequestPost({ request, env }) {
@@ -66,7 +66,7 @@ export async function onRequestPost({ request, env }) {
     const id = body.id ? Number(body.id) : 0;
     const url = normalizeUrl(body.url);
     if (!url) return reply({ ok:false, error:'Paste a complete YouTube or Instagram link.', diagnostic_id }, 400);
-    if (!supportedStoryUrl(url)) return reply({ ok:false, error:'Student Stories support YouTube and Instagram links.', diagnostic_id }, 400);
+    if (!supportedStoryUrl(url)) return reply({ ok:false, error:'Member Stories support YouTube and Instagram links.', diagnostic_id }, 400);
     const platform = storyPlatform(url);
     const suppliedThumb = String(body.thumbnail_url || '').trim();
     const thumbnail = suppliedThumb ? normalizeUrl(suppliedThumb) : autoThumb(url);
@@ -79,17 +79,17 @@ export async function onRequestPost({ request, env }) {
     let savedId = id;
     if (id) {
       const current = await withD1Retry(() => env.DB.prepare('SELECT id FROM success_stories WHERE id=?').bind(id).first());
-      if (!current) return reply({ ok:false, error:'Student Story not found.', diagnostic_id }, 404);
+      if (!current) return reply({ ok:false, error:'Member Story not found.', diagnostic_id }, 404);
       const update = await withD1Retry(() => env.DB.prepare(
         'UPDATE success_stories SET title=?,url=?,platform=?,thumbnail_url=?,status=?,updated_at=CURRENT_TIMESTAMP WHERE id=?'
       ).bind(values.title, values.url, values.platform, values.thumbnail, values.status, id).run());
-      if (update?.success === false) throw new Error('The database did not accept the Student Story update.');
+      if (update?.success === false) throw new Error('The database did not accept the Member Story update.');
     } else {
       const max = await withD1Retry(() => env.DB.prepare('SELECT COALESCE(MAX(sort_order),0) n FROM success_stories').first());
       const result = await withD1Retry(() => env.DB.prepare(
         'INSERT INTO success_stories(title,url,platform,thumbnail_url,status,sort_order) VALUES(?,?,?,?,?,?)'
       ).bind(values.title, values.url, values.platform, values.thumbnail, values.status, Number(max?.n || 0) + 1).run());
-      if (result?.success === false) throw new Error('The database did not accept the new Student Story.');
+      if (result?.success === false) throw new Error('The database did not accept the new Member Story.');
       savedId = Number(result?.meta?.last_row_id || 0);
       if (!savedId) {
         const saved = await withD1Retry(() => env.DB.prepare('SELECT id FROM success_stories WHERE url=? ORDER BY id DESC LIMIT 1').bind(values.url).first());
@@ -97,11 +97,11 @@ export async function onRequestPost({ request, env }) {
       }
     }
     const story = savedId ? await withD1Retry(() => env.DB.prepare('SELECT * FROM success_stories WHERE id=?').bind(savedId).first()) : null;
-    if (!story) throw new Error('The Student Story write completed but could not be verified in storage.');
-    return reply({ ok:true, id:savedId, story, diagnostic_id, message:'Student Story saved successfully.' }, id ? 200 : 201);
+    if (!story) throw new Error('The Member Story write completed but could not be verified in storage.');
+    return reply({ ok:true, id:savedId, story, diagnostic_id, message:'Member Story saved successfully.' }, id ? 200 : 201);
   } catch (error) {
-    console.error(`Student Story save failed [${diagnostic_id}]`, error);
-    return reply({ ok:false, error:error.message || 'Student Story could not be saved.', error_code:'STUDENT_STORY_SAVE_FAILED', diagnostic_id }, 500);
+    console.error(`Member Story save failed [${diagnostic_id}]`, error);
+    return reply({ ok:false, error:error.message || 'Member Story could not be saved.', error_code:'STUDENT_STORY_SAVE_FAILED', diagnostic_id }, 500);
   }
 }
 
@@ -110,10 +110,10 @@ export async function onRequestPut({ request, env }) {
   try {
     await ensureSuccessStoriesSchema(env);
     const body = await readJson(request);
-    if (body.action !== 'move') return reply({ ok:false, error:'Unsupported Student Story action.' }, 400);
+    if (body.action !== 'move') return reply({ ok:false, error:'Unsupported Member Story action.' }, 400);
     const id = Number(body.id || 0), direction = Number(body.dir || 0);
     const item = await withD1Retry(() => env.DB.prepare('SELECT id,sort_order FROM success_stories WHERE id=?').bind(id).first());
-    if (!item) return reply({ ok:false, error:'Student Story not found.' }, 404);
+    if (!item) return reply({ ok:false, error:'Member Story not found.' }, 404);
     const other = direction < 0
       ? await withD1Retry(() => env.DB.prepare('SELECT id,sort_order FROM success_stories WHERE sort_order < ? ORDER BY sort_order DESC,id DESC LIMIT 1').bind(item.sort_order).first())
       : await withD1Retry(() => env.DB.prepare('SELECT id,sort_order FROM success_stories WHERE sort_order > ? ORDER BY sort_order ASC,id ASC LIMIT 1').bind(item.sort_order).first());
@@ -122,7 +122,7 @@ export async function onRequestPut({ request, env }) {
       env.DB.prepare('UPDATE success_stories SET sort_order=?,updated_at=CURRENT_TIMESTAMP WHERE id=?').bind(item.sort_order, other.id)
     ]));
     return reply({ ok:true, stories:await allStories(env) });
-  } catch (error) { return reply({ ok:false, error:error.message || 'Student Story order could not be changed.' }, 400); }
+  } catch (error) { return reply({ ok:false, error:error.message || 'Member Story order could not be changed.' }, 400); }
 }
 
 export async function onRequestDelete({ request, env }) {
@@ -130,8 +130,8 @@ export async function onRequestDelete({ request, env }) {
   try {
     await ensureSuccessStoriesSchema(env);
     const id = Number(new URL(request.url).searchParams.get('id') || 0);
-    if (!id) return reply({ ok:false, error:'Student Story id is required.' }, 400);
+    if (!id) return reply({ ok:false, error:'Member Story id is required.' }, 400);
     await withD1Retry(() => env.DB.prepare('DELETE FROM success_stories WHERE id=?').bind(id).run());
     return reply({ ok:true, stories:await allStories(env) });
-  } catch (error) { return reply({ ok:false, error:error.message || 'Student Story could not be deleted.' }, 400); }
+  } catch (error) { return reply({ ok:false, error:error.message || 'Member Story could not be deleted.' }, 400); }
 }

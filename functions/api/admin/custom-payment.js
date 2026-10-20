@@ -19,7 +19,7 @@ export async function onRequestPost({ request, env }) {
   try{classAssignment=await saveOrderClassAssignment(env,{orderPk:ord.meta.last_row_id,orderReference:oid,paymentMode:'one_time',input:{...b,class_details_enabled:b.class_details_enabled??1}});}
   catch(error){await env.DB.prepare('DELETE FROM orders WHERE id=?').bind(ord.meta.last_row_id).run().catch(()=>{});return json({error:error.message||'Class access dates and event details are required for a one-time payment link.'},400);}
   let result=null,gatewayError='';
-  try{result=await createCheckoutWithFallback(env,{kind:'one_time',orderId:oid,amountPaise:chargePaise,currency:'INR',customer:{name:b.customer_name||'',phone,email:b.customer_email||''},description:b.purpose||b.notes||'DropBeat Dance Studio one-time payment',origin:new URL(request.url).origin,quantity:1});}
+  try{result=await createCheckoutWithFallback(env,{kind:'one_time',orderId:oid,amountPaise:chargePaise,currency:'INR',customer:{name:b.customer_name||'',phone,email:b.customer_email||''},description:b.purpose||b.notes||'IronPulse Gym one-time payment',origin:new URL(request.url).origin,quantity:1});}
   catch(e){gatewayError=e.message||'Payment Gateway link could not be created.';result={attempts:e.attempts||[]};}
   const url=result?.url||localUrl;
   await env.DB.prepare('UPDATE orders SET gateway=?,gateway_order_id=?,gateway_subscription_id=?,fallback_url=?,gateway_attempts_json=?,failure_reason=?,updated_at=CURRENT_TIMESTAMP WHERE id=?').bind(result?.gateway||availability.primary||'',result?.gatewayOrderId||'',result?.gatewaySubscriptionId||'',url,JSON.stringify(result?.attempts||[]),gatewayError||null,ord.meta.last_row_id).run();

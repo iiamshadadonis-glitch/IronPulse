@@ -28,7 +28,7 @@ async function reconcileRazorpayReference(env,order,reference){
   if(receipt){const lifecycle=kind==='authentication'?'authenticated':'paid',payStatus=kind==='authentication'?'authenticated':'paid';await env.DB.prepare('UPDATE orders SET status=?,payment_status=?,gateway_payment_id=?,updated_at=CURRENT_TIMESTAMP WHERE id=?').bind(lifecycle,payStatus,reference,order.id).run().catch(()=>{});await bumpAdminActivity(env,'orders').catch(()=>{});}
   return receipt;
 }
-function safeRetry(url){const v=clean(url,1200);if(!v)return'/checkout';try{const u=new URL(v,'https://urgent-casting.invalid');return ['http:','https:'].includes(u.protocol)?v:'/checkout';}catch{return'/checkout';}}
+function safeRetry(url){const v=clean(url,1200);if(!v)return'/checkout';try{const u=new URL(v,'https://ironpulse.invalid');return ['http:','https:'].includes(u.protocol)?v:'/checkout';}catch{return'/checkout';}}
 
 export async function onRequestGet({request,env}){
   const u=new URL(request.url),orderId=clean(u.searchParams.get('order'),120),reference=clean(u.searchParams.get('reference')||u.searchParams.get('payment_id')||u.searchParams.get('session_id'),220);
@@ -50,7 +50,7 @@ export async function onRequestGet({request,env}){
   const trialEnabled=(Number(first.trial_enabled||0)===1||savedTrialEnabled)&&trialAmount>0,trialGross=num(trialTax.totalPaise)||trialAmount,received=num(receipt?.amount_paise),isTrialPayment=!!receipt&&trialEnabled&&received>0&&(String(receipt?.payment_kind||'').toLowerCase()==='authentication'||received<=Math.max(trialGross,100))&&String(order.payment_mode||'').toLowerCase()!=='one_time';
   const localState=String(order.payment_status||order.status||'').toLowerCase(),failed=['failed','cancelled','canceled','expired'].some(x=>localState.includes(x));
   const site=await getSiteSettings(env).catch(()=>({}));
-  const planName=clean(items.map(x=>x.product_name||x.variant_name).filter(Boolean).join(', '),220)||'DropBeat Dance Studio Membership';
+  const planName=clean(items.map(x=>x.product_name||x.variant_name).filter(Boolean).join(', '),220)||'IronPulse Gym Membership';
   const offerSaving=Math.max(0,regularValue-subscriptionCharge),paidAt=receipt?.paid_at||order.updated_at||order.created_at;
   const status=receipt?'success':failed?'failed':'pending';
   // Final safety net: regardless of where the payment originated (website cart,
@@ -77,12 +77,12 @@ export async function onRequestGet({request,env}){
   let portal=null,sessionHeader='';
   const verifiedBrowserReturn=!!(receipt&&reference&&String(receipt.transaction_id||'')===String(reference));
   if(verifiedBrowserReturn){
-    try{const linked=await ensurePaidStudentPortalAccount(env,order),session=await createPortalSession(env,linked.account.id);sessionHeader=session.header;portal={route:'/student-dashboard?payment=success',accountCreated:linked.created,requiresPasswordSetup:linked.requiresPasswordSetup};}catch(_){portal=null;}
+    try{const linked=await ensurePaidStudentPortalAccount(env,order),session=await createPortalSession(env,linked.account.id);sessionHeader=session.header;portal={route:'/member-dashboard?payment=success',accountCreated:linked.created,requiresPasswordSetup:linked.requiresPasswordSetup};}catch(_){portal=null;}
   }
 
   return json({
     ok:true,status,
-    brand:{name:clean(site.siteName,160)||'DropBeat Dance Studio',tagline:clean(site.tagline,240)||'Online and studio dance classes for every level',logo_url:clean(site.logoUrl,800)||'/assets/dropbeat-logo.svg',primary_color:clean(site.primaryColor,30)||'#4B55BE'},
+    brand:{name:clean(site.siteName,160)||'IronPulse Gym',tagline:clean(site.tagline,240)||'Online and in-gym fitness classes for every level',logo_url:clean(site.logoUrl,800)||'/assets/ironpulse-logo.svg',primary_color:clean(site.primaryColor,30)||'#4B55BE'},
     order:{order_id:order.order_id,customer_name:clean(order.customer_name,160),payment_mode:clean(order.payment_mode,40),plan_name:planName,lifecycle_status:clean(order.status,40),payment_status:clean(order.payment_status,40)},
     payment:receipt?{gateway:receipt.gateway,gateway_label:gatewayLabel(receipt.gateway),transaction_id:receipt.transaction_id,amount_paise:received,currency:receipt.currency||'INR',payment_kind:receipt.payment_kind||'payment',payment_method:receipt.payment_method||'',upi_id:receipt.upi_id||'',paid_at:paidAt,base_amount_paise:num(receipt.base_amount_paise)||num(receiptTax.basePaise)||received,gst_amount_paise:num(receipt.gst_amount_paise)||num(receiptTax.gstPaise),service_charge_paise:num(receipt.service_charge_paise)||num(receiptTax.serviceChargePaise),other_tax_paise:num(receipt.other_tax_paise)||num(receiptTax.otherTaxPaise),tax:receiptTax}:null,
     trial:{enabled:trialEnabled,is_trial_payment:isTrialPayment,amount_paise:trialAmount,charged_amount_paise:trialGross,value:num(first.trial_value),unit:clean(first.trial_unit,20),next_charge_date:nextChargeDate},

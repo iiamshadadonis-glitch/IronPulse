@@ -1,7 +1,7 @@
 import { preferredPublicOrigin } from '../_lib/utils.js';
 
 export async function onRequestGet({request,env}){
-  const origin=String(preferredPublicOrigin(request,env)||'https://dance-class-at2.pages.dev').replace(/\/$/,'');
+  const origin=String(preferredPublicOrigin(request,env)||'https://ironpulse-gym.pages.dev').replace(/\/$/,'');
   const body=`User-agent: *
 Allow: /
 Disallow: /admin/

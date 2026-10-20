@@ -5,7 +5,7 @@
   const H=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const titleCase=s=>String(s||'').replace(/[_-]+/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const apiJson=(path,options={})=>window.api?window.api(path,options):fetch(path,{credentials:'same-origin',headers:{'content-type':'application/json',...(options.headers||{})},...options}).then(async r=>{const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Request failed');return d;});
-  const brand=()=>String(window.A?.settings?.siteName||'DropBeat Dance Studio').trim()||'DropBeat Dance Studio';
+  const brand=()=>String(window.A?.settings?.siteName||'IronPulse Gym').trim()||'IronPulse Gym';
   const helpEnabled=()=>window.A?.settings?.adminHelpEnabled!==false;
   const infoSvg=()=>`<svg class="uc-info-svg" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="10.4" r="1.55" fill="currentColor"/><path d="M14.6 14.4h1.7v7.1c0 1 .45 1.5 1.45 1.5h.55" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const backSvg=()=>`<svg class="uc-back-svg" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14.3 10.8 9.6 15.5l4.7 4.7M10.3 15.5h7.1c3.3 0 5.1 1.7 5.1 4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;

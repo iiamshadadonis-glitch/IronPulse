@@ -29,11 +29,11 @@ const REQUIRED_COLUMNS = [
 ];
 
 async function repair(env) {
-  if (!env?.DB) throw new Error('Student Stories database is not configured.');
+  if (!env?.DB) throw new Error('Member Stories database is not configured.');
   await withD1Retry(() => env.DB.prepare(CREATE_TABLE).run());
   const info = await withD1Retry(() => env.DB.prepare('PRAGMA table_info(success_stories)').all());
   const columns = new Set((info?.results || []).map(column => String(column.name || '').toLowerCase()));
-  if (!columns.has('id')) throw new Error('The existing Student Stories table has no id column.');
+  if (!columns.has('id')) throw new Error('The existing Member Stories table has no id column.');
   for (const [name, definition] of REQUIRED_COLUMNS) {
     if (columns.has(name)) continue;
     await withD1Retry(() => env.DB.prepare(`ALTER TABLE success_stories ADD COLUMN ${name} ${definition}`).run());
@@ -46,7 +46,7 @@ async function repair(env) {
 export async function ensureSuccessStoriesSchema(env) {
   const db = env?.DB;
   if (!db || (typeof db !== 'object' && typeof db !== 'function')) {
-    throw new Error('Student Stories database is not configured.');
+    throw new Error('Member Stories database is not configured.');
   }
   let pending = schemaPromises.get(db);
   if (!pending) {

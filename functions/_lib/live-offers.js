@@ -1,8 +1,8 @@
 const clean=(v,n=6000)=>String(v??'').trim().slice(0,n);
 
 function siteBase(env={}){
-  const raw=clean(env.PUBLIC_SITE_URL||env.SITE_URL||env.APP_URL||'https://dance-class-at2.pages.dev',1000);
-  try{return new URL(raw).origin;}catch{return 'https://dance-class-at2.pages.dev';}
+  const raw=clean(env.PUBLIC_SITE_URL||env.SITE_URL||env.APP_URL||'https://ironpulse-gym.pages.dev',1000);
+  try{return new URL(raw).origin;}catch{return 'https://ironpulse-gym.pages.dev';}
 }
 
 export async function listAutomationOffers(env,{limit=100}={}){

@@ -41,7 +41,7 @@
   function parseAds(raw){try{const v=typeof raw==='string'?JSON.parse(raw):raw;return Array.isArray(v)?v:[]}catch(_){return [];}}
   function isImage(url){return /^https?:\/\/.+\.(png|jpe?g|webp|gif|svg)(\?.*)?$/i.test(String(url||''));}
   function adBox(ad){
-    const type=H(ad.type||'Advertisement'),place=H(ad.placement||'In article'),size=H(ad.size||'Auto responsive');
+    const type=H(ad.type||'Advertisement'),place=H(ad.placement||'In fitness tip'),size=H(ad.size||'Auto responsive');
     const code=String(ad.code||ad.url||'').trim(),redirect=String(ad.redirect_url||'').trim(),custom=!!(ad.custom||ad.is_custom||/Custom Advertisement|Custom Ad/i.test(ad.type||''));
     if(!code)return '';
     if(custom){
@@ -70,11 +70,11 @@
     const slug=new URLSearchParams(location.search).get('slug')||window.UC_BLOG_SLUG||location.pathname.split('/').filter(Boolean).pop();
     const [site,res]=await Promise.all([api('/api/public/site').catch(()=>({settings:{}})),api(`/api/public/blogs?slug=${encodeURIComponent(slug||'')}`)]);
     const p=res.post,box=document.querySelector('#blogPost');if(!box)return;
-    if(!p){if(window.prepareCommon)window.prepareCommon(site.settings||{});box.innerHTML='<h1>Dance tip not found</h1>';return;}
+    if(!p){if(window.prepareCommon)window.prepareCommon(site.settings||{});box.innerHTML='<h1>Fitness Tip not found</h1>';return;}
     window.__ucArticleAutoAds=!!Number(p.auto_ads_enabled||0);
     if(window.prepareCommon)window.prepareCommon(site.settings||{});else if(window.loadCommon)await window.loadCommon();
     const ads=parseAds(p.ads_json);
-    const cover=p.cover_image_url?`<img class="article-cover" src="${H(p.cover_image_url)}" alt="${H(p.title||'Dance tip')}" loading="eager" fetchpriority="high">`:'';
+    const cover=p.cover_image_url?`<img class="article-cover" src="${H(p.cover_image_url)}" alt="${H(p.title||'Fitness Tip')}" loading="eager" fetchpriority="high">`:'';
     box.innerHTML=`<h1>${H(p.title)}</h1>${cover}<p class="lead">${H(p.excerpt||'')}</p>${p.tags?.length?`<p>${p.tags.map(t=>`<span class="badge">${H(t)}</span>`).join(' ')}</p>`:''}${injectAds(p.body_html,ads)}`;
   }
   if(window.UC)window.UC.loadBlogPost=loadBlogPostV5;

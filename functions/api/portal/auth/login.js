@@ -18,7 +18,7 @@ export async function onRequestPost({request,env}){
     await ensurePortalSchema(env);
     const account=await env.DB.prepare('SELECT * FROM portal_accounts WHERE lower(email)=? LIMIT 1').bind(email).first();
     if(!account||!await verifyPortalPassword(password,account))return json({error:'The email or password is incorrect.'},401);
-    if(account.status==='rejected')return json({error:'This account application was not approved. Contact the studio if you believe this is a mistake.'},403);
+    if(account.status==='rejected')return json({error:'This account application was not approved. Contact the gym if you believe this is a mistake.'},403);
     const session=await createPortalSession(env,account.id,{maxAge:body.remember===false?7*24*60*60:undefined});
     return json({ok:true,role:account.role,status:account.status,route:portalRouteFor(account.role,account.status),account:publicPortalAccount(account)},200,{'set-cookie':session.header});
   }catch(error){return json({error:error.message||'Login could not be completed.'},400);}

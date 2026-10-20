@@ -17,7 +17,7 @@ export async function onRequestGet({request,env}){
       listEmailAutomations(env),senderState(env),getSiteSettings(env).catch(()=>({})),
       env.DB.prepare('SELECT g.id,g.name,(SELECT COUNT(*) FROM email_automation_group_members m WHERE m.group_id=g.id) members FROM email_automation_groups g ORDER BY g.name').all().catch(()=>({results:[]}))
     ]);
-    return json({ok:true,flows,templates:emailAutomationTemplates(),groups:groups.results||[],brand:{name:site.siteName||'DropBeat Dance Studio',logoUrl:site.logoUrl||'',primaryColor:site.primaryColor||'#4B55BE',accentColor:site.accentColor||'#A469A8'},gmail:{...sender,senderName:sender.senderName||site.siteName||'DropBeat Dance Studio'}});
+    return json({ok:true,flows,templates:emailAutomationTemplates(),groups:groups.results||[],brand:{name:site.siteName||'IronPulse Gym',logoUrl:site.logoUrl||'',primaryColor:site.primaryColor||'#4B55BE',accentColor:site.accentColor||'#A469A8'},gmail:{...sender,senderName:sender.senderName||site.siteName||'IronPulse Gym'}});
   }catch(e){return json({error:e.message||'Email automations could not be loaded.'},400);}
 }
 
@@ -46,7 +46,7 @@ export async function onRequestPost({request,env}){
     if(action==='preview'){
       const preview={name:b.sample?.name||'Zeenath Afreen',email:b.sample?.email||'zeenath@example.com',phone:b.sample?.phone||'+91 98765 43210',location:b.sample?.location||'Hyderabad, TS, IN',date_of_birth:'1995-09-16',age:31,gender:'Not specified',source:'Preview'};
       const base=preferredPublicOrigin(request,env);
-      return json({ok:true,preview:await renderEmailAutomation(env,b.step||{},preview,{flowName:b.flowName||'Email Preview',stepName:b.step?.name||'Email Preview',planName:'Premium Membership',amount:'₹1,250',renewalDate:'30 September 2026',failureReason:'The bank declined the payment',retryPaymentUrl:`${base}/my-orders`,checkoutUrl:`${base}/checkout`,hoursLeft:'24',eventTitle:'Dance Workshop Webinar',eventUrl:`${base}/webinars`,surveyUrl:`${base}/contact`,courseName:'Dance Confidence Course'})});
+      return json({ok:true,preview:await renderEmailAutomation(env,b.step||{},preview,{flowName:b.flowName||'Email Preview',stepName:b.step?.name||'Email Preview',planName:'Premium Membership',amount:'₹1,250',renewalDate:'30 September 2026',failureReason:'The bank declined the payment',retryPaymentUrl:`${base}/my-orders`,checkoutUrl:`${base}/checkout`,hoursLeft:'24',eventTitle:'Fitness Workshop Webinar',eventUrl:`${base}/webinars`,surveyUrl:`${base}/contact`,courseName:'Fitness Confidence Course'})});
     }
     return json({error:'Unsupported email automation action.'},400);
   }catch(e){return json({error:e.message||'Email automation action failed.',validationErrors:Array.isArray(e.validationErrors)?e.validationErrors:[]},400);}

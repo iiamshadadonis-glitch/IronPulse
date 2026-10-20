@@ -3,7 +3,7 @@ import {ensureAuthSchema} from './auth-schema.js';
 import {ensurePortalSchema} from './portal-auth.js';
 export const APP_SESSION_SECONDS=300*86400;
 export const SESSION_HEADERS={'cache-control':'private, no-store, max-age=0','vary':'Cookie'};
-export const dashboardFor=role=>role==='admin'?'/admin/':role==='coach'?'/coach-dashboard':'/student-dashboard';
+export const dashboardFor=role=>role==='admin'?'/admin/':role==='coach'?'/coach-dashboard':'/member-dashboard';
 export async function appSession(request,env,{preferredRole='',renew=false}={}){
  let cookies;try{cookies=parseCookies(request);}catch{return null;}
  const roles=preferredRole&&preferredRole!=='admin'?['portal','admin']:['admin','portal'];

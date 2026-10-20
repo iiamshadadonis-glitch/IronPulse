@@ -16,7 +16,7 @@
   async function serviceWorker(){if(!supportsNotifications())return null;try{await navigator.serviceWorker.register('/uc-notifications-sw.js?v=16.61',{scope:'/'});return navigator.serviceWorker.ready;}catch{return null;}}
   async function setNotifications(enable){
     if(!supportsNotifications()){window.ucAdminToast?.('Secure browser notifications are not supported here.','error');syncNotificationToggles();return;}
-    if(enable){let permission=Notification.permission;if(permission!=='granted')permission=await Notification.requestPermission();if(permission==='granted'){localStorage.setItem(NOTIFY_KEY,'1');await serviceWorker();window.ucAdminToast?.('Admin notifications are enabled. New supported comments and Inbox messages will alert this browser.','success');}else{localStorage.setItem(NOTIFY_KEY,'0');window.ucAdminToast?.('Notifications are blocked. Allow Notifications for this DropBeat Dance Studio website in the browser site settings, then enable the switch again.','error');}}
+    if(enable){let permission=Notification.permission;if(permission!=='granted')permission=await Notification.requestPermission();if(permission==='granted'){localStorage.setItem(NOTIFY_KEY,'1');await serviceWorker();window.ucAdminToast?.('Admin notifications are enabled. New supported comments and Inbox messages will alert this browser.','success');}else{localStorage.setItem(NOTIFY_KEY,'0');window.ucAdminToast?.('Notifications are blocked. Allow Notifications for this IronPulse Gym website in the browser site settings, then enable the switch again.','error');}}
     else{localStorage.setItem(NOTIFY_KEY,'0');window.ucAdminToast?.('Admin notifications are disabled for this browser.','success');}
     syncNotificationToggles();
   }
@@ -38,7 +38,7 @@
   }
 
   function patchArticlesLabel(){
-    $$('#blogComments button,.tabs button,.pills button').forEach(b=>{if(/^Audition Articles$/i.test((b.textContent||'').trim()))b.textContent='Articles';});
+    $$('#blogComments button,.tabs button,.pills button').forEach(b=>{if(/^Fitness Tip Fitness Tips$/i.test((b.textContent||'').trim()))b.textContent='Fitness Tips';});
   }
 
   function syncEmojiOpenClass(){const picker=$('#uc56EmojiRow'),shell=picker?.closest('.uc56-dm-shell');if(shell)shell.classList.toggle('uc60-emoji-open',!picker.hidden);}

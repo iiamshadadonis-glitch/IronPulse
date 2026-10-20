@@ -151,7 +151,7 @@ async function deliver(env,step,lead){
   }
   if(step.channel==='email'){
     if(!clean(lead.email,320))return {ok:false,skipped:true,reason:'Lead has no email address.'};
-    const site=await getSiteSettings(env).catch(()=>({})),subject=vars(step.subject||'A message from DropBeat Dance Studio',lead),offer=rich.offer;
+    const site=await getSiteSettings(env).catch(()=>({})),subject=vars(step.subject||'A message from IronPulse Gym',lead),offer=rich.offer;
     const images=rich.attachments.filter(a=>a.kind==='image').map(a=>`<div style="margin:18px 0;text-align:center"><img src="${htmlEscape(a.url)}" alt="${htmlEscape(a.name||step.name||'Email image')}" style="display:block;width:100%;max-width:560px;height:auto;margin:auto;border-radius:16px;border:1px solid #ead3bd"></div>`).join('');
     const documents=rich.attachments.filter(a=>a.kind==='document').map(a=>`<a href="${htmlEscape(a.viewUrl||a.url)}" style="display:block;margin:9px 0;padding:12px 14px;border:1px solid #ead3bd;border-radius:14px;background:#fff;color:#4B55BE;text-decoration:none;font-weight:700">📄 ${htmlEscape(a.name||'Open document')}</a>`).join('');
     const buttonLinks=rich.buttons.filter(b=>b.url&&b.label),secondary=(['interactive_buttons','image_buttons'].includes(step.contentType)?buttonLinks.slice(1):buttonLinks).map(b=>`<a href="${htmlEscape(b.url)}" style="display:inline-block;margin:6px 5px;padding:10px 17px;border-radius:999px;border:1px solid #4B55BE;color:#4B55BE;text-decoration:none;font-weight:700;font-size:13px">${htmlEscape(b.label)}</a>`).join('');

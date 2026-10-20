@@ -90,7 +90,7 @@
     if(!box) return;
     box.innerHTML = state.cart.length ? state.cart.map((i,idx)=>`
       <div class="basket-item coupon-basket-item">
-        <div class="basket-img"><img src="/assets/dropbeat-logo.svg" alt=""></div>
+        <div class="basket-img"><img src="/assets/ironpulse-logo.svg" alt=""></div>
         <div class="basket-main">
           <h3>${escapeHtml(i.name)}</h3>
           <p><strong>${escapeHtml(billingText(i))}</strong></p>
@@ -208,7 +208,7 @@
   const oldRenderProducts=window.renderProducts;
   window.renderProducts=function(products,selector){const box=document.querySelector(selector);if(!box)return;if(!products?.length){box.innerHTML='';return;}window.__ucCurrentProductSet=products;box.innerHTML=products.map((p,i)=>productCardPolished(p,i,products)).join('');if(window.preloadProductImages)window.preloadProductImages(products);if(window.ucUpdateProductSchema)window.ucUpdateProductSchema(products,selector);box.querySelectorAll('[data-add]').forEach(btn=>btn.addEventListener('click',()=>{const p=products.find(x=>String(x.id)===btn.dataset.add);const v=String(p?.billing_period||'monthly')==='yearly'?(p?.variants||[]).find(x=>Number(x.billing_months)===12):p?.variants?.[0];if(p)window.addToCart?window.addToCart(p,v):addToCart(p,v);}));initGalleryAuto(box);window.__ucProductRenders=window.__ucProductRenders||{};window.__ucProductRenders[selector]={products,selector};document.dispatchEvent(new CustomEvent('uc-products-rendered',{detail:{products,selector}}));if(selector==='#featuredProducts' && products.length>4){box.classList.add('featured-carousel');let controls=document.querySelector('#featuredProductControls');if(!controls){controls=document.createElement('div');controls.id='featuredProductControls';controls.className='product-scroll-controls';controls.innerHTML='<button class="btn secondary compact" type="button" aria-label="Previous plans">←</button><button class="btn secondary compact" type="button" aria-label="Next plans">→</button>';box.parentElement?.querySelector('.section-head')?.appendChild(controls);}controls.querySelector('button:first-child').onclick=()=>box.scrollBy({left:-320,behavior:'smooth'});controls.querySelector('button:last-child').onclick=()=>box.scrollBy({left:320,behavior:'smooth'});}}
   const oldHeroSlide=window.heroSlide;
-  window.heroSlide=function(b,i){const bg=b.desktop_image_url||'';return `<section class="hero slide ${i===0?'active':''}" ${bg?`style="--hero-bg:url('${h(bg)}')"`:''}><div class="container hero-grid hero-full"><div class="hero-copy"><span class="eyebrow">🎵 ${h(b.badge||'Dance Classes')}</span><h1>${h(b.title||'Find your rhythm. Learn your way.')}</h1><p>${h(b.subtitle||'Join online, studio or hybrid dance classes with flexible memberships and clear class schedules.')}</p><div class="hero-actions"><a class="btn" href="${h(b.href||'/offers')}">Explore Dance Plans</a><a class="btn secondary" href="/student-dashboard">My Membership</a></div></div></div></section>`;};
+  window.heroSlide=function(b,i){const bg=b.desktop_image_url||'';return `<section class="hero slide ${i===0?'active':''}" ${bg?`style="--hero-bg:url('${h(bg)}')"`:''}><div class="container hero-grid hero-full"><div class="hero-copy"><span class="eyebrow">🎵 ${h(b.badge||'Fitness Classes')}</span><h1>${h(b.title||'Build your strength. Train your way.')}</h1><p>${h(b.subtitle||'Join online, gym or hybrid fitness classes with flexible memberships and clear class schedules.')}</p><div class="hero-actions"><a class="btn" href="${h(b.href||'/offers')}">Explore Fitness Plans</a><a class="btn secondary" href="/member-dashboard">My Membership</a></div></div></div></section>`;};
 })();
 
 
@@ -217,7 +217,7 @@
   const h=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function parseAds(value){try{return Array.isArray(value)?value:JSON.parse(value||'[]')}catch{return []}}
   function adBox(ad){
-    const type=h(ad.type||'Display Ad'), place=h(ad.placement||'In article'), size=h(ad.size||'Auto');
+    const type=h(ad.type||'Display Ad'), place=h(ad.placement||'In fitness tip'), size=h(ad.size||'Auto');
     const code=String(ad.code||ad.url||'').trim();
     if(!code) return '';
     const content = /<\w|<script|<ins|<iframe/i.test(code)
@@ -237,7 +237,7 @@
     const [site,res]=await Promise.all([api('/api/public/site').catch(()=>({settings:{}})),api(`/api/public/blogs?slug=${encodeURIComponent(slug||'')}`)]);
     if(window.prepareCommon)window.prepareCommon(site.settings||{}); else await loadCommon();
     const p=res.post;const box=document.querySelector('#blogPost');if(!box)return;
-    if(!p){box.innerHTML='<h1>Dance tip not found</h1>';return;}
+    if(!p){box.innerHTML='<h1>Fitness Tip not found</h1>';return;}
     const ads=parseAds(p.ads_json);
     box.innerHTML=`<h1>${h(p.title)}</h1><p class="lead">${h(p.excerpt||'')}</p>${p.tags?.length?`<p>${p.tags.map(t=>`<span class="badge">${h(t)}</span>`).join(' ')}</p>`:''}${injectAds(p.body_html,ads)}`;
   }

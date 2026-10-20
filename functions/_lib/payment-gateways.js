@@ -135,7 +135,7 @@ function phonePeMerchantId(value,prefix='UC'){
 function absoluteUrl(origin,path){try{return new URL(path,origin).toString();}catch(_){return `${String(origin||'').replace(/\/$/,'')}${path}`;}}
 
 async function createRazorpayCheckout(env,ctx){
-  const {kind,orderId,amountPaise,currency='INR',customer={},description='DropBeat Dance Studio Membership',billingMonths=1,totalCount=1,setupAmountPaise=0,quantity=1,trial=null,initialCharge=null}=ctx;
+  const {kind,orderId,amountPaise,currency='INR',customer={},description='IronPulse Gym Membership',billingMonths=1,totalCount=1,setupAmountPaise=0,quantity=1,trial=null,initialCharge=null}=ctx;
   if(kind==='one_time'){
     const link=await razorpayApi(env,'/payment_links',{payload:{amount:amountPaise,currency,accept_partial:false,description:clean(description,250),customer:{name:clean(customer.name,120),contact:clean(customer.phone,30),email:clean(customer.email,220)},notify:{sms:false,email:!!customer.email},reminder_enable:false,expire_by:Math.floor(Date.now()/1000)+86400,callback_url:absoluteUrl(ctx.origin,`/payment-success?order=${encodeURIComponent(orderId)}`),callback_method:'get',notes:{order_id:orderId}}});
     return {gateway:'razorpay',gatewayOrderId:link.id||'',gatewaySubscriptionId:'',url:link.short_url||'',data:link};
@@ -170,7 +170,7 @@ async function createRazorpayCheckout(env,ctx){
 }
 
 async function createStripeCheckout(env,ctx){
-  const {kind,orderId,amountPaise,currency='INR',customer={},description='DropBeat Dance Studio Membership',billingMonths=1,totalCount=1,setupAmountPaise=0,quantity=1,trial=null,initialCharge=null}=ctx;
+  const {kind,orderId,amountPaise,currency='INR',customer={},description='IronPulse Gym Membership',billingMonths=1,totalCount=1,setupAmountPaise=0,quantity=1,trial=null,initialCharge=null}=ctx;
   if(kind!=='subscription'){
     const params={
       'line_items[0][price_data][currency]':String(currency||'INR').toLowerCase(),
@@ -251,7 +251,7 @@ async function createStripeCheckout(env,ctx){
 }
 
 async function createPhonePeCheckout(env,ctx){
-  const {kind,orderId,amountPaise,customer={},description='DropBeat Dance Studio Membership',billingMonths=1,totalCount=1,setupAmountPaise=0,quantity=1,trial=null,initialCharge=null}=ctx;
+  const {kind,orderId,amountPaise,customer={},description='IronPulse Gym Membership',billingMonths=1,totalCount=1,setupAmountPaise=0,quantity=1,trial=null,initialCharge=null}=ctx;
   const totalAmount=Math.max(100,Math.round(Number(amountPaise||0)*Math.max(1,Number(quantity||1))));
   // PhonePe separates the mandate's first debit (`amount`) from the maximum
   // recurring redemption (`maxAmount`). This keeps First Payment Only coupons

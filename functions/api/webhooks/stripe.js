@@ -21,7 +21,7 @@ async function upsertSubscriber(env,orderId,subscriptionId,status='active'){
   const o=await env.DB.prepare('SELECT * FROM orders WHERE order_id=?').bind(orderId).first().catch(()=>null);
   if(!o?.customer_phone)return;
   const items=await env.DB.prepare('SELECT product_name FROM order_items WHERE order_id=? ORDER BY id').bind(orderId).all().catch(()=>({results:[]}));
-  const plan=(items.results||[]).map(x=>x.product_name).filter(Boolean).join(', ')||'DropBeat Dance Studio';
+  const plan=(items.results||[]).map(x=>x.product_name).filter(Boolean).join(', ')||'IronPulse Gym';
   await env.DB.prepare(`INSERT INTO subscribers(name,phone,email,city,plan_name,subscription_status,gateway,gateway_subscription_id,notes,updated_at)
     VALUES(?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)
     ON CONFLICT(phone) DO UPDATE SET name=excluded.name,email=excluded.email,plan_name=excluded.plan_name,subscription_status=excluded.subscription_status,gateway=excluded.gateway,gateway_subscription_id=excluded.gateway_subscription_id,updated_at=CURRENT_TIMESTAMP`)
@@ -127,7 +127,7 @@ export async function onRequestPost({ request, env }) {
       await upsertSubscriber(env,orderId,obj.id||subscriptionId,'cancelled');
       const automation=await import('../../_lib/email-automations.js');await automation.triggerOrderEmailAutomation(env,orderId,'subscription_cancelled',{reference:obj.id||subscriptionId||event,cancellationDate:new Date().toISOString().slice(0,10)}).catch(()=>{});
     }
-    await notifyAdmin(env, `Stripe event for DropBeat Dance Studio\nOrder ID: ${orderId || '-'}\nEvent: ${event}`);
+    await notifyAdmin(env, `Stripe event for IronPulse Gym\nOrder ID: ${orderId || '-'}\nEvent: ${event}`);
   }
   if(orderId)await bumpAdminActivity(env,'orders').catch(()=>{});
   await bumpAdminActivity(env,'subscriptions').catch(()=>{});

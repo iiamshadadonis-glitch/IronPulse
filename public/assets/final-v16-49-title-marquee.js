@@ -15,9 +15,9 @@
   }
   function stop(restore=true){if(raf)cancelAnimationFrame(raf);raf=0;last=0;index=0;if(restore&&base)document.title=base;}
   function brandedBase(settings){
-    const brand=String(settings?.siteName||'DropBeat Dance Studio').trim()||'DropBeat Dance Studio';
+    const brand=String(settings?.siteName||'IronPulse Gym').trim()||'IronPulse Gym';
     let title=initialTemplate||brand;
-    if(/DropBeat Dance Studio/i.test(title))title=title.replace(/DropBeat Dance Studio/gi,brand);
+    if(/IronPulse Gym/i.test(title))title=title.replace(/IronPulse Gym/gi,brand);
     return title.trim()||brand;
   }
   function frame(ts){

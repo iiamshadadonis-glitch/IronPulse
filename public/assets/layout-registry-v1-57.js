@@ -1,28 +1,28 @@
 /* Public theme contract shared by the editor, renderer and D1 API. No executable HTML is stored. */
 export const LAYOUT_THEMES=Object.freeze({
- dropbeat:{name:'DropBeat Original',gallery:true,description:'Cinematic banner, highlights, studio introduction and class catalogue.'},
+ dropbeat:{name:'IronPulse Original',gallery:true,description:'Cinematic banner, highlights, gym introduction and class catalogue.'},
  casting:{name:'Casting Editorial',gallery:false,description:'Editorial banner and a full-width text introduction.'},
- spotlight:{name:'Studio Spotlight',gallery:true,description:'Performance banner, studio imagery and a strong class catalogue.'},
+ spotlight:{name:'Gym Spotlight',gallery:true,description:'Performance banner, gym imagery and a strong class catalogue.'},
  minimal:{name:'Modern Minimal',gallery:false,description:'A compact banner and simplified text-led sections.'}
 });
 export const LAYOUT_NAMES=Object.freeze({
- home:{label:'Home',nav:'home',href:'/'},offers:{label:'Offers',nav:'offers',href:'/offers'},about:{label:'About',nav:'about',href:'/about'},blog:{label:'Dance Tips',nav:'blog',href:'/blog'},contact:{label:'Contact',nav:'contact',href:'/contact'},
- login:{label:'Login',nav:'admin-login',button:'front.auth.login',href:'/login'},checkout:{label:'Checkout',button:'front.header.checkout',href:'/checkout'},trial:{label:'Book a Trial',button:'front.header.trial',href:'/submit-profile'},stories:{label:'Student Stories',href:'/success-stories'}
+ home:{label:'Home',nav:'home',href:'/'},offers:{label:'Offers',nav:'offers',href:'/offers'},about:{label:'About',nav:'about',href:'/about'},blog:{label:'Fitness Tips',nav:'blog',href:'/blog'},contact:{label:'Contact',nav:'contact',href:'/contact'},
+ login:{label:'Login',nav:'admin-login',button:'front.auth.login',href:'/login'},checkout:{label:'Checkout',button:'front.header.checkout',href:'/checkout'},trial:{label:'Book a Trial',button:'front.header.trial',href:'/submit-profile'},stories:{label:'Member Stories',href:'/success-stories'}
 });
 const block=(id,title,region,extra={})=>({id,title,region,...extra});
 const shared=[
- block('brand','Brand Logo','header',{selector:'.topbar .brand',description:'Uses the Brand Profile logo and studio name.'}),
+ block('brand','Brand Logo','header',{selector:'.topbar .brand',description:'Uses the Brand Profile logo and gym name.'}),
  block('menu','Main Navigation','navigation',{selector:'.topbar .navlinks',description:'Header links and their existing submenus.'}),
  ...['home','offers','about','blog','contact','login'].map(name=>block('nav_'+name,LAYOUT_NAMES[name].label,'menu',{name,description:'Shared navigation name. The existing page URL and content are retained.'})),
  block('checkout','Checkout','header',{name:'checkout',button:'front.header.checkout',selector:'.nav-actions .cart-pill'}),
  block('trial','Book a Trial','header',{name:'trial',button:'front.header.trial',selector:'.nav-actions .join-pill'}),
  block('hero','Home Banner','main',{selector:'.hero-shell',description:'Uses the current Home Banners and their existing links.'}),
  block('highlights','Class Highlights','main',{selector:'.dropbeat-quick-strip'}),
- block('welcome','Studio Introduction','main',{selector:'.dropbeat-welcome',heading:'.dropbeat-welcome-copy h2'}),
- block('gallery','Studio Images','welcome',{selector:'#dropbeatStudioVisual',gallery:true}),
+ block('welcome','Gym Introduction','main',{selector:'.dropbeat-welcome',heading:'.dropbeat-welcome-copy h2'}),
+ block('gallery','Gym Images','welcome',{selector:'#dropbeatStudioVisual',gallery:true}),
  block('plans','Plans & Offers','main',{selector:'#featuredProducts',closest:'section',heading:'.section-head h2',grid:'#featuredProducts'}),
  block('steps','How It Works','main',{selector:'.how-section',heading:'.section-head h2',grid:'.grid.steps'}),
- block('stories','Student Stories','main',{name:'stories',selector:'#successStoriesGrid',closest:'section',heading:'.section-head h2',grid:'#successStoriesGrid'}),
+ block('stories','Member Stories','main',{name:'stories',selector:'#successStoriesGrid',closest:'section',heading:'.section-head h2',grid:'#successStoriesGrid'}),
  block('notice','Class Information','main',{selector:'main>.section:last-child:has(.notice)'}),
  block('footer','Footer Content','footer',{selector:'.footer-grid',description:'Footer links and social profiles. The existing site attribution remains in place.'})
 ];

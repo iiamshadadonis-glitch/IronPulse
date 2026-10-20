@@ -19,10 +19,10 @@ export async function onRequestPost({request,env}){
   const settings=await getCheckoutSettings(env);
   const isMemberCode=!!settings.membershipDiscountEnabled&&code===String(settings.membershipDiscountCode||'').toUpperCase();
   if(isMemberCode){
-    let account=null;try{account=await requirePortalAccount(request,env,['student']);}catch(_){return json({error:'Login to your active student account to use this member discount.'},403);}
-    if(account.status!=='active')return json({error:'This member discount is available after your student account is approved.'},403);
+    let account=null;try{account=await requirePortalAccount(request,env,['student']);}catch(_){return json({error:'Login to your active member account to use this member discount.'},403);}
+    if(account.status!=='active')return json({error:'This member discount is available after your member account is approved.'},403);
     const membership=await env.DB.prepare("SELECT id FROM webinar_members WHERE lower(customer_email)=? AND status='current' LIMIT 1").bind(String(account.email||'').toLowerCase()).first();
-    if(!membership)return json({error:'This discount is for active students adding another session.'},403);
+    if(!membership)return json({error:'This discount is for active members adding another session.'},403);
   }
   if(b.applies_to==='item' && !settings.productCouponsEnabled && !isMemberCode) return json({error:'Plan coupon is not enabled for checkout'},400);
   if(b.applies_to==='cart' && !settings.overallCouponsEnabled && !isMemberCode) return json({error:'Overall coupon is not enabled for checkout'},400);

@@ -3,7 +3,7 @@ import { preferredPublicOrigin } from '../_lib/utils.js';
 const xml=v=>String(v??'').replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]));
 const iso=v=>{try{const d=new Date(String(v||''));return Number.isNaN(d.getTime())?'':d.toISOString();}catch{return'';}};
 export async function onRequestGet({env,request}){
-  const home=String(preferredPublicOrigin(request,env)||'https://dance-class-at2.pages.dev').replace(/\/$/,'');
+  const home=String(preferredPublicOrigin(request,env)||'https://ironpulse-gym.pages.dev').replace(/\/$/,'');
   const fixed=[
     ['/','daily','1.0'],['/offers','daily','0.95'],['/yearly-plans','weekly','0.85'],['/festival-offers','daily','0.85'],['/blog','daily','0.90'],['/about','monthly','0.80'],['/contact','monthly','0.75'],['/submit-profile','monthly','0.80'],['/success-stories','weekly','0.70'],['/faq','monthly','0.65'],['/requests','monthly','0.65'],['/privacy-policy','yearly','0.40'],['/terms-and-conditions','yearly','0.40'],['/refund-and-cancellation','yearly','0.40']
   ];

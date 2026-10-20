@@ -29,7 +29,7 @@
        unconditional marquee behind the admin toggle. */
     if(window.__ucTitleMarqueeSettingsManaged===true)return;
     if(force&&window.__ucTitleMarqueeTimer){clearTimeout(window.__ucTitleMarqueeTimer);window.__ucTitleMarqueeTimer=null;window.__ucTitleMarqueeStarted=false;}
-    const original=document.title||'DropBeat Dance Studio';
+    const original=document.title||'IronPulse Gym';
     if(window.__ucTitleMarqueeStarted)return; window.__ucTitleMarqueeStarted=true;
     if(original.length<=30)return;
     const spacer='     •     ';

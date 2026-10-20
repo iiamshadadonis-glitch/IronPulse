@@ -38,7 +38,7 @@ function ensureYearlyNav(){
 }
 async function loadYearly(){
   const box=document.querySelector('#yearlyGrid');if(!box)return;box.classList.add('uc-data-loading');
-  const empty='<div class="notice yearly-empty"><strong>No yearly plans are running right now.</strong><br>We apologize, currently we do not have any yearly offers running. To get a membership or customized offer, please fill the <a href="/contact"><strong>Contact Us form</strong></a>; a team member from DropBeat Dance Studio will contact you to discuss a suitable plan or upcoming offer.</div>';
+  const empty='<div class="notice yearly-empty"><strong>No yearly plans are running right now.</strong><br>We apologize, currently we do not have any yearly offers running. To get a membership or customized offer, please fill the <a href="/contact"><strong>Contact Us form</strong></a>; a team member from IronPulse Gym will contact you to discuss a suitable plan or upcoming offer.</div>';
   try{
     const d=typeof window.api==='function'?await window.api('/api/public/bootstrap?page=yearly'):await fetch('/api/public/bootstrap?page=yearly').then(async r=>{const data=await r.json();if(!r.ok)throw new Error(data.error||'Failed');return data;});
     const products=d.products||[];window.__ucProducts=products;if(window.UC?.loadCommon)window.UC.loadCommon();

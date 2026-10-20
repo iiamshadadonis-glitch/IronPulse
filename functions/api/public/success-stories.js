@@ -8,7 +8,7 @@ export async function onRequestGet({ env }) {
       'cache-control': 'no-store, max-age=0, must-revalidate'
     });
   } catch (error) {
-    return json({ stories:[], error:error.message || 'Student Stories could not be loaded.' }, 500, {
+    return json({ stories:[], error:error.message || 'Member Stories could not be loaded.' }, 500, {
       'cache-control': 'no-store, max-age=0, must-revalidate'
     });
   }

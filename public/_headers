@@ -197,3 +197,15 @@
 
 /api/portal/auth/context
   Cache-Control: private, no-store, max-age=0
+
+/member-dashboard
+  Cache-Control: private, no-store, max-age=0
+  X-Robots-Tag: noindex, nofollow
+
+/member-dashboard.html
+  Cache-Control: private, no-store, max-age=0
+  X-Robots-Tag: noindex, nofollow
+
+/manifest.json
+  Cache-Control: no-cache, must-revalidate
+  Content-Type: application/manifest+json

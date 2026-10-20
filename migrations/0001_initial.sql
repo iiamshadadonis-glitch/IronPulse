@@ -255,13 +255,13 @@ CREATE TABLE IF NOT EXISTS admin_audit_logs (
 
 INSERT OR IGNORE INTO settings(key, value) VALUES
 ('site_settings', json_object(
-  'siteName','Urgent Casting',
-  'tagline','Verified audition updates delivered on WhatsApp',
+  'siteName','IronPulse Gym',
+  'tagline','fitness program updates delivered on WhatsApp',
   'primaryColor','#8A0505',
   'accentColor','#FFD45A',
   'logoUrl','/assets/urgent-casting-logo.png',
   'faviconUrl','/assets/favicon.png',
-  'whatsappNumber','9193919375',
+  'whatsappNumber','919381521966',
   'footerText','Website designed by Instautomate',
   'googleAnalyticsMeasurementId','',
   'googleTagManagerId','',
@@ -276,13 +276,13 @@ INSERT OR IGNORE INTO settings(key, value) VALUES
     json_object('key','snapchat','label','Snapchat','url','','enabled',0),
     json_object('key','x','label','X','url','','enabled',0),
     json_object('key','linkedin','label','LinkedIn','url','','enabled',0),
-    json_object('key','whatsapp','label','WhatsApp','url','https://wa.me/9193919375','enabled',1)
+    json_object('key','whatsapp','label','WhatsApp','url','https://wa.me/919381521966','enabled',1)
   )
 ));
 
 INSERT OR IGNORE INTO products(sku, name, slug, type, short_description, description, regular_price_paise, offer_price_paise, badge, features_json, eligibility, sort_order) VALUES
-('UC-STARTER','Starter Access','starter-access','subscription','For freshers and beginners who want regular casting updates.','Open audition updates, fresher-friendly requirements and WhatsApp group access.',39900,19900,'Launch Offer',json_array('WhatsApp audition updates','Open casting calls','Beginner-friendly roles','Order tracking access'),'Freshers, beginners and junior artists',1),
-('UC-ACTOR','Actor Access','actor-access','subscription','For regular actors looking for better filtered opportunities.','More filtered audition updates for supporting roles, ads, OTT and regional projects.',59900,34900,'Popular',json_array('Everything in Starter','Better filtered roles','Regional and OTT updates','Priority onboarding'),'Actors actively applying for auditions',2),
+('UC-STARTER','Starter Access','starter-access','subscription','For freshers and beginners who want regular casting updates.','Open fitness updates, fresher-friendly requirements and WhatsApp group access.',39900,19900,'Launch Offer',json_array('WhatsApp fitness updates','Open casting calls','Beginner-friendly roles','Order tracking access'),'Freshers, beginners and junior artists',1),
+('UC-ACTOR','Member Access','actor-access','subscription','For regular actors looking for better filtered opportunities.','More filtered fitness updates for supporting roles, ads, OTT and regional projects.',59900,34900,'Popular',json_array('Everything in Starter','Better filtered roles','Regional and OTT updates','Priority onboarding'),'Members actively applying for auditions',2),
 ('UC-SPECIAL','Special Access','special-access','subscription','For experienced actors seeking character and semi-lead role updates.','Special access to selected opportunities suitable for stronger profiles and experienced performers.',79900,49900,'Special',json_array('Selected character roles','Higher-value opportunities','Profile-specific alerts','Upgrade available'),'Experienced actors with strong portfolio',3),
 ('UC-ELITE','Elite Circle','elite-circle','subscription','For experienced performers looking for private and closed-door updates.','Elite membership for internal casting updates, private audition requirements and higher-value roles where available.',119900,79900,'Elite',json_array('Closed-door updates','Premium casting alerts','Experienced actor focus','Top opportunity alerts'),'Experienced actors suitable for premium requirements',4);
 
@@ -314,16 +314,16 @@ SELECT id, 'offers', 'memberships', sort_order FROM products;
 INSERT OR IGNORE INTO product_images(product_id, object_key, public_url, alt_text, sort_order, is_cover)
 SELECT id, 'seed/product-starter.svg', '/assets/product-starter.svg', 'Starter Access membership image', 1, 1 FROM products WHERE sku='UC-STARTER';
 INSERT OR IGNORE INTO product_images(product_id, object_key, public_url, alt_text, sort_order, is_cover)
-SELECT id, 'seed/product-actor.svg', '/assets/product-actor.svg', 'Actor Access membership image', 1, 1 FROM products WHERE sku='UC-ACTOR';
+SELECT id, 'seed/product-actor.svg', '/assets/product-actor.svg', 'Member Access membership image', 1, 1 FROM products WHERE sku='UC-ACTOR';
 INSERT OR IGNORE INTO product_images(product_id, object_key, public_url, alt_text, sort_order, is_cover)
 SELECT id, 'seed/product-special.svg', '/assets/product-special.svg', 'Special Access membership image', 1, 1 FROM products WHERE sku='UC-SPECIAL';
 INSERT OR IGNORE INTO product_images(product_id, object_key, public_url, alt_text, sort_order, is_cover)
 SELECT id, 'seed/product-elite.svg', '/assets/product-elite.svg', 'Elite Circle membership image', 1, 1 FROM products WHERE sku='UC-ELITE';
 
 INSERT OR IGNORE INTO banners(title, subtitle, desktop_image_url, mobile_image_url, link_type, link_value, badge, visible, sort_order) VALUES
-('Launch Offer: Starter Access at ₹199/month','Join verified audition updates on WhatsApp. Limited-time founding member price.','/assets/banner-1.svg','/assets/banner-1.svg','product','starter-access','Launch Offer',1,1),
-('Elite Circle for Experienced Actors','Private and premium opportunity alerts for suitable profiles.','/assets/banner-2.svg','/assets/banner-2.svg','product','elite-circle','Elite',1,2),
-('Special Access for Character Roles','For experienced actors looking for higher-value role updates.','/assets/banner-3.svg','/assets/banner-3.svg','product','special-access','Special',1,3);
+('Launch Offer: Starter Access at ₹199/month','Join fitness program updates on WhatsApp. Limited-time founding member price.','/assets/gym-hero.jpg','/assets/gym-hero.jpg','product','starter-access','Launch Offer',1,1),
+('Elite Circle for Experienced Members','Private and premium opportunity alerts for suitable profiles.','/assets/gym-training.jpg','/assets/gym-training.jpg','product','elite-circle','Elite',1,2),
+('Special Access for Character Roles','For experienced actors looking for higher-value role updates.','/assets/gym-interior.jpg','/assets/gym-interior.jpg','product','special-access','Special',1,3);
 
 
 -- Add-on admin/blog/success-story tables

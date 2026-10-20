@@ -185,7 +185,7 @@ export async function onRequestPost({request,env}){
     for(const leadId of legacyIds){
       const lead=await env.DB.prepare('SELECT * FROM contact_leads WHERE id=?').bind(leadId).first().catch(()=>null);if(!lead)continue;
       const exists=await env.DB.prepare("SELECT id FROM lead_submissions WHERE lead_id=? AND submission_type IN ('contact','comment') LIMIT 1").bind(leadId).first().catch(()=>null);if(exists)continue;
-      const isComment=/comment/i.test(String(lead.source||''))||/^Blog comment on |^Comment on article /i.test(String(lead.message||'')),type=isComment?'comment':'contact',detail=isComment?'article_comment':String(lead.source||'website'),message=String(lead.message||'').replace(/^Blog comment on /i,'Comment on article ');
+      const isComment=/comment/i.test(String(lead.source||''))||/^Blog comment on |^Comment on article /i.test(String(lead.message||'')),type=isComment?'comment':'contact',detail=isComment?'article_comment':String(lead.source||'website'),message=String(lead.message||'').replace(/^Blog comment on /i,'Comment on fitness tip ');
       await env.DB.prepare(`INSERT INTO lead_submissions(lead_id,submission_type,visitor_id,source_detail,message,payload_json,status,resolved_at,updated_at,created_at)
         VALUES(?,?,?,?,?,'{}','in_progress',NULL,CURRENT_TIMESTAMP,COALESCE(?,CURRENT_TIMESTAMP))`).bind(leadId,type,String(lead.visitor_id||''),detail,message,lead.created_at||'').run().catch(()=>{});
     }
@@ -199,7 +199,7 @@ export async function onRequestPost({request,env}){
     }else{
       const lead=await env.DB.prepare('SELECT * FROM contact_leads WHERE id=?').bind(leadId).first();
       if(!lead)return json({error:'Client record not found.'},404);
-      const isComment=/comment/i.test(String(lead.source||''))||/^Blog comment on |^Comment on article /i.test(String(lead.message||'')),type=isComment?'comment':'contact',detail=isComment?'article_comment':String(lead.source||'website'),message=String(lead.message||'').replace(/^Blog comment on /i,'Comment on article ');
+      const isComment=/comment/i.test(String(lead.source||''))||/^Blog comment on |^Comment on article /i.test(String(lead.message||'')),type=isComment?'comment':'contact',detail=isComment?'article_comment':String(lead.source||'website'),message=String(lead.message||'').replace(/^Blog comment on /i,'Comment on fitness tip ');
       await env.DB.prepare(`INSERT INTO lead_submissions(lead_id,submission_type,visitor_id,source_detail,message,payload_json,status,resolved_at,updated_at,created_at)
         VALUES(?, ?, ?, ?, ?, '{}', ?, CASE WHEN ?='resolved' THEN CURRENT_TIMESTAMP ELSE NULL END, CURRENT_TIMESTAMP, COALESCE(?,CURRENT_TIMESTAMP))`)
         .bind(leadId,type,String(lead.visitor_id||''),detail,message,status,status,lead.created_at||'').run();

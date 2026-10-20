@@ -41,16 +41,16 @@ export async function buildRetryUrl(env,orderId,email){const expires=Math.floor(
 export async function verifyRetryToken(env,orderId,email,expires,token){const ex=Number(expires||0);if(!ex||ex<Math.floor(Date.now()/1000)||ex>Math.floor(Date.now()/1000)+14*86400)return false;const expected=await retryToken(env,orderId,email,ex);if(!expected||expected.length!==String(token||'').length)return false;let x=0;for(let i=0;i<expected.length;i++)x|=expected.charCodeAt(i)^String(token).charCodeAt(i);return x===0;}
 async function sendRecoveryEmail(env,row,kind='immediate'){
   const order=await env.DB.prepare('SELECT * FROM orders WHERE order_id=?').bind(row.order_id).first().catch(()=>null);if(!order?.customer_email)return{ok:false,reason:'email missing'};
-  const [site,templates]=await Promise.all([getSiteSettings(env).catch(()=>({siteName:'DropBeat Dance Studio'})),getAutomaticEmailTemplates(env)]);
+  const [site,templates]=await Promise.all([getSiteSettings(env).catch(()=>({siteName:'IronPulse Gym'})),getAutomaticEmailTemplates(env)]);
   const items=(await env.DB.prepare('SELECT product_name FROM order_items WHERE order_id=? ORDER BY id').bind(order.id).all().catch(()=>({results:[]}))).results||[];const plan=items.map(x=>x.product_name).filter(Boolean).join(', ')||'Membership';
   const amount=num(row.attempt_amount_paise)||num(order.amount_paise),retryUrl=await buildRetryUrl(env,order.order_id,order.customer_email),isImmediate=kind==='immediate';
-  const base=templates.payment_failed,rendered=applyEmailTemplate(base,{BrandName:site.siteName||'DropBeat Dance Studio',ClientName:order.customer_name||'Customer',OrderId:order.order_id,RetryUrl:retryUrl});
+  const base=templates.payment_failed,rendered=applyEmailTemplate(base,{BrandName:site.siteName||'IronPulse Gym',ClientName:order.customer_name||'Customer',OrderId:order.order_id,RetryUrl:retryUrl});
   if(!isImmediate){rendered.heading=kind==='reminder3'?'Final Payment Reminder':'Payment Reminder';rendered.eyebrow=kind==='reminder3'?'Final Reminder':'Friendly Reminder';rendered.intro=`This is a reminder that your earlier payment of ${emailMoney(amount)} was not completed. If you still want the service, use the secure retry button below.`;}
   let ctaUrl=rendered.buttonUrl||retryUrl;if(ctaUrl==='@RetryUrl')ctaUrl=retryUrl;
   const html=brandedEmailHtml({site,env,title:rendered.heading,eyebrow:rendered.eyebrow,greetingText:rendered.greeting,customerName:order.customer_name||'Customer',introHtml:automaticEmailTextHtml(rendered.intro),summaryTitle:rendered.summaryTitle,summaryRows:automaticEmailSummaryRows(rendered,[order.order_id,plan,emailMoney(amount),'Payment not completed']),bodyHtml:automaticEmailTextHtml(rendered.body),noteHtml:automaticEmailTextHtml(rendered.note),ctaLabel:rendered.buttonLabel,ctaUrl});
-  const subject=!isImmediate?`${site.siteName||'DropBeat Dance Studio'} - ${kind==='reminder3'?'Final ':''}Payment Reminder - ${order.order_id}`:rendered.subject;
+  const subject=!isImmediate?`${site.siteName||'IronPulse Gym'} - ${kind==='reminder3'?'Final ':''}Payment Reminder - ${order.order_id}`:rendered.subject;
   const text=`Payment not completed for ${order.order_id}. Amount: ${emailMoney(amount)}. Retry: ${retryUrl}`;
-  return sendConfiguredEmail(env,{to:order.customer_email,subject,html,text,fromName:site.siteName||'DropBeat Dance Studio'},{purpose:'email'});
+  return sendConfiguredEmail(env,{to:order.customer_email,subject,html,text,fromName:site.siteName||'IronPulse Gym'},{purpose:'email'});
 }
 export async function recordPaymentFailure(env,orderId,{reason='',reference='',attemptAmountPaise=0,automationEvent=''}={}){
   await ensurePaymentRecoveryTable(env);const o=await env.DB.prepare('SELECT * FROM orders WHERE order_id=?').bind(orderId).first().catch(()=>null);if(!o?.customer_email)return{ok:false,reason:'order or email missing'};

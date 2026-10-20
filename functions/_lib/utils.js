@@ -58,11 +58,11 @@ export const DEFAULT_SOCIALS = [
   { key:'snapchat', label:'Snapchat', url:'', enabled:false },
   { key:'x', label:'X', url:'', enabled:false },
   { key:'linkedin', label:'LinkedIn', url:'', enabled:false },
-  { key:'whatsapp', label:'WhatsApp', url:'https://wa.me/9193919375', enabled:true }
+  { key:'whatsapp', label:'WhatsApp', url:'https://wa.me/919381521966', enabled:true }
 ];
 export const DEFAULT_SITE_SETTINGS = {
-  siteName:'DropBeat Dance Studio',
-  tagline:'Online and studio dance classes for every level',
+  siteName:'IronPulse Gym',
+  tagline:'Online and in-gym fitness classes for every level',
   frontendTheme:'dropbeat',
   primaryColor:'#4B55BE',
   accentColor:'#A469A8',
@@ -73,9 +73,9 @@ export const DEFAULT_SITE_SETTINGS = {
   legalEntityEnabled:false,
   legalEntityName:'',
   legalEntityAddress:'',
-  logoUrl:'/assets/dropbeat-logo.svg',
-  faviconUrl:'/assets/dropbeat-logo.svg',
-  whatsappNumber:'9193919375',
+  logoUrl:'/assets/ironpulse-logo.svg',
+  faviconUrl:'/assets/favicon-32.png',
+  whatsappNumber:'919381521966',
   footerText:'Website designed by Instautomate',
   googleAnalyticsMeasurementId:'',
   googleAnalyticsEnabled:false,
@@ -368,8 +368,8 @@ export const DEFAULT_SOCIAL_INTEGRATION_SETTINGS = {
     clientSecret: '',
     refreshToken: '',
     connectedEmail: '',
-    propertyUrl: 'https://dance-class-at2.pages.dev/',
-    sitemapUrl: 'https://dance-class-at2.pages.dev/sitemap.xml',
+    propertyUrl: 'https://ironpulse-gym.pages.dev/',
+    sitemapUrl: 'https://ironpulse-gym.pages.dev/sitemap.xml',
     oauthState: '',
     oauthStateExpiresAt: '',
     grantedScopes: '',
@@ -570,7 +570,7 @@ export const DEFAULT_SOCIAL_INTEGRATION_SETTINGS = {
   gmail: {
     enabled: false,
     otpEnabled: false,
-    senderName: 'DropBeat Dance Studio',
+    senderName: 'IronPulse Gym',
     senderEmail: '',
     adminCopyEmail: '',
     clientId: '',
@@ -612,7 +612,7 @@ export function mergeSiteSettings(input = {}) {
   s.taxes = { ...DEFAULT_SITE_SETTINGS.taxes, ...((raw.taxes && typeof raw.taxes === 'object') ? raw.taxes : {}) };
   s.socials = mergeSocials(s.socials);
   if (typeof s.footerText === 'string') s.footerText = s.footerText.replace(/Inst\s+Automate|InstaAutomate/gi, 'Instautomate');
-  if (!s.whatsappNumber) s.whatsappNumber = '9193919375';
+  if (!s.whatsappNumber) s.whatsappNumber = '919381521966';
   const wa = s.socials.find(x => x.key === 'whatsapp');
   if (wa && !wa.url) wa.url = `https://wa.me/${normalizePhone(s.whatsappNumber)}`;
   return s;
@@ -760,7 +760,7 @@ export async function requireAutomation(request, env) {
   throw new Error('Unauthorized automation API key');
 }
 export async function requireAdmin(request, env) {
-  if (env.ADMIN_DEVELOPMENT_BYPASS === 'true') return { email: 'local-dev@dropbeat-dance.local', role:'admin' };
+  if (env.ADMIN_DEVELOPMENT_BYPASS === 'true') return { email: 'local-dev@ironpulse-gym.local', role:'admin' };
 
   // Normal browser Admin traffic already has the signed session cookie. Check
   // that indexed session row first instead of reading integration/settings data
@@ -797,7 +797,7 @@ export function preferredPublicOrigin(request, env = {}) {
   if (configured) {
     try { const u = new URL(configured); if (u.protocol === 'https:' || u.protocol === 'http:') return u.origin; } catch {}
   }
-  return 'https://dance-class-at2.pages.dev';
+  return 'https://ironpulse-gym.pages.dev';
 }
 
 export function requestOrigin(request) {
@@ -886,7 +886,7 @@ export async function sendWhatsAppDocument(env,to,{bytes,filename='document.pdf'
   const fallback=await sendWhatsAppText(env,phone,`${caption}\n\nThe attendee list PDF can be downloaded from the administrator email notification.`.trim());return {...fallback,fallback:true};
 }
 export async function sendOtp(env, to, otp) {
-  const text = `Your DropBeat Dance Studio verification code is ${otp}. It is valid for 10 minutes. Do not share this code.`;
+  const text = `Your IronPulse Gym verification code is ${otp}. It is valid for 10 minutes. Do not share this code.`;
   return sendWhatsAppText(env, to, text);
 }
 export async function notifyAdmin(env, text, options={}) {
@@ -897,13 +897,13 @@ export async function notifyAdmin(env, text, options={}) {
   // Preserve an older environment-only destination until this new settings
   // card is saved once.  After that, an explicit disabled switch is honored.
   const legacyNumbers=!whatsappEnabled&&!Object.prototype.hasOwnProperty.call(saved,'whatsappEnabled')?[env.WHATSAPP_ADMIN_NUMBER,env.GREEN_API_ADMIN_NUMBER].filter(Boolean):[];
-  const raw=String(text||'').trim(),subject=String(options.subject||raw.split('\n')[0]||'DropBeat Dance Studio notification').slice(0,240);
+  const raw=String(text||'').trim(),subject=String(options.subject||raw.split('\n')[0]||'IronPulse Gym notification').slice(0,240);
   // A ten-minute bucket suppresses webhook retries without suppressing a future
   // renewal of the same order.
   const fingerprint=await sha256Hex(`${options.eventKey||raw}|${Math.floor(Date.now()/600000)}`),key=`admin:${fingerprint}`;
   try{const insert=await env.DB.prepare("INSERT OR IGNORE INTO admin_notification_log(notification_key,event_type) VALUES(?,?)").bind(key,String(options.eventType||'business_event').slice(0,80)).run();if(insert?.meta&&Number(insert.meta.changes||0)===0)return [{ok:true,skipped:true,reason:'duplicate'}];}catch{}
   const results=[];
-  if(emailEnabled){try{const site=await getSiteSettings(env),html=brandedEmailHtml({site,env,title:subject,eyebrow:'Admin notification',introHtml:String(options.html||raw).split('\n').filter(Boolean).map(line=>`<p style="margin:0 0 10px">${String(line).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</p>`).join(''),noteHtml:'This operational notification was sent to the administrator address configured in Brand Settings → Checkout.'});results.push({channel:'email',...await sendConfiguredEmail(env,{to:email,subject,html,text:raw,fromName:site.siteName||'DropBeat Dance Studio',attachments:options.attachments||[]},{purpose:'email'})});}catch(error){results.push({channel:'email',ok:false,error:error.message});}}
+  if(emailEnabled){try{const site=await getSiteSettings(env),html=brandedEmailHtml({site,env,title:subject,eyebrow:'Admin notification',introHtml:String(options.html||raw).split('\n').filter(Boolean).map(line=>`<p style="margin:0 0 10px">${String(line).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</p>`).join(''),noteHtml:'This operational notification was sent to the administrator address configured in Brand Settings → Checkout.'});results.push({channel:'email',...await sendConfiguredEmail(env,{to:email,subject,html,text:raw,fromName:site.siteName||'IronPulse Gym',attachments:options.attachments||[]},{purpose:'email'})});}catch(error){results.push({channel:'email',ok:false,error:error.message});}}
   for(const n of (whatsappEnabled?[phone]:legacyNumbers)){try{const attachment=options.attachments?.[0],sent=attachment?await sendWhatsAppDocument(env,n,{bytes:attachment.bytes,filename:attachment.filename,caption:raw}):await sendWhatsAppText(env,n,raw);results.push({channel:'whatsapp',...sent});}catch(error){results.push({channel:'whatsapp',ok:false,error:error.message});}}
   try{const e=results.find(x=>x.channel==='email'),w=results.find(x=>x.channel==='whatsapp'),error=results.filter(x=>x.ok===false).map(x=>x.error).join(' · ');await env.DB.prepare('UPDATE admin_notification_log SET email_status=?,whatsapp_status=?,error_text=? WHERE notification_key=?').bind(e?(e.ok?'sent':'failed'):'disabled',w?(w.ok?'sent':'failed'):'disabled',String(error).slice(0,1000),key).run();}catch{}
   return results;
@@ -978,9 +978,9 @@ export async function sendEmailNotice(env, to, subject, html, text='') {
   try {
     const site=await getSiteSettings(env).catch(()=>DEFAULT_SITE_SETTINGS);
     let finalHtml=String(html||'');
-    if(!/data-uc-branded-email=/i.test(finalHtml))finalHtml=brandedEmailHtml({site,env,title:String(subject||site.siteName||'DropBeat Dance Studio').replace(/\s+-\s+.*$/,''),customerName:'',introHtml:finalHtml});
-    const cleanSubject=String(subject||site.siteName||'DropBeat Dance Studio').replace(/[–—]/g,'-');
-    try{return await sendConfiguredEmail(env,{to,bcc:'',subject:cleanSubject,html:finalHtml,text:text||cleanSubject,fromName:site.siteName||'DropBeat Dance Studio'},{purpose:'email'});}catch(providerError){
+    if(!/data-uc-branded-email=/i.test(finalHtml))finalHtml=brandedEmailHtml({site,env,title:String(subject||site.siteName||'IronPulse Gym').replace(/\s+-\s+.*$/,''),customerName:'',introHtml:finalHtml});
+    const cleanSubject=String(subject||site.siteName||'IronPulse Gym').replace(/[–—]/g,'-');
+    try{return await sendConfiguredEmail(env,{to,bcc:'',subject:cleanSubject,html:finalHtml,text:text||cleanSubject,fromName:site.siteName||'IronPulse Gym'},{purpose:'email'});}catch(providerError){
     const url = env.EMAIL_RELAY_URL || env.APPS_SCRIPT_EMAIL_RELAY_URL;
     if (!url) return { ok:false, reason:providerError.message||'A primary email provider is not configured' };
     const res = await fetch(url, { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ to, subject:cleanSubject, html:finalHtml, text }) });
@@ -1010,21 +1010,21 @@ export async function sendOrderPaidEmail(env, orderId) {
   const invoiceNo=`INV-${invoiceDate.replace(/-/g,'')}-${String(receipt.transaction_id||orderId).replace(/[^a-z0-9]/gi,'').slice(-8).toUpperCase()}`;
   const gateway=({razorpay:'Razorpay',stripe:'Stripe',phonepe:'PhonePe',manual:'Manual'})[String(receipt.gateway||o.gateway||'').toLowerCase()]||String(receipt.gateway||o.gateway||'Payment Gateway');
   const taxLabel=gst>0?`GST ${Number(tax.gstPercent||0)}%${tax.gstNumber?` - GSTIN ${tax.gstNumber}`:''}`:(service>0||other>0?'Applicable Charges':'Not Applicable');
-  const rendered=applyEmailTemplate(templates.payment_success,{BrandName:site.siteName||'DropBeat Dance Studio',ClientName:o.customer_name||'Customer',OrderId:o.order_id,InvoiceNumber:invoiceNo});
+  const rendered=applyEmailTemplate(templates.payment_success,{BrandName:site.siteName||'IronPulse Gym',ClientName:o.customer_name||'Customer',OrderId:o.order_id,InvoiceNumber:invoiceNo});
   if(isTrial&&rendered.eyebrow==='Payment confirmed')rendered.eyebrow='Trial Payment Confirmed';
   if(isTrial&&rendered.intro===templates.payment_success.intro)rendered.intro='Your trial payment has been received successfully. We hope the trial helps you experience the service with confidence.';
-  const summaryRows=automaticEmailSummaryRows(rendered,[o.order_id,site.siteName||'DropBeat Dance Studio',planName,gateway,receipt.transaction_id||'-',emailMoney(received),invoiceDate]);
+  const summaryRows=automaticEmailSummaryRows(rendered,[o.order_id,site.siteName||'IronPulse Gym',planName,gateway,receipt.transaction_id||'-',emailMoney(received),invoiceDate]);
   let successCta=rendered.buttonUrl||'/my-orders';if(successCta.startsWith('/'))successCta=`${brandHomeUrl(env)}${successCta}`;
   const html=brandedEmailHtml({site,env,title:rendered.heading,eyebrow:rendered.eyebrow,greetingText:rendered.greeting,customerName:o.customer_name||'Customer',introHtml:automaticEmailTextHtml(rendered.intro),summaryTitle:rendered.summaryTitle,summaryRows,bodyHtml:automaticEmailTextHtml(rendered.body),noteHtml:automaticEmailTextHtml(rendered.note),ctaLabel:rendered.buttonLabel,ctaUrl:successCta});
   let logoJpegBytes=null;
   try{
-    const logoCandidates=[(/^https?:\/\//i.test(String(site.logoUrl||''))?String(site.logoUrl):`${brandHomeUrl(env)}${String(site.logoUrl||'/assets/dropbeat-logo.svg').startsWith('/')?'':'/'}${String(site.logoUrl||'/assets/dropbeat-logo.svg')}`),`${brandHomeUrl(env)}/assets/dropbeat-invoice-logo.jpg`].filter(Boolean);
+    const logoCandidates=[(/^https?:\/\//i.test(String(site.logoUrl||''))?String(site.logoUrl):`${brandHomeUrl(env)}${String(site.logoUrl||'/assets/ironpulse-logo.svg').startsWith('/')?'':'/'}${String(site.logoUrl||'/assets/ironpulse-logo.svg')}`),`${brandHomeUrl(env)}/assets/ironpulse-invoice-logo.jpg`].filter(Boolean);
     for(const logoUrl of logoCandidates){const lr=await fetch(logoUrl,{headers:{accept:'image/jpeg'}}).catch(()=>null);if(lr?.ok&&String(lr.headers.get('content-type')||'').toLowerCase().includes('jpeg')){logoJpegBytes=new Uint8Array(await lr.arrayBuffer());break;}}
   }catch(_){logoJpegBytes=null;}
-  const pdf=buildSimpleInvoicePdf({primaryColor:site.primaryColor,accentColor:site.accentColor,brandName:site.siteName||'DropBeat Dance Studio',tagline:site.tagline||'',logoJpegBytes,customerName:o.customer_name||'Customer',customerPhone:o.customer_phone||'',customerEmail:o.customer_email||'',orderId:o.order_id,invoiceNo,invoiceDate,gateway,paymentId:receipt.transaction_id||'',taxLabel,gstNumber:tax.gstNumber||'',planName,planDescription:isTrial?'This invoice records the trial payment received for the selected plan.':'This invoice records the payment actually received for the selected plan.',regularPaise,offerPaise,discountPaise,isTrial,oneTime,trialPaise,baseReceivedPaise:base,receivedPaise:received,gstPaise:gst,gstPercent:Number(tax.gstPercent||0),servicePaise:service,otherTaxPaise:other,otherTaxLabel:tax.otherTaxLabel||'Other Tax',legalName:site.legalEntityEnabled?site.legalEntityName||'':'',legalAddress:site.legalEntityEnabled?site.legalEntityAddress||'':''});
-  const subject=rendered.subject||`${site.siteName||'DropBeat Dance Studio'} - Payment Successful - ${o.order_id}`;
+  const pdf=buildSimpleInvoicePdf({primaryColor:site.primaryColor,accentColor:site.accentColor,brandName:site.siteName||'IronPulse Gym',tagline:site.tagline||'',logoJpegBytes,customerName:o.customer_name||'Customer',customerPhone:o.customer_phone||'',customerEmail:o.customer_email||'',orderId:o.order_id,invoiceNo,invoiceDate,gateway,paymentId:receipt.transaction_id||'',taxLabel,gstNumber:tax.gstNumber||'',planName,planDescription:isTrial?'This invoice records the trial payment received for the selected plan.':'This invoice records the payment actually received for the selected plan.',regularPaise,offerPaise,discountPaise,isTrial,oneTime,trialPaise,baseReceivedPaise:base,receivedPaise:received,gstPaise:gst,gstPercent:Number(tax.gstPercent||0),servicePaise:service,otherTaxPaise:other,otherTaxLabel:tax.otherTaxLabel||'Other Tax',legalName:site.legalEntityEnabled?site.legalEntityName||'':'',legalAddress:site.legalEntityEnabled?site.legalEntityAddress||'':''});
+  const subject=rendered.subject||`${site.siteName||'IronPulse Gym'} - Payment Successful - ${o.order_id}`;
   const text=`Payment successful for ${o.order_id}. Amount received: ${emailMoney(received)}. Invoice ${invoiceNo} is attached.`;
-  const r=await sendConfiguredEmail(env,{to:o.customer_email,bcc:gmail.adminCopyEmail||'',subject,html,text,attachments:[{filename:`${String(site.siteName||'dropbeat-dance-studio').replace(/[^a-z0-9]+/gi,'-').toLowerCase()}-invoice-${invoiceNo}.pdf`,contentType:'application/pdf',bytes:pdf}],fromName:site.siteName||'DropBeat Dance Studio'},{purpose:'email'});
+  const r=await sendConfiguredEmail(env,{to:o.customer_email,bcc:gmail.adminCopyEmail||'',subject,html,text,attachments:[{filename:`${String(site.siteName||'dropbeat-dance-studio').replace(/[^a-z0-9]+/gi,'-').toLowerCase()}-invoice-${invoiceNo}.pdf`,contentType:'application/pdf',bytes:pdf}],fromName:site.siteName||'IronPulse Gym'},{purpose:'email'});
   if(r?.ok){
     try{await env.DB.prepare('UPDATE payment_receipts SET email_notice_sent=1,email_notice_sent_at=CURRENT_TIMESTAMP WHERE id=?').bind(receipt.id).run();}catch(_){ }
     try{await env.DB.prepare('UPDATE orders SET email_notice_sent=1 WHERE order_id=?').bind(orderId).run();}catch(_){ }

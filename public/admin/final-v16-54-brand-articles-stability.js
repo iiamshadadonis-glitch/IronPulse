@@ -20,7 +20,7 @@
     storage:{label:'Storage',panel:'storage',description:'Review storage capacity and the existing safe-cleanup controls.'},
     email:{label:'Email',panel:'brandEmails',description:'Edit the branded automatic emails sent for meetings, reminders, invoices and payment statements.'},
     coach:{label:'Coach Settings',panel:'coachSettings',description:'Manage coach onboarding questions, paid-leave rules and approved remuneration terms.'},
-    notifications:{label:'Notifications',panel:'notificationSettings',description:'Manage automatic push rules and reviewed broadcasts for Admin, Student and Coach accounts.'},
+    notifications:{label:'Notifications',panel:'notificationSettings',description:'Manage automatic push rules and reviewed broadcasts for Admin, Member and Coach accounts.'},
     login:{label:'Login',panel:'security',description:'Manage admin display name, password, email and Google login.'}
   };
   const PANEL_MODE={settings:'profile',banners:'banners',socials:'social',checkoutSettings:'checkout',mapsReviews:'maps',storage:'storage',brandEmails:'email',coachSettings:'coach',security:'login',notificationSettings:'notifications'};
@@ -93,23 +93,23 @@
   // ----------------------------- Articles UI -----------------------------
   function articleText(s=''){
     return String(s)
-      .replace(/Post New Audition Update/gi,'Post New Article')
-      .replace(/Post Audition Update/gi,'Post Article')
-      .replace(/Load Audition Updates/gi,'Load Article Updates')
-      .replace(/Add Advertisements to This Audition Update/gi,'Add Advertisements to This Article')
-      .replace(/Existing Auditions/gi,'Existing Articles')
-      .replace(/Audition Update/gi,'Article')
-      .replace(/Audition Updates/gi,'Articles')
-      .replace(/Audition Title/gi,'Article Title')
-      .replace(/Audition Details/gi,'Article Details')
-      .replace(/Featured Audition/gi,'Featured Article')
-      .replace(/Audition publishing/gi,'Article publishing')
+      .replace(/Post New Fitness Tip/gi,'Post New Fitness Tips')
+      .replace(/Post Fitness Tip/gi,'Post Fitness Tips')
+      .replace(/Load Fitness Tips/gi,'Load Fitness Tips Updates')
+      .replace(/Add Advertisements to This Fitness Tip/gi,'Add Advertisements to This Fitness Tips')
+      .replace(/Existing Fitness Tips/gi,'Existing Fitness Tips')
+      .replace(/Fitness Tip/gi,'Fitness Tips')
+      .replace(/Fitness Tips/gi,'Fitness Tips')
+      .replace(/Fitness Tip Title/gi,'Fitness Tips Title')
+      .replace(/Fitness Tip Details/gi,'Fitness Tips Details')
+      .replace(/Featured Fitness Tip/gi,'Featured Fitness Tips')
+      .replace(/Fitness Tip publishing/gi,'Fitness Tips publishing')
       .replace(/Use up to 12 tags, separated with commas\. Example: article, casting, ott, hyderabad\./gi,'Use up to 12 hashtags, separated with commas. Example: #casting, #actors, #hyderabad.')
-      .replace(/Published Articles should be posted after SEO is configured in API Settings\./gi,'Published Articles can be posted after SEO is configured in Settings → Integrations → SEO.')
+      .replace(/Published Fitness Tips should be posted after SEO is configured in API Settings\./gi,'Published Fitness Tips can be posted after SEO is configured in Settings → Integrations → SEO.')
       .replace(/audition article/gi,'article')
-      .replace(/Audition article/g,'Article')
-      .replace(/\bauditions\b/gi,m=>m[0]===m[0].toUpperCase()?'Articles':'articles')
-      .replace(/\baudition\b/gi,m=>m[0]===m[0].toUpperCase()?'Article':'article');
+      .replace(/Fitness Tip article/g,'Fitness Tips')
+      .replace(/\bauditions\b/gi,m=>m[0]===m[0].toUpperCase()?'Fitness Tips':'articles')
+      .replace(/\baudition\b/gi,m=>m[0]===m[0].toUpperCase()?'Fitness Tips':'article');
   }
   function patchArticleText(root=$('#blogs')){
     if(!root)return;
@@ -117,7 +117,7 @@
     const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
     for(const n of nodes){const x=articleText(n.nodeValue);if(x!==n.nodeValue)n.nodeValue=x;}
     $$('[title],[aria-label]',root).forEach(el=>{for(const a of ['title','aria-label'])if(el.hasAttribute(a))el.setAttribute(a,articleText(el.getAttribute(a)));});
-    const tags=$('#blogForm [name="tags"]');if(tags){const field=tags.closest('.field');const label=$('label',field);if(label)label.textContent='Hashtags';tags.placeholder='casting, actors, hyderabad';let hint=$('small.hint',field);if(hint)hint.textContent='Enter up to 12 comma-separated topics, with or without #. The website stores them as article tags; supported social platforms publish them as hashtags automatically.';}
+    const tags=$('#blogForm [name="tags"]');if(tags){const field=tags.closest('.field');const label=$('label',field);if(label)label.textContent='Hashtags';tags.placeholder='casting, actors, hyderabad';let hint=$('small.hint',field);if(hint)hint.textContent='Enter up to 12 comma-separated topics, with or without #. The website stores them as fitness tip tags; supported social platforms publish them as hashtags automatically.';}
     $$('#blogTable thead th',root).forEach(th=>{if(/^Tags$/i.test(th.textContent.trim()))th.textContent='Hashtags';});
   }
   function normalizeTagInput(){const el=$('#blogForm [name="tags"]');if(!el)return;el.value=String(el.value||'').split(',').map(x=>x.trim().replace(/^#+/,'')).filter(Boolean).slice(0,12).join(', ');}
@@ -125,7 +125,7 @@
   function articleImageField(){return $('#blogForm [name="cover_image_url"]')?.closest('.field')||null;}
   function renderArticleImageState(url='',message=''){
     const box=$('#uc54ArticleImageState');if(!box)return;const clean=String(url||'').trim();
-    box.innerHTML=clean?`<div class="uc54-article-image-current"><img src="${H(clean)}" alt="Current article image"><div><strong>Article image ready</strong><small>${H(message||'This Google Drive image URL will be used by the website and connected publishing workflows.')}</small><a href="${H(clean)}" target="_blank" rel="noopener">Open image</a></div></div>`:`<small class="hint">No article image is selected yet. Uploading creates/uses the <strong>Article Images</strong> folder inside your connected Google Drive destination.</small>`;
+    box.innerHTML=clean?`<div class="uc54-article-image-current"><img src="${H(clean)}" alt="Current fitness tip image"><div><strong>Fitness Tips image ready</strong><small>${H(message||'This Google Drive image URL will be used by the website and connected publishing workflows.')}</small><a href="${H(clean)}" target="_blank" rel="noopener">Open image</a></div></div>`:`<small class="hint">No fitness tip image is selected yet. Uploading creates/uses the <strong>Fitness Tips Images</strong> folder inside your connected Google Drive destination.</small>`;
   }
   function ensureArticleImageUpload(){
     const hidden=$('#blogForm [name="cover_image_url"]'),field=hidden?.closest('.field');if(!hidden||!field)return;
@@ -140,7 +140,7 @@
     });
     if(!$('#uc54ArticleImageUpload',field)){
       const box=document.createElement('div');box.id='uc54ArticleImageUpload';box.className='uc54-article-image-upload';
-      box.innerHTML=`<label>Article Image</label><div class="uc54-upload-row"><input id="uc54ArticleImageFile" type="file" accept="image/*"><button id="uc54ArticleImageButton" class="btn secondary compact" type="button">Upload Image</button></div><div id="uc54ArticleImageState"></div><div id="uc54ArticleImageMsg"></div>`;
+      box.innerHTML=`<label>Fitness Tips Image</label><div class="uc54-upload-row"><input id="uc54ArticleImageFile" type="file" accept="image/*"><button id="uc54ArticleImageButton" class="btn secondary compact" type="button">Upload Image</button></div><div id="uc54ArticleImageState"></div><div id="uc54ArticleImageMsg"></div>`;
       field.prepend(box);$('#uc54ArticleImageButton',box).onclick=()=>window.ucV1654UploadArticleImage();
     }
     renderArticleImageState(hidden.value||'');
@@ -149,11 +149,11 @@
     const input=$('#uc54ArticleImageFile'),file=input?.files?.[0],msg=$('#uc54ArticleImageMsg'),btn=$('#uc54ArticleImageButton'),hidden=$('#blogForm [name="cover_image_url"]');
     if(!file){if(msg)msg.innerHTML='<div class="error">Choose an image first.</div>';return null;}
     const fd=new FormData();fd.append('file',file);fd.append('purpose','article-image');
-    const old=btn?.textContent;if(btn){btn.disabled=true;btn.textContent='Uploading…';}if(msg)msg.innerHTML='<div class="notice">Uploading to Google Drive → Article Images…</div>';
+    const old=btn?.textContent;if(btn){btn.disabled=true;btn.textContent='Uploading…';}if(msg)msg.innerHTML='<div class="notice">Uploading to Google Drive → Fitness Tips Images…</div>';
     try{
-      const res=await fetch('/api/admin/google-drive-upload',{method:'POST',body:fd}),data=await res.json().catch(()=>({}));if(!res.ok)throw new Error(data.error||'Article image upload failed.');
-      if(hidden)hidden.value=data.url||'';if(input)input.dataset.uc54Uploaded='1';renderArticleImageState(data.url||'',`Uploaded to Google Drive → ${data.folderName||'Article Images'}.`);if(msg)msg.innerHTML='<div class="notice success">Article image uploaded successfully. It will be saved with this article.</div>';return data;
-    }catch(e){if(msg)msg.innerHTML=`<div class="error">${H(e.message||'Article image upload failed.')}</div>`;throw e;}
+      const res=await fetch('/api/admin/google-drive-upload',{method:'POST',body:fd}),data=await res.json().catch(()=>({}));if(!res.ok)throw new Error(data.error||'Fitness Tips image upload failed.');
+      if(hidden)hidden.value=data.url||'';if(input)input.dataset.uc54Uploaded='1';renderArticleImageState(data.url||'',`Uploaded to Google Drive → ${data.folderName||'Fitness Tips Images'}.`);if(msg)msg.innerHTML='<div class="notice success">Fitness Tips image uploaded successfully. It will be saved with this fitness tip.</div>';return data;
+    }catch(e){if(msg)msg.innerHTML=`<div class="error">${H(e.message||'Fitness Tips image upload failed.')}</div>`;throw e;}
     finally{if(btn){btn.disabled=false;btn.textContent=old||'Upload Image';}}
   };
   function syncArticleImageFromForm(){ensureArticleImageUpload();renderArticleImageState($('#blogForm [name="cover_image_url"]')?.value||'');const i=$('#uc54ArticleImageFile');if(i){i.value='';delete i.dataset.uc54Uploaded;}}

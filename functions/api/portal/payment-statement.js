@@ -6,7 +6,7 @@ const paidState=value=>/^(?:paid|captured|active|successful|success|authenticate
 const cancelledState=value=>/^(?:cancelled|canceled|refunded|expired)$/i.test(clean(value,40));
 const dateOnly=value=>clean(value,30).slice(0,10);
 const isoDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(value)&&!Number.isNaN(Date.parse(`${value}T12:00:00Z`));
-const gatewayLabel=value=>({razorpay:'Razorpay',phonepe:'PhonePe',stripe:'Stripe',manual:'Studio / Manual'})[clean(value,30).toLowerCase()]||clean(value,80)||'Payment Gateway';
+const gatewayLabel=value=>({razorpay:'Razorpay',phonepe:'PhonePe',stripe:'Stripe',manual:'Gym / Manual'})[clean(value,30).toLowerCase()]||clean(value,80)||'Payment Gateway';
 const titleCase=value=>clean(value,80).replaceAll('_',' ').replace(/\b\w/g,char=>char.toUpperCase())||'Pending';
 
 function defaultPeriod(){
@@ -15,7 +15,7 @@ function defaultPeriod(){
 }
 
 async function logoResponse(request,env,site){
-  const origin=new URL(request.url).origin,candidates=[site.logoUrl,'/assets/dropbeat-invoice-logo.jpg','/assets/dropbeat-logo.svg'].filter(Boolean);
+  const origin=new URL(request.url).origin,candidates=[site.logoUrl,'/assets/ironpulse-invoice-logo.jpg','/assets/ironpulse-logo.svg'].filter(Boolean);
   for(const candidate of candidates){
     try{
       if(String(candidate).startsWith('data:'))continue;
@@ -44,18 +44,18 @@ async function statementData(env,account,from,to){
   for(const receipt of receipts){
     const when=dateOnly(receipt.paid_at||(receipt.paid_at_epoch?new Date(Number(receipt.paid_at_epoch)*1000).toISOString():''));if(!when||when<from||when>to)continue;
     const order=byOrder.get(String(receipt.order_id))||{};
-    rows.push({date:receipt.paid_at||when,orderId:receipt.order_id||order.order_id||'',plan:order.items||'Dance Membership',type:titleCase(receipt.payment_kind||order.payment_mode||'Payment'),gateway:gatewayLabel(receipt.gateway||order.gateway),amountPaise:Math.max(0,Number(receipt.amount_paise||0)),pendingPaise:0,status:titleCase(receipt.status||'paid'),reference:receipt.transaction_id||order.gateway_payment_id||order.gateway_subscription_id||'',currency:receipt.currency||order.currency||'INR'});
+    rows.push({date:receipt.paid_at||when,orderId:receipt.order_id||order.order_id||'',plan:order.items||'Fitness Membership',type:titleCase(receipt.payment_kind||order.payment_mode||'Payment'),gateway:gatewayLabel(receipt.gateway||order.gateway),amountPaise:Math.max(0,Number(receipt.amount_paise||0)),pendingPaise:0,status:titleCase(receipt.status||'paid'),reference:receipt.transaction_id||order.gateway_payment_id||order.gateway_subscription_id||'',currency:receipt.currency||order.currency||'INR'});
   }
   for(const order of orders){
     const status=clean(order.payment_status||order.status,60),received=receiptTotals.get(String(order.order_id))||0,amount=Math.max(0,Number(order.amount_paise||0)),paid=paidState(status),when=dateOnly(paid?(order.updated_at||order.created_at):order.created_at);
     if(!when||when<from||when>to)continue;
     if(paidState(status)&&received>0)continue;
     const cancelled=cancelledState(status),pending=paid||cancelled?0:Math.max(0,amount-received);
-    rows.push({date:order.updated_at||order.created_at,orderId:order.order_id||'',plan:order.items||'Dance Membership',type:titleCase(order.payment_mode||'Membership'),gateway:gatewayLabel(order.gateway),amountPaise:paid?Math.max(received,amount):0,pendingPaise:pending,status:titleCase(status),reference:order.gateway_payment_id||order.gateway_subscription_id||order.gateway_order_id||'',currency:order.currency||'INR'});
+    rows.push({date:order.updated_at||order.created_at,orderId:order.order_id||'',plan:order.items||'Fitness Membership',type:titleCase(order.payment_mode||'Membership'),gateway:gatewayLabel(order.gateway),amountPaise:paid?Math.max(received,amount):0,pendingPaise:pending,status:titleCase(status),reference:order.gateway_payment_id||order.gateway_subscription_id||order.gateway_order_id||'',currency:order.currency||'INR'});
   }
   rows.sort((a,b)=>String(b.date).localeCompare(String(a.date))||String(b.orderId).localeCompare(String(a.orderId)));
   const latestOrder=orders[0]||{},paidPaise=rows.reduce((sum,row)=>sum+Number(row.amountPaise||0),0),pendingPaise=rows.reduce((sum,row)=>sum+Number(row.pendingPaise||0),0);
-  return {customer:{name:account.display_name||account.real_name||latestOrder.customer_name||'Student',phone:account.phone||latestOrder.customer_phone||'',email:account.email||latestOrder.customer_email||''},rows,summary:{paidPaise,pendingPaise,transactionCount:rows.length},hasAnyPaymentHistory:orders.length>0||receipts.length>0};
+  return {customer:{name:account.display_name||account.real_name||latestOrder.customer_name||'Member',phone:account.phone||latestOrder.customer_phone||'',email:account.email||latestOrder.customer_email||''},rows,summary:{paidPaise,pendingPaise,transactionCount:rows.length},hasAnyPaymentHistory:orders.length>0||receipts.length>0};
 }
 
 export async function onRequestGet({request,env}){
@@ -66,6 +66,6 @@ export async function onRequestGet({request,env}){
     if(!isoDate(from)||!isoDate(to)||from>to)throw new Error('Choose a valid statement start and end date.');
     const days=Math.ceil((Date.parse(`${to}T12:00:00Z`)-Date.parse(`${from}T12:00:00Z`))/86400000);if(days>3660)throw new Error('Choose a statement period of ten years or less.');
     const data=await statementData(env,account,from,to);
-    return json({ok:true,period:{from,to},generatedAt:new Date().toISOString(),brand:{name:site.siteName||'DropBeat Dance Studio',tagline:site.tagline||'',logoUrl:site.logoUrl||'/assets/dropbeat-logo.svg',primaryColor:site.primaryColor||'#4B55BE',accentColor:site.accentColor||'#A469A8'},...data},200,{'cache-control':'private, no-store'});
+    return json({ok:true,period:{from,to},generatedAt:new Date().toISOString(),brand:{name:site.siteName||'IronPulse Gym',tagline:site.tagline||'',logoUrl:site.logoUrl||'/assets/ironpulse-logo.svg',primaryColor:site.primaryColor||'#4B55BE',accentColor:site.accentColor||'#A469A8'},...data},200,{'cache-control':'private, no-store'});
   }catch(error){return json({error:error.message||'Your payment statement could not be loaded.'},400,{'cache-control':'no-store'});}
 }

@@ -28,8 +28,8 @@ export async function onRequestPost({ request, env }) {
 
   const phone = countryCode==='91' ? normalizePhone(rawPhone) : `${countryCode}${rawPhone}`;
   const merged=await mergeLeadSubmission(env,{name,phone,email,message,visitor_id:visitorId,source_detail:sourceDetail,...context},{submissionType:'contact',source:'website'});
-  const adminNumber = env.WHATSAPP_ADMIN_NUMBER || '9193919375';
+  const adminNumber = env.WHATSAPP_ADMIN_NUMBER || '919381521966';
   const mergeNote=merged.duplicate?`\nExisting client matched by: ${merged.matched_by}`:'';
-  await sendWhatsAppText(env, adminNumber, `DropBeat Dance Studio lead\nName: ${name}\nPhone: +${phone}\nEmail: ${email}\nMessage: ${message}${mergeNote}`).catch(()=>{});
+  await sendWhatsAppText(env, adminNumber, `IronPulse Gym lead\nName: ${name}\nPhone: +${phone}\nEmail: ${email}\nMessage: ${message}${mergeNote}`).catch(()=>{});
   return json({ ok:true, lead_id: merged.lead.id, duplicate:merged.duplicate, matched_by:merged.matched_by, message:merged.duplicate?'Your enquiry was added to your existing profile.':'Your enquiry was received.' });
 }

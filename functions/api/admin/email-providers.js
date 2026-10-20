@@ -42,7 +42,7 @@ export async function onRequestPost({request,env}){
         next.connected=true;next.lastTestedAt=new Date().toISOString();next.lastError='';settings[provider]=next;
       }else{
         next.enabled=true;settings[provider]=next;await saveOutboundEmailSettings(env,settings);
-        const site=await getSiteSettings(env),to=clean(b.testEmail||next.fromEmail,240);if(!to)throw new Error('Enter a test recipient email address.');await sendConfiguredEmail(env,{to,subject:`${site.siteName||'DropBeat Dance Studio'} - Email Provider Test`,html:`<p><strong>${site.siteName||'DropBeat Dance Studio'}</strong> successfully sent this provider test.</p>`,text:'Email provider test completed successfully.',fromName:site.siteName||next.fromName||'DropBeat Dance Studio'},{provider});
+        const site=await getSiteSettings(env),to=clean(b.testEmail||next.fromEmail,240);if(!to)throw new Error('Enter a test recipient email address.');await sendConfiguredEmail(env,{to,subject:`${site.siteName||'IronPulse Gym'} - Email Provider Test`,html:`<p><strong>${site.siteName||'IronPulse Gym'}</strong> successfully sent this provider test.</p>`,text:'Email provider test completed successfully.',fromName:site.siteName||next.fromName||'IronPulse Gym'},{provider});
         next.connected=true;next.lastTestedAt=new Date().toISOString();next.lastError='';settings[provider]=next;
       }
     }

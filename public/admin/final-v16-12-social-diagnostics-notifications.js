@@ -31,7 +31,7 @@
           if(permission==='granted'){
             localStorage.setItem('uc_admin_notifications_enabled','1');await sw();syncControl(d);
             window.ucAdminToast?.('Admin notifications are enabled for this browser. Comment and supported Inbox alerts will open the matching item.','success');
-          }else{localStorage.setItem('uc_admin_notifications_enabled','0');e.currentTarget.checked=false;syncControl(d);if(permission==='denied')window.ucAdminToast?.('Browser notifications are blocked. Allow Notifications for this DropBeat Dance Studio website in the browser site settings, then enable this switch again.','error');}
+          }else{localStorage.setItem('uc_admin_notifications_enabled','0');e.currentTarget.checked=false;syncControl(d);if(permission==='denied')window.ucAdminToast?.('Browser notifications are blocked. Allow Notifications for this IronPulse Gym website in the browser site settings, then enable this switch again.','error');}
         }else{
           localStorage.setItem('uc_admin_notifications_enabled','0');syncControl(d);window.ucAdminToast?.('Admin notifications are disabled for this browser. Browser permission has not been changed.','success');
         }
@@ -51,7 +51,7 @@
     for(const item of newItems){
       const platform=item.platform,x=item.x,who=x.commenter_name||x.lead_name||x.name||'Someone',text=x.comment_text||'New comment received',id=String(x.id||'');
       const url=`/admin/?open=comments&platform=${encodeURIComponent(platform)}&status=new&comment=${encodeURIComponent(id)}`;
-      const label=platform==='website'?'Article':({facebook:'Facebook',instagram:'Instagram',threads:'Threads',x:'X / Twitter',linkedin:'LinkedIn',pinterest:'Pinterest',google_maps:'Google Maps'}[platform]||platform);
+      const label=platform==='website'?'Fitness Tips':({facebook:'Facebook',instagram:'Instagram',threads:'Threads',x:'X / Twitter',linkedin:'LinkedIn',pinterest:'Pinterest',google_maps:'Google Maps'}[platform]||platform);
       await notify(`New ${label} comment`,`${who}: ${String(text).slice(0,140)}`,url,{platform,status:'new',comment:id});
     }
   }

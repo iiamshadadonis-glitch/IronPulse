@@ -6,9 +6,9 @@
 
   const LABELS={
     search:'Search',
-    customSubscription:'Create Subscription', products:'Plans & Offers', bulk:'Bulk Import', placements:'Product Placements',
+    customSubscription:'Create Subscription', products:'', bulk:'Bulk Import', placements:'Product Placements',
     orders:'Orders', refunds:'Refunds', leads:'Contact Leads', requests:'Requests', subscribers:'Subscribers', unsubscribed:'Unsubscribed', oneTimeUsers:'One-Time Users', favorites:'Favorites',
-    pages:'Pages', blogs:'Article', socialPosts:'Posts', socialDMs:'Inbox', blogComments:'Comments', socialAutomations:'Automations',
+    pages:'Pages', blogs:'', socialPosts:'Posts', socialDMs:'Inbox', blogComments:'Comments', socialAutomations:'Automations',
     tracking:'Tracking', socialMediaIntegrations:'Integrations', settings:'Brand Settings'
   };
   // Keep this older menu builder aligned with the V16.62 authoritative navigation so
@@ -23,6 +23,8 @@
 
   function setBtnLabel(btn,label){
     if(!btn)return;
+    const shared={blogs:'blog',products:'offers',successStories:'stories'}[btn.dataset.tab];
+    if(shared){window.DropBeatDynamicUI?.label(btn,shared);return;}
     const badge=btn.querySelector('.nav-badge');
     btn.textContent=label;
     if(badge) btn.appendChild(badge);
@@ -50,7 +52,7 @@
     panel.className='panel';
     panel.innerHTML=`
       <div class="top"><h1>Ad Integrations</h1><button class="btn secondary compact" type="button" onclick="load_adIntegrations()">Refresh</button></div>
-      <div class="notice">Paste the ad-network code given by Google AdSense or another ad network. This is for website ad-network integration only; individual advertisement placements inside Auditions can still be managed from the Auditions page.</div>
+      <div class="notice">Paste the ad-network code given by Google AdSense or another ad network. This is for website ad-network integration only; individual advertisement placements inside Fitness Tips can still be managed from the Fitness Tips page.</div>
       <form id="adIntegrationsForm" class="form" onsubmit="saveAdIntegrations(event)">
         <details class="card pay-detail"><summary>Google AdSense</summary>
           <label class="check"><input type="checkbox" name="googleAdsenseEnabled"> Enable Google AdSense</label>
@@ -184,7 +186,7 @@
       const ft=$('#bannerFormTitle'); if(ft) ft.textContent=ft.textContent.replace(/Home Page Banner/g,'Home Banner').replace(/Hero Banner/g,'Home Banner');
     }
     const headingMap={
-      customSubscription:'Create Subscription', placements:'Product Placements', leads:'Contact Leads', requests:'Requests', unsubscribed:'Unsubscribed', oneTimeUsers:'One-Time Users', favorites:'Favorites', blogs:'Article', tracking:'Tracking', socialMediaIntegrations:'Integrations', settings:'Brand Settings'
+      customSubscription:'Create Subscription', placements:'Product Placements', leads:'Contact Leads', requests:'Requests', unsubscribed:'Unsubscribed', oneTimeUsers:'One-Time Users', favorites:'Favorites', blogs:'', tracking:'Tracking', socialMediaIntegrations:'Integrations', settings:'Brand Settings'
     };
     Object.entries(headingMap).forEach(([id,title])=>{ const h=$(`#${id} .top h1`); if(h) h.textContent=title; });
   }
@@ -196,7 +198,7 @@
     const rows=A.banners.length?A.banners.map(b=>`
       <div class="uc-grid-row">
         <div class="uc-grid-cell text-cell"><strong>${H(b.title)}</strong><br><small>${H(b.subtitle||'')}</small></div>
-        <div class="uc-grid-cell"><img class="preview-img" src="${H(b.desktop_image_url||'/assets/banner-1.svg')}" alt=""></div>
+        <div class="uc-grid-cell"><img class="preview-img" src="${H(b.desktop_image_url||'/assets/gym-hero.jpg')}" alt=""></div>
         <div class="uc-grid-cell text-cell"><small>${H(b.link_type)}: ${H(b.link_value||'')}</small></div>
         <div class="uc-grid-cell"><span class="status ${b.visible?'active':'draft'}">${b.visible?'visible':'hidden'}</span></div>
         <div class="uc-grid-cell"><div class="sort-actions nowrap"><button class="btn secondary small icon-action" title="Move up" onclick="moveBanner(${b.id},-1)">↑</button><button class="btn secondary small icon-action" title="Move down" onclick="moveBanner(${b.id},1)">↓</button></div></div>

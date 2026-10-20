@@ -11,15 +11,15 @@ function previewModel(key){
     meeting_reminder:{values:{EventTitle:'Schedule Meeting',EventDate:'16 September 2026, 3:00 pm',MeetingLink:'https://meet.google.com/example',ReminderTiming:'one-hour before-event',ReminderDirection:'Before-event'},rows:['16 September 2026, 3:00 pm','Demo / webinar','https://meet.google.com/example','+91 90000 00000','customer@example.com']},
     invoice:{values:{InvoiceNumber:'INV-20260916-DEMO'},rows:['INV-20260916-DEMO','Example Plan','₹1,250.00','pay_example123']},
     payment_statement:{values:{StatementPeriod:'1 September 2026 to 16 September 2026'},rows:['1 September 2026 to 16 September 2026','8','₹5,250.00','₹750.00']},
-    payment_success:{values:{OrderId:'UC-20260916-DEMO'},rows:['UC-20260916-DEMO','DropBeat Dance Studio','Example Plan','Razorpay','pay_example123','₹1,250.00','16 September 2026']},
-    payment_failed:{values:{OrderId:'UC-20260916-DEMO',RetryUrl:'https://dance-class-at2.pages.dev/my-orders?retry=example'},rows:['UC-20260916-DEMO','Example Plan','₹1,250.00','Payment not completed']}
+    payment_success:{values:{OrderId:'UC-20260916-DEMO'},rows:['UC-20260916-DEMO','IronPulse Gym','Example Plan','Razorpay','pay_example123','₹1,250.00','16 September 2026']},
+    payment_failed:{values:{OrderId:'UC-20260916-DEMO',RetryUrl:'https://ironpulse-gym.pages.dev/my-orders?retry=example'},rows:['UC-20260916-DEMO','Example Plan','₹1,250.00','Payment not completed']}
   };
   return models[key]||{values:{},rows:[]};
 }
 
 async function preview(env,key,input){
   if(!Object.prototype.hasOwnProperty.call(AUTOMATIC_EMAIL_DEFAULTS,key))throw new Error('Unknown automatic email template.');
-  const site=await getSiteSettings(env),brand=site.siteName||'DropBeat Dance Studio',model=previewModel(key);
+  const site=await getSiteSettings(env),brand=site.siteName||'IronPulse Gym',model=previewModel(key);
   const normalized=normalizeAutomaticEmailTemplates({[key]:input})[key];
   const rendered=applyEmailTemplate(normalized,{BrandName:brand,ClientName:'Example Customer',...model.values});
   const labels=rendered.summaryLabels||[],summaryRows=model.rows.map((value,index)=>[labels[index]||`Detail ${index+1}`,value]);

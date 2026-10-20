@@ -4,7 +4,7 @@ export const CORE_NAV_ITEMS = [
   { key:'home', label:'Home', href:'/', canonicalHref:'/', defaultSlug:'home', locked:true, editable:false },
   { key:'offers', label:'Offers', href:'/offers', canonicalHref:'/offers', defaultSlug:'offers', editable:true },
   { key:'about', label:'About', href:'/about', canonicalHref:'/about', defaultSlug:'about', editable:true },
-  { key:'blog', label:'Dance Tips', href:'/blog', canonicalHref:'/blog', defaultSlug:'blog', editable:true },
+  { key:'blog', label:'Fitness Tips', href:'/blog', canonicalHref:'/blog', defaultSlug:'blog', editable:true },
   { key:'contact', label:'Contact', href:'/contact', canonicalHref:'/contact', defaultSlug:'contact', editable:true },
   { key:'admin-login', label:'Login', href:'/login', canonicalHref:'/login', defaultSlug:'login', editable:false, locked:true }
 ];

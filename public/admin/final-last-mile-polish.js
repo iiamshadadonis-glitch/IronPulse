@@ -36,7 +36,7 @@
     const raw=String(text||'').trim();
     if(raw.includes(MARKER)){const [top,...rest]=raw.split(MARKER);return {top:top.trim(),bottom:rest.join(MARKER).trim()};}
     const parts=raw.split(/\n{2,}/).map(x=>x.trim()).filter(Boolean);
-    return {top:parts.shift()||'The page you are looking for could not be found.',bottom:parts.join('\n\n')||'Please return to the home page or contact DropBeat Dance Studio for help.'};
+    return {top:parts.shift()||'The page you are looking for could not be found.',bottom:parts.join('\n\n')||'Please return to the home page or contact IronPulse Gym for help.'};
   }
   function sync404Editor(editor){
     const raw=editor?.querySelector('[data-page-field="body_text"]');

@@ -35,8 +35,8 @@ export async function onRequestPost({ request, env }) {
       .bind(
         clean(form, 'title'),
         clean(form, 'subtitle'),
-        desktop?.url || '/assets/banner-1.svg',
-        mobile?.url || desktop?.url || '/assets/banner-1.svg',
+        desktop?.url || '/assets/gym-hero.jpg',
+        mobile?.url || desktop?.url || '/assets/gym-hero.jpg',
         desktop?.id ? `drive:${desktop.id}` : '',
         form.get('link_type') || 'page',
         form.get('link_value') || '/offers',

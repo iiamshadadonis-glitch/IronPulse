@@ -163,7 +163,7 @@ export async function onRequestPost({request,env}){
   }
   else if(provider==='phonepe'){
     const originalMerchantOrderId=phonePeMerchantOrderId(o?.gateway_order_id||o?.order_id||b.order_id||'');
-    if(!originalMerchantOrderId)return json({error:'PhonePe refund needs the saved DropBeat Dance Studio Order ID. Search the customer order first.'},400);
+    if(!originalMerchantOrderId)return json({error:'PhonePe refund needs the saved IronPulse Gym Order ID. Search the customer order first.'},400);
     const merchantRefundId=phonePeRefundId();
     gatewayResponse=await phonePeApi(env,'/payments/v2/refund',{method:'POST',payload:{merchantRefundId,originalMerchantOrderId,amount,customerDetails:{name:o?.customer_name||b.customer_name||'',email:o?.customer_email||'',phoneNumber:o?.customer_phone||b.customer_phone||b.phone||''}}});
     refundId=gatewayResponse.refundId||merchantRefundId;paymentId=paymentId||gatewayResponse.refundId||'';status='refund_initiated';
@@ -177,7 +177,7 @@ export async function onRequestPost({request,env}){
   let emailNotice={ok:false,reason:'no customer email'};
   const customerEmail=String(o?.customer_email||b.customer_email||'').trim().toLowerCase();
   if(refundId&&customerEmail){
-    const customerName=o?.customer_name||b.customer_name||'Customer',orderRef=o?.order_id||b.order_id||'-',amountText=`₹${(amount/100).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})}`,site=await getSiteSettings(env).catch(()=>({siteName:'DropBeat Dance Studio'})),brand=site?.siteName||'DropBeat Dance Studio';
+    const customerName=o?.customer_name||b.customer_name||'Customer',orderRef=o?.order_id||b.order_id||'-',amountText=`₹${(amount/100).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2})}`,site=await getSiteSettings(env).catch(()=>({siteName:'IronPulse Gym'})),brand=site?.siteName||'IronPulse Gym';
     const html=`<p>Dear ${String(customerName).replace(/[<>&]/g,'')},</p><p>Your refund of <strong>${amountText}</strong> for Order <strong>${String(orderRef).replace(/[<>&]/g,'')}</strong> has been initiated through ${String(provider).replace(/[<>&]/g,'')}.</p><p>Refund reference: <strong>${String(refundId).replace(/[<>&]/g,'')}</strong>.</p><p>The amount is being returned to the original payment method. Bank/payment-provider processing can take up to 7 working days.</p><p>Thank you for choosing ${String(brand).replace(/[<>&]/g,'')}.</p>`;
     emailNotice=await sendEmailNotice(env,customerEmail,`${brand} - Refund Initiated - ${orderRef}`,html,`Refund ${amountText} initiated for ${orderRef}. Refund reference: ${refundId}. Bank/payment-provider processing can take up to 7 working days.`).catch(e=>({ok:false,reason:e.message}));
   }

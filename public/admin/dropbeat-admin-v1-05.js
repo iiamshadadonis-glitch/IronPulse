@@ -16,7 +16,7 @@
     storage:{label:'Storage',panel:'storage',description:'Review storage capacity and the existing safe-cleanup controls.'},
     email:{label:'Email',panel:'brandEmails',description:'Edit the branded automatic emails sent for meetings, reminders, invoices and payment statements.'},
     coach:{label:'Coach Settings',panel:'coachSettings',description:'Manage coach onboarding questions, paid-leave rules and approved remuneration terms.'},
-    notifications:{label:'Notifications',panel:'notificationSettings',description:'Manage automatic push rules and reviewed broadcasts for Admin, Student and Coach accounts.'},
+    notifications:{label:'Notifications',panel:'notificationSettings',description:'Manage automatic push rules and reviewed broadcasts for Admin, Member and Coach accounts.'},
     login:{label:'Login',panel:'security',description:'Manage admin display name, password, email and Google login.'}
   };
   const PANEL_MODE={settings:'profile',banners:'banners',socials:'social',checkoutSettings:'checkout',mapsReviews:'maps',storage:'storage',brandEmails:'email',coachSettings:'coach',security:'login',notificationSettings:'notifications'};
@@ -107,7 +107,7 @@
   }
   function fallbackStoryTable(stories){
     const box=$('#storyTable');if(!box)return;
-    box.innerHTML=stories.length?`<table class="table fixed-table clean-actions story-admin-table"><thead><tr><th>Story</th><th>Preview</th><th>Status</th><th>Sort</th><th>Actions</th></tr></thead><tbody>${stories.map(story=>`<tr><td class="text-cell"><strong>${H(story.title||'Untitled story')}</strong><br><small>${H(story.url||'')}</small></td><td><img class="story-thumb" src="${H(story.thumbnail_url||'/assets/product-generic.svg')}" alt=""></td><td><span class="status ${H(story.status==='draft'?'draft':'active')}">${H(story.status||'active')}</span></td><td><div class="sort-actions nowrap"><button class="btn secondary small icon-action" type="button" title="Move up" onclick="moveStory(${Number(story.id)},-1)">↑</button><button class="btn secondary small icon-action" type="button" title="Move down" onclick="moveStory(${Number(story.id)},1)">↓</button></div></td><td><div class="action-row nowrap"><button class="btn secondary small icon-action" type="button" title="Edit" onclick="editStory(${Number(story.id)})">✎</button><button class="btn danger small icon-action" type="button" title="Delete" onclick="deleteStory(${Number(story.id)})">×</button></div></td></tr>`).join('')}</tbody></table>`:'<div class="notice">No Student Stories added yet.</div>';
+    box.innerHTML=stories.length?`<table class="table fixed-table clean-actions story-admin-table"><thead><tr><th>Story</th><th>Preview</th><th>Status</th><th>Sort</th><th>Actions</th></tr></thead><tbody>${stories.map(story=>`<tr><td class="text-cell"><strong>${H(story.title||'Untitled story')}</strong><br><small>${H(story.url||'')}</small></td><td><img class="story-thumb" src="${H(story.thumbnail_url||'/assets/product-generic.svg')}" alt=""></td><td><span class="status ${H(story.status==='draft'?'draft':'active')}">${H(story.status||'active')}</span></td><td><div class="sort-actions nowrap"><button class="btn secondary small icon-action" type="button" title="Move up" onclick="moveStory(${Number(story.id)},-1)">↑</button><button class="btn secondary small icon-action" type="button" title="Move down" onclick="moveStory(${Number(story.id)},1)">↓</button></div></td><td><div class="action-row nowrap"><button class="btn secondary small icon-action" type="button" title="Edit" onclick="editStory(${Number(story.id)})">✎</button><button class="btn danger small icon-action" type="button" title="Delete" onclick="deleteStory(${Number(story.id)})">×</button></div></td></tr>`).join('')}</tbody></table>`:'<div class="notice">No Member Stories added yet.</div>';
   }
   function applyStoryRows(stories){
     let shared=false;
@@ -127,11 +127,11 @@
       try{
         const current=await requestJson(`/api/admin/success-stories?dropbeat=1.13&fresh=${Date.now()}`),rows=Array.isArray(current.stories)?current.stories:[];
         const found=rows.some(story=>wantedId?Number(story.id)===wantedId:String(story.url||'')===wantedUrl);
-        if(found)return rows;lastError=new Error('The saved Student Story was not returned by the verification read.');
+        if(found)return rows;lastError=new Error('The saved Member Story was not returned by the verification read.');
       }catch(error){lastError=error;}
       if(attempt<2)await pause(160*(attempt+1));
     }
-    throw lastError||new Error('The Student Story could not be verified after saving.');
+    throw lastError||new Error('The Member Story could not be verified after saving.');
   }
   async function saveStudentStory(event){
     event.preventDefault();event.stopImmediatePropagation();
@@ -140,18 +140,18 @@
     const payload=Object.fromEntries(new FormData(form).entries());payload.url=normalizeStoryUrl(payload.url);
     if(!payload.url){if(message)message.innerHTML='<div class="error">Paste a YouTube or Instagram link.</div>';return;}
     form.dataset.dropbeatStorySaving='1';form.setAttribute('aria-busy','true');if(button){button.disabled=true;button.textContent='Saving…';}
-    if(message)message.innerHTML='<div class="notice">Saving and verifying the Student Story…</div>';
+    if(message)message.innerHTML='<div class="notice">Saving and verifying the Member Story…</div>';
     try{
       const saved=await requestJson('/api/admin/success-stories',{method:'POST',body:JSON.stringify(payload)});
-      if(!saved?.ok||(!saved?.id&&!saved?.story?.id))throw new Error('The server did not return a saved Student Story.');
+      if(!saved?.ok||(!saved?.id&&!saved?.story?.id))throw new Error('The server did not return a saved Member Story.');
       const stories=await verifiedStoryRows(saved);applyStoryRows(stories);
       form.reset();const id=$('[name="id"]',form);if(id)id.value='';
-      if(message)message.innerHTML=`<div class="notice success"><strong>Student Story saved.</strong> It was verified in Existing Student Stories${String(payload.status||'active')==='draft'?' as a draft':' and is available to the website'}.</div>`;
+      if(message)message.innerHTML=`<div class="notice success"><strong>Member Story saved.</strong> It was verified in Existing Member Stories${String(payload.status||'active')==='draft'?' as a draft':' and is available to the website'}.</div>`;
       // Warm the no-store public endpoint after an active save; this never holds
       // the form open and does not replace the authoritative admin verification.
       if(String(payload.status||'active')!=='draft')requestJson(`/api/public/success-stories?dropbeat=1.13&fresh=${Date.now()}`).catch(()=>{});
     }catch(error){
-      if(message)message.innerHTML=`<div class="error"><strong>Student Story was not saved.</strong> ${H(error?.message||'Please check the link and try again.')}</div>`;
+      if(message)message.innerHTML=`<div class="error"><strong>Member Story was not saved.</strong> ${H(error?.message||'Please check the link and try again.')}</div>`;
     }finally{
       delete form.dataset.dropbeatStorySaving;form.removeAttribute('aria-busy');if(button){button.disabled=false;button.textContent=originalLabel;}
     }

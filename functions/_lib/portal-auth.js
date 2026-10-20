@@ -32,7 +32,7 @@ function base64UrlToBytes(value){
 }
 function randomToken(size=32){const bytes=new Uint8Array(size);crypto.getRandomValues(bytes);return bytesToBase64Url(bytes);}
 function safePath(value,fallback='/login'){
-  const path=clean(value,200);return /^\/(?:admin\/?|student-dashboard|coach-dashboard|login)(?:[?#].*)?$/.test(path)?path:fallback;
+  const path=clean(value,200);return /^\/(?:admin\/?|member-dashboard|coach-dashboard|login)(?:[?#].*)?$/.test(path)?path:fallback;
 }
 function usernameSeed(value){return clean(value,80).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9._-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60)||'member';}
 
@@ -95,7 +95,7 @@ export async function hashPortalPassword(password,salt=randomToken(16),iteration
 export async function verifyPortalPassword(password,row){
   if(!row?.password_hash||!row?.password_salt)return false;
   const savedIterations=Number(row.password_iterations||PORTAL_PBKDF2_ITERATIONS);
-  if(savedIterations>PORTAL_PBKDF2_ITERATIONS)throw new Error('This account needs a one-time password update. Please contact the studio administrator.');
+  if(savedIterations>PORTAL_PBKDF2_ITERATIONS)throw new Error('This account needs a one-time password update. Please contact the gym administrator.');
   const computed=await hashPortalPassword(password,row.password_salt,savedIterations);
   if(computed.hash.length!==String(row.password_hash).length)return false;
   let difference=0;for(let i=0;i<computed.hash.length;i++)difference|=computed.hash.charCodeAt(i)^String(row.password_hash).charCodeAt(i);return difference===0;
@@ -127,7 +127,7 @@ function phoneDigits(value){return clean(value,60).replace(/\D/g,'').slice(-15);
  * else. Callers must verify the gateway transaction before using this helper.
  */
 export async function ensurePaidStudentPortalAccount(env,order={}){
-  await ensurePortalSchema(env);const address=email(order.customer_email),phone=clean(order.customer_phone,40),digits=phoneDigits(phone),name=clean(order.customer_name,180)||'Student';
+  await ensurePortalSchema(env);const address=email(order.customer_email),phone=clean(order.customer_phone,40),digits=phoneDigits(phone),name=clean(order.customer_name,180)||'Member';
   if(!EMAIL_RE.test(address))throw new Error('The paid order does not contain a valid customer email address.');
   let row=await env.DB.prepare(`SELECT * FROM portal_accounts WHERE role='student' AND (lower(email)=? OR (?<>'' AND replace(replace(replace(replace(replace(phone,'+',''),' ',''),'-',''),'(',''),')','') LIKE ?)) ORDER BY CASE WHEN lower(email)=? THEN 0 ELSE 1 END,id LIMIT 1`).bind(address,digits,`%${digits}`,address).first();
   let created=false;
@@ -138,7 +138,7 @@ export async function ensurePaidStudentPortalAccount(env,order={}){
     row=await env.DB.prepare(`INSERT INTO portal_accounts(role,email,username,display_name,real_name,phone,password_hash,password_salt,password_iterations,requires_password_setup,status,approval_source,approved_at,updated_at) VALUES('student',?,?,?,?,?,?,?,?,1,'active','verified_payment',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP) RETURNING *`).bind(address,username,name,name,phone,credentials.hash,credentials.salt,credentials.iterations).first();created=true;
   }
   row=await env.DB.prepare('SELECT * FROM portal_accounts WHERE id=?').bind(row.id).first();
-  await recordPortalEvent(env,row.id,created?'paid_account_created':'paid_account_linked',`Verified payment order ${clean(order.order_id,120)} linked to this student account.`,address);
+  await recordPortalEvent(env,row.id,created?'paid_account_created':'paid_account_linked',`Verified payment order ${clean(order.order_id,120)} linked to this member account.`,address);
   return {account:row,created,requiresPasswordSetup:Number(row.requires_password_setup||0)===1};
 }
 
@@ -152,7 +152,7 @@ export async function registerPortalAccount(env,input={}){
   if(role==='coach'){
     const requestedSlots=Array.isArray(input.availabilitySlots)?input.availabilitySlots:parseJson(input.availabilitySlots,[]),slotDays=requestedSlots.map(x=>x?.day),slotTypes=requestedSlots.flatMap(x=>Array.isArray(x?.classTypes)?x.classTypes:[]),slotStyles=requestedSlots.flatMap(x=>Array.isArray(x?.danceStyles)?x.danceStyles:[]);
     const specialties=uniqueList([...(Array.isArray(input.specialties)?input.specialties:parseJson(input.specialties,[])),...slotStyles],[],30),days=uniqueList([...(Array.isArray(input.availableDays)?input.availableDays:parseJson(input.availableDays,[])),...slotDays],WEEK_DAYS,7),classTypes=uniqueList([...(Array.isArray(input.classTypes)?input.classTypes:parseJson(input.classTypes,[])),...slotTypes],COACH_CLASS_TYPES,5),bio=clean(input.bio,5000);
-    if(!bio)throw new Error('Write a short introduction about your coaching experience.');if(!specialties.length)throw new Error('Select at least one dance specialty.');if(!days.length)throw new Error('Select at least one available day.');if(!classTypes.length)throw new Error('Select at least one class type you conduct.');
+    if(!bio)throw new Error('Write a short introduction about your coaching experience.');if(!specialties.length)throw new Error('Select at least one fitness specialty.');if(!days.length)throw new Error('Select at least one available day.');if(!classTypes.length)throw new Error('Select at least one class type you conduct.');
     const expectationType=['per_session','per_day','per_week','per_month'].includes(clean(input.remunerationExpectationType,30))?clean(input.remunerationExpectationType,30):'',expectationMin=Math.max(0,Math.round(Number(input.remunerationExpectationMin||0)*100)),expectationMax=Math.max(0,Math.round(Number(input.remunerationExpectationMax||0)*100));if(expectationMax&&expectationMin>expectationMax)throw new Error('The maximum remuneration expectation must be equal to or higher than the minimum.');
     coachProfile={specialties,days,classTypes,bio,slots:normalizeAvailabilitySlots(input.availabilitySlots,days,classTypes,specialties),expectationType,expectationMin,expectationMax};
   }
@@ -164,9 +164,9 @@ export async function registerPortalAccount(env,input={}){
   if(role==='student'){match=await findPaidStudentMatch(env,address);if(match){status='active';approvalSource='matched_verified_payment';}}
   const row=await env.DB.prepare(`INSERT INTO portal_accounts(role,email,username,display_name,real_name,phone,password_hash,password_salt,password_iterations,status,approval_source,profile_photo_url,profile_photo_object_key,approved_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,CASE WHEN ?='active' THEN CURRENT_TIMESTAMP ELSE '' END,CURRENT_TIMESTAMP) RETURNING *`).bind(role,address,username,displayName,realName,phone,credentials.hash,credentials.salt,credentials.iterations,status,approvalSource,clean(input.profilePhotoUrl,2400),clean(input.profilePhotoObjectKey,1000),status).first();
   if(role==='coach'){
-    await env.DB.prepare(`INSERT INTO portal_coach_profiles(account_id,designation,badge,bio,experience,specialties_json,availability_days_json,availability_slots_json,class_types_json,instagram_url,facebook_url,application_status,remuneration_expectation_type,remuneration_expectation_min_paise,remuneration_expectation_max_paise) VALUES(?,?,?,?,?,?,?,?,?,?,?,'pending',?,?,?)`).bind(row.id,clean(input.designation,120)||'Dance Coach',clean(input.badge,80)||'Coach',coachProfile.bio,clean(input.experience,1000),JSON.stringify(coachProfile.specialties),JSON.stringify(coachProfile.days),JSON.stringify(coachProfile.slots),JSON.stringify(coachProfile.classTypes),cleanSocialUrl(input.instagramUrl,'instagram'),cleanSocialUrl(input.facebookUrl,'facebook'),coachProfile.expectationType,coachProfile.expectationMin,coachProfile.expectationMax).run();
+    await env.DB.prepare(`INSERT INTO portal_coach_profiles(account_id,designation,badge,bio,experience,specialties_json,availability_days_json,availability_slots_json,class_types_json,instagram_url,facebook_url,application_status,remuneration_expectation_type,remuneration_expectation_min_paise,remuneration_expectation_max_paise) VALUES(?,?,?,?,?,?,?,?,?,?,?,'pending',?,?,?)`).bind(row.id,clean(input.designation,120)||'Fitness Coach',clean(input.badge,80)||'Coach',coachProfile.bio,clean(input.experience,1000),JSON.stringify(coachProfile.specialties),JSON.stringify(coachProfile.days),JSON.stringify(coachProfile.slots),JSON.stringify(coachProfile.classTypes),cleanSocialUrl(input.instagramUrl,'instagram'),cleanSocialUrl(input.facebookUrl,'facebook'),coachProfile.expectationType,coachProfile.expectationMin,coachProfile.expectationMax).run();
   }
-  await recordPortalEvent(env,row.id,'account_created',role==='student'&&match?'Student account automatically approved after a verified payment match.':'Account submitted for admin approval.',address);
+  await recordPortalEvent(env,row.id,'account_created',role==='student'&&match?'Member account automatically approved after a verified payment match.':'Account submitted for admin approval.',address);
   return {account:publicPortalAccount(row),paymentMatched:!!match};
 }
 
@@ -231,7 +231,7 @@ export async function addPortalNotification(env,accountId,{type='information',ti
 }
 
 export function portalRouteFor(role,status='active'){
-  if(role==='coach')return '/coach-dashboard';if(role==='student')return '/student-dashboard';return '/admin/';
+  if(role==='coach')return '/coach-dashboard';if(role==='student')return '/member-dashboard';return '/admin/';
 }
 export function googleCallbackRedirect(origin,path,params={}){
   const url=new URL(safePath(path),origin);for(const [key,value] of Object.entries(params))if(value!==undefined&&value!==null&&value!=='')url.searchParams.set(key,String(value));return url.toString();

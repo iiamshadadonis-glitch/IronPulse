@@ -5,7 +5,7 @@ const clean=(v,n=5000)=>String(v??'').trim().slice(0,n);
 const bool=v=>v===true||v===1||['1','true','on','yes'].includes(String(v||'').toLowerCase());
 const protectedKeys=new Set(['about','contact','privacy','terms','refund','faq','404','home']);
 function slugify(v=''){return clean(v,160).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,90);}
-function defaultEmpty(name,brand='DropBeat Dance Studio'){
+function defaultEmpty(name,brand='IronPulse Gym'){
   const lower=clean(name,120).toLowerCase()||'offers';
   return {title:`No ${lower} are running right now.`,text:`We apologize, currently we do not have any ${lower} running. To get a membership or customized offer, please fill in the Contact Us form; a team member from ${brand} will contact you to discuss a suitable plan or upcoming offer.`};
 }

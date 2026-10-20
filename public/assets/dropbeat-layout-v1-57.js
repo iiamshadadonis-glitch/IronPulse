@@ -1,6 +1,6 @@
 import {LAYOUT_THEMES,LAYOUT_NAMES} from './layout-registry-v1-57.js';
 /* Presentation only: keep the original nodes, routes, forms and action handlers. */
-const admin=location.pathname.startsWith('/admin'),portal=/(?:student-dashboard|coach-dashboard|login)(?:\.html)?\/?$/.test(location.pathname),phone=matchMedia('(max-width:760px)');
+const admin=location.pathname.startsWith('/admin'),portal=/(?:member-dashboard|coach-dashboard|login)(?:\.html)?\/?$/.test(location.pathname),phone=matchMedia('(max-width:760px)');
 let model=null,observer,queued=false,refreshing=null;const styles=new Map(),texts=new Map();
 const date=value=>Date.parse(value||'')||0;
 function textNode(node){const label=node.querySelector(':scope>[data-db159-label]');if(label){if(!label.firstChild)label.append(document.createTextNode(''));return label.firstChild;}const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);while(walker.nextNode()){const n=walker.currentNode;if(n.nodeValue.trim()&&!n.parentElement.closest('svg,[aria-hidden="true"],.nav-badge,.uc86-count-badge,.uc-checkout-count-badge'))return n;}return null;}
@@ -56,7 +56,7 @@ function render(){
     if(/\bCheckout\b/.test(original)&&currentNames.checkout!=='Checkout')heading(labels,node,original.replace(/\bCheckout\b/g,currentNames.checkout),'checkout');
    }
    if(currentNames.blog!==LAYOUT_NAMES.blog.label)for(const node of document.querySelectorAll('#blogs .collapsed-summary-title,#blogs button:not(.uc-info-btn),#blogs h2,#blogs h3')){
-    if(node.closest('.db156-ui,.db157-ui'))continue;const original=texts.get(node)?.original||textNode(node)?.nodeValue||'';if(/Dance Tips?/.test(original))heading(labels,node,original.replace(/Dance Tips?/g,currentNames.blog),'blog');
+    if(node.closest('.db156-ui,.db157-ui'))continue;const original=texts.get(node)?.original||textNode(node)?.nodeValue||'';if(/Fitness Tips?/.test(original))heading(labels,node,original.replace(/Fitness Tips?/g,currentNames.blog),'blog');
    }
    for(const[key,definition]of Object.entries(LAYOUT_NAMES)){
     if(!definition.nav||!currentNames[key])continue;
@@ -66,6 +66,10 @@ function render(){
    }
    const fixed=document.querySelectorAll('.uc-v1634-preview-fixed>span');
    for(const[key,index]of [['checkout',0],['trial',1]])if(currentNames[key]!==LAYOUT_NAMES[key].label)heading(labels,fixed[index],currentNames[key],key);
+  }
+  for(const node of document.querySelectorAll('[data-db159-name]')) {
+   const name=node.dataset.db159Name;
+   if(currentNames[name])heading(labels,node,currentNames[name],name);
   }
   applyStyles(desired);applyText(labels);
  }finally{if(model)window.DropBeatDynamicUI?.state('layout','ready');observe();}

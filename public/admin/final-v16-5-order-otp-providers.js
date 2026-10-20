@@ -4,20 +4,20 @@
   const $=(s,r=document)=>r?.querySelector?.(s)||null;
   const H=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const HELP_WA=`<h3>WhatsApp Webhook & Order OTP</h3>
-    <p class="uc-help-lead">Choose exactly one WhatsApp delivery provider for Student access verification and incoming WhatsApp activity. Connecting a new provider makes it the active provider; DropBeat Dance Studio will never silently fall back to another saved provider.</p>
+    <p class="uc-help-lead">Choose exactly one WhatsApp delivery provider for Member access verification and incoming WhatsApp activity. Connecting a new provider makes it the active provider; IronPulse Gym will never silently fall back to another saved provider.</p>
     <h4>1. GreenAPI</h4><p>Enter the GreenAPI Instance ID and API Token, then click <strong>Connect GreenAPI</strong>. Use this when the selected GreenAPI instance is already authorized and online.</p>
     <h4>2. WhatsApp Cloud API — direct Meta connection</h4><ol><li>Open <a href="https://developers.facebook.com/apps/" target="_blank" rel="noopener">Meta for Developers</a> and open the app that owns your WhatsApp Business Account.</li><li>Copy the <strong>Phone Number ID</strong> and a valid access token into this card.</li><li>Set the webhook callback to the <strong>WhatsApp Webhook URL</strong> shown on this card and use the same private Verify Token.</li><li>Click <strong>Connect WhatsApp Cloud API</strong>, then enable WhatsApp OTP.</li></ol>
-    <h4>3. Instautomate — your vendor API</h4><ol><li>Open <a href="https://client.instautomate.com/vendor-console/settings/api-access" target="_blank" rel="noopener">Instautomate → API Access</a>.</li><li>Copy the <strong>API Base URL</strong>, <strong>Vendor UID</strong> and <strong>API Access Token</strong>.</li><li>In Instautomate, enable the Webhook Endpoint and point it to the WhatsApp Webhook URL shown on this card so inbound messages reach DropBeat Dance Studio.</li><li>Click <strong>Connect Instautomate</strong>. DropBeat Dance Studio tests the vendor API before marking it connected.</li></ol>
+    <h4>3. Instautomate — your vendor API</h4><ol><li>Open <a href="https://client.instautomate.com/vendor-console/settings/api-access" target="_blank" rel="noopener">Instautomate → API Access</a>.</li><li>Copy the <strong>API Base URL</strong>, <strong>Vendor UID</strong> and <strong>API Access Token</strong>.</li><li>In Instautomate, enable the Webhook Endpoint and point it to the WhatsApp Webhook URL shown on this card so inbound messages reach IronPulse Gym.</li><li>Click <strong>Connect Instautomate</strong>. IronPulse Gym tests the vendor API before marking it connected.</li></ol>
     <div class="uc-example"><strong>Instautomate request used by this build:</strong> POST <code>{API Base URL}/{Vendor UID}/contact/send-message</code> with <code>Authorization: Bearer {API Access Token}</code> and JSON containing <code>phone_number</code> and <code>message_body</code>. <a href="https://documenter.getpostman.com/view/29712127/2sBXiojUpr" target="_blank" rel="noopener">Open API documentation</a>.</div>
     <h4>OTP and the WhatsApp 24-hour customer-service window</h4><p><strong>Important:</strong> clicking Send OTP on the website does not by itself open WhatsApp's customer-initiated service window. The free-form service window begins after the customer actually sends a WhatsApp message to the business. If no active service window exists, your provider/Meta may require an approved authentication template and applicable WhatsApp charges can apply.</p>
-    <p>If your workflow first asks the customer to message your WhatsApp number and the inbound message reaches this webhook, DropBeat Dance Studio can then send the OTP as a service message while that window is open, subject to the provider and Meta rules.</p>
-    <h4>Webhook</h4><p>The same DropBeat Dance Studio webhook accepts supported Meta Cloud API, GreenAPI and Instautomate inbound payloads. The Verify Token is used by Meta's webhook verification flow; Instautomate forwards webhook payloads by POST and does not need to know your Meta token.</p>
+    <p>If your workflow first asks the customer to message your WhatsApp number and the inbound message reaches this webhook, IronPulse Gym can then send the OTP as a service message while that window is open, subject to the provider and Meta rules.</p>
+    <h4>Webhook</h4><p>The same IronPulse Gym webhook accepts supported Meta Cloud API, GreenAPI and Instautomate inbound payloads. The Verify Token is used by Meta's webhook verification flow; Instautomate forwards webhook payloads by POST and does not need to know your Meta token.</p>
     <div class="uc-warning"><strong>OTP not arriving?</strong> Confirm only the intended provider is active, run its Connect test, verify the recipient number, and check whether a service window is open or an approved authentication template is required. Never assume a website button click makes a WhatsApp message free.</div>`;
   const HELP_GMAIL=`<h3>Gmail / Email — Sending & Order OTP</h3>
     <p class="uc-help-lead">The same connected Gmail account can be used for documents and for order verification codes. The two switches are independent.</p>
     <ul>
       <li><strong>Enable Gmail Sending:</strong> controls invoices and payment statements.</li>
-      <li><strong>Enable Gmail OTP:</strong> controls Student account verification emails.</li>
+      <li><strong>Enable Gmail OTP:</strong> controls Member account verification emails.</li>
       <li>Enabling Gmail OTP automatically turns off WhatsApp OTP. Gmail document sending remains unchanged.</li>
     </ul>
     <h4>Recommended setup</h4><ol>
@@ -49,8 +49,8 @@
       form.dataset.ucV165='1';
       form.removeAttribute('onsubmit');
       form.innerHTML=`
-        <div class="uc-social-toggle-item uc-v165-otp-toggle"><label class="uc-social-toggle-capsule"><span class="switch"><input name="otpEnabled" type="checkbox"><span class="slider"></span></span><strong>Enable WhatsApp OTP</strong></label><small class="uc-social-toggle-helper">Student account verification</small></div>
-        <div class="uc-social-info"><strong>Use:</strong> Send Student account verification codes through the selected WhatsApp provider and receive incoming WhatsApp webhook activity.</div>
+        <div class="uc-social-toggle-item uc-v165-otp-toggle"><label class="uc-social-toggle-capsule"><span class="switch"><input name="otpEnabled" type="checkbox"><span class="slider"></span></span><strong>Enable WhatsApp OTP</strong></label><small class="uc-social-toggle-helper">Member account verification</small></div>
+        <div class="uc-social-info"><strong>Use:</strong> Send Member account verification codes through the selected WhatsApp provider and receive incoming WhatsApp webhook activity.</div>
         <div class="field"><label>WhatsApp Webhook Verify Token <small id="socialWhatsappVerifyHint" class="hint inline-hint"></small></label><input name="webhookVerifyToken" type="password" placeholder="Leave blank to keep saved token"><small class="hint">Your private verification token. Use the same value in the external WhatsApp webhook setup.</small></div>
         <span class="uc-social-webhook-label">WhatsApp Webhook URL</span><div class="copyline"><input id="socialWhatsappWebhookUrl" readonly><button class="btn secondary small" type="button" onclick="copyValue('socialWhatsappWebhookUrl')">Copy</button></div>
         <div class="uc-v165-provider-choice field"><label>OTP Provider</label><select name="otpProvider"><option value="green_api">GreenAPI</option><option value="whatsapp_cloud">WhatsApp Cloud API</option><option value="instautomate">Instautomate</option></select><small class="hint">Only the selected provider's connection fields are shown below.</small></div>
@@ -114,7 +114,7 @@
     if(!form.dataset.ucV165){
       form.dataset.ucV165='1';
       const first=$('.uc-social-toggle-item',form);
-      const otp=document.createElement('div');otp.className='uc-social-toggle-item uc-v165-otp-toggle';otp.innerHTML='<label class="uc-social-toggle-capsule"><span class="switch"><input name="otpEnabled" type="checkbox"><span class="slider"></span></span><strong>Enable Gmail OTP</strong></label><small class="uc-social-toggle-helper">Student account verification</small>';
+      const otp=document.createElement('div');otp.className='uc-social-toggle-item uc-v165-otp-toggle';otp.innerHTML='<label class="uc-social-toggle-capsule"><span class="switch"><input name="otpEnabled" type="checkbox"><span class="slider"></span></span><strong>Enable Gmail OTP</strong></label><small class="uc-social-toggle-helper">Member account verification</small>';
       first?.insertAdjacentElement('afterend',otp);
       $('[name="otpEnabled"]',form)?.addEventListener('change',async e=>{
         const el=e.currentTarget,desired=el.checked;el.disabled=true;

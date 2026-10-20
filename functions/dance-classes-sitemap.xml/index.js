@@ -9,7 +9,7 @@ const isoDate=v=>{
 };
 
 export async function onRequestGet({env,request}){
-  const home=String(preferredPublicOrigin(request,env)||'https://dance-class-at2.pages.dev').replace(/\/$/,'');
+  const home=String(preferredPublicOrigin(request,env)||'https://ironpulse-gym.pages.dev').replace(/\/$/,'');
   const q=await env.DB.prepare(`SELECT slug,updated_at_remote,published_at_remote,row_json
     FROM audition_post_cache
     WHERE lower(COALESCE(status,''))='published' AND trim(COALESCE(slug,''))<>''

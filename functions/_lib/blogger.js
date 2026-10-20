@@ -50,7 +50,7 @@ async function markReconnectRequired(env,s,message){
 
 export async function getBloggerAccessToken(env){
   const s=await getApiSettings(env);
-  if(!s.bloggerClientId || !s.bloggerClientSecret || !s.bloggerRefreshToken) throw seoReconnectError('SEO is not authorized yet. Connect Google OAuth before loading or publishing dance class updates.');
+  if(!s.bloggerClientId || !s.bloggerClientSecret || !s.bloggerRefreshToken) throw seoReconnectError('SEO is not authorized yet. Connect Google OAuth before loading or publishing Fitness Tips.');
   const cacheKey=`${s.bloggerClientId}:${String(s.bloggerRefreshToken).slice(-24)}`;
   const cached=tokenCache.get(cacheKey);
   if(cached?.accessToken && Number(cached.expiresAt||0)>Date.now()+60000)return {accessToken:cached.accessToken,settings:s};

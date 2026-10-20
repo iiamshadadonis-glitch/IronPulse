@@ -14,8 +14,8 @@
   const fmtDateTime=v=>{if(!v)return'—';const d=new Date(String(v).includes('T')?v:String(v).replace(' ','T')+'Z');return Number.isNaN(d.getTime())?String(v):d.toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Kolkata'});};
   const supportedGateway=v=>['razorpay','stripe','phonepe'].includes(String(v||'').toLowerCase());
   const settings=()=>window.A?.settings||{};
-  const brandName=()=>String(settings().siteName||'DropBeat Dance Studio').trim()||'DropBeat Dance Studio';
-  const absUrl=v=>{if(!v)return location.origin+'/assets/dropbeat-logo.svg';try{return new URL(v,location.origin).href}catch(_){return location.origin+'/assets/dropbeat-logo.svg';}};
+  const brandName=()=>String(settings().siteName||'IronPulse Gym').trim()||'IronPulse Gym';
+  const absUrl=v=>{if(!v)return location.origin+'/assets/ironpulse-logo.svg';try{return new URL(v,location.origin).href}catch(_){return location.origin+'/assets/ironpulse-logo.svg';}};
   const filenameSafe=v=>String(v||'document').replace(/[^a-z0-9._-]+/gi,'-').replace(/-+/g,'-').replace(/^-|-$/g,'').toLowerCase();
 
   function allPaymentRows(){

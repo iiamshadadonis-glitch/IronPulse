@@ -136,7 +136,7 @@ export async function onRequestPost({request,env}){
   const orderTaxSnapshot=effectivePaymentMode==='one_time'?{oneTime:oneTimeTax}:{recurring:recurringAggregate,firstPayment:firstPaymentAggregate};
   if(effectivePaymentMode==='one_time'){
     try{
-      const g=await createCheckoutWithFallback(env,{kind:'one_time',orderId:order_id,amountPaise:finalChargeAmount,currency:env.DEFAULT_CURRENCY||'INR',customer:{name:customer.name||'',phone,email:customer.email||''},description:'DropBeat Dance Studio payment',origin:new URL(request.url).origin,quantity:1});
+      const g=await createCheckoutWithFallback(env,{kind:'one_time',orderId:order_id,amountPaise:finalChargeAmount,currency:env.DEFAULT_CURRENCY||'INR',customer:{name:customer.name||'',phone,email:customer.email||''},description:'IronPulse Gym payment',origin:new URL(request.url).origin,quantity:1});
       checkout_urls.push(g.url);allAttempts.push(...(g.attempts||[]));
       await env.DB.prepare('UPDATE orders SET gateway=?,gateway_order_id=?,gateway_subscription_id=?,fallback_url=?,gateway_attempts_json=?,failure_reason=NULL,updated_at=CURRENT_TIMESTAMP WHERE id=?')
         .bind(g.gateway,g.gatewayOrderId||'',g.gatewaySubscriptionId||'',g.url||'',JSON.stringify(allAttempts),oid).run();
@@ -185,7 +185,7 @@ export async function onRequestPost({request,env}){
     if(visitorId)await env.DB.prepare("INSERT INTO visitor_cart_state(visitor_id,service_count,amount_paise,items_json,updated_at) VALUES(?,0,0,'[]',CURRENT_TIMESTAMP) ON CONFLICT(visitor_id) DO UPDATE SET service_count=0,amount_paise=0,items_json='[]',updated_at=CURRENT_TIMESTAMP").bind(visitorId).run();
   }catch(_){}
 
-  await notifyAdmin(env,`New DropBeat Dance Studio order\nOrder ID: ${order_id}\nName: ${customer.name||'-'}\nPhone: ${phone}\nAmount: ₹${(finalChargeAmount/100).toFixed(finalChargeAmount%100?2:0)}\nStatus: awaiting payment`);
+  await notifyAdmin(env,`New IronPulse Gym order\nOrder ID: ${order_id}\nName: ${customer.name||'-'}\nPhone: ${phone}\nAmount: ₹${(finalChargeAmount/100).toFixed(finalChargeAmount%100?2:0)}\nStatus: awaiting payment`);
   await bumpAdminActivity(env,'orders',{unreadDelta:1}).catch(()=>{});
   const activeGateway=checkout_urls.length?(await env.DB.prepare('SELECT gateway FROM orders WHERE id=?').bind(oid).first().catch(()=>null))?.gateway:'';
   return json({ok:true,order_id,amount_paise:finalChargeAmount,first_payment_amount_paise:finalChargeAmount,recurring_amount_paise:Number(recurringAggregate?.totalPaise||amount),base_amount_paise:amount,tax:orderTaxSnapshot,original_amount_paise:original,discount_paise:discount,checkout_urls,redirect_url:checkout_urls[0]||'',gateway:activeGateway||availability.primary||'',payment_mode:effectivePaymentMode,message:checkout_urls.length?'Redirecting to secure payment page.':'Order saved, but no enabled Payment Gateway could create a checkout link. Review Settings → Payments.'});

@@ -162,7 +162,7 @@
   function patchGuidanceText(){
     $$('small,p,.hint,.notice,.error,details summary,label').forEach(el=>{
       if(el.closest('#loginOverlay'))return;const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
-      nodes.forEach(n=>{let s=n.nodeValue;s=s.replace(/Website Content\s*→\s*Posts/gi,'Social Media → Posts').replace(/Website Content\s*→\s*Auditions/gi,'Social Media → Articles');if(s!==n.nodeValue)n.nodeValue=s;});
+      nodes.forEach(n=>{let s=n.nodeValue;s=s.replace(/Website Content\s*→\s*Posts/gi,'Social Media → Posts').replace(/Website Content\s*→\s*Fitness Tips/gi,'Social Media → Fitness Tips');if(s!==n.nodeValue)n.nodeValue=s;});
     });
   }
   function schedulePatch(){clearTimeout(patchTimer);patchTimer=setTimeout(()=>{normalizeNavigation();patchBrandPanels();ensurePagesHub();patchGuidanceText();refreshNotificationBadges();},45);}

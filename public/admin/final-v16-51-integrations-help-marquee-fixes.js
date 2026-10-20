@@ -8,7 +8,7 @@
 
   const AUTOMATION_HELP=`<div class="uc51-automation-help">
     <h3>Automation Endpoints — How to Connect n8n, Make, Zapier or Another Server</h3>
-    <p class="uc-help-lead">These endpoints let an external automation tool read or update selected DropBeat Dance Studio data without giving that tool your admin password. Every request is authenticated with the Bearer API token shown in the API Settings form.</p>
+    <p class="uc-help-lead">These endpoints let an external automation tool read or update selected IronPulse Gym data without giving that tool your admin password. Every request is authenticated with the Bearer API token shown in the API Settings form.</p>
     <div class="uc-warning"><strong>Before using any endpoint:</strong> generate/save the API token in this section and keep it private. In the external tool add the HTTP header <code>Authorization: Bearer YOUR_API_TOKEN</code>. For POST requests also send <code>Content-Type: application/json</code>. Never put the Bearer token in a public browser script, public Google Sheet or public GitHub repository.</div>
     <h4>Basic n8n / automation setup</h4>
     <ol>
@@ -33,17 +33,17 @@
 }</pre>
     <div class="uc-warning"><strong>Safe-use rule:</strong> send only the fields you intentionally want to change. Do not send blank values for credentials/settings you want to preserve.</div>
 
-    <h4>GET /api/automation/blogs — List Audition Updates</h4>
-    <p><strong>Use it for:</strong> reading the current live/draft Audition articles from the connected SEO/Blogger source. This endpoint requires the SEO connection to remain authorized.</p>
-    <div class="uc-example"><strong>Example:</strong> fetch current Auditions first, then let an external workflow check whether a slug already exists before creating a new article.</div>
+    <h4>GET /api/automation/blogs — List Fitness Tip Updates</h4>
+    <p><strong>Use it for:</strong> reading the current live/draft Fitness Tip fitness tips from the connected SEO/Blogger source. This endpoint requires the SEO connection to remain authorized.</p>
+    <div class="uc-example"><strong>Example:</strong> fetch current Fitness Tips first, then let an external workflow check whether a slug already exists before creating a new fitness tip.</div>
 
-    <h4>POST /api/automation/blogs — Create or update an Audition</h4>
-    <p><strong>Use it for:</strong> creating a new Audition or updating the article with the same slug. <code>title</code> plus <code>body_text</code> or <code>body_html</code> are required. Use status <code>draft</code> to save without publishing or <code>published</code> to publish. A published article continues through the website's existing social-distribution logic.</p>
+    <h4>POST /api/automation/blogs — Create or update an Fitness Tip</h4>
+    <p><strong>Use it for:</strong> creating a new Fitness Tip or updating the fitness tip with the same slug. <code>title</code> plus <code>body_text</code> or <code>body_html</code> are required. Use status <code>draft</code> to save without publishing or <code>published</code> to publish. A published fitness tip continues through the website's existing social-distribution logic.</p>
     <pre class="uc51-code">{
-  "title": "Female Actor – Hyderabad Ad Film",
+  "title": "Female Member – Hyderabad Ad Film",
   "slug": "female-actor-hyderabad-ad-film",
   "excerpt": "Casting update for a Hyderabad ad film.",
-  "body_text": "Role: Female Actor\nAge: 20-30\nCity: Hyderabad",
+  "body_text": "Role: Female Member\nAge: 20-30\nCity: Hyderabad",
   "cover_image_url": "https://example.com/casting.jpg",
   "tags": "casting,hyderabad,actor",
   "status": "draft"
@@ -51,7 +51,7 @@
     <div class="uc-warning"><strong>Publishing caution:</strong> set <code>status</code> to <code>published</code> only when the content is ready, because the existing automatic publishing integrations may run after publication.</div>
 
     <h4>POST /api/automation/social-posts — Run due scheduled social posts</h4>
-    <p><strong>Use it for:</strong> an exact scheduler/cron call that asks DropBeat Dance Studio to process posts whose scheduled time is due. No post content is required in the request body; the post content/platform targets were already saved from Social Media → Posts.</p>
+    <p><strong>Use it for:</strong> an exact scheduler/cron call that asks IronPulse Gym to process posts whose scheduled time is due. No post content is required in the request body; the post content/platform targets were already saved from Social Media → Posts.</p>
     <div class="uc-example"><strong>Recommended schedule:</strong> call this periodically from n8n/Cloudflare Cron when you want scheduled posts to publish even when nobody is actively using the admin panel.</div>
 
     <h4>POST /api/automation/products — Create/update plans, offers and services</h4>
@@ -64,7 +64,7 @@
   "badge": "Festival Offer",
   "status": "active",
   "page_keys": "home,offers",
-  "features": "WhatsApp audition updates | Priority onboarding"
+  "features": "WhatsApp fitness updates | Priority onboarding"
 }</pre>
 
     <h4>GET /api/automation/leads-summary — Read the recent lead/order summary</h4>

@@ -104,7 +104,7 @@ async function leadRows(env,start,end,caps){
       WHEN lower(COALESCE(l.source,'')) LIKE '%trial%' OR ${message} LIKE '%trial%' THEN 'trial'
       WHEN lower(COALESCE(l.source,'')) LIKE '%webinar%' OR ${message} LIKE '%webinar%' THEN 'webinar'
       WHEN lower(COALESCE(l.source,'')) LIKE '%demo%' OR ${message} LIKE '%demo%' THEN 'demo'
-      WHEN lower(COALESCE(l.source,'')) LIKE '%offline%' OR lower(COALESCE(l.source,'')) LIKE '%studio%' THEN 'offline_class'
+      WHEN lower(COALESCE(l.source,'')) LIKE '%offline%' OR lower(COALESCE(l.source,'')) LIKE '%gym%' THEN 'offline_class'
       WHEN lower(COALESCE(l.source,'')) LIKE '%online%' THEN 'online_class' ELSE 'unassigned' END`;
   return results(env.DB.prepare(`WITH ${context} identified_leads AS (
       SELECT ${dateExpr('l.created_at')} day,COALESCE(NULLIF(trim(l.source),''),'Website') source,${inferred} class_type

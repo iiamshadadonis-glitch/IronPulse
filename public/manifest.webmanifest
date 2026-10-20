@@ -1,7 +1,8 @@
 {
-  "name": "DropBeat Dance Studio",
-  "short_name": "DropBeat",
-  "description": "Online and studio dance classes with flexible membership plans.",
+  "id": "/",
+  "name": "IronPulse Gym",
+  "short_name": "IronPulse",
+  "description": "Build your strength. Manage gym memberships, fitness sessions and your progress with IronPulse Gym.",
   "start_url": "/?app=1",
   "scope": "/",
   "display": "standalone",
@@ -9,11 +10,28 @@
   "theme_color": "#4B55BE",
   "icons": [
     {
-      "src": "/assets/dropbeat-logo.png",
-      "sizes": "135x37",
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ],
-  "id": "/"
+  ]
 }

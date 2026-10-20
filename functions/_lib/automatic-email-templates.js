@@ -25,7 +25,7 @@ export const AUTOMATIC_EMAIL_DEFAULTS={
     intro:'Please find your invoice attached. It records the payment information available for this transaction.',summaryTitle:'Invoice Summary',
     summaryLabels:['Invoice No.','Plan / Offer','Amount','Payment Reference'],
     body:'Thank you for choosing @BrandName. Your invoice PDF is attached for your records.\n\nWe look forward to seeing you move, learn and grow. Check your class schedule and membership details whenever you need them.',
-    note:'The PDF attachment is the downloadable copy of this document.',buttonLabel:'Open Student Dashboard'
+    note:'The PDF attachment is the downloadable copy of this document.',buttonLabel:'Open Member Dashboard'
   },
   payment_statement:{
     ...common,label:'Payment Statement Email',description:'Sent when a payment statement PDF is emailed from Client Details.',
@@ -33,15 +33,15 @@ export const AUTOMATIC_EMAIL_DEFAULTS={
     intro:'Please find your payment statement attached for the selected period.',summaryTitle:'Statement Summary',
     summaryLabels:['Statement Period','Records','Paid Amount','Pending Amount'],
     body:'This statement contains the payment information available for the selected period, including paid and pending entries where applicable.\n\nThank you for choosing @BrandName. Please keep the attached PDF for your records.',
-    note:'The PDF attachment is the downloadable copy of this document.',buttonLabel:'Open Student Dashboard'
+    note:'The PDF attachment is the downloadable copy of this document.',buttonLabel:'Open Member Dashboard'
   },
   payment_success:{
     ...common,label:'Payment Successful Email',description:'Sent after a payment receipt is confirmed and the invoice PDF is generated.',
     subject:'@BrandName - Payment Successful - @OrderId',heading:'Payment Successful',eyebrow:'Payment confirmed',
     intro:'Your payment has been received successfully and the payment details are confirmed.',summaryTitle:'Payment Summary',
     summaryLabels:['Order ID','Ordered from','Plan / Item','Payment Gateway','Payment ID','Amount Paid','Payment Date'],
-    body:'Thank you for choosing @BrandName.\n\nYour membership is ready for the next step. Check your class schedule, studio updates and membership details whenever you need them.',
-    note:'Your invoice is attached to this email and records only the amount actually received in this payment.',buttonLabel:'Open Student Dashboard'
+    body:'Thank you for choosing @BrandName.\n\nYour membership is ready for the next step. Check your class schedule, gym updates and membership details whenever you need them.',
+    note:'Your invoice is attached to this email and records only the amount actually received in this payment.',buttonLabel:'Open Member Dashboard'
   },
   payment_failed:{
     ...common,label:'Payment Failed / Retry Email',description:'Sent after a failed payment and reused for enabled payment-recovery reminders.',

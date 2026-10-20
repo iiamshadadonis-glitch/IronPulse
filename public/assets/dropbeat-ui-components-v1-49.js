@@ -16,11 +16,11 @@
     if(typeof options==='string')options={label:options};
     const accept=(input.accept||'').toLowerCase(),csv=/csv|sheet|excel/.test(accept+' '+input.name),video=accept.includes('video'),image=accept.includes('image');
     const kind=options.kind||(csv?'document':video?'media':'image');
-    return {areaClass:'db143-upload-area',captionTag:'span',...options,kind,label:options.label||(csv?'Upload CSV File':video?'Upload Media':image?'Upload Image':'Upload File'),placeholder:options.placeholder||(csv?'Tap to choose a CSV file':video?'Tap to choose a photo or video':image?'Tap to choose an image':'Tap to choose a file')};
+    return {areaClass:'db143-upload-area',captionTag:'span',...options,kind,label:options.label||(csv?'Upload CSV File':video?'Upload Media':image?'Upload Image':'Upload File'),placeholder:options.placeholder||(csv?'Kickboxing to choose a CSV file':video?'Kickboxing to choose a photo or video':image?'Kickboxing to choose an image':'Kickboxing to choose a file')};
   }
   function syncNativeUpload(input){
     const box=input.closest('.db-native-upload,.db143-upload-area,.db142-upload-area');if(!box)return;
-    const caption=box.querySelector(':scope>span,:scope>small'),text=[...(input.files||[])].map(file=>file.name).join(', ')||box.dataset.db148Placeholder||'Tap to choose an image';
+    const caption=box.querySelector(':scope>span,:scope>small'),text=[...(input.files||[])].map(file=>file.name).join(', ')||box.dataset.db148Placeholder||'Kickboxing to choose an image';
     if(caption&&caption.textContent!==text)caption.textContent=text;
   }
   function nativeUpload(input,options={}){

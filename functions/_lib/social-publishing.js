@@ -72,7 +72,7 @@ function cloudinaryPublicId(v=''){return String(v||'').split('/').map(x=>encodeU
 function cloudinaryOverlayId(v=''){return String(v||'').split('/').map(x=>encodeURIComponent(x)).join(':');}
 function normalizeHex(v,fallback='#4B55BE'){const raw=String(v||'').trim();return /^#?[0-9a-f]{6}$/i.test(raw)?`#${raw.replace('#','').toUpperCase()}`:fallback;}
 function hexForCloudinary(v,fallback='8A0505'){return normalizeHex(v,`#${fallback}`).replace('#','');}
-function brandAssetUrl(env,url=''){const v=clean(url,2000);return /^https?:\/\//i.test(v)?v:`${brandHomeUrl(env)}${v.startsWith('/')?'':'/'}${v||'/assets/dropbeat-logo.svg'}`;}
+function brandAssetUrl(env,url=''){const v=clean(url,2000);return /^https?:\/\//i.test(v)?v:`${brandHomeUrl(env)}${v.startsWith('/')?'':'/'}${v||'/assets/ironpulse-logo.svg'}`;}
 function wrapInstagramText(value='',maxChars=32,maxLines=4){
   const words=clean(value,400).replace(/\s+/g,' ').split(' ').filter(Boolean),lines=[];let line='';
   for(const word of words){
@@ -109,18 +109,18 @@ async function uploadInstagramAsset(url,label){
 }
 async function buildInstagramBrandedImage(env,info){
   const [site,social]=await Promise.all([getSiteSettings(env).catch(()=>({})),getSocialIntegrationSettings(env).catch(()=>({}))]);
-  const brandName=clean(site?.siteName,120)||'DropBeat Dance Studio';
-  const tagline=clean(site?.tagline,180)||'Online and studio dance classes for every level';
+  const brandName=clean(site?.siteName,120)||'IronPulse Gym';
+  const tagline=clean(site?.tagline,180)||'Online and in-gym fitness classes for every level';
   const primary=hexForCloudinary(site?.primaryColor,'8A0505');
   const accent=hexForCloudinary(site?.accentColor,'FFD45A');
   const background='FFFAF4',muted='755E67';
   const handle=clean(social?.instagram?.username,100).replace(/^@+/,'');
-  const followLine=handle?`For more dance class updates, follow @${handle} on Instagram`:`For more dance class updates, follow ${brandName} on Instagram`;
+  const followLine=handle?`For more Fitness Tips, follow @${handle} on Instagram`:`For more Fitness Tips, follow ${brandName} on Instagram`;
   // Keep the follow helper on one line by reducing its font rather than wrapping it.
   const followFont=followLine.length>112?10:followLine.length>96?11:followLine.length>82?12:13;
   const taglineLines=wrapInstagramText(tagline,42,2);
-  const logoUrl=brandAssetUrl(env,site?.logoUrl||'/assets/dropbeat-logo.svg');
-  const [source,logo]=await Promise.all([uploadInstagramAsset(info.cover,'Article cover image'),uploadInstagramAsset(logoUrl,`${brandName} logo`)]);
+  const logoUrl=brandAssetUrl(env,site?.logoUrl||'/assets/ironpulse-logo.svg');
+  const [source,logo]=await Promise.all([uploadInstagramAsset(info.cover,'Fitness Tips cover image'),uploadInstagramAsset(logoUrl,`${brandName} logo`)]);
   // V16.25 layout: brand header -> full non-cropped dance class image -> title/footer block.
   // c_fit preserves the complete source image. c_pad places it in the upper-middle portion.
   const title=instagramTitleLayout(info.title),steps=[
@@ -143,7 +143,7 @@ async function buildInstagramBrandedImage(env,info){
   // V16.27 footer: anchor the final two lines near the bottom edge with a small, consistent safe margin.
   const verifiedY=1244;
   const followY=1292;
-  steps.push(`l_text:Arial_18_bold:${cloudinaryText('DANCE CLASS UPDATES')},co_rgb:${primary}`);steps.push(`fl_layer_apply,g_north,y_${verifiedY}`);
+  steps.push(`l_text:Arial_18_bold:${cloudinaryText('Fitness Tips')},co_rgb:${primary}`);steps.push(`fl_layer_apply,g_north,y_${verifiedY}`);
   steps.push(`l_text:Arial_20_bold:${cloudinaryText('•')},co_rgb:${accent}`);steps.push(`fl_layer_apply,g_north,x_-170,y_${verifiedY-2}`);
   steps.push(`l_text:Arial_20_bold:${cloudinaryText('•')},co_rgb:${accent}`);steps.push(`fl_layer_apply,g_north,x_170,y_${verifiedY-2}`);
   steps.push(`l_text:Arial_${followFont}:${cloudinaryText(followLine)},co_rgb:${muted}`);steps.push(`fl_layer_apply,g_north,y_${followY}`);
@@ -185,13 +185,13 @@ async function claimPublish(env,platform,info={}){
   return {claimed:false,articleKey:key,row,reason:row?.status||'publishing'};
 }
 function jsonObjSafe(v){try{return typeof v==='string'?JSON.parse(v||'{}'):(v||{});}catch{return{};}}
-function claimSkip(platform,claim){return {ok:true,skipped:true,reason:claim?.reason==='published'?`This article was already published to ${platform}.`:`${platform} publishing is already in progress for this article; duplicate publishing was prevented.`,externalId:claim?.row?.external_id||''};}
+function claimSkip(platform,claim){return {ok:true,skipped:true,reason:claim?.reason==='published'?`This fitness tip was already published to ${platform}.`:`${platform} publishing is already in progress for this fitness tip; duplicate publishing was prevented.`,externalId:claim?.row?.external_id||''};}
 
 function articleInfo(env,article={}){
   const slug=clean(article.slug||article.post_slug||article.id||'article',220).replace(/^\/+|\/+$/g,'');
   const home=brandHomeUrl(env);
   const localUrl=`${home}/blog/${encodeURIComponent(slug)}`;
-  const title=clean(article.title||'Article',240);
+  const title=clean(article.title||'Fitness Tips',240);
   const body=clean(article.excerpt||article.body_text||stripHtml(article.body_html||''),900);
   const cover=clean(article.cover_image_url||article.coverImageUrl||'',2000);
   const video=clean(article.video_url||article.videoUrl||article.video||article.social_video_url||'',2000);
@@ -507,8 +507,8 @@ export async function publishPinterestArticle(env,article={}){
   if(!c.enabled||c.autoPublish===false)return {ok:true,skipped:true,reason:'Pinterest automatic publishing is disabled.'};
   const info=articleInfo(env,article);let logKey=publicationKey(info);
   try{
-    if(!c.boardId)throw new Error('Pinterest Board ID is missing. Enter the board that should receive new article Pins.');
-    if(!info.cover)throw new Error('Pinterest needs a public cover image URL. Upload an Article Image before automatic Pinterest publishing.');
+    if(!c.boardId)throw new Error('Pinterest Board ID is missing. Enter the board that should receive new fitness tip Pins.');
+    if(!info.cover)throw new Error('Pinterest needs a public cover image URL. Upload an Fitness Tips Image before automatic Pinterest publishing.');
     const claim=await claimPublish(env,'pinterest',info);logKey=claim.articleKey;if(!claim.claimed)return claimSkip('Pinterest',claim);
     const token=await pinterestToken(env,c);const payload={board_id:String(c.boardId),title:info.title.slice(0,100),description:clean(`${info.body||info.title}${info.hashtagText?`\n\n${info.hashtagText}`:''}`,800),link:info.localUrl,media_source:{source_type:'image_url',url:info.cover,is_standard:true}};
     const data=await responseJson(await fetch('https://api.pinterest.com/v5/pins',{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify(payload)}),'Pinterest Pin creation');const externalId=clean(data.id,300);
@@ -702,7 +702,7 @@ export async function publishInstagramArticle(env,article={}){
   const social=await getSocialIntegrationSettings(env),c=social.instagram||{};if(!c.enabled||!c.autoPublish)return {ok:true,skipped:true,reason:'Instagram automatic publishing is disabled.'};
   const info=articleInfo(env,article);let logKey=publicationKey(info),branded=null;
   try{
-    if(!info.cover)throw new Error('Instagram automatic publishing needs an Article image.');
+    if(!info.cover)throw new Error('Instagram automatic publishing needs an Fitness Tips image.');
     if(!c.instagramBusinessId||!c.pageAccessToken)throw new Error('Instagram Business Account ID or Page Access Token is missing.');
     const claim=await claimPublish(env,'instagram',info);logKey=claim.articleKey;if(!claim.claimed)return claimSkip('Instagram',claim);
     branded=await buildInstagramBrandedImage(env,info);
@@ -823,13 +823,13 @@ export async function testXConnection(env){
 export async function testXPublishingCapability(env){
   const social=await getSocialIntegrationSettings(env),c=social.x||{},token=await getXUserAccessToken(env),scopes=xScopeList(c.grantedScopes);
   if(scopes.length&&!scopes.includes('tweet.write'))throw Object.assign(new Error('The connected X authorization does not include tweet.write. Reconnect X / Twitter and approve write access.'),{httpStatus:403,upstreamCode:'missing_tweet_write'});
-  const testText=`DropBeat Dance Studio X API publishing check ${brandHomeUrl(env)}/`;
+  const testText=`IronPulse Gym X API publishing check ${brandHomeUrl(env)}/`;
   try{
     const created=await xCreatePost(token,{text:clean(testText,280),nullcast:true},'X hidden publishing test'),id=clean(created?.data?.id,300);if(!id)throw new Error('X did not return a post ID for the hidden publishing test.');
     let deleted=false,deleteMessage='';
     try{const del=await responseJson(await fetch(`https://api.x.com/2/tweets/${encodeURIComponent(id)}`,{method:'DELETE',headers:{authorization:`Bearer ${token}`}}),'X hidden publishing test cleanup');deleted=del?.data?.deleted!==false;}
     catch(e){deleteMessage=clean(e.message,900);}
-    const message=`X accepted a real hidden/nullcast post containing the DropBeat Dance Studio URL${deleted?' and the test post was deleted immediately':'; the create test passed, but automatic cleanup could not be confirmed'}. Automatic publishing is ready.${deleteMessage?` Cleanup diagnostic: ${deleteMessage}`:''}`;
+    const message=`X accepted a real hidden/nullcast post containing the IronPulse Gym URL${deleted?' and the test post was deleted immediately':'; the create test passed, but automatic cleanup could not be confirmed'}. Automatic publishing is ready.${deleteMessage?` Cleanup diagnostic: ${deleteMessage}`:''}`;
     await savePlatformState(env,'x',{publishingReady:true,publishingProbeStatus:'real_publish_ready',publishingProbeAt:now(),publishingProbeMessage:message,lastError:'',lastTestedAt:now(),lastTestMessage:message});return {ok:true,id,deleted,message};
   }catch(e){const d=diagnoseIntegrationError('x',e,{action:'real hidden publishing test'}),meta=xProblemMeta(e);await savePlatformState(env,'x',{publishingReady:false,publishingProbeStatus:meta.reason||meta.type||String(e?.httpStatus||'failed'),publishingProbeAt:now(),publishingProbeMessage:d.message,lastError:d.message,lastTestedAt:now(),lastTestMessage:d.message}).catch(()=>{});const out=new Error(d.message);Object.assign(out,e,{message:d.message});throw out;}
 }
@@ -839,7 +839,7 @@ export async function publishXArticle(env,article={}){
   try{
     const scopes=xScopeList(c.grantedScopes);if(scopes.length&&!scopes.includes('tweet.write'))throw Object.assign(new Error('The connected X authorization does not include tweet.write. Reconnect X / Twitter and approve write access.'),{httpStatus:403,upstreamCode:'missing_tweet_write'});
     const token=await getXUserAccessToken(env),claim=await claimPublish(env,'x',info);logKey=claim.articleKey;if(!claim.claimed)return claimSkip('X',claim);
-    const text=xPostText(info);if(!text)throw new Error('X automatic publishing could not build post text for this Article.');
+    const text=xPostText(info);if(!text)throw new Error('X automatic publishing could not build post text for this Fitness Tips.');
     const data=await xCreatePost(token,{text,...(info.poll.enabled?{poll:{options:info.poll.options.map(x=>clean(x,25)),duration_minutes:Math.min(10080,pollDurationMinutes(info.poll.duration))}}:{})},'X post'),id=clean(data?.data?.id,300);if(!id)throw new Error('X accepted the create request but did not return a post ID.');const externalUrl=`https://x.com/i/web/status/${id}`;
     let firstComment={ok:true,skipped:true,reason:'First social comment is disabled.'};const fc=socialFirstCommentMessage(info);if(fc&&id){try{const r=await xCreatePost(token,{text:clean(fc,280),reply:{in_reply_to_tweet_id:id}},'X first reply');firstComment={ok:true,id:clean(r?.data?.id,300),message:clean(fc,280)};}catch(e){firstComment={ok:false,error:clean(e.message,1200),message:clean(fc,280)};}}
     await logWrite(env,'x',logKey,{articleUrl:info.localUrl,externalId:id,status:'published',details:{title:info.title,cover:info.cover,externalUrl,text,firstComment,publishedAt:now()}});await savePlatformState(env,'x',{connectionState:'connected',connectedAt:c.connectedAt||now(),lastError:'',lastPublishError:'',lastPublishStatus:'published',lastPublishAt:now(),lastPublishedUrl:externalUrl,publishingReady:true,publishingProbeStatus:'published',publishingProbeAt:now(),publishingProbeMessage:`X accepted automatic publication. Post ID ${id}.`});return {ok:true,externalId:id,url:externalUrl,text,firstComment,message:successMessage('x','publish',{externalId:id})};
@@ -849,10 +849,10 @@ export async function publishSnapchatArticle(env,article={}){
   const social=await getSocialIntegrationSettings(env),c=social.snapchat||{};
   if(!c.enabled||!c.autoPublishStory)return {ok:true,skipped:true,reason:'Snapchat automatic Story publishing is disabled.'};
   const info=articleInfo(env,article);let logKey=publicationKey(info),source=info.video||info.cover;
-  if(!source)return {ok:true,skipped:true,reason:'Snapchat automatic Story publishing needs a public Article video or image URL.'};
+  if(!source)return {ok:true,skipped:true,reason:'Snapchat automatic Story publishing needs a public Fitness Tips video or image URL.'};
   try{
     const claim=await claimPublish(env,'snapchat',info);logKey=claim.articleKey;if(!claim.claimed)return claimSkip('Snapchat',claim);
-    const out=await uploadSnapchatStoryMedia(env,source,info.title||'DropBeat Dance Studio Article');
+    const out=await uploadSnapchatStoryMedia(env,source,info.title||'IronPulse Gym Fitness Tips');
     await logWrite(env,'snapchat',logKey,{articleUrl:info.localUrl,externalId:out.mediaId||'',status:'published',details:{title:info.title,cover:info.cover,video:info.video,source,externalUrl:out.url||'',profileId:out.profileId,publishedAt:now()}});
     return {ok:true,externalId:out.mediaId||'',url:out.url||'',message:'Snapchat Public Profile Story published successfully.'};
   }catch(e){const diag=await publishFailureState(env,'snapchat',e);await logWrite(env,'snapchat',logKey,{articleUrl:info.localUrl,status:'failed',details:{error:diag.message,title:info.title,cover:info.cover,video:info.video}});throw Object.assign(new Error(diag.message),e,{message:diag.message});}
@@ -862,11 +862,11 @@ export async function publishYouTubeArticle(env,article={}){
   const social=await getSocialIntegrationSettings(env),c=social.youtube||{};
   if(!c.enabled||!c.autoPublish)return {ok:true,skipped:true,reason:'YouTube automatic publishing is disabled.'};
   const info=articleInfo(env,article);let logKey=publicationKey(info);
-  if(!info.video)return {ok:true,skipped:true,reason:'YouTube automatic publishing requires a public video URL on the Article. YouTube Data API does not create text-only Community posts.'};
+  if(!info.video)return {ok:true,skipped:true,reason:'YouTube automatic publishing requires a public video URL on the Fitness Tips. YouTube Data API does not create text-only Community posts.'};
   try{
     const token=await getYouTubeAccessToken(env),claim=await claimPublish(env,'youtube',info);logKey=claim.articleKey;if(!claim.claimed)return claimSkip('YouTube',claim);
-    const vr=await fetch(info.video,{headers:{accept:'video/*,application/octet-stream'}});if(!vr.ok)throw new Error(`YouTube could not download the Article video (HTTP ${vr.status}).`);
-    const len=Number(vr.headers.get('content-length')||0);if(len>50*1024*1024)throw new Error('The Article video is larger than the 50 MB automatic-upload safety limit for this Worker build. Upload the video to YouTube manually or use a smaller file.');
+    const vr=await fetch(info.video,{headers:{accept:'video/*,application/octet-stream'}});if(!vr.ok)throw new Error(`YouTube could not download the Fitness Tips video (HTTP ${vr.status}).`);
+    const len=Number(vr.headers.get('content-length')||0);if(len>50*1024*1024)throw new Error('The Fitness Tips video is larger than the 50 MB automatic-upload safety limit for this Worker build. Upload the video to YouTube manually or use a smaller file.');
     const bytes=await vr.arrayBuffer(),mime=clean(vr.headers.get('content-type')||'video/mp4',120).split(';')[0]||'video/mp4';
     const boundary=`uc_${crypto.randomUUID().replace(/-/g,'')}`,metadata={snippet:{title:clean(info.title,100),description:clean([info.body,info.localUrl,info.hashtagText].filter(Boolean).join('\n\n'),4500)},status:{privacyStatus:['public','unlisted','private'].includes(c.privacyStatus)?c.privacyStatus:'public'}};
     const encoder=new TextEncoder(),prefix=`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(metadata)}\r\n--${boundary}\r\nContent-Type: ${mime}\r\n\r\n`,suffix=`\r\n--${boundary}--\r\n`;
@@ -907,7 +907,7 @@ function normalizeIndexNowTargets(env,urls=[]){
   for(const target of list){
     let u;try{u=new URL(target);}catch{throw indexNowError(`IndexNow URL is invalid: ${target}`,400);}
     if(u.protocol!=='https:')throw indexNowError('IndexNow requires a valid HTTPS URL.',400);
-    if(u.host!==expectedHost)throw indexNowError(`IndexNow can submit only URLs on ${expectedHost} with the verification key hosted there. Use the public DropBeat Dance Studio URL on ${expectedHost}, not ${u.host}.`,422);
+    if(u.host!==expectedHost)throw indexNowError(`IndexNow can submit only URLs on ${expectedHost} with the verification key hosted there. Use the public IronPulse Gym URL on ${expectedHost}, not ${u.host}.`,422);
   }
   return {home,host:expectedHost,targets:list,keyLocation:indexNowKeyLocation(env)};
 }
@@ -922,7 +922,7 @@ export async function submitIndexNowUrls(env,urls=[]){
   const key=clean(c.key,200);if(!key)throw indexNowError('IndexNow key is missing. Generate a dedicated IndexNow key, save it, then test the connection.',400);
   if(!INDEXNOW_KEY_RE.test(key))throw indexNowError('The saved IndexNow key format is invalid. Use 8–128 letters, numbers or hyphens. Do not use the Bing Webmaster Tools API Access key.',400);
   const cooldownAt=Date.parse(c.cooldownUntil||'');
-  if(Number.isFinite(cooldownAt)&&cooldownAt>Date.now())throw indexNowError(`IndexNow is temporarily paused until ${new Date(cooldownAt).toISOString()} because the service returned HTTP 429 Too Many Requests. DropBeat Dance Studio will not send another IndexNow request during this safety pause.`,429,{retryAt:new Date(cooldownAt).toISOString(),cooldown:true});
+  if(Number.isFinite(cooldownAt)&&cooldownAt>Date.now())throw indexNowError(`IndexNow is temporarily paused until ${new Date(cooldownAt).toISOString()} because the service returned HTTP 429 Too Many Requests. IronPulse Gym will not send another IndexNow request during this safety pause.`,429,{retryAt:new Date(cooldownAt).toISOString(),cooldown:true});
   const {host,targets,keyLocation}=normalizeIndexNowTargets(env,urls),recent=recentIndexNowMap(c),nowMs=Date.now();
   const pending=targets.filter(url=>!(recent.has(url)&&nowMs-recent.get(url)<INDEXNOW_DEDUPE_MS));
   if(!pending.length)return {ok:true,skipped:true,deduplicated:true,urls:targets,message:'These URLs were already submitted to IndexNow within the last 10 minutes. No duplicate network request was sent.'};
@@ -934,7 +934,7 @@ export async function submitIndexNowUrls(env,urls=[]){
       if(res.status===429){
         const retryAt=new Date(Date.now()+indexNowRetryMs(res)).toISOString(),sameCooldown=String(c.lastSubmitError||'')===message&&Date.parse(c.cooldownUntil||'')>Date.now();
         if(!sameCooldown)await savePlatformState(env,'indexNow',{lastSubmitError:clean(message,1200),lastSubmitStatus:429,cooldownUntil:retryAt,lastError:''}).catch(()=>{});
-        throw indexNowError(`${message}. DropBeat Dance Studio has automatically paused further IndexNow submissions until ${retryAt} to prevent repeated rate-limit requests.`,429,{retryAt,cooldown:true});
+        throw indexNowError(`${message}. IronPulse Gym has automatically paused further IndexNow submissions until ${retryAt} to prevent repeated rate-limit requests.`,429,{retryAt,cooldown:true});
       }
       throw indexNowError(message,res.status);
     }
@@ -951,7 +951,7 @@ export async function testIndexNowConnection(env){
   const c=(await getSocialIntegrationSettings(env)).indexNow||{},key=clean(c.key,200);if(!key)throw indexNowError('Generate and save a dedicated IndexNow key first.',400);
   if(!INDEXNOW_KEY_RE.test(key))throw indexNowError('The saved IndexNow key format is invalid. Use 8–128 letters, numbers or hyphens. The Bing Webmaster Tools API Access key is a different credential and should not be used here.',400);
   const keyLocation=indexNowKeyLocation(env);let res,text='';
-  try{res=await fetch(keyLocation,{headers:{accept:'text/plain'},redirect:'follow'});text=await res.text();}catch{throw indexNowError(`DropBeat Dance Studio could not open the public IndexNow key verification URL ${keyLocation}. Confirm the website is live and try again.`,502);}
+  try{res=await fetch(keyLocation,{headers:{accept:'text/plain'},redirect:'follow'});text=await res.text();}catch{throw indexNowError(`IronPulse Gym could not open the public IndexNow key verification URL ${keyLocation}. Confirm the website is live and try again.`,502);}
   if(!res.ok)throw indexNowError(`The IndexNow key verification URL returned HTTP ${res.status}. Save the IndexNow settings and try again.`,res.status);
   if(text.trim()!==key)throw indexNowError('The public IndexNow verification file does not match the saved IndexNow key. Save the key again before submitting URLs.',403);
   const testedAt=now(),message='IndexNow configuration is ready: the dedicated key format is valid and the public key verification URL returns the saved key. Test Connection does not submit any URL, so it cannot consume IndexNow submission quota.';

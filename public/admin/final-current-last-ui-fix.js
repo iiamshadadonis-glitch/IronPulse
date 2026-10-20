@@ -79,7 +79,7 @@
     const ai=normalizeAdIntegrations((A.settings||{}).adIntegrations||{});
     panel.innerHTML=`
       <div class="top"><h1>Ad Integrations</h1><button class="btn secondary compact" type="button" onclick="load_adIntegrations()">Refresh</button></div>
-      <div class="notice">Paste the ad-network code given by Google AdSense or another ad network. This is only for connecting ad networks to the website. Advertisement placements inside individual Auditions can still be managed from the Auditions page.</div>
+      <div class="notice">Paste the ad-network code given by Google AdSense or another ad network. This is only for connecting ad networks to the website. Advertisement placements inside individual Fitness Tips can still be managed from the Fitness Tips page.</div>
       <details class="card ad-clean-detail" id="adsenseCard"><summary>Google AdSense</summary><div class="ad-clean-body">
         <form id="googleAdsenseForm" class="form" onsubmit="saveGoogleAdsense(event)">
           <div class="ad-toggle-row">${togglePill('enabled','Enable Google AdSense',!!ai.googleAdsense.enabled)}</div>
@@ -154,7 +154,7 @@
   function patchAuditionsFinal(){
     const panel=$('#blogs'); const form=$('#blogForm'); if(!panel||!form)return;
     cleanAuditionHelpers(form); panel.querySelectorAll('.blogger-required-note').forEach(x=>x.remove());
-    form.insertAdjacentHTML('afterbegin','<div class="blogger-required-note"><strong>SEO connection required for posting:</strong> Published audition updates should be posted after SEO is configured in API Settings. Drafts can be saved for preparation.</div>');
+    form.insertAdjacentHTML('afterbegin','<div class="blogger-required-note"><strong>SEO connection required for posting:</strong> Published fitness updates should be posted after SEO is configured in API Settings. Drafts can be saved for preparation.</div>');
     const title=form.elements.title, slug=form.elements.slug, tags=form.elements.tags, excerpt=form.elements.excerpt, body=form.elements.body_text, cover=form.elements.cover_image_url, status=form.elements.status;
     if(title&&slug&&!form.dataset.finalAuditionLayout){
       const titleField=title.closest('.field'), slugField=slug.closest('.field'), row=titleField?.parentElement;
@@ -165,7 +165,7 @@
     labelCounter(title,90); putHint(title,'Maximum 90 characters. Keep the audition title short and clear.');
     putHint(slug,'Optional. If left blank, the link ending is created from the audition title.');
     if(tags){tags.maxLength=180; putHint(tags,'Use up to 12 tags, separated with commas. Example: audition, casting, ott, hyderabad.');}
-    labelCounter(excerpt,220); putHint(excerpt,'Maximum 220 characters. This appears as the short summary on the Auditions page.');
+    labelCounter(excerpt,220); putHint(excerpt,'Maximum 220 characters. This appears as the short summary on the Fitness Tips page.');
     labelCounter(body,10000); putHint(body,'Recommended: 150 to 1,500 words. Maximum 10,000 characters. Write normal paragraphs; the website formats them automatically.');
     putHint(cover,'Paste a direct public image URL, website media URL, CDN URL, or direct image link.');
     putHint(status,'Draft keeps it hidden. Published only after SEO is configured.');

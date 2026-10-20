@@ -40,7 +40,7 @@
     if(!box)return;
     const rows=A.banners.length?A.banners.map(b=>`<tr>
       <td class="text-cell"><strong>${H(b.title)}</strong><br><small>${H(b.subtitle||'')}</small></td>
-      <td><img class="preview-img" src="${H(b.desktop_image_url||'/assets/banner-1.svg')}" alt=""></td>
+      <td><img class="preview-img" src="${H(b.desktop_image_url||'/assets/gym-hero.jpg')}" alt=""></td>
       <td class="text-cell"><small>${H(b.link_type)}: ${H(b.link_value||'')}</small></td>
       <td>${status(b.visible?'visible':'hidden')}</td>
       <td><div class="sort-actions nowrap"><button class="btn secondary small icon-action" title="Move up" onclick="moveBanner(${b.id},-1)">↑</button><button class="btn secondary small icon-action" title="Move down" onclick="moveBanner(${b.id},1)">↓</button></div></td>

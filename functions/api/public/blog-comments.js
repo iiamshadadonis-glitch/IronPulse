@@ -22,8 +22,8 @@ export async function onRequestPost({request,env}){
   if(!postId||!slug||!name||!comment)return json({error:'Name and comment are required.'},400);
   if(comment.length<2)return json({error:'Please write a slightly longer comment.'},400);
   let remote;
-  try{remote=await getSeoPostById(env,postId);}catch{return json({error:'This dance class update is not available for comments.'},404);}
-  if(String(remote.slug||'')!==slug||String(remote.status||'')!=='published')return json({error:'This dance class update is not available for comments.'},404);
+  try{remote=await getSeoPostById(env,postId);}catch{return json({error:'This Fitness Tip is not available for comments.'},404);}
+  if(String(remote.slug||'')!==slug||String(remote.status||'')!=='published')return json({error:'This Fitness Tip is not available for comments.'},404);
   if(parentId){const parent=await env.DB.prepare("SELECT id FROM seo_comments WHERE id=? AND seo_post_id=? AND visibility='published'").bind(parentId,postId).first();if(!parent)return json({error:'The comment you are replying to is no longer available.'},404);}
   const rawIp=request.headers.get('CF-Connecting-IP')||'',ipHash=rawIp?await sha256Hex(rawIp):'';
   const recent=await env.DB.prepare("SELECT COUNT(*) AS total FROM seo_comments WHERE is_admin=0 AND (ip_hash=? OR (visitor_id<>'' AND visitor_id=?)) AND created_at>=datetime('now','-10 minutes')").bind(ipHash,visitorId).first().catch(()=>({total:0}));
@@ -35,7 +35,7 @@ export async function onRequestPost({request,env}){
     leadId=found?.lead?.id||null;
     const merged=await mergeLeadSubmission(env,{
       name,phone:whatsapp,visitor_id:visitorId,
-      message:`Comment on article ${remote.title}: ${comment}`,
+      message:`Comment on fitness tip ${remote.title}: ${comment}`,
       source:'article_comment',source_detail:'article_comment',
       article_title:String(remote.title||''),article_slug:slug,seo_post_id:postId
     },{submissionType:'comment',source:'article_comment',sourceDetail:'article_comment'});
@@ -46,7 +46,7 @@ export async function onRequestPost({request,env}){
   const commentId=Number(res.meta.last_row_id||0)||0;
   await bumpAdminActivity(env,'comments').catch(()=>{});
   if(submissionId){
-    const payload={name,phone:whatsapp,visitor_id:visitorId,message:`Comment on article ${remote.title}: ${comment}`,source:'article_comment',source_detail:'article_comment',submission_type:'comment',article_title:String(remote.title||''),article_slug:slug,seo_post_id:postId,seo_comment_id:commentId};
+    const payload={name,phone:whatsapp,visitor_id:visitorId,message:`Comment on fitness tip ${remote.title}: ${comment}`,source:'article_comment',source_detail:'article_comment',submission_type:'comment',article_title:String(remote.title||''),article_slug:slug,seo_post_id:postId,seo_comment_id:commentId};
     await env.DB.prepare("UPDATE lead_submissions SET source_detail='article_comment',message=?,payload_json=?,status='new',updated_at=CURRENT_TIMESTAMP WHERE id=? AND submission_type='comment'").bind(payload.message,JSON.stringify(payload),submissionId).run().catch(()=>{});
   }
   const row=await env.DB.prepare('SELECT * FROM seo_comments WHERE id=?').bind(commentId).first();

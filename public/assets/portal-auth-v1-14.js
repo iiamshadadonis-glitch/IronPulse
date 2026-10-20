@@ -4,8 +4,8 @@
   const $=(selector,root=document)=>root?.querySelector?.(selector)||null;
   const $$=(selector,root=document)=>root?.querySelectorAll?[...root.querySelectorAll(selector)]:[];
   const DAYS=[['sun','Sunday'],['mon','Monday'],['tue','Tuesday'],['wed','Wednesday'],['thu','Thursday'],['fri','Friday'],['sat','Saturday']];
-  const CLASS_TYPES=[['online_class','Online Class'],['offline_class','Studio / Offline Class'],['demo','Demo Class'],['webinar','Webinar'],['trial','Trial Session']];
-  const SPECIALTIES=['Hip Hop','Freestyle','Contemporary','Bollywood','Semi-Classical','Indian Classical','Bharatanatyam','Kuchipudi','Kathak','Kathakali','Mohiniyattam','Odissi','Manipuri','Sattriya','Andhra Natyam','Vilasini Natyam','Perini Shivatandavam','Yakshagana','Garba','Dandiya Raas','Bhangra','Giddha','Lavani','Koli','Ghoomar','Kalbelia','Chhau','Bihu','Rouf','Cheraw','Dollu Kunitha','Veeragase','Kolattam','Karagattam','Kummi','Oyilattam','Lambadi','Folk','Ballet','Jazz','Salsa','Bachata','Zumba','Ballroom','K-Pop','Breaking','Lyrical'];
+  const CLASS_TYPES=[['online_class','Online Class'],['offline_class','Gym / Offline Class'],['demo','Demo Class'],['webinar','Webinar'],['trial','Trial Session']];
+  const SPECIALTIES=["Weightlifting","Cardio","Functional Training","Strength Training","CrossFit","HIIT","Personal Training","Mobility","Pilates","Yoga","Powerlifting","Calisthenics","Endurance Training","Circuit Training","Core Training","Boxing","Kickboxing","Indoor Cycling"];
   let scheduleIndex=0;
 
   class PortalError extends Error{
@@ -42,8 +42,8 @@
   async function loadBrand(){
     try{
       const data=await api('/api/public/site?dropbeat=1.15'),settings=data.settings||{};
-      $$('[data-site-name]').forEach(node=>node.textContent=settings.siteName||'DropBeat Dance Studio');
-      $$('[data-site-logo]').forEach(node=>{node.src=settings.logoUrl||'/assets/dropbeat-logo.svg';node.alt=settings.siteName||'DropBeat Dance Studio';});
+      $$('[data-site-name]').forEach(node=>node.textContent=settings.siteName||'IronPulse Gym');
+      $$('[data-site-logo]').forEach(node=>{node.src=settings.logoUrl||'/assets/ironpulse-logo.svg';node.alt=settings.siteName||'IronPulse Gym';});
       if(/^#[0-9a-f]{6}$/i.test(settings.primaryColor||''))document.documentElement.style.setProperty('--portal-primary',settings.primaryColor);
       if(/^#[0-9a-f]{6}$/i.test(settings.accentColor||''))document.documentElement.style.setProperty('--portal-accent',settings.accentColor);
     }catch(_){/* The login remains usable with bundled brand defaults. */}
@@ -73,7 +73,7 @@
 
   function updatePickerSummary(picker){
     const chosen=$$('input:checked',picker).map(input=>input.nextElementSibling?.textContent||input.value);
-    const summary=$('summary',picker),fallback=picker.dataset.picker==='types'?'Choose class types':'Choose dance styles';
+    const summary=$('summary',picker),fallback=picker.dataset.picker==='types'?'Choose class types':'Choose Fitness Specialties';
     if(summary)summary.textContent=chosen.length?(chosen.length<=2?chosen.join(', '):`${chosen.length} selected`):fallback;
   }
 
@@ -83,7 +83,7 @@
     const row=document.createElement('article');
     row.className='coach-schedule-row';
     row.dataset.scheduleRow=String(++scheduleIndex);
-    row.innerHTML=`<div class="schedule-row-number" aria-hidden="true">${scheduleIndex}</div><div class="portal-field"><label>Available Day</label><select data-slot-day>${DAYS.map(([value,text])=>`<option value="${value}"${slot.day===value?' selected':''}>${text}</option>`).join('')}</select></div>${timeSelect('start','From',slot.start||'09:00')}${timeSelect('end','Until',slot.end||'10:00')}<div class="portal-field"><label>Class Types</label>${multiPicker('types','Choose class types',CLASS_TYPES)}</div><div class="portal-field schedule-style-field"><label>Dance Styles for This Session</label>${multiPicker('styles','Choose dance styles',SPECIALTIES.map(item=>[item,item]))}</div><button class="schedule-remove" type="button" aria-label="Remove this availability">×</button>`;
+    row.innerHTML=`<div class="schedule-row-number" aria-hidden="true">${scheduleIndex}</div><div class="portal-field"><label>Available Day</label><select data-slot-day>${DAYS.map(([value,text])=>`<option value="${value}"${slot.day===value?' selected':''}>${text}</option>`).join('')}</select></div>${timeSelect('start','From',slot.start||'09:00')}${timeSelect('end','Until',slot.end||'10:00')}<div class="portal-field"><label>Class Types</label>${multiPicker('types','Choose class types',CLASS_TYPES)}</div><div class="portal-field schedule-style-field"><label>Fitness Specialties for This Session</label>${multiPicker('styles','Choose Fitness Specialties',SPECIALTIES.map(item=>[item,item]))}</div><button class="schedule-remove" type="button" aria-label="Remove this availability">×</button>`;
     host.append(row);
     const preselectedTypes=Array.isArray(slot.classTypes)?slot.classTypes:[],preselectedStyles=Array.isArray(slot.danceStyles)?slot.danceStyles:[];
     $$('[data-picker="types"] input',row).forEach(input=>{input.checked=preselectedTypes.includes(input.value);});
@@ -107,7 +107,7 @@
       const classTypes=$$('[data-picker="types"] input:checked',row).map(input=>input.value),danceStyles=$$('[data-picker="styles"] input:checked',row).map(input=>input.value);
       if(end<=start)throw new PortalError(`Availability ${index+1}: the Until time must be later than the From time.`);
       if(!classTypes.length)throw new PortalError(`Availability ${index+1}: choose at least one class type.`);
-      if(!danceStyles.length)throw new PortalError(`Availability ${index+1}: choose at least one dance style.`);
+      if(!danceStyles.length)throw new PortalError(`Availability ${index+1}: choose at least one Fitness Specialty.`);
       return {day,start,end,classTypes,danceStyles};
     });
     if(!slots.length)throw new PortalError('Add at least one teaching availability.');
@@ -163,7 +163,7 @@
   }
 
   async function redirectExisting(){
-    try{const me=await api('/api/portal/auth/me');if(me.account?.role==='student')location.replace('/student-dashboard');else if(me.account?.role==='coach')location.replace('/coach-dashboard');}
+    try{const me=await api('/api/portal/auth/me');if(me.account?.role==='student')location.replace('/member-dashboard');else if(me.account?.role==='coach')location.replace('/coach-dashboard');}
     catch(_){/* No portal session is the normal login-page state. */}
   }
 
@@ -174,7 +174,7 @@
     $('[data-google-login]')?.addEventListener('click',googleLogin);$$('[data-google-signup]').forEach(button=>button.addEventListener('click',googleSignup));
     $('[data-add-availability]')?.addEventListener('click',()=>addAvailability());addAvailability({day:'sun',start:'09:00',end:'10:00'});
     const query=new URLSearchParams(location.search),requested=query.get('signup');setMode(requested==='student'||requested==='coach'?requested:'login');
-    if(query.get('google_error'))showResult('Google sign-in could not be completed. Please try again or contact the studio for help.','error','/contact');
+    if(query.get('google_error'))showResult('Google sign-in could not be completed. Please try again or contact the gym for help.','error','/contact');
   }
 
   document.addEventListener('DOMContentLoaded',init);

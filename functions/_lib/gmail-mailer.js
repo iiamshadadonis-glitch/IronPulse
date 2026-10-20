@@ -28,7 +28,7 @@ function mimeMessage({fromName,fromEmail,to,bcc='',replyTo='',subject,html,text=
   const mixed=`uc_mixed_${crypto.randomUUID().replace(/-/g,'')}`;
   const alt=`uc_alt_${crypto.randomUUID().replace(/-/g,'')}`;
   const lines=[
-    `From: ${headerText(fromName||'DropBeat Dance Studio')} <${headerText(fromEmail)}>`,
+    `From: ${headerText(fromName||'IronPulse Gym')} <${headerText(fromEmail)}>`,
     `To: ${headerText(to)}`,
     ...(bcc&&EMAIL_RE.test(bcc)?[`Bcc: ${headerText(bcc)}`]:[]),
     ...(replyTo&&EMAIL_RE.test(replyTo)?[`Reply-To: ${headerText(replyTo)}`]:[]),
@@ -80,7 +80,7 @@ export async function sendGmailMessage(gmail,{to,bcc='',replyTo='',subject,html,
   const fromEmail=clean(gmail.senderEmail||gmail.connectedEmail,240).toLowerCase();
   if(!EMAIL_RE.test(fromEmail))throw new Error('Connected Gmail address is unavailable. Reconnect Gmail in Settings -> Social Media.');
   const access=await gmailAccessToken(gmail);
-  const mime=mimeMessage({fromName:fromName||gmail.senderName||'DropBeat Dance Studio',fromEmail,to:recipient,bcc:clean(bcc,240).toLowerCase(),replyTo:clean(replyTo,240).toLowerCase(),subject,html,text,attachments});
+  const mime=mimeMessage({fromName:fromName||gmail.senderName||'IronPulse Gym',fromEmail,to:recipient,bcc:clean(bcc,240).toLowerCase(),replyTo:clean(replyTo,240).toLowerCase(),subject,html,text,attachments});
   const res=await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send',{method:'POST',headers:{authorization:`Bearer ${access}`,'content-type':'application/json'},body:JSON.stringify({raw:utf8Base64Url(mime)})});
   const data=await res.json().catch(()=>({}));
   if(!res.ok)throw new Error(data?.error?.message||'Gmail could not send the email.');

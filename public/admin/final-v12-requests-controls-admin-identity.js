@@ -11,7 +11,7 @@
   const HELP_ADMIN_NAME=`<h3>Admin Display Name — What It Changes</h3>
     <p class="uc-help-lead">This is the short name shown beside the logo at the top-left of the admin panel. It is only an admin-panel identity label; it does not rename the public brand and it does not change your login email or password.</p>
     <h4>How to set it</h4><ol><li>Enter a short name such as <strong>Admin</strong>, <strong>Ishita</strong>, <strong>Raju</strong> or <strong>Casting Desk</strong>.</li><li>Keep it within <strong>20 characters</strong>. The limit is intentional so the sidebar identity stays on one line.</li><li>Click <strong>Save Admin Name</strong>. The name beside the logo updates immediately and is reused on future admin visits.</li></ol>
-    <div class="uc-example"><strong>Example:</strong> If you save “Ishita”, the top-left admin identity becomes <strong>Ishita</strong> while the website brand can still remain DropBeat Dance Studio.</div>
+    <div class="uc-example"><strong>Example:</strong> If you save “Ishita”, the top-left admin identity becomes <strong>Ishita</strong> while the website brand can still remain IronPulse Gym.</div>
     <div class="uc-warning"><strong>Need to rename the business?</strong> Use Brand Settings → Brand Name. Admin Display Name and Brand Name are deliberately separate.</div>`;
 
   function applyAdminIdentity(name){

@@ -38,7 +38,7 @@ export async function onRequestPost({ request, env }) {
     const expires = new Date(Date.now()+10*60*1000).toISOString();
     const result = await env.DB.prepare('INSERT INTO admin_email_change_requests(admin_user_id,new_email,code_hash,expires_at) VALUES(?,?,?,?) RETURNING id').bind(ctx.user.id,nextEmail,codeHash,expires).first();
     const site = await getSiteSettings(env);
-    const brand = String(site.siteName || 'DropBeat Dance Studio').trim();
+    const brand = String(site.siteName || 'IronPulse Gym').trim();
     const html = brandedEmailHtml({site,env,title:'Confirm your new admin email',eyebrow:'Security verification',introHtml:'<p>A request was made from the authenticated admin panel to use this email address for administrator login.</p>',summaryTitle:'Confirmation code',summaryRows:[['Code',code],['Expires in','10 minutes']],noteHtml:'If you did not request this change, do not share the code. Your current admin email remains unchanged.'});
     try {
       await sendConfiguredEmail(env,{to:nextEmail,subject:`${brand}: confirm your new admin email`,html,text:`Your ${brand} admin email confirmation code is ${code}. It expires in 10 minutes.`,fromName:brand},{purpose:'otp'});

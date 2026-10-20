@@ -62,7 +62,7 @@
     const body=seoCard()?.querySelector(':scope > .uc-info-back-panel .uc-info-back-body');if(!body||body.dataset.ucV1673SeoHelp==='1')return;
     body.dataset.ucV1673SeoHelp='1';
     body.innerHTML=`<h3>SEO Connection — setup and recovery</h3>
-      <p>This connection links the website to the Google account that owns the audition publishing source. For this brand, choose the <strong>DropBeat Dance Studio</strong> SEO Name.</p>
+      <p>This connection links the website to the Google account that owns the audition publishing source. For this brand, choose the <strong>IronPulse Gym</strong> SEO Name.</p>
       <ol>
         <li>Keep the Google OAuth Client ID and Client Secret saved here.</li>
         <li>Confirm the Authorized Redirect URI exactly matches the URI shown in this card.</li>
@@ -72,7 +72,7 @@
       </ol>
       <div class="uc-example"><strong>If the status says the token expired or was revoked:</strong> do not keep pressing Retry SEO Check or Connect SEO ID. Click <strong>Connect SEO</strong> and authenticate again. The saved SEO selection is preserved.</div>
       <div class="uc-warning"><strong>If this repeats roughly every 7 days:</strong> check Google Auth Platform → Audience. OAuth apps left in <strong>Testing</strong> can receive refresh tokens with a limited lifetime. For a live production integration, complete the required Google publishing/verification steps and use the appropriate production publishing status.</div>
-      <div class="uc-example"><strong>Website continuity:</strong> V16.73 keeps the last synchronized published audition updates available from the local synchronization cache when Google OAuth is temporarily unavailable, so a short OAuth interruption does not have to blank the public Audition Updates page.</div>`;
+      <div class="uc-example"><strong>Website continuity:</strong> V16.73 keeps the last synchronized published fitness updates available from the local synchronization cache when Google OAuth is temporarily unavailable, so a short OAuth interruption does not have to blank the public Fitness Tip Updates page.</div>`;
   }
   function placeSeoFirst(){
     const card=seoCard(),stack=seoStack();if(!card||!stack)return false;

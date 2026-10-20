@@ -9,8 +9,8 @@ function urls(request,env) {
     endpoints: [
       { method:'GET', url:`${origin}/api/automation/site`, purpose:'Read website settings and tracking IDs' },
       { method:'POST', url:`${origin}/api/automation/site`, purpose:'Update site settings, tracking IDs and SEO values' },
-      { method:'GET', url:`${origin}/api/automation/blogs`, purpose:'List dance class updates' },
-      { method:'POST', url:`${origin}/api/automation/blogs`, purpose:'Create or update dance class updates' },
+      { method:'GET', url:`${origin}/api/automation/blogs`, purpose:'List Fitness Tips' },
+      { method:'POST', url:`${origin}/api/automation/blogs`, purpose:'Create or update Fitness Tips' },
       { method:'POST', url:`${origin}/api/automation/social-posts`, purpose:'Run due scheduled social posts (optional exact cron endpoint)' },
       { method:'POST', url:`${origin}/api/automation/lead-nurture`, purpose:'Run due WhatsApp, SMS and Lead Email Follow-up steps' },
       { method:'POST', url:`${origin}/api/automation/email-event`, purpose:'Send a protected lead event into Lead Email Follow-up automations' },
@@ -54,8 +54,8 @@ export async function onRequestGet({ request, env }) {
     docs: {
       requiredHeader: 'Authorization: Bearer YOUR_API_TOKEN',
       contentType: 'application/json',
-      productPayloadExample: { sku:'UC-FESTIVAL', name:'Festival Offer', slug:'festival-offer', regular_price:799, offer_price:399, badge:'Festival Offer', status:'active', page_keys:'home,offers', features:'Dance class updates | Priority onboarding' },
-      blogPayloadExample: { title:'Dance Class Updates', slug:'dance-class-updates', excerpt:'Short summary', body_html:'<p>Dance class details here</p>', status:'published' },
+      productPayloadExample: { sku:'UC-FESTIVAL', name:'Festival Offer', slug:'festival-offer', regular_price:799, offer_price:399, badge:'Festival Offer', status:'active', page_keys:'home,offers', features:'Fitness Tips | Priority onboarding' },
+      blogPayloadExample: { title:'Fitness Tips', slug:'dance-class-updates', excerpt:'Short summary', body_html:'<p>Fitness class details here</p>', status:'published' },
       sitePayloadExample: { googleAnalyticsMeasurementId:'G-XXXXXXXXXX', googleTagManagerId:'GTM-XXXXXXX', metaPixelId:'1234567890', searchConsoleVerification:'google-site-verification=...' }
     }
   });

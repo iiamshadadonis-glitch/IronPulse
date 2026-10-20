@@ -8,4 +8,8 @@ Disallow: /payment
 Disallow: /payment-success
 Disallow: /payment-failed
 
-Sitemap: https://dance-class-at2.pages.dev/sitemap.xml
+Sitemap: https://ironpulse-gym.pages.dev/sitemap.xml
+
+Disallow: /member-dashboard
+Disallow: /coach-dashboard
+Disallow: /login
