@@ -1,0 +1,16 @@
+/* DropBeat V1.25 — isolated schedule modal and approved-remuneration toggle.
+   Existing brand colour tokens remain authoritative. */
+#db125ScheduleModal{z-index:20050!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:18px!important;overflow:hidden!important;pointer-events:auto!important}
+#db125ScheduleModal .db125-schedule-card{position:relative!important;display:block!important;width:min(1040px,96vw)!important;max-width:1040px!important;max-height:calc(100dvh - 36px)!important;overflow:auto!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+#db125ScheduleModal .top{position:sticky;top:-22px;z-index:3;padding:20px 0 14px;background:var(--surface,#fff);border-bottom:1px solid var(--line,#dedfec)}
+#db125ScheduleModal .top h2{margin:0 0 4px}
+.db125-reminders[hidden],.db125-approved-remuneration-fields[hidden]{display:none!important}
+.db125-reminders{display:grid;gap:12px;margin-top:12px}
+.db125-reminder-row{display:grid;gap:12px;padding:15px;border:1px solid var(--line,#dedfec);background:var(--surface,#fff)}
+.db125-reminder-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.db125-reminder-head small{line-height:1.45}
+.db125-reminder-fields{display:grid;grid-template-columns:minmax(90px,.55fr) minmax(130px,.75fr) minmax(140px,.8fr) minmax(300px,1.8fr);gap:12px;align-items:end}
+.db125-reminder-fields .field{margin:0}.db125-channel-picks{display:flex;gap:7px;flex-wrap:wrap}.db125-channel-picks button{border:1px solid var(--line,#dedfec);background:var(--surface,#fff);color:var(--primary,#4B55BE);padding:8px 10px;cursor:pointer}.db125-channel-picks button.selected{border-color:var(--primary,#4B55BE);background:var(--primary,#4B55BE);color:#fff}.db125-channel-picks button:disabled{opacity:.45;cursor:not-allowed}
+.db125-support-status{margin:2px 0 0;font-size:12px;line-height:1.45}
+.db125-approved-remuneration-toggle{margin:14px 0 0}.db125-approved-remuneration-toggle .switch{align-self:center}.db125-approved-remuneration-fields{display:grid;gap:12px;margin-top:14px}.db125-approved-remuneration-fields>.notice{margin-bottom:0}
+@media(max-width:820px){#db125ScheduleModal{padding:8px!important}#db125ScheduleModal .db125-schedule-card{width:100%!important;max-height:calc(100dvh - 16px)!important;padding:16px!important}#db125ScheduleModal .top{top:-16px;padding-top:14px}.db125-reminder-fields{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.db125-reminder-fields{grid-template-columns:1fr}.db125-reminder-head{display:grid}.db125-reminder-head .btn{justify-self:start}}

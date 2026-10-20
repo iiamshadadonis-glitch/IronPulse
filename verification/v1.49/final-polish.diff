@@ -1,0 +1,48 @@
+--- initial/public/assets/dropbeat-ui-components-v1-49.js
++++ final/public/assets/dropbeat-ui-components-v1-49.js
+@@ -24,6 +24,9 @@
+   }
+   function nativeUpload(input,options={}){
+     if(!input)return null;
++    // Existing custom desktop upload buttons own hidden programmatic pickers.
++    // Preserve those controls without adding a second visible upload surface.
++    if(!mobile()&&input.hidden&&!input.closest('.db-native-upload'))return null;
+     const spec=uploadOptions(input,options);
+     let box=input.closest('.db-native-upload,.db143-upload-area,.db142-upload-area');
+     if(!box){box=document.createElement(input.closest('label')?'span':'label');box.className='db-native-upload';box.innerHTML=(spec.kind==='document'?documentUpload:cloud)+'<strong></strong><'+spec.captionTag+'></'+spec.captionTag+'>';input.before(box);box.appendChild(input);}
+--- initial/public/assets/dropbeat-dashboard-mobile-v1-49.js
++++ final/public/assets/dropbeat-dashboard-mobile-v1-49.js
+@@ -2491,7 +2491,7 @@
+         const head=document.createElement('header');head.className='db149-payment-header';const heading=document.createElement('h2');heading.textContent=label;
+         const close=document.createElement('button');close.type='button';close.className='db138-icon-button';close.setAttribute('aria-label','Close '+label);close.innerHTML=icon('close');close.onclick=v149ClosePayments;
+         const actions=document.createElement('div');actions.className='db149-payment-header-actions';
+-        if(key==='subscriptions'){const source=$('#ucTabPayments>.uc-info-toolbar .uc-info-btn');if(source){const help=document.createElement('button');help.type='button';help.className='db138-icon-button db138-header-info';help.setAttribute('aria-label','Subscriptions & Payments Help');help.innerHTML=icon('info');help.__db138Source=source;help.onclick=()=>openHelp(source);actions.appendChild(help);}}
++        if(key==='subscriptions'){const source=$('#ucTabPayments>.uc-info-toolbar .uc-info-btn');if(source){const help=document.createElement('button');help.type='button';help.className='db138-icon-button db138-header-info';help.dataset.db149PaymentHelp='1';help.setAttribute('aria-label','Subscriptions & Payments Help');help.innerHTML=icon('info');help.__db138Source=source;help.onclick=()=>openHelp(source);actions.appendChild(help);}}
+         actions.appendChild(close);head.append(heading,actions);
+         const body=document.createElement('div');body.className='db149-payment-body';
+         groups[key].forEach(node=>{const marker=document.createComment('Original payment section position');node.before(marker);state.positions.push({node,marker});body.appendChild(node);});
+@@ -2501,6 +2501,11 @@
+       content.prepend(state.nav);v149PaymentStates.set(host,state);
+     }
+     if(v149PaymentSelection)state.views.forEach((view,key)=>{const hidden=key!==v149PaymentSelection;if(view.hidden!==hidden)view.hidden=hidden;});
++    // The original CRM attaches its help asynchronously after rendering data.
++    const helpSource=$('#ucTabPayments>.uc-info-toolbar .uc-info-btn'),helpActions=$('.db149-payment-header-actions',state.views.get('subscriptions'));
++    if(helpSource&&helpActions&&!$('[data-db149-payment-help]',helpActions)){
++      const help=document.createElement('button');help.type='button';help.className='db138-icon-button db138-header-info';help.dataset.db149PaymentHelp='1';help.setAttribute('aria-label','Subscriptions & Payments Help');help.innerHTML=icon('info');help.__db138Source=helpSource;help.onclick=()=>openHelp(helpSource);helpActions.prepend(help);
++    }
+     $$('.uc-payment-toolbar>div:first-child>p',host).forEach(node=>node.classList.add('db144-mobile-hidden'));
+     $$('.uc-sub-actions button,.uc-payment-toolbar button',host).forEach(button=>{
+       if((button.matches('.cancel')||/'cancel'/.test(button.getAttribute('onclick')||''))&&!button.classList.contains('db149-destructive'))button.classList.add('db149-destructive');
+--- initial/public/assets/dropbeat-dashboard-mobile-v1-49.css
++++ final/public/assets/dropbeat-dashboard-mobile-v1-49.css
+@@ -2,8 +2,8 @@
+    Existing primary/accent values and business controls remain authoritative. */
+ :root{
+   --db149-surface:var(--db135-surface,var(--db132-surface,var(--surface,var(--card,#fff))));
+-  --db149-text:var(--db135-text,var(--db132-text,var(--text,var(--dark,#25263a))));
+-  --db149-line:var(--db135-line,var(--db132-line,var(--line,var(--border,#d8dce7))));
++  --db149-text:var(--db135-text,var(--db132-text,var(--portal-text,var(--text,var(--dark,#25263a)))));
++  --db149-line:var(--db135-line,var(--db132-line,var(--portal-line,var(--line,var(--border,#d8dce7)))));
+   --db149-primary:var(--dropbeat-primary,var(--primary,#4B55BE));
+   --db149-warning:var(--warning,#c99122);
+   --warning-bg:color-mix(in srgb,var(--db149-warning) 14%,var(--db149-surface));

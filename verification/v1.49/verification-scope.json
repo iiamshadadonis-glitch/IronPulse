@@ -1,0 +1,36 @@
+{
+  "initialFullRun": {
+    "codeDatabaseSuites": 24,
+    "browserSuites": 9
+  },
+  "affectedRerun": {
+    "codeDatabaseSuites": 24,
+    "browserSuites": [
+      "final",
+      "desktop",
+      "controls"
+    ]
+  },
+  "retainedUnchangedScopeSuites": [
+    "additions",
+    "brand",
+    "browser",
+    "components",
+    "native",
+    "polish",
+    "workflows"
+  ],
+  "changedApplicationFiles": [
+    "public/assets/dropbeat-ui-components-v1-49.js",
+    "public/assets/dropbeat-dashboard-mobile-v1-49.js",
+    "public/assets/dropbeat-dashboard-mobile-v1-49.css"
+  ],
+  "otherInitialApplicationFilesUnchanged": true,
+  "corrections": [
+    "Use existing portal text/border theme tokens for Coach and Student dark warnings.",
+    "Keep hidden desktop pickers in their original parent without duplicate upload zones.",
+    "Attach the original asynchronously-created Payments help to the new subscriptions header.",
+    "Wait for the import API response before checking route-side write logs."
+  ],
+  "finalCandidateFiles": 1442
+}

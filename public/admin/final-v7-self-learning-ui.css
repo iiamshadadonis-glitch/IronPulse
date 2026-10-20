@@ -1,0 +1,453 @@
+/* Urgent Casting V7 — self-learning/admin polish overrides.
+   Additive only: keeps the V6 component system and corrects spacing/help presentation. */
+
+/* ---------- Favorites: deliberately compact ---------- */
+.uc-favorites-table-v7 {
+  width: 100% !important;
+  min-width: 640px !important;
+  table-layout: fixed !important;
+}
+.uc-favorites-table-v7 th,
+.uc-favorites-table-v7 td {
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  padding: 13px 14px !important;
+}
+.uc-favorites-table-v7 th:nth-child(1),
+.uc-favorites-table-v7 td:nth-child(1) { width: 44%; }
+.uc-favorites-table-v7 th:nth-child(2),
+.uc-favorites-table-v7 td:nth-child(2) { width: 28%; }
+.uc-favorites-table-v7 th:nth-child(3),
+.uc-favorites-table-v7 td:nth-child(3) { width: 28%; }
+.uc-favorite-client-cell {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 10px;
+}
+.uc-favorite-client-cell .fav-badge,
+.uc-favorite-client-cell .uc-fav-badge,
+.uc-favorite-client-cell .badge-fav {
+  flex: 0 0 auto;
+  min-width: 38px;
+  height: 27px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0 9px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.uc-favorite-client-cell a {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 800;
+}
+
+/* ---------- Global information helpers ---------- */
+body.uc-admin-help-disabled .uc-info-btn,
+body.uc-admin-help-disabled .uc-card-eye,
+body.uc-admin-help-disabled .uc-detail-info-toolbar,
+body.uc-admin-help-disabled [data-uc-info-trigger="1"] {
+  display: none !important;
+}
+.uc-info-host {
+  position: relative;
+}
+.uc-info-host > .uc-info-toolbar,
+.uc-v7-tracking-group > .uc-info-toolbar,
+.uc-v7-dashboard-info > .uc-info-toolbar {
+  z-index: 4;
+}
+.uc-info-back-panel {
+  box-sizing: border-box !important;
+  padding: 22px 24px 24px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-gutter: stable;
+  line-height: 1.52;
+}
+.uc-info-back-panel h3,
+.uc-info-back-panel h4 {
+  margin-top: 0;
+  margin-bottom: 11px;
+}
+.uc-info-back-panel p,
+.uc-info-back-panel ul,
+.uc-info-back-panel ol {
+  margin-top: 8px;
+  margin-bottom: 11px;
+}
+.uc-info-back-panel li + li { margin-top: 6px; }
+.uc-info-back-panel a {
+  overflow-wrap: anywhere;
+}
+.uc-info-back-btn {
+  position: sticky !important;
+  top: 0 !important;
+  float: right;
+  margin: -7px -7px 8px 12px !important;
+  z-index: 8;
+  background: var(--surface, #fffaf2) !important;
+}
+
+/* Hide I controls inside closed details; show after the section is opened. */
+details:not([open]) > .uc-detail-info-toolbar,
+details:not([open]) > .uc-info-toolbar {
+  display: none !important;
+}
+
+/* ---------- Google Maps & Reviews layout polish ---------- */
+#mapsReviews details + details,
+#maps-reviews details + details,
+[data-page="maps-reviews"] details + details {
+  margin-top: 18px !important;
+}
+#mapsReviews details[open],
+#maps-reviews details[open] {
+  padding-bottom: 4px;
+}
+#mapsReviews details[open] > :not(summary),
+#maps-reviews details[open] > :not(summary) {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+#mapsReviews .uc-map-location,
+#mapsReviews .map-location-card,
+#maps-reviews .uc-map-location,
+#maps-reviews .map-location-card {
+  padding: 18px !important;
+  margin-top: 16px !important;
+  border-radius: 18px !important;
+}
+#mapsReviews .row,
+#maps-reviews .row {
+  column-gap: 16px !important;
+  row-gap: 13px !important;
+}
+#mapsReviews .field,
+#maps-reviews .field {
+  min-width: 0;
+  margin-bottom: 13px !important;
+}
+#mapsReviews .field > label,
+#maps-reviews .field > label {
+  display: block;
+  margin-bottom: 6px !important;
+  line-height: 1.25;
+}
+#mapsReviews .hint,
+#mapsReviews small,
+#maps-reviews .hint,
+#maps-reviews small {
+  display: block;
+  margin-top: 5px !important;
+  line-height: 1.35 !important;
+}
+.uc-v7-location-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.uc-v7-location-toggle .switch {
+  margin: 0 !important;
+}
+.uc-v7-location-toggle-label {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: .82;
+}
+
+/* ---------- Tracking help wrappers ---------- */
+.uc-v7-tracking-group {
+  position: relative;
+  border: 1px solid rgba(75,85,190,.14);
+  border-radius: 16px;
+  padding: 16px 16px 9px !important;
+  margin: 12px 0 16px;
+}
+.uc-v7-tracking-group > .uc-info-toolbar {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+}
+.uc-v7-tracking-group.uc-info-open {
+  min-height: 260px;
+}
+.uc-v7-tracking-group.uc-info-open > .uc-info-back-panel {
+  max-height: 540px !important;
+}
+
+/* ---------- Dashboard overview help ---------- */
+.uc-v7-dashboard-info,
+.dashboard-block.uc-info-host,
+.dashboard-section.uc-info-host {
+  position: relative;
+}
+.uc-v7-dashboard-info > .uc-info-toolbar,
+.dashboard-block.uc-info-host > .uc-info-toolbar,
+.dashboard-section.uc-info-host > .uc-info-toolbar {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+}
+.uc-v7-dashboard-info > h2,
+.dashboard-block.uc-info-host > h2,
+.dashboard-section.uc-info-host > h2 {
+  padding-right: 45px;
+}
+.uc-v7-dashboard-info.uc-info-open,
+.dashboard-block.uc-info-open,
+.dashboard-section.uc-info-open {
+  min-height: 250px;
+}
+.uc-v7-dashboard-info.uc-info-open > .uc-info-back-panel,
+.dashboard-block.uc-info-open > .uc-info-back-panel,
+.dashboard-section.uc-info-open > .uc-info-back-panel {
+  max-height: 480px !important;
+}
+
+/* ---------- Plans & Offers modal: keep I away from Close ---------- */
+#productModal .modal-card.uc-info-host > .uc-info-toolbar,
+#product-modal .modal-card.uc-info-host > .uc-info-toolbar,
+.modal-card.uc-v7-plan-help > .uc-info-toolbar {
+  position: absolute !important;
+  top: 13px !important;
+  right: 82px !important;
+}
+#productModal .modal-card.uc-info-open,
+#product-modal .modal-card.uc-info-open {
+  min-height: 420px;
+}
+#productModal .modal-card .uc-info-back-panel,
+#product-modal .modal-card .uc-info-back-panel {
+  max-height: min(70vh, 620px) !important;
+}
+
+/* ---------- About Us cover-image editor ---------- */
+.uc-v7-about-media {
+  margin: 16px 0 14px;
+  padding: 16px;
+  border: 1px solid rgba(75,85,190,.14);
+  border-radius: 16px;
+  background: rgba(255,255,255,.2);
+}
+.uc-v7-about-media h4 {
+  margin: 0 0 5px;
+}
+.uc-v7-about-media .row {
+  gap: 14px !important;
+}
+.uc-v7-about-media .field {
+  margin-bottom: 12px;
+}
+.uc-v7-about-media .field label {
+  display: block;
+  margin-bottom: 6px;
+}
+.uc-v7-about-media .hint {
+  display: block;
+  margin-top: 5px;
+  line-height: 1.35;
+}
+.uc-v7-about-preview {
+  margin-top: 12px;
+  border: 1px dashed rgba(75,85,190,.22);
+  border-radius: 14px;
+  min-height: 84px;
+  padding: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.uc-v7-about-preview:empty::before {
+  content: "Cover preview appears here";
+  opacity: .58;
+  font-size: 12px;
+}
+.uc-v7-about-preview img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Pages had a redundant global circular chevron after each page summary. */
+#pages .page-editor > summary::after,
+#pages details.page-editor > summary::after,
+[data-page="pages"] .page-editor > summary::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ---------- Home Banner help ---------- */
+#banners .card.uc-info-host > .uc-info-toolbar,
+#homeBanners .card.uc-info-host > .uc-info-toolbar {
+  position: absolute !important;
+  top: 12px !important;
+  right: 13px !important;
+}
+#banners .card.uc-info-host > h3,
+#homeBanners .card.uc-info-host > h3 {
+  padding-right: 44px;
+}
+
+/* ---------- Website Colors: collapsed, clean, self-learning ---------- */
+.uc-v7-theme-details {
+  margin: 14px 0 18px !important;
+  border: 1px solid rgba(75,85,190,.15) !important;
+  border-radius: 18px !important;
+  overflow: hidden;
+  background: rgba(255,255,255,.2);
+}
+.uc-v7-theme-details > summary {
+  min-height: 58px;
+  padding: 14px 56px 14px 16px !important;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+}
+.uc-v7-theme-details > .uc-theme-builder,
+.uc-v7-theme-details > .website-colors,
+.uc-v7-theme-details > .theme-builder {
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 16px !important;
+}
+.uc-v7-theme-details > .uc-detail-info-toolbar {
+  top: 65px !important;
+  right: 14px !important;
+}
+.uc-v7-theme-details.uc-info-open {
+  min-height: 350px;
+}
+.uc-v7-theme-details .uc-info-back-panel {
+  max-height: 560px !important;
+}
+.uc-v7-theme-preview-note {
+  margin-top: 8px;
+  padding: 9px 11px;
+  border-radius: 11px;
+  font-size: 12px;
+  line-height: 1.4;
+  background: rgba(75,85,190,.2);
+  border: 1px solid rgba(210,160,0,.25);
+}
+
+/* Admin information helper master switch */
+.uc-v7-help-master {
+  margin: 14px 0 4px;
+  padding: 13px 14px;
+  border: 1px solid rgba(75,85,190,.15);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.uc-v7-help-master-copy {
+  min-width: 0;
+}
+.uc-v7-help-master-copy strong {
+  display: block;
+  margin-bottom: 3px;
+}
+.uc-v7-help-master-copy small {
+  display: block;
+  line-height: 1.35;
+  opacity: .72;
+}
+.uc-v7-help-master .switch { flex: 0 0 auto; }
+
+/* ---------- Admin Security help ---------- */
+#security .card.uc-info-host,
+#adminSecurity .card.uc-info-host {
+  position: relative;
+}
+#security .card.uc-info-host > .uc-info-toolbar,
+#adminSecurity .card.uc-info-host > .uc-info-toolbar {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+}
+#security .card.uc-info-host > h3,
+#adminSecurity .card.uc-info-host > h3 {
+  padding-right: 44px;
+}
+#security .card.uc-info-open,
+#adminSecurity .card.uc-info-open {
+  min-height: 240px;
+}
+
+/* ---------- Ad integration help ---------- */
+#adIntegrations details[open] > .uc-detail-info-toolbar,
+#ad-integrations details[open] > .uc-detail-info-toolbar {
+  margin-top: 7px !important;
+  margin-right: 10px !important;
+}
+#adIntegrations .uc-info-back-panel,
+#ad-integrations .uc-info-back-panel {
+  max-height: 520px !important;
+}
+
+/* ---------- Social help ---------- */
+#socialMedia details[open] > .uc-detail-info-toolbar,
+#social-media details[open] > .uc-detail-info-toolbar {
+  margin-top: 7px !important;
+  margin-right: 10px !important;
+}
+#socialMedia .uc-info-back-panel,
+#social-media .uc-info-back-panel {
+  max-height: 560px !important;
+}
+
+/* Avoid narrow card controls colliding with the standard help toolbar. */
+@media (max-width: 900px) {
+  .uc-favorites-table-v7 { min-width: 560px !important; }
+  #mapsReviews details[open] > :not(summary),
+  #maps-reviews details[open] > :not(summary) {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .uc-v7-about-media .row { display: block !important; }
+  .uc-v7-help-master { align-items: flex-start; }
+}
+
+/* Final Favorites badge alignment override (V6 used a very narrow round badge). */
+.uc-fav-name-v7{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  max-width:100%;
+  min-width:0;
+  white-space:nowrap;
+}
+.uc-fav-name-v7 .uc-fav-badge{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex:0 0 auto !important;
+  width:auto !important;
+  min-width:40px !important;
+  height:25px !important;
+  padding:0 9px !important;
+  border-radius:999px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  letter-spacing:.02em;
+}
+.uc-fav-name-v7 > span:last-child{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}

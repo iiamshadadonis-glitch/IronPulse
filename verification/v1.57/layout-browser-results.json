@@ -1,0 +1,403 @@
+{
+  "results": [
+    "320/390/760px Buttons rows: exact 48px height, 14px labels, 24px badges, 16px icons, compact shared segments and one active Pages tab",
+    "Desktop categories are native accordions; refresh has one visible SVG; original typed-confirm button saves update public and Admin references",
+    "Real SQLite Layout save: desktop/mobile constraints, global removal and mobile order, modal/sheet confirmation, live public updates, stable Admin page names and shared Buttons payload",
+    "All four real theme skeletons update automatically, gallery availability matches the theme, per-theme layouts survive switches, reload is fresh, and 30 refreshes share one four-row request",
+    "Full-height mobile editor with anchored footer, dark theme, restored original nodes/sections, resilient cached layout on outage and unchanged legacy Pages routing",
+    "Shared Login labels retain native login requests, renamed Checkout retains selected-plan/cart routing, and typed-confirm Reset synchronizes both editors/public buttons without resetting page names"
+  ],
+  "dimensions": [
+    {
+      "width": 302,
+      "x": 9,
+      "y": 321,
+      "height": 48,
+      "right": 311,
+      "bottom": 369,
+      "font": 14,
+      "badge": 24,
+      "icon": 16,
+      "segmentedHeight": 38
+    },
+    {
+      "width": 372,
+      "x": 9,
+      "y": 321,
+      "height": 48,
+      "right": 381,
+      "bottom": 369,
+      "font": 14,
+      "badge": 24,
+      "icon": 16,
+      "segmentedHeight": 38
+    },
+    {
+      "width": 736,
+      "x": 12,
+      "y": 321,
+      "height": 48,
+      "right": 748,
+      "bottom": 369,
+      "font": 14,
+      "badge": 24,
+      "icon": 16,
+      "segmentedHeight": 38
+    }
+  ],
+  "colors": {
+    "background": "rgb(27, 32, 48)",
+    "text": "rgb(247, 248, 252)"
+  },
+  "requests": [
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/layout",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/layout",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/layout",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/layout",
+      "method": "GET"
+    }
+  ],
+  "posts": [
+    {
+      "path": "/api/admin/button-dictionary",
+      "data": {
+        "action": "save",
+        "key": "front.header.checkout",
+        "label": "Cart",
+        "target": "/checkout",
+        "expectedRevision": "defaults-v156",
+        "confirmation": "confirm"
+      }
+    },
+    {
+      "path": "/api/admin/layout",
+      "data": {
+        "theme": "dropbeat",
+        "layout": {
+          "blocks": {
+            "hero": {
+              "viewports": {
+                "mobile": {
+                  "visibility": "hide"
+                }
+              }
+            },
+            "plans": {
+              "viewports": {
+                "mobile": {
+                  "gap": 8,
+                  "columns": 1
+                }
+              }
+            },
+            "notice": {
+              "removed": true
+            }
+          },
+          "order": {
+            "mobile": [
+              "hero",
+              "highlights",
+              "plans",
+              "welcome",
+              "steps",
+              "stories",
+              "notice"
+            ]
+          }
+        },
+        "names": {
+          "blog": "Studio Journal",
+          "checkout": "Basket"
+        },
+        "buttonTargets": {
+          "front.header.checkout": "/checkout"
+        },
+        "expectedRevision": "layout-defaults-v157",
+        "expectedContextRevision": "65764e6b372fd542b40e684afb24792914a73c26c202f7d80196e1af14e781ec",
+        "confirmation": "confirm"
+      }
+    },
+    {
+      "path": "/api/admin/layout",
+      "data": {
+        "theme": "dropbeat",
+        "layout": {
+          "blocks": {
+            "plans": {
+              "viewports": {
+                "mobile": {
+                  "gap": 8,
+                  "columns": 1
+                }
+              }
+            },
+            "notice": {}
+          },
+          "order": {
+            "mobile": [
+              "hero",
+              "highlights",
+              "plans",
+              "welcome",
+              "steps",
+              "stories",
+              "notice"
+            ]
+          }
+        },
+        "names": {},
+        "buttonTargets": {},
+        "expectedRevision": "f7101255-69b2-4a1d-9a03-a3a28eb16f0d",
+        "expectedContextRevision": "678ada52fd075b341fee520b1cdaab7efd89feda7c43662c1f4d97ddad6090ba",
+        "confirmation": "confirm"
+      }
+    },
+    {
+      "path": "/api/admin/layout",
+      "data": {
+        "theme": "dropbeat",
+        "layout": {
+          "blocks": {
+            "plans": {
+              "viewports": {
+                "mobile": {
+                  "gap": 8,
+                  "columns": 1
+                }
+              }
+            }
+          },
+          "order": {
+            "mobile": [
+              "hero",
+              "highlights",
+              "plans",
+              "welcome",
+              "steps",
+              "stories",
+              "notice"
+            ]
+          }
+        },
+        "names": {
+          "login": "Member Login"
+        },
+        "buttonTargets": {},
+        "expectedRevision": "ed4dff55-3de0-44a1-b238-5b1b1caa1a5d",
+        "expectedContextRevision": "d72fa5edcee42e15b88d28917e0b8b8c5c0df19afd386d5c01a7b34647ffc773",
+        "confirmation": "confirm"
+      }
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "data": {
+        "action": "reset",
+        "expectedRevision": "fc844d86-0b3b-4587-80a9-41250c853785",
+        "confirmation": "confirm"
+      }
+    }
+  ],
+  "databaseRowsRead": 143,
+  "errors": [],
+  "synthetic": true,
+  "realHandlersAndSqlite": true
+}

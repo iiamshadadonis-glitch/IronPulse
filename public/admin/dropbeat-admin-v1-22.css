@@ -1,0 +1,68 @@
+/* DropBeat V1.22 layout-only additions. Existing brand colors remain authoritative. */
+#dropbeatAuthShell[hidden],#loginOverlay[hidden],#adminApp[hidden]{display:none!important}
+#coachSettings .db122-coach-settings-layout{align-items:start;margin-top:14px}
+#coachSettings .db122-coach-settings-layout>.card{height:100%;min-width:0}
+.db122-section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:16px}
+.db122-section-head h2,.db122-section-head h3{margin:0 0 5px}
+.db122-section-head p{margin:0}
+.db122-remuneration-card{margin-top:18px;min-width:0}
+.db122-remuneration-table{width:100%;min-width:1120px;table-layout:fixed}
+.db122-remuneration-table th:nth-child(1){width:17%}
+.db122-remuneration-table th:nth-child(2){width:13%}
+.db122-remuneration-table th:nth-child(3),.db122-remuneration-table th:nth-child(4),.db122-remuneration-table th:nth-child(5){width:10%}
+.db122-remuneration-table th:nth-child(6),.db122-remuneration-table th:nth-child(7),.db122-remuneration-table th:nth-child(8){width:9%}
+.db122-remuneration-table th:nth-child(9){width:13%}
+.db122-remuneration-table th,.db122-remuneration-table td{padding:13px 12px;vertical-align:top;overflow-wrap:anywhere}
+.db122-remuneration-table td small,.db122-account-table td small{display:block;margin-top:5px;line-height:1.35}
+.db122-empty{padding:30px;text-align:center}
+.db122-pay-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
+.db122-pay-grid .wide{grid-column:1/-1}
+.db122-inline-check{display:flex;align-items:center;gap:9px;min-height:40px;font-weight:600}
+.db122-coach-pay{margin:20px 0;padding:18px;border:1px solid var(--border,#ddd);border-radius:12px}
+.db122-coach-pay [disabled]{opacity:.66}
+.db122-provider-row{margin-top:4px}
+.db122-provider-field{width:100%}
+.db122-day-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.db122-day-grid label{display:flex;align-items:center;gap:7px;padding:9px;border:1px solid var(--border,#ddd);border-radius:8px}
+.db122-list-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
+.db122-account-table{width:100%;min-width:900px;table-layout:fixed}
+.db122-account-table th,.db122-account-table td{padding:12px;overflow-wrap:anywhere;vertical-align:top}
+.db122-account-table th:nth-child(1){width:17%}.db122-account-table th:nth-child(2){width:23%}.db122-account-table th:nth-child(3){width:16%}.db122-account-table th:nth-child(4){width:11%}.db122-account-table th:nth-child(5){width:18%}.db122-account-table th:nth-child(6){width:15%}
+.db122-account-profile{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;align-items:center;margin-bottom:18px}
+.db122-account-profile img{width:96px;height:96px;border-radius:50%;object-fit:cover}
+.db122-account-profile h2,.db122-account-profile p{margin:0 0 7px}
+.db122-profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+.db122-profile-grid article{min-width:0;padding:13px;border:1px solid var(--border,#ddd);border-radius:12px}
+.db122-profile-grid article.wide{grid-column:1/-1}
+.db122-profile-grid small,.db122-profile-grid strong{display:block}
+.db122-profile-grid strong{margin-top:5px;overflow-wrap:anywhere}
+.db122-callback{margin:10px 0 16px;padding:12px;border:1px solid var(--border,#ddd);border-radius:10px}
+.db122-callback>small{display:block;margin-bottom:7px;font-weight:700}
+.db122-callback .copyline input{min-width:0}
+.db122-integration-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid var(--border,#ddd)}
+.db122-integration-tabs button{appearance:none;border:1px solid var(--border,#ddd);border-radius:999px;padding:9px 16px;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}
+.db122-integration-tabs button.active{box-shadow:inset 0 -2px 0 currentColor}
+.db122-integration-panel{min-width:0}
+.db122-running-table{min-width:1160px;table-layout:fixed}
+.db122-running-table th,.db122-running-table td{padding:13px 11px;vertical-align:top;overflow-wrap:anywhere}
+.db122-running-table th:nth-child(1){width:18%}.db122-running-table th:nth-child(2){width:14%}.db122-running-table th:nth-child(3){width:16%}.db122-running-table th:nth-child(4){width:9%}.db122-running-table th:nth-child(5){width:9%}.db122-running-table th:nth-child(6){width:11%}.db122-running-table th:nth-child(7){width:12%}.db122-running-table th:nth-child(8){width:11%}
+.db122-cancelled-table{min-width:930px;table-layout:fixed}
+.db122-cancelled-table th,.db122-cancelled-table td{padding:13px 11px;vertical-align:top;overflow-wrap:anywhere}
+.db122-modal .modal-card{max-height:min(90vh,920px);overflow:auto}
+#attendance .db116-attendance-top{display:flex;flex-wrap:wrap;gap:8px}
+#attendance .db116-attendance-top button{min-width:120px}
+#attendance .db122-remuneration-card header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+#attendance .db122-remuneration-card header h2{margin:4px 0 0}
+@media(max-width:920px){
+  .db122-pay-grid{grid-template-columns:1fr}
+  .db122-pay-grid .wide{grid-column:auto}
+  .db122-day-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .db122-profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #coachSettings .db122-coach-settings-layout{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .db122-section-head,.db122-list-toolbar{flex-direction:column;align-items:stretch}
+  .db122-day-grid{grid-template-columns:1fr}
+  .db122-account-profile,.db122-profile-grid{grid-template-columns:1fr}
+  .db122-profile-grid article.wide{grid-column:auto}
+}

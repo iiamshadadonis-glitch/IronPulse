@@ -1,0 +1,55 @@
+DROPBEAT V1.58 — COMPLETE REPLACEMENT PROJECT
+
+Built from the supplied DropBeat-V1.57-Verified(1).zip. All original project
+files are retained, including the earlier mobile fixes, Layout editor and Buttons.
+Use the contents of the DropBeat-V1.58 folder as the replacement project.
+
+PWA SESSIONS
+Admin, Student and Coach account sessions now use persistent 300-day HttpOnly
+cookies. Authentication tokens are not stored in localStorage or sessionStorage.
+Opening the app at / verifies the session and opens the correct dashboard.
+The last dashboard tab/sub-tab is remembered separately for each account and role.
+Logout clears that account's remembered screen. Invalid or revoked sessions cannot
+restore an authenticated view. Explicit short-duration portal sessions stay short.
+Use the existing Home icon to deliberately visit the public website while signed in.
+
+NOTIFICATIONS
+Open Admin -> Settings -> Brand Settings -> Notifications.
+Choose Admin, Student or Coach, then a notification category.
+Mobile uses category list rows and a Settings/Review full-screen wizard.
+Desktop uses horizontal role tabs and a second horizontal category tab bar.
+
+Auto-trigger switches control new push alerts and queued automatic alerts.
+Save Settings and Reset to Default require typing the exact lowercase word confirm.
+Send Now opens a separate message/review flow and requires confirmation before
+broadcasting to the selected role's active, signed-in, opted-in devices.
+Manual Send Now is independent of the automatic switch.
+
+Each user must explicitly select Enable Push on this Device and allow the browser
+permission. Student/Coach controls are in their dashboard Notifications screen.
+Push requires HTTPS and a browser/OS that supports Web Push. On iPhone/iPad,
+use an installed Home Screen web app when required by the operating system.
+Disabling push or signing out stops private notifications for that session.
+
+INSTALLATION
+Keep your existing Cloudflare deployment configuration, D1 binding and secrets.
+Deploy the complete public assets and Functions together using your usual workflow.
+No additional npm package, paid push provider, manual migration or new VAPID secret
+is needed. The independent push tables are created automatically on first use;
+the server generates and retains its private signing key inside the existing D1
+settings store. Customer, order and payment tables are not replaced.
+
+New events and normal automation traffic wake the bounded notification queue.
+For unattended future alerts, retries or large queues when nobody is using the app,
+your existing authenticated automation scheduler can POST once per minute to
+/api/automation/notifications using its existing AUTOMATION_API_KEY bearer token.
+Each request processes a bounded batch; it does not read the whole user database.
+
+VERIFICATION
+Read V1.58-FIXES.md and V1.58-VERIFICATION.md for scope and executed tests.
+Current code checks: npm run test:dance-v1.58
+Current feature browser checks: npm run test:dance-v1.58:browser
+Browser tests need Playwright and Chromium; their paths can be supplied through
+DROPBEAT_PLAYWRIGHT_MODULE and DROPBEAT_CHROMIUM_PATH without adding dependencies.
+V1.58-MANIFEST.sha256 lists the replacement files and their SHA-256 hashes.
+Earlier release notes/tests remain as historical references.

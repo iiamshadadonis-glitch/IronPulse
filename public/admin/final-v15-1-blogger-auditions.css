@@ -1,0 +1,13 @@
+/* V15.1 Blogger/Auditions layout additions only. Existing admin theme variables remain untouched. */
+.uc-v151-audition-top-actions,.uc-v151-inline-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.uc-v151-blogger-recovery{align-items:start}
+.uc-v151-blogger-error{margin-top:9px;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.uc-v151-blogger-status-meta{display:block;margin-top:5px;font-size:12px;color:var(--muted)}
+.uc-v151-blog-table{min-width:980px;table-layout:fixed}
+.uc-v151-blog-table th:nth-child(1){width:42%}.uc-v151-blog-table th:nth-child(2){width:12%}.uc-v151-blog-table th:nth-child(3){width:18%}.uc-v151-blog-table th:nth-child(4){width:13%}.uc-v151-blog-table th:nth-child(5){width:15%}
+.uc-v151-blog-table td{vertical-align:middle;overflow-wrap:anywhere}
+.uc-v151-blog-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.uc-v151-blog-actions .icon-btn{width:36px;height:36px;min-width:36px}
+.uc-v151-sync-state{font-size:11px;color:var(--muted);line-height:1.4}.uc-v151-sync-state strong{color:var(--dark)}
+.uc-v151-blog-help{margin:0 0 12px}
+@media(max-width:900px){.uc-v151-blogger-recovery{grid-template-columns:1fr!important}.uc-v151-audition-top-actions{justify-content:flex-start}.uc-v151-blog-table{min-width:900px}}

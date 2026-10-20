@@ -1,0 +1,10 @@
+ALTER TABLE products ADD COLUMN payment_type TEXT NOT NULL DEFAULT 'subscription';
+ALTER TABLE products ADD COLUMN offer_price_enabled INTEGER NOT NULL DEFAULT 1;
+ALTER TABLE products ADD COLUMN trial_enabled INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE products ADD COLUMN trial_amount_paise INTEGER NOT NULL DEFAULT 100;
+ALTER TABLE products ADD COLUMN trial_value INTEGER NOT NULL DEFAULT 7;
+ALTER TABLE products ADD COLUMN trial_unit TEXT NOT NULL DEFAULT 'days';
+ALTER TABLE products ADD COLUMN billing_period TEXT NOT NULL DEFAULT 'monthly';
+
+ALTER TABLE orders ADD COLUMN offer_discount_paise INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE orders ADD COLUMN coupon_discount_paise INTEGER NOT NULL DEFAULT 0;

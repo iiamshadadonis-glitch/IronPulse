@@ -1,0 +1,36 @@
+/* DropBeat V1.24 layout-only corrections. Existing brand colours remain authoritative. */
+
+/* Keep the Schedule, Leaves and Holidays workspaces visually aligned with their compact top-level tabs. */
+#studioSchedule .db120-subtabs>button{min-height:36px;padding:7px 12px;font-size:13px;line-height:1.25}
+#studioSchedule .db120-panel-title h3,
+#studioSchedule .db119-selected-card>header h2,
+#studioSchedule .db119-list-card>header h2{font-size:17px;line-height:1.3}
+#studioSchedule .db119-holiday-head h2{font-size:19px;line-height:1.3}
+#studioSchedule .db119-holiday-head p,
+#studioSchedule .db120-panel-title span,
+#studioSchedule .db119-selected-card>header small,
+#studioSchedule .db119-list-card>header small{font-size:12px;line-height:1.45}
+#studioSchedule .db119-schedule-table,
+#studioSchedule .db119-leave-table,
+#studioSchedule .db119-holiday-table{font-size:13px}
+#studioSchedule .db119-schedule-table th,
+#studioSchedule .db119-leave-table th,
+#studioSchedule .db119-holiday-table th{font-size:12px}
+#studioSchedule .db119-actions .btn,
+#studioSchedule .db119-year-filter,
+#studioSchedule .db120-subtab-panel .btn{font-size:12px}
+
+/* The coach-rules card is tall enough for every enabled field and no longer creates an inner scrollbar. */
+#coachSettings .db123-flip-card,
+#coachSettings .db123-flip-inner{min-height:650px}
+#coachSettings .db123-flip-front,
+#coachSettings .db123-flip-back{overflow:hidden}
+#coachSettings .db124-coach-settings-actions{display:flex;justify-content:flex-end;align-items:center;margin-top:18px}
+#coachSettings .db124-save-coach-settings{display:inline-flex;width:auto!important;min-width:0!important;max-width:max-content;padding:9px 15px;align-self:auto}
+
+@media(max-width:800px){
+  #coachSettings .db123-flip-card,
+  #coachSettings .db123-flip-inner{min-height:900px}
+  #coachSettings .db123-flip-front,
+  #coachSettings .db123-flip-back{overflow:hidden}
+}

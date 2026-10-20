@@ -1,0 +1,75 @@
+{
+  "release": "1.45.0",
+  "node": "24.19.0",
+  "chromium": "153.0.8010.0",
+  "codeDatabaseSuites": 23,
+  "browserSuites": 6,
+  "results": [
+    {
+      "suite": "additions",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-45-additions.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 134.08
+    },
+    {
+      "suite": "browser",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-45-browser.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 133.12
+    },
+    {
+      "suite": "code-database",
+      "command": [
+        "npm",
+        "run",
+        "test:dance-v1.45"
+      ],
+      "exitCode": 0,
+      "seconds": 6.4
+    },
+    {
+      "suite": "components",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-45-components.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 99.75
+    },
+    {
+      "suite": "native",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-45-native.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 179.7
+    },
+    {
+      "suite": "polish",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-45-polish.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 159.13
+    },
+    {
+      "suite": "workflows",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-45-workflows.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 89.96
+    }
+  ],
+  "apiData": "Synthetic fixtures; external requests blocked",
+  "testedProject": "Separately extracted release candidate"
+}

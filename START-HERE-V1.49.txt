@@ -1,0 +1,11 @@
+DROPBEAT DANCE STUDIO — COMPLETE REPLACEMENT V1.49
+
+This ZIP contains the complete project, including public files, Functions, migrations, configuration and tests. It is not a patch.
+
+1. Extract the ZIP.
+2. Use the dropbeat-dance-studio-complete-replacement-v1.49 folder as the project root.
+3. Keep the existing Cloudflare Pages project, D1 binding, secrets and integrations. No new migration is required for these mobile UI fixes.
+4. Follow DANCE-STUDIO-SETUP.md and the existing deployment commands. Deploy with npm run deploy (Pages), not wrangler deploy.
+5. Review V1.49-FIXES.md for the completed fixes and V1.49-VERIFICATION.md for the executed checks.
+
+All mobile-only styles use the existing 760px portal breakpoint. Desktop business workflows remain in their original handlers.

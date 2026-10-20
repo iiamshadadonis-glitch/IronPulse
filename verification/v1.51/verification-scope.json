@@ -1,0 +1,105 @@
+{
+  "initial_batch": [
+    {
+      "name": "legacy-components",
+      "exit_code": 1,
+      "seconds": 59.06
+    },
+    {
+      "name": "legacy-workflows",
+      "exit_code": 0,
+      "seconds": 142.22
+    },
+    {
+      "name": "legacy-browser",
+      "exit_code": 0,
+      "seconds": 169.58
+    },
+    {
+      "name": "legacy-additions",
+      "exit_code": 0,
+      "seconds": 229.13
+    },
+    {
+      "name": "legacy-polish",
+      "exit_code": 0,
+      "seconds": 219.02
+    },
+    {
+      "name": "legacy-native",
+      "exit_code": 0,
+      "seconds": 295.35
+    },
+    {
+      "name": "legacy-controls",
+      "exit_code": 0,
+      "seconds": 111.2
+    },
+    {
+      "name": "legacy-desktop",
+      "exit_code": 0,
+      "seconds": 22.9
+    },
+    {
+      "name": "legacy-final",
+      "exit_code": 0,
+      "seconds": 122.23
+    },
+    {
+      "name": "v150-layouts",
+      "exit_code": 0,
+      "seconds": 61.7
+    },
+    {
+      "name": "legacy-brand",
+      "exit_code": 124,
+      "seconds": 300.02
+    }
+  ],
+  "extracted_candidate_batch": [
+    {
+      "name": "code",
+      "command": "npm run test:dance-v1.51",
+      "exit_code": 0,
+      "seconds": 9.43
+    },
+    {
+      "name": "components",
+      "command": "node tools/verify-mobile-v1-49-components.mjs",
+      "exit_code": 0,
+      "seconds": 143.55
+    },
+    {
+      "name": "new-mobile",
+      "command": "node tools/verify-v1-51-mobile.mjs",
+      "exit_code": 1,
+      "seconds": 36.92
+    },
+    {
+      "name": "layouts",
+      "command": "node tools/verify-v1-50-layouts.mjs",
+      "exit_code": 0,
+      "seconds": 55.46
+    },
+    {
+      "name": "brand",
+      "command": "node tools/verify-mobile-v1-49-brand.mjs",
+      "exit_code": 0,
+      "seconds": 299.18
+    }
+  ],
+  "post_correction": {
+    "custom_page_loader": "A pre-load page guard referenced an undefined variable; moved to the renderer where page is available.",
+    "reexecuted": [
+      "npm run test:dance-v1.51",
+      "node tools/verify-v1-51-mobile.mjs"
+    ],
+    "result": "passed",
+    "final_source_difference": "Custom-page renderer guard plus new-sheet CSS fallbacks to the existing public theme tokens; final mobile/public tests include measured dark-sheet contrast. Both trees match the final tested hashes."
+  },
+  "timing_fixes": [
+    "Subscription overview test now waits for the existing Apply button busy state to finish, rather than asserting against an intermediate cached render.",
+    "The first Brand test was stopped by a 300-second external batch deadline. Its extracted-candidate rerun completed successfully in 299.18 seconds under a 480-second deadline."
+  ],
+  "release_gate": "Only successful selected results are accepted; initial failures and the time limit are recorded, not counted as passes."
+}

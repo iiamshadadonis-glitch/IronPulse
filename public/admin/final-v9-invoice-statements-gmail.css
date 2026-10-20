@@ -1,0 +1,84 @@
+/* Urgent Casting V9 — client invoices/statements, Gmail connector and small settings polish. */
+
+/* Keep the existing Client Details layout. Only add compact actions. */
+.uc-v9-client-inline-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.uc-v9-payment-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-left:auto}
+.uc-v9-action-icon{width:18px;height:18px;display:inline-block;vertical-align:middle;flex:0 0 auto}
+.uc-v9-btn-with-icon{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important}
+
+/* Payment records: headings stay on one line; the whole grid scrolls horizontally. */
+.uc-payment-records{overflow-x:auto!important;overflow-y:hidden!important;scrollbar-gutter:stable;max-width:100%}
+.uc-payment-records table{min-width:1800px!important;width:1800px!important;table-layout:fixed!important}
+.uc-payment-records th{white-space:nowrap!important;line-height:1.2!important;vertical-align:middle!important}
+.uc-payment-records td{vertical-align:top!important;line-height:1.38!important;overflow-wrap:anywhere}
+.uc-payment-records th:nth-child(1),.uc-payment-records td:nth-child(1){width:170px!important}
+.uc-payment-records th:nth-child(2),.uc-payment-records td:nth-child(2){width:165px!important}
+.uc-payment-records th:nth-child(3),.uc-payment-records td:nth-child(3){width:170px!important}
+.uc-payment-records th:nth-child(4),.uc-payment-records td:nth-child(4){width:220px!important}
+.uc-payment-records th:nth-child(5),.uc-payment-records td:nth-child(5){width:170px!important}
+.uc-payment-records th:nth-child(6),.uc-payment-records td:nth-child(6){width:165px!important}
+.uc-payment-records th:nth-child(7),.uc-payment-records td:nth-child(7){width:180px!important}
+.uc-payment-records th:nth-child(8),.uc-payment-records td:nth-child(8){width:135px!important}
+.uc-payment-records th:nth-child(9),.uc-payment-records td:nth-child(9){width:145px!important}
+.uc-payment-records th:nth-child(10),.uc-payment-records td:nth-child(10){width:240px!important}
+
+/* Dedicated document modal so it does not disturb existing Client Details. */
+.uc-v9-doc-modal{z-index:80!important}
+.uc-v9-doc-card{width:min(1120px,94vw)!important;max-height:92vh!important;overflow:auto!important;padding:0!important;border-radius:24px!important}
+.uc-v9-doc-head{position:sticky;top:0;z-index:8;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;background:#ffffff;border-bottom:1px solid rgba(75,85,190,.14)}
+.uc-v9-doc-head h2{margin:0}
+.uc-v9-doc-body{padding:20px 22px 24px}
+.uc-v9-doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+.uc-v9-doc-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.uc-v9-doc-section{margin-top:18px;padding-top:16px;border-top:1px solid rgba(75,85,190,.12)}
+.uc-v9-doc-section h3{margin:0 0 10px}
+.uc-v9-doc-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:18px}
+.uc-v9-document-status{margin-top:12px}
+.uc-v9-document-status:empty{display:none}
+.uc-v9-date-row{display:grid;grid-template-columns:minmax(180px,.8fr) repeat(2,minmax(160px,.7fr)) auto;gap:12px;align-items:end}
+.uc-v9-statement-wrap{margin-top:15px;overflow:auto;border:1px solid rgba(75,85,190,.14);border-radius:14px;max-width:100%}
+.uc-v9-statement-table{min-width:1060px;width:100%;border-collapse:collapse;table-layout:fixed;background:#ffffff}
+.uc-v9-statement-table th,.uc-v9-statement-table td{padding:11px 12px;border-bottom:1px solid rgba(75,85,190,.12);text-align:left;vertical-align:top;line-height:1.38}
+.uc-v9-statement-table th{white-space:nowrap;background:#fff1c9;color:#38151f}
+.uc-v9-statement-table th:nth-child(1){width:150px}.uc-v9-statement-table th:nth-child(2){width:230px}.uc-v9-statement-table th:nth-child(3){width:180px}.uc-v9-statement-table th:nth-child(4){width:125px}.uc-v9-statement-table th:nth-child(5){width:155px}.uc-v9-statement-table th:nth-child(6){width:210px}
+.uc-v9-statement-table tr:last-child td{border-bottom:0}
+.uc-v9-period-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px;padding:11px 13px;border-radius:13px;background:rgba(75,85,190,.20);border:1px solid rgba(210,160,0,.28)}
+
+/* Gmail card follows the same Social Media details/card design. */
+#socialMediaIntegrations .uc-v9-gmail-card[open]>.uc-detail-info-toolbar{position:relative!important;inset:auto!important;display:flex!important;justify-content:flex-end!important;margin:8px 14px 4px!important;min-height:34px!important}
+#socialMediaIntegrations .uc-v9-gmail-card:not([open])>.uc-detail-info-toolbar{display:none!important}
+.uc-v9-gmail-status{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 12px;border:1px solid rgba(75,85,190,.14);border-radius:13px;background:#ffffff;margin-bottom:12px}
+.uc-v9-gmail-status strong{color:#2c1018}
+.uc-v9-gmail-connected{color:#087b3a}
+.uc-v9-gmail-disconnected{color:#9c1825}
+
+/* Site Settings legal entity — compact/collapsible and consistent with other cards. */
+#settings .uc-v9-legal-entity{margin:16px 0!important;padding:0!important;overflow:visible!important}
+#settings .uc-v9-legal-entity>summary{padding:16px 48px 16px 16px!important;font-weight:800;cursor:pointer}
+#settings .uc-v9-legal-entity>form,#settings .uc-v9-legal-entity>.uc-v9-legal-body{padding:0 16px 16px}
+#settings .uc-v9-legal-entity[open]>.uc-detail-info-toolbar{position:relative!important;inset:auto!important;display:flex!important;justify-content:flex-end!important;margin:8px 14px 2px!important;min-height:34px!important}
+#settings .uc-v9-legal-entity:not([open])>.uc-detail-info-toolbar{display:none!important}
+.uc-v9-legal-toggle{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 13px;border:1px solid rgba(75,85,190,.14);border-radius:14px;background:#ffffff;margin-bottom:13px}
+.uc-v9-legal-toggle-copy strong{display:block}.uc-v9-legal-toggle-copy small{display:block;margin-top:3px;color:#785b65}
+
+/* Requested spacing: heading and helper remain on one line when room exists. */
+.uc-v7-help-master>div{display:flex!important;align-items:baseline!important;gap:10px!important;min-width:0!important;flex-wrap:wrap!important}
+.uc-v7-help-master>div>strong{display:inline-block!important;margin:0!important;white-space:nowrap!important}
+.uc-v7-help-master>div>small{display:inline-block!important;margin:0 0 0 2px!important;line-height:1.35!important;opacity:.76!important}
+
+/* Help backs added in this build preserve the same self-learning standard. */
+.uc-v9-gmail-card .uc-info-back-panel,.uc-v9-legal-entity .uc-info-back-panel{padding:22px 24px 24px!important;overflow-y:auto!important;overflow-x:hidden!important;max-height:min(68vh,640px)!important;scrollbar-gutter:stable}
+
+@media(max-width:820px){
+  .uc-v9-doc-grid,.uc-v9-doc-grid.three{grid-template-columns:1fr}
+  .uc-v9-date-row{grid-template-columns:1fr}
+  .uc-v9-payment-actions{width:100%;justify-content:flex-start;margin-left:0}
+  .uc-v9-doc-head{align-items:flex-start}
+}
+
+/* V9 final small collision safeguards. */
+.uc-client-actionbar .uc-v9-invoice-btn{white-space:nowrap}
+.uc-payment-toolbar{gap:14px!important}
+.uc-v9-payment-actions .uc-refresh-icon{flex:0 0 auto}
+#socialMediaIntegrations .uc-v9-gmail-card>summary,#settings .uc-v9-legal-entity>summary{padding-right:58px!important}
+@media(max-width:620px){.uc-v7-help-master>div{display:block!important}.uc-v7-help-master>div>small{display:block!important;margin-top:4px!important;margin-left:0!important}.uc-v9-doc-body{padding:16px}.uc-v9-doc-head{padding:15px 16px}}

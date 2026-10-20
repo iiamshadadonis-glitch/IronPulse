@@ -1,0 +1,81 @@
+{
+  "code_check_groups": 27,
+  "browser_suites": [
+    {
+      "suite": "legacy-workflows",
+      "exit_code": 0,
+      "evidence": "retained/legacy-workflows.log",
+      "source_stage": "V1.51 working source; later changes were limited to public cached-page handling."
+    },
+    {
+      "suite": "legacy-browser",
+      "exit_code": 0,
+      "evidence": "retained/legacy-browser.log",
+      "source_stage": "V1.51 working source; later changes were limited to public cached-page handling."
+    },
+    {
+      "suite": "legacy-additions",
+      "exit_code": 0,
+      "evidence": "retained/legacy-additions.log",
+      "source_stage": "V1.51 working source; later changes were limited to public cached-page handling."
+    },
+    {
+      "suite": "legacy-polish",
+      "exit_code": 0,
+      "evidence": "retained/legacy-polish.log",
+      "source_stage": "V1.51 working source; later changes were limited to public cached-page handling."
+    },
+    {
+      "suite": "legacy-native",
+      "exit_code": 0,
+      "evidence": "retained/legacy-native.log",
+      "source_stage": "V1.51 working source; later changes were limited to public cached-page handling."
+    },
+    {
+      "suite": "legacy-controls",
+      "exit_code": 0,
+      "evidence": "retained/legacy-controls.log",
+      "source_stage": "V1.51 working source; later changes were limited to public cached-page handling."
+    },
+    {
+      "suite": "legacy-desktop",
+      "exit_code": 0,
+      "evidence": "retained/legacy-desktop.log",
+      "source_stage": "V1.51 working source; later changes were limited to public cached-page handling."
+    },
+    {
+      "suite": "legacy-final",
+      "exit_code": 0,
+      "evidence": "retained/legacy-final.log",
+      "source_stage": "V1.51 working source; later changes were limited to public cached-page handling."
+    },
+    {
+      "suite": "legacy-components",
+      "exit_code": 0,
+      "evidence": "components.log",
+      "source_stage": "Extracted candidate; later changes only repaired the custom-page guard and public sheet theme fallbacks."
+    },
+    {
+      "suite": "legacy-brand",
+      "exit_code": 0,
+      "evidence": "brand.log",
+      "source_stage": "Extracted candidate; later changes only repaired the custom-page guard and public sheet theme fallbacks."
+    },
+    {
+      "suite": "v150-layouts",
+      "exit_code": 0,
+      "evidence": "layouts.log",
+      "source_stage": "Extracted candidate; later changes only repaired the custom-page guard and public sheet theme fallbacks."
+    },
+    {
+      "suite": "v151-mobile-public",
+      "exit_code": 0,
+      "evidence": "new-mobile.log",
+      "source_stage": "Extracted candidate after the custom-page guard correction; matches final source hashes."
+    }
+  ],
+  "all_selected_passed": true,
+  "browser_data": "Local synthetic API responses; no live gateway, real email or production D1 actions.",
+  "terminal_confirmation": "Post-correction code and browser command completed with exit code 0.",
+  "source_files_before_reports": 1512
+}

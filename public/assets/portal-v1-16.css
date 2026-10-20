@@ -1,0 +1,36 @@
+/* DropBeat V1.16 additions. Theme colours continue to come from Brand Settings. */
+.auth-page{padding:26px 18px 48px}
+.auth-intro,.auth-shell-single{width:min(790px,100%)}
+.auth-intro{margin-bottom:15px}
+.auth-intro h1{font-size:clamp(26px,3vw,34px);line-height:1.12;margin:5px 0}
+.auth-intro p{font-size:14px;max-width:650px}
+.auth-mode-tabs{padding:6px}
+.auth-mode-tab{min-height:38px;padding:7px 9px;font-size:13px}
+.auth-pane-wide{padding:22px clamp(18px,3.5vw,32px)}
+.auth-pane h2{font-size:21px}.auth-pane>p{font-size:13.5px;margin-bottom:15px}
+.auth-form{gap:11px}.portal-field{gap:4px}.portal-field>label,.portal-field>span{font-size:13px}
+.portal-field input,.portal-field select,.portal-field textarea{padding:8px 10px;min-height:40px;font-size:13.5px}
+.portal-field textarea{min-height:82px}.portal-btn{min-height:38px;padding:8px 14px;font-size:13px}
+.google-btn{margin-top:9px}.auth-divider{margin:14px 0}.coach-schedule-builder{padding:14px;gap:12px}
+.schedule-builder-head h3{font-size:18px}.schedule-builder-head p{font-size:12px}
+.coach-schedule-row{grid-template-columns:38px minmax(125px,.75fr) minmax(135px,.8fr) minmax(135px,.8fr) minmax(185px,1fr);padding:13px 46px 13px 12px;gap:10px}
+.schedule-time input{width:100%;min-width:0;color-scheme:light}
+.schedule-picker,.schedule-single-select,.coach-schedule-row [data-slot-day]{min-height:42px}
+.schedule-picker summary{padding:9px 38px 9px 11px;font-size:14px}
+.schedule-picker summary::after{content:"";width:7px;height:7px;border-right:2px solid var(--portal-primary);border-bottom:2px solid var(--portal-primary);transform:rotate(45deg);top:14px;right:15px}
+.schedule-single-select,.coach-schedule-row [data-slot-day],.phone-entry select{appearance:none;background-color:#fff;background-image:linear-gradient(45deg,transparent 50%,var(--portal-primary) 50%),linear-gradient(135deg,var(--portal-primary) 50%,transparent 50%);background-position:calc(100% - 16px) 17px,calc(100% - 11px) 17px;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:30px!important}
+.phone-entry{display:grid;grid-template-columns:minmax(108px,auto) minmax(0,1fr);gap:8px}.phone-entry select{width:100%;border:1px solid #ceccd9;padding:9px 28px 9px 9px;color:var(--portal-ink)}
+.portal-action-row{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}
+.portal-btn.disabled,.portal-btn[aria-disabled="true"],.portal-btn:disabled{opacity:.52;pointer-events:none;cursor:not-allowed}
+.portal-settings-tabs,.portal-subtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;border-bottom:1px solid var(--portal-line);padding-bottom:10px}
+.portal-settings-tabs button,.portal-subtabs button{border:1px solid var(--portal-line);background:#fff;color:var(--dash-primary);padding:8px 13px;font-weight:700;cursor:pointer}
+.portal-settings-tabs button.active,.portal-subtabs button.active{background:var(--dash-primary);border-color:var(--dash-primary);color:#fff}
+.portal-confirm-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.portal-confirm-word{text-transform:uppercase}
+.dashboard-quick-actions{display:flex;gap:9px;flex-wrap:wrap}.dashboard-quick-actions .portal-btn{min-width:132px}
+.review-stars{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:4px}.review-stars input{position:absolute;opacity:0}.review-stars label{font-size:30px;color:#c8c7d3;cursor:pointer}.review-stars input:checked~label,.review-stars label:hover,.review-stars label:hover~label{color:#d29400}
+.attendance-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}.attendance-calendar .weekday{padding:7px;text-align:center;font-size:12px;font-weight:700;color:#666978}.attendance-calendar button{min-height:78px;text-align:left;border:1px solid var(--portal-line);background:#fff;padding:8px;cursor:pointer}.attendance-calendar button.has-sessions{border-top:3px solid var(--dash-primary)}.attendance-calendar button.active{background:var(--portal-soft);outline:2px solid var(--dash-primary)}.attendance-calendar button:disabled{background:#f3f3f6;color:#aaa;cursor:default}.attendance-calendar small{display:block;margin-top:4px}
+.attendance-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.attendance-summary-grid article{padding:13px;border:1px solid var(--portal-line);background:#fff}.attendance-summary-grid strong{display:block;font-size:22px;color:var(--dash-primary)}
+.membership-status-list{display:grid;gap:10px}.membership-status-item{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,auto);gap:12px;align-items:center;padding:13px;border:1px solid var(--portal-line);background:#fff}
+.member-discount{padding:15px;border-left:4px solid var(--dash-accent);background:#f7f3fa}.member-discount code{font-weight:700;color:var(--dash-primary)}
+@media(max-width:1000px){.coach-schedule-row{grid-template-columns:38px repeat(2,minmax(0,1fr))}.coach-schedule-row .schedule-style-field{grid-column:2/-1}.attendance-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.auth-page{padding:24px 12px 44px}.auth-intro h1{font-size:28px}.auth-mode-tabs{grid-template-columns:repeat(3,minmax(0,1fr));overflow-x:auto}.auth-mode-tab{white-space:nowrap;font-size:12px;padding:7px 6px}.auth-pane-wide{padding:20px 16px}.coach-schedule-row{grid-template-columns:1fr}.coach-schedule-row .schedule-style-field{grid-column:auto}.phone-entry{grid-template-columns:110px minmax(0,1fr)}.attendance-calendar{gap:3px}.attendance-calendar button{min-height:58px;padding:5px}.membership-status-item{grid-template-columns:1fr}.dashboard-quick-actions{width:100%}.dashboard-quick-actions .portal-btn{flex:1}.attendance-summary-grid{grid-template-columns:1fr 1fr}}

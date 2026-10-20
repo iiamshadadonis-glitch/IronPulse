@@ -1,0 +1,107 @@
+/* V1.44: all layout changes are limited to mobile dashboards. */
+.db144-days-trigger,.db144-menu-input-wrap,.db144-integration-more,.db144-integration-row{display:none!important}
+@media(max-width:760px){
+html body.db138-mobile #adminApp #studioSchedule{padding:0 7px!important;box-sizing:border-box!important;min-width:0!important}
+html body.db138-mobile #adminApp #studioSchedule>[data-db119-content]{width:100%!important;margin:12px 0 0!important;padding:14px!important;box-sizing:border-box!important;min-width:0!important;overflow:hidden!important}
+html body.db138-mobile #adminApp #studioSchedule :is(.db120-section-head,.db120-subtab-panel,.db120-subtabs){min-width:0!important;max-width:100%!important}
+html body.db138-mobile #db122ClassChange .db144-original-days{display:none!important}
+html body.db138-mobile #db122ClassChange .db144-days-trigger{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;width:100%!important;min-height:44px!important;padding:11px 12px!important;box-sizing:border-box!important;text-align:left!important;font-size:13px!important;line-height:1.4!important;white-space:normal!important}
+html body.db138-mobile #db122ClassChange .db144-days-trigger>span{min-width:0!important;flex:1!important}
+html body.db138-mobile #db122ClassChange .db144-days-trigger:after{display:none!important;content:none!important}
+html body.db138-mobile #adminApp #socialAutomations.active .uc1705-template-cards,
+html body.db138-mobile #uc1705Modal .uc1705-template-modal{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;min-width:0!important}
+html body.db138-mobile #adminApp #socialAutomations.active .uc1705-template-cards>article,
+html body.db138-mobile #uc1705Modal .uc1705-template-modal>button{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:6px!important;min-width:0!important;min-height:140px!important;height:auto!important;max-height:196px!important;padding:12px 28px 12px 11px!important;box-sizing:border-box!important;border-radius:12px!important;overflow:hidden!important;position:relative!important;background:var(--db138-surface)!important}
+html body.db138-mobile #adminApp #socialAutomations.active .uc1705-template-cards>article>:is(h3,strong),
+html body.db138-mobile #uc1705Modal .uc1705-template-modal>button>strong{font-size:13px!important;line-height:1.3!important;margin:0!important;overflow-wrap:anywhere!important}
+html body.db138-mobile #adminApp #socialAutomations.active .uc1705-template-cards>article>p,
+html body.db138-mobile #uc1705Modal .uc1705-template-modal>button>span{font-size:11px!important;line-height:1.4!important;margin:0!important;display:-webkit-box!important;-webkit-line-clamp:3!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+html body.db138-mobile #adminApp #socialAutomations.active .uc1705-template-cards>article>small{font-size:10px!important;line-height:1.3!important;margin-top:auto!important}
+html body.db138-mobile #adminApp #socialAutomations.active .uc1705-template-cards>article>span{font-size:9px!important;line-height:1.3!important;padding:3px 6px!important}
+html body.db138-mobile #uc1705Workspace>.uc1705-workspace>header{display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;gap:10px!important;padding:16px 14px 12px!important;margin:0 0 8px!important;align-items:center!important;box-sizing:border-box!important;position:relative!important;z-index:5!important;background:var(--db138-surface)!important}
+html body.db138-mobile #uc1705Workspace .uc1705-title{min-width:0!important;width:100%!important}
+html body.db138-mobile #uc1705Workspace .uc1705-title input{width:100%!important;min-width:0!important;max-width:100%!important;height:36px!important;min-height:36px!important;padding:7px 10px!important;font-size:14px!important;box-sizing:border-box!important}
+html body.db138-mobile #uc1705Workspace .uc1705-title>span{display:none!important}
+html body.db138-mobile #uc1705Workspace .uc1705-workspace-actions{grid-column:1/-1!important;display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;width:100%!important;padding:3px 0 0!important;margin:0!important}
+html body.db138-mobile #uc1705Workspace .uc1705-workspace-actions>button{width:auto!important;min-width:0!important;min-height:36px!important;padding:8px 10px!important;white-space:nowrap!important;font-size:12px!important;line-height:1.3!important}
+html body.db138-mobile #uc1705Workspace .uc1705-active{display:flex!important;flex-direction:row!important;align-items:center!important;gap:5px!important;margin:0!important;font-size:12px!important;line-height:1!important;white-space:nowrap!important}
+html body.db138-mobile #uc1705Workspace .uc1705-active .switch{width:36px!important;height:20px!important;min-height:20px!important;max-height:20px!important;flex:0 0 36px!important}
+html body.db138-mobile #uc1705Workspace .uc1705-flow{position:relative!important;isolation:isolate!important;max-width:100%!important;min-width:0!important}
+html body.db138-mobile #uc1705Workspace :is(.uc1705-flow,.uc1708-linear):before,
+html body.db138-mobile #uc1705Workspace :is(.uc1705-flow,.uc1708-linear):after{pointer-events:none!important;z-index:0!important}
+html body.db138-mobile #uc1705Workspace button[data-uc1705-add-at]{display:grid!important;place-items:center!important;position:relative!important;z-index:12!important;pointer-events:auto!important;touch-action:manipulation!important;align-self:center!important;width:44px!important;min-width:44px!important;max-width:44px!important;height:44px!important;min-height:44px!important;max-height:44px!important;padding:10px!important;margin:6px auto!important;border-radius:50%!important;border:1px solid var(--db138-primary)!important;background:var(--db138-surface)!important;color:var(--db138-primary)!important;font-size:23px!important;line-height:1!important;box-sizing:border-box!important;transform:none!important}
+html body.db138-mobile #uc1705Workspace[data-db142-inspector-open="false"] .db142-inspector-scrim{display:none!important;pointer-events:none!important}
+html body.db138-mobile #db137ChoiceSheet .db144-workflow-step-choice{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:4px!important;padding:13px 35px 13px 14px!important;min-height:54px!important}
+html body.db138-mobile #db137ChoiceSheet .db144-workflow-step-choice strong{font-size:13px!important;line-height:1.3!important}
+html body.db138-mobile #db137ChoiceSheet .db144-workflow-step-choice small{font-size:11px!important;line-height:1.4!important;color:var(--db138-muted)!important}
+html body.db138-mobile #adminApp #pages .db144-mobile-hidden,
+html body.db138-mobile #adminApp #pages .final-faq-detail :is(.db138-open-form,summary:after){display:none!important}
+html body.db138-mobile #adminApp #pages .final-faq-detail>summary{position:relative!important;display:flex!important;align-items:center!important;justify-content:space-between!important;min-height:48px!important;padding:12px 44px 12px 14px!important;font-size:13px!important;border:1px solid var(--db138-line)!important;border-radius:12px!important;background:var(--db138-surface)!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #pages .final-faq-detail>summary>[data-db-disclosure]{position:absolute!important;right:10px!important;top:calc(50% - 10px)!important}
+html body.db138-mobile #adminApp #faqForm.db138-inline-form-open{padding:0!important;overflow:clip!important;display:grid!important;grid-template-rows:auto auto minmax(0,1fr) auto!important}
+html body.db138-mobile #adminApp #faqForm>.db138-form-content{padding:16px!important;box-sizing:border-box!important;min-width:0!important}
+html body.db138-mobile #ucV1634DeletePageModal.modal.open{position:fixed!important;inset:0!important;z-index:65000!important;align-items:flex-end!important;justify-content:center!important;background:#0006!important;padding:0!important}
+html body.db138-mobile #ucV1634DeletePageModal.modal.open>.modal-card{height:auto!important;max-height:85dvh!important;min-height:0!important;width:100%!important;max-width:100%!important;padding:22px 18px max(18px,env(safe-area-inset-bottom))!important;margin:0!important;border-radius:18px 18px 0 0!important;overflow:auto!important;display:block!important}
+html body.db138-mobile #ucV1634DeletePageModal.modal.open .uc-v1634-delete-warning{gap:12px!important;font-size:13px!important;line-height:1.5!important}
+html body.db138-mobile #ucV1634DeletePageModal.modal.open h2{font-size:18px!important;margin:0 0 12px!important}
+html body.db138-mobile #ucV1634DeletePageModal.modal.open .uc-v1634-delete-actions{display:flex!important;flex-wrap:nowrap!important;gap:10px!important;margin-top:18px!important}
+html body.db138-mobile #ucV1634DeletePageModal.modal.open .uc-v1634-delete-actions>button{flex:1!important;min-width:0!important;font-size:13px!important;min-height:42px!important}
+html body.db138-mobile #adminApp #pages .uc-v1634-header-preview{display:flex!important;align-items:center!important;flex-wrap:nowrap!important;gap:7px!important;min-width:0!important;width:100%!important;padding:10px!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #pages .uc-v1634-header-preview::-webkit-scrollbar{display:none!important}
+html body.db138-mobile #adminApp #pages .uc-v1634-preview-brand{display:none!important}
+html body.db138-mobile #adminApp #pages :is(.uc-v1634-preview-links,.uc-v1634-preview-fixed){display:contents!important}
+html body.db138-mobile #adminApp #pages :is(.uc-v1634-preview-top-static,.uc-v1637-preview-top-static,.uc-v1637-preview-top,.uc-v1634-preview-fixed>span){display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;white-space:nowrap!important;border:1px solid var(--db138-line)!important;border-radius:999px!important;padding:7px 10px!important;font-size:12px!important;line-height:1!important;min-height:32px!important;margin:0!important;background:var(--db138-surface)!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #pages .uc-v1637-preview-dropdown{flex:0 0 auto!important}
+html body.db138-mobile #adminApp #pages .uc-v1637-grid-row{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;min-width:0!important;min-height:52px!important;height:52px!important;max-height:56px!important;padding:7px 9px!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #pages .uc-v1637-grid-row>:is(code,.uc-v1637-type){display:none!important}
+html body.db138-mobile #adminApp #pages .uc-v1637-grid-row>div:not(.db144-menu-name-cell):not(.uc-v1637-row-actions){display:none!important}
+html body.db138-mobile #adminApp #pages .db144-menu-name-cell{display:block!important;flex:1 1 auto!important;min-width:0!important;margin:0!important;padding:0!important}
+html body.db138-mobile #adminApp #pages .db144-menu-name-cell>:not(.db144-menu-input-wrap){display:none!important}
+html body.db138-mobile #adminApp #pages .db144-menu-input-wrap{display:flex!important;align-items:center!important;gap:2px!important;width:100%!important;min-width:0!important}
+html body.db138-mobile #adminApp #pages .db144-menu-label{display:block!important;min-width:0!important;width:100%!important;min-height:34px!important;height:34px!important;padding:6px 8px!important;margin:0!important;font-size:13px!important;line-height:20px!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #pages .uc-v1637-order-badge{flex:0 0 24px!important;width:24px!important;height:24px!important;font-size:12px!important;line-height:24px!important;padding:0!important;margin:0!important}
+html body.db138-mobile #adminApp #pages .uc-v1637-row-actions{display:flex!important;flex:0 0 auto!important;align-items:center!important;gap:2px!important;margin:0 0 0 auto!important;padding:0!important}
+html body.db138-mobile #adminApp #pages :is(.uc-v1637-row-actions>button,.db144-menu-children){display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 28px!important;width:28px!important;min-width:28px!important;height:32px!important;min-height:32px!important;max-height:32px!important;padding:4px!important;margin:0!important;border:0!important;border-radius:4px!important;background:transparent!important;box-shadow:none!important;color:var(--db138-primary)!important;font-size:0!important}
+html body.db138-mobile #adminApp #pages :is(.db144-small-icon,.db144-menu-children)>svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+html body.db138-mobile #adminApp #pages .db144-small-icon:disabled{opacity:.3!important}
+html body.db138-mobile #adminApp #pages .uc-v1637-manager-head p{font-size:11px!important;line-height:1.4!important}
+html body.db138-mobile #adminApp #pages .uc-v1637-manager-note{font-size:11px!important;line-height:1.4!important;padding:10px!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations>.top :is(button,.db138-header-icons,.uc-info-toolbar){display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-category-note{display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-tabs{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:3px!important;padding:10px 0 4px!important;margin:0 0 14px!important;width:100%!important;max-width:100%!important;min-width:0!important;overflow:visible!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-tabs>button{flex:0 0 auto!important;min-width:0!important;width:auto!important;padding:10px 12px!important;margin:0!important;font-size:13px!important;white-space:nowrap!important;line-height:1.2!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-more{display:block!important;margin-left:auto!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-tabs>.db144-tab-overflow{display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations :is(.uc49-pane,.uc49-card-stack,.db144-integration-card,.uc93-card-body,[data-uc93-front],.uc49-embedded-panel){transform:none!important;perspective:none!important;overflow:visible!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card{padding:0!important;margin:0 0 10px!important;border:0!important;border-radius:12px!important;background:transparent!important;box-shadow:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card>:is(summary,.db144-integration-row){display:flex!important;align-items:center!important;gap:10px!important;justify-content:space-between!important;position:relative!important;width:100%!important;min-height:48px!important;padding:13px 42px 13px 14px!important;margin:0!important;border:1px solid var(--db138-line)!important;border-radius:12px!important;background:var(--db138-surface)!important;font-size:13px!important;line-height:1.4!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card>:is(summary,.db144-integration-row):after{display:none!important;content:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card>summary :is(button,.db138-header-icons,.uc84-summary-actions){display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card>:is(summary,.db144-integration-row)>[data-db-disclosure]{position:absolute!important;right:10px!important;top:calc(50% - 10px)!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card>:is(summary,.db144-integration-row) small{display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card>:is(summary,.db144-integration-row) :is(strong,span){font-size:13px!important;line-height:1.4!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card>:is(summary,.db144-integration-row) :is(.status,.uc49-summary-status,.uc49-status){display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card:not(.db144-integration-open)>:not(summary):not(.db144-integration-row){display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-card.db144-integration-open> :is(.uc93-card-body,.collapsed-body){display:contents!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-mobile-hidden{display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations form[data-db144-integration] .db144-provider-action{display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations form[data-db144-integration].db138-inline-form-open{display:grid!important;position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;max-height:100dvh!important;max-width:100vw!important;min-height:0!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto minmax(0,1fr) auto!important;padding:0!important;margin:0!important;z-index:52000!important;overflow:clip!important;background:var(--db138-surface)!important;border:0!important;border-radius:0!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations form[data-db144-integration]>.db138-form-content{padding:16px!important;overflow-y:auto!important;overflow-x:hidden!important;min-height:0!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations form[data-db144-integration] [data-provider-front]{display:contents!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations form[data-db144-integration] :is(input,textarea,.db137-select-trigger){max-width:100%!important;min-width:0!important;font-size:14px!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations form[data-db144-integration] .db138-page-header{padding:12px 16px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations form[data-db144-integration] .db138-page-header h2{font-size:17px!important;line-height:1.3!important;margin:0!important;min-width:0!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations :is(.uc1706-toggle,[data-db144-unit]){font-size:12px!important;line-height:1.4!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations :is(.uc49-grid-scroll,.uc93-grid-scroll,.db144-integration-records){display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;overflow:visible!important;border:0!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-records> :is(.uc49-grid-col,.uc93-grid-col){display:none!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-record{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:8px!important;min-width:0!important;width:100%!important;margin:0 0 10px!important;padding:12px!important;border:1px solid var(--db138-primary)!important;border-radius:12px!important;background:var(--db138-surface)!important;box-sizing:border-box!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-record> :is(.uc49-grid-cell,.uc93-grid-cell){display:block!important;min-width:0!important;padding:0!important;margin:0!important;border:0!important;font-size:12px!important;line-height:1.4!important;overflow-wrap:anywhere!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .db144-integration-record> :nth-child(-n+2){grid-column:1/-1!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-capabilities{display:flex!important;flex-wrap:wrap!important;gap:5px!important;min-width:0!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-capabilities>span{font-size:10px!important;line-height:1.4!important;padding:3px 6px!important;max-width:100%!important;white-space:normal!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations :is(.uc49-actions,.uc93-row-actions){display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations :is(.uc49-grid-btn,.uc93-grid-btn){width:30px!important;min-width:30px!important;height:30px!important;min-height:30px!important;padding:4px!important;font-size:15px!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-info-line{display:block!important}
+html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-pane-copy p{font-size:11px!important;line-height:1.4!important}
+}
+

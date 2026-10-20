@@ -1,0 +1,93 @@
+[
+  {
+    "suite": "additions",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-additions.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 190.44
+  },
+  {
+    "suite": "brand",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-brand.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 284.58
+  },
+  {
+    "suite": "browser",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-browser.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 168.38
+  },
+  {
+    "suite": "code-database",
+    "command": [
+      "npm",
+      "run",
+      "test:dance-v1.49"
+    ],
+    "exitCode": 0,
+    "seconds": 12.79
+  },
+  {
+    "suite": "components",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-components.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 132.16
+  },
+  {
+    "suite": "controls",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-controls.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 101.42
+  },
+  {
+    "suite": "final",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-final.mjs"
+    ],
+    "exitCode": 1,
+    "seconds": 73.69
+  },
+  {
+    "suite": "native",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-native.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 221.37
+  },
+  {
+    "suite": "polish",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-polish.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 220.83
+  },
+  {
+    "suite": "workflows",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-workflows.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 109.08
+  }
+]

@@ -1,0 +1,68 @@
+/* DropBeat V1.25 light/dark mode. Light mode deliberately inherits every
+   existing theme rule; only dark-mode neutral surfaces are overridden. */
+:root{color-scheme:light}
+html[data-color-mode="dark"]{
+  color-scheme:dark;
+  --ink:#f3f4fb;--muted:#b7bbca;--line:#3a4058;--bg:#111521;--card:#1b2030;
+  --portal-ink:#f3f4fb;--portal-text:#d6d9e6;--portal-soft:#242a3d;--portal-line:#3a4058;
+  --dropbeat-title:#f3f4fb;--dropbeat-text:#d6d9e6;--surface:#1b2030;--panel:#1b2030;--border:#3a4058;
+  --uc-v5-soft:#242a3d;--uc-v5-line:#3a4058;
+}
+.db125-color-mode-toggle{width:30px;height:30px;min-width:30px;padding:0;border:1px solid rgba(75,85,190,.32);border-radius:50%;display:inline-grid;place-items:center;background:#fff;color:#1a1a1a;box-shadow:0 5px 16px rgba(34,36,79,.12);cursor:pointer;line-height:1;transition:transform .18s ease,background-color .18s ease,color .18s ease,border-color .18s ease;z-index:10050}
+.db125-color-mode-toggle:hover{transform:translateY(-1px)}
+.db125-color-mode-toggle:focus-visible{outline:3px solid rgba(75,85,190,.35);outline-offset:2px}
+.db125-color-mode-toggle svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.db125-color-mode-toggle.db125-fixed{position:fixed;top:10px;right:12px}
+.db125-color-mode-toggle.db125-in-toolbar,.db125-color-mode-toggle.db125-in-portal{flex:0 0 30px;margin-inline:2px}
+html[data-color-mode="dark"] .db125-color-mode-toggle{background:#20263a;color:#fff;border-color:#555d7b;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+
+/* Public pages */
+html[data-color-mode="dark"],html[data-color-mode="dark"] body{background:#111521!important;color:#d6d9e6!important}
+html[data-color-mode="dark"] body{background-image:radial-gradient(circle at 8% 0%,rgba(164,105,168,.1),transparent 30%),radial-gradient(circle at 94% 5%,rgba(75,85,190,.18),transparent 34%),linear-gradient(180deg,#111521,#151a29)!important}
+html[data-color-mode="dark"] .topbar{background:rgba(17,21,33,.94)!important;border-color:#343a51!important}
+html[data-color-mode="dark"] .navlinks,html[data-color-mode="dark"] .navlinks a,html[data-color-mode="dark"] .brand{color:#edf0fa!important}
+html[data-color-mode="dark"] .navlinks.open{background:#1b2030!important;border-color:#3a4058!important}
+html[data-color-mode="dark"] .hero{background-image:linear-gradient(90deg,rgba(17,21,33,.97),rgba(25,29,45,.88),rgba(17,21,33,.94)),var(--hero-bg)!important}
+html[data-color-mode="dark"] .hero h1,html[data-color-mode="dark"] .section h2,html[data-color-mode="dark"] .legal h1{background:linear-gradient(120deg,#fff 0%,#b8bdfd 45%,#d7a8d9 78%,#b8a5ee 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+html[data-color-mode="dark"] .hero p,html[data-color-mode="dark"] .section p.lead,html[data-color-mode="dark"] .features,html[data-color-mode="dark"] .faq-item div{color:#c0c4d2!important}
+html[data-color-mode="dark"] .section,html[data-color-mode="dark"] .how-section,html[data-color-mode="dark"] .checkout-section{background:#111521!important}
+html[data-color-mode="dark"] .card,html[data-color-mode="dark"] .legal,html[data-color-mode="dark"] .story-card,html[data-color-mode="dark"] .basket-item,html[data-color-mode="dark"] .summary-card,html[data-color-mode="dark"] .cart-drawer,html[data-color-mode="dark"] .faq-item,html[data-color-mode="dark"] .table-wrap,html[data-color-mode="dark"] .uc-result-card{background:#1b2030!important;border-color:#3a4058!important;color:#d6d9e6!important;box-shadow:0 20px 58px rgba(0,0,0,.22)!important}
+html[data-color-mode="dark"] .card h1,html[data-color-mode="dark"] .card h2,html[data-color-mode="dark"] .card h3,html[data-color-mode="dark"] .legal h2,html[data-color-mode="dark"] .price .new,html[data-color-mode="dark"] .story-card strong,html[data-color-mode="dark"] .faq-item summary{color:#f3f4fb!important}
+html[data-color-mode="dark"] .field label{color:#e8eaf3!important}
+html[data-color-mode="dark"] input,html[data-color-mode="dark"] select,html[data-color-mode="dark"] textarea,html[data-color-mode="dark"] .search-input{background:#121725!important;color:#eef0f7!important;border-color:#444b66!important}
+html[data-color-mode="dark"] input::placeholder,html[data-color-mode="dark"] textarea::placeholder{color:#959aaf!important}
+html[data-color-mode="dark"] select option{background:#121725!important;color:#eef0f7!important}
+html[data-color-mode="dark"] .btn.secondary,html[data-color-mode="dark"] .menu-toggle,html[data-color-mode="dark"] .qty-controls button{background:#22283b!important;color:#b8bdfd!important;border-color:#4a5270!important}
+html[data-color-mode="dark"] .table{background:#1b2030!important;color:#d6d9e6!important}
+html[data-color-mode="dark"] .table th{background:#252b3f!important;color:#f0f1f7!important}
+html[data-color-mode="dark"] .table td,html[data-color-mode="dark"] .table th{border-color:#3a4058!important}
+
+/* Login, student and coach portals */
+html[data-color-mode="dark"] .portal-app,html[data-color-mode="dark"] .portal-main,html[data-color-mode="dark"] .auth-page{background:#111521!important;color:#d6d9e6!important}
+html[data-color-mode="dark"] .portal-public-header{background:#171c2b!important;border-color:#3a4058!important}
+html[data-color-mode="dark"] .auth-shell,html[data-color-mode="dark"] .auth-pane,html[data-color-mode="dark"] .portal-card,html[data-color-mode="dark"] .portal-plan-card,html[data-color-mode="dark"] .portal-table-wrap,html[data-color-mode="dark"] .week-item,html[data-color-mode="dark"] .notice-item,html[data-color-mode="dark"] .empty-state,html[data-color-mode="dark"] .portal-modal-card,html[data-color-mode="dark"] .portal-otp-card,html[data-color-mode="dark"] .coach-schedule-row,html[data-color-mode="dark"] .coach-schedule-builder,html[data-color-mode="dark"] .attendance-calendar button,html[data-color-mode="dark"] .attendance-summary-grid article,html[data-color-mode="dark"] .membership-status-item{background:#1b2030!important;border-color:#3a4058!important;color:#d6d9e6!important}
+html[data-color-mode="dark"] .auth-mode-tabs,html[data-color-mode="dark"] .portal-table th{background:#252b3f!important;color:#f0f1f7!important}
+html[data-color-mode="dark"] .portal-topbar,html[data-color-mode="dark"] .portal-settings-tabs,html[data-color-mode="dark"] .portal-subtabs{border-color:#3a4058!important}
+html[data-color-mode="dark"] .portal-topbar h1,html[data-color-mode="dark"] .portal-view-head h2,html[data-color-mode="dark"] .portal-card h3,html[data-color-mode="dark"] .portal-identity strong,html[data-color-mode="dark"] .portal-field>label,html[data-color-mode="dark"] .portal-field>span,html[data-color-mode="dark"] .auth-intro h1,html[data-color-mode="dark"] .auth-pane h2{color:#f3f4fb!important}
+html[data-color-mode="dark"] .portal-field input,html[data-color-mode="dark"] .portal-field select,html[data-color-mode="dark"] .portal-field textarea,html[data-color-mode="dark"] .schedule-picker,html[data-color-mode="dark"] .schedule-picker-menu,html[data-color-mode="dark"] .schedule-time select{background:#121725!important;color:#eef0f7!important;border-color:#444b66!important}
+html[data-color-mode="dark"] .portal-btn.secondary,html[data-color-mode="dark"] .portal-settings-tabs button,html[data-color-mode="dark"] .portal-subtabs button,html[data-color-mode="dark"] .mobile-nav-toggle{background:#22283b!important;color:#b8bdfd!important;border-color:#4a5270!important}
+
+/* Admin */
+html[data-color-mode="dark"] body,html[data-color-mode="dark"] #adminApp,html[data-color-mode="dark"] #adminApp .main,html[data-color-mode="dark"] #adminApp .layout{background:#111521!important;color:#d6d9e6!important}
+html[data-color-mode="dark"] #adminApp .panel,html[data-color-mode="dark"] #adminApp .muted,html[data-color-mode="dark"] #adminApp .hint,html[data-color-mode="dark"] #adminApp small{color:#b7bbca!important}
+html[data-color-mode="dark"] #adminApp h1,html[data-color-mode="dark"] #adminApp h2,html[data-color-mode="dark"] #adminApp h3,html[data-color-mode="dark"] #adminApp h4,html[data-color-mode="dark"] #adminApp label,html[data-color-mode="dark"] #adminApp summary{color:#f3f4fb!important}
+html[data-color-mode="dark"] #adminApp .card,html[data-color-mode="dark"] #adminApp .stat-card,html[data-color-mode="dark"] #adminApp .modal-card,html[data-color-mode="dark"] #adminApp .drawer-card,html[data-color-mode="dark"] #adminApp .pay-detail,html[data-color-mode="dark"] #adminApp .admin-collapsed-card,html[data-color-mode="dark"] #adminApp .page-editor,html[data-color-mode="dark"] #adminApp .table-wrap,html[data-color-mode="dark"] #adminApp .dashboard-block,html[data-color-mode="dark"] #adminApp [class*="-category-card"],html[data-color-mode="dark"] #adminApp [class*="-workspace"],html[data-color-mode="dark"] #adminApp [class*="-editor-shell"]{background:#1b2030!important;border-color:#3a4058!important;color:#d6d9e6!important;box-shadow:0 14px 40px rgba(0,0,0,.22)!important}
+html[data-color-mode="dark"] #adminApp details>summary,html[data-color-mode="dark"] #adminApp .pay-detail>summary,html[data-color-mode="dark"] #adminApp .admin-collapsed-card>summary,html[data-color-mode="dark"] #adminApp .page-editor>summary,html[data-color-mode="dark"] #adminApp [class*="toolbar"],html[data-color-mode="dark"] #adminApp [class*="actionbar"],html[data-color-mode="dark"] #adminApp [class*="workspace-head"],html[data-color-mode="dark"] #adminApp [class*="editor-head"]{background:#1b2030!important;border-color:#3a4058!important;color:#f3f4fb!important}
+html[data-color-mode="dark"] #adminApp input,html[data-color-mode="dark"] #adminApp select,html[data-color-mode="dark"] #adminApp textarea,html[data-color-mode="dark"] #adminApp .search-input,html[data-color-mode="dark"] .modal-card input,html[data-color-mode="dark"] .modal-card select,html[data-color-mode="dark"] .modal-card textarea{background:#121725!important;color:#eef0f7!important;border-color:#444b66!important}
+html[data-color-mode="dark"] #adminApp .table,html[data-color-mode="dark"] #adminApp [class*="-grid-cell"],html[data-color-mode="dark"] #adminApp [class*="-grid-card"],html[data-color-mode="dark"] #adminApp [class*="-library-card"]{background:#1b2030!important;color:#d6d9e6!important;border-color:#3a4058!important}
+html[data-color-mode="dark"] #adminApp .table th,html[data-color-mode="dark"] #adminApp [class*="-grid-head"],html[data-color-mode="dark"] #adminApp [class*="-grid-col"]{background:#252b3f!important;color:#f0f1f7!important;border-color:#3a4058!important}
+html[data-color-mode="dark"] #adminApp .table tbody tr:hover{background:#22283a!important}
+html[data-color-mode="dark"] #adminApp .btn.secondary,html[data-color-mode="dark"] #adminApp button.secondary,html[data-color-mode="dark"] #adminApp .pill,html[data-color-mode="dark"] #adminApp .tabs button,html[data-color-mode="dark"] #adminApp .tab{background:#22283b!important;color:#b8bdfd!important;border-color:#4a5270!important}
+html[data-color-mode="dark"] .modal-card,html[data-color-mode="dark"] .confirm-card,html[data-color-mode="dark"] .login-card,html[data-color-mode="dark"] .dropbeat-auth-shell-card{background:#1b2030!important;color:#d6d9e6!important;border-color:#a469a8!important}
+html[data-color-mode="dark"] .modal-card h1,html[data-color-mode="dark"] .modal-card h2,html[data-color-mode="dark"] .modal-card h3,html[data-color-mode="dark"] .confirm-card h2{color:#f3f4fb!important}
+html[data-color-mode="dark"] #adminApp .copyline,html[data-color-mode="dark"] #adminApp [class*="boundary"],html[data-color-mode="dark"] #adminApp [class*="safe-note"],html[data-color-mode="dark"] #adminApp [class*="privacy-note"],html[data-color-mode="dark"] #adminApp [class*="info"]{background:#22283a!important;color:#d6d9e6!important;border-color:#464d68!important}
+
+/* Keep the compact fixed admin control clear of Refresh and panel actions. */
+#adminApp .panel>.top{box-sizing:border-box;padding-right:52px!important}
+
+@media(max-width:760px){.db125-color-mode-toggle{width:28px;height:28px;min-width:28px}.db125-color-mode-toggle svg{width:15px;height:15px}.db125-color-mode-toggle.db125-fixed{top:8px;right:8px}#adminApp .panel>.top{padding-right:44px!important}}

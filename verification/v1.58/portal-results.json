@@ -1,0 +1,17 @@
+{
+  "results": [
+    "320/390/760px padded header, 40px circular SVG menu, visible theme/avatar and original profile route",
+    "Dashboard and Sessions: title/coach/date/status vertical order, full-width status, unchanged Join link and desktop grid",
+    "Compact statement header/meta/three metrics, footer-safe FAB, original odd/even filter sheet/GET parameters and actual PDF download",
+    "Tickets full-width two-row hub, list/empty state in a separate full-screen page and original validated submission",
+    "Login/Google rows share 56px sizing, typography, 12px gap and original navigation; avatar resets Profile tab",
+    "Coach avatar/settings and drawer, Admin header/menu/theme, original desktop avatar/menu/theme placement restored"
+  ],
+  "errors": [],
+  "statementRequests": [
+    "http://127.0.0.1:46247/api/portal/payment-statement?from=2026-09-19&to=2026-10-19",
+    "http://127.0.0.1:46247/api/portal/payment-statement?from=2026-09-01&to=2026-10-18",
+    "http://127.0.0.1:46247/api/portal/payment-statement?asset=logo&v=1792420316909"
+  ],
+  "synthetic": true
+}

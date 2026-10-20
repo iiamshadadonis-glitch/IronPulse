@@ -1,0 +1,35 @@
+{
+  "release": "1.43.0",
+  "runtime": "Node 24.19.0; Chromium 153.0.8010.0",
+  "regression_command": "npm run test:dance-v1.43",
+  "regression_suites": 23,
+  "browser_command": "npm run test:dance-v1.43:browser",
+  "browser_results": [
+    {
+      "suite": "browser",
+      "started_utc": "2026-10-15T13:35:16.673336+00:00",
+      "completed_utc": "2026-10-15T13:36:58.541386+00:00",
+      "exit_code": 0
+    },
+    {
+      "suite": "components",
+      "started_utc": "2026-10-15T13:36:58.541946+00:00",
+      "completed_utc": "2026-10-15T13:38:11.631172+00:00",
+      "exit_code": 0
+    },
+    {
+      "suite": "workflows",
+      "started_utc": "2026-10-15T13:39:27.690219+00:00",
+      "completed_utc": "2026-10-15T13:40:36.999813+00:00",
+      "exit_code": 0
+    },
+    {
+      "suite": "additions",
+      "started_utc": "2026-10-15T13:40:37.000638+00:00",
+      "completed_utc": "2026-10-15T13:42:08.341419+00:00",
+      "exit_code": 0
+    }
+  ],
+  "scope": "Shipped UI with synthetic APIs; external requests blocked; no live transactions.",
+  "archive_verification": "CRC plus full extracted-file SHA-256 comparison; regression rerun from extracted ZIP."
+}

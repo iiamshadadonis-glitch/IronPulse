@@ -1,0 +1,7 @@
+/* V11 public customer Requests page. */
+.uc-request-shell{max-width:920px}.uc-request-intro{margin-bottom:22px}.uc-request-intro h1{margin:10px 0 10px}.uc-request-intro p{max-width:780px;color:var(--muted,#6f5961)}
+.uc-request-form{background:var(--card,#ffffff);border:1px solid var(--border,#ead1b9);border-radius:24px;padding:26px;box-shadow:0 14px 36px rgba(70,16,30,.07)}
+.uc-request-form .row{align-items:flex-start}.uc-request-conditional{margin:2px 0 4px;padding:18px;border:1px solid var(--border,#ead1b9);border-radius:18px;background:rgba(255,255,255,.42)}
+.uc-request-note{display:flex;gap:10px;align-items:flex-start;margin:4px 0 18px;padding:14px 16px;border-radius:16px;background:#fff2bf;border:1px solid #efca55;color:#6f4900}.uc-request-note strong{white-space:nowrap}.uc-request-note span{line-height:1.45}
+#ucRequestSubmit[disabled]{opacity:.62;cursor:wait}.uc-request-result{margin-top:14px}
+@media(max-width:760px){.uc-request-form{padding:18px}.uc-request-note{display:block}.uc-request-note strong{display:block;margin-bottom:5px}}

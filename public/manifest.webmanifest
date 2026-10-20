@@ -1,0 +1,19 @@
+{
+  "name": "DropBeat Dance Studio",
+  "short_name": "DropBeat",
+  "description": "Online and studio dance classes with flexible membership plans.",
+  "start_url": "/?app=1",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4B55BE",
+  "icons": [
+    {
+      "src": "/assets/dropbeat-logo.png",
+      "sizes": "135x37",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "id": "/"
+}

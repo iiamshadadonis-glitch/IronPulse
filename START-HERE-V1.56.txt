@@ -1,0 +1,24 @@
+DROPBEAT V1.56 — COMPLETE REPLACEMENT PROJECT
+
+All V1.55 files and fixes are included, together with the Dynamic Button Dictionary.
+Use the contents of the DropBeat-V1.56 folder as the complete project.
+
+Open Admin → Settings → Pages → Buttons.
+Choose Front-End Buttons or Admin Panel Buttons, then the pencil beside a button.
+Edit its label and destination. On mobile, Continue opens the read-only Review step.
+Save opens a warning: type the exact lowercase word confirm to enable Confirm Change.
+Reset to Default restores both categories and requires the same confirmation.
+
+Keep a button's original action:... value to retain its booking, login, expand/collapse
+or other built-in operation. A /page path or HTTPS destination changes that button
+into navigation. Ordinary Website Header Order links remain managed in that list.
+
+No additional dependencies, database migrations or environment variables are needed.
+Deploy the complete project using your existing Cloudflare Pages/Functions workflow.
+Keep your existing D1 binding, secrets, migrations and deployment settings.
+
+V1.56-FIXES.md explains the included changes and button inventory.
+V1.56-VERIFICATION.md lists the executed checks and their scope.
+Current code regression command: npm run test:dance-v1.56
+V1.56-MANIFEST.sha256 lists the current replacement files.
+Earlier release notes, evidence and tests remain for reference.

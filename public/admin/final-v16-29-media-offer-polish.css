@@ -1,0 +1,7 @@
+/* V16.29 additive spacing for separate website and Story/Status image URLs. */
+#mediaModal .uc-v1624-status-fields{padding:16px!important;gap:14px!important;margin-top:2px!important}
+#mediaModal .uc-v1629-status-image-field{padding-bottom:2px!important;margin:0!important}
+#mediaModal .uc-v1629-status-image-field label{display:block;margin-bottom:7px!important}
+#mediaModal .uc-v1629-status-image-field input{min-height:44px!important}
+#mediaModal .uc-v1629-status-image-field .hint{display:block;margin-top:7px!important;line-height:1.5!important}
+#productForm [name="spot_limit"]{max-width:260px}

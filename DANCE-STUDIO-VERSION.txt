@@ -1,0 +1,4 @@
+DANCE-STUDIO-V1.59
+Release: 1.58.0 — 19 October 2026
+Complete V1.57 project plus persistent PWA sessions, account-scoped restoration and centralized role-based push notifications.
+See V1.59-FIXES.md and V1.59-VERIFICATION.md.

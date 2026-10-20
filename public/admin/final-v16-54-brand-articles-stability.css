@@ -1,0 +1,28 @@
+/* V16.54 — stable Brand Settings tabs, Article image upload and no integration reveal flicker. */
+.uc54-brand-tabs{contain:layout style;}
+.uc54-brand-context{min-height:46px;}
+
+/* V16.53 intentionally hid Integration content during refresh; V16.54 prewarms it while hidden instead. */
+#socialMediaIntegrations.uc53-integrations-stabilizing .uc49-pane.active .uc49-card-stack,
+#socialMediaIntegrations.uc53-integrations-stabilizing .uc49-pane.active [data-uc49-grid-mount],
+#socialMediaIntegrations.uc53-integrations-stabilizing #uc49IntegrationsMsg{visibility:visible!important;opacity:1!important;}
+#socialMediaIntegrations.uc53-integrations-stabilizing .uc49-pane.active::after{display:none!important;content:none!important;}
+
+#blogs .uc54-article-image-upload{display:block;min-width:0;}
+#blogs .uc54-article-image-upload>label{display:block;margin:0 0 8px;font-weight:800;}
+#blogs .uc54-upload-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;}
+#blogs .uc54-upload-row input[type="file"]{width:100%;min-width:0;padding:10px 12px;border:1px solid var(--line,#ead2b4);border-radius:12px;background:var(--panel,#ffffff);}
+#blogs #uc54ArticleImageState{margin-top:9px;}
+#blogs #uc54ArticleImageMsg{margin-top:9px;}
+#blogs .uc54-article-image-current{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;padding:10px;border:1px solid var(--line,#ead2b4);border-radius:13px;background:rgba(255,255,255,.38);}
+#blogs .uc54-article-image-current img{width:72px;height:58px;object-fit:cover;border-radius:10px;border:1px solid var(--line,#ead2b4);}
+#blogs .uc54-article-image-current div{display:flex;flex-direction:column;gap:3px;min-width:0;}
+#blogs .uc54-article-image-current small{color:var(--muted,#765d63);line-height:1.35;}
+#blogs .uc54-article-image-current a{font-size:12px;font-weight:800;}
+#blogForm input[name="cover_image_url"][type="hidden"]{display:none!important;}
+#blogs #blogForm .uc54-article-image-field > .uc54-legacy-cover-ui{display:none!important;}
+
+@media(max-width:760px){
+  #blogs .uc54-upload-row{grid-template-columns:1fr;}
+  #blogs .uc54-upload-row .btn{width:100%;}
+}

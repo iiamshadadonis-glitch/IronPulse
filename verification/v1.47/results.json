@@ -1,0 +1,86 @@
+{
+  "release": "1.47.0",
+  "node": "24.19.0",
+  "chromium": "153.0.8010.0",
+  "codeDatabaseSuites": 23,
+  "browserSuites": 7,
+  "results": [
+    {
+      "suite": "additions",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-47-additions.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 126.65
+    },
+    {
+      "suite": "brand",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-47-brand.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 219.99
+    },
+    {
+      "suite": "browser",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-47-browser.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 127.69,
+      "attempt": 2
+    },
+    {
+      "suite": "code-database",
+      "command": [
+        "npm",
+        "run",
+        "test:dance-v1.47"
+      ],
+      "exitCode": 0,
+      "seconds": 6.81
+    },
+    {
+      "suite": "components",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-47-components.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 101.94
+    },
+    {
+      "suite": "native",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-47-native.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 168.46
+    },
+    {
+      "suite": "polish",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-47-polish.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 148.0
+    },
+    {
+      "suite": "workflows",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-47-workflows.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 87.79,
+      "attempt": 2
+    }
+  ],
+  "apiData": "Synthetic fixtures; external requests blocked",
+  "testedProject": "Complete ZIP separately extracted; all suites run against that candidate"
+}

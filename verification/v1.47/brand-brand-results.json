@@ -1,0 +1,45 @@
+{
+  "result": "passed",
+  "widths": [
+    320,
+    390,
+    430,
+    1366
+  ],
+  "checks": [
+    "exact scope",
+    "two-step pagination",
+    "read-only review",
+    "upload node identity",
+    "original settings save payload",
+    "sticky geometry",
+    "colors/theme routing",
+    "legal/tax separation",
+    "review labels",
+    "map locations",
+    "review action sheet",
+    "email role forms",
+    "coach error/retry",
+    "moved report filter",
+    "storage delete/detail sheets",
+    "desktop restoration",
+    "balanced step grid",
+    "About Us button sizing parity",
+    "independent body scrolling",
+    "short viewport footer",
+    "primary active segmented colors",
+    "dynamic brand color",
+    "761px desktop CSS parity"
+  ],
+  "writes": [
+    {
+      "path": "/api/admin/settings",
+      "body": "{\"siteName\":\"V147 Mobile Studio\",\"primaryColor\":\"#4B55BE\",\"accentColor\":\"#A469A8\",\"adminHelpEnabled\":true,\"frontendTheme\":\"dropbeat\",\"timezone\":\"Asia/Kolkata\",\"tagline\":\"Dance with us\",\"logoUrl\":\"/assets/dropbeat-logo.svg\",\"faviconUrl\":\"/assets/dropbeat-logo.svg\",\"whatsappNumber\":\"919381521966\",\"legalEntityName\":\"Fixture Studio LLP\",\"legalEntityAddress\":\"Hyderabad\",\"legalEntityEnabled\":false,\"colorPaletteType\":\"custom\",\"marqueeTabTitleEnabled\":false}"
+    },
+    {
+      "path": "/api/admin/settings",
+      "body": "{\"taxes\":{\"enabled\":true,\"gstEnabled\":false,\"gstPercent\":12,\"gstNumber\":\"\",\"serviceChargeEnabled\":false,\"serviceChargeFixedPaise\":0,\"serviceChargePercent\":0,\"otherTaxEnabled\":false,\"otherTaxLabel\":\"Other Tax\",\"otherTaxPercent\":0}}"
+    }
+  ],
+  "errors": []
+}

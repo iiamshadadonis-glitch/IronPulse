@@ -1,0 +1,37 @@
+DROPBEAT V1.57 — COMPLETE REPLACEMENT PROJECT
+
+Includes every supplied V1.56 project file and the new Visual Layout Editor.
+Use the contents of the DropBeat-V1.57 folder as the complete replacement project.
+
+LAYOUT
+Open Admin → Settings → Pages → Layout (inside More on smaller screens).
+The editor shows the currently saved website theme and its available blocks.
+Select Desktop Layout or Mobile Layout to edit that device's constraints.
+Use a pencil to change a name, visibility, spacing, alignment or supported card grid.
+Use the arrows to reorder home sections; desktop also supports dragging sections.
+Remove stages a block removal. Removed blocks can be restored from the list below.
+
+Apply to Draft does not publish. Select Save Layout Changes, review the warning,
+then type the exact lowercase word confirm to enable the red Execute Changes button.
+Names and removals apply to both devices; viewport constraints apply to that device.
+Removing a block hides its presentation without deleting its underlying content.
+The original routes, forms, customer records and booking/payment logic are retained.
+
+BUTTONS
+Settings → Pages → Buttons uses compact mobile rows and a shared segmented control.
+Desktop shows Front-End Buttons and Admin Panel Buttons as separate accordions.
+Button edits and Reset to Default still require exact typed confirmation.
+Shared Checkout, Trial and Login names stay synchronized with Layout.
+Reset to Default resets button labels/actions, not page names or layout settings.
+
+INSTALLATION
+No new dependencies, database migrations or environment variables are required.
+Use your existing Cloudflare Pages/Functions deployment workflow for the full project.
+Keep your current D1 binding, secrets, migrations and deployment configuration.
+Deploy both public assets and Functions together.
+
+Read V1.57-FIXES.md and V1.57-VERIFICATION.md for the changes and executed checks.
+Current code check: npm run test:dance-v1.57
+Current feature browser check: npm run test:dance-v1.57:browser
+V1.57-MANIFEST.sha256 covers the replacement files.
+Earlier release notes, evidence and tests remain as historical references.

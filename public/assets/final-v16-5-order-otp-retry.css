@@ -1,0 +1,24 @@
+/* V16.5 public order verification/retry polish. */
+#otpArea.uc-v165-otp-area{gap:10px;margin-top:14px}
+#trackMsg .notice{margin-top:14px}
+#trackMsg .notice.success{background:#eafaf0;border-color:#b9e4c8;color:#146b36}
+#trackMsg .notice.error{background:#fff0f0;border-color:#efb7b7;color:#9c1717}
+.uc-v165-order-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;min-width:190px}
+.uc-v165-order-actions .btn{white-space:nowrap}
+.uc-v165-order-table th,.uc-v165-order-table td{vertical-align:middle}
+@media(max-width:760px){.uc-v165-order-actions{min-width:150px}.uc-v165-order-actions .btn{width:100%;justify-content:center}}
+
+/* V16.6 — wider Track Order workspace and inline order-action feedback. */
+body[data-uc-load="orders"] .legal{width:min(1120px,100%);max-width:1120px;padding:38px}
+body[data-uc-load="orders"] #ordersBox{margin-top:28px!important}
+body[data-uc-load="orders"] .uc-v165-order-table{min-width:960px}
+.uc-v166-orders-action-msg .notice{margin-top:14px}
+.uc-v166-orders-action-msg .notice.success{background:#eafaf0;border-color:#b9e4c8;color:#146b36}
+.uc-v166-orders-action-msg .notice.error{background:#fff0f0;border-color:#efb7b7;color:#9c1717}
+@media(max-width:760px){body[data-uc-load="orders"] .legal{padding:22px 16px}.uc-v166-orders-action-msg .notice{margin-top:10px}}
+body[data-uc-load="orders"] .uc-v165-order-table .status.in_process{background:#e7f0ff;color:#174ea6}
+body[data-uc-load="orders"] .uc-v165-order-table .status.delivered,
+body[data-uc-load="orders"] .uc-v165-order-table .status.completed,
+body[data-uc-load="orders"] .uc-v165-order-table .status.paid{background:#dcfce7;color:#166534}
+body[data-uc-load="orders"] .uc-v165-order-table .status.cancelled,
+body[data-uc-load="orders"] .uc-v165-order-table .status.failed{background:#fee2e2;color:#991b1b}

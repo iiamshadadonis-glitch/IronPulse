@@ -1,0 +1,451 @@
+{
+  "release": "1.50.0",
+  "createdUtc": "2026-10-18T09:24:47.553263+00:00",
+  "baseline": "DropBeat-V1.49-Verified(2).zip",
+  "baselineSha256": "05cf49144d8dd0c79403f176f6f8863cf9822131942d67b40471481631487fc9",
+  "baselineFilesRetained": 1473,
+  "files": 1502,
+  "protectedFilesUnchanged": 513,
+  "protectedCartPricingAvailabilityBlocks": 5,
+  "migrationsAndConfigUnchanged": true,
+  "validation": {
+    "release": "1.50.0",
+    "codeDatabaseCacheSuites": 26,
+    "browserSuites": 11,
+    "allFinalExitCodes": 0,
+    "finalCoverage": [
+      {
+        "suite": "components",
+        "attempt": 1,
+        "exitCode": 0,
+        "seconds": 97.28,
+        "command": [
+          "node",
+          "tools/verify-mobile-v1-49-components.mjs"
+        ]
+      },
+      {
+        "suite": "browser",
+        "attempt": 1,
+        "exitCode": 0,
+        "seconds": 125.06,
+        "command": [
+          "node",
+          "tools/verify-mobile-v1-49-browser.mjs"
+        ]
+      },
+      {
+        "suite": "workflows",
+        "attempt": 1,
+        "exitCode": 0,
+        "seconds": 82.33,
+        "command": [
+          "node",
+          "tools/verify-mobile-v1-49-workflows.mjs"
+        ]
+      },
+      {
+        "suite": "polish",
+        "attempt": 1,
+        "exitCode": 0,
+        "seconds": 144.31,
+        "command": [
+          "node",
+          "tools/verify-mobile-v1-49-polish.mjs"
+        ]
+      },
+      {
+        "suite": "native",
+        "attempt": 1,
+        "exitCode": 0,
+        "seconds": 166.69,
+        "command": [
+          "node",
+          "tools/verify-mobile-v1-49-native.mjs"
+        ]
+      },
+      {
+        "suite": "final",
+        "attempt": 1,
+        "exitCode": 0,
+        "seconds": 65.44,
+        "command": [
+          "node",
+          "tools/verify-mobile-v1-49-final.mjs"
+        ]
+      },
+      {
+        "suite": "brand",
+        "attempt": 1,
+        "exitCode": 0,
+        "seconds": 224.54,
+        "command": [
+          "node",
+          "tools/verify-mobile-v1-49-brand.mjs"
+        ]
+      },
+      {
+        "suite": "code-database",
+        "exitCode": 0,
+        "source": "final-public-candidate",
+        "log": "code-database.log"
+      },
+      {
+        "suite": "layouts-v150",
+        "exitCode": 0,
+        "source": "final-public-candidate",
+        "log": "layouts-v150.log"
+      },
+      {
+        "suite": "desktop",
+        "exitCode": 0,
+        "seconds": 8.76
+      },
+      {
+        "suite": "controls",
+        "exitCode": 0,
+        "seconds": 69.72
+      },
+      {
+        "suite": "additions",
+        "exitCode": 0,
+        "seconds": 121.98
+      }
+    ],
+    "nodeVersion": "v24.19.0",
+    "scope": "Full retained suite coverage plus final affected reruns. See verification-scope.json.",
+    "apiTests": "Synthetic browser API responses; actual SQLite regressions retained. Cache API is emulated with loader/D1-access counters and real middleware."
+  },
+  "changes": {
+    "DANCE-STUDIO-VERSION.txt": {
+      "status": "modified",
+      "bytes": 58,
+      "sha256": "fd95769dc28c0827d21553d5b60a91b72c7e73de57b7c77e9469f509a95c82e0"
+    },
+    "DEPLOY-V1.50-MAC-LINUX.sh": {
+      "status": "added",
+      "bytes": 151,
+      "sha256": "765b29fa5947f1ff59571a678e128ca8ba59e79b38710f49584654fd517ce21f"
+    },
+    "README.md": {
+      "status": "modified",
+      "bytes": 7105,
+      "sha256": "4fc59f69cd31045e071f56f5fa1fadc180783134bc050c4d0dfc798fa25eecce"
+    },
+    "START-HERE-V1.50.txt": {
+      "status": "added",
+      "bytes": 772,
+      "sha256": "7b78db5125b2a86817750cab7a4148d6225608a6e6702f4d65b8137f06e474b4"
+    },
+    "V1.50-FIXES.md": {
+      "status": "added",
+      "bytes": 4689,
+      "sha256": "01feadfa5c6d52dfd633b9af02989f9404b64496f787b0005c732c42426cc789"
+    },
+    "V1.50-VERIFICATION.md": {
+      "status": "added",
+      "bytes": 3671,
+      "sha256": "ace92abbc67bbbec99362ad9bb9f81c628b7827702f7499646598a425100d3fe"
+    },
+    "functions/_lib/edge-response-cache.js": {
+      "status": "modified",
+      "bytes": 5699,
+      "sha256": "eb91ff54e752bd6d8afe123911e34c59c81cf441d8eb0588b9ae07c26b7b33ab"
+    },
+    "functions/_middleware.js": {
+      "status": "modified",
+      "bytes": 22921,
+      "sha256": "115421028c6ec53add22a74ad9b493adb67dd5c9e8c6dc7cc933dc0cd21c9b97"
+    },
+    "functions/api/public/blogs.js": {
+      "status": "modified",
+      "bytes": 4927,
+      "sha256": "a31760de1454ee946b8286e750bee05fde5e6089ab0d7e7f4ee691e951c68176"
+    },
+    "functions/api/public/bootstrap.js": {
+      "status": "modified",
+      "bytes": 1067,
+      "sha256": "3246a2c8b6e3a720881b4c65d162ed2203e8e6c9ef9a2a511916dd1332c772f3"
+    },
+    "functions/api/public/products.js": {
+      "status": "modified",
+      "bytes": 605,
+      "sha256": "c376a78fe601905ba7bd6b30c486be04af6513267b9f3b702439cc6874536ca8"
+    },
+    "functions/api/public/site.js": {
+      "status": "modified",
+      "bytes": 1112,
+      "sha256": "3d318fb6d78068090651709d250573ddb056b0f00aa600e8c6d81d5b70cb35bb"
+    },
+    "functions/api/public/studio-gallery.js": {
+      "status": "modified",
+      "bytes": 932,
+      "sha256": "13d4bfd9efcc3a8ceae579fb9c5fb5387138150dab9fe5d06cf90bde002417b5"
+    },
+    "package-lock.json": {
+      "status": "modified",
+      "bytes": 49388,
+      "sha256": "63b4c49246a1500f0099e243329e78eee23700eb6400bc50ce42842d1a4c48b7"
+    },
+    "package.json": {
+      "status": "modified",
+      "bytes": 13558,
+      "sha256": "a7fe9d2dab9aaa2a208f1eaa14809d897e0d9d093832abfe7226647aec82381e"
+    },
+    "public/404.html": {
+      "status": "modified",
+      "bytes": 6669,
+      "sha256": "e6e3fd82bf52ef01b246254982e512d55091a51ccfe4738027c2e5c476564707"
+    },
+    "public/about.html": {
+      "status": "modified",
+      "bytes": 8038,
+      "sha256": "2ee50eb14bdaacd704564c80b002bee2e64d6b7014bb4551e7fa5ddd42b287e3"
+    },
+    "public/admin/admin.js": {
+      "status": "modified",
+      "bytes": 53055,
+      "sha256": "09113105ca1d1a412cb345cdd40a03d8dff5c70ca4366ecceb4703d2959526ac"
+    },
+    "public/admin/index.html": {
+      "status": "modified",
+      "bytes": 76698,
+      "sha256": "f1f3eb4567e5e5174b7f7e26f0adf74821af2293402a75f0ef338f1ec692723c"
+    },
+    "public/assets/app-extra.js": {
+      "status": "modified",
+      "bytes": 29090,
+      "sha256": "498de8c7a9ed20b18d98ff2efbc1ba3cecfc10fb35aa04f5991970073596b1e2"
+    },
+    "public/assets/app.js": {
+      "status": "modified",
+      "bytes": 46220,
+      "sha256": "8e999af68fa7ba65eae6caa3fb3e8754dc5117c74afa84aefdf798f38dbae6b7"
+    },
+    "public/assets/dropbeat-data-cache-v1-50.js": {
+      "status": "added",
+      "bytes": 4203,
+      "sha256": "ef523e0505d2045a073a89f130487e5e448b7db82c0f66e16313b6ba223d7962"
+    },
+    "public/assets/dropbeat-mobile-v1-50.css": {
+      "status": "added",
+      "bytes": 9833,
+      "sha256": "2d4d5b8670d218b3d3090a94307ef369011376160d26f233b03b9a389e701c3d"
+    },
+    "public/assets/dropbeat-public-mobile-v1-50.js": {
+      "status": "added",
+      "bytes": 3464,
+      "sha256": "998d0c90d7e1620e02d69572823aa621184c99adf6d8eb0c883f7a5245e3c7ea"
+    },
+    "public/assets/final-public-seo-ssl-speed.js": {
+      "status": "modified",
+      "bytes": 10607,
+      "sha256": "78feda0ea8fed7cbef156c2c16975d7a68d90b4ccccdfb64c8c8af0dc07ed519"
+    },
+    "public/blog-post.html": {
+      "status": "modified",
+      "bytes": 7955,
+      "sha256": "70594d1eae76cc6645ed496be00da25246d47640766d908d38d00a60954969ce"
+    },
+    "public/blog.html": {
+      "status": "modified",
+      "bytes": 8008,
+      "sha256": "883cfeb14c577553557aff897d82a9332c55fd228c2822134c2d172ae01f39ce"
+    },
+    "public/checkout.html": {
+      "status": "modified",
+      "bytes": 7773,
+      "sha256": "e16b9fa01a411ce7b47e03b26bdd33a64da2e970b431b2a196d938b0ec9bbd7b"
+    },
+    "public/coach-dashboard.html": {
+      "status": "modified",
+      "bytes": 7900,
+      "sha256": "601bc1b6eff46dbe571f715caeac124b2ddb0941a4cbd94a929ed6cc9136c794"
+    },
+    "public/contact.html": {
+      "status": "modified",
+      "bytes": 9663,
+      "sha256": "a111cdc7c925413648b7fc867fc866cf10744032ad4fffca6e2800f8e69965f8"
+    },
+    "public/custom-page.html": {
+      "status": "modified",
+      "bytes": 5721,
+      "sha256": "c21ba058b1de7ff4d3f4dd987dbe0c6bc181d9de99557c087990296e771330ba"
+    },
+    "public/faq.html": {
+      "status": "modified",
+      "bytes": 7799,
+      "sha256": "7cc5c07f036f33f531d7189be48b0021e2e728c8e96ff36c7c5c5c4955613830"
+    },
+    "public/festival-offers.html": {
+      "status": "modified",
+      "bytes": 8035,
+      "sha256": "62b58a0274ff5112bc61b2a80a23004b35e03401c66595bb79bae505cc05e40d"
+    },
+    "public/index.html": {
+      "status": "modified",
+      "bytes": 10653,
+      "sha256": "a2f249b68b6a5b3040e083fb7d58e6190685eb66678b948af257f1e30a367f0e"
+    },
+    "public/offer-details.html": {
+      "status": "modified",
+      "bytes": 8288,
+      "sha256": "cfc643d0f7e443b341b9fd7de8eefcf157e35b7cb384340c1e78e800fdd1bda9"
+    },
+    "public/offers.html": {
+      "status": "modified",
+      "bytes": 8766,
+      "sha256": "d2d248caacabaeed8128d1daf49c6cca5b5dc391ee6213ae86f8aac91b722587"
+    },
+    "public/privacy-policy.html": {
+      "status": "modified",
+      "bytes": 7685,
+      "sha256": "3f247d86da930432f20a93cd4c3d8cb8d4119b8316d4732b7baf67222cfa9098"
+    },
+    "public/refund-and-cancellation.html": {
+      "status": "modified",
+      "bytes": 7899,
+      "sha256": "33814a7b577d0421c4f9ebb3f8efaefeadfc2cf5d23538b0921dd782d2a85f7c"
+    },
+    "public/requests.html": {
+      "status": "modified",
+      "bytes": 11535,
+      "sha256": "b358c93cc0428a6d7de613dd3b8418c944e183a73520e27415c11ac01709120b"
+    },
+    "public/student-dashboard.html": {
+      "status": "modified",
+      "bytes": 7562,
+      "sha256": "c223a7dae92d4c84f49b796e9cbee2bb87e20f4fd0056796a8ec65f705f351ed"
+    },
+    "public/submit-profile.html": {
+      "status": "modified",
+      "bytes": 11318,
+      "sha256": "b959a5cfcaf85256c4d8d9ba4ec39d09151373600611382934b22a19fa5d9321"
+    },
+    "public/success-stories.html": {
+      "status": "modified",
+      "bytes": 7936,
+      "sha256": "78ba4d8cdd8db656bbb0ff35a41d6752482edd119ec0dd2a76405d601431595c"
+    },
+    "public/terms-and-conditions.html": {
+      "status": "modified",
+      "bytes": 7811,
+      "sha256": "40d6a266083a38934193d052da58278ca3ad1f0aa89403628ee19c44998be783"
+    },
+    "public/yearly-plans.html": {
+      "status": "modified",
+      "bytes": 7565,
+      "sha256": "20d5a6a205ff58bade9b3e79acaf3e1340056bcc153bd3fe38219a9dcefd1a03"
+    },
+    "tests/dance-studio-deployment.mjs": {
+      "status": "modified",
+      "bytes": 2361,
+      "sha256": "71e2a368f95658ad974028b540e40c0b7a1e256e04990140a5ad214ab71d2951"
+    },
+    "tests/dance-studio-v1-50-cache.mjs": {
+      "status": "added",
+      "bytes": 8628,
+      "sha256": "b97b48af5a4ef13e5a97167c2b588970cca63db31ccf08ac1553ebc5bd8c6352"
+    },
+    "tests/dance-studio-v1-50-release.mjs": {
+      "status": "added",
+      "bytes": 3411,
+      "sha256": "c4823372e11f7a3f3f0520251b8d74cd0edccadb0a12b43b6b2fea0f1c4d73c2"
+    },
+    "tests/v150-protected-files.json": {
+      "status": "added",
+      "bytes": 58875,
+      "sha256": "ddbbdd0737e3034f318cc32af7049749c8bc9fb4cb55e56ec078294a37552871"
+    },
+    "tools/v150-layout-cases.mjs": {
+      "status": "added",
+      "bytes": 8501,
+      "sha256": "70d6d1db83579b15a0d1d49b03c80bac332c325b65bece0b45ef1635fc382ef9"
+    },
+    "tools/verify-v1-50-layouts.mjs": {
+      "status": "added",
+      "bytes": 1179,
+      "sha256": "af0a52444f0c177dcad906dcdb453a0b2db5b0cee91978d4a514923a7fbf1a50"
+    },
+    "verification/v1.50/additions.log": {
+      "status": "added",
+      "bytes": 1452,
+      "sha256": "43db1d960ba4f841feda4d4415fe7169ea2f41f4de4e68160a581ba3537f3bce"
+    },
+    "verification/v1.50/brand.log": {
+      "status": "added",
+      "bytes": 1254,
+      "sha256": "6985232810dff41d2ca0f7a551143923a8346aebf8582e8f15ea9e9f479bd9cd"
+    },
+    "verification/v1.50/browser.log": {
+      "status": "added",
+      "bytes": 327,
+      "sha256": "a0776934abb57f12f0401fada8a971a4ae378c9bf6a6eb7638ee1fc690f435d1"
+    },
+    "verification/v1.50/code-database.log": {
+      "status": "added",
+      "bytes": 6076,
+      "sha256": "7aac91795107adb857c92adf8627c9bed06fbcf10438d40ea28d86e7c5af0c57"
+    },
+    "verification/v1.50/components.log": {
+      "status": "added",
+      "bytes": 550,
+      "sha256": "0efb18b11ac74332533c6836fe89eaef8a4f8690bd240804565f43825bfaab12"
+    },
+    "verification/v1.50/controls.log": {
+      "status": "added",
+      "bytes": 705,
+      "sha256": "752744381aba1d51cae55b866598a9b82d8e6da14b5604a3afe5ba9bbe682035"
+    },
+    "verification/v1.50/desktop.log": {
+      "status": "added",
+      "bytes": 170,
+      "sha256": "094e72717bdcf43969d6a5d48d08674ccf395b64889c31ca72e85f82515e077e"
+    },
+    "verification/v1.50/final.log": {
+      "status": "added",
+      "bytes": 596,
+      "sha256": "2d947e2b08996a57d5a8e922e02eddb8c6b9819316aac874472c2fe22f9118e1"
+    },
+    "verification/v1.50/layout-measurements.json": {
+      "status": "added",
+      "bytes": 33917,
+      "sha256": "d06d0cab1bbf154afd20746749b64eab54634132d01963a35585fa2c56b2ac7d"
+    },
+    "verification/v1.50/layouts-v150.log": {
+      "status": "added",
+      "bytes": 320,
+      "sha256": "728d30b916676be3da715aa5ad1cd9934ef166813a397945613070afe5649338"
+    },
+    "verification/v1.50/native.log": {
+      "status": "added",
+      "bytes": 839,
+      "sha256": "af8fb7c2e451985b09b222a90246c6eea31866cf9418ae26197537e2fcac2c1d"
+    },
+    "verification/v1.50/polish.log": {
+      "status": "added",
+      "bytes": 1412,
+      "sha256": "6313afd3193210ae2557c513a6e04c27d2a33339592f9fc03c514f6c3baf7072"
+    },
+    "verification/v1.50/results.json": {
+      "status": "added",
+      "bytes": 2321,
+      "sha256": "d76acbf785f838b8836ab9bfacfed1985683d286ab6b3fdb93fbee1f1b0e2da8"
+    },
+    "verification/v1.50/test-attempts.json": {
+      "status": "added",
+      "bytes": 3433,
+      "sha256": "25711df4c62e5577b822ac30d7a777fe6f001b488d7d6a1a6a89ad756c812a7b"
+    },
+    "verification/v1.50/verification-scope.json": {
+      "status": "added",
+      "bytes": 1783,
+      "sha256": "8c05f6d6d233aaec235fb92929cf4974a15c99eb098f51f650eef77166435bd2"
+    },
+    "verification/v1.50/workflows.log": {
+      "status": "added",
+      "bytes": 678,
+      "sha256": "bc785b246fcdb95065b7e7de5d1f4e6875ab369efc20cfc0907b220dde239aef"
+    }
+  }
+}

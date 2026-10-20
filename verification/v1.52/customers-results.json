@@ -1,0 +1,27 @@
+{
+  "results": [
+    "subscribers: one shared disclosure row, original live form, fixed footer, read-only review and original save endpoint",
+    "unsubscribed: one shared disclosure row, original live form, fixed footer, read-only review and original save endpoint",
+    "oneTimeUsers: one shared disclosure row, original live form, fixed footer, read-only review and original save endpoint",
+    "Subscriber CSV: dashed shared upload, original input/FileList/import function, sample download, review and exact CSV fields preserved across mode switches",
+    "320/390/760px viewports: full height scroll body, visible footer and no horizontal overflow",
+    "Light/dark surfaces and dynamic brand-colored global disclosure retained",
+    "Desktop accordion/controls restored with original nodes and attributes; mobile re-entry creates no duplicate rows/inputs"
+  ],
+  "colors": [
+    {
+      "mode": "light",
+      "background": "rgb(255, 255, 255)",
+      "text": "rgb(69, 69, 69)",
+      "chevron": "rgb(75, 85, 190)"
+    },
+    {
+      "mode": "dark",
+      "background": "rgb(37, 44, 64)",
+      "text": "rgb(227, 230, 242)",
+      "chevron": "rgb(75, 85, 190)"
+    }
+  ],
+  "errors": [],
+  "synthetic": true
+}

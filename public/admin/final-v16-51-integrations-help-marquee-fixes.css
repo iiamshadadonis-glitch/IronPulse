@@ -1,0 +1,59 @@
+/* V16.51 — targeted Integrations spacing/help fixes. Existing theme colors only. */
+
+/* SEO: keep only one visible status badge — the unified badge on the far right. */
+#socialMediaIntegrations #ucV152Blogger>summary #uc48SeoBadge,
+#socialMediaIntegrations #ucV152Blogger>summary>.uc-v168-status-badge,
+#socialMediaIntegrations [data-social-card="googleIndexing"]>summary>.uc-v168-limited-label{display:none!important}
+#socialMediaIntegrations #ucV152Blogger>summary>.uc50-seo-summary-title{display:inline-flex;align-items:center;min-width:0;white-space:normal}
+#socialMediaIntegrations #ucV152Blogger>summary>#uc50SeoSummaryBadge{margin-left:auto!important;margin-right:12px!important;flex:0 0 auto}
+
+/* Ad Networks: reserve visual breathing room between status and native details arrow. */
+#socialMediaIntegrations [data-uc49-pane="ads"] #adIntegrations details>summary{padding-right:64px!important;gap:14px!important}
+#socialMediaIntegrations [data-uc49-pane="ads"] #adIntegrations details>summary>.uc49-summary-status{margin-left:auto!important;margin-right:30px!important;flex:0 0 auto}
+
+
+/* API Settings: webhook URLs remain in the existing backend/integration cards, but the
+   duplicate legacy list is hidden immediately to avoid a flash before JS enhancement. */
+#socialMediaIntegrations [data-uc49-pane="api"] #webhookList,
+#socialMediaIntegrations [data-uc49-pane="api"] h3:has(+ #webhookList){display:none!important}
+
+/* API Settings automation help card. */
+#socialMediaIntegrations .uc51-api-automation-card{position:relative!important;min-width:0;padding-top:18px!important}
+#socialMediaIntegrations .uc51-api-automation-card>.uc-info-toolbar{top:14px!important;right:16px!important;z-index:20!important}
+#socialMediaIntegrations .uc51-api-automation-card>h3:first-of-type{padding-right:52px!important;margin-top:0!important}
+#socialMediaIntegrations .uc51-api-automation-card>.uc-info-back-panel{padding:0 22px 24px!important;max-height:min(72vh,760px)!important;overflow-y:auto!important;overflow-x:hidden!important;scrollbar-gutter:stable}
+#socialMediaIntegrations .uc51-automation-help{display:grid;gap:14px;min-width:0;line-height:1.55}
+#socialMediaIntegrations .uc51-automation-help h3,
+#socialMediaIntegrations .uc51-automation-help h4,
+#socialMediaIntegrations .uc51-automation-help p,
+#socialMediaIntegrations .uc51-automation-help ol,
+#socialMediaIntegrations .uc51-automation-help ul{margin:0}
+#socialMediaIntegrations .uc51-automation-help ol,
+#socialMediaIntegrations .uc51-automation-help ul{padding-left:24px;display:grid;gap:7px}
+#socialMediaIntegrations .uc51-automation-help .uc-example,
+#socialMediaIntegrations .uc51-automation-help .uc-warning{margin:0;padding:13px 14px;line-height:1.55}
+#socialMediaIntegrations .uc51-code{margin:0;max-width:100%;overflow:auto;border:1px solid var(--line);border-radius:12px;background:#ffffff;padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.5;color:var(--dark)}
+#socialMediaIntegrations .uc51-automation-help code{overflow-wrap:anywhere}
+
+/* Facebook / Instagram solution help — keep long instructions readable and collision-free. */
+#socialMediaIntegrations .uc51-meta-help{display:grid;gap:14px;min-width:0}
+#socialMediaIntegrations .uc51-meta-help h3,
+#socialMediaIntegrations .uc51-meta-help h4,
+#socialMediaIntegrations .uc51-meta-help p,
+#socialMediaIntegrations .uc51-meta-help ol,
+#socialMediaIntegrations .uc51-meta-help ul{margin:0}
+#socialMediaIntegrations .uc51-meta-help ol,
+#socialMediaIntegrations .uc51-meta-help ul{padding-left:24px;display:grid;gap:8px;line-height:1.55}
+#socialMediaIntegrations .uc51-meta-help .uc-example,
+#socialMediaIntegrations .uc51-meta-help .uc-warning{margin:0;padding:13px 14px;line-height:1.55}
+#socialMediaIntegrations .uc51-meta-help a,
+#socialMediaIntegrations .uc51-meta-help code{overflow-wrap:anywhere}
+
+@media(max-width:760px){
+  #socialMediaIntegrations [data-uc49-pane="ads"] #adIntegrations details>summary>.uc49-summary-status{margin-right:24px!important}
+  #socialMediaIntegrations .uc51-api-automation-card>.uc-info-back-panel{padding:0 15px 20px!important}
+  #socialMediaIntegrations .uc51-automation-help ol,
+  #socialMediaIntegrations .uc51-automation-help ul,
+  #socialMediaIntegrations .uc51-meta-help ol,
+  #socialMediaIntegrations .uc51-meta-help ul{padding-left:21px}
+}

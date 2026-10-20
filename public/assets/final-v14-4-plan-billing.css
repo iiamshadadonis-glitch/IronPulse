@@ -1,0 +1,7 @@
+.price.uc-trial-pricing{align-items:baseline}.price .trial-old-offer{text-decoration:line-through;color:#8c747b;font-size:20px;font-weight:800}.price .trial-now{font-size:32px;font-weight:950;color:var(--blue)}.price .regular-only{font-size:29px;font-weight:950;color:var(--blue-dark)}.yearly-empty{grid-column:1/-1;max-width:860px;margin:120px auto 0;padding:28px 32px!important;line-height:1.6;text-align:left}
+
+/* V16 global taxes — spacing only; existing public theme remains authoritative. */
+.uc-tax-applicable{display:block;margin-top:7px;font-size:12px;line-height:1.4;font-weight:700;opacity:.78}
+.summary-row.uc-tax-row{align-items:flex-start;gap:12px}
+.summary-row.uc-tax-row span:last-child{white-space:nowrap;text-align:right}
+@media(max-width:620px){.summary-row.uc-tax-row{gap:8px}.uc-tax-applicable{font-size:11px}}

@@ -1,0 +1,171 @@
+{
+  "results": [
+    "Mobile Buttons tab/rows, 2-step read-only review, exact typed confirmation, cancel/no write, warning layering, returned-data update and live cross-tab label/URL synchronization",
+    "Centered desktop edit/confirmation dialogs, dynamic product labels with original selected-plan/cart/count binding, Admin category labels and original plan creation action",
+    "Fresh cross-browser reload/BFCache return, 30-way client deduplication to one indexed read, 100 DOM renders without fetches, preserved expand/collapse icons and guarded reset of both categories",
+    "Inline invalid-target blocking, dark modal surfaces, existing tabs restored, live Header Order ownership restored after a dictionary override, and working default controls during a synthetic API outage"
+  ],
+  "requests": [
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/button-dictionary",
+      "method": "POST"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/public/button-dictionary",
+      "method": "GET"
+    }
+  ],
+  "posts": [
+    {
+      "action": "save",
+      "key": "front.header.trial",
+      "label": "Book & Dance",
+      "target": "/about.html?button=trial",
+      "expectedRevision": "defaults-v156",
+      "confirmation": "confirm"
+    },
+    {
+      "action": "save",
+      "key": "front.plan.book",
+      "label": "Reserve a Place",
+      "target": "action:book-plan",
+      "expectedRevision": "ac60fafb-a388-4c62-b15f-401b855cf7b2",
+      "confirmation": "confirm"
+    },
+    {
+      "action": "save",
+      "key": "front.header.checkout",
+      "label": "Cart",
+      "target": "/checkout",
+      "expectedRevision": "95614755-34a7-4c4a-b076-3f5b5bfa8449",
+      "confirmation": "confirm"
+    },
+    {
+      "action": "save",
+      "key": "admin.plan",
+      "label": "New Dance Pass",
+      "target": "action:new-plan",
+      "expectedRevision": "7cb7d2e3-87b4-4873-ad2d-7d5348193f36",
+      "confirmation": "confirm"
+    },
+    {
+      "action": "save",
+      "key": "front.auth.login",
+      "label": "Access Account",
+      "target": "action:login",
+      "expectedRevision": "b75cc028-2e0d-4143-a93d-eed2a2b823a7",
+      "confirmation": "confirm"
+    },
+    {
+      "action": "reset",
+      "expectedRevision": "71e4d11a-b3f9-4232-9641-21f1fcdb9886",
+      "confirmation": "confirm"
+    }
+  ],
+  "dictionaryReads": 28,
+  "contrasts": [
+    {
+      "selector": "[data-db156-reset]",
+      "ratio": 5.355981064140081
+    },
+    {
+      "selector": "[data-db156-confirm]",
+      "ratio": 7.656111362721227
+    }
+  ],
+  "errors": [],
+  "synthetic": true,
+  "realSqliteAndHandlers": true
+}

@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import {DatabaseSync} from 'node:sqlite';
+import {onRequestGet as getAdmin,onRequestPost as postAdmin} from '../functions/api/admin/button-dictionary.js';
+import {onRequestGet as getPublic} from '../functions/api/public/button-dictionary.js';
+import {BUTTON_DEFINITIONS,normalizeButtonTarget} from '../public/assets/button-dictionary-defaults-v1-56.js';
+const sql=new DatabaseSync(':memory:');sql.exec('CREATE TABLE settings(key TEXT PRIMARY KEY,value TEXT NOT NULL,updated_at TEXT DEFAULT CURRENT_TIMESTAMP)');sql.prepare('INSERT INTO settings(key,value) VALUES(?,?)').run('site_settings','{"siteName":"Original brand","primaryColor":"untouched"}');
+let reads=0,writes=0;class Statement{constructor(text){this.text=text;this.args=[];}bind(...args){this.args=args;return this;}async first(){if(/^SELECT/.test(this.text))reads++;else writes++;return sql.prepare(this.text).get(...this.args)||null;}}
+const env={ADMIN_DEVELOPMENT_BYPASS:'true',DB:{prepare:text=>new Statement(text)}};
+const origin='https://buttons.example';const req=(path,body,headers={})=>new Request(origin+path,body?{method:'POST',headers:{'content-type':'application/json',...headers},body:JSON.stringify(body)}:undefined);
+const post=body=>postAdmin({request:req('/api/admin/button-dictionary',body),env});
+const cache=new Map(),oldCaches=globalThis.caches;globalThis.caches={default:{async match(r){return cache.get(r.url)?.clone();},async put(r,v){cache.set(r.url,v.clone());},async delete(r){return cache.delete(r.url);}}};
+try{
+ assert.equal((await getAdmin({request:req('/api/admin/button-dictionary'),env:{DB:env.DB}})).status,401);
+ assert.equal((await postAdmin({request:req('/api/admin/button-dictionary',{action:'reset',confirmation:'confirm'}),env:{DB:env.DB}})).status,401);
+ const initial=await (await getAdmin({request:req('/api/admin/button-dictionary'),env})).json();assert.equal(initial.buttons.length,BUTTON_DEFINITIONS.length);assert.equal(initial.revision,'defaults-v156');
+ for(const label of ['Checkout','Book a Trial','Explore Dance Plans','My Membership','Discover DropBeat','Book the Class','Book Now','Details','See All Plans','Login','Sign Up','Student Sign Up','See more','See less'])assert.ok(initial.buttons.some(b=>b.label===label),label);
+ const readBudget=reads;assert.equal((await post({action:'save',key:'front.header.trial',label:'New',target:'/new',expectedRevision:initial.revision})).status,400);assert.equal(reads,readBudget,'Unconfirmed changes never read or write the dictionary');assert.equal(writes,0);
+ assert.equal((await post({action:'reset',confirmation:'Confirm',expectedRevision:initial.revision})).status,400);assert.equal(writes,0);
+ const warmReq=req('/api/public/button-dictionary');const first=await getPublic({request:warmReq,env});assert.equal(first.status,200);const publicData=await first.json();assert.ok(publicData.buttons.every(b=>b.category==='front'));assert.equal(publicData.buttons.some(b=>b.key.startsWith('admin.')),false);
+ const beforeWarm=reads;for(let i=0;i<15;i++)assert.equal((await getPublic({request:warmReq,env})).headers.get('x-uc-edge-cache'),'HIT');assert.equal(reads,beforeWarm,'Warm normal Edge reads touch no database rows');
+ const savedResponse=await post({action:'save',key:'front.header.trial',label:'Book & Dance',target:'/trial-new',expectedRevision:initial.revision,confirmation:'confirm'});assert.equal(savedResponse.status,200);const saved=await savedResponse.json();assert.equal(saved.buttons.find(b=>b.key==='front.header.trial').label,'Book & Dance');assert.equal(cache.size,0,'Save purges the dictionary Edge entry before returning');
+ const beforeFresh=reads;const freshReq=new Request(origin+'/api/public/button-dictionary',{headers:{'X-DropBeat-Revalidate':'1'}});const burst=await Promise.all(Array.from({length:50},()=>getPublic({request:freshReq,env})));assert.equal(reads,beforeFresh+1,'50 simultaneous validation requests share one indexed settings read');for(const response of burst)assert.equal((await response.json()).revision,saved.revision);
+ const oldWriteCount=writes;assert.equal((await post({action:'save',key:'front.header.trial',label:'Stale overwrite',target:'/stale',expectedRevision:initial.revision,confirmation:'confirm'})).status,409);assert.equal(writes,oldWriteCount);
+ for(const [label,target]of [['<script>bad</script>','/x'],['Valid','javascript:alert(1)'],['Valid','data:text/html,bad'],['Valid','//evil.example/path'],['Valid','/a/..//evil.example/path'],['Valid','/a/../%2fevil.example/path'],['Valid','https://user:pass@evil.example'],['Valid','action:delete-payments']]){assert.equal((await post({action:'save',key:'front.header.trial',label,target,expectedRevision:saved.revision,confirmation:'confirm'})).status,400);assert.equal(writes,oldWriteCount);}
+ assert.equal((await postAdmin({request:req('/api/admin/button-dictionary',{action:'reset',confirmation:'confirm',expectedRevision:saved.revision},{origin:'https://other.example'}),env})).status,403);
+ assert.equal((await post({action:'save',key:'unknown.key',label:'Valid',target:'/x',expectedRevision:saved.revision,confirmation:'confirm'})).status,400);assert.equal(writes,oldWriteCount);
+ assert.equal(normalizeButtonTarget('trial',BUTTON_DEFINITIONS[0]),'/trial');
+ const raceBody={action:'save',key:'front.header.checkout',label:'Cart',target:'/checkout',expectedRevision:saved.revision,confirmation:'confirm'};const race=await Promise.all([post(raceBody),post({...raceBody,label:'Second'})]);assert.deepEqual(race.map(r=>r.status).sort(),[200,409],'Atomic compare-and-swap rejects concurrent stale edits');
+ const current=await (await getAdmin({request:req('/api/admin/button-dictionary'),env})).json();assert.ok(current.updatedAt>saved.updatedAt,'Revisions have monotonic timestamps for stale-response rejection');
+ const reset=await post({action:'reset',expectedRevision:current.revision,confirmation:'confirm'});assert.equal(reset.status,200);const defaults=await reset.json();for(const row of defaults.buttons){assert.equal(row.label,row.defaultLabel);assert.equal(row.target,row.defaultTarget);}
+ assert.deepEqual(JSON.parse(sql.prepare('SELECT value FROM settings WHERE key=?').get('button_dictionary').value).overrides,{});assert.equal(sql.prepare('SELECT value FROM settings WHERE key=?').get('site_settings').value,'{"siteName":"Original brand","primaryColor":"untouched"}');
+ const failed={DB:{prepare(){throw Error('Synthetic failure');}}};assert.equal((await getPublic({request:freshReq,env:failed})).status,503);
+ console.log('V1.56 button API/database tests passed: complete inventory, authorization, exact confirmation, URL/text validation, atomic revision conflicts, cache purge, 50-way read deduplication, defaults reset, outage handling and unrelated settings preserved.');
+}finally{globalThis.caches=oldCaches;sql.close();}

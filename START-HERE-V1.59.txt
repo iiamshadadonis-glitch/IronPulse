@@ -1,0 +1,33 @@
+DROPBEAT V1.59 — COMPLETE REPLACEMENT PROJECT
+
+Built directly from the supplied V1.58 ZIP, retaining every original file and
+the earlier mobile, Layout, Buttons, persistent-session and Notifications work.
+Use the contents of the DropBeat-V1.59 folder as the complete replacement project.
+
+WHAT CHANGED
+- Saved navigation labels now have one owner: the shared dynamic data store.
+  Admin/sidebar/public-header/footer names no longer alternate with legacy names.
+- Initial labels show gray placeholders until validated configuration is ready.
+  Failed or stalled configuration requests show Retry instead of old labels.
+- Schedule loads reliably on both desktop and mobile. Requests time out after
+  15 seconds, errors show Retry, and Schedule/Leaves/Holidays remain usable.
+- Desktop Studio Schedule now has 24px separation below its heading/description.
+  The mobile spacing is preserved.
+- Mobile More navigation and original nested-page routing remain functional.
+
+INSTALLATION
+Keep the existing Cloudflare configuration, D1 binding, environment variables and
+secrets. Deploy the complete public assets and Functions together through your
+normal workflow. This release adds no dependency, database migration or new secret.
+Backend payment/refund/authentication rules, integrations and theme palettes are
+unchanged. Server-side default label registries are preserved; they are not used
+as initial frontend placeholders.
+
+VERIFICATION
+Read V1.59-FIXES.md and V1.59-VERIFICATION.md for scope and executed test results.
+Code/database checks: npm run test:dance-v1.59
+Focused browser checks: npm run test:dance-v1.59:browser
+Browser tests need Playwright and Chromium. Supply their existing paths using
+DROPBEAT_PLAYWRIGHT_MODULE and DROPBEAT_CHROMIUM_PATH; no new dependency is bundled.
+V1.59-MANIFEST.sha256 lists every replacement file except the manifest itself.
+Earlier release notes/tests/manifests are retained as historical records.

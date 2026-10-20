@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dance-class-at2",
+  "compatibility_date": "2026-08-01",
+  "pages_build_output_dir": "./public",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dance-class",
+      "database_id": "16c9361a-625c-4c71-8ecb-6608a8836152"
+    }
+  ],
+  "vars": {
+    "SITE_URL": "https://dance-class-at2.pages.dev",
+    "SITE_NAME": "DropBeat Dance Studio",
+    "ADMIN_EMAILS": "you@example.com",
+    "ADMIN_DEVELOPMENT_BYPASS": "false",
+    "WHATSAPP_ADMIN_NUMBER": "9193919375",
+    "GREEN_API_ADMIN_NUMBER": "919381521966",
+    "WHATSAPP_PHONE_NUMBER_ID": "",
+    "WHATSAPP_OTP_TEMPLATE_NAME": "dance_studio_otp",
+    "GREEN_API_INSTANCE_ID": "",
+    "MEDIA_PUBLIC_BASE_URL": "/api/media",
+    "DEFAULT_CURRENCY": "INR",
+    "APP_STORAGE_LIMIT_MB": "500",
+    "SUBSCRIPTION_HORIZON_YEARS": "21",
+    "STRIPE_FALLBACK_ENABLED": "false",
+    "MEDIA_STORAGE_MODE": "d1-pages-no-r2",
+    "ADMIN_LOGIN_EMAIL": "admin@dance-class.local",
+    "ADMIN_LOGIN_PASSWORD": "DropBeat@2026!FirstLogin"
+  }
+}

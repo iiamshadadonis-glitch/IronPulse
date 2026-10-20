@@ -1,0 +1,39 @@
+[
+  {
+    "suite": "code-database",
+    "command": [
+      "npm",
+      "run",
+      "test:dance-v1.49"
+    ],
+    "exitCode": 0,
+    "seconds": 12.9
+  },
+  {
+    "suite": "controls",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-controls.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 93.15
+  },
+  {
+    "suite": "desktop",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-desktop.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 15.32
+  },
+  {
+    "suite": "final",
+    "command": [
+      "node",
+      "tools/verify-mobile-v1-49-final.mjs"
+    ],
+    "exitCode": 0,
+    "seconds": 89.43
+  }
+]

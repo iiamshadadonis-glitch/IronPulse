@@ -1,0 +1,12 @@
+DROPBEAT V1.55 — COMPLETE REPLACEMENT PROJECT
+
+All fixes are included in this project. This is not a patch-only download.
+Use the contents of the DropBeat-V1.55 folder as your complete project.
+
+V1.55-FIXES.md explains the 32px mobile header controls, 16px SVGs and larger invisible touch areas.
+V1.55-VERIFICATION.md lists the tests actually executed and their scope.
+Current code regression command: npm run test:dance-v1.55
+
+Cloudflare deployment configuration, D1 bindings, migrations, business logic and theme palettes are retained.
+Historical release notes and tests remain for reference.
+V1.55-MANIFEST.sha256 lists the current replacement project files.

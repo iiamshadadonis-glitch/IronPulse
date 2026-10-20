@@ -1,0 +1,52 @@
+/* V15.7: layout-only additions. Existing theme/color variables are reused. */
+.uc-v157-audition-tabs{gap:7px;row-gap:8px}.uc-v157-audition-tabs .pill{white-space:nowrap}
+.uc-v157-schedule-card{margin:14px 0;padding:14px;border:1px solid var(--line);border-radius:15px;background:var(--card)}
+.uc-v157-schedule-toggle{display:flex;align-items:center;justify-content:space-between;gap:18px;cursor:pointer;margin:0}.uc-v157-schedule-toggle span{display:grid;gap:4px;min-width:0}.uc-v157-schedule-toggle small{font-weight:500;color:var(--muted);line-height:1.4}.uc-v157-schedule-toggle input{position:absolute;opacity:0;pointer-events:none}.uc-v157-schedule-toggle i{width:42px;height:24px;border:1px solid var(--line);border-radius:999px;background:var(--card);position:relative;flex:0 0 auto}.uc-v157-schedule-toggle i:after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--muted);transition:.18s ease}.uc-v157-schedule-toggle input:checked+i{border-color:var(--pink)}.uc-v157-schedule-toggle input:checked+i:after{left:21px;background:var(--pink)}
+.uc-v157-schedule-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}.uc-v157-schedule-fields[hidden]{display:none!important}.uc-v157-schedule-fields .field{margin:0}
+.uc-v157-comment-source{display:inline-flex;margin-top:5px}
+.uc-v157-native-order-select{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;margin:0!important;padding:0!important}
+.uc-v157-order-select-trigger{min-width:132px;max-width:155px;height:38px;padding:0 10px 0 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:8px;font:inherit;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap}.uc-v157-order-select-trigger span{overflow:hidden;text-overflow:ellipsis}.uc-v157-order-select-trigger svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.uc-v157-order-select-menu{position:fixed;z-index:10050;max-height:126px;overflow-y:auto;padding:5px;border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:0 16px 38px rgba(0,0,0,.18)}.uc-v157-order-select-menu button{display:block;width:100%;min-height:36px;border:0;border-radius:8px;background:transparent;color:var(--text);font:inherit;font-size:13px;font-weight:750;text-align:left;padding:8px 10px;cursor:pointer}.uc-v157-order-select-menu button:hover,.uc-v157-order-select-menu button.active{background:var(--uc-v5-soft)}
+.uc-v13-order-action-stack{align-items:flex-start}
+@media(max-width:760px){.uc-v157-schedule-fields{grid-template-columns:1fr}.uc-v157-order-select-trigger{min-width:124px}}
+
+/* V15.8 touch-up: keep only the final themed Order workflow control. */
+.uc-v158-order-action-stack{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;width:156px!important;min-width:156px!important;align-items:start!important;align-content:start!important;padding:0!important}
+.uc-v158-order-action-stack>.uc-v157-order-select-trigger{width:100%!important;min-width:0!important;max-width:none!important}
+.uc-v158-order-action-stack>.uc-v14-order-save,.uc-v158-order-action-stack>.uc-v15-order-save{width:100%!important;min-width:0!important;margin:0!important}
+
+/* Audition helper spacing stays comfortable after the Featured + Schedule guidance was added. */
+#blogs details.admin-collapsed-card .uc-info-back-body.uc-v158-audition-info{padding:20px 22px!important}
+#blogs details.admin-collapsed-card .uc-info-back-body.uc-v158-audition-info>h3{margin-top:0}
+#blogs details.admin-collapsed-card .uc-info-back-body.uc-v158-audition-info li{margin-bottom:7px;line-height:1.5}
+
+/* Subscription Overview: reserve enough width for complete Previous Bill values so
+   the amount can never flow into Next Charge. All columns remain one horizontal row. */
+.uc-multi-sub-grid{
+  grid-template-columns:
+    220px  /* Customer */
+    230px  /* Email */
+    140px  /* Phone */
+    115px  /* Gateway */
+    235px  /* Plan / Offer */
+    125px  /* Payment Type */
+    140px  /* Payment Mode */
+    220px  /* UPI ID */
+    120px  /* Amount */
+    125px  /* Status */
+    210px  /* Previous Bill */
+    165px  /* Next Charge */
+    135px  /* Next Amount */
+    115px  /* Total Cycles */
+    110px  /* Paid Cycles */
+    110px  /* Remaining */
+    280px  /* Attempts / Note */ !important;
+  min-width:2805px!important;
+  width:2805px!important;
+}
+.uc-grid-empty{min-width:2805px!important;width:2805px!important}
+
+/* V15.9: keep the publish/schedule result visible after the form card collapses. */
+#blogs .uc-v159-audition-outcome{margin:14px 0 16px;padding:0 2px}
+#blogs .uc-v159-audition-outcome>.notice,
+#blogs .uc-v159-audition-outcome>.error{margin:0;padding:12px 14px;line-height:1.5;border-radius:12px}

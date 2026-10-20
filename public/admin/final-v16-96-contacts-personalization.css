@@ -1,0 +1,38 @@
+/* V16.96 — Contacts, red one-time parent alerts, contact modal and @ tokens. */
+#contacts .uc96-contact-tools{display:grid;grid-template-columns:minmax(240px,1fr) auto auto auto auto;gap:10px;align-items:end}
+#contacts .uc96-contact-tools .field{margin:0}
+#contacts .uc96-contact-summary{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+#contacts .uc96-contact-summary span{padding:8px 12px;border:1px solid var(--line,#dedfec);border-radius:999px;background:#fff;font-size:13px}
+#contacts .uc96-contact-table{min-width:1050px}
+#contacts .uc96-contact-table th,#contacts .uc96-contact-table td{vertical-align:top;max-width:260px;overflow-wrap:anywhere}
+.uc97-contact-grid-wrap{min-width:900px;border:1px solid var(--line,#dedfec);border-radius:16px;overflow:hidden;background:#fff}
+.uc97-contact-grid{display:grid;grid-template-columns:44px minmax(145px,1.05fr) minmax(205px,1.35fr) minmax(125px,.8fr) minmax(115px,.72fr) minmax(160px,.9fr);gap:14px;align-items:center;padding:12px 14px}
+.uc97-contact-grid>div{min-width:0;overflow-wrap:anywhere}
+.uc97-contact-grid-head{background:var(--primary,#4B55BE);color:#fff;font-size:12px;font-weight:850;letter-spacing:.02em}
+.uc97-contact-grid-row{border-top:1px solid var(--line,#dedfec);font-size:13px}
+.uc97-contact-grid-row:hover{background:#fffaf4}
+.uc97-contact-grid-row small{display:block;margin-top:4px}
+.uc97-contact-empty{padding:28px 18px;text-align:center;color:#77636a;border-top:1px solid var(--line,#dedfec)}
+.uc97-contact-link{color:var(--primary,#4B55BE);font-weight:750;text-decoration:underline;text-underline-offset:3px}
+#contacts .uc96-contact-name,.uc96-inbox-contact-name{border:0;background:transparent;color:var(--primary,#4B55BE);font:inherit;font-weight:850;padding:0;text-align:left;cursor:pointer;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+#contacts .uc96-social-list{display:flex;gap:5px;flex-wrap:wrap}
+#contacts .uc96-social-list span{padding:4px 7px;border-radius:999px;background:#ffffff;border:1px solid #eed69b;font-size:11px;font-weight:750}
+.uc96-contact-modal-card{max-width:900px!important;max-height:88vh;overflow:auto}
+.uc96-contact-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.uc96-contact-field{padding:12px;border:1px solid var(--line,#dedfec);border-radius:14px;background:#fff}
+.uc96-contact-field small{display:block;color:#77636a;margin-bottom:4px;font-weight:750}
+.uc96-contact-field strong{display:block;overflow-wrap:anywhere}
+.uc96-contact-aliases{margin-top:16px;padding:0 14px;border:1px solid var(--line,#dedfec);border-radius:14px;background:#fffaf4}
+.uc96-contact-aliases summary{padding:13px 0;font-weight:850;cursor:pointer}
+.uc96-contact-aliases ul{margin:0 0 14px;padding-left:20px}
+.uc96-privacy-note{margin-top:14px}
+.uc96-token-menu{position:fixed;z-index:100000;width:min(330px,calc(100vw - 24px));max-height:260px;overflow:auto;padding:6px;border:1px solid #d8bda7;border-radius:14px;background:#fff;box-shadow:0 16px 42px rgba(50,0,10,.22)}
+.uc96-token-menu button{display:flex;width:100%;flex-direction:column;gap:2px;border:0;border-radius:10px;background:transparent;padding:9px 10px;text-align:left;cursor:pointer}
+.uc96-token-menu button:hover,.uc96-token-menu button.active{background:#fff1c8;color:#76020d}
+.uc96-token-menu button strong{font-size:13px}.uc96-token-menu button small{font-size:11px;color:#765f66}
+.side .nav .nav-group[data-group-title="Business Ops"]>.nav-group-toggle>.uc96-notification-badge,
+.side .nav [data-tab="operationsHub"]>.uc96-notification-badge{background:#e11d2e!important;color:#fff!important;border-color:#fffaf4!important}
+.uc96-help-guide{line-height:1.62}.uc96-help-guide h3{margin-top:0}.uc96-help-guide h4{margin:18px 0 6px;color:var(--primary,#4B55BE)}
+.uc96-help-guide ul{padding-left:22px}.uc96-help-guide .uc96-help-links{display:flex;flex-wrap:wrap;gap:10px}.uc96-help-guide .uc96-help-links a{font-weight:800}
+@media(max-width:1000px){#contacts .uc96-contact-tools{grid-template-columns:1fr 1fr}.uc96-contact-fields{grid-template-columns:1fr}}
+@media(max-width:620px){#contacts .uc96-contact-tools{grid-template-columns:1fr}#contacts .uc96-contact-tools .btn{width:100%}}

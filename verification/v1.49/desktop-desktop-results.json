@@ -1,0 +1,20 @@
+{
+  "result": "passed",
+  "checks": [
+    "all three portals",
+    "existing custom hidden picker remains hidden",
+    "original input identity and parent",
+    "custom-button source target",
+    "original change handler and FileList",
+    "visible CSV drop zones",
+    "mobile/desktop restoration",
+    "original desktop Import Plans API binding"
+  ],
+  "writes": [
+    {
+      "path": "/api/admin/import-products",
+      "body": "{\"rows\":[{\"name\":\"Final Desktop Plan\",\"sku\":\"DESKTOP-FINAL-149\",\"regular_price\":\"199\"}]}"
+    }
+  ],
+  "errors": []
+}

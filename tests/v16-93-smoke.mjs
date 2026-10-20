@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {DEFAULT_MARKETING,DEFAULT_WEBINARS,normalizeStages} from '../functions/_lib/marketing-suite.js';
+const read=p=>readFile(new URL(`../${p}`,import.meta.url),'utf8');
+const [version,index,integrations,ui,css,core,api,heat,tracker,migration,notes]=await Promise.all([
+  read('VERSION.txt'),read('public/admin/index.html'),read('public/admin/final-v16-93-marketing-integrations.js'),read('public/admin/final-v16-93-marketing-ui.js'),read('public/admin/final-v16-93-marketing-integrations.css'),read('functions/_lib/marketing-suite.js'),read('functions/api/admin/marketing-suite.js'),read('functions/api/public/heatmap.js'),read('public/assets/final-v16-92-marketing-tracker.js'),read('migrations/0040_v16_93_marketing_integrations_email.sql'),read('RELEASE-NOTES-V16.93.md')
+]);
+assert.match(version.trim(),/^(?:V16\.(?:9[3-9]|[1-9]\d{2,})|V(?:1[7-9]|[2-9]\d)\.\d+)$/);
+for(const asset of ['final-v16-93-marketing-integrations.css','final-v16-93-marketing-integrations.js','final-v16-93-marketing-ui.js'])assert.match(index,new RegExp(asset.replaceAll('.','\\.')));
+for(const provider of ['Google Ads API + YouTube Ads','Meta Ads + Conversions API','Pinterest Ads','X Ads','Snapchat Ads','Mailchimp Email Marketing'])assert.match(integrations,new RegExp(provider.replace(/[+]/g,'\\+')));
+for(const provider of ['Google Calendar + Google Meet','Zoom','External Meeting Provider'])assert.match(integrations,new RegExp(provider.replace(/[+]/g,'\\+')));
+assert.doesNotMatch(integrations,/Connected Social Advertising/);
+assert.match(integrations,/Connected .* Integrations/);
+assert.match(integrations,/data-uc93-help/);
+assert.match(integrations,/data-row-toggle/);
+assert.match(integrations,/data-row-delete/);
+assert.match(css,/grid-template-columns:minmax\(205px/);
+assert.match(css,/data-device="desktop"/);
+assert.match(ui,/Save Workspace Draft/);
+assert.match(ui,/Send through Mailchimp/);
+assert.match(ui,/No consented data for these filters/);
+assert.match(ui,/mode=heatmap_paths/);
+assert.match(core,/sendEmailCampaign/);
+assert.match(core,/api\.mailchimp\.com\/3\.0/);
+assert.match(core,/oauth1Header/);
+assert.match(api,/action==='disconnect_marketing'/);
+assert.match(api,/action==='send_email_campaign'/);
+assert.match(api,/mode==='heatmap_paths'/);
+assert.match(heat,/env\.DB\.batch\(statements\)/);
+assert.match(tracker,/visibilitychange/);
+assert.match(tracker,/flushHeat\(\);\},60000/);
+assert.match(migration,/CREATE TABLE IF NOT EXISTS marketing_email_campaigns/);
+assert.ok('mailchimp' in DEFAULT_MARKETING&&'xAds' in DEFAULT_MARKETING&&'snapchatAds' in DEFAULT_MARKETING);
+assert.ok('google' in DEFAULT_WEBINARS&&'zoom' in DEFAULT_WEBINARS);
+assert.deepEqual(normalizeStages([{name:'Useful explanation',channels:['google','email','invalid'],delayHours:24}])[0].channels,['google','email']);
+assert.match(notes,/workspace plan.*does not publish/i);
+console.log('V16.93 smoke checks passed.');

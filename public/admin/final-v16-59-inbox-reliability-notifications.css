@@ -1,0 +1,31 @@
+/* V16.59 — Inbox-only presentation additions. Existing brand/theme colors are reused. */
+#socialDMs>.top{gap:10px;flex-wrap:wrap}
+#socialDMs>.top>div:first-child{margin-right:auto}
+#socialDMs .uc59-notification-button{white-space:nowrap}
+
+/* Make platform identity obvious in tabs and on conversation avatars. */
+#socialDMs .uc57-tab-icon{width:24px;height:24px;font-size:13px;border-width:1px}
+#socialDMs .uc57-platform-dot{width:22px;height:22px;font-size:11px;border-width:2px;right:-3px;bottom:-3px}
+#socialDMs .uc57-tab-icon.facebook,#socialDMs .uc57-platform-dot.facebook{font-family:Arial,sans-serif;font-weight:900;font-size:14px}
+#socialDMs .uc57-platform-dot.facebook{font-size:12px}
+#socialDMs .uc59-instagram-camera{width:15px;height:15px;display:block;color:#fff}
+#socialDMs .uc57-tab-icon .uc59-instagram-camera{width:16px;height:16px}
+
+/* Full category-based emoji picker remains hidden until the emoji button is clicked. */
+#socialDMs .uc56-emoji-row.uc59-emoji-picker{display:block;padding:0;margin:0 0 9px;border:1px solid var(--line,#ead2b1);border-radius:14px;background:var(--surface,#fffaf4);overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+#socialDMs .uc56-emoji-row.uc59-emoji-picker[hidden]{display:none!important}
+#socialDMs .uc59-emoji-categories{display:flex;align-items:center;gap:3px;padding:7px;border-bottom:1px solid var(--line,#ead2b1);overflow-x:auto}
+#socialDMs .uc59-emoji-category{flex:0 0 34px;width:34px;height:34px;border:0;border-radius:9px;background:transparent;font-size:19px;cursor:pointer}
+#socialDMs .uc59-emoji-category:hover,#socialDMs .uc59-emoji-category.active{background:color-mix(in srgb,var(--blue,#4B55BE) 9%,transparent)}
+#socialDMs .uc59-emoji-grid{display:grid;grid-template-columns:repeat(10,minmax(34px,1fr));gap:2px;max-height:235px;overflow:auto;padding:8px}
+#socialDMs .uc59-emoji-choice{min-width:34px;height:36px;border:0;border-radius:8px;background:transparent;font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center}
+#socialDMs .uc59-emoji-choice:hover,#socialDMs .uc59-emoji-choice:focus-visible{background:rgba(0,0,0,.06);outline:none}
+
+/* Paperclip communicates attachment more clearly without changing upload behavior. */
+#socialDMs .uc59-paperclip{width:22px;height:22px;display:block}
+#socialDMs .uc59-attach-button{font-size:0}
+
+@media(max-width:760px){
+  #socialDMs>.top .uc59-notification-button{order:2}
+  #socialDMs .uc59-emoji-grid{grid-template-columns:repeat(7,minmax(34px,1fr));max-height:210px}
+}

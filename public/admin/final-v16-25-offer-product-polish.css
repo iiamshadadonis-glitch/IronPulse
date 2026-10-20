@@ -1,0 +1,16 @@
+/* V16.25 additive admin polish — no theme palette changes. */
+.uc-v1625-media-info,.uc-v1625-media-back{flex:0 0 auto!important}
+#mediaModal .uc-info-svg,#mediaModal .uc-back-svg{width:30px!important;height:30px!important;display:block!important}
+#mediaModal .uc-v1624-media-top-actions{gap:10px!important;align-items:center!important}
+#mediaModal .uc-v1624-help-head{align-items:center!important;padding:2px 0 16px!important}
+#mediaModal #ucV1624MediaForm{display:grid;gap:14px!important}
+#mediaModal .uc-v1624-media-options{margin-top:2px!important}
+#mediaModal .uc-v1624-status-fields{margin-top:0!important}
+#mediaModal .form-actions{padding-top:0!important;margin-top:0!important}
+#currentProductMedia .sortable-media{align-items:stretch!important}
+#currentProductMedia .media-card{display:flex!important;flex-direction:column!important;gap:8px!important;padding:10px!important;min-width:0!important}
+#currentProductMedia .media-card>img{width:100%!important;aspect-ratio:9/11!important;height:auto!important;object-fit:contain!important;object-position:center!important;background:#fffaf4!important;border:1px solid var(--line)!important;border-radius:12px!important}
+#currentProductMedia .media-card>small{min-height:30px;line-height:1.35}
+#currentProductMedia .uc-existing-cover-choice{margin-top:auto!important;padding:5px 0!important}
+.uc-plan-interest-note{margin-top:14px!important}.uc-plan-interest-list{display:grid;gap:8px;margin-top:8px}.uc-plan-interest-list>div{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fcfcfe}.uc-plan-interest-list small{color:var(--muted);white-space:nowrap}
+@media(max-width:720px){#mediaModal .uc-v1624-media-modal-card{padding:16px!important}#currentProductMedia .media-card>img{max-height:440px}.uc-plan-interest-list>div{flex-direction:column;gap:3px}.uc-plan-interest-list small{white-space:normal}}

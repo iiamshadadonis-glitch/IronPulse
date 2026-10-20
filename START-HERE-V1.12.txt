@@ -1,0 +1,38 @@
+DROPBEAT DANCE STUDIO — COMPLETE REPLACEMENT V1.12
+==================================================
+
+This is a complete replacement package. It is not a collection of code snippets.
+
+HOW TO USE IT
+-------------
+1. Keep a backup of the currently deployed V1.11 package.
+2. Replace the old project files with every file and folder in this V1.12 folder.
+3. Deploy the complete project using the same Cloudflare Pages method you already use.
+4. After deployment, open the admin panel and refresh the page once.
+
+You do not need to paste individual JavaScript, CSS, SQL, or npm commands into the
+website. V1.12 does not add a database migration; it uses the existing V1.11 schema.
+
+FIRST CHECK AFTER DEPLOYMENT
+----------------------------
+1. Refresh the admin page, then click Business Ops -> Sales once. The Sales workspace
+   must open immediately and must not show a blank page.
+2. Open Settings -> Pages -> Coaches & Founding Team. Confirm every non-archived coach
+   appears there.
+3. Open Online Classes, Offline Classes, and Demo / Webinar -> Coaches. Confirm each
+   section shows only coaches who conduct that type of class.
+4. Open Sales -> Plans & Offers -> Add New Plan / Offer, select a coach, and confirm
+   Dance Styles shows only that coach's saved specialties.
+5. Repeat the coach-specialty check in Create Subscription and One-Time Payment.
+6. Type in a Plan Feature box and confirm the visible counter stops at 80 / 80.
+7. Change the Brand Name, Logo, or Tagline in Brand Settings and confirm the saved
+   identity appears in both public and admin pages after refresh.
+8. Open any Offer Details page and confirm the main plan title uses the reduced size.
+
+VERIFICATION
+------------
+The complete automated regression command passed before packaging:
+
+  npm run test:dance-v1.12
+
+See DANCE-STUDIO-V1.12-VERIFICATION.md for the tested behavior.

@@ -1,0 +1,63 @@
+{
+  "result": "passed",
+  "checks": [
+    "dark/light contrast >=4.5",
+    "safe cleanup themed toolbar",
+    "dedicated payments destinations",
+    "original transaction pagination",
+    "red cancellation and original confirmation",
+    "nested submenu alignment",
+    "global modal header padding",
+    "all connected integration toggles",
+    "pending Schedule navigation",
+    "15-second Schedule deadline",
+    "error and Retry",
+    "bounded paging and late response protection",
+    "desktop CSV import binding",
+    "desktop multiple/disabled/accept/reset",
+    "all three portals and responsive uploads"
+  ],
+  "contrastResults": [
+    {
+      "mode": "light",
+      "ratio": 8.577602969936429,
+      "bg": "rgb(255, 242, 200)",
+      "color": "rgb(69, 69, 69)"
+    },
+    {
+      "mode": "light",
+      "ratio": 9.58805705801013,
+      "bg": "rgb(255, 255, 255)",
+      "color": "rgb(69, 69, 69)"
+    },
+    {
+      "mode": "dark",
+      "ratio": 9.488573452551794,
+      "bg": "color(srgb 0.201412 0.187529 0.180549)",
+      "color": "rgb(215, 219, 234)"
+    },
+    {
+      "mode": "dark",
+      "ratio": 11.737229303156399,
+      "bg": "rgb(27, 32, 48)",
+      "color": "rgb(215, 219, 234)"
+    }
+  ],
+  "scheduleCalls": [
+    "?view=mobile&page=1&pageSize=50",
+    "?view=mobile&page=1&pageSize=50",
+    "?view=mobile&page=1&pageSize=50",
+    "?view=mobile&page=1&pageSize=50",
+    "?view=mobile&page=1&pageSize=50",
+    "?view=mobile&page=1&pageSize=50",
+    "?view=mobile&page=1&pageSize=50",
+    "?view=mobile&page=2&pageSize=50"
+  ],
+  "writes": [
+    {
+      "path": "/api/admin/import-products",
+      "body": "{\"rows\":[{\"name\":\"Desktop Plan\",\"sku\":\"DESKTOP-149\",\"regular_price\":\"199\"}]}"
+    }
+  ],
+  "errors": []
+}

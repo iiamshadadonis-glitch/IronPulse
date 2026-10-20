@@ -1,0 +1,3 @@
+import { json } from '../../_lib/utils.js';
+import { provisionUpcomingMeetings } from '../../_lib/session-meetings.js';
+export async function onRequestGet({request,env}){try{const key=request.headers.get('authorization')?.replace(/^Bearer\s+/i,'')||new URL(request.url).searchParams.get('key')||'';if(!env.AUTOMATION_API_KEY||key!==env.AUTOMATION_API_KEY)return json({error:'Automation authorization is required.'},401);const url=new URL(request.url);return json(await provisionUpcomingMeetings(env,{daysAhead:Number(url.searchParams.get('days')||2),limit:Number(url.searchParams.get('limit')||100)}));}catch(error){return json({error:error.message||'Session meeting provisioning failed.'},400);}}

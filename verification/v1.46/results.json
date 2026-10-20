@@ -1,0 +1,100 @@
+{
+  "release": "1.46.0",
+  "node": "24.19.0",
+  "chromium": "153.0.8010.0",
+  "codeDatabaseSuites": 23,
+  "browserSuites": 7,
+  "results": [
+    {
+      "suite": "additions",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-46-additions.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 236.58,
+      "candidate": "retained-area candidate",
+      "verificationScope": "Unchanged feature areas; final adjustments affect Brand Settings only."
+    },
+    {
+      "suite": "brand",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-46-brand.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 219.21,
+      "candidate": "final verified candidate",
+      "verificationScope": "Final release delivery and affected Brand Settings code."
+    },
+    {
+      "suite": "browser",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-46-browser.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 195.08,
+      "candidate": "retained-area candidate",
+      "verificationScope": "Unchanged feature areas; final adjustments affect Brand Settings only."
+    },
+    {
+      "suite": "code-database",
+      "command": [
+        "npm",
+        "run",
+        "test:dance-v1.46"
+      ],
+      "exitCode": 0,
+      "seconds": 11.58,
+      "candidate": "final verified candidate",
+      "verificationScope": "Final release delivery and affected Brand Settings code."
+    },
+    {
+      "suite": "components",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-46-components.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 191.9,
+      "candidate": "retained-area candidate",
+      "verificationScope": "Unchanged feature areas; final adjustments affect Brand Settings only."
+    },
+    {
+      "suite": "native",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-46-native.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 278.97,
+      "candidate": "retained-area candidate",
+      "verificationScope": "Unchanged feature areas; final adjustments affect Brand Settings only."
+    },
+    {
+      "suite": "polish",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-46-polish.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 232.15,
+      "candidate": "final verified candidate",
+      "verificationScope": "Final release delivery and affected Brand Settings code."
+    },
+    {
+      "suite": "workflows",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-46-workflows.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 149.5,
+      "candidate": "retained-area candidate",
+      "verificationScope": "Unchanged feature areas; final adjustments affect Brand Settings only."
+    }
+  ],
+  "apiData": "Synthetic fixtures; external requests blocked",
+  "testedProject": "Separately extracted candidates; final changes scoped to Brand Settings, affected checks rerun and unchanged-area results retained"
+}

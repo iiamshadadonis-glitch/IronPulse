@@ -1,0 +1,14 @@
+/* V16.8 additive Social Media API polish */
+#socialMediaIntegrations summary{position:relative;display:flex;align-items:center;gap:10px;padding-right:58px}
+#socialMediaIntegrations .uc-v168-status-badge{margin-left:auto;margin-right:12px;font-size:11px;font-weight:800;line-height:1;padding:7px 10px;border-radius:999px;white-space:nowrap}
+#socialMediaIntegrations .uc-v168-status-badge.is-connected{background:#dcfce7;color:#166534;border:1px solid #86efac}
+#socialMediaIntegrations .uc-v168-status-badge.is-disconnected{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
+#socialMediaIntegrations .uc-v168-inline-actions{display:flex;flex-wrap:wrap;gap:10px;margin-left:10px}
+#socialMediaIntegrations .form-actions{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:10px}
+#socialMediaIntegrations .uc-v168-autopublish{margin-top:18px;margin-bottom:18px}
+#socialMediaIntegrations .uc-v168-limited-label{font-size:10px;font-weight:800;color:#9a6700;background:#fff0bf;border:1px solid #ffd56a;border-radius:999px;padding:5px 8px}
+#socialMediaIntegrations .uc-v168-eligibility{display:flex;gap:10px;align-items:flex-start;margin:16px 0;padding:14px 16px;border:1px solid #efcf9e;border-radius:14px;background:#fff8e7}
+#socialMediaIntegrations .uc-v168-search-card textarea{width:100%;box-sizing:border-box;resize:vertical}
+#socialMediaIntegrations .uc-v168-search-card .row{gap:16px}
+#socialMediaIntegrations .uc-v168-search-card .field{min-width:0}
+@media(max-width:760px){#socialMediaIntegrations .uc-v168-inline-actions{margin-left:0;width:100%}#socialMediaIntegrations .uc-v168-inline-actions .btn{flex:1 1 160px}#socialMediaIntegrations .uc-v168-status-badge{margin-right:4px}}

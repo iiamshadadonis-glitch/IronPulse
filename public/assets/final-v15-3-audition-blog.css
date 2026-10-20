@@ -1,0 +1,57 @@
+/* V15.3 Audition Updates spacing/layout only. Existing website colors/theme are untouched. */
+body.uc-blog-v153 .section{padding-top:42px}
+body.uc-blog-v153 .uc-blog-intro{margin-bottom:30px}
+body.uc-blog-v153 .uc-blog-intro-copy{max-width:850px}
+body.uc-blog-v153 .uc-blog-intro h1{font-size:clamp(34px,4.4vw,48px);line-height:1.07;margin:13px 0 14px;letter-spacing:-.03em}
+body.uc-blog-v153 .uc-blog-intro p{margin:0;max-width:760px;line-height:1.62}
+body.uc-blog-v153 .uc-blog-section-title{margin:0 0 20px;padding-bottom:13px;gap:14px}
+body.uc-blog-v153 .uc-blog-section-title h2{font-size:clamp(22px,2.7vw,27px);line-height:1.2;margin:0}
+
+/* Prevent image/text collision on editorial cards. */
+body.uc-blog-v153 .uc-blog-card{grid-template-columns:minmax(0,38%) minmax(0,1fr);gap:0;overflow:hidden;align-items:stretch}
+body.uc-blog-v153 .uc-blog-card-media{display:block;min-width:0;width:100%;height:100%;padding:14px}
+body.uc-blog-v153 .uc-blog-card-media img{display:block;width:100%;height:100%;min-height:230px;max-height:310px;object-fit:cover;border-radius:18px}
+body.uc-blog-v153 .uc-blog-card-body{min-width:0;padding:24px 26px 24px 22px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+body.uc-blog-v153 .uc-blog-card-body h3{width:100%;font-size:clamp(22px,2.4vw,29px);line-height:1.12;margin:12px 0 8px;overflow-wrap:anywhere}
+body.uc-blog-v153 .uc-blog-excerpt{width:100%;margin:13px 0 17px;line-height:1.62;overflow-wrap:anywhere}
+body.uc-blog-v153 .uc-blog-meta{gap:7px;flex-wrap:wrap}
+
+/* Sidebar: no Follow Us block in V15.3; each group stays compact. */
+body.uc-blog-v153 .uc-blog-sidebar{gap:17px}
+body.uc-blog-v153 .uc-side-block{padding:17px}
+body.uc-blog-v153 .uc-side-block h3{margin:0 0 14px;font-size:23px}
+body.uc-blog-v153 .uc-side-list{display:grid;gap:0}
+body.uc-blog-v153 .uc-side-item{padding:10px 0;gap:11px}
+body.uc-blog-v153 .uc-side-item img{width:72px;height:54px;object-fit:cover;border-radius:10px;flex:0 0 72px}
+body.uc-blog-v153 .uc-side-item span{min-width:0}
+body.uc-blog-v153 .uc-side-item strong{display:block;line-height:1.22;overflow-wrap:anywhere}
+body.uc-blog-v153 .uc-featured-side img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+body.uc-blog-v153 .uc-tag-cloud{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Article share block appears after tags, before More Audition Updates. */
+body.uc-blog-v153 .uc-share-audition{margin-top:24px;padding:20px;border:1px solid rgba(var(--blue-rgb),.13);border-radius:19px;background:var(--bg)}
+body.uc-blog-v153 .uc-share-audition h2{font-size:25px;margin:0 0 8px;color:var(--blue-dark);background:none;-webkit-text-fill-color:initial}
+body.uc-blog-v153 .uc-share-audition p{margin:0 0 15px;color:var(--muted);line-height:1.55}
+body.uc-blog-v153 .uc-share-icons{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+body.uc-blog-v153 .uc-share-icon{width:44px;height:44px;padding:0;border:1px solid rgba(var(--blue-rgb),.14);border-radius:50%;background:var(--card);display:grid;place-items:center;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+body.uc-blog-v153 .uc-share-icon:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(var(--blue-dark-rgb),.10)}
+body.uc-blog-v153 .uc-share-icon svg{width:25px;height:25px;display:block}
+body.uc-blog-v153 #ucShareMessage{display:block;margin-top:10px;color:var(--muted);line-height:1.4}
+body.uc-blog-v153 .uc-related{margin-top:30px}
+
+/* Long article content remains inside its column. */
+body.uc-blog-v153 .uc-article-body,body.uc-blog-v153 .uc-article-body *{max-width:100%}
+body.uc-blog-v153 .uc-article-body img{display:block;height:auto}
+
+@media(max-width:980px){
+  body.uc-blog-v153 .uc-blog-card{grid-template-columns:minmax(0,40%) minmax(0,1fr)}
+}
+@media(max-width:720px){
+  body.uc-blog-v153 .section{padding-top:30px}
+  body.uc-blog-v153 .uc-blog-intro h1{font-size:34px}
+  body.uc-blog-v153 .uc-blog-card{grid-template-columns:1fr}
+  body.uc-blog-v153 .uc-blog-card-media{height:auto;padding:12px 12px 0}
+  body.uc-blog-v153 .uc-blog-card-media img{height:auto;min-height:0;max-height:none;aspect-ratio:16/9}
+  body.uc-blog-v153 .uc-blog-card-body{padding:18px 18px 20px}
+  body.uc-blog-v153 .uc-blog-card-body h3{font-size:24px}
+}

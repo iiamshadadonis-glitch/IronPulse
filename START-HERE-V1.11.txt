@@ -1,0 +1,36 @@
+DROPBEAT DANCE STUDIO — COMPLETE REPLACEMENT V1.11
+==================================================
+
+This is a complete replacement package. It is not a collection of code snippets.
+
+HOW TO USE IT
+-------------
+1. Keep a backup of the currently deployed V1.10 package.
+2. Replace the old project files with every file and folder in this V1.11 folder.
+3. Deploy the complete project using the same Cloudflare Pages method you already use.
+4. After deployment, open the admin panel once and refresh the page.
+
+You do not need to paste individual JavaScript, CSS, SQL, or npm commands into the website.
+The V1.11 server code includes a safe database self-check for the two new one-time-plan
+access-date fields. Migration 0047 is also included for managed deployment systems.
+
+FIRST CHECK AFTER DEPLOYMENT
+----------------------------
+1. Open Business Ops -> Sales -> Plans & Offers.
+2. Add or edit a plan and enable Class or Event Details.
+3. Select a coach who works only on certain weekdays.
+4. Try a Public Batch Start Date on an unavailable weekday. The date must be cleared and
+   the plan must not save with that invalid date.
+5. Choose an available weekday and save normally.
+6. Open the public Home, Offers, Festival Offers, Yearly Plans, and a plan Details page.
+7. Open Online Classes, Offline Classes, or Demo / Webinar -> Scheduled Events and click
+   a non-zero Students count to view the student roster.
+
+VERIFICATION
+------------
+The complete automated regression command passed before packaging:
+
+  npm run test:dance-v1.11
+
+See DANCE-STUDIO-V1.11-VERIFICATION.md for the tested behavior.
+

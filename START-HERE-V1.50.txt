@@ -1,0 +1,11 @@
+DropBeat Dance Studio — Complete Replacement V1.50
+
+Extract the ZIP fully. Open the DropBeat-V1.50 folder and use its contents at the root of the existing GitHub repository, following your existing replacement workflow. Keep your existing Cloudflare environment variables, secrets and D1 binding. No new migration or binding is required.
+
+Read V1.50-FIXES.md for the complete changes and cache boundaries.
+Read V1.50-VERIFICATION.md for the executed checks and their scope.
+Earlier fixes, project files and deployment guidance are retained.
+
+Code/database verification: npm run test:dance-v1.50
+Additional layout/browser verification: npm run test:dance-v1.50:browser
+The browser runner requires Playwright and Chromium, as described by the retained verification tools.

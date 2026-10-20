@@ -1,0 +1,18 @@
+DROPBEAT V1.52 — COMPLETE REPLACEMENT PROJECT
+
+Extract the ZIP completely into a new folder before copying the project files to your repository. This is the complete project, not an incremental patch.
+
+Changes in this release:
+  - Compact Customers add/import navigation on mobile.
+  - Direct full-screen forms with the original save handlers.
+  - Native Subscriber CSV upload and Review, retaining original file bindings.
+  - Full-height form bodies, anchored footers and desktop restoration.
+
+Read V1.52-FIXES.md and V1.52-VERIFICATION.md.
+The existing Cloudflare Pages project, D1 binding, configuration and business handlers are retained. Existing setup/deployment instructions remain in DANCE-STUDIO-SETUP.md.
+
+Current code regression command: npm run test:dance-v1.52
+Current targeted browser command: npm run test:dance-v1.52:browser
+Browser checks require Playwright and Chromium; see the verification report.
+
+No production deployment, real payment action or real customer import is performed by this delivery.

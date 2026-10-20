@@ -1,0 +1,13 @@
+DROPBEAT DANCE STUDIO V1.13 — START HERE
+
+1. This is a complete replacement package. Replace the V1.12 project files with the contents of this package using the same upload/deployment method you already use.
+
+2. Keep the existing Cloudflare project, D1 database binding, environment variables and secrets. This release does not replace or erase website data.
+
+3. No database migration command is required for V1.13. This is a frontend recovery and cache-busting release.
+
+4. Deploy the replacement project normally. The V1.13 asset URLs and edge-cache keys make browsers and Cloudflare request the corrected frontend files.
+
+5. After deployment, open Home, Offers, one Plan Details page, About and FAQ. The saved Admin content should appear directly. A single hard refresh is optional; the V1.13 cache identifiers are already included.
+
+Verification details are in DANCE-STUDIO-V1.13-VERIFICATION.md.

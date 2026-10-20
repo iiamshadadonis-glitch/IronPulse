@@ -1,0 +1,3250 @@
+{
+  "results": [
+    "Admin/Coach/Student identical full-width 64px headers, 32px controls/16px glyphs, 8px menu corners/circular actions and 48px invisible touch areas, original theme/menu/avatar actions, two desktop restoration cycles and no width overflow",
+    "Actual WCAG text contrast >=4.5:1 for dark Memberships/Tickets rows, inactive tabs, payment/history/Google sheets, settings labels, read-only review data and primary Save",
+    "Light/dark solid primary full-width Apply, white readable text, 48px target, safe footer, original odd/even fields and custom-date GET/dismiss behavior without requests on open"
+  ],
+  "iconSamples": [
+    {
+      "role": "student",
+      "viewport": 320,
+      "colorMode": "light",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 320,
+      "colorMode": "light",
+      "kind": "Switch to dark mode",
+      "visible": {
+        "x": 272,
+        "y": 15.5,
+        "right": 304,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 280,
+        "y": 23.5,
+        "right": 296,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 320,
+      "colorMode": "dark",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 320,
+      "colorMode": "dark",
+      "kind": "Switch to dark mode",
+      "visible": {
+        "x": 272,
+        "y": 15.5,
+        "right": 304,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 280,
+        "y": 23.5,
+        "right": 296,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 390,
+      "colorMode": "light",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 390,
+      "colorMode": "light",
+      "kind": "Switch to dark mode",
+      "visible": {
+        "x": 342,
+        "y": 15.5,
+        "right": 374,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 350,
+        "y": 23.5,
+        "right": 366,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 390,
+      "colorMode": "dark",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 390,
+      "colorMode": "dark",
+      "kind": "Switch to dark mode",
+      "visible": {
+        "x": 342,
+        "y": 15.5,
+        "right": 374,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 350,
+        "y": 23.5,
+        "right": 366,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 760,
+      "colorMode": "light",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 760,
+      "colorMode": "light",
+      "kind": "Switch to dark mode",
+      "visible": {
+        "x": 712,
+        "y": 15.5,
+        "right": 744,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 720,
+        "y": 23.5,
+        "right": 736,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 760,
+      "colorMode": "dark",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "student",
+      "viewport": 760,
+      "colorMode": "dark",
+      "kind": "Switch to dark mode",
+      "visible": {
+        "x": 712,
+        "y": 15.5,
+        "right": 744,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 720,
+        "y": 23.5,
+        "right": 736,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 320,
+      "colorMode": "light",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 320,
+      "colorMode": "light",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 272,
+        "y": 15.5,
+        "right": 304,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 280,
+        "y": 23.5,
+        "right": 296,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 320,
+      "colorMode": "dark",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 320,
+      "colorMode": "dark",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 272,
+        "y": 15.5,
+        "right": 304,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 280,
+        "y": 23.5,
+        "right": 296,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 390,
+      "colorMode": "light",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 390,
+      "colorMode": "light",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 342,
+        "y": 15.5,
+        "right": 374,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 350,
+        "y": 23.5,
+        "right": 366,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 390,
+      "colorMode": "dark",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 390,
+      "colorMode": "dark",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 342,
+        "y": 15.5,
+        "right": 374,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 350,
+        "y": 23.5,
+        "right": 366,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 760,
+      "colorMode": "light",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 760,
+      "colorMode": "light",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 712,
+        "y": 15.5,
+        "right": 744,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 720,
+        "y": 23.5,
+        "right": 736,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 760,
+      "colorMode": "dark",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "coach",
+      "viewport": 760,
+      "colorMode": "dark",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 712,
+        "y": 15.5,
+        "right": 744,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 720,
+        "y": 23.5,
+        "right": 736,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 320,
+      "colorMode": "light",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 320,
+      "colorMode": "light",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 224,
+        "y": 15.5,
+        "right": 256,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 232,
+        "y": 23.5,
+        "right": 248,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 320,
+      "colorMode": "light",
+      "kind": "Visit website",
+      "visible": {
+        "x": 272,
+        "y": 15.5,
+        "right": 304,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 280,
+        "y": 23.5,
+        "right": 296,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 320,
+      "colorMode": "dark",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 320,
+      "colorMode": "dark",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 224,
+        "y": 15.5,
+        "right": 256,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 232,
+        "y": 23.5,
+        "right": 248,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 320,
+      "colorMode": "dark",
+      "kind": "Visit website",
+      "visible": {
+        "x": 272,
+        "y": 15.5,
+        "right": 304,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 280,
+        "y": 23.5,
+        "right": 296,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 390,
+      "colorMode": "light",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 390,
+      "colorMode": "light",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 294,
+        "y": 15.5,
+        "right": 326,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 302,
+        "y": 23.5,
+        "right": 318,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 390,
+      "colorMode": "light",
+      "kind": "Visit website",
+      "visible": {
+        "x": 342,
+        "y": 15.5,
+        "right": 374,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 350,
+        "y": 23.5,
+        "right": 366,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 390,
+      "colorMode": "dark",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 390,
+      "colorMode": "dark",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 294,
+        "y": 15.5,
+        "right": 326,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 302,
+        "y": 23.5,
+        "right": 318,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 390,
+      "colorMode": "dark",
+      "kind": "Visit website",
+      "visible": {
+        "x": 342,
+        "y": 15.5,
+        "right": 374,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 350,
+        "y": 23.5,
+        "right": 366,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 760,
+      "colorMode": "light",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 760,
+      "colorMode": "light",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 664,
+        "y": 15.5,
+        "right": 696,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 672,
+        "y": 23.5,
+        "right": 688,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 760,
+      "colorMode": "light",
+      "kind": "Visit website",
+      "visible": {
+        "x": 712,
+        "y": 15.5,
+        "right": 744,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 720,
+        "y": 23.5,
+        "right": 736,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 760,
+      "colorMode": "dark",
+      "kind": "menu",
+      "visible": {
+        "x": 16,
+        "y": 15.5,
+        "right": 48,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 24,
+        "y": 23.5,
+        "right": 40,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 760,
+      "colorMode": "dark",
+      "kind": "Switch to light mode",
+      "visible": {
+        "x": 664,
+        "y": 15.5,
+        "right": 696,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 672,
+        "y": 23.5,
+        "right": 688,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    },
+    {
+      "role": "admin",
+      "viewport": 760,
+      "colorMode": "dark",
+      "kind": "Visit website",
+      "visible": {
+        "x": 712,
+        "y": 15.5,
+        "right": 744,
+        "bottom": 47.5,
+        "width": 32,
+        "height": 32
+      },
+      "svg": {
+        "x": 720,
+        "y": 23.5,
+        "right": 736,
+        "bottom": 39.5,
+        "width": 16,
+        "height": 16
+      },
+      "hit": {
+        "width": "48px",
+        "height": "48px",
+        "background": "rgba(0, 0, 0, 0)",
+        "reachable": true,
+        "margin": "0px"
+      }
+    }
+  ],
+  "contrastSamples": [
+    {
+      "label": "student 320 light header title",
+      "text": "Student Dashboard",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "student 320 dark header title",
+      "text": "Student Dashboard",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "student 390 light header title",
+      "text": "Student Dashboard",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "student 390 dark header title",
+      "text": "Student Dashboard",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "student 760 light header title",
+      "text": "Student Dashboard",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "student 760 dark header title",
+      "text": "Student Dashboard",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "coach 320 light header title",
+      "text": "Coach Dashboard",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "coach 320 dark header title",
+      "text": "Coach Dashboard",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "coach 390 light header title",
+      "text": "Coach Dashboard",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "coach 390 dark header title",
+      "text": "Coach Dashboard",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "coach 760 light header title",
+      "text": "Coach Dashboard",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "coach 760 dark header title",
+      "text": "Coach Dashboard",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "admin 320 light header title",
+      "text": "Admin Dashboard",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "admin 320 dark header title",
+      "text": "Admin Dashboard",
+      "color": "rgb(247, 248, 252)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 15.269421703465769
+    },
+    {
+      "label": "admin 390 light header title",
+      "text": "Admin Dashboard",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "admin 390 dark header title",
+      "text": "Admin Dashboard",
+      "color": "rgb(247, 248, 252)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 15.269421703465769
+    },
+    {
+      "label": "admin 760 light header title",
+      "text": "Admin Dashboard",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "admin 760 dark header title",
+      "text": "Admin Dashboard",
+      "color": "rgb(247, 248, 252)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 15.269421703465769
+    },
+    {
+      "label": "Membership navigation label 0",
+      "text": "Current Membership Status",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Membership navigation label 1",
+      "text": "Payment History",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Inactive membership tab 0",
+      "text": "Plans & Offers",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        34,
+        40,
+        59
+      ],
+      "ratio": 10.404367647175505
+    },
+    {
+      "label": "Membership sheet 0",
+      "text": "Beginners Session",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "Membership sheet 1",
+      "text": "Example Coach · Monday, Tuesday · 10:00",
+      "color": "rgb(185, 191, 208)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 8.817119398098313
+    },
+    {
+      "label": "Membership sheet 2",
+      "text": "Active",
+      "color": "rgb(199, 243, 213)",
+      "background": [
+        24,
+        49,
+        38
+      ],
+      "ratio": 11.426129288275815
+    },
+    {
+      "label": "Membership sheet 3",
+      "text": "Subscription",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "Membership sheet 4",
+      "text": "₹199",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "Payment history card 0",
+      "text": "ORDER-1",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 1",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 2",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 3",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 4",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 5",
+      "text": "ORDER-2",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 6",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 7",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 8",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 9",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 10",
+      "text": "ORDER-3",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 11",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 12",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 13",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 14",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 15",
+      "text": "ORDER-4",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 16",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 17",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 18",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 19",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 20",
+      "text": "ORDER-5",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 21",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 22",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 23",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 24",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 25",
+      "text": "ORDER-6",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 26",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 27",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 28",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 29",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 30",
+      "text": "ORDER-7",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 31",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 32",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 33",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 34",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 35",
+      "text": "ORDER-8",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 36",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 37",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 38",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 39",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 40",
+      "text": "ORDER-9",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 41",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 42",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 43",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 44",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 45",
+      "text": "ORDER-10",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 46",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 47",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 48",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 49",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 50",
+      "text": "ORDER-11",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 51",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 52",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 53",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 54",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 55",
+      "text": "ORDER-12",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 56",
+      "text": "Online Dance Pass",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 57",
+      "text": "₹199",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 58",
+      "text": "paid",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history card 59",
+      "text": "13 Oct 2026",
+      "color": "rgb(214, 218, 232)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.616003050650006
+    },
+    {
+      "label": "Payment history status 0",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 1",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 2",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 3",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 4",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 5",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 6",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 7",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 8",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 9",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 10",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Payment history status 11",
+      "text": "paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "Ticket navigation label 0",
+      "text": "Create a Ticket",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Ticket navigation label 1",
+      "text": "Your Tickets",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Tickets empty state 0",
+      "text": "No support tickets yet.",
+      "color": "rgb(215, 219, 234)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.737229303156399
+    },
+    {
+      "label": "Ticket labels 0",
+      "text": "Subject",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Ticket labels 1",
+      "text": "Category",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Ticket labels 2",
+      "text": "Priority",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Ticket labels 3",
+      "text": "Describe the Issue",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Ticket review 0",
+      "text": "Subject",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Ticket review 1",
+      "text": "Dark mode verification",
+      "color": "rgb(185, 191, 208)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 8.817119398098313
+    },
+    {
+      "label": "Ticket review 2",
+      "text": "Category",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Ticket review 3",
+      "text": "Class",
+      "color": "rgb(185, 191, 208)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 8.817119398098313
+    },
+    {
+      "label": "Ticket review 4",
+      "text": "Priority",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Ticket review 5",
+      "text": "Normal",
+      "color": "rgb(185, 191, 208)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 8.817119398098313
+    },
+    {
+      "label": "Ticket review 6",
+      "text": "Describe the Issue",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Ticket review 7",
+      "text": "Confirm clear review text.",
+      "color": "rgb(185, 191, 208)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 8.817119398098313
+    },
+    {
+      "label": "profile navigation 0",
+      "text": "Profile Settings",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Inactive settings tab 0",
+      "text": "Dashboard Colours",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        15,
+        19,
+        30
+      ],
+      "ratio": 13.18397637400668
+    },
+    {
+      "label": "Inactive settings tab 1",
+      "text": "Login Information",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        15,
+        19,
+        30
+      ],
+      "ratio": 13.18397637400668
+    },
+    {
+      "label": "colors navigation 0",
+      "text": "Dashboard Colours",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Inactive settings tab 0",
+      "text": "Profile",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        15,
+        19,
+        30
+      ],
+      "ratio": 13.18397637400668
+    },
+    {
+      "label": "Inactive settings tab 1",
+      "text": "Login Information",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        15,
+        19,
+        30
+      ],
+      "ratio": 13.18397637400668
+    },
+    {
+      "label": "login navigation 0",
+      "text": "Login Information",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "login navigation 1",
+      "text": "Connect Google Account",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Inactive settings tab 0",
+      "text": "Profile",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        15,
+        19,
+        30
+      ],
+      "ratio": 13.18397637400668
+    },
+    {
+      "label": "Inactive settings tab 1",
+      "text": "Dashboard Colours",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        15,
+        19,
+        30
+      ],
+      "ratio": 13.18397637400668
+    },
+    {
+      "label": "Profile form labels 0",
+      "text": "Name",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Profile form labels 1",
+      "text": "Phone / WhatsApp",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Profile form labels 2",
+      "text": "New Profile Photo Optional",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Profile form labels 3",
+      "text": "Upload ImageTap to choose an image",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        29,
+        34,
+        54
+      ],
+      "ratio": 14.347529992024322
+    },
+    {
+      "label": "Profile review 0",
+      "text": "Name",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Profile review 1",
+      "text": "Contrast Student",
+      "color": "rgb(185, 191, 208)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 8.817119398098313
+    },
+    {
+      "label": "Primary save button",
+      "text": "Save Profile",
+      "color": "rgb(255, 255, 255)",
+      "background": [
+        75,
+        85,
+        190
+      ],
+      "ratio": 6.283451764817834
+    },
+    {
+      "label": "Dashboard colours form labels 0",
+      "text": "Primary",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Dashboard colours form labels 1",
+      "text": "Accent",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Login form labels 0",
+      "text": "Email ID",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Login form labels 1",
+      "text": "Current Password",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Login form labels 2",
+      "text": "New Password Optional",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "Google account overlay 0",
+      "text": "Continue to Google to connect your account securely.",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "Google account overlay 1",
+      "text": "example@example.test",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "light Statement summary 0",
+      "text": "Statement period",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 8.50005702427034
+    },
+    {
+      "label": "light Statement summary 1",
+      "text": "18 Sept 2026 – 18 Oct 2026",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "light Statement summary 2",
+      "text": "Generated",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 8.50005702427034
+    },
+    {
+      "label": "light Statement summary 3",
+      "text": "18 Oct 2026",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "light Statement summary 4",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 8.50005702427034
+    },
+    {
+      "label": "light Statement summary 5",
+      "text": "₹600.00",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "light Statement summary 6",
+      "text": "Pending",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 8.50005702427034
+    },
+    {
+      "label": "light Statement summary 7",
+      "text": "₹199.00",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "light Statement summary 8",
+      "text": "Records",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 8.50005702427034
+    },
+    {
+      "label": "light Statement summary 9",
+      "text": "12",
+      "color": "rgb(26, 26, 26)",
+      "background": [
+        255,
+        255,
+        255
+      ],
+      "ratio": 17.40432753274219
+    },
+    {
+      "label": "light Statement status 0",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 1",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 2",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 3",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 4",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 5",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 6",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 7",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 8",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 9",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 10",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Statement status 11",
+      "text": "Paid",
+      "color": "rgb(75, 76, 87)",
+      "background": [
+        240,
+        240,
+        247
+      ],
+      "ratio": 7.493070788635316
+    },
+    {
+      "label": "light Filter Apply",
+      "text": "Apply",
+      "color": "rgb(255, 255, 255)",
+      "background": [
+        75,
+        85,
+        190
+      ],
+      "ratio": 6.283451764817834
+    },
+    {
+      "label": "dark Statement summary 0",
+      "text": "Statement period",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "dark Statement summary 1",
+      "text": "18 Sept 2026 – 18 Oct 2026",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "dark Statement summary 2",
+      "text": "Generated",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "dark Statement summary 3",
+      "text": "18 Oct 2026",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "dark Statement summary 4",
+      "text": "Paid",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "dark Statement summary 5",
+      "text": "₹600.00",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "dark Statement summary 6",
+      "text": "Pending",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "dark Statement summary 7",
+      "text": "₹199.00",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "dark Statement summary 8",
+      "text": "Records",
+      "color": "rgb(214, 217, 230)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 11.518753359489448
+    },
+    {
+      "label": "dark Statement summary 9",
+      "text": "12",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        27,
+        32,
+        48
+      ],
+      "ratio": 14.773059524700402
+    },
+    {
+      "label": "dark Statement status 0",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 1",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 2",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 3",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 4",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 5",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 6",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 7",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 8",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 9",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 10",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Statement status 11",
+      "text": "Paid",
+      "color": "rgb(243, 244, 251)",
+      "background": [
+        36,
+        42,
+        61
+      ],
+      "ratio": 12.99160498765002
+    },
+    {
+      "label": "dark Filter Apply",
+      "text": "Apply",
+      "color": "rgb(255, 255, 255)",
+      "background": [
+        75,
+        85,
+        190
+      ],
+      "ratio": 6.283451764817834
+    }
+  ],
+  "minimumContrast": 6.283451764817834,
+  "statementRequests": [
+    "http://127.0.0.1:37597/api/portal/payment-statement?from=2026-09-19&to=2026-10-19",
+    "http://127.0.0.1:37597/api/portal/payment-statement?from=2026-09-01&to=2026-10-18",
+    "http://127.0.0.1:37597/api/portal/payment-statement?from=2026-09-01&to=2026-10-18"
+  ],
+  "errors": [],
+  "synthetic": true
+}

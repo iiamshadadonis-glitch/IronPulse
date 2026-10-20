@@ -1,0 +1,12 @@
+DROPBEAT V1.54 — COMPLETE REPLACEMENT PROJECT
+
+The fixes are included in this project, not supplied as a separate patch.
+Use the contents of the DropBeat-V1.54 folder as your complete project.
+
+Read V1.54-FIXES.md for the completed changes.
+Read V1.54-VERIFICATION.md for the executed tests and verification scope.
+Current release regression command: npm run test:dance-v1.54
+
+Existing Cloudflare deployment instructions, D1 bindings, migrations and business logic are retained.
+Historical release notes and tests remain in the project for reference.
+V1.54-MANIFEST.sha256 lists the contents of this replacement project.

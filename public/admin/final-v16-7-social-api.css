@@ -1,0 +1,11 @@
+/* V16.7 additive Social Media API cards. Existing theme variables/colors remain authoritative. */
+#socialMediaIntegrations .uc-v167-api-card .uc-v167-connection-state{margin:10px 0 0;padding:10px 12px;border:1px solid #ecd6bf;border-radius:12px;background:#fffaf4;line-height:1.5}
+#socialMediaIntegrations .uc-v167-api-card .uc-v167-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;margin-top:18px}
+#socialMediaIntegrations .uc-v167-api-card .uc-v167-actions .btn{min-width:120px}
+#socialMediaIntegrations .uc-v167-api-card .copyline{align-items:center;gap:10px}
+#socialMediaIntegrations .uc-v167-api-card .copyline input{min-width:0}
+#socialMediaIntegrations .uc-v167-api-card .uc-v167-last-error{margin-top:10px}
+#socialMediaIntegrations .uc-v167-api-card .uc-v167-platform-note{margin:10px 0;padding:11px 13px;border:1px solid #ecd6bf;border-radius:12px;background:#fff9ef;line-height:1.55}
+#socialMediaIntegrations .uc-v167-api-card .row{gap:14px}
+#socialMediaIntegrations .uc-v167-api-card .field{min-width:0}
+@media(max-width:760px){#socialMediaIntegrations .uc-v167-api-card .row{grid-template-columns:1fr!important;display:grid!important}#socialMediaIntegrations .uc-v167-api-card .uc-v167-actions{display:grid;grid-template-columns:1fr}#socialMediaIntegrations .uc-v167-api-card .uc-v167-actions .btn{width:100%}}

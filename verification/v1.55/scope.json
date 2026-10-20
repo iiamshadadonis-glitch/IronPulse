@@ -1,0 +1,41 @@
+{
+  "release": "1.55.0",
+  "inputArchive": "DropBeat-V1.54-Verified(1).zip",
+  "inputSha256": "14ed26e7777119f71672a15a470394ede2fc65ceaaed7092d2ddd67bc57eccec",
+  "originalFiles": 1592,
+  "byteIdenticalOriginalFiles": 1583,
+  "changedOriginalFiles": [
+    "DANCE-STUDIO-VERSION.txt",
+    "functions/_middleware.js",
+    "package.json",
+    "public/admin/index.html",
+    "public/assets/dropbeat-global-header-v1-54.js",
+    "public/assets/dropbeat-mobile-contrast-v1-54.css",
+    "public/coach-dashboard.html",
+    "public/student-dashboard.html",
+    "tests/dance-studio-deployment.mjs"
+  ],
+  "missingOriginalFiles": [],
+  "exactDeltaChecks": {
+    "HTML": "Only presentation asset query strings",
+    "middleware": "Only release response header",
+    "deploymentTest": "Only current version assertions",
+    "CSS": "Only mobile header layer"
+  },
+  "presentationRuntimeAssets": [
+    "public/assets/dropbeat-global-header-v1-54.js",
+    "public/assets/dropbeat-mobile-contrast-v1-54.css"
+  ],
+  "mobileBreakpoint": 760,
+  "visibleControlPx": 32,
+  "svgPx": 16,
+  "menuRadiusPx": 8,
+  "touchAreaPx": 48,
+  "codeSuiteSuccessMessages": 27,
+  "browserSuites": 5,
+  "measuredIconSamples": 42,
+  "textContrastSamples": 183,
+  "minimumMeasuredTextContrast": 6.283451764817834,
+  "liveServicesExercised": false,
+  "deployed": false
+}

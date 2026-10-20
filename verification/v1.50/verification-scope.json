@@ -1,0 +1,45 @@
+{
+  "changedAfterFullRunSnapshot": [
+    "V1.50-FIXES.md",
+    "tests/dance-studio-v1-50-release.mjs",
+    "tests/dance-studio-v1-50-cache.mjs",
+    "tests/v150-protected-files.json",
+    "functions/_middleware.js",
+    "public/yearly-plans.html",
+    "public/index.html",
+    "public/contact.html",
+    "public/blog.html",
+    "public/404.html",
+    "public/custom-page.html",
+    "public/requests.html",
+    "public/terms-and-conditions.html",
+    "public/success-stories.html",
+    "public/checkout.html",
+    "public/about.html",
+    "public/submit-profile.html",
+    "public/offer-details.html",
+    "public/refund-and-cancellation.html",
+    "public/festival-offers.html",
+    "public/offers.html",
+    "public/privacy-policy.html",
+    "public/faq.html",
+    "public/blog-post.html",
+    "functions/_lib/edge-response-cache.js",
+    "public/assets/dropbeat-data-cache-v1-50.js",
+    "public/assets/app-extra.js",
+    "public/assets/app.js"
+  ],
+  "affectedFinalSuites": [
+    "code-database",
+    "layouts-v150",
+    "additions",
+    "controls",
+    "desktop"
+  ],
+  "notes": "Final changes repair public render hydration/desktop node restoration and prevent stacking browser/Edge stale lifetimes. Core admin loaders ignore the new optional loader context. All updated public rendering, shared cache, middleware and cross-portal controls are exercised again.",
+  "lastPublicOnlyChange": [
+    "public/assets/dropbeat-mobile-v1-50.css",
+    "tools/v150-layout-cases.mjs"
+  ],
+  "lastPublicOnlyValidation": "All 26 code/database/cache checks and the public/mobile layout suite reran on a third complete extracted candidate; the layout fixture now has six plans, exercising the legacy desktop-carousel threshold. No other file changed after the previous passing affected run."
+}

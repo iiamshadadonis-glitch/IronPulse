@@ -1,0 +1,23 @@
+{
+  "release": "1.53.0",
+  "baseline_release": "1.52.0",
+  "baseline_zip_sha256": "f28731b758ec46bbfe765ebd93cde081eb68868e0c55425b96bdcaf21d81e413",
+  "attached_v151_zip_sha256": "6e9df2c707160a061a6538a71c956fb973fcc3a684e650c3009d8440557b1c50",
+  "code_check_success_messages": 27,
+  "browser_suites_passed": 4,
+  "portal_workflow_groups_passed": 6,
+  "customers_workflow_groups_passed": 7,
+  "student_public_workflow_groups_passed": 6,
+  "v152_files_unchanged": 1544,
+  "api_scope": "Local synthetic API responses. Actual statement PDF generated locally from synthetic records. Schedule and plan-import DB tests use temporary SQLite fixtures. No production deployment, live D1, gateway, email, Google OAuth or real customer import was exercised.",
+  "runtime_edits": [
+    "New mobile portal adapter and stylesheet",
+    "Three HTML entry points add versioned assets",
+    "Middleware release response header only"
+  ],
+  "resolved_regression_findings": [
+    "Legacy generic button rules overrode mobile row sizing: a scoped important cascade layer now enforces shared row metrics",
+    "Legacy hamburger pseudo-element duplicated the new SVG: mobile-only pseudo-elements removed"
+  ],
+  "screenshots_in_package": false
+}

@@ -1,0 +1,99 @@
+{
+  "release": "1.48.0",
+  "node": "24.19.0",
+  "chromium": "153.0.8010.0",
+  "codeDatabaseSuites": 23,
+  "browserSuites": 8,
+  "results": [
+    {
+      "suite": "additions",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-48-additions.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 118.89,
+      "attempt": 2
+    },
+    {
+      "suite": "brand",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-48-brand.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 215.6
+    },
+    {
+      "suite": "browser",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-48-browser.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 126.73
+    },
+    {
+      "suite": "code-database",
+      "command": [
+        "npm",
+        "run",
+        "test:dance-v1.48"
+      ],
+      "exitCode": 0,
+      "seconds": 5.44,
+      "attempt": 3,
+      "scope": "Final Storage header block layout"
+    },
+    {
+      "suite": "components",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-48-components.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 95.69
+    },
+    {
+      "suite": "controls",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-48-controls.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 63.15,
+      "attempt": 3,
+      "scope": "Final Storage header block layout"
+    },
+    {
+      "suite": "native",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-48-native.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 169.61
+    },
+    {
+      "suite": "polish",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-48-polish.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 141.21,
+      "attempt": 2
+    },
+    {
+      "suite": "workflows",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-48-workflows.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 84.25
+    }
+  ],
+  "apiData": "Synthetic API fixtures; external requests blocked",
+  "testedProject": "Complete ZIP separately extracted and hashed; full regression run plus targeted reruns for updated assertions and the final scoped Storage header layout"
+}

@@ -1,0 +1,46 @@
+/* V16.53 — navigation/Brand hub layout only; existing theme variables are reused. */
+.side .nav .uc53-merged-nav-item{display:none!important;}
+
+/* Notification-style attention badges: no negative/plain parenthetical counts. */
+.side .nav .nav-badge.uc53-notification-badge{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  min-width:20px!important;height:20px!important;padding:0 5px!important;margin-left:auto!important;
+  border-radius:999px!important;background:#c70f1e!important;color:#fff!important;border:2px solid rgba(255,255,255,.92)!important;
+  box-shadow:0 3px 9px rgba(72,0,12,.28)!important;font-size:10px!important;font-weight:950!important;line-height:1!important;
+}
+.side .nav .nav-badge.uc53-notification-badge[hidden]{display:none!important;}
+.side .nav .nav-group-toggle{position:relative;}
+.side .nav .uc53-group-notification{
+  display:inline-flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 6px;margin-left:auto;
+  border-radius:999px;background:#e11d2e;color:#fff;border:2px solid #ffffff;box-shadow:0 3px 10px rgba(70,0,15,.28);
+  font-size:10px;font-weight:950;line-height:1;flex:0 0 auto;
+}
+.side .nav .uc53-group-notification[hidden]{display:none!important;}
+.side .nav .nav-group-toggle .nav-arrow{margin-left:4px!important;flex:0 0 auto;}
+
+/* Banners/Social Media are now genuine Brand Settings tabs using the same existing panels. */
+#banners>.uc-v1652-brand-tabs,#socials>.uc-v1652-brand-tabs{margin-top:2px;}
+#banners>.top,#socials>.top{margin-bottom:12px;}
+
+/* Pages and Success Stories share one clean three-tab workspace. */
+#successStories>.uc-v1634-pages-tabs{margin:0 0 16px;display:flex;gap:10px;flex-wrap:wrap;}
+
+/* Integrations: hide intermediate card shuffles while legacy compatibility renderers settle.
+   Header/tabs stay visible; the content reveals once instead of blinking several times. */
+#socialMediaIntegrations.uc53-integrations-stabilizing .uc49-pane.active .uc49-card-stack,
+#socialMediaIntegrations.uc53-integrations-stabilizing .uc49-pane.active [data-uc49-grid-mount],
+#socialMediaIntegrations.uc53-integrations-stabilizing #uc49IntegrationsMsg{
+  visibility:hidden!important;opacity:0!important;
+}
+#socialMediaIntegrations .uc49-pane.active .uc49-card-stack,
+#socialMediaIntegrations .uc49-pane.active [data-uc49-grid-mount]{opacity:1;transition:opacity .12s ease;}
+#socialMediaIntegrations.uc53-integrations-stabilizing .uc49-pane.active::after{
+  content:'Refreshing integration status…';display:block;margin:14px 0;padding:13px 15px;border:1px solid var(--line,#ead2b4);
+  border-radius:14px;background:var(--panel,#ffffff);color:var(--muted,#765d63);font-size:12px;font-weight:700;
+}
+#socialMediaIntegrations.uc53-integrations-stabilizing *{animation:none!important;transition:none!important;}
+
+@media(max-width:760px){
+  .side .nav .uc53-group-notification{margin-left:6px;}
+  #successStories>.uc-v1634-pages-tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;}
+}

@@ -1,0 +1,21 @@
+/* V7 public-only additions: About cover image and temporary local theme preview. */
+.about-cover-image-wrap{
+  margin:28px 0 30px;
+  width:100%;
+  overflow:hidden;
+  border-radius:22px;
+  box-shadow:0 18px 45px rgba(34,36,79,.10);
+  background:rgba(255,255,255,.45);
+}
+.about-cover-image{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:540px;
+  object-fit:cover;
+  object-position:center;
+}
+@media(max-width:700px){
+  .about-cover-image-wrap{margin:20px 0 22px;border-radius:16px;}
+  .about-cover-image{max-height:420px;}
+}

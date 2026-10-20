@@ -1,0 +1,222 @@
+{
+  "release": "1.46.0",
+  "build": "dropbeat-1.46-20261016",
+  "createdUtc": "2026-10-16T15:44:11.171849+00:00",
+  "baselineArchive": "DropBeat-Dance-Studio-Complete-Replacement-V1.45(1).zip",
+  "baselineArchiveSha256": "8968e832efe3e1e347194624395fbf2faa6fb9c02be40d4460c7aa3ea62a179c",
+  "baselineFilesRetained": 1291,
+  "missingBaselineFiles": [],
+  "unchangedServerFiles": 251,
+  "filesTotal": 1330,
+  "validation": {
+    "codeDatabaseSuites": 23,
+    "browserSuites": 7,
+    "allExitCodes": 0,
+    "testedApplicationHashesMatch": true,
+    "releaseCandidateCrcPassed": true,
+    "productionActionsPerformed": false,
+    "apiFixtures": "synthetic; external requests blocked"
+  },
+  "changes": {
+    "DANCE-STUDIO-VERSION.txt": {
+      "status": "modified",
+      "sha256": "a255c21bcbb40a3816ddc840f390a8406091a908abc6b71531ffccdecc6c0377"
+    },
+    "DEPLOY-V1.46-MAC-LINUX.sh": {
+      "status": "added",
+      "sha256": "ff47c87595b9c4ab23ed33433fd219e3a4ea003b54443c33399fcb910d393780"
+    },
+    "README.md": {
+      "status": "modified",
+      "sha256": "2712e6eb65e14c0f8de84152935f9935a19c074ae16e5ec77a237e589f443209"
+    },
+    "START-HERE-V1.46.txt": {
+      "status": "added",
+      "sha256": "18b35fad12dc3e9f86fe48af8c80b09dfa762d80a9f4d9abc69e0c006306ce56"
+    },
+    "V1.46-FIXES.md": {
+      "status": "added",
+      "sha256": "83814d1afed9f761f2031e9809b1d7638468afbf33557d0ba5a2f201155c517b"
+    },
+    "V1.46-VERIFICATION.md": {
+      "status": "added",
+      "sha256": "f3de8fad3160d16bde9f7e9fce59bc4b7cd930a542ac6915e4e5090b1c278cfa"
+    },
+    "functions/_middleware.js": {
+      "status": "modified",
+      "sha256": "3b93b05854ff84e4df6934eb7d2885115a39e02f8c3c0f78a614d3737c1384ad"
+    },
+    "package.json": {
+      "status": "modified",
+      "sha256": "8d5f7badcbf663d37c60c2d80d26a70372f6625a8a36ee44cbd7fa4578eee6b3"
+    },
+    "public/admin/dropbeat-admin-v1-05.js": {
+      "status": "modified",
+      "sha256": "a64adcec600addff42d6d5d0807a43d9ee2e53b43def8c9899ca65e3f9585b3e"
+    },
+    "public/admin/dropbeat-admin-v1-22.js": {
+      "status": "modified",
+      "sha256": "942466d621559b76e16ce15999b1ba89faafa07c10e32461b39dae9a59e8a41a"
+    },
+    "public/admin/dropbeat-admin-v1-29.js": {
+      "status": "modified",
+      "sha256": "199bf2dcab48361fc56b4c7a91af33295d7f39fb7a8e6cec354a4403d92d3085"
+    },
+    "public/admin/final-v16-54-brand-articles-stability.js": {
+      "status": "modified",
+      "sha256": "d8dde4c33b33200f1c4b200bf34c712408b0b31f2966c86ac1c5814c66593f09"
+    },
+    "public/admin/index.html": {
+      "status": "modified",
+      "sha256": "b940b117193da8587fc88c9c01ea6dd0436d0107d81f2aefd15c33e2c897c76c"
+    },
+    "public/assets/dropbeat-dashboard-mobile-v1-46.css": {
+      "status": "added",
+      "sha256": "21167e4c0243f43b3209199531f8341ca53cbdeeb2d2c33b6ff2d3e49c3d00b3"
+    },
+    "public/assets/dropbeat-dashboard-mobile-v1-46.js": {
+      "status": "added",
+      "sha256": "d0a2c572da0e5335cde4c8cccbefaf8a23d24228c5b9eeb8b1e4a950a66bbf6c"
+    },
+    "public/assets/dropbeat-ui-components-v1-46.js": {
+      "status": "added",
+      "sha256": "9027cd276fb5296cf90063796674f20e69b57c57815400b1ab606e687bf0d1f9"
+    },
+    "public/coach-dashboard.html": {
+      "status": "modified",
+      "sha256": "667f0b2e96159e4aee3c96babeb07c379760b590f84e1277f58880d3e2794e1e"
+    },
+    "public/student-dashboard.html": {
+      "status": "modified",
+      "sha256": "e2569501e8b48f85b678f59f4bb79ace731ae1fab1818556bbe3363422f50b0f"
+    },
+    "tests/dance-studio-deployment.mjs": {
+      "status": "modified",
+      "sha256": "b058cc16076380035a3bf25549ccbb8255d39d20de0a339c3d449c31c3c052d6"
+    },
+    "tests/dance-studio-v1-46-mobile-native.mjs": {
+      "status": "added",
+      "sha256": "4f0e1714dd507fc5e6955aa70bd6b342e3c6ca453f42ab81db661a6f8dd55323"
+    },
+    "tools/v146-addition-cases.mjs": {
+      "status": "added",
+      "sha256": "408ade5e9ed34f23cf950c235317b3e8293c027a8b878a5b358bf13bdc8d4848"
+    },
+    "tools/v146-brand-cases.mjs": {
+      "status": "added",
+      "sha256": "d623a121fca788af1b3209b7b92be0b06c2a0bec588574ab1dc3daa04e298a76"
+    },
+    "tools/v146-component-cases.mjs": {
+      "status": "added",
+      "sha256": "e4fda94f96297a18e45b272fdca81cb661fecc11b46f1428a4f5d8f16d7a06f1"
+    },
+    "tools/v146-native-cases.mjs": {
+      "status": "added",
+      "sha256": "f2d00efe3ada5058129d5025811d6913fa5c93c3a78e46d102846e80aa50dcbb"
+    },
+    "tools/v146-polish-cases.mjs": {
+      "status": "added",
+      "sha256": "6e2e4a940859443a0fd58b1edc307ba6bc94cef16ab05f461e64e825d6a303df"
+    },
+    "tools/v146-workflow-cases.mjs": {
+      "status": "added",
+      "sha256": "a2d374d3d89a90a870bd3802a069556d7077f0b40b613f07af62600c5dde29cb"
+    },
+    "tools/verify-mobile-v1-46-additions.mjs": {
+      "status": "added",
+      "sha256": "77e0c80210b43550d975c3ad09a470ae1810a52ea24eac3a063a4c7ddca28209"
+    },
+    "tools/verify-mobile-v1-46-brand.mjs": {
+      "status": "added",
+      "sha256": "0bdcdce65c670ee85b9d94f221394adcfb81b8216a8c4c11e8fc8ffa311a63af"
+    },
+    "tools/verify-mobile-v1-46-browser.mjs": {
+      "status": "added",
+      "sha256": "821af5915ce6c18503dd02ced4c528379d7d583f70d41efa338a8c7a6672aa06"
+    },
+    "tools/verify-mobile-v1-46-components.mjs": {
+      "status": "added",
+      "sha256": "c18cfecdbc7b33f8cf6a0b9880ba3595297255417dbd3876af222fa2d2fea6b7"
+    },
+    "tools/verify-mobile-v1-46-native.mjs": {
+      "status": "added",
+      "sha256": "6fb420f0c3c6b9ea10326ed10cf111a08e7d93e0c65cbdada47462044c9286b6"
+    },
+    "tools/verify-mobile-v1-46-polish.mjs": {
+      "status": "added",
+      "sha256": "af701d4f9ccb3c727d787ebcf9e9c58e002698f46bc9ea652751406b0fd8c0aa"
+    },
+    "tools/verify-mobile-v1-46-workflows.mjs": {
+      "status": "added",
+      "sha256": "9966b729239e6f4ceba700843da9d8fe6f86dcca935e1e1d8274a7fb4a160cf3"
+    },
+    "verification/v1.46/additions-addition-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.46/additions.log": {
+      "status": "added",
+      "sha256": "15345eed9bf7d1a8457b5be8522903d637882a33ab6263418c588571d94e5153"
+    },
+    "verification/v1.46/brand-form-inventory.json": {
+      "status": "added",
+      "sha256": "af6d4ec71419f3e5d220259fecd2b54f5ebd8febc81f500cc5d4fd8ed0b7a743"
+    },
+    "verification/v1.46/brand-results.json": {
+      "status": "added",
+      "sha256": "164dda48280a4e590724e95e2764d926828126e0d3bdbc9c4cdb9cd707ae4a73"
+    },
+    "verification/v1.46/brand.log": {
+      "status": "added",
+      "sha256": "ab3ccaa03725cf543d8f52ca1ed66905882b2c1658daa6245407015d9e3ea41d"
+    },
+    "verification/v1.46/browser-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.46/browser.log": {
+      "status": "added",
+      "sha256": "5c81a67efb63d972822f18225c68d5b779f3f6d76356d9d4c638d50d4b35de79"
+    },
+    "verification/v1.46/code-database.log": {
+      "status": "added",
+      "sha256": "9aae229f46b449c2a8e329bca272808eb46b2b71788c33acd0467fd0074ea8b0"
+    },
+    "verification/v1.46/components-component-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.46/components.log": {
+      "status": "added",
+      "sha256": "dce81b94e15c4af870e5c826ae9c60b7de7e1d4655a2ab5e483b9a6d0bf6fa63"
+    },
+    "verification/v1.46/native-native-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.46/native.log": {
+      "status": "added",
+      "sha256": "ee04feb47368a931c44ac4ff0456a297dcea26bb0285ed4f041695abaa168fe9"
+    },
+    "verification/v1.46/polish-polish-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.46/polish.log": {
+      "status": "added",
+      "sha256": "bf170d173fddb6e0a705037e66597100b71ccc4fc21852d32aa864e922671815"
+    },
+    "verification/v1.46/results.json": {
+      "status": "added",
+      "sha256": "ce5a1e140702bd0e828de3a70f189c412a58a0128840a1d86cb35bc2d59de5c2"
+    },
+    "verification/v1.46/workflows-workflow-console-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.46/workflows.log": {
+      "status": "added",
+      "sha256": "0639c53e3d796ca349e8b51560f32f31bed16c9dd48875e4e8c68cfe3e504279"
+    }
+  }
+}

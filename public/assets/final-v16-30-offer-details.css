@@ -1,0 +1,12 @@
+/* V16.30 additive Offer Details layout. Existing theme colors remain authoritative. */
+#offerDetail.container{max-width:1320px}
+.uc-offer-detail-shell{grid-template-columns:minmax(0,2.15fr) minmax(320px,.72fr)!important;gap:30px!important}
+.uc-offer-detail-media{aspect-ratio:16/9!important;width:100%!important;min-height:0!important;max-height:none!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#fffaf4!important;overflow:hidden!important}
+.uc-offer-detail-media img{display:block!important;width:100%!important;height:100%!important;max-width:1280px!important;max-height:720px!important;object-fit:contain!important;object-position:center!important;background:#fffaf4!important}
+.uc-offer-detail-price.trial-price{display:flex!important;align-items:baseline!important;gap:10px!important;flex-wrap:wrap!important}
+.uc-offer-detail-price.trial-price .regular-old{font-size:14px!important;color:#8a777d!important;text-decoration:line-through!important;text-decoration-thickness:2px!important}
+.uc-offer-detail-price.trial-price .trial-offer-old{font-size:21px!important;font-weight:850!important;color:#76636a!important;text-decoration:line-through!important;text-decoration-thickness:2px!important}
+.uc-offer-detail-price.trial-price .trial{flex-basis:100%!important;font-size:38px!important;line-height:1.08!important;margin-top:7px!important;font-weight:950!important}
+.uc-offer-know-list{margin:0;padding-left:20px;display:grid;gap:9px}.uc-offer-know-list li{padding-left:2px}
+.uc-offer-availability{margin-top:12px!important}.uc-offer-availability.available{background:#e8faef!important;color:#16723a!important;border-color:#bdebcf!important}.uc-offer-availability.hot,.uc-offer-availability.low{background:#fff0df!important;color:#a34700!important;border-color:#f0c79a!important}.uc-offer-availability.full{background:#f7e8ea!important;color:#9b1c2d!important;border-color:#e8bdc4!important}
+@media(max-width:900px){#offerDetail.container{max-width:100%}.uc-offer-detail-shell{grid-template-columns:1fr!important}.uc-offer-detail-media{aspect-ratio:16/9!important}}

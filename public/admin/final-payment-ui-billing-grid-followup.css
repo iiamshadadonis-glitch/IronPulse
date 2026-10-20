@@ -1,0 +1,82 @@
+/* Final follow-up: restore the clean payment-settings layout and tighten only the requested UI details. */
+
+/* Payments: keep the original card rhythm and the earlier compact toggle capsules. */
+#payments[data-uc-clean-payments="1"] .pay-detail{margin-bottom:14px;overflow:visible}
+#payments[data-uc-clean-payments="1"] .pay-detail>summary{cursor:pointer;font-weight:900;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
+#payments[data-uc-clean-payments="1"] .pay-detail>summary::-webkit-details-marker{display:none}
+#payments[data-uc-clean-payments="1"] .pay-detail>summary:after{content:'⌄';font-weight:900;transition:transform .18s ease}
+#payments[data-uc-clean-payments="1"] .pay-detail[open]>summary:after{transform:rotate(180deg)}
+#payments[data-uc-clean-payments="1"] .pay-detail .form{padding-top:16px}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-strip{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px 14px;margin:0 0 14px}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-item{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-capsule{display:inline-flex;align-items:center;gap:10px;width:auto;max-width:100%;margin:0;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#fcfcfe;cursor:pointer;line-height:1.15}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-capsule strong{font-size:14px;white-space:nowrap}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-capsule .switch{width:44px;height:24px;flex:0 0 44px}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-capsule .switch input{opacity:0;width:0;height:0;margin:0;padding:0;border:0}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-capsule .slider:before{width:18px;height:18px;left:3px;top:3px}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-capsule .switch input:checked+.slider:before{transform:translateX(20px)}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-helper{display:block;margin:0 0 0 11px;color:var(--muted,#7d646d);font-size:11px;line-height:1.25}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-item[data-disabled="1"]{opacity:.52}
+#payments[data-uc-clean-payments="1"] .uc-pay-toggle-item[data-disabled="1"] .uc-pay-toggle-capsule{cursor:not-allowed}
+#payments[data-uc-clean-payments="1"] .uc-phonepe-auth-fields[hidden]{display:none!important}
+#payments[data-uc-clean-payments="1"] .uc-phonepe-note{margin:12px 0 0;padding:11px 13px;border-left:3px solid #d29935;border-radius:8px;background:#fff8e8;color:#6b565d;font-size:12px;line-height:1.45}
+#payments[data-uc-clean-payments="1"] .field>.hint{display:block;margin-top:6px;line-height:1.35}
+#payments[data-uc-clean-payments="1"] .form-actions{margin-top:14px}
+#payments[data-uc-clean-payments="1"] #paymentsMsg{margin-top:12px}
+
+/* Live billing duration helper and PhonePe compatibility message. */
+.uc-live-billing-helper{display:block;margin-top:6px!important;font-weight:650;line-height:1.4;color:var(--muted,#735f67)}
+.uc-phonepe-plan-warning{margin:12px 0;padding:10px 12px;border-radius:11px;font-size:12px;line-height:1.45}
+.uc-phonepe-plan-warning.warn{border:1px solid #e6b758;background:#fff6d9;color:#6b4c00}
+.uc-phonepe-plan-warning.error{border:1px solid #e2a0a0;background:#fff0f0;color:var(--primary,#4B55BE);font-weight:700}
+
+/* Subscription analytics: one true header row + one true data row.
+   Every modal under Subscriptions Overview uses the same 17-column grid and
+   horizontal scrolling; nothing is squeezed into a second header/data line. */
+.uc-multi-sub-modal{padding:20px!important}
+.uc-multi-sub-card{width:min(1540px,96vw)!important;max-width:96vw!important;padding:24px!important;overflow-x:hidden!important;overflow-y:auto!important}
+.uc-sub-modal-head{padding:0 2px 2px!important}
+.uc-multi-sub-filters{margin:16px 0 12px!important}
+#ucMultiSubStatus,#ucMultiSubBody{min-width:0;max-width:100%}
+.uc-multi-sub-grid-wrap{width:100%!important;max-width:100%!important;overflow-x:auto!important;overflow-y:visible!important;scrollbar-gutter:stable both-edges;padding:0!important}
+.uc-multi-sub-grid{
+  grid-template-columns:
+    220px  /* Customer */
+    230px  /* Email */
+    140px  /* Phone */
+    115px  /* Gateway */
+    235px  /* Plan / Offer */
+    125px  /* Payment Type */
+    140px  /* Payment Mode */
+    220px  /* UPI ID */
+    110px  /* Amount */
+    125px  /* Status */
+    140px  /* Previous Bill */
+    145px  /* Next Charge */
+    125px  /* Next Amount */
+    115px  /* Total Cycles */
+    110px  /* Paid Cycles */
+    110px  /* Remaining */
+    280px  /* Attempts / Note */ !important;
+  min-width:2685px!important;
+  width:2685px!important;
+  align-items:stretch;
+}
+.uc-multi-sub-grid>div{min-width:0;align-self:stretch;padding:12px 13px!important}
+.uc-multi-sub-head>div{white-space:nowrap!important;word-break:normal!important;overflow-wrap:normal!important;display:flex;align-items:center}
+.uc-multi-sub-row>div{line-height:1.4;overflow:hidden}
+.uc-multi-sub-row .uc-wrap-cell{white-space:normal!important;overflow-wrap:anywhere;word-break:normal}
+.uc-multi-sub-row .uc-nowrap-cell{white-space:nowrap!important;overflow:visible!important}
+.uc-multi-sub-row small{word-break:normal!important;overflow-wrap:anywhere}
+.uc-grid-empty{grid-template-columns:1fr!important;min-width:2685px!important;width:2685px!important}
+.uc-grid-empty-message{grid-column:1/-1!important;white-space:normal!important}
+
+/* Storage: only polish the requested information control and availability badge. */
+.uc-storage-availability{border-radius:999px!important;white-space:nowrap}
+.uc-card-eye{border-radius:999px!important;font-family:Georgia,'Times New Roman',serif!important;font-style:italic;font-size:17px!important;line-height:1!important;display:grid!important;place-items:center!important}
+
+@media(max-width:800px){
+  #payments[data-uc-clean-payments="1"] .uc-pay-toggle-strip{gap:10px}
+  #payments[data-uc-clean-payments="1"] .uc-pay-toggle-item{max-width:100%}
+  #payments[data-uc-clean-payments="1"] .uc-pay-toggle-capsule strong{white-space:normal}
+}

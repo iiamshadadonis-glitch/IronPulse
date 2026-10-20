@@ -1,0 +1,96 @@
+[
+  {
+    "mode": "banners",
+    "title": "Add Home Banner",
+    "steps": [
+      "1Banner Details",
+      "2Images & Display",
+      "3Review"
+    ]
+  },
+  {
+    "mode": "banners",
+    "title": "Add Fixture Dance Studio Images",
+    "steps": [
+      "1Details",
+      "2Review"
+    ]
+  },
+  {
+    "mode": "social",
+    "title": "Social Media",
+    "steps": [
+      "1Contact Details",
+      "2Options",
+      "3Review"
+    ]
+  },
+  {
+    "mode": "checkout",
+    "title": "Coupon Codes",
+    "steps": [
+      "1Coupon Details",
+      "2Discount & Eligibility",
+      "3Dates & Limits",
+      "4Review"
+    ]
+  },
+  {
+    "mode": "maps",
+    "title": "Google Map — Contact Page",
+    "steps": [
+      "1Contact Details",
+      "2Options",
+      "3Review"
+    ]
+  },
+  {
+    "mode": "maps",
+    "title": "Google Reviews — Home Page",
+    "steps": [
+      "1Options",
+      "2Review"
+    ]
+  },
+  {
+    "mode": "coach",
+    "title": "Coach Onboarding & Leave Rules",
+    "steps": [
+      "1Onboarding & Leave Rules",
+      "2Review"
+    ]
+  },
+  {
+    "mode": "login",
+    "title": "Admin Display Name",
+    "steps": [
+      "1Details",
+      "2Review"
+    ]
+  },
+  {
+    "mode": "login",
+    "title": "Change Local Admin Password",
+    "steps": [
+      "1Details",
+      "2Review"
+    ]
+  },
+  {
+    "mode": "login",
+    "title": "Change Admin Email",
+    "steps": [
+      "1Email Address",
+      "2Confirmation",
+      "3Review"
+    ]
+  },
+  {
+    "mode": "login",
+    "title": "Google Account Login",
+    "steps": [
+      "1Details",
+      "2Review"
+    ]
+  }
+]

@@ -1,0 +1,290 @@
+/* DropBeat Dance Studio Admin V1.02
+   Visual override only. The existing admin structure and business logic remain unchanged. */
+@font-face{font-family:Barlow;src:url('/assets/dropbeat-fonts/barlow-v5-latin-regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Barlow;src:url('/assets/dropbeat-fonts/barlow-v5-latin-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:Barlow;src:url('/assets/dropbeat-fonts/barlow-v5-latin-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:Barlow;src:url('/assets/dropbeat-fonts/barlow-v5-latin-700.woff2') format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  --dropbeat-primary:#4B55BE;
+  --dropbeat-accent:#A469A8;
+  --dropbeat-title:#1a1a1a;
+  --dropbeat-text:#454545;
+  --dropbeat-menu:#313131;
+  --blue:#4B55BE;
+  --blue-rgb:75,85,190;
+  --blue-dark:#22244f;
+  --blue-dark-rgb:34,36,79;
+  --gold:#A469A8;
+  --pink:#A469A8;
+  --sky:#A469A8;
+  --sky-rgb:164,105,168;
+  --dark:#1a1a1a;
+  --ink:#1a1a1a;
+  --muted:#64676a;
+  --line:#e2e2eb;
+  --bg:#f6f6fa;
+  --card:#fff;
+  --ok:#168346;
+  --danger:#c73535;
+  /* Compatibility aliases used by the inherited feature stylesheets. */
+  --primary:var(--dropbeat-primary);
+  --accent:var(--dropbeat-accent);
+  --brand:var(--dropbeat-primary);
+  --brand-2:var(--dropbeat-accent);
+  --surface:#fff;
+  --panel:#fff;
+  --border:#e2e2eb;
+  --text:var(--dropbeat-text);
+  --uc-v5-brand:var(--dropbeat-primary);
+  --uc-v5-brand-dark:#303991;
+  --uc-v5-soft:#f7f7fb;
+  --uc-v5-line:#e2e2eb;
+}
+
+html,body,#adminApp{font-family:Barlow,Arial,sans-serif!important;color:var(--dropbeat-text)!important;background:#f6f6fa!important}
+body{margin:0!important;background-image:none!important}
+body,button,input,select,textarea{font-family:Barlow,Arial,sans-serif!important}
+h1,h2,h3,h4,h5,h6,.brand,.btn,.section-title{font-family:Barlow,Arial,sans-serif!important}
+h1,h2,h3,h4,h5,h6{color:var(--dropbeat-title)!important;font-weight:600!important}
+.muted,.hint,small{color:#64676a}
+a,.link-button{color:var(--dropbeat-primary)!important}
+input[type="checkbox"],input[type="radio"]{accent-color:var(--dropbeat-primary)!important}
+
+/* Login uses the same supplied dancer masthead and exact Dropbeat swatches. */
+.login-overlay{position:fixed!important;inset:0!important;display:grid!important;place-items:center!important;padding:24px!important;background:linear-gradient(120deg,rgba(24,22,55,.9),rgba(75,85,190,.72),rgba(164,105,168,.52)),url('/assets/dropbeat-page-title.jpg') center/cover no-repeat!important}
+.login-overlay[hidden]{display:none!important}
+.login-card{width:min(470px,94vw)!important;padding:clamp(28px,5vw,46px)!important;border:0!important;border-top:5px solid var(--dropbeat-accent)!important;border-radius:2px!important;background:#fff!important;box-shadow:0 32px 90px rgba(12,13,35,.36)!important;color:var(--dropbeat-text)!important}
+.login-card img{display:block!important;width:auto!important;max-width:160px!important;height:48px!important;margin:0 auto 24px!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;object-fit:contain!important}
+.login-card h1{margin:0 0 10px!important;text-align:center!important;font-size:clamp(28px,5vw,38px)!important;line-height:1.08!important;letter-spacing:-.03em!important}
+.login-card>p{text-align:center!important;color:#64676a!important}
+.login-card .form{margin-top:26px}
+.login-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin-top:8px}
+
+/* Actual application layout classes are .side and .main. */
+.layout{grid-template-columns:288px minmax(0,1fr)!important;min-height:100vh!important;background:#f6f6fa!important}
+.side{position:sticky!important;top:0!important;height:100vh!important;overflow:auto!important;padding:24px 18px!important;background:linear-gradient(180deg,#202249 0%,#34398f 58%,#4B55BE 100%)!important;color:#fff!important;box-shadow:12px 0 34px rgba(34,36,79,.16)!important}
+.side::before{content:"";position:absolute;inset:0;pointer-events:none;background:url('/assets/dropbeat-texture.png') center/320px repeat;opacity:.035}
+.side>*{position:relative;z-index:1}
+.side .brand{display:flex!important;align-items:center!important;gap:12px!important;margin:0 6px 24px!important;padding:0 0 22px!important;border-bottom:1px solid rgba(255,255,255,.15)!important;color:#fff!important;font-size:18px!important;font-weight:600!important;letter-spacing:.08em!important;text-transform:uppercase}
+.side .brand img{content:url('/assets/dropbeat-logo-white.svg');width:auto!important;max-width:126px!important;height:38px!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;object-fit:contain!important}
+.side .nav{display:grid!important;gap:5px!important}
+.side .nav button,.side .nav-group-toggle{display:flex!important;align-items:center!important;justify-content:space-between!important;width:100%!important;min-height:43px!important;padding:10px 12px!important;border:1px solid transparent!important;border-radius:2px!important;background:transparent!important;color:rgba(255,255,255,.82)!important;box-shadow:none!important;font-size:14px!important;font-weight:500!important;text-align:left!important;cursor:pointer}
+.side .nav button:hover,.side .nav button.active,.side .nav-group-toggle:hover,.side .nav-group-toggle.active,.side .nav-group.open>.nav-group-toggle{border-color:rgba(255,255,255,.16)!important;background:rgba(255,255,255,.13)!important;color:#fff!important}
+.side .nav-group{display:grid!important;gap:5px!important}
+.side .nav-group-items{border-left:1px solid rgba(255,255,255,.18)!important;margin-left:12px!important;padding-left:8px!important}
+.side .nav-group-items button{font-size:13px!important}
+.side .nav-badge,.side [class*="count-badge"]{color:#fff!important;background:var(--dropbeat-accent)!important;border:0!important;border-radius:99px!important;min-width:21px!important;padding:2px 6px!important;font-size:11px!important;font-weight:700!important;text-align:center!important}
+.side .logout{width:100%!important;margin-top:22px!important;background:rgba(255,255,255,.08)!important;color:#fff!important;border-color:rgba(255,255,255,.34)!important}
+
+.main{width:auto!important;max-width:none!important;min-width:0!important;padding:clamp(24px,3.2vw,46px)!important;background:#f6f6fa!important}
+.panel{color:var(--dropbeat-text)!important}
+.panel>.top,.main>.top{padding-bottom:18px!important;border-bottom:1px solid var(--line)!important}
+.top h1{margin:0!important;color:var(--dropbeat-title)!important;font-size:clamp(30px,3.5vw,44px)!important;font-weight:600!important;letter-spacing:-.035em!important}
+.top p{color:#64676a!important}
+.dashboard-block{margin-top:24px!important;padding:clamp(18px,2.3vw,28px)!important;border:1px solid var(--line)!important;border-top:3px solid var(--dropbeat-accent)!important;border-radius:2px!important;background:#fff!important;box-shadow:0 14px 42px rgba(34,36,79,.065)!important}
+.dashboard-block h2{margin-top:0!important}
+
+/* Surfaces and workspaces. */
+#adminApp .card,#adminApp .stat-card,#adminApp .modal-card,#adminApp .drawer-card,#adminApp .pay-detail,#adminApp .admin-collapsed-card,#adminApp .page-editor,#adminApp .table-wrap,#adminApp [class*="-category-card"],#adminApp [class*="-workspace"],#adminApp [class*="-editor-shell"]{border:1px solid var(--line)!important;border-radius:3px!important;background:#fff!important;box-shadow:0 13px 38px rgba(34,36,79,.07)!important;color:var(--dropbeat-text)!important}
+#adminApp .card{position:relative}
+#adminApp .card h2,#adminApp .card h3,#adminApp .card h4,#adminApp summary{color:var(--dropbeat-title)!important}
+#adminApp .dashboard-cards .card{border-top:3px solid var(--dropbeat-primary)!important;background:#fff!important}
+#adminApp .dashboard-cards .card:nth-child(even){border-top-color:var(--dropbeat-accent)!important}
+#adminApp .stat,#adminApp .big,#adminApp [class*="metric"]{color:var(--dropbeat-primary)!important}
+#adminApp details>summary,#adminApp .pay-detail>summary,#adminApp .admin-collapsed-card>summary,#adminApp .page-editor>summary{border-radius:2px!important;background:#fff!important;color:var(--dropbeat-title)!important}
+#adminApp details[open]>summary{border-bottom-color:var(--line)!important}
+
+/* Forms and text always remain visible on white. */
+.field label,#adminApp label{color:var(--dropbeat-title)!important;font-weight:600!important}
+input,select,textarea,.search-input{min-height:44px!important;border:1px solid #cfd0dc!important;border-radius:2px!important;background:#fff!important;color:#25252b!important;box-shadow:none!important}
+input::placeholder,textarea::placeholder{color:#747681!important;opacity:1!important}
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus{-webkit-text-fill-color:#25252b!important;-webkit-box-shadow:0 0 0 1000px #fff inset!important;transition:background-color 9999s ease-out 0s}
+input:focus,select:focus,textarea:focus,.search-input:focus{border-color:var(--dropbeat-primary)!important;outline:0!important;box-shadow:0 0 0 3px rgba(75,85,190,.13)!important}
+select option{background:#fff!important;color:#25252b!important}
+.copyline{background:#f8f8fb!important;border-color:var(--line)!important}
+.copyline input{background:#fff!important;color:#25252b!important}
+
+/* Buttons, tabs and toggles use only the supplied Dropbeat palette. */
+.btn,.button,button.primary,.btn.primary,#adminApp button[class*="primary"]{border:1px solid var(--dropbeat-primary)!important;border-radius:2px!important;background:var(--dropbeat-primary)!important;color:#fff!important;box-shadow:none!important;font-weight:600!important}
+.btn:hover,.button:hover,button.primary:hover,.btn.primary:hover{border-color:#39439f!important;background:#39439f!important;color:#fff!important;transform:translateY(-1px)}
+.btn.secondary,.button.secondary,button.secondary,#adminApp button[class*="secondary"]{border:1px solid rgba(75,85,190,.34)!important;background:#fff!important;color:var(--dropbeat-primary)!important;box-shadow:none!important}
+.btn.secondary:hover,.button.secondary:hover,button.secondary:hover{border-color:var(--dropbeat-primary)!important;background:#f1f2fb!important;color:#303991!important}
+.btn.danger,button.danger{border-color:#c73535!important;background:#c73535!important;color:#fff!important}
+.pill,.tabs button,.tab{border:1px solid var(--line)!important;border-radius:2px!important;background:#fff!important;color:#4b4c54!important;box-shadow:none!important}
+.pill.active,.tabs button.active,.tab.active,.uc-client-tabs button.active{border-color:var(--dropbeat-primary)!important;background:var(--dropbeat-primary)!important;color:#fff!important}
+.switch .slider{background:#bfc0cc!important;border-color:#bfc0cc!important}
+.switch input:checked+.slider{background:var(--dropbeat-primary)!important;border-color:var(--dropbeat-primary)!important}
+
+/* Tables and messages. */
+.table-wrap{overflow:auto!important}
+.table{width:100%!important;background:#fff!important;color:var(--dropbeat-text)!important}
+.table th{background:#efeff7!important;color:var(--dropbeat-title)!important;font-weight:600!important}
+.table td,.table th{border-color:var(--line)!important}
+.table tbody tr:hover{background:#f8f8fc!important}
+.notice,.help-box,.info-box{border:1px solid rgba(75,85,190,.2)!important;border-left:4px solid var(--dropbeat-primary)!important;border-radius:2px!important;background:#f3f4fc!important;color:#34364c!important}
+.notice.success{border-color:#b8dfc4!important;border-left-color:#168346!important;background:#effaf3!important;color:#155e35!important}
+.error,.notice.error,.admin-toast.error{border:1px solid #edb4b4!important;border-left:4px solid #c73535!important;border-radius:2px!important;background:#fff2f2!important;color:#892525!important}
+.admin-toast.notice{border:1px solid rgba(75,85,190,.24)!important;border-left:4px solid var(--dropbeat-accent)!important;border-radius:2px!important;background:#fff!important;color:#34364c!important;box-shadow:0 18px 55px rgba(34,36,79,.18)!important}
+.status,.badge,.chip{border-radius:2px!important;background:#eeeef7!important;color:#3e428f!important}
+.status.active,.status.paid,.status.completed,.status.contacted,.status.connected{background:#e7f7ec!important;color:#176238!important}
+.status.failed,.status.error{background:#fff0f0!important;color:#982f2f!important}
+.status.draft,.status.pending,.status.new,.status.configured{background:#f5eff6!important;color:#6f4372!important}
+
+/* Dialogs and overlays retain semantic behavior while losing the old maroon cast. */
+.modal,.confirm-modal,[class*="overlay"]{background-color:rgba(23,24,52,.68)!important}
+.modal-card,.confirm-card{border-top:4px solid var(--dropbeat-accent)!important;background:#fff!important;color:var(--dropbeat-text)!important}
+.drawer,.uc-client-shell,.uc64-workspace{background:#f6f6fa!important;color:var(--dropbeat-text)!important}
+.uc-client-header,.uc64-workspace-head,[class*="workspace-head"],[class*="editor-head"]{background:#fff!important;border-color:var(--line)!important;color:var(--dropbeat-title)!important}
+.uc-client-tabs,.uc-form-actions,[class*="toolbar"],[class*="actionbar"]{border-color:var(--line)!important;background:#fff!important}
+.uc-profile-media-stage{background:#202249!important}
+.crop-shell{border-color:var(--line)!important;background:#f6f6fa!important}
+
+/* Integration, marketing, automation and storage additions inherit the same visual system. */
+#adminApp [class*="boundary"],#adminApp [class*="safe-note"],#adminApp [class*="privacy-note"],#adminApp [class*="info"]{border-color:rgba(164,105,168,.28)!important;background:#f8f4f9!important;color:#3e3940!important}
+#adminApp [class*="meter-track"],#adminApp [class*="progress-track"]{background:#e4e4ed!important}
+#adminApp [class*="meter-track"]>span,#adminApp [class*="progress-track"]>span{background:linear-gradient(90deg,var(--dropbeat-primary),var(--dropbeat-accent))!important}
+#adminApp [class*="summary-status"],#adminApp [class*="status-badge"]{border-radius:2px!important}
+#adminApp [class*="round-back"],#adminApp [class*="info-btn"],#adminApp [class*="icon-btn"]{border-color:rgba(75,85,190,.3)!important;background:#fff!important;color:var(--dropbeat-primary)!important}
+
+/* V1.03: Brand Settings uses the same rectangular Dropbeat tab language as the rest of Admin. */
+#adminApp .uc-v1652-brand-tabs{gap:8px!important;margin-bottom:18px!important;padding:0 0 14px!important;border-bottom:1px solid var(--line)!important}
+#adminApp .uc-v1652-brand-tab{
+  min-height:42px!important;padding:10px 15px!important;border:1px solid var(--line)!important;
+  border-radius:2px!important;background:#fff!important;color:#45464f!important;
+  box-shadow:none!important;font-size:14px!important;font-weight:600!important;line-height:1.2!important;
+}
+#adminApp .uc-v1652-brand-tab:hover,#adminApp .uc-v1652-brand-tab:focus-visible{
+  border-color:var(--dropbeat-primary)!important;background:#f1f2fb!important;color:#303991!important;
+  outline:0!important;box-shadow:0 0 0 3px rgba(75,85,190,.12)!important;
+}
+#adminApp .uc-v1652-brand-tab.active,#adminApp .uc-v1652-brand-tab[aria-selected="true"]{
+  border-color:var(--dropbeat-primary)!important;background:var(--dropbeat-primary)!important;
+  color:#fff!important;box-shadow:none!important;
+}
+#adminApp .uc-v1652-brand-context{margin-bottom:20px!important}
+#adminApp .uc-v1652-brand-context h2{font-size:22px!important;font-weight:600!important}
+#adminApp .uc-v1652-brand-context p{color:var(--muted)!important;font-size:14px!important}
+
+/* V1.03: normalize inherited CSS-grid surfaces without changing their grid templates or behavior. */
+#adminApp [class*="-grid-wrap"],#adminApp [class*="-grid-scroll"]{
+  border-color:var(--line)!important;border-radius:3px!important;background:#fff!important;
+}
+#adminApp [class*="-grid-head"],#adminApp [class*="-grid-col"]{
+  border-color:var(--line)!important;background:#efeff7!important;color:var(--dropbeat-title)!important;
+  font-weight:600!important;
+}
+#adminApp [class*="-grid-cell"]{
+  border-color:var(--line)!important;background:#fff!important;color:var(--dropbeat-text)!important;
+}
+#adminApp [class*="-grid-cell"] strong{color:var(--dropbeat-title)!important}
+#adminApp [class*="-grid-card"],#adminApp [class*="-library-card"]{
+  border-color:var(--line)!important;border-radius:3px!important;background:#fff!important;
+}
+#adminApp [class*="-grid-empty"],#adminApp [class*="-empty-row"]{background:#fafafe!important;color:var(--muted)!important}
+#socialMediaIntegrations .uc49-grid-scroll{border-color:var(--line)!important;border-radius:3px!important;background:#fff!important}
+#socialMediaIntegrations .uc49-grid-col{border-color:var(--line)!important;background:#efeff7!important;color:var(--dropbeat-title)!important;font-weight:600!important}
+#socialMediaIntegrations .uc49-grid-cell{border-color:var(--line)!important;background:#fff!important;color:var(--dropbeat-text)!important}
+#socialMediaIntegrations .uc49-cap{border-color:var(--line)!important;border-radius:2px!important;background:#f5f5fa!important;color:#4b4c58!important}
+#socialMediaIntegrations .uc49-grid-btn{border-radius:2px!important}
+#blogs .audition-ad-row,#blogs .uc-v1624-control-card,#blogs .uc-v153-featured-control,
+#blogs .uc-auto-ad-row,#blogs .uc-v1624-first-comment-expand{
+  border-color:var(--line)!important;border-radius:3px!important;background:#fff!important;color:var(--dropbeat-text)!important;
+}
+#blogs .blogger-required-note{border-color:rgba(75,85,190,.25)!important;border-left:4px solid var(--dropbeat-primary)!important;border-radius:2px!important;background:#f3f4fc!important;color:#34364c!important}
+
+/* V1.03: Analytics > Calendar. Semantic statuses stay distinct; the old cream/maroon shell is removed. */
+#businessCalendar .uc88-analytics-card{border-color:var(--line)!important;border-radius:3px!important;background:#fff!important}
+#businessCalendar .uc88-legend,#businessCalendar .uc88-toolbar,#businessCalendar .uc88-modal-total{
+  border-color:var(--line)!important;border-radius:3px!important;background:#f5f5fa!important;color:var(--dropbeat-text)!important;
+}
+#businessCalendar .uc88-calendar{gap:1px!important;border-color:var(--line)!important;border-radius:3px!important;background:var(--line)!important}
+#businessCalendar .uc88-weekday{background:#efeff7!important;color:var(--dropbeat-title)!important;font-weight:600!important}
+#businessCalendar .uc88-day{background:#fff!important;color:var(--dropbeat-title)!important}
+#businessCalendar .uc88-day:hover{background:#f7f7fc!important}
+#businessCalendar .uc88-day.outside{background:#f6f6fa!important;color:#777985!important;opacity:1!important}
+#businessCalendar .uc88-day.selected{background:#f0f1fb!important;box-shadow:inset 0 0 0 3px var(--dropbeat-primary)!important}
+#businessCalendar .uc88-round{border-color:rgba(75,85,190,.35)!important;border-radius:2px!important;background:#fff!important;color:var(--dropbeat-primary)!important}
+#businessCalendar .uc88-metric,#businessCalendar .uc88-list-row{border-color:var(--line)!important;border-radius:3px!important;background:#fff!important;color:var(--dropbeat-text)!important}
+#businessCalendar .uc88-refund{background:#f1eaf3!important;color:#704774!important}
+
+/* V1.03: Social Media > Posts > Scheduling calendar. */
+#socialPosts .uc48-calendar-shell{border-color:var(--line)!important;border-radius:3px!important;background:#fff!important}
+#socialPosts .uc48-day-name{border-color:var(--line)!important;background:#efeff7!important;color:var(--dropbeat-title)!important;font-weight:600!important}
+#socialPosts .uc48-day{border-color:var(--line)!important;background:#fff!important;color:var(--dropbeat-title)!important}
+#socialPosts .uc48-day.is-other{background:#f6f6fa!important;color:#777985!important;opacity:1!important}
+#socialPosts .uc48-day.is-today{background:#f0f1fb!important;box-shadow:inset 0 0 0 2px var(--dropbeat-primary)!important}
+#socialPosts .uc48-day-num,#socialPosts .uc48-calendar-title{color:var(--dropbeat-title)!important;font-weight:600!important}
+#socialPosts .uc48-calendar-post{border-color:var(--line)!important;border-radius:2px!important;background:#f8f8fc!important;color:var(--dropbeat-text)!important}
+#socialPosts .uc48-calendar-post:hover{border-color:var(--dropbeat-primary)!important;background:#f1f2fb!important}
+#socialPosts .uc48-list-item{border-color:var(--line)!important;border-radius:3px!important;background:#fff!important}
+
+@media(max-width:1050px){
+  .layout{grid-template-columns:244px minmax(0,1fr)!important}
+  .side{padding:20px 13px!important}
+  .main{padding:28px 22px!important}
+}
+
+@media(max-width:800px){
+  .layout{display:block!important}
+  .side{position:relative!important;width:100%!important;height:auto!important;min-height:auto!important}
+  .side .brand{margin-bottom:15px!important}
+  .side .nav{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .side .logout{max-width:220px!important}
+  .main{padding:24px 14px!important}
+  .login-actions{grid-template-columns:1fr!important}
+}
+
+@media(max-width:520px){
+  .side .nav{grid-template-columns:1fr!important}
+  .login-card{padding:28px 20px!important}
+  .top{align-items:flex-start!important;flex-direction:column!important}
+}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+/* DropBeat V1.05: Brand Settings → Banners → DropBeat Studio image manager. */
+.dropbeat-studio-gallery-manager{display:grid;gap:20px;margin-top:20px}
+.dropbeat-studio-gallery-manager>.card{margin:0!important}
+.dropbeat-studio-gallery-manager .block-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:18px}
+.dropbeat-studio-gallery-manager .block-head h3{margin:0 0 5px!important}
+.dropbeat-studio-gallery-manager .block-head p{margin:0!important}
+.dropbeat-studio-gallery-manager [data-studio-gallery-table]{overflow-x:auto!important}
+.dropbeat-studio-gallery-table{width:100%!important;min-width:760px!important;table-layout:fixed!important}
+.dropbeat-studio-gallery-table .studio-copy-col{width:43%}
+.dropbeat-studio-gallery-table .studio-preview-col{width:19%}
+.dropbeat-studio-gallery-table .studio-status-col{width:14%}
+.dropbeat-studio-gallery-table .studio-sort-col{width:12%}
+.dropbeat-studio-gallery-table .studio-actions-col{width:12%}
+.dropbeat-studio-gallery-table th,.dropbeat-studio-gallery-table td{vertical-align:middle!important;padding:14px 12px!important}
+.dropbeat-studio-gallery-table th:nth-child(n+2),.dropbeat-studio-gallery-table td:nth-child(n+2){text-align:center!important}
+.dropbeat-studio-gallery-table .text-cell{max-width:none!important;overflow-wrap:anywhere!important}
+.dropbeat-studio-gallery-table .sort-actions,.dropbeat-studio-gallery-table .action-row{
+  display:inline-flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;
+  justify-content:center!important;gap:8px!important;width:auto!important;min-width:76px!important;white-space:nowrap!important
+}
+.dropbeat-studio-gallery-table .icon-action{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;
+  margin:0!important;padding:0!important;border-radius:50%!important;line-height:1!important
+}
+.dropbeat-studio-gallery-table .icon-action.danger{color:#fff!important;background:var(--danger)!important;border-color:var(--danger)!important}
+.dropbeat-studio-gallery-table .icon-action[disabled]{opacity:.34!important;cursor:not-allowed!important}
+.dropbeat-studio-admin-thumb{width:92px!important;height:72px!important;object-fit:cover!important;border:1px solid var(--line)!important;border-radius:2px!important;background:#efeff7!important}
+.dropbeat-studio-preview-cell .dropbeat-studio-admin-thumb{display:block!important;margin:0 auto!important}
+.dropbeat-studio-current-preview{display:flex;align-items:center;gap:14px;padding:12px;border:1px solid var(--line);background:#f7f7fb;color:var(--dropbeat-text)}
+.dropbeat-studio-current-preview[hidden]{display:none!important}
+.dropbeat-studio-current-preview img{width:120px;height:90px;object-fit:cover;border:1px solid var(--line)}
+.dropbeat-studio-current-preview span{font-weight:600;color:var(--dropbeat-title)}
+.dropbeat-studio-save-confirmation{margin:0 0 14px!important}
+.dropbeat-brand-loading{display:inline-flex;align-items:center;gap:7px;margin-top:8px;color:var(--dropbeat-primary)!important;font-size:12px!important;font-weight:600!important}
+.dropbeat-brand-loading::before{content:"";width:12px;height:12px;border:2px solid rgba(75,85,190,.22);border-top-color:var(--dropbeat-primary);border-radius:50%;animation:dropbeat-brand-spin .75s linear infinite}
+.dropbeat-brand-loading.is-error{color:var(--danger)!important}
+.dropbeat-brand-loading.is-error::before{display:none}
+@keyframes dropbeat-brand-spin{to{transform:rotate(360deg)}}
+@media(max-width:720px){.dropbeat-studio-gallery-manager .block-head{flex-direction:column}.dropbeat-studio-gallery-manager .block-head .btn{width:100%}}
+/* V1.06 Student Story save result remains visible outside the collapsible form. */
+.dropbeat-story-save-status{margin:14px 0 18px}
+.dropbeat-story-save-status:empty{display:none}
+.dropbeat-story-save-status .notice,.dropbeat-story-save-status .error{margin:0!important}
+#dropbeatStudentStoryForm[aria-busy="true"]{opacity:.88}
+#dropbeatStudentStoryForm [data-dropbeat-story-save][disabled]{cursor:wait!important}

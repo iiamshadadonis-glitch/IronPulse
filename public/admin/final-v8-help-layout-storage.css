@@ -1,0 +1,80 @@
+/* Urgent Casting V8 — collision-free information helper placement. */
+
+/* Website Colors: helper occupies its own row ABOVE the Reset Colors toolbar/content. */
+.uc-v7-theme-details > .uc-detail-info-toolbar,
+.uc-v7-theme-details > .uc-v8-theme-help-toolbar{
+  position:relative !important;
+  inset:auto !important;
+  display:flex;
+  justify-content:flex-end;
+  margin:8px 14px 2px !important;
+  min-height:34px;
+  z-index:7;
+}
+details.uc-v7-theme-details:not([open]) > .uc-detail-info-toolbar{display:none !important;}
+.uc-v7-theme-details[open] > .uc-theme-builder,
+.uc-v7-theme-details[open] > .website-colors,
+.uc-v7-theme-details[open] > .theme-builder{padding-top:10px !important;}
+
+/* Details-based helpers (Tracking, Payments, Home Banner) sit below the dropdown summary. */
+#tracking details.pay-detail[open] > .uc-detail-info-toolbar,
+#payments details.pay-detail[open] > .uc-detail-info-toolbar,
+#banners details.admin-collapsed-card[open] > .uc-detail-info-toolbar{
+  position:relative !important;
+  inset:auto !important;
+  display:flex !important;
+  justify-content:flex-end !important;
+  margin:8px 14px 4px !important;
+  min-height:34px !important;
+  z-index:7 !important;
+}
+#tracking details.pay-detail:not([open]) > .uc-detail-info-toolbar,
+#payments details.pay-detail:not([open]) > .uc-detail-info-toolbar,
+#banners details.admin-collapsed-card:not([open]) > .uc-detail-info-toolbar{display:none !important;}
+#tracking details.pay-detail > summary,
+#payments details.pay-detail > summary,
+#banners details.admin-collapsed-card > summary{padding-right:54px !important;}
+
+/* Product Display: keep the I visible and away from the text. */
+#placements .placement-section-card.uc-info-host{position:relative !important;padding-top:22px !important;}
+#placements .placement-section-card.uc-info-host > .uc-info-toolbar{
+  position:absolute !important;top:12px !important;right:14px !important;margin:0 !important;z-index:8 !important;
+}
+#placements .placement-section-card.uc-info-host > h3:first-of-type{padding-right:48px !important;}
+
+/* Plan / Offer modal: I lives in the same header row, BEFORE Close. */
+#productModal .modal-card .top{gap:10px !important;}
+#productModal .modal-card .top > .uc-v8-inline-info-toolbar{
+  position:static !important;inset:auto !important;margin:0 0 0 auto !important;min-height:34px !important;flex:0 0 auto !important;
+}
+#productModal .modal-card .top > .uc-v8-inline-info-toolbar + button{margin-left:0 !important;}
+#productModal .modal-card.uc-info-host > .uc-info-toolbar{right:auto !important;top:auto !important;}
+
+/* Dashboard overview helpers: never overlay Apply or Refresh Payments. */
+.uc-v8-inline-info-toolbar{position:static !important;inset:auto !important;margin:0 !important;min-height:34px !important;flex:0 0 auto !important;}
+#dashboard .uc-sub-overview-controls{display:flex !important;align-items:flex-end !important;gap:10px !important;flex-wrap:wrap !important;}
+#dashboard .uc-sub-overview-controls > .uc-v8-dashboard-inline-info{align-self:flex-end !important;margin-left:3px !important;}
+#dashboard .uc-v8-payment-head-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex:0 0 auto;}
+#dashboard .uc-v8-payment-head-actions > .uc-info-toolbar{position:static !important;margin:0 !important;}
+#dashboard .block-head{column-gap:16px !important;row-gap:10px !important;}
+
+/* More breathing space inside all V8/standard help backs. */
+#tracking .uc-info-back-panel,
+#payments .uc-info-back-panel,
+#placements .uc-info-back-panel,
+#productModal .uc-info-back-panel,
+#dashboard .uc-info-back-panel,
+#banners .uc-info-back-panel,
+.uc-v7-theme-details .uc-info-back-panel{
+  padding:22px 24px 24px !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  max-height:min(68vh,640px) !important;
+  scrollbar-gutter:stable;
+}
+
+@media(max-width:760px){
+  #dashboard .block-head{align-items:flex-start !important;}
+  #dashboard .uc-v8-payment-head-actions{width:100%;justify-content:flex-end;}
+  #productModal .modal-card .top{flex-wrap:wrap;}
+}

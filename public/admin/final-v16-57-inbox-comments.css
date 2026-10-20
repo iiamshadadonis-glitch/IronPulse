@@ -1,0 +1,63 @@
+/* V16.57 — Inbox tabs/icons and article-comment terminology presentation.
+   Uses existing brand/theme variables; no theme colors are replaced. */
+#socialDMs .uc57-inbox-tabs{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  flex-wrap:wrap;
+  margin:14px 0 0;
+}
+#socialDMs .uc57-inbox-tabs .pill{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  min-height:36px;
+  padding:7px 13px;
+}
+#socialDMs .uc57-tab-icon,
+#socialDMs .uc57-platform-dot{
+  display:inline-grid;
+  place-items:center;
+  border-radius:50%;
+  font-weight:900;
+  line-height:1;
+  flex:0 0 auto;
+}
+#socialDMs .uc57-tab-icon{
+  width:20px;
+  height:20px;
+  font-size:10px;
+  border:1px solid currentColor;
+  background:rgba(255,255,255,.72);
+}
+#socialDMs .pill.active .uc57-tab-icon{background:rgba(255,255,255,.92);color:var(--blue,#4B55BE)}
+#socialDMs .uc57-avatar-wrap{
+  position:relative;
+  width:46px;
+  height:46px;
+  display:inline-flex;
+  flex:0 0 46px;
+}
+#socialDMs .uc57-avatar-wrap.large{width:52px;height:52px;flex-basis:52px}
+#socialDMs .uc57-platform-dot{
+  position:absolute;
+  right:-2px;
+  bottom:-2px;
+  width:19px;
+  height:19px;
+  font-size:8px;
+  color:#fff;
+  border:2px solid var(--surface,#fffaf4);
+  box-shadow:0 2px 7px rgba(0,0,0,.16);
+}
+#socialDMs .uc57-platform-dot.facebook,#socialDMs .uc57-tab-icon.facebook{background:#1877f2;color:#fff}
+#socialDMs .uc57-platform-dot.instagram,#socialDMs .uc57-tab-icon.instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff}
+#socialDMs .uc57-platform-dot.whatsapp,#socialDMs .uc57-tab-icon.whatsapp{background:#1aa260;color:#fff}
+#socialDMs .uc57-platform-dot.x,#socialDMs .uc57-tab-icon.x{background:#111;color:#fff}
+#socialDMs .uc56-platform-badge.whatsapp{background:#e5f8ec}
+#socialDMs .uc56-dm-shell{margin-top:12px}
+#socialDMs .uc56-dm-list-head{gap:9px}
+@media(max-width:760px){
+  #socialDMs .uc57-inbox-tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  #socialDMs .uc57-inbox-tabs .pill{flex:0 0 auto}
+}

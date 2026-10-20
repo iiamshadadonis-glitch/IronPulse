@@ -1,0 +1,44 @@
+{
+  "release": "1.52.0",
+  "source_archive_sha256": "6e9df2c707160a061a6538a71c956fb973fcc3a684e650c3009d8440557b1c50",
+  "code_check_messages_passed": 27,
+  "browser_suites_passed": 4,
+  "customer_workflow_groups_passed": 7,
+  "customer_viewports": [
+    {
+      "width": 320,
+      "height": 568
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 760,
+      "height": 844
+    },
+    {
+      "width": 1440,
+      "height": 1000
+    }
+  ],
+  "api_scope": "Local synthetic API responses. Schedule/plan-import database tests use temporary SQLite fixtures. No live production credentials, payment actions, customer records or deployment were used.",
+  "protected_v151_files": 1527,
+  "source_changes": [
+    "public/assets/dropbeat-customers-mobile-v1-52.js (new)",
+    "public/assets/dropbeat-customers-mobile-v1-52.css (new)",
+    "public/admin/index.html (two new scoped assets and controller build key)",
+    "public/assets/dropbeat-dashboard-mobile-v1-49.js (expose existing enhanceForm only)",
+    "functions/_middleware.js (release header and changed-controller build key only)",
+    "package.json (release version and test commands)",
+    "DANCE-STUDIO-VERSION.txt (release notes)",
+    "tests/dance-studio-deployment.mjs (current release assertion)"
+  ],
+  "prior_browser_failures_resolved": [
+    "Local Chromium path explicitly configured for the installed runtime",
+    "Fixture navigation waits for the Customers hub instead of calling a child route during staged installation",
+    "Mobile header and hidden-owner CSS specificity conflicts corrected",
+    "Theme test sets the component token because the existing global theme installer restores its saved root token",
+    "Navigation loading-helper misclassification corrected using the existing navigation marker; scoped 48px styling retained"
+  ]
+}

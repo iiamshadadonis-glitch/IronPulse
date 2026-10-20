@@ -1,0 +1,98 @@
+/* V1.49: semantic contrast, mobile navigation and responsive native uploads.
+   Existing primary/accent values and business controls remain authoritative. */
+:root{
+  --db149-surface:var(--db135-surface,var(--db132-surface,var(--surface,var(--card,#fff))));
+  --db149-text:var(--db135-text,var(--db132-text,var(--portal-text,var(--text,var(--dark,#25263a)))));
+  --db149-line:var(--db135-line,var(--db132-line,var(--portal-line,var(--line,var(--border,#d8dce7)))));
+  --db149-primary:var(--dropbeat-primary,var(--primary,#4B55BE));
+  --db149-warning:var(--warning,#c99122);
+  --warning-bg:color-mix(in srgb,var(--db149-warning) 14%,var(--db149-surface));
+  --warning-text:var(--db149-text);
+  --warning-border:color-mix(in srgb,var(--db149-warning) 65%,var(--db149-line));
+  --db149-info-bg:color-mix(in srgb,var(--db149-primary) 6%,var(--db149-surface));
+  --db149-success-bg:color-mix(in srgb,var(--ok,#168346) 12%,var(--db149-surface));
+  --db149-error-bg:color-mix(in srgb,var(--danger,#c73535) 12%,var(--db149-surface));
+}
+/* Semantic helper components: replace their old light-only background declarations. */
+html:is([data-color-mode=dark],[data-theme=dark]) body :is(#adminApp,.portal-app,.modal,.portal-modal,.portal-v122-modal,.portal-v122-forced-modal,.db114-modal,.uc1705-modal,#db137ChoiceSheet) :is(.notice:not(.success):not(.error),.alert-info,.uc49-info-help,.uc-info-back-panel){background:var(--db149-info-bg)!important;background-image:none!important;color:var(--db149-text)!important;border-color:var(--db149-line)!important}
+html:is([data-color-mode=dark],[data-theme=dark]) body :is(#adminApp,.portal-app,.modal,.portal-modal,.portal-v122-modal,.portal-v122-forced-modal,.db114-modal,.uc1705-modal,#db137ChoiceSheet) :is(.warning,.alert-warning,.notice.warning,.uc-pg-status.warn,.uc-delete-warning,.uc-storage-safe-note,.uc-storage-detail-warning,.uc-v1637-manager-note){background:var(--warning-bg)!important;background-image:none!important;color:var(--warning-text)!important;border-color:var(--warning-border)!important}
+html:is([data-color-mode=dark],[data-theme=dark]) body :is(#adminApp,.portal-app,.modal,.portal-modal,.portal-v122-modal,.portal-v122-forced-modal,.db114-modal,.uc1705-modal,#db137ChoiceSheet) :is(.warning,.alert-warning,.uc-pg-status.warn,.uc-delete-warning,.uc-storage-safe-note,.uc-storage-detail-warning,.uc-v1637-manager-note,.uc49-info-help,.uc-info-back-panel)>:is(p,span,small,strong,b){color:inherit!important}
+html body :is(#ucStorageCleanupModal,.modal,.portal-modal,.portal-app,#adminApp) :is(.uc-storage-cleanup-toolbar,.sticky-header,.sticky-row,[data-sticky-header]){background:var(--db149-surface)!important;background-image:none!important;color:var(--db149-text)!important;border-color:var(--db149-line)!important}
+html body #ucStorageCleanupModal .uc-storage-cleanup-toolbar :is(label,span){color:var(--db149-text)!important}
+html:is([data-color-mode=dark],[data-theme=dark]) body :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.uc1705-modal) :is(.uc-pg-status.fetching,.uc-pg-status.info,.info-box,.helper-box){background:var(--db149-info-bg)!important;color:var(--db149-text)!important;border-color:var(--db149-line)!important}
+html:is([data-color-mode=dark],[data-theme=dark]) body :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.uc1705-modal) :is(.success,.alert-success,.uc-pg-status.ok,.uc-pg-status.success){background:var(--db149-success-bg)!important;color:var(--db149-text)!important;border-color:var(--ok,#168346)!important}
+html:is([data-color-mode=dark],[data-theme=dark]) body :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.uc1705-modal) :is(.error,.alert-danger,.uc-pg-status.error){background:var(--db149-error-bg)!important;color:var(--db149-text)!important;border-color:var(--danger,#c73535)!important}
+html:is([data-color-mode=dark],[data-theme=dark]) body :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.uc1705-modal) :is(.card,.modal-card,.uc-subscription-card,.uc-storage-list-row,.uc49-grid-scroll,.uc49-cap){background-color:var(--db149-surface)!important;color:var(--db149-text)!important;border-color:var(--db149-line)!important}
+.db149-payment-nav,.db149-payment-view{display:none}
+
+/* Explicit desktop enhancement. Inputs retain their name, FileList and handlers. */
+@media(min-width:761px){
+  html body :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.portal-v122-modal,.uc1705-modal) .db149-desktop-upload{
+    display:flex!important;position:relative!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+    box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:150px!important;margin:8px 0 14px!important;padding:26px 20px!important;gap:10px!important;
+    border:2px dashed color-mix(in srgb,var(--db149-primary) 60%,var(--db149-line))!important;border-radius:14px!important;
+    background:var(--db149-info-bg)!important;color:var(--db149-primary)!important;text-align:center!important;cursor:pointer!important;overflow:hidden!important;
+    transition:background-color .15s ease,border-color .15s ease;
+  }
+  html body .db149-desktop-upload:is(:hover,:focus-within,.db149-drag-over){background:color-mix(in srgb,var(--db149-primary) 12%,var(--db149-surface))!important;border-color:var(--db149-primary)!important}
+  html body .db149-desktop-upload:focus-within{outline:2px solid var(--db149-primary);outline-offset:3px}
+  html body .db149-desktop-upload>svg{width:36px!important;height:36px!important;min-height:36px!important;flex:0 0 36px!important;stroke:currentColor!important;fill:none!important;stroke-width:1.8!important}
+  html body .db149-desktop-upload>strong{font-size:14px!important;line-height:1.5!important;color:var(--db149-primary)!important}
+  html body .db149-desktop-upload>:is(span,small){max-width:100%!important;font-size:12px!important;line-height:1.5!important;color:var(--db149-text)!important;overflow-wrap:anywhere!important}
+  html body :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.portal-v122-modal,.uc1705-modal) .db149-desktop-upload>input[type=file]{display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;opacity:0!important;cursor:pointer!important}
+  html body .db149-desktop-upload:has(input:disabled){opacity:.5!important;cursor:not-allowed!important}
+  html body .db149-desktop-upload>input:disabled{cursor:not-allowed!important}
+}
+@media(max-width:760px){
+  /* Shared modal header contract, including legacy headers discovered at runtime. */
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.portal-v122-modal,.portal-v122-forced-modal,.uc1705-modal) .db149-fullscreen-header{
+    display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:flex-start!important;justify-content:space-between!important;
+    flex:0 0 auto!important;width:100%!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important;
+    gap:12px!important;margin:0!important;padding:max(16px,env(safe-area-inset-top,0px)) 20px 16px!important;
+  }
+  html body.db138-mobile .db149-fullscreen-header>.db139-header-copy{display:block!important;flex:1 1 0!important;min-width:0!important;width:auto!important}
+  html body.db138-mobile .db149-fullscreen-header :is(h1,h2,h3){flex:1 1 auto!important;min-width:0!important;margin:0 0 6px!important;font-size:17px!important;line-height:1.35!important;overflow-wrap:anywhere!important}
+  html body.db138-mobile .db149-fullscreen-header p{margin:0!important;font-size:11px!important;line-height:1.45!important;overflow-wrap:anywhere!important}
+  html body.db138-mobile .db149-fullscreen-header>.db138-header-icons{flex:0 0 auto!important;width:auto!important;align-self:flex-start!important;margin:0!important;padding:0!important}
+  html body.db138-mobile .db149-fullscreen-header>button{flex:0 0 auto!important;align-self:flex-start!important;margin:0!important}
+  html body.db138-mobile #ucV1637NavEditModal>.modal-card{padding:0!important}
+  html body.db138-mobile #ucV1637NavEditModal form>.db138-form-content{padding:16px 20px max(24px,env(safe-area-inset-bottom,0px))!important}
+  /* Match the compact top-level menu row at every submenu depth. */
+  html body.db138-mobile #adminApp #pages .uc-v1637-child-wrap{display:grid!important;gap:8px!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:8px 0!important;border:0!important;background:transparent!important;box-sizing:border-box!important}
+  html body.db138-mobile #adminApp #pages .uc-v1637-child-grid.uc-v1637-grid-head{display:none!important}
+  html body.db138-mobile #adminApp #pages .uc-v1637-child-grid.uc-v1637-grid-row{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;width:100%!important;min-width:0!important;max-width:100%!important;height:52px!important;min-height:52px!important;max-height:56px!important;gap:6px!important;padding:7px 8px!important}
+  html body.db138-mobile #adminApp #pages .uc-v1637-child-grid.uc-v1637-grid-row>:before{content:none!important;display:none!important}
+  html body.db138-mobile #adminApp #pages .uc-v1637-child-grid.uc-v1637-grid-row>.db144-menu-name-cell{flex:1 1 0!important;min-width:0!important;width:auto!important}
+  html body.db138-mobile #adminApp #pages .uc-v1637-child-grid.uc-v1637-grid-row>.uc-v1637-row-actions{display:flex!important;flex:0 0 84px!important;width:84px!important;min-width:84px!important;flex-wrap:nowrap!important;gap:0!important;margin:0!important;padding:0!important}
+  html body.db138-mobile #adminApp #pages .uc-v1637-child-title{min-width:0!important;font-size:12px!important;line-height:1.35!important;gap:8px!important}
+  html body.db138-mobile #adminApp #pages .uc-v1637-child-title strong{min-width:0!important;overflow-wrap:anywhere!important}
+  /* Styled switches are not ordinary circular selection checkboxes. */
+  html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-mini-switch{
+    position:relative!important;display:inline-block!important;flex:0 0 44px!important;width:44px!important;min-width:44px!important;max-width:44px!important;
+    height:24px!important;min-height:24px!important;max-height:24px!important;margin:0!important;padding:0!important;box-sizing:border-box!important;align-self:center!important;
+  }
+  html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-mini-switch>input[type=checkbox]{position:absolute!important;inset:0!important;opacity:0!important;width:44px!important;min-width:0!important;max-width:44px!important;height:24px!important;min-height:0!important;max-height:24px!important;margin:0!important;padding:0!important;appearance:none!important}
+  html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-mini-slider{position:absolute!important;inset:0!important;width:44px!important;min-width:44px!important;max-width:44px!important;height:24px!important;min-height:24px!important;max-height:24px!important;margin:0!important;padding:0!important;border:0!important;border-radius:999px!important;background:color-mix(in srgb,var(--db138-text) 38%,var(--db138-surface))!important}
+  html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-mini-slider:before{content:""!important;position:absolute!important;left:3px!important;top:3px!important;bottom:auto!important;width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;margin:0!important;border-radius:50%!important;background:var(--db149-switch-thumb,white)!important;transform:none!important}
+  html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-mini-switch>input:checked+.uc49-mini-slider{background:var(--dropbeat-primary,var(--db138-primary))!important}
+  html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-mini-switch>input:checked+.uc49-mini-slider:before{transform:translateX(20px)!important}
+  html body.db138-mobile #adminApp #socialMediaIntegrations .uc49-mini-switch:focus-within{outline:2px solid var(--db138-primary)!important;outline-offset:4px!important;border-radius:999px!important}
+  /* Payment menus reuse the global disclosure and retain their source nodes. */
+  html body.db138-mobile #ucClientModal .db149-payment-nav{display:grid!important;gap:12px!important;margin:0!important;padding:0!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments.db149-payments-menu>.uc-info-toolbar{display:none!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .db149-payment-view[hidden]{display:none!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .db149-payment-view:not([hidden]){display:flex!important;flex-direction:column!important;position:fixed!important;inset:0!important;z-index:var(--db149-payment-layer,55000)!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:100vw!important;max-height:100dvh!important;min-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;box-sizing:border-box!important;background:var(--db138-surface)!important;color:var(--db138-text)!important;transform:none!important}
+  html body.db138-mobile #ucClientModal .db149-payment-view>.db149-payment-header{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;flex:0 0 auto!important;margin:0!important;padding:max(16px,env(safe-area-inset-top,0px)) 20px 16px!important;gap:12px!important;border-bottom:1px solid var(--db138-line)!important;background:var(--db138-surface)!important;box-sizing:border-box!important}
+  html body.db138-mobile #ucClientModal .db149-payment-header h2{flex:1!important;min-width:0!important;margin:0!important;font-size:17px!important;line-height:1.35!important}
+  html body.db138-mobile #ucClientModal .db149-payment-header-actions{display:flex!important;flex:0 0 auto!important;gap:10px!important;align-items:center!important;margin:0!important;padding:0!important}
+  html body.db138-mobile #ucClientModal .db149-payment-view>.db149-payment-body{display:block!important;flex:1 1 0!important;min-width:0!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain!important;padding:16px 20px max(24px,env(safe-area-inset-bottom,0px))!important;box-sizing:border-box!important}
+  html body.db138-mobile #ucClientModal .db149-payment-view .uc-payment-toolbar>div:first-child{display:none!important}
+  html body.db138-mobile #ucClientModal .db149-payment-view .uc-payment-record-title{display:none!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments :is(.uc-sub-actions,.uc-payment-toolbar) :is(button,a).db149-destructive{border:1px solid var(--db148-danger,var(--danger))!important;color:var(--db148-danger,var(--danger))!important;background:transparent!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .db149-destructive :is(svg,path){color:var(--db148-danger,var(--danger))!important;stroke:currentColor!important}
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal) :is(.uc-v11-sub-icon.cancel,[data-subscription-action=cancel],button[aria-label="Cancel subscription"]){border-color:var(--db148-danger,var(--danger))!important;color:var(--db148-danger,var(--danger))!important}
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal) :is(.uc-v11-sub-icon.cancel,[data-subscription-action=cancel],button[aria-label="Cancel subscription"]) :is(svg,path){color:inherit!important;stroke:currentColor!important}
+  html body.db138-mobile #studioSchedule .db149-schedule-state{padding:16px!important;display:grid!important;gap:12px!important;align-items:start!important;justify-items:start!important}
+  html body.db138-mobile #studioSchedule .db149-schedule-state p{margin:0!important;font-size:13px!important;line-height:1.5!important}
+  html body.db138-mobile #studioSchedule [data-db149-load-more]{margin:16px!important;max-width:calc(100% - 32px)!important}
+}

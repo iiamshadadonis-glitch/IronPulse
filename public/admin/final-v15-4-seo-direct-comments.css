@@ -1,0 +1,23 @@
+/* V15.4 admin UI-only additions. Existing palette/theme variables are preserved. */
+.uc-v154-audition-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:12px 0 10px;position:relative}
+.uc-v154-audition-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0}
+.uc-v154-audition-tabs .pill small{font-size:11px;opacity:.78;margin-left:3px}
+.uc-v154-sort-wrap{position:relative;flex:0 0 auto}
+.uc-v154-filter-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:14px;background:var(--card);display:grid;place-items:center;cursor:pointer;color:var(--blue-dark)}
+.uc-v154-filter-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.uc-v154-sort-menu{position:absolute;right:0;top:48px;z-index:40;min-width:190px;padding:7px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.12)}
+.uc-v154-sort-menu[hidden]{display:none!important}
+.uc-v154-sort-menu button{display:block;width:100%;text-align:left;border:0;background:transparent;padding:10px 11px;border-radius:10px;cursor:pointer;color:var(--text);font-weight:700}
+.uc-v154-sort-menu button:hover,.uc-v154-sort-menu button.active{background:rgba(var(--blue-rgb),.07);color:var(--blue-dark)}
+.uc-v154-audition-table{min-width:980px;table-layout:fixed}
+.uc-v154-audition-table th:nth-child(1){width:29%}.uc-v154-audition-table th:nth-child(2){width:10%}.uc-v154-audition-table th:nth-child(3){width:14%}.uc-v154-audition-table th:nth-child(4){width:12%}.uc-v154-audition-table th:nth-child(5){width:18%}.uc-v154-audition-table th:nth-child(6){width:17%}
+.uc-v154-audition-table td{vertical-align:middle;overflow-wrap:anywhere}
+.uc-v154-blog-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.uc-v154-blog-actions svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.uc-v154-deleted-note{margin:0 0 10px}
+.uc-v154-comment-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0;flex-wrap:wrap}.uc-v154-comment-controls .tabs{margin:0}.uc-v154-comment-controls input{min-width:280px;flex:1;max-width:440px}
+.uc-v154-comments-table{min-width:980px;table-layout:fixed}.uc-v154-comments-table th:nth-child(1){width:29%}.uc-v154-comments-table th:nth-child(2){width:18%}.uc-v154-comments-table th:nth-child(3){width:29%}.uc-v154-comments-table th:nth-child(4){width:11%}.uc-v154-comments-table th:nth-child(5){width:13%}.uc-v154-comments-table td{vertical-align:middle;overflow-wrap:anywhere}
+.uc-v154-comment-article{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none}.uc-v154-comment-article img{width:76px;height:56px;object-fit:cover;border-radius:10px;flex:0 0 76px}.uc-v154-comment-article span{min-width:0}.uc-v154-comment-article strong,.uc-v154-comment-article small{display:block}.uc-v154-comment-copy{line-height:1.45;max-height:86px;overflow:auto;padding-right:4px}
+.uc-v154-reply-modal .notice{margin-bottom:14px;line-height:1.5}.uc-v154-comments-help{margin-bottom:8px}
+@media(max-width:900px){.uc-v154-audition-toolbar{align-items:flex-start}.uc-v154-comment-controls input{max-width:none;width:100%}}
+/* V15.6 title actions: no palette changes; published opens public article, draft opens editor. */
+.uc-v156-title-holder{font-weight:inherit}.uc-v156-audition-title-link{color:inherit;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;font-weight:800;cursor:pointer}.uc-v156-audition-title-button{appearance:none;border:0;background:transparent;padding:0;margin:0;font:inherit;font-weight:800;text-align:left}

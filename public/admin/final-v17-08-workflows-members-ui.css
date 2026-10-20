@@ -1,0 +1,49 @@
+/* V17.08 — visual parity, branching email journeys and class member workflow. */
+#uc1706EmailProviders{display:contents!important}
+#uc1706EmailProviders .uc1706-provider{margin:0!important;min-height:0!important}
+#uc1706EmailProviders .uc1706-provider>summary{
+  min-height:58px!important;box-sizing:border-box!important;padding:13px 58px 13px 20px!important;
+  align-items:center!important;gap:12px!important;font:inherit!important;color:var(--dark,#2b151d)!important
+}
+#uc1706EmailProviders .uc1706-provider>summary>span:first-child{display:block!important;min-width:0!important;padding:0!important;margin:0!important}
+#uc1706EmailProviders .uc1706-provider>summary strong{display:block!important;margin:0!important;font-family:inherit!important;font-size:18px!important;font-weight:900!important;line-height:1.25!important;color:var(--dark,#2b151d)!important;letter-spacing:0!important}
+#uc1706EmailProviders .uc1706-provider>summary .uc1706-status{margin:0!important;align-self:center!important;font-size:12px!important}
+#uc1706EmailProviders .uc1706-provider>summary::after{top:50%!important;right:20px!important;transform:translateY(-50%)!important}
+#uc1706EmailProviders .uc1706-provider[open]>summary::after{transform:translateY(-50%) rotate(180deg)!important}
+
+#socialAutomations.uc1708-email-followup-active #uc64Platforms{display:none!important}
+.uc1705-flow.uc1708-has-branches{width:min(1080px,100%)}
+.uc1708-linear{width:min(520px,100%);display:flex;flex-direction:column;align-items:center}
+.uc1708-condition-tree{width:100%;display:flex;flex-direction:column;align-items:center}
+.uc1708-condition-tree>.uc1705-step{width:min(520px,100%)}
+.uc1708-branches{position:relative;width:100%;display:grid;grid-template-columns:minmax(300px,1fr) minmax(300px,1fr);gap:42px;padding-top:38px}
+.uc1708-branches::before{content:"";position:absolute;top:18px;left:25%;right:25%;border-top:2px solid #c99c89}
+.uc1708-branch{position:relative;min-width:0;display:flex;flex-direction:column;align-items:center;padding-top:22px}
+.uc1708-branch::before{content:"";position:absolute;top:-20px;left:50%;height:42px;border-left:2px solid #c99c89}
+.uc1708-branch-label{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;min-width:64px;padding:7px 13px;margin-bottom:14px;border-radius:999px;font-weight:900;font-size:12px;box-shadow:0 4px 14px #00000012}
+.uc1708-branch.yes>.uc1708-branch-label{background:#dff8e5;color:#126a2a;border:1px solid #a9e8b8}
+.uc1708-branch.no>.uc1708-branch-label{background:#f5e9e9;color:#4B55BE;border:1px solid #e2bcbc}
+.uc1708-branch-path{width:100%;display:flex;flex-direction:column;align-items:center;gap:20px}
+.uc1708-branch-path>.uc1705-step{width:100%}
+.uc1708-branch-path>.uc1708-condition-tree>.uc1705-step{width:100%}
+.uc1708-path-finish{display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:#e2f8e6;color:#176a2e;font-size:12px;font-weight:900}
+.uc1708-path-finish::before{content:"✓";display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#2b9948;color:#fff}
+.uc1708-crm-notice{margin:0 0 14px;padding:12px;border:1px solid #b9dec2;border-radius:12px;background:#effbf2;color:#285f35;line-height:1.5;font-size:12px}
+
+.uc97-webinar-top-actions{flex-wrap:wrap}
+.uc1708-past-badge{display:inline-grid;place-items:center;min-width:20px;height:20px;margin-left:6px;padding:0 6px;border-radius:999px;background:#a40000;color:#fff;font-size:11px;font-weight:900;vertical-align:middle}
+.uc1708-member-modal .uc1708-customer-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0}
+.uc1708-member-modal .uc1708-customer-meta>div{padding:10px;border:1px solid var(--border,#dedfec);border-radius:12px;background:#fffaf4;min-width:0}
+.uc1708-member-modal .uc1708-customer-meta small,.uc1708-member-modal .uc1708-customer-meta strong{display:block;overflow-wrap:anywhere}
+.uc1708-day-picks,.uc1708-channel-picks{display:flex;flex-wrap:wrap;gap:8px}
+.uc1708-day-picks button,.uc1708-channel-picks button{border:1px solid #dab7a8;border-radius:999px;background:#fffaf4;color:#6d303b;padding:8px 12px;font-weight:800;cursor:pointer}
+.uc1708-day-picks button.selected,.uc1708-channel-picks button.selected{background:#4B55BE;color:#fff;border-color:#4B55BE}
+.uc1708-day-picks button:disabled{opacity:.48;cursor:not-allowed}
+.uc1708-member-reminder{display:grid;grid-template-columns:minmax(100px,.7fr) minmax(120px,.8fr) minmax(220px,1.5fr) auto;gap:10px;align-items:end;padding:12px;margin-top:10px;border:1px solid var(--border,#dedfec);border-radius:14px;background:#fffaf4}
+
+@media(max-width:900px){
+  .uc1708-branches{grid-template-columns:1fr;gap:26px}
+  .uc1708-branches::before{display:none}.uc1708-branch::before{height:22px;top:-1px}
+  .uc1708-member-modal .uc1708-customer-meta{grid-template-columns:1fr}
+  .uc1708-member-reminder{grid-template-columns:1fr 1fr}.uc1708-member-reminder>:nth-child(n+3){grid-column:1/-1}
+}

@@ -1,0 +1,96 @@
+/* DropBeat V1.32 — app-like phone/tablet presentation.
+   Everything is inside responsive media queries so desktop remains exact. */
+
+@media(max-width:760px){
+  html,body{max-width:100%;overflow-x:hidden}
+  body{padding-bottom:env(safe-area-inset-bottom,0)}
+
+  /* Compact sticky public app bar. */
+  .topbar{position:sticky!important;top:0;z-index:90!important;min-height:60px!important;backdrop-filter:blur(14px)}
+  .topbar .nav{width:100%!important;min-height:60px!important;height:60px!important;padding:0 10px!important;gap:8px!important}
+  .topbar .brand{min-width:0;gap:7px!important}
+  .topbar .brand img{width:34px!important;height:34px!important}
+  .topbar .brand span{max-width:132px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px!important}
+  .topbar .menu-toggle{display:grid!important;place-items:center;width:36px!important;height:36px!important;min-width:36px!important;padding:0!important}
+  .topbar .nav-actions{margin-left:auto!important;gap:6px!important}
+  .topbar .nav-actions .cart-pill{width:36px!important;height:36px!important;min-width:36px!important;padding:0!important;font-size:0!important}
+  .topbar .nav-actions .cart-pill::before{content:'🛒';font-size:16px}
+  .topbar .navlinks.open{position:fixed!important;top:60px!important;left:8px!important;right:8px!important;width:auto!important;max-height:calc(100dvh - 72px);overflow:auto;padding:10px!important;border:1px solid var(--dropbeat-line,#dedfec);border-radius:16px!important;box-shadow:0 18px 50px rgba(0,0,0,.22)!important}
+  .topbar .navlinks.open a{min-height:42px;display:flex;align-items:center;padding:9px 11px!important;border-radius:10px}
+
+  main>.section,.section{padding:28px 0!important}
+  .container{width:min(100% - 20px,1180px)!important}
+  .section-head{margin-bottom:16px!important}
+  .section h1,.section h2{font-size:clamp(25px,8vw,34px)!important;line-height:1.08!important}
+  .section p.lead{font-size:14px!important;line-height:1.55!important}
+
+  /* Storefront behaves as a two-column shopping app. Full information remains
+     available through each card's Details action. */
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts).grid.cards{
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;align-items:stretch!important;overflow:visible!important;
+  }
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card{
+    min-width:0!important;width:auto!important;padding:9px!important;gap:8px!important;
+    border-radius:15px!important;box-shadow:0 8px 24px rgba(34,36,79,.1)!important;
+  }
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card .gallery{border-radius:11px!important;aspect-ratio:1/1.08!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card>.badge{top:7px!important;left:7px!important;max-width:calc(100% - 14px);padding:4px 7px!important;font-size:9px!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card h3{font-size:14px!important;line-height:1.25!important;margin:0!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card p{font-size:11px!important;line-height:1.35!important;margin:2px 0!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card .price{gap:4px!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card .price .new{font-size:18px!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card .price .old{font-size:10px!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card .features{display:none!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card :is(.uc-plan-availability,[data-db107-plan-facts]){font-size:9px!important;line-height:1.25!important;padding:5px!important;margin:0!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card .product-actions{display:grid!important;grid-template-columns:1fr!important;gap:6px!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card .product-actions .btn{width:100%!important;min-width:0!important;padding:7px 5px!important;font-size:10px!important;min-height:32px!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .gallery-btn{width:26px!important;height:26px!important;font-size:15px!important;opacity:.9!important;pointer-events:auto!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .gallery-dots{bottom:5px!important}
+
+  /* Compact mobile footer, not one long desktop stack. */
+  .footer{padding:26px 0 calc(22px + env(safe-area-inset-bottom,0))!important}
+  .footer .footer-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px 14px!important}
+  .footer .footer-grid>div:first-child{grid-column:1/-1}
+  .footer h3{font-size:15px!important;margin-bottom:7px!important}
+  .footer p,.footer a{font-size:12px!important;line-height:1.75!important}
+  .footer .social-icon{width:34px!important;height:34px!important;border-radius:10px!important}
+  .footer .designed{display:grid!important;gap:5px!important;margin-top:20px!important;padding-top:14px!important;font-size:11px!important}
+  .wa-float{width:48px!important;height:48px!important;right:12px!important;bottom:12px!important}
+
+  /* Login and role portals use a compact native-app rhythm. */
+  .auth-page{padding:14px 8px 36px!important}
+  .auth-shell{width:100%!important;border-radius:20px!important;overflow:hidden!important}
+  .auth-pane{padding:20px 16px!important}
+  .portal-app{display:block!important;min-height:100dvh!important}
+  .portal-main{padding:0 10px 34px!important}
+  .portal-topbar{position:sticky!important;top:0;z-index:80;min-height:60px!important;height:auto!important;margin:0 -10px 14px!important;padding:8px 10px!important;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);box-shadow:0 5px 18px rgba(34,36,79,.08)}
+  html[data-color-mode="dark"] .portal-topbar{background:rgba(17,21,33,.96)!important}
+  .portal-topbar h1{font-size:18px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:42vw}
+  .mobile-nav-toggle{width:38px;height:38px;padding:0!important;font-size:0!important;border-radius:11px!important}
+  .mobile-nav-toggle::before{content:'☰';font-size:19px}
+  .portal-identity{gap:6px!important}.portal-avatar{width:36px!important;height:36px!important}.portal-identity div{display:none!important}
+  .portal-sidebar{width:min(310px,86vw)!important;padding:18px 14px!important;z-index:210!important;box-shadow:18px 0 48px rgba(0,0,0,.35)}
+  .portal-sidebar .portal-nav button{min-height:44px;padding:10px 12px!important;border-radius:11px!important}
+  .portal-view-head{gap:9px!important;margin-bottom:12px!important}
+  .portal-view-head h2{font-size:24px!important}
+  .portal-grid{gap:10px!important}
+  .portal-card{padding:14px!important;border-radius:16px!important}
+  .portal-card h3{font-size:17px!important}
+  .portal-metrics,.attendance-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+  .week-list{gap:8px!important}
+  .week-item{display:grid!important;grid-template-columns:minmax(118px,42%) minmax(0,1fr)!important;gap:10px!important;padding:11px!important;border-radius:14px!important;align-items:center!important}
+  .week-date{min-width:0!important;font-size:11px!important;line-height:1.35!important}
+  .week-date small{display:block!important;margin-top:3px!important}
+  .week-item>.portal-btn{grid-column:1/-1;width:100%!important}
+  .portal-table-wrap{border-radius:14px!important}
+  .portal-modal{align-items:end!important;padding:0!important}
+  .portal-modal-card{width:100%!important;max-height:92dvh!important;border-radius:22px 22px 0 0!important;padding:18px 14px!important}
+}
+
+@media(max-width:380px){
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts).grid.cards{gap:7px!important}
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card{padding:7px!important}
+  .topbar .brand span{max-width:100px}
+  .portal-metrics,.attendance-summary-grid{grid-template-columns:1fr!important}
+}

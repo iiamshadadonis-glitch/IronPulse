@@ -1,0 +1,157 @@
+{
+  "initial": [
+    {
+      "suite": "code-database",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 5.85,
+      "command": [
+        "npm",
+        "run",
+        "test:dance-v1.50"
+      ]
+    },
+    {
+      "suite": "layouts-v150",
+      "attempt": 1,
+      "exitCode": 1,
+      "seconds": 49.97,
+      "command": [
+        "node",
+        "tools/verify-v1-50-layouts.mjs"
+      ]
+    },
+    {
+      "suite": "components",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 97.28,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-components.mjs"
+      ]
+    },
+    {
+      "suite": "additions",
+      "attempt": 1,
+      "exitCode": 1,
+      "seconds": 18.95,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-additions.mjs"
+      ]
+    },
+    {
+      "suite": "browser",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 125.06,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-browser.mjs"
+      ]
+    },
+    {
+      "suite": "workflows",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 82.33,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-workflows.mjs"
+      ]
+    },
+    {
+      "suite": "polish",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 144.31,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-polish.mjs"
+      ]
+    },
+    {
+      "suite": "native",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 166.69,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-native.mjs"
+      ]
+    },
+    {
+      "suite": "controls",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 65.85,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-controls.mjs"
+      ]
+    },
+    {
+      "suite": "desktop",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 8.36,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-desktop.mjs"
+      ]
+    },
+    {
+      "suite": "final",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 65.44,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-final.mjs"
+      ]
+    },
+    {
+      "suite": "brand",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 224.54,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-brand.mjs"
+      ]
+    }
+  ],
+  "affectedFinal": [
+    {
+      "suite": "code-database",
+      "exitCode": 0,
+      "seconds": 6.31
+    },
+    {
+      "suite": "layouts-v150",
+      "exitCode": 0,
+      "seconds": 50.61
+    },
+    {
+      "suite": "desktop",
+      "exitCode": 0,
+      "seconds": 8.76
+    },
+    {
+      "suite": "controls",
+      "exitCode": 0,
+      "seconds": 69.72
+    },
+    {
+      "suite": "additions",
+      "exitCode": 0,
+      "seconds": 121.98
+    }
+  ],
+  "notes": [
+    "Initial new layout coverage exposed an existing fast-render/class-facts hydration race. The polished renderer now uses the same render record/event as the base renderer; final layout checks verify mobile and desktop facts, original price/order, Details URL and Book Now/cart values.",
+    "The initial additions run saw a transient detached member-row style assertion. Its retained rerun and its final affected rerun passed without changing the class/member handlers.",
+    "The final layout coverage passes on the delivered code; earlier failed snapshots are not the delivered application."
+  ]
+}

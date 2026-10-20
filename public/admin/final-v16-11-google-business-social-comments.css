@@ -1,0 +1,137 @@
+/* V16.16 additive Google Business Profile + unified comment workspace.
+   Existing admin theme variables remain authoritative; no palette is replaced. */
+#socialMediaIntegrations .uc-v1611-google-business .row{gap:16px}
+#socialMediaIntegrations .uc-v1611-google-business .field{min-width:0}
+#socialMediaIntegrations .uc-v1611-google-business .uc-v1611-business-actions{display:flex;justify-content:flex-end;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+#socialMediaIntegrations .uc-v1611-google-business .uc-v1611-business-actions .btn{min-width:118px}
+#socialMediaIntegrations .uc-v1611-google-business .uc-v1611-business-state{margin-top:12px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);line-height:1.5}
+#socialMediaIntegrations .uc-v1611-google-business .uc-v1611-business-state:empty{display:none}
+#socialMediaIntegrations .uc-v1611-google-business select{min-width:0}
+#socialMediaIntegrations .uc-v1611-gsc-auto{margin:14px 0}
+
+#blogComments .uc-v1611-platform-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 10px}
+#blogComments .uc-v1611-platform-tab{border:1px solid var(--line);background:var(--card);color:var(--dark);border-radius:999px;padding:9px 13px;font:inherit;font-size:13px;font-weight:850;cursor:pointer;white-space:nowrap}
+#blogComments .uc-v1611-platform-tab.active{background:var(--blue);color:white;border-color:var(--blue)}
+#blogComments .uc-v1611-platform-tab[disabled]{cursor:not-allowed;opacity:.55}
+#blogComments .uc-v1611-platform-note{margin:10px 0}
+#blogComments .uc-v1611-comment-controls{display:grid;grid-template-columns:minmax(410px,auto) minmax(220px,1fr) auto;gap:12px;align-items:center;margin:12px 0 14px}
+#blogComments .uc-v1611-comment-controls .tabs{margin:0;min-width:0}
+#blogComments .uc-v1611-comment-controls input{min-width:0;width:100%}
+
+/* The Comments workspace has only five columns. V16.15 intentionally removes the
+   forced desktop min-width/horizontal scrollbar and gives every column a fixed share. */
+#blogComments .uc-v1611-comment-table-wrap{width:100%;max-width:100%;overflow:visible!important;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+#blogComments .uc-v1611-comment-table,#blogComments .uc-v154-comments-table{width:100%!important;min-width:0!important;max-width:100%;table-layout:fixed;border-collapse:collapse}
+#blogComments .uc-v1611-comment-table th,#blogComments .uc-v1611-comment-table td{padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:middle;text-align:left;overflow-wrap:anywhere;min-width:0}
+#blogComments .uc-v1611-comment-table th:nth-child(1){width:24%}
+#blogComments .uc-v1611-comment-table th:nth-child(2){width:14%}
+#blogComments .uc-v1611-comment-table th:nth-child(3){width:27%}
+#blogComments .uc-v1611-comment-table th:nth-child(4){width:9%}
+#blogComments .uc-v1611-comment-table th:nth-child(5){width:26%}
+#blogComments .uc-v1611-post-cell{display:flex;align-items:center;gap:10px;min-width:0;color:inherit;text-decoration:none}
+#blogComments .uc-v1611-post-thumb{width:64px;height:50px;border-radius:10px;object-fit:cover;flex:0 0 64px;background:var(--bg)}
+#blogComments .uc-v1611-post-meta{min-width:0;display:grid;gap:3px}
+#blogComments .uc-v1611-post-meta strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.32}
+#blogComments .uc-v1611-post-meta small,#blogComments .uc-v1611-commenter small{color:var(--muted);line-height:1.3}
+#blogComments .uc-v1611-commenter{min-width:0;display:grid;gap:4px;max-width:100%}
+#blogComments .uc-v1611-commenter strong{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#blogComments .uc-v1611-commenter-link{appearance:none;border:0;background:transparent;color:var(--blue);font:inherit;font-weight:850;text-align:left;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px;display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#blogComments .uc-v1611-comment-copy{line-height:1.45;max-height:none;overflow:visible;padding:0;white-space:normal;display:grid;gap:6px}
+#blogComments .uc-v1611-received{display:block;color:var(--muted);font-size:11px}
+#blogComments .uc-v1611-admin-response{margin-top:4px;padding:8px 9px;border:1px solid var(--line);border-radius:10px;background:var(--bg);display:grid;gap:3px;line-height:1.35}
+#blogComments .uc-v1611-admin-response strong{font-size:12px}
+#blogComments .uc-v1611-admin-response span{font-size:12px;overflow-wrap:anywhere}
+#blogComments .uc-v1611-admin-response small{font-size:10px;color:var(--muted)}
+#blogComments .uc-v1611-admin-response a{font-size:11px;color:var(--blue);font-weight:800}
+#blogComments .uc-v1611-state-list{display:block;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.25}
+#blogComments .uc-v1611-actions{display:flex;gap:4px;align-items:center;justify-content:flex-start;flex-wrap:wrap;min-width:0}
+#blogComments .uc-v1611-action{width:31px;height:31px;min-width:31px;padding:0;border-radius:999px;display:inline-flex;align-items:center;justify-content:center}
+#blogComments .uc-v1611-action svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#blogComments .uc-v1611-action.is-active{background:var(--blue)!important;color:white!important;border-color:var(--blue)!important;box-shadow:none}
+#blogComments .uc-v1611-action.danger.is-active{background:var(--blue)!important;color:white!important;border-color:var(--blue)!important}
+#blogComments .uc-v1611-action[disabled]{opacity:.38;cursor:not-allowed;box-shadow:none}
+#blogComments .uc-v1611-action.is-active[disabled]{opacity:1}
+#blogComments .status.in_progress{background:var(--bg);color:var(--blue);border:1px solid var(--line)}
+#blogComments .uc-v1611-sync-warning{margin:0 0 12px}
+#blogComments .uc-v1611-empty{padding:22px!important;text-align:center!important;color:var(--muted)}
+
+#ucV1611RemoteReplyModal .uc-v1611-context,#ucV1611PrivateModal .uc-v1611-context{margin-bottom:14px;line-height:1.5}
+#ucV1611RemoteReplyModal .uc-v1611-emoji-row,#ucV1611PrivateModal .uc-v1611-emoji-row{display:flex;gap:7px;overflow-x:auto;padding:8px 2px 10px;scrollbar-gutter:stable}
+#ucV1611RemoteReplyModal .uc-v1611-emoji,#ucV1611PrivateModal .uc-v1611-emoji{width:38px;height:38px;min-width:38px;border:1px solid var(--line);border-radius:10px;background:var(--card);font-size:20px;cursor:pointer}
+#ucV1611PrivateModal .uc-v1611-disabled-field{opacity:.58}
+#ucV1611PrivateModal .uc-v1611-disabled-field input{cursor:not-allowed}
+
+@media(max-width:1000px){
+  #blogComments .uc-v1611-comment-controls{grid-template-columns:1fr}
+  #blogComments .uc-v1611-comment-controls .tabs{overflow:visible;flex-wrap:wrap;padding-bottom:0}
+  #blogComments .uc-v1611-comment-table th,#blogComments .uc-v1611-comment-table td{padding:11px 9px}
+  #blogComments .uc-v1611-comment-table th:nth-child(1){width:23%}
+  #blogComments .uc-v1611-comment-table th:nth-child(2){width:14%}
+  #blogComments .uc-v1611-comment-table th:nth-child(3){width:27%}
+  #blogComments .uc-v1611-comment-table th:nth-child(4){width:10%}
+  #blogComments .uc-v1611-comment-table th:nth-child(5){width:26%}
+  #blogComments .uc-v1611-post-thumb{width:54px;height:44px;flex-basis:54px}
+}
+@media(max-width:760px){
+  #socialMediaIntegrations .uc-v1611-google-business .row{grid-template-columns:1fr!important;display:grid!important}
+  #socialMediaIntegrations .uc-v1611-google-business .uc-v1611-business-actions{display:grid;grid-template-columns:1fr}
+  #socialMediaIntegrations .uc-v1611-google-business .uc-v1611-business-actions .btn{width:100%}
+  #blogComments .uc-v1611-comment-table,#blogComments .uc-v1611-comment-table tbody,#blogComments .uc-v1611-comment-table tr,#blogComments .uc-v1611-comment-table td{display:block;width:100%!important}
+  #blogComments .uc-v1611-comment-table thead{display:none}
+  #blogComments .uc-v1611-comment-table tr{padding:10px 12px;border-bottom:1px solid var(--line)}
+  #blogComments .uc-v1611-comment-table td{border:0;padding:7px 0;display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;align-items:start}
+  #blogComments .uc-v1611-comment-table td::before{content:attr(data-label);font-weight:850;color:var(--muted);font-size:11px;padding-top:2px}
+  #blogComments .uc-v1611-empty{display:block!important}
+  #blogComments .uc-v1611-empty::before{display:none}
+  #blogComments .uc-v1611-actions{padding-top:0}
+}
+
+/* V16.16 Facebook comment actions + status buckets. Theme variables only. */
+#blogComments .uc-v1611-comment-table th:nth-child(1){width:23%}
+#blogComments .uc-v1611-comment-table th:nth-child(2){width:13%}
+#blogComments .uc-v1611-comment-table th:nth-child(3){width:28%}
+#blogComments .uc-v1611-comment-table th:nth-child(4){width:12%}
+#blogComments .uc-v1611-comment-table th:nth-child(5){width:24%}
+#blogComments .uc-v1611-comment-table td[data-label="Status"]{white-space:nowrap;overflow:visible;overflow-wrap:normal}
+#blogComments .status,#blogComments .status span{white-space:nowrap;word-break:keep-all;overflow-wrap:normal}
+#blogComments .status.hidden,#blogComments .status.spam{background:var(--bg);color:var(--blue);border:1px solid var(--line)}
+#blogComments .uc-v1616-admin-response-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+#blogComments .uc-v1616-admin-response-head strong{min-width:0}
+#blogComments .uc-v1616-delete-reply{border:1px solid var(--line);background:var(--card);color:var(--blue);border-radius:999px;width:24px;height:24px;min-width:24px;padding:0;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:950;cursor:pointer}
+#blogComments .uc-v1616-delete-reply:hover{background:var(--blue);color:white;border-color:var(--blue)}
+#blogComments [data-comment-status][hidden]{display:none!important}
+#ucV1611RemoteReplyModal .uc-v1616-reply-mode[hidden]{display:none!important}
+@media(max-width:1000px){
+  #blogComments .uc-v1611-comment-table th:nth-child(1){width:22%}
+  #blogComments .uc-v1611-comment-table th:nth-child(2){width:13%}
+  #blogComments .uc-v1611-comment-table th:nth-child(3){width:27%}
+  #blogComments .uc-v1611-comment-table th:nth-child(4){width:13%}
+  #blogComments .uc-v1611-comment-table th:nth-child(5){width:25%}
+}
+
+/* V16.17 comment badges, fixed status width and deep-link focus. Existing theme variables only. */
+#blogComments .uc-v1611-comment-table th:nth-child(1){width:23%}
+#blogComments .uc-v1611-comment-table th:nth-child(2){width:13%}
+#blogComments .uc-v1611-comment-table th:nth-child(3){width:24%}
+#blogComments .uc-v1611-comment-table th:nth-child(4){width:15%}
+#blogComments .uc-v1611-comment-table th:nth-child(5){width:25%}
+#blogComments .uc-v1611-comment-table td[data-label="Status"]{white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important}
+#blogComments .status{display:inline-flex;align-items:center;justify-content:center;max-width:100%;white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important}
+#blogComments .uc-v1611-platform-tab{display:inline-flex;align-items:center;gap:7px}
+#blogComments .uc-v1617-platform-badge,.nav .uc-v1617-nav-badge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--blue);color:#fff;font-size:10px;font-weight:900;line-height:1}
+#blogComments .uc-v1617-platform-badge[hidden],.nav .uc-v1617-nav-badge[hidden]{display:none!important}
+.nav button[data-tab="blogComments"]{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#blogComments tr.uc-v1617-deep-linked{outline:2px solid var(--blue);outline-offset:-2px}
+@media(max-width:1000px){
+  #blogComments .uc-v1611-comment-table th:nth-child(1){width:22%}
+  #blogComments .uc-v1611-comment-table th:nth-child(2){width:13%}
+  #blogComments .uc-v1611-comment-table th:nth-child(3){width:23%}
+  #blogComments .uc-v1611-comment-table th:nth-child(4){width:16%}
+  #blogComments .uc-v1611-comment-table th:nth-child(5){width:26%}
+}
+
+/* V16.18 admin-response edit action. Uses the existing theme variables only. */
+#blogComments .uc-v1618-admin-response-actions{display:inline-flex;align-items:center;gap:5px;flex:0 0 auto}
+#blogComments .uc-v1618-edit-reply{border:1px solid var(--line);background:var(--card);color:var(--blue);border-radius:999px;width:24px;height:24px;min-width:24px;padding:0;display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:950;cursor:pointer}
+#blogComments .uc-v1618-edit-reply:hover{background:var(--blue);color:white;border-color:var(--blue)}
+#blogComments .uc-v1618-edit-reply svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}

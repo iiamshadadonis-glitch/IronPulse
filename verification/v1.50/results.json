@@ -1,0 +1,108 @@
+{
+  "release": "1.50.0",
+  "codeDatabaseCacheSuites": 26,
+  "browserSuites": 11,
+  "allFinalExitCodes": 0,
+  "finalCoverage": [
+    {
+      "suite": "components",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 97.28,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-components.mjs"
+      ]
+    },
+    {
+      "suite": "browser",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 125.06,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-browser.mjs"
+      ]
+    },
+    {
+      "suite": "workflows",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 82.33,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-workflows.mjs"
+      ]
+    },
+    {
+      "suite": "polish",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 144.31,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-polish.mjs"
+      ]
+    },
+    {
+      "suite": "native",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 166.69,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-native.mjs"
+      ]
+    },
+    {
+      "suite": "final",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 65.44,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-final.mjs"
+      ]
+    },
+    {
+      "suite": "brand",
+      "attempt": 1,
+      "exitCode": 0,
+      "seconds": 224.54,
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-brand.mjs"
+      ]
+    },
+    {
+      "suite": "code-database",
+      "exitCode": 0,
+      "source": "final-public-candidate",
+      "log": "code-database.log"
+    },
+    {
+      "suite": "layouts-v150",
+      "exitCode": 0,
+      "source": "final-public-candidate",
+      "log": "layouts-v150.log"
+    },
+    {
+      "suite": "desktop",
+      "exitCode": 0,
+      "seconds": 8.76
+    },
+    {
+      "suite": "controls",
+      "exitCode": 0,
+      "seconds": 69.72
+    },
+    {
+      "suite": "additions",
+      "exitCode": 0,
+      "seconds": 121.98
+    }
+  ],
+  "nodeVersion": "v24.19.0",
+  "scope": "Full retained suite coverage plus final affected reruns. See verification-scope.json.",
+  "apiTests": "Synthetic browser API responses; actual SQLite regressions retained. Cache API is emulated with loader/D1-access counters and real middleware."
+}

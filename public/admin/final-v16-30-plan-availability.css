@@ -1,0 +1,10 @@
+/* V16.30 additive admin spacing for real availability thresholds. Existing theme colors remain authoritative. */
+.uc-v1630-availability-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.uc-v1630-availability-grid .field{min-width:0;margin:0}
+.uc-v1630-availability-grid .field input{width:100%}
+.uc-v1630-availability-grid .hint{display:block;margin-top:7px;line-height:1.45}
+.uc-admin-plan-link{color:inherit;text-decoration:none;border-bottom:1px dashed currentColor;text-underline-offset:3px}
+.uc-admin-plan-link:hover,.uc-admin-plan-link:focus{text-decoration:none;opacity:.82}
+@media(max-width:900px){.uc-v1630-availability-grid{grid-template-columns:1fr}}
+
+.uc-admin-plan-cell-link{cursor:pointer}.uc-admin-plan-cell-link:hover .uc-admin-plan-link{opacity:.82}

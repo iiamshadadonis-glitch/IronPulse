@@ -1,0 +1,264 @@
+{
+  "results": [
+    "Mobile role segments, full-width global-chevron categories, constrained toggles, full-height two-step/read-only review, anchored footer, exact typed confirmation and cancellation without writes",
+    "Desktop primary role/secondary category tabs without accordions, centered reset warning, real subscription handler with opt-in browser fixture, reviewed typed-confirm broadcast and encrypted delivery to a mocked push service",
+    "Persistent HttpOnly cookie survives complete browser-context shutdown; Admin resumes Brand Settings → Notifications with the selected role/category, without storing credentials in web storage",
+    "Student resumes Settings → Login; Coach resumes Sessions; role/account isolation blocks inherited Admin routes; logout returns to public Home; external/cross-role/action-bearing remembered routes are rejected",
+    "Dark-mode notification form surfaces and read-only summaries, visible Close/footer actions, and preservation of navigation state during an authentication outage"
+  ],
+  "measurements": [
+    {
+      "width": 320,
+      "row": {
+        "x": 9,
+        "y": 467.578125,
+        "width": 302,
+        "height": 56,
+        "right": 311,
+        "bottom": 523.578125
+      }
+    },
+    {
+      "width": 390,
+      "row": {
+        "x": 9,
+        "y": 467.578125,
+        "width": 372,
+        "height": 56,
+        "right": 381,
+        "bottom": 523.578125
+      }
+    },
+    {
+      "width": 760,
+      "row": {
+        "x": 12,
+        "y": 450.5,
+        "width": 736,
+        "height": 56,
+        "right": 748,
+        "bottom": 506.5
+      }
+    }
+  ],
+  "pushRequests": [
+    {
+      "url": "https://fcm.googleapis.com/fcm/send/browser-qa",
+      "bytes": 306,
+      "encoding": "aes128gcm"
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/notification-routing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/notification-routing",
+      "method": "POST",
+      "body": {
+        "action": "save",
+        "roles": {
+          "admin": {
+            "payment_success": true,
+            "payment_failed": true,
+            "subscription_cancelled": true,
+            "refund_processed": true,
+            "new_comment": true,
+            "new_message": true,
+            "ticket_created": true
+          },
+          "student": {
+            "payment_success": false,
+            "payment_failed": true,
+            "subscription_cancelled": true,
+            "refund_processed": true,
+            "class_change": true,
+            "session_started": true,
+            "studio_holiday": true,
+            "approval": true,
+            "account_status": true,
+            "ticket_reply": true
+          },
+          "coach": {
+            "class_change": true,
+            "session_started": true,
+            "coach_leave": true,
+            "schedule_request": true,
+            "studio_holiday": true,
+            "approval": true,
+            "account_status": true,
+            "ticket_reply": true
+          }
+        },
+        "expectedRevision": "notification-defaults-v158",
+        "confirmation": "confirm"
+      }
+    },
+    {
+      "path": "/api/admin/notification-routing",
+      "method": "POST",
+      "body": {
+        "action": "reset",
+        "expectedRevision": "272c18a5-0f63-4881-a32e-a73bae0955fa",
+        "confirmation": "confirm"
+      }
+    },
+    {
+      "path": "/api/portal/notifications/subscription",
+      "method": "POST",
+      "body": {
+        "action": "prepare",
+        "role": "admin"
+      }
+    },
+    {
+      "path": "/api/portal/notifications/subscription",
+      "method": "POST",
+      "body": {
+        "action": "subscribe",
+        "role": "admin",
+        "subscription": {
+          "endpoint": "https://fcm.googleapis.com/fcm/send/browser-qa",
+          "keys": {
+            "p256dh": "BMlrMvyMyJtebLKwcenj60REuo8NARbR3pq7NzMMtn9ifCHq3FMMMb1BfoduePKw8h_EBZlsRRVRIKPvMnX2qIs",
+            "auth": "nf6_6rkl276YANDgszqdGg"
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/admin/notification-routing",
+      "method": "POST",
+      "body": {
+        "action": "send",
+        "role": "admin",
+        "event": "payment_success",
+        "title": "QA broadcast",
+        "message": "A reviewed local test broadcast.",
+        "requestId": "fa31c415-50cb-42fe-893e-ddc7f8a47a9b",
+        "confirmation": "confirm"
+      }
+    },
+    {
+      "path": "/api/admin/notification-routing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/notification-routing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/admin/notification-routing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/notifications/preferences",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/logout",
+      "method": "POST",
+      "body": {}
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    },
+    {
+      "path": "/api/portal/auth/context",
+      "method": "GET"
+    }
+  ],
+  "errors": [],
+  "synthetic": true,
+  "actualHandlersAndSqlite": true
+}

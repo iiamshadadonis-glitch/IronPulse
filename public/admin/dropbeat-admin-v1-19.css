@@ -1,0 +1,42 @@
+/* DropBeat V1.19 admin additions. Brand/theme variables remain authoritative. */
+#attendance [data-attendance-results]{display:grid;gap:18px;min-width:0}
+.db119-attendance-summary,.db119-calendar-card,.db119-selected-card,.db119-list-card{min-width:0}
+.db119-attendance-summary .db116-attendance-metrics{margin:0}
+.db119-calendar-card{overflow:hidden}
+.db119-selected-card>header,.db119-list-card>header,.db119-holiday-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}
+.db119-selected-card>header h2,.db119-selected-card>header small,.db119-list-card>header h2,.db119-list-card>header small,.db119-holiday-head h2,.db119-holiday-head p{display:block;margin:0}
+.db119-selected-card>header small,.db119-list-card>header small{color:#696a73;margin-bottom:4px}
+.db119-selected-card>header>span{font-weight:750;color:var(--primary,#4b55be)}
+.db119-table-wrap{width:100%;max-width:100%;overflow-x:auto;border:1px solid var(--line,#e0dfe8)}
+.db119-attendance-table{width:100%;min-width:1120px;table-layout:fixed;margin:0}
+.db119-attendance-table col.event{width:22%}.db119-attendance-table col.time{width:10%}.db119-attendance-table col.duration{width:9%}.db119-attendance-table col.coach{width:14%}.db119-attendance-table col.enrolled{width:9%}.db119-attendance-table col.present{width:10%}.db119-attendance-table col.coach-attendance{width:14%}.db119-attendance-table col.reviews{width:12%}
+.db119-attendance-table th,.db119-attendance-table td{padding:14px 16px;vertical-align:top;white-space:normal;overflow-wrap:anywhere;line-height:1.45}
+.db119-attendance-table td>small,.db119-roster-table td>small,.db119-schedule-table td>small,.db119-coach-detail-table td>small,.db119-student-mini-table td>small{display:block;margin-top:4px;color:#696a73}
+.db119-attendance-table td>.status{display:inline-block;margin-top:7px}
+.db119-blocked-session{background:#fafafd}
+.db119-person-link{border:0;background:transparent;color:var(--primary,#4b55be);font:inherit;font-weight:750;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0;text-align:left}
+.db119-empty{padding:24px;text-align:center;border:1px dashed var(--line,#dedee7);background:#fafafd}
+.db119-date-markers{display:grid;gap:8px;margin:0 0 16px}
+.db119-date-markers article{display:flex;align-items:center;gap:10px;padding:11px 14px;border-left:4px solid var(--primary,#4b55be);background:#f4f4fb}
+.db119-date-markers article.holiday{border-left-color:var(--accent,#a469a8);background:#faf4f8}
+.db116-calendar-day{overflow:hidden}.db116-calendar-day em{display:block;margin-top:5px;color:var(--accent,#a469a8);font-size:10px;font-style:normal;font-weight:800;line-height:1.25;overflow-wrap:anywhere}.db116-calendar-day.has-marker{box-shadow:inset 0 -3px 0 var(--accent,#a469a8)}.db116-calendar-day.holiday{background:#faf4f8}
+.db119-profile-metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:16px 0}
+.db119-profile-metrics article,.db119-detail-grid article{padding:12px;border:1px solid var(--line,#e0dfe8);background:#fafafd;min-width:0}
+.db119-profile-metrics small,.db119-profile-metrics strong,.db119-detail-grid small,.db119-detail-grid strong{display:block;overflow-wrap:anywhere}.db119-profile-metrics small,.db119-detail-grid small{color:#696a73;margin-bottom:5px}
+.db119-roster-table{min-width:920px;table-layout:fixed}.db119-roster-table th,.db119-roster-table td{padding:13px 15px;vertical-align:top;white-space:normal;overflow-wrap:anywhere}
+
+.db119-workspace-tabs,.db119-modal-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.db119-workspace-tabs button,.db119-modal-tabs button{border:1px solid #d8d7e2;background:#fff;color:var(--primary,#4b55be);padding:9px 14px;font-weight:750;cursor:pointer}
+.db119-workspace-tabs button.active,.db119-modal-tabs button.active{background:var(--primary,#4b55be);border-color:var(--primary,#4b55be);color:#fff}
+.db119-workspace-tabs span{display:inline-grid;place-items:center;min-width:18px;min-height:18px;margin-left:5px;border-radius:50%;background:var(--accent,#a469a8);color:#fff;font-size:11px}
+.db119-content-flush{padding:0;overflow:hidden}
+.db119-schedule-table{width:100%;min-width:1050px;table-layout:fixed;margin:0}.db119-schedule-table col.coach{width:18%}.db119-schedule-table col.styles{width:19%}.db119-schedule-table col.sessions{width:10%}.db119-schedule-table col.days{width:20%}.db119-schedule-table col.students{width:11%}.db119-schedule-table col.rating{width:13%}.db119-schedule-table col.status{width:9%}
+.db119-schedule-table th,.db119-schedule-table td,.db119-leave-table th,.db119-leave-table td,.db119-holiday-table th,.db119-holiday-table td,.db119-coach-detail-table th,.db119-coach-detail-table td,.db119-student-mini-table th,.db119-student-mini-table td{padding:14px 16px;vertical-align:top;white-space:normal;overflow-wrap:anywhere;line-height:1.45}
+.db119-section-stack{display:grid;gap:12px}.db119-accordion{border:1px solid var(--line,#e0dfe8);background:#fff}.db119-accordion>summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 17px;cursor:pointer;font-weight:800;color:var(--ink,#17172a);list-style:none}.db119-accordion>summary::-webkit-details-marker{display:none}.db119-accordion>summary strong{display:grid;place-items:center;min-width:28px;height:28px;border-radius:50%;background:#f2f2fb;color:var(--primary,#4b55be)}.db119-accordion>div{border-top:1px solid var(--line,#e0dfe8);padding:14px}.db119-accordion .table-wrap{margin:0}
+.db119-leave-table{min-width:1050px;table-layout:fixed}.db119-holiday-table{min-width:900px;table-layout:fixed}.db119-actions{display:flex;gap:7px;flex-wrap:wrap}.db119-year-filter{display:flex;align-items:center;justify-content:flex-end;gap:9px;margin:0 0 12px;font-weight:700}.db119-year-filter select{width:auto;min-width:130px}
+.db119-coach-hero{display:grid;grid-template-columns:100px 1fr;gap:18px;align-items:start;padding-bottom:16px;border-bottom:1px solid var(--line,#e0dfe8)}.db119-coach-hero img{width:100px;height:100px;object-fit:cover;border-radius:50%;border:1px solid var(--line,#e0dfe8)}.db119-coach-hero h2,.db119-coach-hero p{margin:0}.db119-coach-hero p{margin-top:6px;color:#62636d;line-height:1.55}.db119-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}.db119-coach-detail-table{min-width:1050px;table-layout:fixed}.db119-student-mini-table{min-width:850px;table-layout:fixed}
+.db119-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.db119-form-grid .field{margin:0}.db119-form-grid .wide{grid-column:1/-1}.db119-end-toggle{align-self:end}.db119-holiday-preview{max-width:650px;margin:auto;text-align:center;padding:8px}.db119-holiday-preview>small{display:block;color:var(--accent,#a469a8);font-weight:800;text-transform:uppercase;letter-spacing:.08em}.db119-holiday-preview h2{margin:8px 0 18px}.db119-holiday-preview img{display:block;width:auto;max-width:100%;max-height:360px;object-fit:contain;margin:0 auto 18px;border-radius:6px}.db119-holiday-preview p{white-space:pre-wrap;line-height:1.7;color:#4c4d56}
+.status.holiday,.status.leave{background:#f6edf4;color:var(--accent,#8d4e83);border-color:#e5cfe0}
+
+@media(max-width:1050px){.db119-profile-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.db119-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.db119-selected-card>header,.db119-list-card>header,.db119-holiday-head{align-items:flex-start;flex-direction:column}.db119-profile-metrics{grid-template-columns:1fr 1fr}.db119-detail-grid,.db119-form-grid{grid-template-columns:1fr}.db119-form-grid .wide{grid-column:auto}.db119-coach-hero{grid-template-columns:72px 1fr}.db119-coach-hero img{width:72px;height:72px}.db119-accordion>div{padding:8px}}

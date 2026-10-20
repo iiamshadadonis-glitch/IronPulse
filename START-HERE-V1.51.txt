@@ -1,0 +1,7 @@
+DROPBEAT V1.51 — COMPLETE REPLACEMENT PROJECT
+
+Extract the ZIP, then use the contents of the DropBeat-V1.51 folder as your replacement project. This includes the complete V1.50 source and the new fixes, not a patch.
+
+Read V1.51-FIXES.md for the completed changes and V1.51-VERIFICATION.md for the executed checks and their scope. Current release: 1.51.0.
+
+Your Cloudflare Pages project, D1 binding and existing migrations remain unchanged. No new database migration or dependency installation is required by these fixes. Use your existing deployment workflow. Production deployment has not been performed by this task.

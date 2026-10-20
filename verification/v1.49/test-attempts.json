@@ -1,0 +1,195 @@
+{
+  "finalRun": [
+    {
+      "suite": "additions",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-additions.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 190.44
+    },
+    {
+      "suite": "brand",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-brand.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 284.58
+    },
+    {
+      "suite": "browser",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-browser.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 168.38
+    },
+    {
+      "suite": "code-database",
+      "command": [
+        "npm",
+        "run",
+        "test:dance-v1.49"
+      ],
+      "exitCode": 0,
+      "seconds": 12.9
+    },
+    {
+      "suite": "components",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-components.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 132.16
+    },
+    {
+      "suite": "controls",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-controls.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 93.15
+    },
+    {
+      "suite": "desktop",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-desktop.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 15.32
+    },
+    {
+      "suite": "final",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-final.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 89.43
+    },
+    {
+      "suite": "native",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-native.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 221.37
+    },
+    {
+      "suite": "polish",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-polish.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 220.83
+    },
+    {
+      "suite": "workflows",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-workflows.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 109.08
+    }
+  ],
+  "preflight": [
+    {
+      "suite": "additions",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-additions.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 202.64
+    },
+    {
+      "suite": "brand",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-brand.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 292.02
+    },
+    {
+      "suite": "browser",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-browser.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 173.29
+    },
+    {
+      "suite": "code-database",
+      "command": [
+        "npm",
+        "run",
+        "test:dance-v1.49"
+      ],
+      "exitCode": 0,
+      "seconds": 17.85
+    },
+    {
+      "suite": "components",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-components.mjs"
+      ],
+      "exitCode": 1,
+      "seconds": 107.79
+    },
+    {
+      "suite": "controls",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-controls.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 86.8
+    },
+    {
+      "suite": "native",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-native.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 215.38
+    },
+    {
+      "suite": "polish",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-polish.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 173.97
+    },
+    {
+      "suite": "workflows",
+      "command": [
+        "node",
+        "tools/verify-mobile-v1-49-workflows.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 128.05
+    }
+  ],
+  "notes": [
+    "Exploratory contrast calculation was corrected to parse CSS color(srgb ...) using the browser canvas.",
+    "The new Payments destination tests were updated to use its dedicated Close control and the original client Close accessible name.",
+    "Preflight exposed a document-help compatibility error after reparenting the legacy Close anchor. The mobile adapter now preserves that anchor; the final component suite re-executes invoice, statement, helper, PDF and refund checks.",
+    "A real desktop CSV-import test exposed the disabled-submit conflict. A dedicated in-flight import guard fixed the application, and the final run verifies the original API payload.",
+    "The final affected scopes were rerun after the last scoped corrections. Seven unaffected browser suites were retained with a byte-identical application-file comparison; verification-scope.json and final-polish.diff record the exact scope."
+  ]
+}

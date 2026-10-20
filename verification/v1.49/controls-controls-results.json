@@ -1,0 +1,33 @@
+{
+  "result": "passed",
+  "widths": [
+    320,
+    390,
+    430,
+    1366
+  ],
+  "checks": [
+    "circular controls",
+    "card and text tap targets",
+    "keyboard selection",
+    "native Select all and indeterminate",
+    "storage themes and status colors",
+    "padded cleanup header",
+    "24px FAB offsets",
+    "original CSV input/import binding",
+    "clean payment key/value rows",
+    "uniform payment actions",
+    "all Growth modes",
+    "global calendar disclosure",
+    "open refresh arc",
+    "all portals",
+    "desktop restoration"
+  ],
+  "writes": [
+    {
+      "path": "/api/admin/import-products",
+      "body": "{\"rows\":[{\"name\":\"Mobile Plan\",\"sku\":\"MOBILE-CSV\",\"regular_price\":\"199\"}]}"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,325 @@
+{
+  "release": "1.49.0",
+  "build": "dropbeat-1.49-20261018",
+  "createdUtc": "2026-10-17T20:18:11.784814+00:00",
+  "baselineArchive": "DropBeat-Dance-Studio-Complete-Replacement-V1.48(1).zip",
+  "baselineArchiveSha256": "ee038ea05292f100260cdf6a7e9fb9797b28ed483e8fcc177f7ea7b73f5d793b",
+  "baselineFilesRetained": 1413,
+  "missingBaselineFiles": [],
+  "unchangedServerFiles": 248,
+  "modifiedServerReadFiles": [
+    "functions/_lib/class-management.js",
+    "functions/_lib/studio-schedule.js",
+    "functions/api/admin/studio-schedule.js"
+  ],
+  "unchangedOriginalFrontendScripts": 212,
+  "modifiedOriginalFrontendScripts": [
+    "public/admin/dropbeat-admin-v1-19.js",
+    "public/assets/dropbeat-plan-import-v1-40.js"
+  ],
+  "unchangedMigrationsAndConfig": 56,
+  "filesTotal": 1473,
+  "validation": {
+    "codeDatabaseSuites": 24,
+    "browserSuites": 10,
+    "allExitCodes": 0,
+    "testedApplicationHashesMatch": true,
+    "candidateCrcPassed": true,
+    "productionActionsPerformed": false,
+    "apiFixtures": "synthetic; external requests blocked"
+  },
+  "changes": {
+    "DANCE-STUDIO-VERSION.txt": {
+      "status": "modified",
+      "sha256": "02a9df3c10c8c24cd8f753873d016a44d4dbe9d0eea6fd5b8852177cc421ad17"
+    },
+    "DEPLOY-V1.49-MAC-LINUX.sh": {
+      "status": "added",
+      "sha256": "a441bab48fd06e237f09b58c9d5861e854502af2f925838e7b83aac5d3da4d70"
+    },
+    "README.md": {
+      "status": "modified",
+      "sha256": "b0f56a3c879be2ba170504b0ad4b4e094500b26dfda7fdf6e4155a3aef76d885"
+    },
+    "START-HERE-V1.49.txt": {
+      "status": "added",
+      "sha256": "94ebfcc9aae385072fd937abf2e46965e5ddc771d7aa5a30fb5db6bcf483463b"
+    },
+    "THIRD-PARTY-ICONS-V1.49.txt": {
+      "status": "added",
+      "sha256": "c5401fda16ddb2d6043d7a1d5db2bf28940be5fd630f6c233022c6b263967238"
+    },
+    "V1.49-FIXES.md": {
+      "status": "added",
+      "sha256": "b148093c98231452fd02ec7619437d248db3457f0e2149ff67ff659aaae8f294"
+    },
+    "V1.49-VERIFICATION.md": {
+      "status": "added",
+      "sha256": "3b1ce9c859e05c7670bae8f52ab6e06766bb8075c182afa489c888ba3d98cac7"
+    },
+    "functions/_lib/class-management.js": {
+      "status": "modified",
+      "sha256": "9989cced6512c163fe88c27b0ba1bf10b0ac6f523a859e1eb2c8d283219dbfb2"
+    },
+    "functions/_lib/studio-schedule.js": {
+      "status": "modified",
+      "sha256": "e270815d8d30c0a59ff7e1d41acdd0995722d792907fc127b05349f6a0d49635"
+    },
+    "functions/_middleware.js": {
+      "status": "modified",
+      "sha256": "af275f093f7e51c3d5f63aba163df91aba4be3480af8f2705c38f7dbc510a0fe"
+    },
+    "functions/api/admin/studio-schedule.js": {
+      "status": "modified",
+      "sha256": "4e30bd4916f51d83f365e8714c9d623f380a6867084a6b7a8387ab7c8c31ff93"
+    },
+    "package-lock.json": {
+      "status": "modified",
+      "sha256": "5f74cb4a0ac362f8de2001b04ed499d0933cd5dc23d899e9e7bf7f47f8590d17"
+    },
+    "package.json": {
+      "status": "modified",
+      "sha256": "8ff696bfdf28fa9e8c65753810dee8562857e7cc188be9f922820c94dde3ed0b"
+    },
+    "public/admin/dropbeat-admin-v1-19.js": {
+      "status": "modified",
+      "sha256": "4ee28692aef148565cb6d602529ba41d6efc291db8f286ea0e085eeccf9e28a8"
+    },
+    "public/admin/index.html": {
+      "status": "modified",
+      "sha256": "49d448efdf712fb59c6d23498e7126067d22aacf0d7223d5582fea4b835b0d20"
+    },
+    "public/assets/dropbeat-dashboard-mobile-v1-49.css": {
+      "status": "added",
+      "sha256": "9518f31ddfd86bddbc42885695a2aa031ee9fd53da730d90af61b6140b1adea3"
+    },
+    "public/assets/dropbeat-dashboard-mobile-v1-49.js": {
+      "status": "added",
+      "sha256": "23b099016fdc37f0ad0744575327615740b8f26f4fa3b8faa636f41e13d74aa2"
+    },
+    "public/assets/dropbeat-plan-import-v1-40.js": {
+      "status": "modified",
+      "sha256": "3de14724fee80b97fc25af9bb451d4d6d9e8195f6a3848721a540a0f25db25a4"
+    },
+    "public/assets/dropbeat-ui-components-v1-49.js": {
+      "status": "added",
+      "sha256": "13d4a20ca34e40da81d54a5fcee6d38a2a259a3284404f10c17170b2be377541"
+    },
+    "public/coach-dashboard.html": {
+      "status": "modified",
+      "sha256": "6183a382751980d662f65bd811b152f0b024da27c6e240c6d1b6d600010b83df"
+    },
+    "public/student-dashboard.html": {
+      "status": "modified",
+      "sha256": "cf58b3a19f3a26d060699ccef4bcb846e2c5f516dfca3115e4247a9fd0fe5a65"
+    },
+    "tests/dance-studio-deployment.mjs": {
+      "status": "modified",
+      "sha256": "8d24d24dce03a705655aa02cfb9f71e79c68f578ff32fb7d531a7f61ee8f6c5b"
+    },
+    "tests/dance-studio-v1-49-mobile-native.mjs": {
+      "status": "added",
+      "sha256": "61a2750466e5e47809099adc851ec129ef4fa6a2a345bc37f5ba3596b2d214a8"
+    },
+    "tests/dance-studio-v1-49-schedule.mjs": {
+      "status": "added",
+      "sha256": "4c5fcd2edf999227a52d2f11d7f5b25a24aff532ca6505a3b3afab82d7444ca5"
+    },
+    "tools/v149-addition-cases.mjs": {
+      "status": "added",
+      "sha256": "887ae0b8a721a8faf978589f3e543fad68e25f6495937c1298f489e4447c9a56"
+    },
+    "tools/v149-brand-cases.mjs": {
+      "status": "added",
+      "sha256": "7832ebbedcf20032ca6c47d515ce28276be9e8801b5552bfd0e58b8803db3fe3"
+    },
+    "tools/v149-component-cases.mjs": {
+      "status": "added",
+      "sha256": "10edba1ec52a7ffe8d62af9c0356db6088ef42e63e94be3a5e836a8a8959da03"
+    },
+    "tools/v149-control-cases.mjs": {
+      "status": "added",
+      "sha256": "528359c4fb10adf661003ca004db12e8833e19bda85f149850f0c492ab3b7ef5"
+    },
+    "tools/v149-desktop-cases.mjs": {
+      "status": "added",
+      "sha256": "ab2229c43f458061d8580c09ed4e08a586910206e2ba4f36f137fee92910f0ae"
+    },
+    "tools/v149-final-cases.mjs": {
+      "status": "added",
+      "sha256": "4802bd5ab08f29f11a91a77e4254e222811f6d5ef3d2602b4b9c21ef20245660"
+    },
+    "tools/v149-native-cases.mjs": {
+      "status": "added",
+      "sha256": "f1f3e2c5b24d3b577a936ae3d08106aa248ad97ef0ce13fcaa4e28c78e1a2cfb"
+    },
+    "tools/v149-polish-cases.mjs": {
+      "status": "added",
+      "sha256": "88a3318c1b18994c38b3e0377178e184cc9f416f9613b3bffd0c8fd813bf3385"
+    },
+    "tools/v149-upload-debug-runner.mjs": {
+      "status": "added",
+      "sha256": "bbd28de3760cd5832b701b251c64ee9b64aa000c428c985532dda003790bbd4a"
+    },
+    "tools/v149-upload-debug.mjs": {
+      "status": "added",
+      "sha256": "582df6066d4ecf8cd598f375036d5f91f6ab3a40e3ae4a2d14785e75828c142d"
+    },
+    "tools/v149-workflow-cases.mjs": {
+      "status": "added",
+      "sha256": "e5a0d2700a301ffba1c39e9d26ac9e87088dd11e6c700cfff709fa237eabe9c4"
+    },
+    "tools/verify-mobile-v1-49-additions.mjs": {
+      "status": "added",
+      "sha256": "93ffbaf4ca29d5a613c78b2bd6300a53d4b8eefec95ac6baedfdcb364585876d"
+    },
+    "tools/verify-mobile-v1-49-brand.mjs": {
+      "status": "added",
+      "sha256": "c07825198e0135c37623539700272a9668dccb0447849b6c0a19fadc6afa029c"
+    },
+    "tools/verify-mobile-v1-49-browser.mjs": {
+      "status": "added",
+      "sha256": "eb5f51f100c3d00b49d3d4dd44864f51f625601c86d84c3d6dc968f52df86838"
+    },
+    "tools/verify-mobile-v1-49-components.mjs": {
+      "status": "added",
+      "sha256": "51bd7bdc944f0e94cd3a83cba1bcbfbcfd1784462554e38173679b21b79a7f4b"
+    },
+    "tools/verify-mobile-v1-49-controls.mjs": {
+      "status": "added",
+      "sha256": "5b3765f58461bf02307c56e1dde3d3529ca7569ffd517e8ebe03c16798225093"
+    },
+    "tools/verify-mobile-v1-49-desktop.mjs": {
+      "status": "added",
+      "sha256": "085863161b38b427f040fa8e270639d8d535e5f4cdde2dae7d44b2d98d76f903"
+    },
+    "tools/verify-mobile-v1-49-final.mjs": {
+      "status": "added",
+      "sha256": "875111ccc1a6f8d29bc9afc058261edf89323b827c91a420c8b15de5807a4b79"
+    },
+    "tools/verify-mobile-v1-49-native.mjs": {
+      "status": "added",
+      "sha256": "37b84d054d8f5138711c5c341e1f755e6ee501736a32e8898a5350996f6d3877"
+    },
+    "tools/verify-mobile-v1-49-polish.mjs": {
+      "status": "added",
+      "sha256": "ac3afe2e32598a2336f0f9c2b46a661e6143769c9675a4adae7fd670b639ea74"
+    },
+    "tools/verify-mobile-v1-49-workflows.mjs": {
+      "status": "added",
+      "sha256": "ae558ed1e6efa5cc55b6420acc028bfd3947f531634dc0a15a05dd0fd4fb7823"
+    },
+    "verification/v1.49/additions-addition-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.49/additions.log": {
+      "status": "added",
+      "sha256": "43db1d960ba4f841feda4d4415fe7169ea2f41f4de4e68160a581ba3537f3bce"
+    },
+    "verification/v1.49/affected-run-results.json": {
+      "status": "added",
+      "sha256": "65fff6a505db1d782526dc49496d7e0397c488c810767e822b96b82e6bfcf00b"
+    },
+    "verification/v1.49/brand-brand-results.json": {
+      "status": "added",
+      "sha256": "0628d32b351a91a06f08f5df88174c24d0d33a85d48e5a516480d31e7e75b7c0"
+    },
+    "verification/v1.49/brand.log": {
+      "status": "added",
+      "sha256": "6985232810dff41d2ca0f7a551143923a8346aebf8582e8f15ea9e9f479bd9cd"
+    },
+    "verification/v1.49/browser-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.49/browser.log": {
+      "status": "added",
+      "sha256": "a0776934abb57f12f0401fada8a971a4ae378c9bf6a6eb7638ee1fc690f435d1"
+    },
+    "verification/v1.49/code-database.log": {
+      "status": "added",
+      "sha256": "c47cb6a689932ec0c9e6b8467b9d7582e8fb9ce0c71ae2959424b46d6d777bbc"
+    },
+    "verification/v1.49/components-component-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.49/components.log": {
+      "status": "added",
+      "sha256": "0efb18b11ac74332533c6836fe89eaef8a4f8690bd240804565f43825bfaab12"
+    },
+    "verification/v1.49/controls-controls-results.json": {
+      "status": "added",
+      "sha256": "a6a93e3500bdbe37290b48506e25b09cf9e7c70898b10f0f0927d80c05761eaf"
+    },
+    "verification/v1.49/controls.log": {
+      "status": "added",
+      "sha256": "752744381aba1d51cae55b866598a9b82d8e6da14b5604a3afe5ba9bbe682035"
+    },
+    "verification/v1.49/desktop-desktop-results.json": {
+      "status": "added",
+      "sha256": "5a8a9ca0f2c2a5cd4c5ae6a902a1c12b100a473bab4b02d7148526b027e806c0"
+    },
+    "verification/v1.49/desktop.log": {
+      "status": "added",
+      "sha256": "094e72717bdcf43969d6a5d48d08674ccf395b64889c31ca72e85f82515e077e"
+    },
+    "verification/v1.49/final-final-results.json": {
+      "status": "added",
+      "sha256": "450c94f45abf0b075841c641c88db69d1b44a1e4ff7815e79187d436e4827743"
+    },
+    "verification/v1.49/final-polish.diff": {
+      "status": "added",
+      "sha256": "f3ef446d3f08a50283629132678cc5040cb43bbe4c4dc0c99b63f4df066772c6"
+    },
+    "verification/v1.49/final.log": {
+      "status": "added",
+      "sha256": "2d947e2b08996a57d5a8e922e02eddb8c6b9819316aac874472c2fe22f9118e1"
+    },
+    "verification/v1.49/initial-final-failed.log": {
+      "status": "added",
+      "sha256": "2a8fd53bf559b71ce01a194a9f76a23b353fd73e7bed738ccff769c9f2bfb202"
+    },
+    "verification/v1.49/initial-run-results.json": {
+      "status": "added",
+      "sha256": "f68b00b73035c17676be3ee96aea25bfb94a168ed663e95e4db98ed5184ed546"
+    },
+    "verification/v1.49/native-native-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.49/native.log": {
+      "status": "added",
+      "sha256": "af8fb7c2e451985b09b222a90246c6eea31866cf9418ae26197537e2fcac2c1d"
+    },
+    "verification/v1.49/polish-polish-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.49/polish.log": {
+      "status": "added",
+      "sha256": "6313afd3193210ae2557c513a6e04c27d2a33339592f9fc03c514f6c3baf7072"
+    },
+    "verification/v1.49/results.json": {
+      "status": "added",
+      "sha256": "8defa5ad5de18a12fc949d99dec55e9b15a6c39028afed07d64f4239889deae4"
+    },
+    "verification/v1.49/test-attempts.json": {
+      "status": "added",
+      "sha256": "5b9c0d6904e731c02aa7ef128882c1c7ebfabd2a723451afdca2dfc7982a87c9"
+    },
+    "verification/v1.49/verification-scope.json": {
+      "status": "added",
+      "sha256": "6c47ce57af7c69508aed7f28d330bd329ca14de688a8d48c798fed26f6d6a71e"
+    },
+    "verification/v1.49/workflows-workflow-console-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.49/workflows.log": {
+      "status": "added",
+      "sha256": "bc785b246fcdb95065b7e7de5d1f4e6875ab369efc20cfc0907b220dde239aef"
+    }
+  }
+}

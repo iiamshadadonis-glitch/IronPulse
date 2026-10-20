@@ -1,0 +1,20 @@
+/* DropBeat V1.20 interaction and sub-tab fixes. Existing theme variables remain authoritative. */
+.db120-count-badge,.db120-tab-badge{display:inline-grid;place-items:center;min-width:20px;height:20px;margin-left:7px;padding:0 6px;border-radius:999px;background:var(--accent,#a469a8);color:#fff;font-size:11px;font-weight:850;line-height:1}
+.db120-count-badge[hidden],.db120-tab-badge[hidden]{display:none!important}
+.db120-section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px}
+.db120-section-head h2,.db120-section-head p{margin:0}.db120-section-head p{margin-top:5px}
+.db120-subtabs{display:flex;align-items:stretch;gap:8px;overflow-x:auto;margin:0 0 16px;padding:0 0 2px;border-bottom:1px solid var(--line,#e0dfe8);scrollbar-width:thin}
+.db120-subtabs>button{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-height:42px;padding:10px 15px;border:1px solid var(--line,#d8d7e2);border-bottom:3px solid transparent;background:#fff;color:var(--primary,#4b55be);font:inherit;font-weight:800;cursor:pointer}
+.db120-subtabs>button.active{border-color:var(--primary,#4b55be);border-bottom-color:var(--primary,#4b55be);background:var(--primary,#4b55be);color:#fff}
+.db120-subtabs>button.active .db120-tab-badge{background:#fff;color:var(--primary,#4b55be)}
+.db120-subtab-panel{min-width:0}.db120-panel-title{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 12px}.db120-panel-title h3{margin:0}.db120-panel-title>span{color:#696a73;font-size:13px;font-weight:750}
+.db120-modal.modal.open{display:flex;z-index:12080}
+#db116StudentAttendanceModal.db120-modal.modal.open{z-index:12100}
+.db120-modal .modal-head{position:sticky;top:-22px;z-index:3;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:-4px 0 18px;padding:4px 0 14px;border-bottom:1px solid var(--line,#e0dfe8);background:#fff}
+.db120-modal .modal-head h2,.db120-modal .modal-head p{margin:0}.db120-modal .modal-head p{margin-top:5px;color:#696a73}
+.db120-modal .modal-head>button{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;padding:0;border:1px solid var(--line,#d8d7e2);border-radius:50%;background:#fff;color:var(--primary,#4b55be);font:700 22px/1 Arial;cursor:pointer}
+.db120-modal .modal-head>button:hover{border-color:var(--primary,#4b55be)}
+.db120-session-review-table{width:100%;min-width:760px;table-layout:fixed}.db120-session-review-table th,.db120-session-review-table td,.db120-coach-review-table th,.db120-coach-review-table td{padding:14px 16px;vertical-align:top;white-space:normal;overflow-wrap:anywhere;line-height:1.45}.db120-session-review-table td>small{display:block;margin-top:4px;color:#696a73}
+.db120-coach-review-table{width:100%;min-width:880px;table-layout:fixed}
+.db119-leave-table{min-width:1180px}.db119-actions{align-items:center}
+@media(max-width:700px){.db120-panel-title,.db120-section-head{align-items:flex-start;flex-direction:column}.db120-subtabs{margin-left:-4px;margin-right:-4px}.db120-subtabs>button{padding:9px 12px}.db120-modal .modal-head{top:-18px}}

@@ -1,0 +1,120 @@
+/* DropBeat V1.34 — phone-only app layout. Desktop and light/dark theme tokens
+   remain owned by the existing theme files. */
+.db134-detail-sheet,.db134-sticky-purchase,.db134-view-details{display:none}
+
+@media(max-width:760px){
+  html,body{max-width:100%;overflow-x:hidden}
+  body{padding-bottom:env(safe-area-inset-bottom,0)}
+
+  /* Mobile hero uses a deliberate cover crop rather than shrinking a desktop banner. */
+  .hero,.uc-slider>.slide{
+    min-height:0!important;height:clamp(410px,112vw,520px)!important;
+    background-size:cover,cover!important;background-position:center,center!important
+  }
+  .hero .container{height:100%;display:flex;align-items:flex-end;padding-bottom:42px!important}
+  .hero-copy{width:min(88%,430px)!important;padding:15px!important;border-radius:17px;background:rgba(255,255,255,.84);backdrop-filter:blur(8px)}
+  html[data-color-mode="dark"] .hero-copy{background:rgba(15,19,30,.84)}
+  .hero h1{font-size:clamp(30px,9vw,42px)!important;line-height:1!important}
+  .hero p{font-size:13px!important;line-height:1.45!important;margin:8px 0!important}
+  .hero-actions{margin-top:12px!important;gap:7px!important}.hero-actions .btn{padding:8px 10px!important;font-size:11px!important}
+
+  /* Four concise actions remain on one row and the sales action follows the
+     current Offers/Pricing navigation URL. */
+  .dropbeat-quick-strip{margin-top:-22px!important;padding-inline:8px!important}
+  .dropbeat-quick-strip-inner{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;border-radius:15px!important;overflow:hidden!important}
+  .dropbeat-quick-strip-inner>div,.dropbeat-quick-strip-inner>.dropbeat-strip-action{
+    min-width:0!important;min-height:67px!important;padding:8px 5px!important;border-right:1px solid var(--dropbeat-line,#dedfec)!important;border-bottom:0!important;
+    display:grid!important;align-content:center!important;text-align:center!important
+  }
+  .dropbeat-quick-strip-inner span{font-size:7px!important;letter-spacing:.06em!important;line-height:1.2!important}
+  .dropbeat-quick-strip-inner strong,.dropbeat-strip-action{font-size:9px!important;line-height:1.25!important;overflow-wrap:anywhere}
+
+  /* Welcome content becomes one compact app card. */
+  .dropbeat-welcome{padding:30px 0 24px!important}
+  .dropbeat-welcome-grid{display:grid!important;grid-template-columns:94px minmax(0,1fr)!important;gap:12px!important;padding:12px!important;border:1px solid var(--dropbeat-line,#dedfec);border-radius:20px}
+  .dropbeat-welcome-visual{min-height:132px!important;height:100%!important;order:1!important;clip-path:none!important;border-radius:14px!important;box-shadow:none!important}
+  .dropbeat-welcome-copy{order:2!important;min-width:0}.dropbeat-welcome-copy .eyebrow{font-size:8px!important}
+  .dropbeat-welcome-copy h2{font-size:21px!important;margin:2px 0 5px!important;line-height:1.05!important}
+  .dropbeat-welcome-copy>.lead{font-size:10px!important;line-height:1.4!important;margin:0 0 8px!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .dropbeat-feature-list{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px!important;margin:0 0 8px!important}
+  .dropbeat-feature-list>div{min-width:0!important;padding:5px!important}.dropbeat-feature-list span{font-size:7px!important}.dropbeat-feature-list strong{font-size:8px!important;line-height:1.2!important;overflow-wrap:anywhere}.dropbeat-feature-list small{display:none!important}
+  .dropbeat-welcome-copy>.btn{padding:7px 9px!important;font-size:9px!important}
+
+  /* Product cards stay equal-height until Session Details is requested. */
+  :is(#offersGrid,#festivalGrid,#yearlyGrid,#featuredProducts) .product-card>[data-db107-plan-facts]{display:none!important}
+  .db134-session-details{margin:0!important;border:1px solid var(--dropbeat-line,#dedfec);border-radius:10px;overflow:hidden}
+  .db134-session-details>summary{display:flex;align-items:center;justify-content:space-between;gap:5px;padding:7px 8px;cursor:pointer;color:var(--dropbeat-primary,var(--blue,#4B55BE));font-size:10px;font-weight:900;list-style:none}
+  .db134-session-details>summary::-webkit-details-marker{display:none}.db134-session-details>summary::after{content:'⌄';font-size:13px}.db134-session-details[open]>summary::after{transform:rotate(180deg)}
+  .db134-session-details [data-db107-plan-facts]{display:grid!important;border:0!important;border-top:1px solid var(--dropbeat-line,#dedfec)!important;border-radius:0!important;padding:7px!important;margin:0!important}
+  .db134-session-details .db107-plan-fact{grid-template-columns:15px minmax(0,1fr)!important;gap:5px!important;padding:4px 0!important}
+  .db134-session-details .db107-plan-fact svg{width:13px!important;height:13px!important}
+  .db134-session-details .db107-plan-fact :is(strong,small,span,a){font-size:8px!important;line-height:1.25!important}
+
+  /* How It Works appears as one compact three-step panel. */
+  .how-section{padding:24px 0!important}.how-section .section-head{margin-bottom:9px!important}.how-section .section-head .lead{display:none!important}
+  .how-section .grid.steps{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+  .how-section .grid.steps>.card{min-width:0!important;padding:10px 7px!important;border-radius:13px!important}
+  .how-section .step-num{width:26px!important;height:26px!important;font-size:11px!important;margin-bottom:5px!important}
+  .how-section h3{font-size:10px!important;line-height:1.2!important;margin:3px 0!important}.how-section .grid.steps p{font-size:8px!important;line-height:1.3!important;margin:0!important;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+
+  /* Exactly two story thumbnails fit in the visible row. */
+  .stories-strip{gap:8px!important;padding:4px 1px 12px!important}
+  .stories-strip .story-card{flex:0 0 calc((100vw - 38px)/2)!important;min-width:calc((100vw - 38px)/2)!important;max-width:calc((100vw - 38px)/2)!important;padding:7px!important;border-radius:13px!important}
+  .stories-strip .story-card img{border-radius:9px!important}.stories-strip .story-card .play{width:30px!important;height:30px!important;font-size:11px!important}.stories-strip .story-card strong{font-size:9px!important;line-height:1.25!important;margin-top:6px!important}
+
+  /* Social artwork is contained instead of stretched. */
+  .footer .socials{gap:7px!important}.footer .social-icon{display:grid!important;place-items:center!important;width:30px!important;height:30px!important;min-width:30px!important;padding:6px!important;border-radius:9px!important;overflow:hidden!important}
+  .footer .social-icon :is(svg,img){display:block!important;width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;object-fit:contain!important}
+
+  /* App-style plan details: concise screen, details bottom sheet, sticky buy. */
+  body.db134-offer-page main{padding-bottom:88px}
+  #offerDetail .uc-offer-detail-title-row{margin-bottom:10px!important}#offerDetail .uc-offer-detail-title-row h1{font-size:25px!important}
+  #offerDetail .uc-offer-detail-shell{display:grid!important;grid-template-columns:1fr!important;gap:9px!important;margin-top:0!important}
+  #offerDetail .uc-offer-detail-main,#offerDetail .uc-offer-book-card{padding:10px!important;border-radius:17px!important}
+  #offerDetail .uc-offer-detail-media{min-height:0!important;aspect-ratio:1/1!important;border-radius:13px!important}
+  #offerDetail .uc-interest-row{margin:8px 0!important}.db134-view-details{display:flex!important;width:100%!important;justify-content:center!important;margin:7px 0 0!important}
+  #offerDetail :is(.uc-offer-about,.uc-offer-know){display:none!important}
+  #offerDetail .uc-offer-book-card>h2,#offerDetail .uc-offer-book-card>.uc-offer-detail-features,#offerDetail .uc-offer-book-card>#ucOfferBook,#offerDetail .uc-offer-book-card>a.btn{display:none!important}
+  #offerDetail .uc-offer-book-card{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center!important;gap:8px!important}
+  #offerDetail .db107-offer-class{grid-column:1/-1!important;margin:0!important;padding:9px!important;border-radius:12px!important}
+  #offerDetail .db107-offer-class h3{font-size:13px!important;margin:0 0 5px!important}
+  #offerDetail .db107-plan-fact{padding:5px 0!important}.uc-recommended{margin-top:18px!important}.uc-recommended-track{gap:9px!important}.uc-reco-card{flex-basis:162px!important}
+  .db134-detail-sheet{display:none;position:fixed;inset:0;z-index:1200}.db134-detail-sheet.open{display:block}.db134-sheet-backdrop{position:absolute;inset:0;border:0;background:rgba(7,10,18,.68);backdrop-filter:blur(2px)}
+  .db134-sheet-panel{position:absolute;inset:auto 0 0;max-height:76dvh;overflow:auto;padding:8px 15px calc(24px + env(safe-area-inset-bottom,0));border-radius:24px 24px 0 0;background:#fff;color:var(--dropbeat-text,#383a46);box-shadow:0 -20px 70px rgba(0,0,0,.28)}
+  html[data-color-mode="dark"] .db134-sheet-panel{background:#1b2030;color:#d7dbea}.db134-sheet-handle{width:42px;height:4px;margin:0 auto 9px;border-radius:5px;background:#b8b8c4}
+  .db134-sheet-panel>header{display:flex;align-items:center;justify-content:space-between;position:sticky;top:-8px;padding:8px 0;background:inherit;z-index:2}.db134-sheet-panel h2{font-size:20px!important;margin:0!important}.db134-sheet-panel header button{width:36px;height:36px;border:0;border-radius:50%;font-size:24px}
+  .db134-sheet-body{display:grid;gap:10px}.db134-sheet-body :is(.uc-offer-about,.uc-offer-know,.db107-offer-class){display:block!important;margin:0!important;padding:12px!important;border:1px solid var(--dropbeat-line,#dedfec);border-radius:14px}.db134-sheet-body h2{font-size:17px!important}.db134-sheet-body p,.db134-sheet-body li{font-size:12px!important;line-height:1.55!important}
+  body.db134-sheet-open{overflow:hidden}.db134-sticky-purchase{display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,42%);align-items:center;gap:10px;position:fixed;left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom,0));z-index:950;padding:9px;border:1px solid var(--dropbeat-line,#dedfec);border-radius:16px;background:rgba(255,255,255,.96);box-shadow:0 14px 44px rgba(25,27,64,.24);backdrop-filter:blur(14px)}
+  html[data-color-mode="dark"] .db134-sticky-purchase{background:rgba(27,32,48,.96)}.db134-sticky-purchase .uc-offer-detail-price{border:0!important;padding:0!important;margin:0!important}.db134-sticky-purchase .uc-offer-detail-price :is(.new,.regular,.trial){font-size:18px!important}.db134-sticky-purchase .btn{min-height:44px!important;width:100%!important}
+
+  /* Coach browser becomes a readable full-width app card. */
+  .db109-coach-browser{display:block!important;position:relative!important;padding:0 7px!important}
+  .db109-coach-browser>.db107-coach-grid{display:grid!important;grid-template-columns:1fr!important;width:100%!important}
+  .db109-coach-card{display:grid!important;grid-template-columns:104px minmax(0,1fr)!important;min-height:176px!important;width:100%!important;height:auto!important;border-radius:18px!important}
+  .db109-coach-card[hidden]{display:none!important}.db109-coach-card .db107-coach-photo{height:100%!important;min-height:176px!important;aspect-ratio:auto!important}.db109-coach-card .db107-coach-body{display:flex!important;padding:13px 12px!important;min-width:0!important}
+  .db109-coach-card .db107-coach-badge{align-self:flex-start;margin:0 0 7px!important;padding:4px 7px!important;font-size:8px!important}.db109-coach-card h3{font-size:17px!important}.db109-coach-card .db107-coach-role{font-size:10px!important;margin-bottom:6px!important}.db109-coach-bio{font-size:10px!important;line-height:1.4!important;min-height:2.8em!important;max-height:4.2em!important;-webkit-line-clamp:3!important}.db109-coach-card.expanded .db109-coach-bio{max-height:none!important}
+  .db109-coach-card .db107-style-chips{gap:4px!important}.db109-coach-card .db107-style-chips span{padding:4px 5px!important;font-size:8px!important}.db109-coach-more{font-size:10px!important;margin-top:7px!important}
+  .db109-coach-arrow{position:absolute!important;top:68px!important;z-index:4!important;width:30px!important;height:30px!important;font-size:20px!important}.db109-coach-browser>[data-db109-coach-prev]{left:-5px!important}.db109-coach-browser>[data-db109-coach-next]{right:-5px!important}.db109-coach-status{margin:8px 0 0!important;font-size:10px!important}
+
+  /* Dance Tips uses compact feed cards and a deliberate empty state. */
+  .uc-blog-intro{padding:15px!important;border-radius:18px!important}.uc-blog-intro h1{font-size:27px!important}.uc-blog-intro p{font-size:12px!important;line-height:1.45!important}
+  .uc-blog-layout{display:grid!important;grid-template-columns:1fr!important;gap:12px!important}.uc-blog-list{gap:10px!important}.uc-blog-card{display:grid!important;grid-template-columns:112px minmax(0,1fr)!important;border-radius:15px!important;overflow:hidden!important}.uc-blog-card-media{height:100%!important;min-height:135px!important}.uc-blog-card-body{padding:10px!important}.uc-blog-card-body h3{font-size:14px!important}.uc-blog-excerpt{font-size:10px!important;line-height:1.35!important;-webkit-line-clamp:2!important}.uc-blog-sidebar{display:none!important}.uc-blog-empty{min-height:180px;display:grid;place-items:center;text-align:center;border-radius:18px!important;padding:24px!important}
+
+  /* Contact and checkout use denser commerce-form layouts. */
+  body[data-uc-load="page:contact"] .section{padding-top:20px!important}body[data-uc-load="page:contact"] .contact-wrap{gap:5px!important}body[data-uc-load="page:contact"] .contact-wrap h1{font-size:25px!important;margin:0!important}body[data-uc-load="page:contact"] .contact-wrap p{font-size:11px!important;line-height:1.4!important;margin:4px 0 8px!important}
+  .contact-form{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;margin-top:9px!important;padding:12px!important;border-radius:18px!important}.contact-form>.field{margin:0!important}.contact-form>.db134-full-field,.contact-form>.contact-phone-grid,.contact-form>button,.contact-form>#contactResult{grid-column:1/-1!important}.contact-form .contact-phone-grid{display:grid!important;grid-template-columns:110px minmax(0,1fr)!important;gap:8px!important}.contact-form label{font-size:10px!important}.contact-form :is(input,select,textarea){min-height:42px!important;padding:8px!important}.contact-form textarea{height:84px!important}.contact-form .hint{font-size:8px!important;line-height:1.25!important;padding:0!important;text-align:left!important}
+  body[data-uc-load="checkout"] .checkout-section{padding:20px 0 96px!important}body[data-uc-load="checkout"] .checkout-section h1{font-size:27px!important;margin:0!important}body[data-uc-load="checkout"] .checkout-section>.container>.lead{font-size:11px!important;margin:4px 0 12px!important}
+  .basket-layout{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}.basket-list{gap:8px!important}.basket-item{display:grid!important;grid-template-columns:70px minmax(0,1fr) auto!important;gap:9px!important;padding:9px!important;border-radius:15px!important}.basket-img{width:70px!important;height:70px!important;border-radius:11px!important}.basket-img img{width:100%!important;height:100%!important;object-fit:contain!important}.basket-item h3{font-size:13px!important;margin:0!important}.basket-item p,.basket-item small{font-size:9px!important;line-height:1.3!important}.qty-controls{gap:5px!important;margin-top:5px!important}.qty-controls button{padding:4px 7px!important}.summary-card{position:static!important;padding:12px!important;border-radius:18px!important}.summary-card h2{font-size:19px!important}.checkout-add-more{padding:9px!important}.checkout-add-more strong,.checkout-add-more span{font-size:10px!important}.summary-row{padding:7px 0!important;font-size:12px!important}.checkout-form{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}.checkout-form .field{margin:0!important}.checkout-form label{font-size:9px!important}.checkout-form input{min-height:42px!important;padding:8px!important}.checkout-form>button{grid-column:1/-1!important;position:sticky;bottom:8px;z-index:5;min-height:46px!important}
+
+  /* Sign-up availability number has a dedicated column and cannot overlap. */
+  .coach-schedule-row{display:grid!important;grid-template-columns:36px minmax(0,1fr)!important;gap:8px!important;padding:11px 38px 11px 10px!important;align-items:start!important}.coach-schedule-row .schedule-row-number{position:static!important;grid-column:1!important;grid-row:1!important;align-self:start!important;margin-top:21px!important}.coach-schedule-row>.portal-field{grid-column:2!important}.coach-schedule-row .schedule-remove{top:9px!important;right:7px!important}.schedule-builder-head{gap:8px!important}.schedule-builder-head p{font-size:10px!important}
+
+  /* Student/Coach dashboards use a denser app dashboard and readable sessions. */
+  .portal-topbar h1{max-width:none!important;font-size:16px!important}.portal-metrics,.attendance-summary-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important}.portal-metrics>.portal-card,.attendance-summary-grid>*{min-width:0!important;padding:8px 5px!important;text-align:center!important}.portal-metrics .metric,.attendance-summary-grid strong{font-size:18px!important}.portal-metrics :is(h3,p,small),.attendance-summary-grid :is(span,small){font-size:8px!important;line-height:1.25!important;overflow-wrap:anywhere}
+  .week-item{display:grid!important;grid-template-columns:minmax(138px,46%) minmax(0,1fr)!important;gap:9px!important;padding:10px!important}.week-date{font-size:10px!important;white-space:normal!important}.week-date small{display:block!important}.week-item>div:nth-child(2){padding-left:4px!important;min-width:0!important}.week-item>.portal-btn{grid-column:1/-1!important}
+}
+
+@media(max-width:390px){
+  .dropbeat-quick-strip-inner>div,.dropbeat-quick-strip-inner>.dropbeat-strip-action{padding-inline:3px!important}.dropbeat-quick-strip-inner strong,.dropbeat-strip-action{font-size:8px!important}
+  .dropbeat-welcome-grid{grid-template-columns:80px minmax(0,1fr)!important}.dropbeat-welcome-visual{min-height:122px!important}
+}

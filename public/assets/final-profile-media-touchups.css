@@ -1,0 +1,43 @@
+/* Final profile-media + helper-text spacing touch-ups.
+   Additive only: keeps the existing form structure and validation logic intact. */
+
+/* Standard form rhythm: label -> control -> helper. The helper visually belongs
+   to the control instead of floating midway between form rows. */
+.contact-form .field,
+.submit-profile-form .field{
+  gap:0!important;
+}
+.contact-form .field>label,
+.submit-profile-form .field>label{
+  margin:0 0 7px!important;
+}
+.contact-form .hint,
+.contact-form .contact-phone-grid>.field>.hint,
+.contact-form>.field>.hint,
+.submit-profile-form .hint{
+  display:block!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+  margin:4px 0 0!important;
+  padding:0 10px!important;
+  text-align:left!important;
+  line-height:1.35!important;
+}
+.contact-form .contact-phone-grid>.field{
+  gap:0!important;
+}
+
+/* Optional portfolio links on Submit Profile. */
+.profile-media-field{min-width:0}
+.profile-link-list{display:grid;gap:8px}
+.profile-link-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
+.profile-link-row:first-child{grid-template-columns:1fr}
+.profile-link-row input{width:100%;min-width:0;box-sizing:border-box}
+.profile-link-remove{width:38px;height:38px;border-radius:999px;border:1px solid rgba(75,85,190,.18);background:#f6f6fa;color:#a20a16;font-weight:950;cursor:pointer;display:grid;place-items:center;padding:0}
+.profile-link-remove:hover{background:#fee2e2}
+.profile-link-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px}
+.profile-link-actions .btn{padding:8px 13px!important;font-size:12px!important}
+.profile-link-count{font-size:11px;color:#64676a;font-weight:800}
+@media(max-width:700px){
+  .profile-link-row{grid-template-columns:minmax(0,1fr) auto}
+}

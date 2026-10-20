@@ -1,0 +1,74 @@
+/* Last-mile admin UI: tracking switches, async feedback and 404 editor. */
+
+/* Tracking toggles use the same compact switch language as Payments / Ad Integrations. */
+#tracking .uc-track-toggle-v2-field{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-areas:"label toggle" "control control"!important;
+  align-items:center!important;
+  gap:7px 12px!important;
+  padding:0!important;
+  position:relative!important;
+}
+#tracking .uc-track-toggle-v2-field>label:first-child{grid-area:label!important;padding-right:0!important;margin:0!important;}
+#tracking .uc-track-toggle-v2-field>input:not([type="checkbox"]){grid-area:control!important;}
+#tracking .uc-track-enable-v2{
+  grid-area:toggle!important;
+  position:static!important;
+  right:auto!important;
+  top:auto!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-self:end!important;
+  gap:8px!important;
+  width:auto!important;
+  max-width:max-content!important;
+  padding:6px 10px!important;
+  border:1px solid var(--line)!important;
+  border-radius:999px!important;
+  background:#fcfcfe!important;
+  color:#3f4259!important;
+  font-size:12px!important;
+  font-weight:900!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  cursor:pointer!important;
+  box-shadow:none!important;
+}
+#tracking .uc-track-enable-v2 .switch{width:44px!important;height:24px!important;flex:0 0 44px!important;}
+#tracking .uc-track-enable-v2 .switch input{opacity:0!important;width:0!important;height:0!important;margin:0!important;padding:0!important;border:0!important;}
+#tracking .uc-track-enable-v2 .slider:before{width:18px!important;height:18px!important;left:3px!important;top:3px!important;}
+#tracking .uc-track-enable-v2 input:checked+.slider:before{transform:translateX(20px)!important;}
+@media(max-width:760px){
+  #tracking .uc-track-toggle-v2-field{grid-template-columns:1fr auto!important;}
+}
+
+/* 404 content editor has explicit top/bottom wording; raw storage field remains hidden. */
+#pages .page-editor[data-uc404-split="1"] .uc-404-raw-field{display:none!important;}
+
+/* Async button feedback. */
+.btn.uc-button-pending,button.uc-button-pending{
+  opacity:.58!important;
+  cursor:wait!important;
+  filter:saturate(.72)!important;
+  pointer-events:none!important;
+}
+.btn.uc-button-pending::before,button.uc-button-pending::before{
+  content:"";
+  width:13px;height:13px;border-radius:50%;
+  border:2px solid currentColor;border-right-color:transparent;
+  display:inline-block;flex:0 0 13px;
+  animation:uc-admin-spin .72s linear infinite;
+}
+@keyframes uc-admin-spin{to{transform:rotate(360deg)}}
+.admin-async-toast{
+  position:fixed;right:22px;bottom:22px;z-index:10000;
+  max-width:min(430px,calc(100vw - 44px));
+  padding:13px 16px;border-radius:14px;
+  color:#fff;font-weight:850;line-height:1.4;
+  box-shadow:0 18px 56px rgba(24,22,55,.24);
+  border:1px solid rgba(255,255,255,.20);
+}
+.admin-async-toast.success{background:#15803d;}
+.admin-async-toast.error{background:#b91c1c;}
+.admin-async-toast[hidden]{display:none!important;}

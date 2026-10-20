@@ -1,0 +1,6 @@
+/* DropBeat V1.15 — checkout containment and final responsive safety. */
+.checkout-section{position:relative;z-index:1;min-height:calc(100vh - 180px);padding-bottom:88px!important}
+.basket-layout{align-items:start!important;isolation:isolate}
+.basket-layout>.summary-card{position:static!important;top:auto!important;align-self:start!important;max-height:none!important;margin:0!important;z-index:auto!important}
+.checkout-section+.footer,.checkout-section~.footer,.footer{position:relative;z-index:2;clear:both}
+@media(max-width:900px){.basket-layout{grid-template-columns:1fr!important}.basket-layout>.summary-card{width:100%}}

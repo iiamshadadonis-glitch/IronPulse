@@ -1,0 +1,266 @@
+{
+  "release": "1.58.0",
+  "inputArchive": "DropBeat-V1.57-Verified(1).zip",
+  "inputBytes": 6956135,
+  "inputSha256": "61c5806fc5a120db9734d384f26909225f535583d50f36b55ab559e9715cbe61",
+  "originalFiles": 1682,
+  "retainedOriginalFiles": 1682,
+  "unchangedOriginalFiles": 1633,
+  "changedOriginalFiles": 49,
+  "changes": [
+    {
+      "path": "DANCE-STUDIO-VERSION.txt",
+      "beforeSha256": "90bd5f9c43fb64ed90ed705038487726b979c25a1af5063bca072be1712810cd",
+      "afterSha256": "e0fef7dd9930824717697d777856af14b75422db4bfb60a8adabe4229ff48d0e"
+    },
+    {
+      "path": "functions/_lib/payment-receipts.js",
+      "beforeSha256": "ad47774c733effa8fefd8ab6b5ae748daf4e6d99e9046e1ed76b913594dadb63",
+      "afterSha256": "50fdda494a9918055b3cf256cf6ce5547578cd6d68dee4db8666f78d5399b57c"
+    },
+    {
+      "path": "functions/_lib/payment-recovery.js",
+      "beforeSha256": "91f466e60577a219a6f71688875421340532e68968c41a50ae0d1571c044fb12",
+      "afterSha256": "77420ec9ff90e84c706d7bb11331b3b3d9950ff62dc372f658d085a04c1b2655"
+    },
+    {
+      "path": "functions/_lib/portal-auth.js",
+      "beforeSha256": "972ab495626ac055530d6c3e0ff3b4799452448f925aaa19b887ed67b311653d",
+      "afterSha256": "3177c5e10ab94762911846dcfcc0542fc05ac1fdc260a7c0c54358854124b27c"
+    },
+    {
+      "path": "functions/_lib/social-comments.js",
+      "beforeSha256": "db7d2d7c797a6520619e8e2b288f6192d3ac2fcd73836018ec21c185ad0f92d5",
+      "afterSha256": "3fb1f74bce40766f65959fb94cc71ceff2259bbc2e27f7e821f77b47c9a858f9"
+    },
+    {
+      "path": "functions/_lib/social-dms.js",
+      "beforeSha256": "2302adb5be596a556a5dc3203c9daf878b147eb7970acfb67c1c82d14258d8a9",
+      "afterSha256": "745d3f540a31170c76b239ad5f78db75b9a751aa66ad9ef1768626e7b36ecfde"
+    },
+    {
+      "path": "functions/_lib/utils.js",
+      "beforeSha256": "1a67beb7971df3dabb0e2adc00610b313171953956bea2bec172264dfe7440a0",
+      "afterSha256": "7d2ce8bb03d26e2ab84479235a341e684f924e9a4cb6f257975c142b1fdb3e66"
+    },
+    {
+      "path": "functions/_middleware.js",
+      "beforeSha256": "9ebd1ed14d7df64bea3e79a1a11c99b171a3b0a113781b8733bde847f339e047",
+      "afterSha256": "6707b228aa61f574a604b7d899e463b6f6ced6ba21dd66f275f50accd88346ef"
+    },
+    {
+      "path": "functions/api/admin/auth/login.js",
+      "beforeSha256": "d950d00636bc1ce7b592839afdc3afaef44e471c84609e538a6dc17c177a1050",
+      "afterSha256": "f3b37a5b49a2d4e07eaa2acf45fa4cebc92c8295cdcb45cf812355c72b52adc8"
+    },
+    {
+      "path": "functions/api/admin/refunds.js",
+      "beforeSha256": "5a61f68c486d04e02efa0c1312919fadd671c7107ae3427f1c747037cdbffcb5",
+      "afterSha256": "6c7a33a2546855340af3abeab49d4ff602f91667721690d420fda2f75801f08f"
+    },
+    {
+      "path": "functions/api/portal/tickets.js",
+      "beforeSha256": "37dd28f0ca852a3bf2095d68e2eb0df0ba3b6128b8ba07b7ad3816d7c86e969e",
+      "afterSha256": "8496e740cd0b1e234f6761e204c6fd9903ee54e0e468de9f830ce7e5b097e332"
+    },
+    {
+      "path": "package.json",
+      "beforeSha256": "0499651c1d9ccebae3ac4a8fef5828ce9de690ec375afcf938eb8b92284ad5c4",
+      "afterSha256": "51e9796c3672ac9569505d0c8e934e511e96a2351a398ddabd9398b822c3cc11"
+    },
+    {
+      "path": "public/404.html",
+      "beforeSha256": "f74d3527917a7899a518f69f06d63f09fb9dc3519e7a2e89aed72bd55b6fef36",
+      "afterSha256": "f6eb5da0017714e99af69ea71437ec0b0f2dd7f21b4f42c257dee051a201d252"
+    },
+    {
+      "path": "public/_headers",
+      "beforeSha256": "3badc048b81212bea5b7eccccf95379c8b037dbba5aa240ce3c63e48f6ea63b2",
+      "afterSha256": "a261dae469820cd1f5840e5a4203337f6dd258b9f55c5e5f430f7fc79cd4ac30"
+    },
+    {
+      "path": "public/about.html",
+      "beforeSha256": "97e31ab569aec08fc9acada42bbab402a78a93ea7519b64fc7623f67cca9536a",
+      "afterSha256": "6a34a315b6728eb80e19908b1ab27810b87aa160dfedd8aace28801d408438cc"
+    },
+    {
+      "path": "public/admin/dropbeat-admin-v1-05.js",
+      "beforeSha256": "a64adcec600addff42d6d5d0807a43d9ee2e53b43def8c9899ca65e3f9585b3e",
+      "afterSha256": "c4d7fa4232b36963284021b5ceb924c1cc283cbe1f420a351bf3ecd52d77be60"
+    },
+    {
+      "path": "public/admin/final-v16-12-social-diagnostics-notifications.js",
+      "beforeSha256": "938d23edf7a61b05919914ca6e4ecd01971ad86d1338e7f10728f40350be0d1a",
+      "afterSha256": "a3e66dc6f221635f96ecd37ef5d109d8c5884ee8387dcb280fc4161afea1ef44"
+    },
+    {
+      "path": "public/admin/final-v16-54-brand-articles-stability.js",
+      "beforeSha256": "f9197b4f97a29e7c3f1e42a36717d2744897c3d748308f1f5b4dd04939737eed",
+      "afterSha256": "91f658594bad4547f955bd1451e133c522d5bbe35fcb382528f2bba45653c337"
+    },
+    {
+      "path": "public/admin/final-v16-59-inbox-reliability-notifications.js",
+      "beforeSha256": "b80b16a7036dae654aec61d3a6403531ba18e07538061be9af3e355acd519e1c",
+      "afterSha256": "26e4b02a158eb1c8abf5c26b5c9de9e8a4582aff35548a8952482cea7c059031"
+    },
+    {
+      "path": "public/admin/final-v16-60-realtime-inbox-comments.js",
+      "beforeSha256": "84e896393798aeea19f328579136c2d770e3d35f89ae269cb7b6e2c4cee1e8b5",
+      "afterSha256": "17538ee53a2d3767b9b226ed4a7662f612436c49ebc0e1ab153c864378a72920"
+    },
+    {
+      "path": "public/admin/index.html",
+      "beforeSha256": "d9e08e9a47501e36a564b1b5c2edab304178c4ab7d3feb592ea9f571ae508d98",
+      "afterSha256": "54ff051c496da5e9e93c2e5601a7586b964a74335a034c64ce7861d285428e12"
+    },
+    {
+      "path": "public/assets/dropbeat-data-cache-v1-50.js",
+      "beforeSha256": "2174ac34655b0f6b2a43faac09b184da4d6be606fd5004a21a43100cb1b805ac",
+      "afterSha256": "16b7a74f7299e515e789799521c9339949b1075defcc5ffa8299f1714f34dc14"
+    },
+    {
+      "path": "public/blog-post.html",
+      "beforeSha256": "21f806d2a9612691cec7ef9c6c0c85e9dc6982bbb32afb61660f98fc32f59887",
+      "afterSha256": "367b0d112a17123fb2e67e3e2395bbead7c7e7f5b125d86d9005a484372a5ccf"
+    },
+    {
+      "path": "public/blog.html",
+      "beforeSha256": "19710a855ef8e8c79e9f4a1b1295cd673b18b8b793e297c1ddeb8a8cdf5667fd",
+      "afterSha256": "00a2cb08eb6c8e70e82f0d75ad562c3a0e9236f8a51df6d4d8a8f92ebc8a5a68"
+    },
+    {
+      "path": "public/checkout.html",
+      "beforeSha256": "39e4a68574b97efaa9427a5cb8cfb8a8672abc3998d0d9b5a1ab8de41e8ccb3b",
+      "afterSha256": "6c3a1c50592284ff4e74d900673022aad1950f6900c163b4b08bb9a26aecd88e"
+    },
+    {
+      "path": "public/coach-dashboard.html",
+      "beforeSha256": "f4c7c43ad1f32c302d00cbab0ff751978836bcaa214e17d9b006801b437c0367",
+      "afterSha256": "22293279ea63be29e09d2b18c374e87a356cbb5adb1084945963e981bbdb6593"
+    },
+    {
+      "path": "public/contact.html",
+      "beforeSha256": "82372649fa4ba61f503f4e248e271e599d4d64d1eb9e0c1fab62668e52858727",
+      "afterSha256": "68b1b7bdc1bdae56578f092a084b49804046fd849a2994aa2754e793d413d5aa"
+    },
+    {
+      "path": "public/custom-page.html",
+      "beforeSha256": "91478a7f9dccf8f902d45b886d2039dc3e2f4a2c39530bdf9f2915e8947d0237",
+      "afterSha256": "e60e031d1fa010f9b8676a58356558bdd7c508f0401d01a5f9ab1c76e7caa062"
+    },
+    {
+      "path": "public/faq.html",
+      "beforeSha256": "1b2aa19c03e1359193ef0de493c23feb0b6797637e81ebe174c53ddd73dabd06",
+      "afterSha256": "847faf8437eae10715b3df06475bdbc7d3c9f3bc5937e9e2750aa7d2dadfd73d"
+    },
+    {
+      "path": "public/festival-offers.html",
+      "beforeSha256": "384ebca67aab2861b1978aa3fb5376ac680eb0f38794b849ae1f719d0bca426d",
+      "afterSha256": "f13750b997e95ba5cdc4fbc9928784c1c7d2b1ebd1314292cb5059868c6ddcd0"
+    },
+    {
+      "path": "public/index.html",
+      "beforeSha256": "06d39f46d39bc777af705bc23bb8639cc4f6c3818a740547a26a045d5f8f5148",
+      "afterSha256": "af676227b6edf281948a5ce09ef12a4dd464671165230be553b0e4872e90f059"
+    },
+    {
+      "path": "public/login.html",
+      "beforeSha256": "3af032677e499470a413dfa263e0743df1a02f1aa60fc178fadbfef26a23d8f6",
+      "afterSha256": "0a8bc97be773ff89daa3e52937108631d0aa853e91d2e4217ebe8acfe09e0233"
+    },
+    {
+      "path": "public/manifest.webmanifest",
+      "beforeSha256": "e6becde62be6cd2eed07c47d5fa6a65f21bcc4b944e77dfe80b678e77ab49dcf",
+      "afterSha256": "92e54f135730625f41b4e72128fef1cd5c5a5bd6484d8e5340259b325ca04418"
+    },
+    {
+      "path": "public/my-orders.html",
+      "beforeSha256": "c272dae4c216d947fee30db09fa7864aeb0f8fdf61afec1ef3fd9e64ea7b359d",
+      "afterSha256": "197816d33f91f752b7d533a569bcf7693b0fdbfc73d8434f630f38ab10ff7b78"
+    },
+    {
+      "path": "public/offer-details.html",
+      "beforeSha256": "207ed32f2a7834a9504fd34496902a43b21e957962ebf5a538f5a11965842f7c",
+      "afterSha256": "b7167bf97932e7b9dda3f70f62b062c826c662751554a4bb50ea0c737866f803"
+    },
+    {
+      "path": "public/offers.html",
+      "beforeSha256": "01f239415ba8ef9f662ea96183886d6715a3257609b814e630af2035a3b1a875",
+      "afterSha256": "1e247269487ab6a6236f93151cd2cbe3424eef347fc17cc1457c2a482037c715"
+    },
+    {
+      "path": "public/payment-failed.html",
+      "beforeSha256": "6e1725a7af20457f1739cd90c5e6f7f40bbfe265c25f371afcb02046c6b961dc",
+      "afterSha256": "8cc65ea2536fc3eb28ab36fff724c28889653ef4964a420c0d74f6186bc75872"
+    },
+    {
+      "path": "public/payment-success.html",
+      "beforeSha256": "b16dc7dcaef77b043fd5aab9eab767544476a1888cffb51326e046c3c58543bb",
+      "afterSha256": "289d25ce56103c8341eb34b360ecaeb1a86f99e6d46ad6d0dc8bd4acf5537936"
+    },
+    {
+      "path": "public/payment.html",
+      "beforeSha256": "81130314f676f29c5ceb8c6d1af61a8e27fc49ec5c01d7eed8495201b5ef7aa7",
+      "afterSha256": "1ddcf16d6228fc0a590bf1bd0f516aa764a25dcdab77846ee6cceb1d411590ef"
+    },
+    {
+      "path": "public/privacy-policy.html",
+      "beforeSha256": "f6641a10d1b299b2c308b23366daabd57854898310a545057c822a197c58847a",
+      "afterSha256": "4411ce7f58633d9160215827a4f7b2f5cf55f53f30f18dfbcffe4d96869d8f80"
+    },
+    {
+      "path": "public/refund-and-cancellation.html",
+      "beforeSha256": "d795abd474fd3db8fc235e50b45ef6677df6d3593ed0350dcee7a9ca05b5d0c7",
+      "afterSha256": "591194aade33534a2aa0f0d6ee9ddb9b6e62b0212a354a5ca24d51cca62a154d"
+    },
+    {
+      "path": "public/requests.html",
+      "beforeSha256": "2ac0ab239c40b853b4831a4f8c6a9d53d6b138920ba510bb0e21f18305402561",
+      "afterSha256": "da13c9605f05f9ff54875a288f2bdfbf4f268ffb652f43242652283c90abc171"
+    },
+    {
+      "path": "public/student-dashboard.html",
+      "beforeSha256": "3331bfee363a79f8386a0105d023506144f8b8459a8fb66752d278632385ab4d",
+      "afterSha256": "7d315cbb8a216cd4d08af0f933ab04ab8cc454dba9fc28346b5f9bde41995637"
+    },
+    {
+      "path": "public/submit-profile.html",
+      "beforeSha256": "b1dbf7ebc019b6c05f524a93851cd34209ded0f037c076708d792ca39adeb6a9",
+      "afterSha256": "5f7608ea952a5adcb201eb9f4589ae5a4e4544d9fa7c2743b5178ea0d5463d25"
+    },
+    {
+      "path": "public/success-stories.html",
+      "beforeSha256": "71d7b2836de4ab314a9f0b7a284ad685a53828c3fea5192186e1e4ba69ffe586",
+      "afterSha256": "38e491db7bc5903f8694b14a9bc262dea892e3b67d1ea4fe10b0cf2e6ebbe55c"
+    },
+    {
+      "path": "public/terms-and-conditions.html",
+      "beforeSha256": "cfa7fadfd01ba8040104361f692793e8c8477c4733099fb5eb576590da60a76c",
+      "afterSha256": "b59a125d3baadfc5315bfad3a92f034e07d768320346b64fd662e8bcd5499269"
+    },
+    {
+      "path": "public/uc-notifications-sw.js",
+      "beforeSha256": "4964d3a13029bcfe3ee1cc1722f17d9272be87cb78e09c532a364346a2ae5ad2",
+      "afterSha256": "848f7760ac6fd2623be724e08da302610a2e7c495db93740c0037ffff192ca7f"
+    },
+    {
+      "path": "public/yearly-plans.html",
+      "beforeSha256": "ee7425f22ab4195f4e42937278b9ed50bc3002fe568d67b74dc556b82d174700",
+      "afterSha256": "4386d0837804674fab62e1199ab0392392baf0f10bc163b93fef1c80657effb2"
+    },
+    {
+      "path": "tests/dance-studio-deployment.mjs",
+      "beforeSha256": "f900555b0b8f11822c88494257b32a14d15d955218608992667ea4112e2f9398",
+      "afterSha256": "5e599d03973c17354acbfb4d11c6062f9c9daa2b5bd82bfb1dae55422f5380db"
+    }
+  ],
+  "codeCheckGroups": 32,
+  "browserSuites": 7,
+  "browserWorkflowGroups": 33,
+  "desktopUploadPortals": [
+    "Admin",
+    "Coach",
+    "Student"
+  ],
+  "productionServicesExercised": false
+}

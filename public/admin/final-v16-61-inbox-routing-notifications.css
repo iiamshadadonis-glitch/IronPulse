@@ -1,0 +1,11 @@
+/* V16.61 — Inbox unread indicators only. Existing theme variables/colors are reused. */
+#socialDMs .uc61-inbox-platform-badge{
+  display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;
+  padding:0 6px;margin-left:2px;border-radius:999px;background:var(--blue,#4B55BE);color:#fff;
+  font-size:10px;font-weight:950;line-height:1;
+}
+#socialDMs .uc61-inbox-platform-badge[hidden]{display:none!important;}
+.side .nav [data-tab="socialDMs"] .nav-badge.uc61-inbox-nav-badge:not([hidden]){
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+}
+.side .nav [data-tab="socialDMs"] .nav-badge.uc61-inbox-nav-badge[hidden]{display:none!important;}

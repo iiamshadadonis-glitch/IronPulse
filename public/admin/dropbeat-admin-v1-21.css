@@ -1,0 +1,20 @@
+/* DropBeat V1.21 targeted layout fixes. Existing brand/theme variables remain authoritative. */
+.db119-form-grid .db119-end-date[hidden]{display:none!important}
+.db119-holiday-table{min-width:920px;table-layout:fixed}
+.db119-holiday-table col.event{width:25%}.db119-holiday-table col.start{width:17%}.db119-holiday-table col.end{width:17%}.db119-holiday-table col.notice{width:17%}.db119-holiday-table col.status{width:12%}.db119-holiday-table col.action{width:12%}
+.db119-holiday-table th,.db119-holiday-table td{padding:15px 18px;vertical-align:middle;overflow-wrap:anywhere}
+.db119-holiday-table .db119-person-link{display:inline-block;max-width:100%;line-height:1.45}
+.db121-holiday-message{margin:0 auto 20px;max-width:590px;white-space:pre-wrap;text-align:left;line-height:1.75;color:#4c4d56;overflow-wrap:anywhere}
+
+/* Admin coach availability editor mirrors the sign-up form without changing theme colours. */
+.db121-coach-contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.db121-availability{display:grid;gap:12px}.db121-availability-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.db121-availability-head h3,.db121-availability-head p{margin:0}.db121-availability-head p{margin-top:4px}
+.db121-availability-row{display:grid;grid-template-columns:44px minmax(130px,.75fr) minmax(110px,.65fr) minmax(110px,.65fr) minmax(170px,1fr) minmax(220px,1.4fr) 38px;gap:10px;align-items:end;padding:14px;border:1px solid var(--line,#e0dfe8);background:#fafafd;min-width:0}
+.db121-slot-number{display:grid;place-items:center;width:34px;height:34px;margin-bottom:2px;border:1px solid var(--line,#d8d7e2);border-radius:50%;font-weight:800;color:var(--primary,#4b55be);background:#fff}
+.db121-availability-row .field{min-width:0;margin:0}.db121-availability-row label{font-size:12px}.db121-availability-row input,.db121-availability-row select{min-width:0;width:100%}
+.db121-style-picker{position:relative;min-width:0}.db121-style-picker>summary{min-height:42px;padding:10px 12px;border:1px solid var(--line,#d8d7e2);background:#fff;cursor:pointer;list-style:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.db121-style-picker>summary::-webkit-details-marker{display:none}
+.db121-style-menu{position:absolute;z-index:20;left:0;right:0;max-height:230px;overflow:auto;padding:9px;border:1px solid var(--line,#d8d7e2);background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.12)}.db121-style-menu label{display:flex;align-items:center;gap:8px;padding:7px 5px}.db121-style-menu input{width:auto}
+.db121-remove-session{display:grid;place-items:center;width:36px;height:36px;padding:0;border:1px solid var(--line,#d8d7e2);border-radius:50%;background:#fff;color:#9c2d2d;font:800 20px/1 Arial;cursor:pointer}
+.db121-add-session{justify-self:start}.db121-coach-form-note{margin-top:3px}
+@media(max-width:1100px){.db121-availability-row{grid-template-columns:38px repeat(2,minmax(0,1fr)) 38px}.db121-availability-row .db121-style-field{grid-column:2/4}}
+@media(max-width:700px){.db121-coach-contact-grid{grid-template-columns:1fr}.db121-availability-head{align-items:flex-start;flex-direction:column}.db121-availability-row{grid-template-columns:36px minmax(0,1fr) 36px}.db121-availability-row .field,.db121-availability-row .db121-style-field{grid-column:2}.db121-remove-session{grid-column:3;grid-row:1}}

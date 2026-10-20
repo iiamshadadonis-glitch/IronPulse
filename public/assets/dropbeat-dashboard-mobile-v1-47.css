@@ -1,0 +1,87 @@
+/* V1.47: Brand editors use the shared mobile wizard and view-segment contracts.
+   Keep original fields, theme variables and desktop styles authoritative. */
+@media(max-width:760px){
+  html body.db138-mobile #adminApp [data-db145-brand].db138-inline-form.db138-inline-form-open{
+    display:flex!important;flex-direction:column!important;
+    position:fixed!important;inset:0!important;
+    width:100vw!important;max-width:100vw!important;
+    height:100vh!important;height:100dvh!important;max-height:100dvh!important;
+    min-height:0!important;margin:0!important;padding:0!important;gap:0!important;
+    overflow:hidden!important;box-sizing:border-box!important;
+  }
+  html body.db138-mobile #adminApp [data-db145-brand].db138-inline-form-open>.db138-page-header{
+    display:flex!important;flex:0 0 auto!important;order:0!important;
+    align-items:center!important;justify-content:space-between!important;
+    min-width:0!important;margin:0!important;padding:16px 20px!important;
+    padding-top:max(16px,env(safe-area-inset-top,0px))!important;
+    gap:10px!important;box-sizing:border-box!important;
+  }
+  html body.db138-mobile #adminApp [data-db145-brand].db138-inline-form-open>.db138-page-header h2{
+    flex:1 1 auto!important;min-width:0!important;
+    margin:0!important;padding:0!important;font-size:17px!important;line-height:1.3!important;
+  }
+  html body.db138-mobile #adminApp [data-db145-brand].db138-inline-form-open>.db137-wizard-progress{
+    /* The same balanced step grid used by the About Us/Dance Tip wizards. */
+    display:grid!important;grid-auto-flow:column!important;
+    grid-auto-columns:minmax(0,1fr)!important;
+    flex:0 0 auto!important;order:1!important;min-width:0!important;width:100%!important;
+    margin:0!important;padding:16px 20px!important;gap:0!important;box-sizing:border-box!important;
+  }
+  html body.db138-mobile #adminApp [data-db145-brand].db138-inline-form-open>.db138-form-content{
+    /* Also applies to the email template DIV[role=form], not only HTML forms. */
+    display:block!important;order:2!important;flex:1 1 0!important;
+    position:relative!important;inset:auto!important;
+    min-width:0!important;width:100%!important;min-height:0!important;
+    height:auto!important;max-height:none!important;
+    overflow-y:auto!important;overflow-x:hidden!important;
+    margin:0!important;padding:16px 20px!important;box-sizing:border-box!important;
+    overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important;
+  }
+  html body.db138-mobile #adminApp [data-db145-brand].db138-inline-form-open>.db137-wizard-nav{
+    display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;
+    order:3!important;flex:0 0 auto!important;align-self:stretch!important;
+    align-items:center!important;justify-content:space-between!important;
+    position:relative!important;inset:auto!important;width:100%!important;
+    min-height:0!important;height:auto!important;max-height:none!important;
+    margin:0!important;margin-top:auto!important;
+    padding:16px 16px max(16px,env(safe-area-inset-bottom,0px))!important;
+    gap:8px!important;box-sizing:border-box!important;
+    border-top:1px solid var(--db138-line)!important;background:var(--db138-surface)!important;
+  }
+  html body.db138-mobile #adminApp [data-db145-brand]>.db137-wizard-nav :is(.db137-wizard-back,.db137-wizard-next,.db137-wizard-finish){
+    /* Shared button classes, dimensions and proportions from the global wizard. */
+    flex:1 1 0!important;width:auto!important;min-width:0!important;max-width:none!important;
+    min-height:42px!important;height:auto!important;margin:0!important;
+    padding:9px 10px!important;border-radius:12px!important;
+    font-size:12px!important;line-height:1.2!important;
+    white-space:normal!important;box-sizing:border-box!important;
+  }
+  html body.db138-mobile #adminApp [data-db145-brand]>.db137-wizard-nav :is(.db137-wizard-next,.db137-wizard-finish){flex-grow:1.4!important}
+  html body.db138-mobile #adminApp [data-db145-brand]>.db137-wizard-nav [data-db137-counter]{
+    flex:0 0 auto!important;margin:0!important;font-size:9px!important;line-height:1.3!important;
+    text-align:center!important;white-space:nowrap!important;
+  }
+  html body.db138-mobile #adminApp .db145-brand-segments.db141-view-segments{
+    display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;
+    width:100%!important;min-width:0!important;max-width:100%!important;
+    box-sizing:border-box!important;padding:4px!important;gap:3px!important;
+  }
+  html body.db138-mobile #adminApp .db145-brand-segments.db141-view-segments>button{
+    flex:1 1 0!important;min-width:0!important;width:auto!important;
+    min-height:40px!important;margin:0!important;padding:9px 7px!important;
+    border:0!important;border-radius:9px!important;
+    font-size:12px!important;font-weight:600!important;line-height:1.3!important;
+    background:transparent!important;color:var(--db138-text)!important;opacity:1!important;
+    box-shadow:none!important;transition:background-color .18s ease,color .18s ease!important;
+  }
+  html body.db138-mobile #adminApp .db145-brand-segments.db141-view-segments>button:is(.active,[aria-selected="true"]){
+    background:var(--dropbeat-primary,var(--db138-primary))!important;
+    color:#fff!important;font-weight:700!important;box-shadow:0 1px 4px #0002!important;
+  }
+  html body.db138-mobile #adminApp .db145-brand-segments.db141-view-segments>button:focus-visible{
+    outline:2px solid var(--dropbeat-primary,var(--db138-primary))!important;outline-offset:2px!important;
+  }
+}
+@media(max-width:760px) and (prefers-reduced-motion:reduce){
+  html body.db138-mobile #adminApp .db145-brand-segments.db141-view-segments>button{transition:none!important}
+}

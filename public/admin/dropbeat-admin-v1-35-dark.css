@@ -1,0 +1,104 @@
+/* DropBeat V1.35 — final Admin dark-only parity and attendance view polish.
+   No light-mode selector or desktop layout rule is present in this file. */
+html[data-color-mode="dark"]{
+  --db135-bg:#0f131e;--db135-surface:#1b2030;--db135-raised:#202638;
+  --db135-soft:#252c40;--db135-hover:#2b3247;--db135-line:#3d455f;
+  --db135-strong:#505975;--db135-title:#f7f8fc;--db135-text:#d7dbea;
+  --db135-muted:#b9bfd0;
+}
+
+/* Late-rendered cards reported in Product Images, Custom Code, Storage,
+   Marketing, AI, Brand, Legal, Tracking and integrations. */
+html[data-color-mode="dark"] #adminApp :is(
+  .uc-v1624-media-options,.uc-v1624-cover-choice,.uc-v1624-social-status-choice,
+  .uc94-conversion-row,.uc94-conversions,.custom-network-row,.ad-toggle-row,
+  .ad-switch-pill,.uc68-ai-model-note,.uc-v1649-marquee-master,
+  .uc-v9-legal-toggle,.uc-storage-hero,.uc-storage-safe-note,
+  .uc-storage-cleanup-head,.uc-flip-face,.uc-storage-category-card,
+  .uc-storage-summary>div,.uc-storage-upgrade,.uc-v167-connection-state,
+  .uc-social-info,.uc-social-toggle-item,.uc94-enable-row,.uc94-switch-label,
+  .toggle-row,.uc-tracking-toggle,.tracking-toggle-row
+){
+  background-color:var(--db135-raised)!important;background-image:none!important;
+  border-color:var(--db135-line)!important;color:var(--db135-text)!important;
+  box-shadow:none!important;
+}
+html[data-color-mode="dark"] #adminApp :is(
+  .uc-v1624-media-options,.uc94-conversion-row,.custom-network-row,
+  .uc68-ai-model-note,.uc-v1649-marquee-master,.uc-v9-legal-toggle,
+  .uc-storage-hero,.uc-storage-safe-note,.uc-flip-face,.uc-v167-connection-state,
+  .uc-social-info,.uc-social-toggle-item,.uc94-enable-row,.toggle-row
+) :is(h1,h2,h3,h4,strong,label,span:not(.slider)){
+  color:var(--db135-title)!important;-webkit-text-fill-color:currentColor!important;
+}
+html[data-color-mode="dark"] #adminApp :is(
+  .uc-v1624-media-options,.uc94-conversion-row,.custom-network-row,
+  .uc68-ai-model-note,.uc-v1649-marquee-master,.uc-v9-legal-toggle,
+  .uc-storage-hero,.uc-storage-safe-note,.uc-flip-face,.uc-v167-connection-state,
+  .uc-social-info,.uc-social-toggle-item,.uc94-enable-row,.toggle-row
+) :is(p,small,.muted,.hint){color:var(--db135-muted)!important;-webkit-text-fill-color:currentColor!important}
+
+/* Notices created after page load can otherwise retain legacy pale panels. */
+html[data-color-mode="dark"] #adminApp :is(.notice:not(.success):not(.error),.setup-note,.uc-example,.uc-help-note){
+  background:#2d2a20!important;background-image:none!important;border-color:#74623a!important;color:#f2dfad!important;
+}
+html[data-color-mode="dark"] #adminApp :is(.notice:not(.success):not(.error),.setup-note,.uc-example,.uc-help-note) :is(strong,span,p,small,summary){color:inherit!important}
+html[data-color-mode="dark"] #adminApp .error,
+html[data-color-mode="dark"] body .modal.open .error{background:#382126!important;border-color:#7f3d49!important;color:#ffc8d0!important}
+html[data-color-mode="dark"] #adminApp .notice.success{background:#183126!important;border-color:#356e4c!important;color:#c7f3d5!important}
+
+/* Body-mounted dialogs sit outside #adminApp. This final rule covers nested
+   helper rows and cards regardless of which Admin module created them. */
+html[data-color-mode="dark"] body .modal.open :is(
+  .modal-card,.form,.card,.table-wrap,.media-card,.uc-v1624-media-options,
+  .uc-v1624-cover-choice,.uc-v1624-social-status-choice,.db121-style-picker,
+  .db121-style-menu,.db121-availability-row,.db125-approved-remuneration-fields,
+  .db107-modal-note,.uc-social-info,.uc94-enable-row,.toggle-row,
+  [class$="-note"],[class$="-helper"],[class$="-meta"],[class$="-summary"]
+){background-color:var(--db135-surface)!important;background-image:none!important;border-color:var(--db135-line)!important;color:var(--db135-text)!important}
+html[data-color-mode="dark"] body .modal.open :is(
+  .uc-v1624-media-options,.uc-v1624-cover-choice,.uc-v1624-social-status-choice,
+  .db121-style-picker,.db121-style-menu,.db121-availability-row,
+  .db125-approved-remuneration-fields,.db107-modal-note,.uc-social-info,
+  .uc94-enable-row,.toggle-row,[class$="-note"],[class$="-helper"],[class$="-meta"]
+){background-color:var(--db135-raised)!important}
+html[data-color-mode="dark"] body .modal.open :is(h1,h2,h3,h4,h5,strong,label,legend,summary){color:var(--db135-title)!important;-webkit-text-fill-color:currentColor!important}
+html[data-color-mode="dark"] body .modal.open :is(p,small,.muted,.hint){color:var(--db135-muted)!important;-webkit-text-fill-color:currentColor!important}
+
+/* Dark toggle families: readable label, dark off track, bright thumb. */
+html[data-color-mode="dark"] :is(#adminApp,body .modal.open) :is(
+  .toggle-row,.uc94-enable-row,.uc94-switch-label,.uc-social-toggle-capsule,
+  .uc-pay-toggle-capsule,.ad-switch-pill,.uc-social-toggle-item
+){background:var(--db135-raised)!important;border-color:var(--db135-line)!important;color:var(--db135-title)!important}
+html[data-color-mode="dark"] :is(#adminApp,body .modal.open) :is(
+  .switch input:not(:checked)+.slider,.uc94-switch input:not(:checked)+span,
+  .db108-switch>input:not(:checked)+span
+){background:#4a526d!important;border-color:#626b86!important}
+html[data-color-mode="dark"] :is(#adminApp,body .modal.open) :is(
+  .switch .slider:before,.uc94-switch>span:before,.db108-switch>span:after
+){background:#eef0f7!important}
+
+/* Attendance calendars and separated student/coach result grids. */
+html[data-color-mode="dark"] #attendance :is(
+  .db119-calendar-card,.db119-selected-card,.db119-list-card,
+  .db119-attendance-summary,.db119-table-wrap,.db119-empty,
+  .db116-attendance-filters,.db116-attendance-metrics article
+){background:var(--db135-surface)!important;background-image:none!important;border-color:var(--db135-line)!important;color:var(--db135-text)!important}
+html[data-color-mode="dark"] #attendance .db116-calendar-day{background:var(--db135-surface)!important;border-color:var(--db135-line)!important;color:var(--db135-title)!important}
+html[data-color-mode="dark"] #attendance .db116-calendar-day.other{background:#171c29!important;color:#9299ad!important;opacity:1!important}
+html[data-color-mode="dark"] #attendance .db116-calendar-day.active{background:#2b3150!important}
+html[data-color-mode="dark"] #attendance .db116-calendar-day.holiday{background:#2e2332!important}
+html[data-color-mode="dark"] #attendance .db116-calendar-grid .weekday{background:var(--db135-raised)!important;color:var(--db135-title)!important}
+html[data-color-mode="dark"] #attendance :is(.table,.table td){background:var(--db135-surface)!important;color:var(--db135-text)!important;border-color:var(--db135-line)!important}
+html[data-color-mode="dark"] #attendance .table th{background:var(--db135-soft)!important;color:var(--db135-title)!important;border-color:var(--db135-line)!important}
+#attendance.db135-remuneration-mode .db116-view-tabs{display:none!important}
+
+/* Late white utility surfaces in Storage and Integration sections. */
+html[data-color-mode="dark"] #adminApp :is(
+  .uc-storage-mobile-meter,.uc-storage-list-wrap,.uc-storage-list-row,
+  .uc-storage-cleanup-toolbar,.uc-storage-delete-actions,
+  .uc68-ai-list,.uc94-integration-list,.uc94-connected-grid,
+  .uc-v167-api-card>form,.uc-social-card>form
+){background:var(--db135-surface)!important;background-image:none!important;border-color:var(--db135-line)!important;color:var(--db135-text)!important}
+html[data-color-mode="dark"] #adminApp :is(.uc-storage-list-head,.uc94-connected-head){background:var(--db135-soft)!important;color:var(--db135-title)!important;border-color:var(--db135-line)!important}
+

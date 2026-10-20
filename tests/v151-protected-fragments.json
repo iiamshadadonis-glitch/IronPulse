@@ -1,0 +1,20 @@
+[
+  [
+    "public/assets/final-v14-4-plan-billing.js",
+    null,
+    "function ensureYearlyNav(",
+    "4d02eadefe8b1eb27d6f252b7a7aef05bcf9113bea1ea9d7a698ac6159f6135c"
+  ],
+  [
+    "public/assets/dropbeat-ui-components-v1-49.js",
+    "  function nativeUpload(",
+    "  function acceptsFile(",
+    "23a6b1e1498cd6df53f6e6da8242ddf21d059e093ac336bdf664c95a0604a785"
+  ],
+  [
+    "public/assets/dropbeat-dashboard-mobile-v1-49.js",
+    "  function originalSubmit(",
+    "  function enhanceForm(",
+    "3118a7837037ad6b77d113c018f231065e2c1e0460e2aba612081cb2e7fc61ba"
+  ]
+]

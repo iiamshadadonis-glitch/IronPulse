@@ -1,0 +1,183 @@
+/* DropBeat V1.30 — dark-mode completion layer.
+   Every visual override in this file is deliberately scoped to dark mode.
+   The saved brand primary/accent colours and the complete light theme remain untouched. */
+
+html[data-color-mode="dark"]{
+  color-scheme:dark;
+  --db130-bg:#0f131e;
+  --db130-surface:#1b2030;
+  --db130-raised:#202638;
+  --db130-soft:#252c40;
+  --db130-hover:#2b3247;
+  --db130-line:#3d455f;
+  --db130-line-strong:#4a526d;
+  --db130-title:#f7f8fc;
+  --db130-text:#d7dbea;
+  --db130-muted:#b9bfd0;
+  --uc-crm-cream:#1b2030;
+  --uc-crm-cream-2:#202638;
+  --uc-crm-line:#3d455f;
+  --uc-crm-ink:#f7f8fc;
+  --uc-crm-muted:#b9bfd0;
+  --db107-line:#3d455f;
+  --db114-ink:#f7f8fc;
+  --db114-line:#3d455f;
+  --db114-soft:#202638;
+  --uc-v5-soft:#202638;
+  --uc-v5-line:#3d455f;
+}
+
+/* Modal dialogs are mounted beside #adminApp, so they need a body-level dark scope. */
+html[data-color-mode="dark"] body>.modal .modal-card,
+html[data-color-mode="dark"] body>.modal .confirm-card,
+html[data-color-mode="dark"] body>.db114-modal .db114-modal-card,
+html[data-color-mode="dark"] body>.db120-modal .db120-modal-card{
+  background:var(--db130-surface)!important;
+  background-image:none!important;
+  border-color:var(--db130-line)!important;
+  color:var(--db130-text)!important;
+  box-shadow:0 28px 80px rgba(0,0,0,.48)!important;
+}
+html[data-color-mode="dark"] body>.modal .top,
+html[data-color-mode="dark"] body>.modal [class*="modal-head"],
+html[data-color-mode="dark"] body>.modal [class*="modal-actions"],
+html[data-color-mode="dark"] body>.db114-modal .db114-modal-head,
+html[data-color-mode="dark"] body>.db114-modal .db114-modal-actions,
+html[data-color-mode="dark"] body>.db120-modal .modal-head{
+  background:var(--db130-raised)!important;
+  background-image:none!important;
+  border-color:var(--db130-line)!important;
+  color:var(--db130-title)!important;
+}
+html[data-color-mode="dark"] body>.modal :is(h1,h2,h3,h4,h5,strong,label,summary),
+html[data-color-mode="dark"] body>.db114-modal :is(h1,h2,h3,h4,strong,label,summary){color:var(--db130-title)!important}
+html[data-color-mode="dark"] body>.modal :is(p,li,small,.hint,.muted),
+html[data-color-mode="dark"] body>.db114-modal :is(p,li,small,.hint,.muted){color:var(--db130-muted)!important}
+html[data-color-mode="dark"] body>.modal :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea),
+html[data-color-mode="dark"] body>.db114-modal :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea){background:#101521!important;color:#f3f4fb!important;border-color:var(--db130-line-strong)!important}
+html[data-color-mode="dark"] body>.modal :is(.card,.check,details,[class*="grid-cell"],[class*="grid-card"],[class*="detail"],[class*="summary"]),
+html[data-color-mode="dark"] body>.db114-modal :is(.card,.check,details,[class*="detail"]){background:var(--db130-raised)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] body>.modal :is(.table-wrap,.table,table,td){background:var(--db130-surface)!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] body>.modal :is(th,[class*="grid-head"]){background:var(--db130-soft)!important;border-color:var(--db130-line)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] body>.modal tbody tr:hover td{background:var(--db130-hover)!important}
+html[data-color-mode="dark"] body>.modal :is(.btn.secondary,button.secondary,.pill:not(.active),[role="tab"]:not([aria-selected="true"])){background:var(--db130-soft)!important;border-color:var(--db130-line-strong)!important;color:#e3e6f2!important}
+
+/* Normalize late-loaded grids, workspaces and toolbars which previously forced white. */
+html[data-color-mode="dark"] #adminApp :is(.drawer,.uc-client-shell,.uc64-workspace,[class*="-grid-wrap"],[class*="-grid-scroll"],[class*="-grid-card"],[class*="-library-card"]){background:var(--db130-surface)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #adminApp :is(.uc-client-header,.uc64-workspace-head,[class*="workspace-head"],[class*="editor-head"],.uc-client-tabs,.uc-form-actions,[class*="toolbar"],[class*="actionbar"]){background:var(--db130-raised)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] #adminApp :is([class*="-grid-head"],[class*="-grid-col"]){background:var(--db130-soft)!important;border-color:var(--db130-line)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] #adminApp [class*="-grid-cell"]{background:var(--db130-surface)!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #adminApp :is([class*="-grid-empty"],[class*="-empty-row"]){background:var(--db130-raised)!important;color:var(--db130-muted)!important}
+html[data-color-mode="dark"] #adminApp :is([class*="boundary"],[class*="safe-note"],[class*="privacy-note"],[class*="info"]){background:var(--db130-raised)!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #adminApp :is([class*="round-back"],[class*="info-btn"],[class*="icon-btn"],.uc-v1652-brand-tab:not(.active)){background:var(--db130-soft)!important;border-color:var(--db130-line-strong)!important;color:#e3e6f2!important}
+html[data-color-mode="dark"] #socialMediaIntegrations :is(.uc49-grid-scroll,.uc49-grid-cell){background:var(--db130-surface)!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #socialMediaIntegrations :is(.uc49-grid-col,.uc49-cap){background:var(--db130-soft)!important;border-color:var(--db130-line)!important;color:var(--db130-title)!important}
+
+/* Add/Edit Plan or Offer and Product Display. */
+html[data-color-mode="dark"] body>.modal :is(.db107-plan-class,.db107-reminder-box,.db108-manual-class,.db108-access-dates,.db108-readonly-status,.db108-start-toggle,.db111-plan-access,.uc-plan-next-step,.uc-one-time-warning,.uc-product-display-note,.uc-plan-help,.uc-trial-disadvantage){background:var(--db130-raised)!important;background-image:none!important;border-color:var(--db130-line-strong)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] body>.modal .db107-plan-class-head{background:var(--db130-soft)!important;border-color:var(--db130-line)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] body>.modal :is(.db107-choice,.db107-time-card,.db111-feature-actions button){background:var(--db130-soft)!important;border-color:var(--db130-line-strong)!important;color:#eef0f7!important}
+html[data-color-mode="dark"] #placements .placement-section-card :is(.check,.placement-page-row),
+html[data-color-mode="dark"] #placementProductList .check,
+html[data-color-mode="dark"] #placementPageList .check,
+html[data-color-mode="dark"] #placements [class*="placement-"][class*="card"]{background:var(--db130-raised)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+
+/* Client Details, dashboard client lists and Contact Details. */
+html[data-color-mode="dark"] :is(.uc-client-modal-card,.uc-dashboard-client-card,.uc-client-stat,.uc-card-info-grid>div,.uc-summary-grid>div,.uc-payment-client-grid>div,.uc-sub-grid>div,.uc-profile-grid>div,.uc-client-note,.uc-history-card,.uc-subscription-card,.uc-card-pager){background:var(--db130-surface)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] :is(.uc-client-stat,.uc-card-info-grid>div,.uc-summary-grid>div,.uc-payment-client-grid>div,.uc-sub-grid>div,.uc-profile-grid>div){background:var(--db130-raised)!important}
+html[data-color-mode="dark"] :is(.uc-card-title h3,.uc-card-info-grid strong,.uc-summary-grid strong,.uc-payment-client-grid strong,.uc-sub-grid strong,.uc-profile-grid strong){color:var(--db130-title)!important}
+html[data-color-mode="dark"] :is(.uc-card-title p,.uc-card-info-grid span,.uc-summary-grid span,.uc-payment-client-grid span,.uc-sub-grid span,.uc-profile-grid span,.uc-client-stat>span,.uc-client-stat>small){color:var(--db130-muted)!important}
+html[data-color-mode="dark"] #ucClientModal .uc-client-actionbar.uc-client-sticky-actions,
+html[data-color-mode="dark"] #listModal>.modal-card>.top,
+html[data-color-mode="dark"] #dashboardListBox>.uc-card-pager:first-child{background:var(--db130-raised)!important;background-image:none!important;border-color:var(--db130-line)!important}
+html[data-color-mode="dark"] :is(#contacts .uc96-contact-summary span,.uc97-contact-grid-wrap,.uc96-contact-field,.uc96-contact-aliases,.uc96-token-menu,#contacts .uc96-social-list span){background:var(--db130-raised)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] .uc97-contact-grid-row{border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] .uc97-contact-grid-row:hover,
+html[data-color-mode="dark"] .uc96-token-menu button:hover,
+html[data-color-mode="dark"] .uc96-token-menu button.active{background:var(--db130-hover)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] :is(.uc97-contact-empty,.uc96-contact-field small,.uc96-token-menu button small){color:var(--db130-muted)!important}
+
+/* Growth Analytics: controls, charts, detail blocks, calendar and list. */
+html[data-color-mode="dark"] #growthAnalytics :is(.uc88-analytics-card,.uc88-toolbar,.uc88-chart-shell,.uc88-legend,.uc88-color,.uc88-metric,.uc89-mode-row,.uc89-chart-detail,.uc89-pie-total,.uc89-pie-rows>div,.uc89-help-swatch,.uc90-chart-pager),
+html[data-color-mode="dark"] #businessCalendar :is(.uc88-analytics-card,.uc88-legend,.uc88-modal-total,.uc88-calendar,.uc88-weekday,.uc88-day,.uc88-list-row,.uc88-metric,.uc88-round){background:var(--db130-surface)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #growthAnalytics :is(.uc88-toolbar,.uc88-color,.uc88-metric,.uc89-mode-row,.uc89-chart-detail,.uc89-pie-total,.uc89-pie-rows>div,.uc89-help-swatch,.uc90-chart-pager),
+html[data-color-mode="dark"] #businessCalendar :is(.uc88-legend,.uc88-modal-total,.uc88-weekday,.uc88-metric,.uc88-round){background:var(--db130-raised)!important}
+html[data-color-mode="dark"] #growthAnalytics .uc88-chart-shell canvas{background:var(--db130-surface)!important}
+html[data-color-mode="dark"] #businessCalendar .uc88-calendar{background:var(--db130-line)!important}
+html[data-color-mode="dark"] #businessCalendar .uc88-day{background:var(--db130-surface)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] #businessCalendar .uc88-day:hover{background:var(--db130-hover)!important}
+html[data-color-mode="dark"] #businessCalendar .uc88-day.outside{background:#171c29!important;color:#9198ad!important;opacity:1!important}
+html[data-color-mode="dark"] #businessCalendar .uc88-day.selected{background:#2b3150!important;box-shadow:inset 0 0 0 3px var(--dropbeat-primary)!important}
+html[data-color-mode="dark"] #businessCalendar .uc88-list-row:hover{background:var(--db130-hover)!important}
+html[data-color-mode="dark"] :is(.uc89-pie-total span,.uc89-pie-total small,.uc89-pie-rows small,.uc90-chart-pager span,.uc88-list-row small,.uc88-loss-note,.uc88-empty){color:var(--db130-muted)!important}
+html[data-color-mode="dark"] .uc90-financial-split{border-color:var(--db130-line)!important}
+html[data-color-mode="dark"] .uc90-financial-split b{color:var(--db130-title)!important}
+html[data-color-mode="dark"] #uc88DetailModal .uc88-modal-total{background:var(--db130-raised)!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+
+/* Webinars: coach cards, attendance calendars, summary grids and details. */
+html[data-color-mode="dark"] #adminApp :is(.db107-coach-card,.db108-impact-grid span,.db119-selected-card,.db119-list-card,.db119-calendar-card,.db119-table-wrap,.db119-empty,.db119-date-markers article,.db119-profile-metrics article,.db119-detail-grid article,.db119-accordion,.db119-accordion>summary,.db119-accordion>div,.db119-coach-hero,.db119-holiday-preview,.db116-attendance-metrics article,.db116-student-details article,#db114CoachLifecycle>details){background:var(--db130-surface)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #adminApp :is(.db108-impact-grid span,.db119-date-markers article,.db119-profile-metrics article,.db119-detail-grid article,.db116-attendance-metrics article,.db116-student-details article,.db119-accordion>summary){background:var(--db130-raised)!important}
+html[data-color-mode="dark"] #adminApp .db107-coach-card img{background:var(--db130-soft)!important;border-color:var(--db130-line)!important}
+html[data-color-mode="dark"] #adminApp :is(.db107-coach-card p,.db119-profile-metrics small,.db119-detail-grid small,.db119-coach-hero p){color:var(--db130-muted)!important}
+html[data-color-mode="dark"] #adminApp .db107-style-list span{background:var(--db130-soft)!important;border-color:var(--db130-line)!important;color:#d8dcff!important}
+html[data-color-mode="dark"] #adminApp .db108-coach-order button,
+html[data-color-mode="dark"] #adminApp :is(.db116-attendance-top button,.db116-view-tabs button,.db116-roster-tabs button,.db119-workspace-tabs button,.db119-modal-tabs button,.db120-subtabs>button){background:var(--db130-soft)!important;border-color:var(--db130-line-strong)!important;color:#eef0f7!important}
+html[data-color-mode="dark"] #adminApp :is(.db116-view-tabs button.active,.db116-roster-tabs button.active,.db119-workspace-tabs button.active,.db119-modal-tabs button.active,.db120-subtabs>button.active){background:var(--dropbeat-primary)!important;border-color:var(--dropbeat-primary)!important;color:#fff!important}
+html[data-color-mode="dark"] #adminApp .db116-calendar-grid{background:var(--db130-line)!important}
+html[data-color-mode="dark"] #adminApp .db116-calendar-grid .weekday{background:var(--db130-raised)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] #adminApp .db116-calendar-day{background:var(--db130-surface)!important;border-color:var(--db130-line)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] #adminApp .db116-calendar-day.other{background:#171c29!important;color:#9198ad!important;opacity:1!important}
+html[data-color-mode="dark"] #adminApp .db116-calendar-day.active{background:#2b3150!important}
+html[data-color-mode="dark"] #adminApp .db116-calendar-day.holiday{background:#2e2332!important}
+html[data-color-mode="dark"] #adminApp .db116-calendar-day small{color:var(--db130-muted)!important}
+html[data-color-mode="dark"] body>.modal :is(.db119-profile-metrics article,.db119-detail-grid article,.db119-date-markers article,.db116-attendance-metrics article,.db116-student-details article,.db119-accordion,.db119-accordion>summary,.db119-accordion>div,.db119-coach-hero,.db119-holiday-preview){background:var(--db130-raised)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] body>.modal :is(.db119-profile-metrics small,.db119-detail-grid small,.db119-coach-hero p){color:var(--db130-muted)!important}
+html[data-color-mode="dark"] body>.modal :is(.db119-modal-tabs button,.db120-subtabs>button){background:var(--db130-soft)!important;border-color:var(--db130-line-strong)!important;color:#eef0f7!important}
+html[data-color-mode="dark"] body>.modal :is(.db119-modal-tabs button.active,.db120-subtabs>button.active){background:var(--dropbeat-primary)!important;border-color:var(--dropbeat-primary)!important;color:#fff!important}
+
+/* Coach details and Approvals. */
+html[data-color-mode="dark"] #adminApp :is(.db114-summary-card,.db114-profile-card,.db114-empty,.db114-pages-lifecycle,.db114-detail,.db114-checks label,.db114-security-card code,.db115-lifecycle-toggle,.db115-ticket-profile>div,.db114-slot-list article){background:var(--db130-surface)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #adminApp :is(.db114-detail,.db114-checks label,.db114-security-card code,.db115-ticket-profile>div,.db114-slot-list article){background:var(--db130-raised)!important}
+html[data-color-mode="dark"] #adminApp :is(.db114-summary-card span,.db114-profile-card p,.db114-pages-lifecycle p,.db114-detail small,.db114-profile-view .db114-bio,.db115-ticket-table td p,.db114-slot-list article span,.db114-slot-list article small){color:var(--db130-muted)!important}
+html[data-color-mode="dark"] :is(.db114-modal-card,.db114-modal-head,.db114-modal-actions,.db114-detail,.db114-checks label,.db114-slot-list article){border-color:var(--db130-line)!important}
+html[data-color-mode="dark"] :is(.db114-modal-card,.db114-modal-head,.db114-modal-actions){background:var(--db130-surface)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] .db114-modal-head{background:var(--db130-raised)!important}
+html[data-color-mode="dark"] .db114-close{background:var(--db130-soft)!important;border-color:var(--db130-line-strong)!important;color:#eef0f7!important}
+
+/* Social post scheduler, video upload choices and Dance Tips ad placement. */
+html[data-color-mode="dark"] #socialPosts :is(.uc48-composer-card,.uc48-info-face,.uc48-doc-links a,.uc48-field-shell,.uc48-media-box,.uc48-preview,.uc48-select-all,.uc48-platform,.uc48-no-platform,.uc48-not-ready details,.uc48-schedule-box,.uc48-mode-pill,.uc48-variant,.uc48-calendar-shell,.uc48-day-name,.uc48-day,.uc48-list-item){background:var(--db130-surface)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #socialPosts :is(.uc48-field-shell,.uc48-media-box,.uc48-select-all,.uc48-platform,.uc48-schedule-box,.uc48-mode-pill,.uc48-variant,.uc48-day-name){background:var(--db130-raised)!important}
+html[data-color-mode="dark"] #socialPosts .uc48-calendar-shell{background:var(--db130-line)!important}
+html[data-color-mode="dark"] #socialPosts .uc48-day.is-other{background:#171c29!important;color:#9198ad!important}
+html[data-color-mode="dark"] #socialPosts .uc48-day.is-today{background:#2b3150!important;box-shadow:inset 0 0 0 2px var(--dropbeat-primary)!important}
+html[data-color-mode="dark"] #socialPosts .uc48-day:hover,
+html[data-color-mode="dark"] #socialPosts .uc48-calendar-post:hover{background:var(--db130-hover)!important}
+html[data-color-mode="dark"] #socialPosts :is(.uc48-field-shell small,.uc48-platform small,.uc48-variant small){color:var(--db130-muted)!important}
+html[data-color-mode="dark"] #blogs :is(.audition-ad-row,.custom-ad-row,.uc-auto-ad-row,.uc-v1624-control-card,.uc-v153-featured-control){background:var(--db130-raised)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+
+/* Pages header preview/order and page editor cards. */
+html[data-color-mode="dark"] #pages :is(.uc-v1634-new-page-card,.uc-v1634-header-preview,.uc-v1634-create-page-modal,.uc-v1634-create-checks .check,.uc-v1635-create-checks .check,.uc-v1635-help-points section,.uc-v1634-custom-meta,.uc-v1635-custom-meta,.uc-v1634-crop-pane,.uc-v1636-header-order,.uc-v1636-nav-sort-row,.uc-v1636-nav-arrows button,.uc-v1636-story-upload-field,.uc-v1637-header-manager,.uc-v1637-grid-row,.uc-v1637-child-wrap){background:var(--db130-surface)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #pages :is(.uc-v1634-header-preview,.uc-v1634-create-checks .check,.uc-v1635-create-checks .check,.uc-v1635-help-points section,.uc-v1634-custom-meta,.uc-v1635-custom-meta,.uc-v1634-crop-pane,.uc-v1636-nav-sort-row,.uc-v1636-story-upload-field,.uc-v1637-grid-row,.uc-v1637-child-wrap){background:var(--db130-raised)!important}
+html[data-color-mode="dark"] #pages :is(.uc-v1637-grid-head,.uc-v1636-nav-sort-head){background:var(--db130-soft)!important;border-color:var(--db130-line)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] #pages :is(.uc-v1634-preview-brand strong,.uc-v1635-help-head p,.uc-v1634-dual-head p){color:var(--db130-muted)!important}
+html[data-color-mode="dark"] #pages .uc-v1634-preview-fixed span{background:var(--db130-soft)!important;border-color:var(--db130-line-strong)!important;color:var(--db130-title)!important}
+html[data-color-mode="dark"] #pages .uc-v1634-canvas-wrap{background:#111621!important}
+html[data-color-mode="dark"] #pages .uc-v1634-crop-tools,
+html[data-color-mode="dark"] #pages .uc-v1634-crop-tools button{background:var(--db130-soft)!important;border-color:var(--db130-line-strong)!important;color:#eef0f7!important}
+
+/* Brand Settings > Website Colors. Actual palette swatches are intentionally not recoloured. */
+html[data-color-mode="dark"] #settings :is(.uc-theme-builder,.uc-color-editor,.uc-eyedropper,.uc-theme-preset,.uc-info-back-head,.uc-info-back-panel,.uc-auto-ad-row,.custom-ad-row){background:var(--db130-surface)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #settings :is(.uc-color-editor,.uc-eyedropper,.uc-theme-preset,.uc-auto-ad-row,.custom-ad-row){background:var(--db130-raised)!important}
+html[data-color-mode="dark"] #settings :is(.uc-palette-note,.uc-range-row,.uc-theme-preset small,.uc-auto-ad-row small,.uc-info-back-body,.uc-info-back-body p,.uc-info-back-body .uc-help-lead){color:var(--db130-muted)!important}
+html[data-color-mode="dark"] #settings :is(.uc-info-back-body h3,.uc-info-back-body h4){color:var(--db130-title)!important}
+html[data-color-mode="dark"] #settings .uc-range-row input[type="range"]{background:var(--db130-line)!important}
+html[data-color-mode="dark"] #settings .uc-range-row input[type="range"]::-webkit-slider-thumb{background:#eef0f7!important;border-color:var(--db130-line-strong)!important}
+html[data-color-mode="dark"] #settings .uc-range-row input[type="range"]::-moz-range-thumb{background:#eef0f7!important;border-color:var(--db130-line-strong)!important}
+html[data-color-mode="dark"] #settings .uc-info-back-body .uc-example{background:#29271d!important;border-color:#6d633c!important;color:#f4e8bd!important}
+html[data-color-mode="dark"] #settings .uc-info-back-body .uc-warning{background:#382126!important;border-color:#7f3d49!important;color:#ffc8d0!important}
+
+/* Last-resort neutral surfaces discovered in late-rendered admin modules. */
+html[data-color-mode="dark"] #adminApp :is([class$="-grid-wrap"],[class$="-grid-card"],[class$="-summary-card"],[class$="-detail-card"],[class$="-calendar-card"],[class$="-list-card"],[class$="-preview-card"],[class$="-filter-card"],[class$="-form-card"]){background:var(--db130-surface)!important;background-image:none!important;border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #adminApp :is([class$="-grid-row"],[class$="-detail-row"],[class$="-calendar-day"],[class$="-metric"]){border-color:var(--db130-line)!important;color:var(--db130-text)!important}
+html[data-color-mode="dark"] #adminApp :is([class$="-grid-row"],[class$="-detail-row"],[class$="-metric"]):not(.status):not(.badge):not(.chip){background-color:var(--db130-raised)!important}
+

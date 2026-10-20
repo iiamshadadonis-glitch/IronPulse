@@ -1,0 +1,207 @@
+{
+  "release": "1.47.0",
+  "build": "dropbeat-1.47-20261017",
+  "createdUtc": "2026-10-16T21:43:31.301908+00:00",
+  "baselineArchive": "DropBeat-Dance-Studio-Complete-Replacement-V1.46(1).zip",
+  "baselineArchiveSha256": "5ad86633b84c2e67fa579665b6a18f780a3c178f8502f5ed05cf2e2796c67285",
+  "baselineFilesRetained": 1330,
+  "missingBaselineFiles": [],
+  "unchangedServerFiles": 251,
+  "unchangedExistingAdminScriptsMigrationsAndConfiguration": 189,
+  "filesTotal": 1369,
+  "validation": {
+    "codeDatabaseSuites": 23,
+    "browserSuites": 7,
+    "allExitCodes": 0,
+    "testedApplicationHashesMatch": true,
+    "releaseCandidateCrcPassed": true,
+    "productionActionsPerformed": false,
+    "apiFixtures": "synthetic; external requests blocked"
+  },
+  "changes": {
+    "DANCE-STUDIO-VERSION.txt": {
+      "status": "modified",
+      "sha256": "e5b7ff81221e1fd541255e6d8d97b0e25b3a21359c61bfc410b52267cbcec7fb"
+    },
+    "DEPLOY-V1.47-MAC-LINUX.sh": {
+      "status": "added",
+      "sha256": "40ec9244d851eb69e1501e39ede042fb12690996620ae0e13eb05f00316f23e3"
+    },
+    "README.md": {
+      "status": "modified",
+      "sha256": "fddac9b0c102329765d2c78e4bdb1cd219c297d5ccb43fe2d68cc5138f4f8c1a"
+    },
+    "START-HERE-V1.47.txt": {
+      "status": "added",
+      "sha256": "7b2690248a3d6e73da9784023142d964a83c4f75b3f575474c87a4fc9ef3b5f0"
+    },
+    "V1.47-FIXES.md": {
+      "status": "added",
+      "sha256": "c59abfa69a931173f82123c20d388419834b05eb50a0dac219f8fb64955f5718"
+    },
+    "V1.47-VERIFICATION.md": {
+      "status": "added",
+      "sha256": "81a9b4619bc1d4b96c118e6bedc9481eda61f243afcef3407d9ac30ae7ec9daf"
+    },
+    "functions/_middleware.js": {
+      "status": "modified",
+      "sha256": "9003f6f5f72869e0780f16b206bdd8ce2e73eebf84bac64b2c41ccfed3255b11"
+    },
+    "package.json": {
+      "status": "modified",
+      "sha256": "9fdb2569b65016dd2d190a798b52cb348fc1099110a334b6a33ef87a6fa24e8f"
+    },
+    "public/admin/index.html": {
+      "status": "modified",
+      "sha256": "5e7dd85522b063dbefaf6fdc50ff2c3837b1f94aef4ca495459b2a3293696e8e"
+    },
+    "public/assets/dropbeat-dashboard-mobile-v1-47.css": {
+      "status": "added",
+      "sha256": "8c17df031da9878dc0c06a65b13d1b3def3a7e9c09e40686cffa965b7cae4e7e"
+    },
+    "public/assets/dropbeat-dashboard-mobile-v1-47.js": {
+      "status": "added",
+      "sha256": "af0548b8605078fab4d8c370223df4a98db591da63d8f5bc1065aae37098b518"
+    },
+    "public/assets/dropbeat-ui-components-v1-47.js": {
+      "status": "added",
+      "sha256": "2d3e67c50f03e9a1f09e8560d3dfa0af4a46ac328d074defb00a8ebd84ab9053"
+    },
+    "public/coach-dashboard.html": {
+      "status": "modified",
+      "sha256": "b0b1f4dcf49e9688c60172d98932327f1b71646e343abec5001212994c8cabb1"
+    },
+    "public/student-dashboard.html": {
+      "status": "modified",
+      "sha256": "9df2983d814ab43e2bbafcd795c9f0debff58b462a0ecee23c9fdce48411e357"
+    },
+    "tests/dance-studio-deployment.mjs": {
+      "status": "modified",
+      "sha256": "63360170b24186ea6277abb2551affd17e9dc8707f002e547cfef2218ba97a1d"
+    },
+    "tests/dance-studio-v1-47-mobile-native.mjs": {
+      "status": "added",
+      "sha256": "5e90dc6ea7f8b7ae78dfa505cf75321f89f26505d5b34735ea90e18577a84c70"
+    },
+    "tools/v147-addition-cases.mjs": {
+      "status": "added",
+      "sha256": "fa9d7bc1e7ab8e12e46d11b33a43677a9257fb3689db627485a5888e965f8010"
+    },
+    "tools/v147-brand-cases.mjs": {
+      "status": "added",
+      "sha256": "74b1710efcc41670eb4ec25abeb98f5408d7c6ba74a93d520d53be6bd608a8d0"
+    },
+    "tools/v147-component-cases.mjs": {
+      "status": "added",
+      "sha256": "9b25ca1f641f8e89272f818a968bf12fdd8c8519b6af8799586f3f6011b13cf1"
+    },
+    "tools/v147-native-cases.mjs": {
+      "status": "added",
+      "sha256": "2c2757c50fd93bae716670f193f857c8ab0702482eb5751d8a5cf5036ca1aa37"
+    },
+    "tools/v147-polish-cases.mjs": {
+      "status": "added",
+      "sha256": "328f8c34ba3518f75db9630ceeb584e4d1eab4b514ca98bac9b3d3bf3971b99d"
+    },
+    "tools/v147-workflow-cases.mjs": {
+      "status": "added",
+      "sha256": "f6cedde5a6fc0ed4747012ef479a154d02a9f33ce5a9ffda5cf6c9387b45160f"
+    },
+    "tools/verify-mobile-v1-47-additions.mjs": {
+      "status": "added",
+      "sha256": "8dc5eb02461e28cc5e7c88d0223ecef77b1033d0967497ee67048451110db7a2"
+    },
+    "tools/verify-mobile-v1-47-brand.mjs": {
+      "status": "added",
+      "sha256": "243c7c432a806f705b4672807f60c84e026dd25fcc7d7b4fee8aa0eff6cec5b6"
+    },
+    "tools/verify-mobile-v1-47-browser.mjs": {
+      "status": "added",
+      "sha256": "2ce7d49fa7e37cf23c773453e5ac4c5ada77119b7019606ef487a5b24eb6bcc1"
+    },
+    "tools/verify-mobile-v1-47-components.mjs": {
+      "status": "added",
+      "sha256": "b30ef8c5a121ff78ec02720efd7d69bc4cac829e3fbeece960b5c5386a7d7b6d"
+    },
+    "tools/verify-mobile-v1-47-native.mjs": {
+      "status": "added",
+      "sha256": "b6cb7437aecd724ba7aa2abd9bca741af656099d8d7cb42f7574a29a35475cc8"
+    },
+    "tools/verify-mobile-v1-47-polish.mjs": {
+      "status": "added",
+      "sha256": "f430a4e7f618149ab9fccfbfeed0327b19d298281aad8620080f77ea1a134669"
+    },
+    "tools/verify-mobile-v1-47-workflows.mjs": {
+      "status": "added",
+      "sha256": "797f84984eadf77aeb972cd09f1023465ed48a4b7f75d2f4609f9178c941d9c0"
+    },
+    "verification/v1.47/additions-addition-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.47/additions.log": {
+      "status": "added",
+      "sha256": "e756a6f1b9f366cd75d1aed582e6f0ce04690eec92cec501bf51a13c11aa9554"
+    },
+    "verification/v1.47/brand-brand-results.json": {
+      "status": "added",
+      "sha256": "0f2a258d2bcea0d8efe3c7e7cd975bd7d1377069826101d4f4bbf68e69f1fe84"
+    },
+    "verification/v1.47/brand.log": {
+      "status": "added",
+      "sha256": "921bddec673eaaa483f27e23cdd94345bd6538dfabd79e95db9474068a135d3f"
+    },
+    "verification/v1.47/browser-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.47/browser.log": {
+      "status": "added",
+      "sha256": "933cbf57af97a07d68eedc9acdaad14adcc340327ed8e0e75734bee2f1156d32"
+    },
+    "verification/v1.47/code-database.log": {
+      "status": "added",
+      "sha256": "e36cf1aa75b9f021c6a2ea803458b160b006bab11f64f3cd1a20056a81476381"
+    },
+    "verification/v1.47/components-component-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.47/components.log": {
+      "status": "added",
+      "sha256": "708d73af15968d0e2dae25dddcb0a680e83601863cdd4041a7eb5a0ec6dab5d1"
+    },
+    "verification/v1.47/native-native-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.47/native.log": {
+      "status": "added",
+      "sha256": "9903a1a38668af7a1832916129fb2a8c7114ee2f422a479861a1fd05da1b2e3d"
+    },
+    "verification/v1.47/polish-polish-browser-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.47/polish.log": {
+      "status": "added",
+      "sha256": "a83427e270ccfa615181b00073c5ac547be7efbe6bfbe878375c35e74adccac0"
+    },
+    "verification/v1.47/results.json": {
+      "status": "added",
+      "sha256": "3c8715eea231fe8447b1a98765bd8822f9b28817280971f5a898daad67e34086"
+    },
+    "verification/v1.47/test-attempts.json": {
+      "status": "added",
+      "sha256": "8c5d5fb5f72cbae0046c123baa7a8cd52ca7ffcc58c351dea20f1eda12163de2"
+    },
+    "verification/v1.47/workflows-workflow-console-errors.json": {
+      "status": "added",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "verification/v1.47/workflows.log": {
+      "status": "added",
+      "sha256": "e54cb7fe3923fdc7259a4b7fd162c54a618316a6ac903dbe9390a645f59f803c"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {readFile,readdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+const root=new URL('../',import.meta.url),text=path=>readFile(new URL(path,root),'utf8');
+assert.equal(JSON.parse(await text('package.json')).version,'1.58.0');assert.match(await text('DANCE-STUDIO-VERSION.txt'),/DANCE-STUDIO-V1.58/);
+const protectedFiles=JSON.parse(await text('tests/v158-protected-files.json')),changed=JSON.parse(await text('tests/v158-changed-files.json'));assert.equal(Object.keys(protectedFiles).length+changed.length,1682);
+for(const[file,digest]of Object.entries(protectedFiles))assert.equal(createHash('sha256').update(await readFile(new URL(file,root))).digest('hex'),digest,'Unrelated V1.57 file changed: '+file);
+const modules=['functions/_lib/app-session-v1-58.js','functions/_lib/notifications-v1-58.js','functions/_lib/notification-events-v1-58.js','functions/_lib/web-push-v1-58.js','functions/api/portal/auth/context.js','functions/api/portal/notifications/preferences.js','functions/api/portal/notifications/subscription.js','functions/api/admin/notification-routing.js','functions/api/automation/notifications.js','public/assets/app-session-v1-58.js','public/assets/notification-registry-v1-58.js','public/assets/notification-client-v1-58.js','public/assets/notifications-admin-v1-58.js','public/uc-notifications-sw.js','tools/v158-pwa-notification-cases.mjs','tools/verify-v1-58-pwa-notifications.mjs',...changed.filter(p=>p.endsWith('.js'))];
+for(const path of new Set(modules))execFileSync(process.execPath,['--check',new URL(path,root).pathname]);
+for(const name of (await readdir(new URL('public/',root))).filter(p=>p.endsWith('.html')&&!p.startsWith('_'))){const html=await text('public/'+name);assert.equal((html.match(/src="\/assets\/app-session-v1-58.js/g)||[]).length,1,name);}
+const middleware=await text('functions/_middleware.js');assert.match(middleware,/session.home\+'\?app_resume=1'/);assert.match(middleware,/notification-routing/);assert.match(middleware,/X-DropBeat-Release', '1.58.0/);
+const client=await text('public/assets/app-session-v1-58.js');assert.doesNotMatch(client,/sessionStorage\.setItem/);assert.doesNotMatch(client,/setItem\([^\n]*(?:token|password)/i);assert.match(client,/record\?\.key===session.key/);assert.match(client,/url\.origin|u\.origin/);assert.match(client,/if\(!root&&!admin&&!portal\)return null/);
+const engine=await text('functions/_lib/notifications-v1-58.js');assert.match(engine,/confirmation!=='confirm'/);assert.match(engine,/settings.value IS \?/);assert.match(engine,/lease_until/);assert.match(engine,/LIMIT 8/);assert.match(engine,/attempts<3/);assert.match(engine,/julianday\(ss.expires_at\)>julianday\('now'\)/);
+const prefs=await text('functions/api/portal/notifications/preferences.js');assert.match(prefs,/rules:rules.roles\[actor.role\]/);assert.doesNotMatch(prefs,/privateJwk/);
+const css=await text('public/assets/notifications-v1-58.css');assert.doesNotMatch(css,/#[a-f\d]{3,8}\b/i);assert.match(css,/@media\(max-width:760px\)/);assert.match(css,/max-height:26px/);
+const browser=await text('public/assets/notifications-admin-v1-58.js');assert.match(browser,/segmentedControl/);assert.match(browser,/DropBeatUI\?\.disclosure/);assert.doesNotMatch(browser,/<details/);assert.match(browser,/input.value!=='confirm'/);
+for(const path of ['public/admin/dropbeat-admin-v1-05.js','public/admin/final-v16-54-brand-articles-stability.js'])assert.match(await text(path),/notifications:\{label:'Notifications',panel:'notificationSettings'/);
+assert.equal(JSON.parse(await text('public/manifest.webmanifest')).start_url,'/?app=1');assert.match(await text('public/uc-notifications-sw.js'),/addEventListener\('push'/);
+console.log('V1.58 release guards passed: '+Object.keys(protectedFiles).length+' unchanged V1.57 files, valid entry points/modules, role-safe session routing, private credentials/preferences, bounded push queue, shared mobile components and unchanged theme colors.');

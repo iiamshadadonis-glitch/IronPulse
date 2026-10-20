@@ -1,0 +1,14 @@
+DROPBEAT V1.53 — COMPLETE REPLACEMENT PROJECT
+
+Extract the ZIP fully into a new folder, then use the complete project to replace your repository files. This is not a patch. It includes V1.52 and the new mobile header, session, statement, ticket and navigation-row fixes.
+
+Read V1.53-FIXES.md and V1.53-VERIFICATION.md.
+Existing setup/deployment instructions: DANCE-STUDIO-SETUP.md.
+Existing Cloudflare Pages project and D1 binding are retained.
+
+Current automated code command: npm run test:dance-v1.53
+Current portal browser command: npm run test:dance-v1.53:browser
+Browser tests require Playwright and Chromium, with their paths supplied through the environment as described in the verification report.
+
+The new UI behavior applies only at mobile widths (760px and below).
+No production deployment or real customer/payment/email action was performed.

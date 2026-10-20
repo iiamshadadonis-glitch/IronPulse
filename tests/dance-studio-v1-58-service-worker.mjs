@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import vm from 'node:vm';
+const handlers={},shown=[],routes=[],messages=[];let role='student',key='student:2',enabled=true,offline=false;
+const client={url:'https://app.example/student-dashboard',async navigate(url){routes.push(url);return this;},async focus(){},postMessage(message){messages.push(message);}},clients={async matchAll(){return [client];},async openWindow(url){routes.push(url);return client;}};
+const self={location:{origin:'https://app.example'},clients,registration:{async showNotification(title,options){shown.push({title,...options});}},addEventListener(type,callback){handlers[type]=callback;},skipWaiting(){}};
+const sandbox={self,clients,URL,fetch:async()=>{if(offline)throw Error('Synthetic outage');return {ok:true,async json(){return {key,role,rules:{payment_success:enabled}};}};}};
+vm.runInNewContext(await readFile(new URL('../public/uc-notifications-sw.js',import.meta.url),'utf8'),sandbox);
+async function push(payload){let task;handlers.push({data:{json:()=>payload},waitUntil(value){task=value;}});await task;}
+const payload={role:'student',ownerKey:'student:2',event:'payment_success',title:'Payment update',body:'Review your membership.',url:'/student-dashboard?view=memberships',tag:'fixture-job'};
+await push(payload);assert.equal(shown.length,1);assert.equal(shown[0].tag,'fixture-job');enabled=false;await push(payload);assert.equal(shown.length,1,'Disabled automatic event is checked again at receipt');await push({...payload,manual:true});assert.equal(shown.length,2);key='student:4';await push({...payload,manual:true});assert.equal(shown.length,2,'Account changed after enqueue: private notification discarded');key='student:2';await push({...payload,url:'https://evil.test/',manual:true});assert.equal(shown.length,2);offline=true;await push({...payload,manual:true});assert.equal(shown.length,2,'Unavailable account check cannot disclose private content');offline=false;
+let clicked;handlers.notificationclick({notification:{data:{url:payload.url,ownerKey:payload.ownerKey},close(){}},waitUntil(promise){clicked=promise;}});await clicked;assert.equal(routes.at(-1),'https://app.example/student-dashboard?view=memberships');assert.equal(messages.at(-1).type,'dropbeat-notification-route','New pushes never invoke the legacy Comments route');
+handlers.notificationclick({notification:{data:{route:'inbox',platform:'instagram',conversation:'123'},close(){}},waitUntil(promise){clicked=promise;}});await clicked;assert.match(routes.at(-1),/open=inbox/);assert.equal(messages.at(-1).type,'uc-admin-route','Existing social Inbox click messages are retained');
+const before=routes.length;handlers.notificationclick({notification:{data:{url:'https://evil.test/'},close(){}},waitUntil(){throw Error('Unsafe routing must stop');}});assert.equal(routes.length,before);
+console.log('V1.58 service-worker tests passed: actual push handler, latest rules, manual broadcast, account/logout isolation, offline privacy, same-origin clicks and preserved legacy Inbox routing.');

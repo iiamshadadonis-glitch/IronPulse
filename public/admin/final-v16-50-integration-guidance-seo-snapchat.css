@@ -1,0 +1,47 @@
+/* V16.50 — additive spacing/solution-guidance fixes. Existing theme colors are reused. */
+#socialMediaIntegrations [data-social-card="facebook"] .uc-info-back-body,
+#socialMediaIntegrations [data-social-card="instagram"] .uc-info-back-body{padding:18px 20px 22px!important}
+#socialMediaIntegrations .uc50-solution-help{display:grid;gap:14px;min-width:0}
+#socialMediaIntegrations .uc50-solution-help h3,
+#socialMediaIntegrations .uc50-solution-help h4,
+#socialMediaIntegrations .uc50-solution-help p{margin:0}
+#socialMediaIntegrations .uc50-solution-help h4{margin-top:2px;color:var(--dark)}
+#socialMediaIntegrations .uc50-solution-help ol{display:grid;gap:9px;margin:0;padding-left:24px;line-height:1.55}
+#socialMediaIntegrations .uc50-solution-help li{padding-left:2px}
+#socialMediaIntegrations .uc50-solution-help .uc-example,
+#socialMediaIntegrations .uc50-solution-help .uc-warning{margin:0;padding:13px 14px;line-height:1.55}
+#socialMediaIntegrations .uc50-solution-help a{overflow-wrap:anywhere}
+
+/* The SEO card is now physically inside Integrations, so mirror the spacing rules that used to target #apiSettings. */
+#socialMediaIntegrations #ucV152Blogger.uc48-seo-social-card{overflow:visible!important}
+#socialMediaIntegrations #ucV152Blogger>.collapsed-body{padding-top:18px!important}
+#socialMediaIntegrations #ucV152Blogger .field{margin-bottom:20px!important;min-width:0}
+#socialMediaIntegrations #ucV152Blogger .row{gap:20px!important;margin:0!important;align-items:start!important}
+#socialMediaIntegrations #ucV152Blogger label{display:block;margin-bottom:8px!important;line-height:1.35}
+#socialMediaIntegrations #ucV152Blogger .hint{display:block;margin-top:8px!important;line-height:1.5!important;min-height:0}
+#socialMediaIntegrations #ucV152Blogger #bloggerConnectionStatus{margin:4px 0 22px!important;padding:14px 16px!important;line-height:1.55}
+#socialMediaIntegrations #ucV152Blogger .copyline{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px!important;align-items:center}
+#socialMediaIntegrations #ucV152Blogger input,
+#socialMediaIntegrations #ucV152Blogger select{min-height:46px;min-width:0}
+#socialMediaIntegrations #ucV152Blogger .uc-v152-blogger-bottom-row{gap:20px!important;margin-top:2px!important;align-items:start}
+#socialMediaIntegrations #ucV152Blogger .uc-v152-connection-actions{display:flex;gap:10px!important;flex-wrap:wrap;margin-top:0!important}
+#socialMediaIntegrations #ucV152Blogger .uc-v152-blogger-actions{display:flex;gap:10px!important;flex-wrap:wrap;margin-top:2px!important;padding-top:2px!important}
+#socialMediaIntegrations #ucV152Blogger>summary{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;min-width:0}
+#socialMediaIntegrations #ucV152Blogger>summary #uc48SeoBadge{display:none!important}
+#socialMediaIntegrations #ucV152Blogger>summary .uc50-seo-summary-title{min-width:0;font-weight:inherit}
+#socialMediaIntegrations #ucV152Blogger>summary #uc50SeoSummaryBadge{margin-left:auto!important;margin-right:8px!important;flex:0 0 auto}
+
+#socialMediaIntegrations .uc50-snap-access{display:grid;gap:8px;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:13px 14px;margin:0 0 18px;line-height:1.5;color:var(--muted)}
+#socialMediaIntegrations .uc50-snap-access strong{color:var(--dark)}
+#socialMediaIntegrations .uc50-snap-access.needs-approval{background:#fff1bf;border-color:#f2c24d;color:#542c09}
+#socialMediaIntegrations .uc50-snap-access.is-ready{background:#dcfce7;border-color:#86efac;color:#166534}
+#socialMediaIntegrations .uc50-snap-access ol{display:grid;gap:7px;margin:2px 0 0;padding-left:22px}
+#socialMediaIntegrations .uc50-snap-access a{overflow-wrap:anywhere}
+
+@media(max-width:760px){
+  #socialMediaIntegrations [data-social-card="facebook"] .uc-info-back-body,
+  #socialMediaIntegrations [data-social-card="instagram"] .uc-info-back-body{padding:15px!important}
+  #socialMediaIntegrations #ucV152Blogger .row,
+  #socialMediaIntegrations #ucV152Blogger .uc-v152-blogger-bottom-row{grid-template-columns:1fr!important;gap:0!important}
+  #socialMediaIntegrations #ucV152Blogger .copyline{grid-template-columns:minmax(0,1fr) auto}
+}

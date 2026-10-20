@@ -1,0 +1,258 @@
+{
+  "input": "DropBeat-V1.58-Verified(1).zip",
+  "inputSha256": "ef980aaa9c47bb7cddf4948b3c50feaf124994fc147239c52fd80802fd4bd7e5",
+  "inputBytes": 7184833,
+  "originalFiles": 1725,
+  "unchangedOriginals": 1676,
+  "changedOriginals": [
+    {
+      "path": "DANCE-STUDIO-VERSION.txt",
+      "before": "e0fef7dd9930824717697d777856af14b75422db4bfb60a8adabe4229ff48d0e",
+      "after": "18bfef5d6583633ce990d62e71020b1556fde4d58d1cb57a83b23af01ced77b1"
+    },
+    {
+      "path": "functions/_middleware.js",
+      "before": "6707b228aa61f574a604b7d899e463b6f6ced6ba21dd66f275f50accd88346ef",
+      "after": "a8d45bfaf8e5d008b60d91b71606dc9c10f961e1368f76e1163d5878b4521825"
+    },
+    {
+      "path": "package.json",
+      "before": "51e9796c3672ac9569505d0c8e934e511e96a2351a398ddabd9398b822c3cc11",
+      "after": "06fe14b700b41d87280f89fdd95c956a8db012ff295833b63850568f6855097f"
+    },
+    {
+      "path": "public/404.html",
+      "before": "f6eb5da0017714e99af69ea71437ec0b0f2dd7f21b4f42c257dee051a201d252",
+      "after": "8fcb449d9f412c7804805063f33c52ebcbfae05fcb2bfb72f7ad7749b9fa1698"
+    },
+    {
+      "path": "public/_headers",
+      "before": "a261dae469820cd1f5840e5a4203337f6dd258b9f55c5e5f430f7fc79cd4ac30",
+      "after": "050dd24e662972461969c8a3ccdc55af469bd7a70b9dbb67bc43bd16d81ad1bd"
+    },
+    {
+      "path": "public/about.html",
+      "before": "6a34a315b6728eb80e19908b1ab27810b87aa160dfedd8aace28801d408438cc",
+      "after": "b1ff8fe1fed200c7e3ed861c469ae13af81e8fcc5a470f8f2832548d95fae892"
+    },
+    {
+      "path": "public/admin/dropbeat-admin-language.js",
+      "before": "6eacab14cb9c3de68f40ae40a5a461e794810e5a4f673a84a30aafa5195ec8f3",
+      "after": "04922e73201d7a703077d9d8762c15aaf52de9c34ca0d4f3df1edd18c5cb82e8"
+    },
+    {
+      "path": "public/admin/dropbeat-admin-v1-03.js",
+      "before": "43172af42793dbbe4b41b219336e5af5135f211d03411e8682ceec9d2bee28cc",
+      "after": "2fb288c59268018879f0cbcc1f746485f365051ccff7e56a11a3b7e8f4af9088"
+    },
+    {
+      "path": "public/admin/dropbeat-admin-v1-19.js",
+      "before": "4ee28692aef148565cb6d602529ba41d6efc291db8f286ea0e085eeccf9e28a8",
+      "after": "7707a8f6b3d7a8b38a0d34f88cc4cc1d29bbdf3458eeb1006e6c3e039bb7190b"
+    },
+    {
+      "path": "public/admin/final-v16-53-navigation-brand-notifications.js",
+      "before": "59553a4f9c94e0ff0fdb2aff7613960bd52af80494313f6f2e9fe83f7d5f82cc",
+      "after": "090e545f8ceaf30ab0f77d7fbe9fa2ea543256f5a93229c3c1728f06993e52ec"
+    },
+    {
+      "path": "public/admin/final-v16-54-brand-articles-stability.js",
+      "before": "91f658594bad4547f955bd1451e133c522d5bbe35fcb382528f2bba45653c337",
+      "after": "20655cae135ac2b17329541d040993521f1e8c0486d93cfad3e9f878c4e60596"
+    },
+    {
+      "path": "public/admin/final-v16-62-inbox-nav-automations.js",
+      "before": "5ed33cdca30f27491f8530066d6909c334e204f7bcd0a0d8cd7a27682b879e70",
+      "after": "055f5636d180ab4cd1b1e976bf9e57337eb2068a749a7948351f48c1fd5159aa"
+    },
+    {
+      "path": "public/admin/index.html",
+      "before": "54ff051c496da5e9e93c2e5601a7586b964a74335a034c64ce7861d285428e12",
+      "after": "88081b2e0438e91e2a13464047daace9371f2658967aff5db93d78e669ddfc5e"
+    },
+    {
+      "path": "public/assets/app.js",
+      "before": "99ce7f070626e255f8e50ea9a2a54762d5350515ae5dbafafff00b9d10b396c6",
+      "after": "f22ec6f78f34147df2f7695dc4995d41cc6493feacd007dc99e33da109e5203b"
+    },
+    {
+      "path": "public/assets/dropbeat-button-dictionary-v1-56.js",
+      "before": "540dae4b9fc3b31efabc317f893da3fad7f1d845671d67fade57e1ed9059df50",
+      "after": "78975991fa7190ecaeb83d494362fdc2a1f9643f4e384749dcd77bd2a96942e0"
+    },
+    {
+      "path": "public/assets/dropbeat-buttons-admin-v1-57.js",
+      "before": "2c5ea52052bbbd7238f5a9a664f5cff8f508704c65477aa40e99f91d3b2fb497",
+      "after": "4ad96a927c0d54c4e5fe014c7109c8f5386fb13fc3b26e316ec67343a0d24fc1"
+    },
+    {
+      "path": "public/assets/dropbeat-dance-language.js",
+      "before": "18eb77c7926c72d9edda0d97a4666af3e8e92085b34201c144efde0f47f0d13b",
+      "after": "7fb54b4ba26af89a2b2c1d701f58b5c799da138fdf68b8a0e4ccad74bf7feb5f"
+    },
+    {
+      "path": "public/assets/dropbeat-dashboard-mobile-v1-49.js",
+      "before": "0f3149afc5e2a3275f86b02013b6967645cbd45c77b8309a2eef87f901e53670",
+      "after": "77e2374b79dce322c62feed561638858dd985cdec6a204e7919a6aaf22414c17"
+    },
+    {
+      "path": "public/assets/dropbeat-layout-admin-v1-57.js",
+      "before": "741791192a3f81b6e25f379dceaa1d1bd9243dedb0f6ccdeda1d8c4dcd8b3197",
+      "after": "5069da6316a621afb17a03d38f2f20fcab69013d074ee10480304523dea9122c"
+    },
+    {
+      "path": "public/assets/dropbeat-layout-v1-57.js",
+      "before": "30c9a52c58237f4a455e98a7daea9216a7e127029f289c89b1e0e71130ffd288",
+      "after": "def9848ae9ef5d29be9302794aa036cf51edcbf36c7f448ece213bb5780cde85"
+    },
+    {
+      "path": "public/assets/final-v16-37-navigation.js",
+      "before": "a6ad6aadc09bce5b93d8ff527165105f196752403176c6f442f9b11a70d94828",
+      "after": "5b7bbf3f0d182dbaa4584b6fa1fb9268d99d613617975dc9bc32b5b8232f4d35"
+    },
+    {
+      "path": "public/blog-post.html",
+      "before": "367b0d112a17123fb2e67e3e2395bbead7c7e7f5b125d86d9005a484372a5ccf",
+      "after": "8b1f40418cef8222d2a215d908bed9dacd820b25abf7854b2b9f5f692338cce8"
+    },
+    {
+      "path": "public/blog.html",
+      "before": "00a2cb08eb6c8e70e82f0d75ad562c3a0e9236f8a51df6d4d8a8f92ebc8a5a68",
+      "after": "413117d51bbabb0ebd96deb0a40bd069d4d1e830dda99a6f6e544409da4236ec"
+    },
+    {
+      "path": "public/checkout.html",
+      "before": "6c3a1c50592284ff4e74d900673022aad1950f6900c163b4b08bb9a26aecd88e",
+      "after": "ff5023f9dd83ccbae3b841d0f22217eadf371ab5a3be99f551200d6bbfc942c6"
+    },
+    {
+      "path": "public/coach-dashboard.html",
+      "before": "22293279ea63be29e09d2b18c374e87a356cbb5adb1084945963e981bbdb6593",
+      "after": "ba1167c2402e3690ae1219e4cfd54dee3d40a4e8e9b1f5be214f37af78c0c726"
+    },
+    {
+      "path": "public/contact.html",
+      "before": "68b1b7bdc1bdae56578f092a084b49804046fd849a2994aa2754e793d413d5aa",
+      "after": "f6ef8c59123da86125750f6be07f2fc5d5a7e2edff3507eea56d0d5e30be14ca"
+    },
+    {
+      "path": "public/custom-page.html",
+      "before": "e60e031d1fa010f9b8676a58356558bdd7c508f0401d01a5f9ab1c76e7caa062",
+      "after": "ea00b0f1168b187e2497063b262eeb340e64ed5e6e763f34338957897a0865f4"
+    },
+    {
+      "path": "public/faq.html",
+      "before": "847faf8437eae10715b3df06475bdbc7d3c9f3bc5937e9e2750aa7d2dadfd73d",
+      "after": "a5d4aea11621135889234d6c75316db2f2eb42e41c2d7b42e127cebe41f8eae8"
+    },
+    {
+      "path": "public/festival-offers.html",
+      "before": "f13750b997e95ba5cdc4fbc9928784c1c7d2b1ebd1314292cb5059868c6ddcd0",
+      "after": "beb1511d1181e7942a32e6944d2d57c9fdacfca8b0e58b0a8da677fe25aa8f5f"
+    },
+    {
+      "path": "public/index.html",
+      "before": "af676227b6edf281948a5ce09ef12a4dd464671165230be553b0e4872e90f059",
+      "after": "faa8af2dd063b41484e738ac32cca897ebf52d5270c7bc6e97e34c5d20cb7773"
+    },
+    {
+      "path": "public/login.html",
+      "before": "0a8bc97be773ff89daa3e52937108631d0aa853e91d2e4217ebe8acfe09e0233",
+      "after": "ea9930c6fdec4b2948c18fc2db37fa5fb7bf184f31af84e413cf5cc4e90967ea"
+    },
+    {
+      "path": "public/my-orders.html",
+      "before": "197816d33f91f752b7d533a569bcf7693b0fdbfc73d8434f630f38ab10ff7b78",
+      "after": "12b2bd3b230b3f1c3aea384d94c32ce30ab2facf55f7f5449c06bfd2641c355d"
+    },
+    {
+      "path": "public/offer-details.html",
+      "before": "b7167bf97932e7b9dda3f70f62b062c826c662751554a4bb50ea0c737866f803",
+      "after": "6c0d92482980f72241ef3ca626e315d4fb20dd8d4508c74cd28c69831a6e3c35"
+    },
+    {
+      "path": "public/offers.html",
+      "before": "1e247269487ab6a6236f93151cd2cbe3424eef347fc17cc1457c2a482037c715",
+      "after": "fe177ccca219bae44d6d99bee0600e75e4f60c816cf700d0006f9a31b0b8b07f"
+    },
+    {
+      "path": "public/payment-failed.html",
+      "before": "8cc65ea2536fc3eb28ab36fff724c28889653ef4964a420c0d74f6186bc75872",
+      "after": "87cebed2e5520576c7a62114b21ee991bb45e8ebb3980bc9f4abdb5a199d8d5a"
+    },
+    {
+      "path": "public/payment-success.html",
+      "before": "289d25ce56103c8341eb34b360ecaeb1a86f99e6d46ad6d0dc8bd4acf5537936",
+      "after": "185eccabfa88565ada12f761990092c1d2f6c0d9cc213314254d05250f3a4bb9"
+    },
+    {
+      "path": "public/payment.html",
+      "before": "1ddcf16d6228fc0a590bf1bd0f516aa764a25dcdab77846ee6cceb1d411590ef",
+      "after": "4fa80fef8abc6b36f8ef8ba96119bde5fcfd8572c387d1c9bd2dd1ecccbd989a"
+    },
+    {
+      "path": "public/privacy-policy.html",
+      "before": "4411ce7f58633d9160215827a4f7b2f5cf55f53f30f18dfbcffe4d96869d8f80",
+      "after": "5ed4d6437524e7558aa97f5af7cfaa47221dd627e23561446b138480baf465ca"
+    },
+    {
+      "path": "public/refund-and-cancellation.html",
+      "before": "591194aade33534a2aa0f0d6ee9ddb9b6e62b0212a354a5ca24d51cca62a154d",
+      "after": "2c80bf47d8f457da7c586f5858313ec82f91b352d5300841b2c58c2f99088641"
+    },
+    {
+      "path": "public/requests.html",
+      "before": "da13c9605f05f9ff54875a288f2bdfbf4f268ffb652f43242652283c90abc171",
+      "after": "132878bb3b22c2f423603d98ae69906963fcba6a169667e9f7b46a386fe54282"
+    },
+    {
+      "path": "public/student-dashboard.html",
+      "before": "7d315cbb8a216cd4d08af0f933ab04ab8cc454dba9fc28346b5f9bde41995637",
+      "after": "5fbf67ee2f4da3bd5f9791a242ffec802238dd81ae93b207ad77431ec14d5b2a"
+    },
+    {
+      "path": "public/submit-profile.html",
+      "before": "5f7608ea952a5adcb201eb9f4589ae5a4e4544d9fa7c2743b5178ea0d5463d25",
+      "after": "f8951005652af3565400d3747853004527501e38ac172d1c25f3010f5b72bc80"
+    },
+    {
+      "path": "public/success-stories.html",
+      "before": "38e491db7bc5903f8694b14a9bc262dea892e3b67d1ea4fe10b0cf2e6ebbe55c",
+      "after": "ee312c98e2baf13db6446023e15f2dc1dfc3ad284571fffd65e5cf7bddecc536"
+    },
+    {
+      "path": "public/terms-and-conditions.html",
+      "before": "b59a125d3baadfc5315bfad3a92f034e07d768320346b64fd662e8bcd5499269",
+      "after": "492eb4dddcc569ce77dc42dfd10e2b220cfe752196501b8401d4cef0fcd9063b"
+    },
+    {
+      "path": "public/yearly-plans.html",
+      "before": "4386d0837804674fab62e1199ab0392392baf0f10bc163b93fef1c80657effb2",
+      "after": "9e03cdc17ad1453b54404c4486e3de9234417af717a553a420de7575582e6fa1"
+    },
+    {
+      "path": "tests/dance-studio-deployment.mjs",
+      "before": "5e599d03973c17354acbfb4d11c6062f9c9daa2b5bd82bfb1dae55422f5380db",
+      "after": "7978b30b681d96e9b8fcbe9c270da6c5b078725f210049a7061a8894f13fbaa4"
+    },
+    {
+      "path": "tools/v151-mobile-cases.mjs",
+      "before": "c9bce44ef5c7031f538a32839821450d07b0fc5a0c093af09a8822f8824445b5",
+      "after": "fa6f6c2483d079091d039389b31886d4ce70eee45ea32fad29b6f9a7cff6e74a"
+    },
+    {
+      "path": "tools/v157-layout-cases.mjs",
+      "before": "659f6054a2705e59237e857a26cd0db3861f657183bcadf34c0211ad7ab6f627",
+      "after": "d5603aa776ea9ef9e9c15cc31e3468b851795ea94ee407a3ce29961980289c8f"
+    },
+    {
+      "path": "tools/verify-mobile-v1-49-final.mjs",
+      "before": "875111ccc1a6f8d29bc9afc058261edf89323b827c91a420c8b15de5807a4b79",
+      "after": "a7f133588e757014a8b142d6bc0e03e3211f0e895a43f499893abaa86e998b12"
+    }
+  ],
+  "removedOriginals": [],
+  "codeCheckGroups": 32,
+  "browserWorkflowGroups": 41,
+  "externalServices": "Synthetic API fixtures; actual SQLite/configuration handlers where identified. No live payment, OAuth, push or production deployment."
+}

@@ -1,0 +1,10 @@
+.uc84-block-contact{white-space:nowrap}
+.uc84-is-blocked .uc56-dm-compose-line{opacity:.58}
+.uc84-blocked-note{margin:0 0 10px}
+.uc84-summary-actions{float:right;display:inline-flex;align-items:center;margin:-5px 4px 0 12px}
+[data-social-card="telegram"] .uc-info-btn,[data-social-card="telegram"] .uc-info-back-btn{width:34px;height:34px;min-width:34px;padding:0;border-radius:50%;display:inline-grid;place-items:center}
+[data-social-card="telegram"] .uc-info-svg,[data-social-card="telegram"] .uc-back-svg{width:28px;height:28px}
+.uc84-help-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}.uc84-tg-help{padding:12px 4px 6px}.uc84-tg-help ol{line-height:1.62;padding-left:22px}
+.uc84-sales-tabs{margin:0 0 18px;display:flex;gap:9px;flex-wrap:wrap}.uc84-sales-body{min-width:0}.uc84-sales-pane{display:block}.uc84-sales-pane[hidden]{display:none!important}.uc84-sales-pane>.top{margin-top:0}
+.side .nav .nav-group[hidden],.side .nav [data-tab="customSubscription"][hidden],.side .nav [data-tab="products"][hidden],.side .nav [data-tab="bulk"][hidden],.side .nav [data-tab="placements"][hidden]{display:none!important}
+@media(max-width:760px){.uc84-sales-tabs{display:grid;grid-template-columns:1fr 1fr}.uc84-summary-actions{margin-right:0}}
