@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio cookie/consent preferences. Necessary storage is always enabled;
+/* IronPulse Gym cookie/consent preferences. Necessary storage is always enabled;
    optional analytics and advertising scripts wait for a user choice. */
 (function(){
   const KEY='uc_consent_v1';

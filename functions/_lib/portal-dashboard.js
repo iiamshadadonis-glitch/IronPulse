@@ -1,4 +1,4 @@
-import { ensureDanceStudioSchema } from './dance-studio.js';
+import { ensureDanceStudioSchema } from './fitness-platform.js';
 import { addPortalNotification, ensurePortalSchema, parseJson, portalClean, publicPortalAccount, recordPortalEvent, WEEK_DAYS } from './portal-auth.js';
 import { coachReviewData, recordCoachAttendance, recordStudentAttendance, studentReviewData } from './portal-attendance.js';
 import { getPublicProducts } from './public-data.js';

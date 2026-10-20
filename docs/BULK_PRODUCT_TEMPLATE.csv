@@ -1,3 +1,3 @@
 sku,name,slug,short_description,description,regular_price,offer_price,badge,eligibility,features,status,page_keys
-UC-LAUNCH,Launch Offer,launch-offer,Limited-time audition update plan,Monthly WhatsApp casting updates for new members,399,199,Launch Offer,Freshers and beginners,"WhatsApp audition updates|Open casting calls|Order tracking access",active,"home,offers"
-UC-SPECIAL-DEAL,Special Festival Offer,special-festival-offer,Festival discount for selected profiles,Special access for character and experienced role updates,799,499,Special,Experienced actors,"Selected character roles|Higher-value opportunities|Priority onboarding",active,"offers"
+GYM-START,Starter Gym Membership,starter-gym-membership,Build strength and consistency,Monthly gym access and guided fitness sessions,999,799,Start Strong,All fitness levels,"Gym access|Strength training|Progress tracking",active,"home,offers"
+GYM-COACH,Coached Fitness Membership,coached-fitness-membership,Train with a plan,Coached strength and cardio sessions for steady progress,1999,1599,Coach Supported,All fitness levels,"Coach guidance|Strength and cardio|Progress reviews",active,"offers"

@@ -618,7 +618,7 @@ async function sendWhatsAppImageUrl(env,to,imageUrl,caption=''){
   if(provider==='green_api'){
     const instance=env.GREEN_API_INSTANCE_ID||payment.greenApiInstanceId,token=env.GREEN_API_TOKEN||payment.greenApiToken;
     if(!instance||!token)throw new Error('GreenAPI is not connected. Open Settings → Social Media API → WhatsApp Webhook & Order OTP, connect GreenAPI, then try again.');
-    const res=await fetch(`https://api.green-api.com/waInstance${encodeURIComponent(instance)}/sendFileByUrl/${encodeURIComponent(token)}`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({chatId:`${phone}@c.us`,urlFile:url,fileName:'dropbeat-dance-studio-payment-qr.png',caption:clean(caption,1000)})});
+    const res=await fetch(`https://api.green-api.com/waInstance${encodeURIComponent(instance)}/sendFileByUrl/${encodeURIComponent(token)}`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({chatId:`${phone}@c.us`,urlFile:url,fileName:'ironpulse-gym-payment-qr.png',caption:clean(caption,1000)})});
     const data=await res.json().catch(()=>({}));if(!res.ok||!data.idMessage)throw new Error(data?.message||data?.error||'GreenAPI could not send the payment QR. Check the GreenAPI connection and try again.');
     return {ok:true,provider:'green_api',id:data.idMessage||''};
   }

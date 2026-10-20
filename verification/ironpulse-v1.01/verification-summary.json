@@ -1,0 +1,23 @@
+{
+  "release": "IronPulse Gym V1.01",
+  "date": "2026-10-20",
+  "node": "24.19.0",
+  "wrangler": "4.128.0",
+  "d1Binding": "DB",
+  "d1DatabaseId": "893e7d29-fa72-413d-9415-5d93b1c3bc6e",
+  "regressionSuites": 32,
+  "regressionPassed": 32,
+  "browserWorkflowGroups": 10,
+  "stableLabelFrames": 539,
+  "pageErrors": 0,
+  "localRuntimeGroups": 12,
+  "migrationsAppliedLocally": 56,
+  "cssThemesCompared": 177,
+  "backendModulesCompared": 268,
+  "frontendModulesCompared": 236,
+  "apiPathsCompared": 183,
+  "liveAccountVerified": false,
+  "liveDeploymentPerformed": false,
+  "liveStatus": "Cloudflare session is signed out. Account sign-in is needed for remote verification and publishing.",
+  "scope": "Local regression, headless browser, real local Cloudflare Worker/D1, configuration, source compatibility and ZIP integrity. Provider calls are synthetic."
+}

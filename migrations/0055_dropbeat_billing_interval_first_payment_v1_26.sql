@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.26
+-- IronPulse Gym V1.26
 -- Additive plan-frequency and first-payment/renewal accounting fields.
 -- NULL billing_interval preserves every plan created before this release.
 

@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.15
+-- IronPulse Gym V1.15
 -- Runtime-compatible portal credentials, mandatory first-payment password setup,
 -- and authenticated student/coach support tickets. The additive
 -- requires_password_setup field is present in the complete 0048 schema and is

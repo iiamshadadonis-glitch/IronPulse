@@ -32,7 +32,7 @@ export async function onRequestGet({ request, env }) {
   const settings = await getApiSettings(env);
   return json({
     ...urls(request,env),
-    vendorUserId: settings.vendorUserId || 'dropbeat-dance-studio',
+    vendorUserId: settings.vendorUserId || 'ironpulse-gym',
     enabled: settings.enabled !== false,
     apiToken: settings.apiToken || '',
     bloggerBlogId: settings.bloggerBlogId || '',
@@ -55,7 +55,7 @@ export async function onRequestGet({ request, env }) {
       requiredHeader: 'Authorization: Bearer YOUR_API_TOKEN',
       contentType: 'application/json',
       productPayloadExample: { sku:'UC-FESTIVAL', name:'Festival Offer', slug:'festival-offer', regular_price:799, offer_price:399, badge:'Festival Offer', status:'active', page_keys:'home,offers', features:'Fitness Tips | Priority onboarding' },
-      blogPayloadExample: { title:'Fitness Tips', slug:'dance-class-updates', excerpt:'Short summary', body_html:'<p>Fitness class details here</p>', status:'published' },
+      blogPayloadExample: { title:'Fitness Tips', slug:'fitness-updates', excerpt:'Short summary', body_html:'<p>Fitness class details here</p>', status:'published' },
       sitePayloadExample: { googleAnalyticsMeasurementId:'G-XXXXXXXXXX', googleTagManagerId:'GTM-XXXXXXX', metaPixelId:'1234567890', searchConsoleVerification:'google-site-verification=...' }
     }
   });
@@ -73,7 +73,7 @@ export async function onRequestPost({ request, env }) {
   }
   if (body.action === 'generate') next.apiToken = makeApiToken();
   if (body.action === 'revoke') next.apiToken = '';
-  if (body.vendorUserId !== undefined) next.vendorUserId = String(body.vendorUserId || 'dropbeat-dance-studio').trim() || 'dropbeat-dance-studio';
+  if (body.vendorUserId !== undefined) next.vendorUserId = String(body.vendorUserId || 'ironpulse-gym').trim() || 'ironpulse-gym';
   if (body.enabled !== undefined) next.enabled = !!body.enabled;
   if (body.bloggerBlogId !== undefined) {
     next.bloggerBlogId = String(body.bloggerBlogId || '').trim();

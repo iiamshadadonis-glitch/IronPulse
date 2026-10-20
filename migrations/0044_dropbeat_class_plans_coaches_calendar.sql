@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.07
+-- IronPulse Gym V1.07
 -- Additive class-plan mapping, coaches, recurring session overrides and
 -- membership lifecycle notifications. Existing product/payment/webinar logic
 -- remains authoritative and is only linked through foreign keys/identifiers.

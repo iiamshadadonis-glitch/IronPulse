@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio V10 — additive client invoice tab, document layering, branded PDFs and small UI/brand settings polish. */
+/* IronPulse Gym V10 — additive client invoice tab, document layering, branded PDFs and small UI/brand settings polish. */
 (function(){
   'use strict';
   const $=(s,r=document)=>r?.querySelector?.(s)||null, $$=(s,r=document)=>Array.from(r?.querySelectorAll?.(s)||[]);

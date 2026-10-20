@@ -1,4 +1,4 @@
-import { archiveDanceCoach, getDanceCoachImpact, listDanceCoaches, saveDanceCoach, saveSessionOverride, setDanceCoachStatus } from './dance-studio.js';
+import { archiveDanceCoach, getDanceCoachImpact, listDanceCoaches, saveDanceCoach, saveSessionOverride, setDanceCoachStatus } from './fitness-platform.js';
 import { addPortalNotification, cleanSocialUrl, COACH_CLASS_TYPES, ensurePortalSchema, normalizeAvailabilitySlots, parseJson, portalClean, publicPortalAccount, recordPortalEvent, uniqueList, WEEK_DAYS } from './portal-auth.js';
 import { ensureV122Schema } from './v1-22-schema.js';
 

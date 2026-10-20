@@ -1,4 +1,4 @@
-/* V15.3 public Dance Tips layout refinements.
+/* V15.3 public Fitness Tips layout refinements.
    Uses the existing site theme variables. No color palette/theme values are changed. */
 (function(){
   const $=(s,r=document)=>r?.querySelector?.(s)||null;

@@ -59,7 +59,7 @@ export function buildSeoPostContent({title='',body_html='',cover_image_url='',me
 }
 function slugFromUrl(url='',title=''){
   try{const u=new URL(url);const last=u.pathname.split('/').filter(Boolean).pop()||'';const s=slugify(last.replace(/\.html?$/i,''));if(s)return s;}catch{}
-  return slugify(title||'dance-class-update');
+  return slugify(title||'fitness-update');
 }
 function safeAds(raw){
   if(Array.isArray(raw))return raw;

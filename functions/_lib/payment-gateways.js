@@ -97,7 +97,7 @@ export async function phonePeNotifyRedemption(env,{merchantSubscriptionId,mercha
 export function phonePeFrequencyForMonths(months){
   const map={1:'MONTHLY',2:'BIMONTHLY',3:'QUARTERLY',6:'HALFYEARLY',12:'YEARLY'};
   // PhonePe documents ON_DEMAND as a supported recurring frequency. For custom
-  // month intervals, DropBeat Dance Studio keeps its own billing-month schedule and the
+  // month intervals, IronPulse Gym keeps its own billing-month schedule and the
   // redemption automation triggers the debit on the intended due date.
   return map[Math.max(1,Number(months||1))]||'ON_DEMAND';
 }

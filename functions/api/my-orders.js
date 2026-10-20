@@ -1,6 +1,6 @@
 import { json, sha256Hex } from '../_lib/utils.js';
 import { ensurePaymentReceiptsTable } from '../_lib/payment-receipts.js';
-import { ensureDanceStudioSchema, syncDanceMembershipsFromRecentOrders } from '../_lib/dance-studio.js';
+import { ensureDanceStudioSchema, syncDanceMembershipsFromRecentOrders } from '../_lib/fitness-platform.js';
 
 function publicOrderStatus(order, paid){
   const st=String(order?.status||'').toLowerCase().trim(),ps=String(order?.payment_status||'').toLowerCase().trim();

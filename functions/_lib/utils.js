@@ -120,7 +120,7 @@ export const DEFAULT_SITE_SETTINGS = {
 };
 export const DEFAULT_API_SETTINGS = {
   enabled: true,
-  vendorUserId: 'dropbeat-dance-studio',
+  vendorUserId: 'ironpulse-gym',
   apiToken: '',
   bloggerBlogId: '',
   bloggerBlogName: '',
@@ -756,7 +756,7 @@ export async function requireAutomation(request, env) {
   if (!token) throw new Error('Missing Authorization: Bearer API token');
   if (env.AUTOMATION_API_KEY && token === env.AUTOMATION_API_KEY) return { vendorUserId:'env-token' };
   const settings = await getApiSettings(env);
-  if (settings.enabled && settings.apiToken && token === settings.apiToken) return { vendorUserId: settings.vendorUserId || 'dropbeat-dance-studio' };
+  if (settings.enabled && settings.apiToken && token === settings.apiToken) return { vendorUserId: settings.vendorUserId || 'ironpulse-gym' };
   throw new Error('Unauthorized automation API key');
 }
 export async function requireAdmin(request, env) {
@@ -1024,7 +1024,7 @@ export async function sendOrderPaidEmail(env, orderId) {
   const pdf=buildSimpleInvoicePdf({primaryColor:site.primaryColor,accentColor:site.accentColor,brandName:site.siteName||'IronPulse Gym',tagline:site.tagline||'',logoJpegBytes,customerName:o.customer_name||'Customer',customerPhone:o.customer_phone||'',customerEmail:o.customer_email||'',orderId:o.order_id,invoiceNo,invoiceDate,gateway,paymentId:receipt.transaction_id||'',taxLabel,gstNumber:tax.gstNumber||'',planName,planDescription:isTrial?'This invoice records the trial payment received for the selected plan.':'This invoice records the payment actually received for the selected plan.',regularPaise,offerPaise,discountPaise,isTrial,oneTime,trialPaise,baseReceivedPaise:base,receivedPaise:received,gstPaise:gst,gstPercent:Number(tax.gstPercent||0),servicePaise:service,otherTaxPaise:other,otherTaxLabel:tax.otherTaxLabel||'Other Tax',legalName:site.legalEntityEnabled?site.legalEntityName||'':'',legalAddress:site.legalEntityEnabled?site.legalEntityAddress||'':''});
   const subject=rendered.subject||`${site.siteName||'IronPulse Gym'} - Payment Successful - ${o.order_id}`;
   const text=`Payment successful for ${o.order_id}. Amount received: ${emailMoney(received)}. Invoice ${invoiceNo} is attached.`;
-  const r=await sendConfiguredEmail(env,{to:o.customer_email,bcc:gmail.adminCopyEmail||'',subject,html,text,attachments:[{filename:`${String(site.siteName||'dropbeat-dance-studio').replace(/[^a-z0-9]+/gi,'-').toLowerCase()}-invoice-${invoiceNo}.pdf`,contentType:'application/pdf',bytes:pdf}],fromName:site.siteName||'IronPulse Gym'},{purpose:'email'});
+  const r=await sendConfiguredEmail(env,{to:o.customer_email,bcc:gmail.adminCopyEmail||'',subject,html,text,attachments:[{filename:`${String(site.siteName||'ironpulse-gym').replace(/[^a-z0-9]+/gi,'-').toLowerCase()}-invoice-${invoiceNo}.pdf`,contentType:'application/pdf',bytes:pdf}],fromName:site.siteName||'IronPulse Gym'},{purpose:'email'});
   if(r?.ok){
     try{await env.DB.prepare('UPDATE payment_receipts SET email_notice_sent=1,email_notice_sent_at=CURRENT_TIMESTAMP WHERE id=?').bind(receipt.id).run();}catch(_){ }
     try{await env.DB.prepare('UPDATE orders SET email_notice_sent=1 WHERE order_id=?').bind(orderId).run();}catch(_){ }

@@ -35,9 +35,10 @@ export function sqlStatements(source){
  out.push(source.slice(start).trim());return out.filter(Boolean);
 }
 export function collect(root){
- const css={},functionShapes={},functionDDL={},migrationDDL={};
+ const css={},functionShapes={},functionDDL={},migrationDDL={},backendSource={},frontendSource={};
  for(const file of files(join(root,'public')).filter(x=>x.endsWith('.css')))css[relative(root,file)]=digest(readFileSync(file));
- for(const file of files(join(root,'functions')).filter(x=>x.endsWith('.js'))){const source=readFileSync(file,'utf8'),name=relative(root,file);functionShapes[name]=structure(source);functionDDL[name]=javascriptDDL(source);}
+ for(const file of files(join(root,'functions')).filter(x=>x.endsWith('.js'))){const source=readFileSync(file,'utf8'),name=relative(root,file);functionShapes[name]=structure(source);functionDDL[name]=javascriptDDL(source);backendSource[name]=digest(source.replace(/\r\n/g,'\n'));}
  for(const file of files(join(root,'migrations')).filter(x=>x.endsWith('.sql'))){const ddl=sqlStatements(readFileSync(file,'utf8')).filter(text=>/^(?:CREATE|ALTER|PRAGMA|DROP)\b/i.test(text));migrationDDL[relative(root,file)]=digest(JSON.stringify(ddl));}
- return {css,functionShapes,functionDDL,migrationDDL,apiPaths:files(join(root,'functions/api')).map(file=>relative(root,file)).sort()};
+ for(const file of files(join(root,'public')).filter(x=>x.endsWith('.js')))frontendSource[relative(root,file)]=digest(readFileSync(file,'utf8').replace(/\r\n/g,'\n'));
+ return {css,functionShapes,functionDDL,migrationDDL,backendSource,frontendSource,apiPaths:files(join(root,'functions/api')).map(file=>relative(root,file)).sort()};
 }

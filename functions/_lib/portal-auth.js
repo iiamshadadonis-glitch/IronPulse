@@ -1,6 +1,6 @@
 import { cookieHeader, getSetting, parseCookies, preferredPublicOrigin, sha256Hex, withD1Retry } from './utils.js';
 import { ensureAuthSchema } from './auth-schema.js';
-import { ensureDanceStudioSchema } from './dance-studio.js';
+import { ensureDanceStudioSchema } from './fitness-platform.js';
 import { googleDriveInlineImageUrl } from './google-drive-upload.js';
 
 export const PORTAL_COOKIE='db_portal_session';

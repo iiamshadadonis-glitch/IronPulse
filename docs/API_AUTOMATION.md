@@ -3,7 +3,7 @@
 Base URL:
 
 ```text
-https://urgent-casting.com
+https://ironpulse-gym.pages.dev
 ```
 
 Header:
@@ -32,18 +32,18 @@ POST /api/automation/site
 }
 ```
 
-## Publish audition update
+## Publish fitness update
 
 ```http
-POST /api/automation/audition updates
+POST /api/automation/fitness updates
 ```
 
 ```json
 {
   "title": "Audition Updates WhatsApp Group in India",
-  "slug": "audition-updates-whatsapp-group-india",
-  "excerpt": "Learn how audition update groups help actors find casting calls faster.",
-  "body_html": "<p>Your audition update details...</p>",
+  "slug": "fitness-updates-whatsapp-group-india",
+  "excerpt": "Learn how fitness update groups help members find fitness calls faster.",
+  "body_html": "<p>Your fitness update details...</p>",
   "status": "published"
 }
 ```

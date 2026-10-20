@@ -90,7 +90,7 @@
     try{const q=$('#ucFavSearch')?.value||'',r=await api('/api/admin/favorites'+(q?`?q=${encodeURIComponent(q)}`:'')),rows=r.rows||[];if(!rows.length)return toast('No favorite clients to export.','error');
       const esc=v=>String(v??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
       const html=`<table><tr><th>Name</th><th>Phone</th><th>Email</th><th>Instagram</th><th>Interest</th><th>Next Action</th><th>Follow-up</th><th>Visits</th><th>Time Spent</th></tr>${rows.map(x=>`<tr><td>${esc(x.name)}</td><td>${esc(x.phone)}</td><td>${esc(x.email)}</td><td>${esc(x.instagram_id)}</td><td>${esc(x.interest_level||x.status)}</td><td>${esc(x.next_action)}</td><td>${esc(x.follow_up_date)}</td><td>${Number(x.visit_count||0)}</td><td>${esc(formatFavDuration(x.time_spent_ms))}</td></tr>`).join('')}</table>`;
-      const blob=new Blob(['\ufeff',html],{type:'application/vnd.ms-excel'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=`dropbeat-dance-studio-favorites-${new Date().toISOString().slice(0,10)}.xls`;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);
+      const blob=new Blob(['\ufeff',html],{type:'application/vnd.ms-excel'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=`ironpulse-gym-favorites-${new Date().toISOString().slice(0,10)}.xls`;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);
     }catch(e){toast(e.message||'Could not download Favorites.','error');}
   };
 

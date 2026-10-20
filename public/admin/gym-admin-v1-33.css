@@ -1,0 +1,382 @@
+/* DropBeat V1.33 — cache-busted dark-dialog parity and mobile app shell.
+   Dark colours are strictly scoped to data-color-mode="dark". Responsive
+   structure is strictly scoped to tablet/phone widths. No business logic or
+   desktop light-mode styling is changed here. */
+
+html[data-color-mode="dark"]{
+  --db132-bg:#0f131e;
+  --db132-surface:#1b2030;
+  --db132-raised:#202638;
+  --db132-soft:#252c40;
+  --db132-hover:#2b3247;
+  --db132-line:#3d455f;
+  --db132-line-strong:#505975;
+  --db132-title:#f7f8fc;
+  --db132-text:#d7dbea;
+  --db132-muted:#b9bfd0;
+}
+
+/* Dynamic dashboard dialogs are appended directly to body, outside #adminApp.
+   This final layer intentionally covers their late-rendered surfaces. */
+html[data-color-mode="dark"] body .modal.open :is(
+  .modal-card,.uc-client-modal-card,.uc-multi-sub-card,.uc-v15-visitor-modal-card,
+  .uc-v14-refund-confirm-card,.uc-profile-media-section,.uc-dashboard-client-card,
+  .uc-client-stat,.uc-client-note,.uc-history-card,.uc-subscription-card,.uc-card-pager,
+  .uc-v14-refund-editor,.uc-v14-grid-scroll,.uc-v14-approval-grid,.uc-v14-approval-contact span,
+  .uc-period-summary>div,.uc-multi-sub-grid-wrap,.uc98-visitor-grid-wrap
+){
+  background:var(--db132-surface)!important;
+  background-image:none!important;
+  border-color:var(--db132-line)!important;
+  color:var(--db132-text)!important;
+  box-shadow:0 22px 64px rgba(0,0,0,.32)!important;
+}
+html[data-color-mode="dark"] body .modal.open :is(
+  .top,.uc-client-modal-head,.uc-client-fixed,.uc-client-tabs,.uc-payhub-tabs,
+  .uc-client-actionbar.uc-client-sticky-actions,.uc-sub-modal-head,.uc-multi-sub-filters,
+  .uc-v10-invoice-toolbar,.uc-v14-refund-toolbar,.uc-v14-refund-editor-head,
+  .uc-v14-confirm-head,.uc-profile-media-viewer-head
+){
+  background:var(--db132-raised)!important;
+  background-image:none!important;
+  border-color:var(--db132-line)!important;
+  color:var(--db132-title)!important;
+}
+html[data-color-mode="dark"] body .modal.open :is(
+  .uc-card-info-grid>div,.uc-summary-grid>div,.uc-payment-client-grid>div,
+  .uc-sub-grid>div,.uc-profile-grid>div,.uc-client-stat,.uc-client-note,
+  .uc-history-card,.uc-subscription-card,.uc-profile-media-section,
+  .uc-profile-media-thumb>span:last-child,.uc-empty-payment-row td,
+  .uc-v14-grid-cell,.uc-v14-refund-form-grid input[readonly],
+  .uc-v14-refund-form-grid select:disabled
+){
+  background:var(--db132-raised)!important;
+  background-image:none!important;
+  border-color:var(--db132-line)!important;
+  color:var(--db132-text)!important;
+}
+html[data-color-mode="dark"] body .modal.open :is(
+  h1,h2,h3,h4,strong,label,summary,.uc-card-title h3,.uc-client-heading h2,
+  .uc-card-info-grid strong,.uc-summary-grid strong,.uc-payment-client-grid strong,
+  .uc-sub-grid strong,.uc-profile-grid strong,.uc98-visitor-identity b
+){color:var(--db132-title)!important}
+html[data-color-mode="dark"] body .modal.open :is(
+  p,small,.muted,.hint,.uc-card-title p,.uc-card-info-grid span,.uc-summary-grid span,
+  .uc-payment-client-grid span,.uc-sub-grid span,.uc-profile-grid span,
+  .uc-client-stat>span,.uc-client-stat>small,.uc98-visitor-identity span,
+  .uc-v14-grid-cell small,.uc-pay-time-line
+){color:var(--db132-muted)!important}
+
+/* Form controls, including the Add Coach availability style picker. */
+html[data-color-mode="dark"] body .modal.open :is(
+  input:not([type="checkbox"]):not([type="radio"]),select,textarea,
+  .search-input,.db121-style-picker>summary,.db121-style-menu,
+  .db121-style-menu label,.db121-slot-number,.db121-remove-session,
+  .uc-v14-invoice-actions select,.uc-card-pager select
+){
+  background:#101521!important;
+  background-image:none!important;
+  border-color:var(--db132-line-strong)!important;
+  color:#f3f4fb!important;
+}
+html[data-color-mode="dark"] body .modal.open .db121-style-menu{box-shadow:0 18px 44px rgba(0,0,0,.45)!important}
+html[data-color-mode="dark"] body .modal.open .db121-style-menu label:hover{background:var(--db132-hover)!important}
+html[data-color-mode="dark"] body .modal.open :is(input,textarea)::placeholder{color:#969caf!important}
+html[data-color-mode="dark"] body .modal.open select option{background:#101521!important;color:#f3f4fb!important}
+
+/* Total/active/successful/new/renewed/upcoming/failed/cancelled subscriptions. */
+html[data-color-mode="dark"] #ucMultiSubscriptionModal :is(
+  .uc-multi-sub-filters,.uc-multi-sub-grid-wrap,.uc-period-summary>div
+){background:var(--db132-raised)!important;border-color:var(--db132-line)!important;color:var(--db132-text)!important}
+html[data-color-mode="dark"] #ucMultiSubscriptionModal .uc-multi-sub-head{
+  background:var(--db132-soft)!important;color:var(--db132-title)!important;border-color:var(--db132-line)!important;
+}
+html[data-color-mode="dark"] #ucMultiSubscriptionModal .uc-multi-sub-row>div{
+  background:var(--db132-surface)!important;color:var(--db132-text)!important;border-color:var(--db132-line)!important;
+}
+html[data-color-mode="dark"] #ucMultiSubscriptionModal .uc-multi-sub-row:hover>div{background:var(--db132-hover)!important}
+html[data-color-mode="dark"] #ucMultiSubscriptionModal :is(.uc-grid-empty-message,.uc-period-summary small,.uc-multi-sub-row small){color:var(--db132-muted)!important}
+
+/* Visitors, repeat visitors, sign-ups, paid customers and Top Sources lists. */
+html[data-color-mode="dark"] #listModal :is(
+  #dashboardListBox,.uc-v15-visitor-wrap,.uc98-visitor-grid-wrap,.uc-dashboard-client-card,
+  .uc-card-pager,.table-wrap,.table,tbody,tr,td
+){background:var(--db132-surface)!important;border-color:var(--db132-line)!important;color:var(--db132-text)!important}
+html[data-color-mode="dark"] #listModal :is(
+  .uc98-visitor-head>div,.uc-v15-visitor-table thead th,.table th
+){background:var(--db132-soft)!important;color:var(--db132-title)!important;border-color:var(--db132-line)!important}
+html[data-color-mode="dark"] #listModal .uc98-visitor-row>div{background:var(--db132-surface)!important;color:var(--db132-text)!important;border-color:var(--db132-line)!important}
+html[data-color-mode="dark"] #listModal .uc98-visitor-row:hover>div{background:var(--db132-hover)!important}
+
+/* Client Details: all tabs, generated invoice/refund/history/media surfaces. */
+html[data-color-mode="dark"] #ucClientModal :is(
+  #ucClientModalBody,.uc-client-panel-scroll,.uc-client-tab-panel,
+  #ucTabSummary,#ucTabProfile,#ucTabHistory,#ucTabPayments,#ucTabRefunds,#ucTabInvoices,
+  .uc-v1634-page-history,.uc-v14-refund-shell,.uc-v14-refund-section,
+  .uc-v10-invoice-toolbar,.uc-payment-records,.uc-payment-records table
+){background:var(--db132-surface)!important;color:var(--db132-text)!important;border-color:var(--db132-line)!important}
+html[data-color-mode="dark"] #ucClientModal .uc-v1634-page-history-title{
+  background:var(--db132-raised)!important;color:var(--db132-title)!important;border-color:var(--db132-line)!important;
+}
+html[data-color-mode="dark"] #ucClientModal :is(.uc-client-tabs button,.uc-payhub-tabs button){
+  background:var(--db132-soft)!important;color:#e7e9f3!important;border-color:var(--db132-line-strong)!important;
+}
+html[data-color-mode="dark"] #ucClientModal :is(.uc-client-tabs button.active,.uc-payhub-tabs button.active){
+  background:var(--dropbeat-primary)!important;color:#fff!important;border-color:var(--dropbeat-primary)!important;
+}
+html[data-color-mode="dark"] #ucClientModal .uc-payment-records :is(th,td){border-color:var(--db132-line)!important}
+html[data-color-mode="dark"] #ucClientModal .uc-payment-records th{background:var(--db132-soft)!important;color:var(--db132-title)!important}
+html[data-color-mode="dark"] #ucClientModal .uc-payment-records td{background:var(--db132-surface)!important;color:var(--db132-text)!important}
+
+/* Refund editor/history and invoice controls contain high-specificity whites. */
+html[data-color-mode="dark"] body .modal.open :is(.uc-v14-grid-head,.uc-v14-grid-empty){
+  background:var(--db132-soft)!important;color:var(--db132-title)!important;border-color:var(--db132-line)!important;
+}
+html[data-color-mode="dark"] body .modal.open :is(.uc-v14-grid-cell,.uc-v14-refund-editor,.uc-v14-approval-grid){
+  background:var(--db132-raised)!important;color:var(--db132-text)!important;border-color:var(--db132-line)!important;
+}
+
+/* Semantic chips keep their meaning without bringing light cards into dark UI. */
+html[data-color-mode="dark"] body .modal.open :is(.uc-crm-chip,.uc-pg-chip,.uc-page-chip,.uc-time-pill,.uc98-badge,.uc-sub-status,.status,.uc-source-pill,.uc-v14-pg-badge,.uc-history-foot span){
+  background:#2b3145!important;color:#e3e7f4!important;border-color:#505975!important;box-shadow:none!important;
+}
+html[data-color-mode="dark"] body .modal.open :is(.uc-crm-chip.green,.uc-page-chip.top,.uc98-badge.repeat,.uc-sub-status.active,.uc-sub-status.authenticated,.status.active,.status.paid,.status.completed,.uc-crm-chip.request){
+  background:#173629!important;color:#b8f1cc!important;border-color:#397251!important;
+}
+html[data-color-mode="dark"] body .modal.open :is(.uc-crm-chip.blue,.uc-crm-chip.source,.uc-source-pill,.uc-pg-chip.razorpay,.uc-pg-chip.stripe,.uc-pg-chip.phonepe){
+  background:#192d4a!important;color:#bed8ff!important;border-color:#345c8f!important;
+}
+html[data-color-mode="dark"] body .modal.open :is(.uc-crm-chip.red,.uc-sub-status.pending,.uc-sub-status.halted,.uc-sub-status.cancelled,.status.failed,.status.cancelled){
+  background:#402127!important;color:#ffc5cd!important;border-color:#7b3c48!important;
+}
+html[data-color-mode="dark"] body .modal.open :is(.uc-crm-chip.gold,.uc-page-chip.low,.uc98-badge.unique,.uc98-badge.source,.status.pending,.status.new,.uc-v14-refund-source){
+  background:#3a311d!important;color:#ffe6a8!important;border-color:#796536!important;
+}
+
+/* Generic fallback for any dashboard modal introduced later. */
+html[data-color-mode="dark"] body .modal.open :is(.table-wrap,.table){background:var(--db132-surface)!important;color:var(--db132-text)!important;border-color:var(--db132-line)!important}
+html[data-color-mode="dark"] body .modal.open .table th{background:var(--db132-soft)!important;color:var(--db132-title)!important;border-color:var(--db132-line)!important}
+html[data-color-mode="dark"] body .modal.open .table td{background:var(--db132-surface)!important;color:var(--db132-text)!important;border-color:var(--db132-line)!important}
+html[data-color-mode="dark"] body .modal.open .table tbody tr:hover td{background:var(--db132-hover)!important}
+html[data-color-mode="dark"] body .modal.open .btn.secondary{background:var(--db132-soft)!important;color:#d6dcff!important;border-color:var(--db132-line-strong)!important}
+
+/* Mobile Admin app shell — no desktop selector is changed. */
+.db132-mobile-bar,.db132-mobile-backdrop{display:none}
+@media(max-width:980px){
+  body.db132-admin-mobile{overflow-x:hidden}
+  #adminApp.layout:not([hidden]){display:block!important;min-height:100dvh;padding-top:60px}
+  #adminApp>.side{
+    position:fixed!important;inset:0 auto 0 0!important;z-index:10042!important;
+    width:min(330px,88vw)!important;height:100dvh!important;padding:18px!important;
+    overflow:auto!important;overscroll-behavior:contain;transform:translateX(-105%);
+    transition:transform .22s ease;box-shadow:18px 0 50px rgba(0,0,0,.28);
+  }
+  body.db132-nav-open #adminApp>.side{transform:translateX(0)}
+  #adminApp>.side .brand{margin-bottom:16px}
+  #adminApp>.side .nav{display:grid!important;grid-template-columns:1fr!important;gap:6px!important}
+  #adminApp>.side .nav button{display:flex!important;width:100%;min-height:44px;padding:10px 12px!important}
+  #adminApp>.main{width:100%!important;max-width:none!important;padding:16px 12px 42px!important}
+  .db132-mobile-bar{
+    display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;gap:9px;
+    position:fixed;inset:0 0 auto 0;z-index:10035;height:60px;padding:8px 10px;
+    background:rgba(255,255,255,.96);border-bottom:1px solid var(--line,#dedfec);
+    backdrop-filter:blur(14px);box-shadow:0 6px 20px rgba(24,22,55,.08);
+  }
+  html[data-color-mode="dark"] .db132-mobile-bar{background:rgba(18,23,36,.96);border-color:var(--db132-line);color:var(--db132-title)}
+  .db132-mobile-menu,.db132-mobile-home{width:38px;height:38px;padding:0;border:1px solid var(--line,#dedfec);border-radius:12px;background:#fff;color:var(--blue,#4B55BE);font-size:20px;font-weight:900;display:grid;place-items:center;text-decoration:none}
+  html[data-color-mode="dark"] :is(.db132-mobile-menu,.db132-mobile-home){background:var(--db132-soft);color:#d6dcff;border-color:var(--db132-line-strong)}
+  .db132-mobile-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;font-weight:900;font-size:15px}
+  .db132-mobile-backdrop{position:fixed;inset:0;z-index:10040;background:rgba(9,12,20,.62);backdrop-filter:blur(2px)}
+  body.db132-nav-open .db132-mobile-backdrop{display:block}
+  body.db132-nav-open{overflow:hidden}
+  #adminApp .panel>.top{align-items:flex-start!important;margin-bottom:14px!important;padding-right:40px!important}
+  #adminApp .panel>.top h1{font-size:clamp(24px,7vw,32px)}
+  #adminApp .dashboard-block{padding:14px!important;border-radius:18px!important}
+  #adminApp .dashboard-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  #adminApp .dashboard-cards .card{min-height:112px!important;padding:14px!important;border-radius:16px!important}
+  #adminApp .dashboard-cards .card .stat{font-size:29px!important}
+  #adminApp .dashboard-cards .card .muted{font-size:12px!important}
+  #adminApp .dashboard-cards .card small{font-size:11px!important}
+  body>.db125-color-mode-toggle.db125-admin-toggle{top:15px!important;right:15px!important;z-index:10045!important}
+  body .modal.open{align-items:flex-end!important;padding:0!important}
+  body .modal.open>.modal-card,
+  body .modal.open>.uc-client-modal-card,
+  body .modal.open .uc-multi-sub-card{
+    width:100%!important;max-width:100%!important;height:min(94dvh,980px)!important;max-height:94dvh!important;
+    margin:0!important;border-radius:22px 22px 0 0!important;padding:14px!important;
+    overscroll-behavior:contain;
+  }
+  #listModal>.modal-card,#ucMultiSubscriptionModal .uc-multi-sub-card{height:94dvh!important;max-height:94dvh!important}
+  #ucClientModal.uc-client-details-screen .uc-client-modal-card{width:100%!important;height:96dvh!important;max-height:96dvh!important;border-radius:22px 22px 0 0!important}
+  body .modal.open .top{position:sticky;top:0;z-index:12;padding:4px 0 11px;margin:0 0 12px!important}
+  body .modal.open .top h2{font-size:21px;margin:0}
+  body .modal.open .uc-multi-sub-filters{grid-template-columns:1fr!important;max-height:34dvh;overflow:auto}
+}
+
+@media(max-width:560px){
+  #adminApp>.main{padding:12px 9px 34px!important}
+  #adminApp .dashboard-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #adminApp .dashboard-cards .card{padding:12px!important;min-height:108px!important}
+  #adminApp .dashboard-cards .card .stat{font-size:26px!important}
+  #adminApp .top-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important}
+  #adminApp .top-actions .btn{min-width:0!important;width:100%!important;padding:9px 10px!important;font-size:12px!important}
+  #adminApp .block-head{display:grid!important;gap:10px!important}
+  body .modal.open :is(.uc-dashboard-client-grid,.uc-client-stat-grid){grid-template-columns:1fr!important}
+  body .modal.open .uc-dashboard-client-card{padding:14px!important}
+}
+
+/* V1.33 final modal layer.
+   Several dashboard features render their markup after the page has loaded and
+   use highly specific legacy white backgrounds. These selectors deliberately
+   target only an open Admin dialog while dark mode is active. */
+html[data-color-mode="dark"] body :is(
+  #listModal.open,#ucClientModal.open,#ucMultiSubscriptionModal.open,
+  #leadDetailModal.open,#subscriberDetailModal.open,#db121CoachModal.open,
+  #ucV13RefundModal.open,#ucV13RefundConfirm.open,#ucV14RefundConfirm.open,
+  .modal.open
+){color-scheme:dark}
+
+html[data-color-mode="dark"] body :is(
+  #listModal.open,#ucClientModal.open,#ucMultiSubscriptionModal.open,
+  #leadDetailModal.open,#subscriberDetailModal.open,#db121CoachModal.open,
+  #ucV13RefundModal.open,#ucV13RefundConfirm.open,#ucV14RefundConfirm.open,
+  .modal.open
+) :is(
+  .modal-card,.confirm-card,.uc-client-modal-card,.uc-multi-sub-card,
+  .lead-card,.list-grid,.table-wrap,.uc-dashboard-client-grid,
+  .uc-dashboard-client-card,.uc-client-panel-scroll,.uc-client-tab-panel,
+  .uc-summary-grid,.uc-profile-grid,.uc-payment-client-grid,.uc-sub-grid,
+  .uc-history-grid,.uc-history-card,.uc-subscriptions-grid,.uc-subscription-card,
+  .uc-payment-records,.uc-payment-records table,.uc-card-pager,
+  .uc-v14-refund-shell,.uc-v14-refund-section,.uc-v14-refund-editor,
+  .uc-v14-grid-scroll,.uc-v14-ni-grid,.uc-profile-media-section,
+  .uc-profile-media-grid,.uc-profile-media-card,.db122-account-profile,
+  .db121-availability-row,.db121-availability-head
+){
+  background-color:var(--db132-surface)!important;
+  background-image:none!important;
+  border-color:var(--db132-line)!important;
+  color:var(--db132-text)!important;
+}
+
+html[data-color-mode="dark"] body :is(
+  #listModal.open,#ucClientModal.open,#ucMultiSubscriptionModal.open,.modal.open
+) :is(
+  .top,.modal-head,.uc-client-modal-head,.uc-client-fixed,.uc-client-heading,
+  .uc-client-tabs,.uc-payhub-tabs,.uc-client-actionbar,.uc-client-sticky-actions,
+  .uc-sub-modal-head,.uc-multi-sub-filters,.uc-multi-sub-head,
+  .uc-payment-toolbar,.uc-v10-invoice-toolbar,.uc-v14-refund-toolbar,
+  .uc-v14-refund-editor-head,.uc-v14-confirm-head,.uc-profile-media-viewer-head,
+  .db122-list-toolbar,.db121-availability-head
+){
+  background-color:var(--db132-raised)!important;
+  background-image:none!important;
+  border-color:var(--db132-line)!important;
+  color:var(--db132-title)!important;
+}
+
+html[data-color-mode="dark"] body :is(
+  #listModal.open,#ucClientModal.open,#ucMultiSubscriptionModal.open,.modal.open
+) :is(
+  .uc-card-info-grid>div,.uc-summary-grid>div,.uc-profile-grid>div,
+  .uc-payment-client-grid>div,.uc-sub-grid>div,.uc-client-stat,
+  .uc-client-note,.uc-social-identity,.uc-time-part,.uc-history-more,
+  .uc-plan-interest-list>div,.uc-period-summary>div,.uc-v14-grid-cell,
+  .uc-v14-approval-contact span,.uc-v14-approval-grid,
+  .uc-profile-media-thumb,.uc-profile-media-thumb>span:last-child,
+  .db122-profile-grid>div,.db122-pay-grid>div,.db122-day-grid>div,
+  .notice:not(.success):not(.error),.db107-modal-note
+){
+  background-color:var(--db132-raised)!important;
+  background-image:none!important;
+  border-color:var(--db132-line)!important;
+  color:var(--db132-text)!important;
+}
+
+html[data-color-mode="dark"] body :is(
+  #listModal.open,#ucClientModal.open,#ucMultiSubscriptionModal.open,.modal.open
+) :is(h1,h2,h3,h4,h5,strong,label,legend,summary,th,[role="columnheader"]){
+  color:var(--db132-title)!important;
+  -webkit-text-fill-color:currentColor!important;
+}
+html[data-color-mode="dark"] body :is(
+  #listModal.open,#ucClientModal.open,#ucMultiSubscriptionModal.open,.modal.open
+) :is(p,small,.muted,.hint,.uc-grid-empty-message,.uc-empty-payment-row td){
+  color:var(--db132-muted)!important;
+  -webkit-text-fill-color:currentColor!important;
+}
+
+html[data-color-mode="dark"] body :is(
+  #listModal.open,#ucClientModal.open,#ucMultiSubscriptionModal.open,.modal.open
+) :is(table,.table,thead,tbody,tr,td){
+  background-color:var(--db132-surface)!important;
+  border-color:var(--db132-line)!important;
+  color:var(--db132-text)!important;
+}
+html[data-color-mode="dark"] body :is(
+  #listModal.open,#ucClientModal.open,#ucMultiSubscriptionModal.open,.modal.open
+) :is(th,.uc98-visitor-head>div,.uc-v14-grid-head){
+  background-color:var(--db132-soft)!important;
+  border-color:var(--db132-line)!important;
+  color:var(--db132-title)!important;
+}
+
+/* Add/Edit Coach teaching availability, including the exact field reported. */
+html[data-color-mode="dark"] body .modal.open :is(
+  .db121-availability-row,.db121-style-field,.db121-style-picker,
+  .db121-style-picker>summary,.db121-style-menu,.db121-style-menu label
+){border-color:var(--db132-line-strong)!important;color:var(--db132-text)!important}
+html[data-color-mode="dark"] body .modal.open .db121-availability-row{
+  background:var(--db132-raised)!important;
+}
+html[data-color-mode="dark"] body .modal.open .db121-style-field>label{
+  color:var(--db132-title)!important;-webkit-text-fill-color:var(--db132-title)!important;
+}
+html[data-color-mode="dark"] body .modal.open .db121-style-picker>summary,
+html[data-color-mode="dark"] body .modal.open .db121-style-menu,
+html[data-color-mode="dark"] body .modal.open .db121-style-menu label{
+  background:#101521!important;background-image:none!important;color:#f3f4fb!important;
+}
+html[data-color-mode="dark"] body .modal.open .db121-style-menu label:hover{
+  background:var(--db132-hover)!important;
+}
+
+/* Chips and badges use dark semantic variants instead of light pills. */
+html[data-color-mode="dark"] body :is(
+  #listModal.open,#ucClientModal.open,#ucMultiSubscriptionModal.open,.modal.open
+) :is(
+  .badge,.status,.pill,.uc-crm-chip,.uc-pg-chip,.uc-page-chip,.uc-time-pill,
+  .uc98-badge,.uc-sub-status,.uc-source-pill,.uc-v14-pg-badge,
+  .uc-fav-badge,.uc-primary-badge,.uc-history-foot span
+){background:#2b3145!important;color:#e3e7f4!important;border-color:#505975!important;box-shadow:none!important}
+
+/* The shell is visibly app-like even when old layout rules were loaded later. */
+.db132-mobile-bar[hidden],.db133-mobile-bar[hidden]{display:none!important}
+.db133-mobile-bar,.db133-mobile-backdrop{display:none}
+@media(max-width:980px){
+  body.db133-admin-mobile{overflow-x:hidden}
+  body.db133-admin-mobile #adminApp.layout:not([hidden]){display:block!important;min-height:100dvh;padding-top:60px}
+  body.db133-admin-mobile #adminApp>.side{
+    position:fixed!important;inset:0 auto 0 0!important;z-index:10042!important;
+    width:min(330px,88vw)!important;height:100dvh!important;overflow:auto!important;
+    transform:translate3d(-105%,0,0)!important;transition:transform .22s ease!important;
+  }
+  body.db133-nav-open #adminApp>.side{transform:translate3d(0,0,0)!important}
+  body.db133-admin-mobile #adminApp>.main{width:100%!important;max-width:none!important;margin:0!important;padding:16px 12px 42px!important}
+  .db133-mobile-bar{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;gap:9px;position:fixed;inset:0 0 auto 0;z-index:10035;height:60px;padding:8px 10px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line,#dedfec);backdrop-filter:blur(14px);box-shadow:0 6px 20px rgba(24,22,55,.08)}
+  html[data-color-mode="dark"] .db133-mobile-bar{background:rgba(18,23,36,.96);border-color:var(--db132-line);color:var(--db132-title)}
+  .db133-mobile-menu,.db133-mobile-home{width:38px;height:38px;padding:0;border:1px solid var(--line,#dedfec);border-radius:12px;background:#fff;color:var(--blue,#4B55BE);font-size:20px;font-weight:900;display:grid;place-items:center;text-decoration:none}
+  html[data-color-mode="dark"] :is(.db133-mobile-menu,.db133-mobile-home){background:var(--db132-soft);color:#d6dcff;border-color:var(--db132-line-strong)}
+  .db133-mobile-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;font-weight:900;font-size:15px}
+  .db133-mobile-backdrop{position:fixed;inset:0;z-index:10040;background:rgba(9,12,20,.62);backdrop-filter:blur(2px)}
+  body.db133-nav-open .db133-mobile-backdrop{display:block}
+  body.db133-nav-open{overflow:hidden}
+  body.db133-admin-mobile .table-wrap{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
+  body.db133-admin-mobile .modal.open{align-items:flex-end!important;padding:0!important}
+  body.db133-admin-mobile .modal.open>.modal-card,
+  body.db133-admin-mobile .modal.open>.uc-client-modal-card,
+  body.db133-admin-mobile .modal.open .uc-multi-sub-card{
+    width:100%!important;max-width:100%!important;max-height:94dvh!important;margin:0!important;
+    border-radius:22px 22px 0 0!important;padding:14px!important;overflow:auto!important;
+  }
+}

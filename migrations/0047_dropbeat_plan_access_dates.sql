@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.11
+-- IronPulse Gym V1.11
 -- Additive one-time access windows for catalog plans. Existing recurring-plan,
 -- payment, order and class-assignment data is preserved.
 

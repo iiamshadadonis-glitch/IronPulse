@@ -1,58 +1,58 @@
-# IronPulse Gym V1.00 — release verification
+# IronPulse Gym V1.01 — release verification
 
-Baseline: attached DropBeat V1.59. Verification date: 20 October 2026.
+Verified on 20 October 2026 with Node 24.19.0 and Wrangler 4.128.0.
+
+## Configured destination
+
+Pages project: **ironpulse-gym**. D1 binding: **DB**. Existing D1 UUID: **893e7d29-fa72-413d-9415-5d93b1c3bc6e**.
+
+The old/incorrect database IDs are rejected by the deployment preflight. Setup resolves the real database name by this UUID in the authenticated account. It never creates a database or Pages project. Normal publishing uses the existing runtime schema initialization; the original migration history is retained for intentional fresh-database migrations.
 
 ## Results
 
 | Check | Result |
-|---|---|
-| Original V1.59 baseline suite before refactoring | Passed |
-| Current gym release and backend regression suites | 31/31 passed |
+| --- | --- |
+| Current release and functional regression suites | 32/32 passed |
 | Cloudflare Pages Functions/Worker build | Compiled successfully |
-| Runtime JavaScript syntax | 504 scripts parsed |
-| Public/Admin HTML and local asset references | 27 pages passed |
-| Existing CSS/theme files | All 177 byte-identical to V1.59 |
-| Runtime schema definitions | All 268 file fingerprints identical |
-| Original migration DDL | All 55 sets identical |
-| API endpoint file paths | All 183 identical |
-| Backend structure, keys, account roles and enums | 265 modules unchanged; 3 small routing/authentication adjustments tested separately |
-| Fresh local Cloudflare D1 | All 56 migrations applied |
-| Real local Cloudflare runtime | 6 groups passed |
-| Browser workflows | 10 groups passed; no JavaScript page errors |
-| Dynamic-name frame samples | 445 sampled frames; only the expected configured labels appeared |
-| PWA assets | Correct 192/512px icons, maskable variants, 180px Apple icon and branded manifests |
+| Mobile/desktop browser workflows | 10/10 groups passed |
+| Dynamic-label frame samples | 539; all expected labels stayed stable |
+| Browser page errors | 0 |
+| Real local Worker + migrated local D1 | 6/6 groups passed |
+| Real local Worker + completely empty local D1 | 6/6 groups passed |
+| Original migrations applied to a fresh local D1 | All 56 passed |
+| CSS/theme comparisons | All 177 match after paths and comment copy are normalized |
+| Backend/frontend source compatibility | All 268 backend and 236 frontend modules match after documented filename and text/default substitutions |
+| Runtime schema and migration DDL | Preserved |
+| Existing API file paths | All 183 preserved |
+| JavaScript parsing | All 504 application scripts parsed |
+| HTML inventories | 27 full pages checked for theme metadata, touch icons and assets |
+| PWA icons | Standard and maskable 192/512px; Apple icon 180px checked |
 
-## Scope of changes
+The browser checks cover Member sign-up, Member/Coach dashboards, fitness specialties in the plan editor, placeholders, the payments/subscriptions full-screen modal and its Info helper, dictionary/cache first paint, renamed navigation, mobile submenu routing, delayed/malformed/failed configuration, Retry, and Schedule timeout/late-response behaviour at mobile and desktop widths.
 
-- Gym-facing names, descriptions, placeholders, helper copy, messages, default memberships and fitness specialties are compiled into the source.
-- Menu/button components use the existing dynamic stores. Loading/error states remain skeletons; failures offer Retry. Legacy text-replacement observers no longer rewrite menu names after rendering.
-- New fitness photographs, gym logo, icons, program thumbnails and neutral avatar replace the dance artwork. Existing asset aliases remain compatible.
-- `/member-dashboard` is the member route. Original student URLs redirect and retain query parameters. Stored roles and keys such as `student`, `student_id`, `dance_styles_json` and `dance_coaches` remain unchanged.
-- Notification destination checks understand the new member route. Session restoration retains the stored student role while opening the new path.
-- First Admin bootstrap requires your configured password secret instead of a universal fallback password.
-- `wrangler.jsonc` points to a new gym project and a placeholder for a NEW D1 ID. Deploy helpers reject the original database ID.
-- New migration 0056 changes presentation defaults only. It creates no tables or columns.
-- Default structured metadata identifies the business as an ExerciseGym. Schema.org `Article` metadata remains a protocol type rather than being renamed as display text.
+The local Cloudflare checks exercise the actual compiled Functions with real temporary D1 storage, first-admin bootstrap with a unique password, authenticated settings/context and logout/session revocation. They use temporary databases and do not mutate the remote UUID.
 
-## Browser coverage
+The existing theme colours, account roles, schema/table/column names, JSON keys and business decisions remain compatible. Gym labels/default values and physical asset filenames were cleaned up. The 447 obsolete root documents/scripts and historical reports were excluded. Remaining technical schema/API names are explained in README.md.
 
-Home, Member signup, Member and Coach dashboards, gym specialties, placeholders, the mobile full-screen payment modal and Info helper, PWA manifest, Admin/public header/footer names, mobile submenus, saved custom labels, repeated renders/reloads, invalid/failed/stalled configuration, Retry, refresh deduplication, and mobile/desktop Schedule loading/error recovery were checked. Navigation was exercised at 320, 390, 760 and 1440px widths.
+## Live status
 
-Browser data was synthetic. Configuration handlers used real SQLite fixtures. The separate local Cloudflare runtime additionally tested migrations, public configuration, redirect/header behaviour, first Admin login, session authorization and logout against a temporary D1 instance.
+Cloudflare currently presents a sign-in screen in this session. **The remote database's account ownership/access and a production deployment have not been verified or performed.** This ZIP is configured for the supplied UUID and has passed the local checks above. START-HERE.md gives the exact Git-connected Pages settings and the two build-log lines that identify this replacement.
+
+Live Razorpay/webhook and Google OAuth configuration require the gym's own provider credentials and deployed origin. No live charges, messages or provider OAuth requests were performed during verification.
 
 ## Reproduce
 
-```sh
-npm ci
-npm test
-npm run build
-npx playwright install chromium
-npm run test:gym:browser
-npm run test:gym:runtime
-```
+    npm ci
+    npm test
+    npm run build
+    npx playwright install chromium
+    npm run test:gym:browser
+    npm run test:gym:runtime
+    npm run test:gym:runtime:empty
+    node tools/verify-gym-package.mjs
 
-Node 24.19.0 was used. Machine-readable results and logs are in `verification/ironpulse-v1.00/`. Browser screenshots are excluded from the deliverable.
+In this environment the pinned application dependencies were available from the existing local dependency cache; an offline reinstall was unable to fetch one uncached transitive package. No dependency installation cache or node_modules is included in the ZIP. The project lockfile is retained for a normal npm ci on Cloudflare.
 
-Historical release-specific name/version/hash guards are retained as upstream history. The current release suite is `npm test`.
+This environment also required a test-only loopback network-interface shim for the local Cloudflare runner and the available Chromium executable for headless browser tests. Neither changes the shipped application or production network behaviour.
 
-Live Cloudflare resources, live payment processing and Google account consent were not created or exercised here. Complete the account-specific steps in `START-HERE.md`; no live charges or account changes were made. This is a verified source release with setup helpers, rather than a claim of a live deployment.
+Machine-readable results and command logs are in verification/ironpulse-v1.01/. Browser screenshots were used only for local inspection and are excluded from this ZIP. FILES.sha256 checks the delivered source files; local configuration edits intentionally change those checksums.

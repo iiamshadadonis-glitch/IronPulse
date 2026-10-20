@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio V14 — additive client-refund workspace, lead lifecycle archive, invoice selector and order action polish. */
+/* IronPulse Gym V14 — additive client-refund workspace, lead lifecycle archive, invoice selector and order action polish. */
 (function(){
   'use strict';
   const $=(s,r=document)=>r?.querySelector?.(s)||null, $$=(s,r=document)=>Array.from(r?.querySelectorAll?.(s)||[]);

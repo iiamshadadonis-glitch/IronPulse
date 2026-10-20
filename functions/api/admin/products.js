@@ -1,5 +1,5 @@
 import { json, readJson, requireAdmin, safeJsonParse, slugify, calcTotalCount, createRazorpayPlan, rupeesToPaise } from '../../_lib/utils.js';
-import { ensureDanceStudioSchema, getProductClassMappings, saveProductClassMapping, validateProductClassDetails } from '../../_lib/dance-studio.js';
+import { ensureDanceStudioSchema, getProductClassMappings, saveProductClassMapping, validateProductClassDetails } from '../../_lib/fitness-platform.js';
 function bool01(v,def=0){if(v===undefined||v===null||v==='')return def;return ['1','true','yes','on'].includes(String(v).toLowerCase())?1:0;}
 function unit(v){const x=String(v||'days').toLowerCase();return ['days','weeks','months','years'].includes(x)?x:'days';}
 function paymentType(v){return String(v||'subscription').toLowerCase()==='one_time'?'one_time':'subscription';}

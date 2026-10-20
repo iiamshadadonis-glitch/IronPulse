@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.16
+-- IronPulse Gym V1.16
 -- Additive attendance and private session-review records. Existing class,
 -- payment, portal and meeting tables remain authoritative.
 

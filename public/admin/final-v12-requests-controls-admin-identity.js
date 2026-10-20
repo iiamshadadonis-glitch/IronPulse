@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio V12 — additive requests dashboard count, always-visible subscription controls and admin display identity. */
+/* IronPulse Gym V12 — additive requests dashboard count, always-visible subscription controls and admin display identity. */
 (function(){
   'use strict';
   const $=(s,r=document)=>r?.querySelector?.(s)||null, $$=(s,r=document)=>Array.from(r?.querySelectorAll?.(s)||[]);

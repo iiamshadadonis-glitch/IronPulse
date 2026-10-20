@@ -1,0 +1,132 @@
+/* DropBeat V1.31 — final dark-mode contrast and component parity.
+   Colour changes are deliberately scoped to html[data-color-mode="dark"].
+   Light-mode colours, brand colours and all application logic remain unchanged. */
+
+html[data-color-mode="dark"]{
+  --db131-bg:#0f131e;
+  --db131-surface:#1b2030;
+  --db131-raised:#202638;
+  --db131-soft:#252c40;
+  --db131-hover:#2b3247;
+  --db131-line:#3d455f;
+  --db131-line-strong:#4a526d;
+  --db131-title:#f7f8fc;
+  --db131-text:#d7dbea;
+  --db131-muted:#b9bfd0;
+}
+
+/* Pages: late page-manager rules used white URL/code/helper surfaces. */
+html[data-color-mode="dark"] #adminApp #pages :is(
+  .uc-v1634-page-history,.uc-v1634-custom-meta,.uc-v1634-meta-body,
+  .uc-v1635-custom-meta,.uc-v1635-help-points section,.uc-v1636-header-order,
+  .uc-v1636-nav-sort-row,.uc-v1636-story-upload-field,.uc-v1637-header-manager,
+  .uc-v1637-grid-row,.uc-v1637-child-wrap,.uc-v1637-preview-menu
+){background:var(--db131-surface)!important;background-image:none!important;border-color:var(--db131-line)!important;color:var(--db131-text)!important}
+html[data-color-mode="dark"] #adminApp #pages :is(
+  .uc-v1634-meta-body,.uc-v1635-help-points section,.uc-v1636-nav-sort-row,
+  .uc-v1636-story-upload-field,.uc-v1637-grid-row,.uc-v1637-child-wrap,.uc-v1637-preview-menu
+){background:var(--db131-raised)!important}
+html[data-color-mode="dark"] #adminApp #pages :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea,code){background:#101521!important;color:#f3f4fb!important;border-color:var(--db131-line-strong)!important}
+html[data-color-mode="dark"] #adminApp #pages :is(.uc-v1637-grid-head,.uc-v1636-nav-sort-head){background:var(--db131-soft)!important;color:var(--db131-title)!important;border-color:var(--db131-line)!important}
+html[data-color-mode="dark"] #adminApp #pages :is(.hint,small,.uc-v1636-header-order-head p,.uc-v1637-manager-head p,.uc-v1637-name-cell small,.uc-v1637-child-grid small){color:var(--db131-muted)!important}
+html[data-color-mode="dark"] #adminApp #pages :is(.uc-v1637-manager-note,.uc-v1634-dual-foot .notice){background:#302b1e!important;color:#f2dfad!important;border-color:#74623a!important}
+
+/* Approvals: lifecycle tabs and their inactive states remain readable. */
+html[data-color-mode="dark"] #adminApp #approvals .db114-tabs button,
+html[data-color-mode="dark"] #adminApp #approvals .db115-lifecycle-toggle,
+html[data-color-mode="dark"] #adminApp #approvals .db115-lifecycle-arrow,
+html[data-color-mode="dark"] #adminApp #approvals .db114-chip{
+  background:var(--db131-soft)!important;
+  background-image:none!important;
+  border-color:var(--db131-line-strong)!important;
+  color:#eef0f7!important;
+}
+html[data-color-mode="dark"] #adminApp #approvals .db114-tabs button.active{
+  background:var(--dropbeat-primary)!important;
+  border-color:var(--dropbeat-primary)!important;
+  color:#fff!important;
+}
+html[data-color-mode="dark"] #adminApp #approvals .db115-lifecycle-toggle:hover{background:var(--db131-hover)!important}
+
+/* Dashboard subscription helper/status messages. */
+html[data-color-mode="dark"] #adminApp :is(#ucSubscriptionOverviewMsg,.uc-pg-status) .uc-pg-status,
+html[data-color-mode="dark"] #adminApp #ucSubscriptionOverviewMsg.uc-pg-status,
+html[data-color-mode="dark"] #adminApp .uc-pg-status{
+  background:var(--db131-raised)!important;
+  background-image:none!important;
+  border-color:var(--db131-line-strong)!important;
+  color:var(--db131-text)!important;
+}
+html[data-color-mode="dark"] #adminApp .uc-pg-status:is(.fetching,.warn){background:#302b1e!important;border-color:#74623a!important;color:#f2dfad!important}
+html[data-color-mode="dark"] #adminApp .uc-pg-status.error{background:#382126!important;border-color:#7f3d49!important;color:#ffc8d0!important}
+html[data-color-mode="dark"] #adminApp .uc-pg-status.ok{background:#183126!important;border-color:#356e4c!important;color:#c7f3d5!important}
+
+/* Webinars: coach metadata, empty calendar/grid states and helper blocks. */
+html[data-color-mode="dark"] #adminApp :is(.db109-coach-types,.db107-empty,.db107-status-note){background:var(--db131-raised)!important;background-image:none!important;border-color:var(--db131-line)!important;color:var(--db131-muted)!important}
+html[data-color-mode="dark"] #adminApp .db109-coach-types strong{color:var(--db131-title)!important}
+html[data-color-mode="dark"] #adminApp .db107-event-grid>.db107-empty,
+html[data-color-mode="dark"] #adminApp .db107-member-grid>.db107-empty{grid-column:1/-1}
+
+/* Body-mounted Add Coach, Add Member and other forms need their own scope. */
+html[data-color-mode="dark"] body>.modal :is(
+  .db121-availability-row,.db125-approved-remuneration-toggle,
+  .db125-approved-remuneration-fields,.db107-modal-note,.uc1708-customer-meta>div,
+  .uc1708-member-reminder,.uc94-enable-row,.uc1700-edit-toggle,
+  .uc1700-notification-channel
+){background:var(--db131-raised)!important;background-image:none!important;border-color:var(--db131-line)!important;color:var(--db131-text)!important}
+html[data-color-mode="dark"] body>.modal :is(.db107-modal-note,.notice:not(.error):not(.success)){
+  background:#302b1e!important;border-color:#74623a!important;color:#f2dfad!important;
+}
+html[data-color-mode="dark"] body>.modal :is(.db107-modal-note,.notice:not(.error):not(.success)) :is(strong,small,p){color:inherit!important}
+html[data-color-mode="dark"] body>.modal :is(.db121-availability-head p,.uc1708-customer-meta small,.uc1708-member-reminder small,.uc94-enable-row small){color:var(--db131-muted)!important}
+html[data-color-mode="dark"] body>.modal :is(.uc1708-day-picks button,.uc1708-channel-picks button){background:var(--db131-soft)!important;border-color:var(--db131-line-strong)!important;color:#eef0f7!important}
+html[data-color-mode="dark"] body>.modal :is(.uc1708-day-picks button.selected,.uc1708-channel-picks button.selected){background:var(--dropbeat-primary)!important;border-color:var(--dropbeat-primary)!important;color:#fff!important}
+
+/* Every supported toggle family: dark capsule, readable label and dark off track. */
+html[data-color-mode="dark"] #adminApp :is(
+  .toggle-row,.uc94-enable-row,.uc94-switch-label,.uc-social-toggle-capsule,
+  .uc-pay-toggle-capsule,.uc69-automation-toggle,.uc1700-edit-toggle,
+  .uc1700-notification-channel,.db108-switch-row
+),
+html[data-color-mode="dark"] body>.modal :is(
+  .toggle-row,.uc94-enable-row,.uc94-switch-label,.uc-social-toggle-capsule,
+  .uc-pay-toggle-capsule,.uc69-automation-toggle,.uc1700-edit-toggle,
+  .uc1700-notification-channel,.db108-switch-row
+){background:var(--db131-raised)!important;background-image:none!important;border-color:var(--db131-line)!important;color:var(--db131-title)!important}
+html[data-color-mode="dark"] #adminApp :is(.toggle-row,.uc94-enable-row,.uc-social-toggle-capsule,.uc-pay-toggle-capsule,.uc69-automation-toggle,.uc1700-edit-toggle,.uc1700-notification-channel,.db108-switch-row) :is(strong,span),
+html[data-color-mode="dark"] body>.modal :is(.toggle-row,.uc94-enable-row,.uc-social-toggle-capsule,.uc-pay-toggle-capsule,.uc69-automation-toggle,.uc1700-edit-toggle,.uc1700-notification-channel,.db108-switch-row) :is(strong,span){color:var(--db131-title)!important}
+html[data-color-mode="dark"] #adminApp :is(.toggle-row,.uc94-enable-row,.uc-social-toggle-capsule,.uc-pay-toggle-capsule,.uc69-automation-toggle,.uc1700-edit-toggle,.uc1700-notification-channel,.db108-switch-row) :is(small,.hint),
+html[data-color-mode="dark"] body>.modal :is(.toggle-row,.uc94-enable-row,.uc-social-toggle-capsule,.uc-pay-toggle-capsule,.uc69-automation-toggle,.uc1700-edit-toggle,.uc1700-notification-channel,.db108-switch-row) :is(small,.hint){color:var(--db131-muted)!important}
+html[data-color-mode="dark"] :is(#adminApp,body>.modal) .switch input:not(:checked)+.slider,
+html[data-color-mode="dark"] :is(#adminApp,body>.modal) .uc94-switch input:not(:checked)+span,
+html[data-color-mode="dark"] :is(#adminApp,body>.modal) .db108-switch>input:not(:checked)+span,
+html[data-color-mode="dark"] #socialMediaIntegrations .uc49-mini-switch input:not(:checked)+.uc49-mini-slider{
+  background:#4a526d!important;border-color:#626b86!important;
+}
+html[data-color-mode="dark"] :is(#adminApp,body>.modal) .switch .slider:before,
+html[data-color-mode="dark"] :is(#adminApp,body>.modal) .uc94-switch>span:before,
+html[data-color-mode="dark"] :is(#adminApp,body>.modal) .db108-switch>span:after,
+html[data-color-mode="dark"] #socialMediaIntegrations .uc49-mini-slider:before{background:#eef0f7!important}
+
+/* Email & OTP: V17.09 has high-specificity white provider summaries. */
+html[data-color-mode="dark"] #adminApp #socialMediaIntegrations #uc1706EmailProviders>.uc1706-provider,
+html[data-color-mode="dark"] #adminApp #socialMediaIntegrations #uc1706EmailProviders>.uc1706-provider>summary,
+html[data-color-mode="dark"] #adminApp #socialMediaIntegrations #uc1706EmailProviders>.uc1706-provider>form{
+  background:var(--db131-surface)!important;
+  background-image:none!important;
+  border-color:var(--db131-line)!important;
+  color:var(--db131-text)!important;
+}
+html[data-color-mode="dark"] #adminApp #socialMediaIntegrations #uc1706EmailProviders>.uc1706-provider>summary :is(strong,span){color:var(--db131-title)!important}
+html[data-color-mode="dark"] #adminApp #socialMediaIntegrations :is(.uc1706-switches,.uc1706-toggle,.uc1706-fields,.uc1707-provider-help,.uc1707-help-head,.uc1707-help-links a,.uc1707-round-back){background:var(--db131-raised)!important;background-image:none!important;border-color:var(--db131-line)!important;color:var(--db131-text)!important}
+html[data-color-mode="dark"] #adminApp #socialMediaIntegrations .uc1706-toggle{color:var(--db131-title)!important}
+html[data-color-mode="dark"] #adminApp #socialMediaIntegrations .uc1706-provider label{color:var(--db131-title)!important}
+html[data-color-mode="dark"] #adminApp #socialMediaIntegrations .uc1707-provider-help :is(li,p,small){color:var(--db131-muted)!important}
+html[data-color-mode="dark"] #adminApp #socialMediaIntegrations .uc1707-provider-help :is(h3,h4,strong){color:var(--db131-title)!important}
+
+/* Keep appearance controls available only through Brand Settings → Website Colors. */
+#settings form>[data-db131-appearance-owner].uc-v1652-section-hidden{display:none!important}
+
+@media(max-width:760px){
+  html[data-color-mode="dark"] body>.modal .db121-availability-row{background:var(--db131-raised)!important}
+}

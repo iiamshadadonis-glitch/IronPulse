@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio V8 — additive help/layout fixes + anonymous journey cleanup UI integration.
+/* IronPulse Gym V8 — additive help/layout fixes + anonymous journey cleanup UI integration.
    Existing business logic remains authoritative. This file only repairs helper placement,
    restores missing helpers on dynamic panels, and adds solution-oriented payment help. */
 (function(){

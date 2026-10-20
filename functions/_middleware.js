@@ -5,7 +5,7 @@ import { ensureAuthSchema } from './_lib/auth-schema.js';
 import { json, isTransientDatabaseError, preferredPublicOrigin } from './_lib/utils.js';
 import { runTrafficMaintenance } from './_lib/traffic-maintenance.js';
 import { purgePublicEdgeCaches, DROPBEAT_PUBLIC_CACHE_ENTRIES, dropbeatPublicCacheEntries } from './_lib/edge-response-cache.js';
-import { syncDanceMembershipsFromRecentOrders } from './_lib/dance-studio.js';
+import { syncDanceMembershipsFromRecentOrders } from './_lib/fitness-platform.js';
 
 const CSP = [
   "default-src 'self' https: data: blob:",
@@ -78,7 +78,7 @@ export async function onRequest(context) {
     try {
       // Unified Login, OTP and account-session routes prepare only their small
       // authentication schema. Their handlers prepare portal tables only when a
-      // Student or Coach action actually needs them.
+      // Member or Coach action actually needs them.
       if (isDedicatedAuth) await ensureAuthSchema(context.env);
       else await ensureSchema(context.env);
     } catch (error) {
@@ -193,80 +193,80 @@ export async function onRequest(context) {
     if(url.searchParams.get('db_heat_preview')==='1'&&!url.pathname.startsWith('/admin')){
       html=html.replace(/<img\b(?![^>]*\bloading=)/gi,'<img loading="lazy" decoding="async" fetchpriority="low"').replace(/<video\b/gi,'<video preload="none"');
     }
-    if(!html.includes('/assets/dropbeat-media-v1-21.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-media-v1-21.js?v=1.21"></script></body>');
+    if(!html.includes('/assets/gym-media-v1-21.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-media-v1-21.js?v=1.21"></script></body>');
     if(url.pathname.startsWith('/admin')){
-      html=html.replace(/(<script\b[^>]*\bsrc="\/admin\/(?:dropbeat-admin-language|dropbeat-admin-v1-05|dropbeat-admin-v1-19|dropbeat-admin-v1-22|dropbeat-admin-v1-29|dropbeat-admin-v1-31|final-v9-invoice-statements-gmail|final-v16-52-brand-settings-hub|final-v16-54-brand-articles-stability|final-master-client-polish|final-v16-37-header-editor-story-upload|final-v16-48-posts-scheduler|final-v16-68-automation-flow-workspace|final-v16-76-d1-polls-automation-workspace|final-v16-94-integrations-heatmaps-code-reminders|final-v17-05-email-automations)\.js)(?:\?([^"]*))?"/gi,(match,path,query)=>{const params=new URLSearchParams(query||'');params.set('build','dropbeat-1.49-20261018');return path+'?'+params+'"';});
-      if(!html.includes('/assets/dropbeat-plan-import-v1-40.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-plan-import-v1-40.js?build=dropbeat-1.49-20261018"></script></body>');
+      html=html.replace(/(<script\b[^>]*\bsrc="\/admin\/(?:gym-admin-language|gym-admin-v1-05|gym-admin-v1-19|gym-admin-v1-22|gym-admin-v1-29|gym-admin-v1-31|final-v9-invoice-statements-gmail|final-v16-52-brand-settings-hub|final-v16-54-brand-articles-stability|final-master-client-polish|final-v16-37-header-editor-story-upload|final-v16-48-posts-scheduler|final-v16-68-automation-flow-workspace|final-v16-76-d1-polls-automation-workspace|final-v16-94-integrations-heatmaps-code-reminders|final-v17-05-email-automations)\.js)(?:\?([^"]*))?"/gi,(match,path,query)=>{const params=new URLSearchParams(query||'');params.set('build','dropbeat-1.49-20261018');return path+'?'+params+'"';});
+      if(!html.includes('/assets/gym-plan-import-v1-40.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-plan-import-v1-40.js?build=dropbeat-1.49-20261018"></script></body>');
       html=html.replace(/<script\s+src="\/assets\/dropbeat-dashboard-mobile-v1-(?:36|37|38|39|40|41|42|43|44|45|46|47|48)\.js[^\"]*"><\/script>/gi,'');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-36.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-36.css?build=dropbeat-1.36-20261013"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-37.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-37.css?build=dropbeat-1.37-20261013"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-38.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-38.css?build=dropbeat-1.40-20261014"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-39.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-39.css?build=dropbeat-1.39-20261013"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-40.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-40.css?build=dropbeat-1.40-20261014"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-41.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-41.css?build=dropbeat-1.41-20261014"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-42.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-42.css?build=dropbeat-1.42-20261015"></head>');
-      html=html.replace(/<script\s+src="\/assets\/dropbeat-ui-components-v1-42\.js[^"]*"><\/script>/gi,'');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-43.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-43.css?build=dropbeat-1.43-20261015"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-36.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-36.css?build=dropbeat-1.36-20261013"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-37.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-37.css?build=dropbeat-1.37-20261013"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-38.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-38.css?build=dropbeat-1.40-20261014"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-39.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-39.css?build=dropbeat-1.39-20261013"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-40.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-40.css?build=dropbeat-1.40-20261014"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-41.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-41.css?build=dropbeat-1.41-20261014"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-42.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-42.css?build=dropbeat-1.42-20261015"></head>');
+      html=html.replace(/<script\s+src="\/assets\/gym-ui-components-v1-42\.js[^"]*"><\/script>/gi,'');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-43.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-43.css?build=dropbeat-1.43-20261015"></head>');
       html=html.replace(/<script\s+src="\/assets\/dropbeat-ui-components-v1-(?:43|44|45|46|47|48)\.js[^"]*"><\/script>/gi,'');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-44.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-44.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-45.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-45.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-46.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-46.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-47.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-47.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-48.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-48.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-49.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-49.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-ui-components-v1-49.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-ui-components-v1-49.js?build=dropbeat-1.49-20261018"></script></body>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-49.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-dashboard-mobile-v1-49.js?build=dropbeat-1.49-20261018"></script></body>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-44.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-44.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-45.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-45.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-46.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-46.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-47.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-47.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-48.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-48.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-49.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-49.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-ui-components-v1-49.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-ui-components-v1-49.js?build=dropbeat-1.49-20261018"></script></body>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-49.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-dashboard-mobile-v1-49.js?build=dropbeat-1.49-20261018"></script></body>');
     }else{
-      if(!html.includes('/assets/dropbeat-theme-v1-29.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-theme-v1-29.css?v=1.29"></head>');
-      if(!html.includes('/assets/dropbeat-theme-v1-29.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-theme-v1-29.js?v=1.29"></script></body>');
-      if(!html.includes('/assets/dropbeat-dark-mode-v1-30.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dark-mode-v1-30.css?v=1.30"></head>');
-      if(!html.includes('/assets/dropbeat-dark-mode-v1-30.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-dark-mode-v1-30.js?v=1.30"></script></body>');
-      if(!html.includes('/assets/dropbeat-dark-mode-v1-31.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dark-mode-v1-31.css?v=1.31"></head>');
-      if(!html.includes('/assets/dropbeat-mobile-v1-32.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-mobile-v1-32.css?v=1.32"></head>');
-      if(!html.includes('/assets/dropbeat-mobile-v1-33.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-mobile-v1-33.css?build=dropbeat-1.33-20261012"></head>');
-      if(!html.includes('/assets/dropbeat-mobile-v1-34.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-mobile-v1-34.css?build=dropbeat-1.34-20261012"></head>');
-      if(!html.includes('/assets/dropbeat-mobile-v1-34.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-mobile-v1-34.js?build=dropbeat-1.34-20261012"></script></body>');
-      if(!html.includes('/assets/dropbeat-ui-v1-35.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-ui-v1-35.css?build=dropbeat-1.35-20261012"></head>');
-      if(!html.includes('/assets/dropbeat-ui-v1-35.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-ui-v1-35.js?build=dropbeat-1.35-20261012"></script></body>');
-      if(dashboardDocument&&!html.includes('/assets/dropbeat-dashboard-mobile-v1-36.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-36.css?build=dropbeat-1.36-20261013"></head>');
-      if(dashboardDocument&&!html.includes('/assets/dropbeat-dashboard-mobile-v1-37.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-37.css?build=dropbeat-1.37-20261013"></head>');
+      if(!html.includes('/assets/gym-theme-v1-29.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-theme-v1-29.css?v=1.29"></head>');
+      if(!html.includes('/assets/gym-theme-v1-29.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-theme-v1-29.js?v=1.29"></script></body>');
+      if(!html.includes('/assets/gym-dark-mode-v1-30.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dark-mode-v1-30.css?v=1.30"></head>');
+      if(!html.includes('/assets/gym-dark-mode-v1-30.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-dark-mode-v1-30.js?v=1.30"></script></body>');
+      if(!html.includes('/assets/gym-dark-mode-v1-31.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dark-mode-v1-31.css?v=1.31"></head>');
+      if(!html.includes('/assets/gym-mobile-v1-32.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-mobile-v1-32.css?v=1.32"></head>');
+      if(!html.includes('/assets/gym-mobile-v1-33.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-mobile-v1-33.css?build=dropbeat-1.33-20261012"></head>');
+      if(!html.includes('/assets/gym-mobile-v1-34.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-mobile-v1-34.css?build=dropbeat-1.34-20261012"></head>');
+      if(!html.includes('/assets/gym-mobile-v1-34.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-mobile-v1-34.js?build=dropbeat-1.34-20261012"></script></body>');
+      if(!html.includes('/assets/gym-ui-v1-35.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-ui-v1-35.css?build=dropbeat-1.35-20261012"></head>');
+      if(!html.includes('/assets/gym-ui-v1-35.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-ui-v1-35.js?build=dropbeat-1.35-20261012"></script></body>');
+      if(dashboardDocument&&!html.includes('/assets/gym-dashboard-mobile-v1-36.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-36.css?build=dropbeat-1.36-20261013"></head>');
+      if(dashboardDocument&&!html.includes('/assets/gym-dashboard-mobile-v1-37.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-37.css?build=dropbeat-1.37-20261013"></head>');
       if(dashboardDocument){
         html=html.replace(/<script\s+src="\/assets\/dropbeat-dashboard-mobile-v1-(?:36|37|38|39|40|41|42|43|44|45|46|47|48)\.js[^\"]*"><\/script>/gi,'');
-        if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-38.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-38.css?build=dropbeat-1.40-20261014"></head>');
-        if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-39.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-39.css?build=dropbeat-1.39-20261013"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-40.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-40.css?build=dropbeat-1.40-20261014"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-41.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-41.css?build=dropbeat-1.41-20261014"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-42.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-42.css?build=dropbeat-1.42-20261015"></head>');
-      html=html.replace(/<script\s+src="\/assets\/dropbeat-ui-components-v1-42\.js[^"]*"><\/script>/gi,'');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-43.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-43.css?build=dropbeat-1.43-20261015"></head>');
+        if(!html.includes('/assets/gym-dashboard-mobile-v1-38.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-38.css?build=dropbeat-1.40-20261014"></head>');
+        if(!html.includes('/assets/gym-dashboard-mobile-v1-39.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-39.css?build=dropbeat-1.39-20261013"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-40.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-40.css?build=dropbeat-1.40-20261014"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-41.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-41.css?build=dropbeat-1.41-20261014"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-42.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-42.css?build=dropbeat-1.42-20261015"></head>');
+      html=html.replace(/<script\s+src="\/assets\/gym-ui-components-v1-42\.js[^"]*"><\/script>/gi,'');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-43.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-43.css?build=dropbeat-1.43-20261015"></head>');
       html=html.replace(/<script\s+src="\/assets\/dropbeat-ui-components-v1-(?:43|44|45|46|47|48)\.js[^"]*"><\/script>/gi,'');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-44.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-44.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-45.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-45.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-46.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-46.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-47.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-47.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-48.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-48.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-49.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-dashboard-mobile-v1-49.css?build=dropbeat-1.49-20261018"></head>');
-      if(!html.includes('/assets/dropbeat-ui-components-v1-49.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-ui-components-v1-49.js?build=dropbeat-1.49-20261018"></script></body>');
-      if(!html.includes('/assets/dropbeat-dashboard-mobile-v1-49.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-dashboard-mobile-v1-49.js?build=dropbeat-1.49-20261018"></script></body>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-44.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-44.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-45.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-45.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-46.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-46.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-47.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-47.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-48.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-48.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-49.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-dashboard-mobile-v1-49.css?build=dropbeat-1.49-20261018"></head>');
+      if(!html.includes('/assets/gym-ui-components-v1-49.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-ui-components-v1-49.js?build=dropbeat-1.49-20261018"></script></body>');
+      if(!html.includes('/assets/gym-dashboard-mobile-v1-49.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-dashboard-mobile-v1-49.js?build=dropbeat-1.49-20261018"></script></body>');
       }
     }
     // V1.50 delivery is additive, including dynamically generated public pages.
-    if(/<script[^>]+src=["']\/(?:assets\/app\.js|admin\/admin\.js)/i.test(html)&&!html.includes('/assets/dropbeat-data-cache-v1-50.js'))html=html.replace(/(<script[^>]+src=["']\/(?:assets\/app\.js|admin\/admin\.js))/i,'<script src="/assets/dropbeat-data-cache-v1-50.js?build=dropbeat-1.50-20261018"></script>$1');
-    if(!html.includes('/assets/dropbeat-mobile-v1-50.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-mobile-v1-50.css?build=dropbeat-1.50-20261018"></head>');
-    if(!url.pathname.startsWith('/admin')&&html.includes('/assets/app.js')&&!html.includes('/assets/dropbeat-public-mobile-v1-50.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-public-mobile-v1-50.js?build=dropbeat-1.50-20261018"></script></body>');
+    if(/<script[^>]+src=["']\/(?:assets\/app\.js|admin\/admin\.js)/i.test(html)&&!html.includes('/assets/gym-data-cache-v1-50.js'))html=html.replace(/(<script[^>]+src=["']\/(?:assets\/app\.js|admin\/admin\.js))/i,'<script src="/assets/gym-data-cache-v1-50.js?build=dropbeat-1.50-20261018"></script>$1');
+    if(!html.includes('/assets/gym-mobile-v1-50.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-mobile-v1-50.css?build=dropbeat-1.50-20261018"></head>');
+    if(!url.pathname.startsWith('/admin')&&html.includes('/assets/app.js')&&!html.includes('/assets/gym-public-mobile-v1-50.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-public-mobile-v1-50.js?build=dropbeat-1.50-20261018"></script></body>');
     html=html.replace(/(src=["'])(\/(?:assets\/(?:app|app-extra|final-public-seo-ssl-speed)|admin\/admin)\.js)([^"']*)(["'])/gi,(_m,a,path,query,z)=>{const clean=query.replace(/([?&])build=[^&]*/g,'$1').replace(/[?&]$/,'');return a+path+clean+(clean.includes('?')?'&':'?')+'build=dropbeat-1.50-20261018'+z;});
     // V1.51 also covers custom public documents generated by the router.
-    if(!html.includes('/assets/dropbeat-mobile-v1-51.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/dropbeat-mobile-v1-51.css?build=dropbeat-1.51-20261018"></head>');
-    if(!html.includes('/assets/dropbeat-ui-components-v1-49.js'))html=html.replace(/<\/body>/i,'<script data-db151-navigation-only src="/assets/dropbeat-ui-components-v1-49.js?build=dropbeat-1.51-20261018"></script></body>');
-    if(!html.includes('/assets/dropbeat-mobile-navigation-v1-51.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-mobile-navigation-v1-51.js?build=dropbeat-1.51-20261018"></script></body>');
-    html=html.replace(/(src=["'])(\/assets\/(?:dropbeat-dance-language|app|dropbeat-ui-components-v1-49|dropbeat-data-cache-v1-50|final-v16-37-navigation|final-v16-34-custom-pages|final-master-client-polish|final-v14-4-plan-billing|final-public-seo-ssl-speed|dropbeat-dashboard-mobile-v1-49)\.js)([^"']*)(["'])/gi,(_m,a,path,query,z)=>{const clean=query.replace(/([?&])build=[^&]*/g,'$1').replace(/[?&]$/,'');return a+path+clean+(clean.includes('?')?'&':'?')+'build=dropbeat-'+(path.includes('dropbeat-dance-language')?'1.57-20261019':(path.includes('dropbeat-dashboard-mobile-v1-49')?'1.52':'1.51')+'-20261018')+z;});
+    if(!html.includes('/assets/gym-mobile-v1-51.css'))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/assets/gym-mobile-v1-51.css?build=dropbeat-1.51-20261018"></head>');
+    if(!html.includes('/assets/gym-ui-components-v1-49.js'))html=html.replace(/<\/body>/i,'<script data-db151-navigation-only src="/assets/gym-ui-components-v1-49.js?build=dropbeat-1.51-20261018"></script></body>');
+    if(!html.includes('/assets/gym-mobile-navigation-v1-51.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-mobile-navigation-v1-51.js?build=dropbeat-1.51-20261018"></script></body>');
+    html=html.replace(/(src=["'])(\/assets\/(?:gym-fitness-language|app|gym-ui-components-v1-49|gym-data-cache-v1-50|final-v16-37-navigation|final-v16-34-custom-pages|final-master-client-polish|final-v14-4-plan-billing|final-public-seo-ssl-speed|gym-dashboard-mobile-v1-49)\.js)([^"']*)(["'])/gi,(_m,a,path,query,z)=>{const clean=query.replace(/([?&])build=[^&]*/g,'$1').replace(/[?&]$/,'');return a+path+clean+(clean.includes('?')?'&':'?')+'build=dropbeat-'+(path.includes('gym-fitness-language')?'1.57-20261019':(path.includes('gym-dashboard-mobile-v1-49')?'1.52':'1.51')+'-20261018')+z;});
     // Dynamic button bindings also cover custom page shells generated at the edge.
-    if(!html.includes('/assets/dropbeat-dynamic-labels-v1-59.js'))html=html.replace(/<head\b[^>]*>/i,head=>head+'<link rel="stylesheet" href="/assets/dropbeat-dynamic-labels-v1-59.css?build=1.59"><script src="/assets/dropbeat-dynamic-labels-v1-59.js?build=1.59"></script>');
-    if(!url.pathname.startsWith('/admin')&&!html.includes('/assets/dropbeat-button-dictionary-v1-56.js')){
-      if(!html.includes('/assets/dropbeat-data-cache-v1-50.js'))html=html.replace(/<\/body>/i,'<script src="/assets/dropbeat-data-cache-v1-50.js?build=dropbeat-1.51-20261018"></script></body>');
-      html=html.replace(/<\/body>/i,'<script type="module" src="/assets/dropbeat-button-dictionary-v1-56.js?build=1.59"></script></body>');
+    if(!html.includes('/assets/gym-dynamic-labels-v1-59.js'))html=html.replace(/<head\b[^>]*>/i,head=>head+'<link rel="stylesheet" href="/assets/gym-dynamic-labels-v1-59.css?build=1.59"><script src="/assets/gym-dynamic-labels-v1-59.js?build=1.59"></script>');
+    if(!url.pathname.startsWith('/admin')&&!html.includes('/assets/gym-button-dictionary-v1-56.js')){
+      if(!html.includes('/assets/gym-data-cache-v1-50.js'))html=html.replace(/<\/body>/i,'<script src="/assets/gym-data-cache-v1-50.js?build=dropbeat-1.51-20261018"></script></body>');
+      html=html.replace(/<\/body>/i,'<script type="module" src="/assets/gym-button-dictionary-v1-56.js?build=1.59"></script></body>');
     }
-    if(!html.includes('/assets/dropbeat-layout-v1-57.js')&&!url.pathname.startsWith('/admin'))html=html.replace(/<\/body>/i,'<script type="module" src="/assets/dropbeat-layout-v1-57.js?build=1.59"></script></body>');
+    if(!html.includes('/assets/gym-layout-v1-57.js')&&!url.pathname.startsWith('/admin'))html=html.replace(/<\/body>/i,'<script type="module" src="/assets/gym-layout-v1-57.js?build=1.59"></script></body>');
     if(!html.includes('/assets/app-session-v1-58.js'))html=html.replace(/<\/body>/i,'<script src="/assets/app-session-v1-58.js?build=1.58"></script></body>');
     responseBody=html;
     headers.delete('content-length');

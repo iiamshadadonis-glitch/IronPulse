@@ -1,4 +1,4 @@
-/* V15.1 — Dance Tips editorial experience.
+/* V15.1 — Fitness Tips editorial experience.
    Loaded only on /blog routes. It reuses the existing site theme/settings and does not alter them. */
 (function(){
   const $=(s,r=document)=>r?.querySelector?.(s)||null;

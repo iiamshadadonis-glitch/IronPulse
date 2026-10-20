@@ -1,0 +1,37 @@
+/* DropBeat V1.30 — public dark-mode completion.
+   Light-mode styling is intentionally absent from this file. */
+
+/* Geometry for the V1.30 recovery control used only when a dynamic header has
+   removed the original V1.25 control. It matches the existing compact button. */
+.db130-color-mode-toggle{width:30px;height:30px;min-width:30px;padding:0;border:1px solid rgba(75,85,190,.32);border-radius:50%;display:inline-grid;place-items:center;background:#fff;color:#1a1a1a;box-shadow:0 5px 16px rgba(34,36,79,.12);cursor:pointer;line-height:1;transition:transform .18s ease,background-color .18s ease,color .18s ease,border-color .18s ease;z-index:10050}
+.db130-color-mode-toggle:hover{transform:translateY(-1px)}
+.db130-color-mode-toggle:focus-visible{outline:3px solid rgba(75,85,190,.35);outline-offset:2px}
+.db130-color-mode-toggle svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.db130-color-mode-toggle.db125-fixed{position:fixed;top:10px;right:12px}
+.db130-color-mode-toggle.db125-in-toolbar,.db130-color-mode-toggle.db125-in-portal{flex:0 0 30px;margin-inline:2px}
+
+html[data-color-mode="dark"] .db130-color-mode-toggle{background:#20263a;color:#fff;border-color:#555d7b;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+
+/* About uses an older transparent gradient heading. Reset the paint itself,
+   not its layout, so the title cannot disappear against the dark card. */
+html[data-color-mode="dark"] body[data-uc-load="page:about"] #pageContent h1,
+html[data-color-mode="dark"] body[data-uc-load="page:about"] .legal h1{
+  background:none!important;
+  background-image:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  -webkit-text-fill-color:#f7f8fc!important;
+  color:#f7f8fc!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+
+/* Fitness Tips list/article pages, including the dynamically rendered /blog shell. */
+html[data-color-mode="dark"] body[data-uc-load^="blog"] :is(.uc-blog-shell,.uc-blog-intro,.uc-blog-card,.uc-blog-card-body,.uc-blog-sidebar,.uc-side-block,.uc-featured-side,.uc-side-item,.uc-side-socials,.uc-tag-cloud,.uc-blog-pagination,.uc-article,.uc-article-body,.uc-related-card,.uc-comments,.uc-comment-form,.uc-comment){background:#1b2030!important;background-image:none!important;border-color:#3d455f!important;color:#d7dbea!important}
+html[data-color-mode="dark"] body[data-uc-load^="blog"] :is(.uc-blog-card-media,.uc-featured-side,.uc-side-item,.uc-tag-cloud,.uc-blog-pagination){background:#202638!important;border-color:#3d455f!important}
+html[data-color-mode="dark"] body[data-uc-load^="blog"] :is(h1,h2,h3,h4,.uc-blog-section-title,.uc-blog-card h2,.uc-article-title,.uc-side-block strong){background:none!important;background-image:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;-webkit-text-fill-color:#f7f8fc!important;color:#f7f8fc!important;opacity:1!important}
+html[data-color-mode="dark"] body[data-uc-load^="blog"] :is(p,li,.uc-blog-meta,.uc-blog-card p,.uc-side-item small,.uc-article-meta,.uc-comment-meta){color:#b9bfd0!important}
+html[data-color-mode="dark"] body[data-uc-load^="blog"] :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea){background:#101521!important;color:#f3f4fb!important;border-color:#4a526d!important}
+
+@media(max-width:760px){.db130-color-mode-toggle{width:28px;height:28px;min-width:28px}.db130-color-mode-toggle svg{width:15px;height:15px}.db130-color-mode-toggle.db125-fixed{top:8px;right:8px}}
+

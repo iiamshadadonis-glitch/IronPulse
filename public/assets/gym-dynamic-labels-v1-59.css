@@ -1,0 +1,16 @@
+/* Labels stay placeholders until their validated dynamic payload is available. */
+@layer dropbeat-dynamic-labels {
+html:is([data-db159-layout="loading"],[data-db159-layout="error"]) :is([data-db159-name],.side .nav [data-tab="blogs"],.side .nav [data-tab="products"],.side .nav [data-tab="successStories"],.navlinks>a,.navlinks>.nav-dropdown>.nav-top-link,.footer a[data-uc-footer-nav-key],#blogs>.top h1,#products>.top h1,#successStories>.top h1),
+html:is([data-db159-buttons="loading"],[data-db159-buttons="error"]) :is([data-db156-button],.nav-actions .cart-pill,.nav-actions .join-pill){color:transparent!important;position:relative}
+html:is([data-db159-layout="loading"],[data-db159-layout="error"]) :is([data-db159-name],.side .nav [data-tab="blogs"],.side .nav [data-tab="products"],.side .nav [data-tab="successStories"],.navlinks>a,.navlinks>.nav-dropdown>.nav-top-link,.footer a[data-uc-footer-nav-key],#blogs>.top h1,#products>.top h1,#successStories>.top h1)::after,
+html:is([data-db159-buttons="loading"],[data-db159-buttons="error"]) :is([data-db156-button],.nav-actions .cart-pill,.nav-actions .join-pill)::after{content:""!important;display:block!important;position:absolute;left:12px;top:50%;transform:translateY(-50%);width:min(72px,65%);height:12px;border-radius:4px;background:color-mix(in srgb,CanvasText 18%,Canvas);animation:db159-label-pulse 1.2s ease-in-out infinite;pointer-events:none}
+[data-db159-label]:empty{display:inline-block;min-width:64px;min-height:1em}
+.db159-navigation-error{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;margin:12px 16px;border:1px solid var(--line,currentColor);border-radius:8px;background:var(--surface,var(--card,Canvas));color:var(--text-primary,CanvasText);font-size:14px;line-height:1.4}
+.db159-navigation-error button{flex:0 0 auto;min-height:44px;padding:8px 14px;border:1px solid var(--dropbeat-primary,var(--blue));border-radius:8px;background:transparent;color:var(--dropbeat-primary,var(--blue));font:inherit;font-weight:600;cursor:pointer}
+@keyframes db159-label-pulse{50%{opacity:.45}}
+@media(prefers-reduced-motion:reduce){html [data-db159-name]::after,html [data-db156-button]::after{animation:none!important}}
+}
+@media(min-width:761px){
+ #studioSchedule [data-db119-content].db119-content-flush{padding:20px}
+ #studioSchedule .db120-section-head{margin-bottom:24px}
+}

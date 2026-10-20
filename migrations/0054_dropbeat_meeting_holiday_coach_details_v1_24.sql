@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.24
+-- IronPulse Gym V1.24
 -- Additive holiday-audience delivery records and the coach's last-payment date.
 -- Existing meetings, classes, accounts, remuneration terms and theme settings
 -- remain authoritative and are not replaced.

@@ -1,13 +1,12 @@
 {
   "name": "ironpulse-gym-cloudflare",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "IronPulse Gym fitness membership platform for Cloudflare Pages, Pages Functions/Workers and D1. Forked from DropBeat V1.59 with existing backend contracts retained.",
+  "description": "IronPulse Gym fitness membership platform for Cloudflare Pages, Functions and the existing gym D1 database.",
   "scripts": {
     "dev": "wrangler pages dev public --compatibility-date=2026-08-01",
     "deploy": "node tools/deploy-gym.mjs",
     "deploy:cloudflare": "node tools/deploy-gym.mjs",
-    "d1:create": "wrangler d1 create ironpulse-gym-db",
     "d1:migrate:local": "wrangler d1 migrations apply DB --local",
     "d1:migrate:remote": "node tools/deploy-gym.mjs --migrate-only",
     "secret:razorpay:key": "wrangler pages secret put RAZORPAY_KEY_ID --project-name ironpulse-gym",
@@ -19,11 +18,14 @@
     "secret:greenapi": "wrangler pages secret put GREEN_API_TOKEN --project-name ironpulse-gym",
     "secret:automation": "wrangler pages secret put AUTOMATION_API_KEY --project-name ironpulse-gym",
     "setup:gym": "node tools/setup-gym.mjs",
-    "build": "wrangler pages functions build --outdir .build",
+    "build": "npm run check:deployment && wrangler pages functions build --outdir .build",
     "test": "node tools/verify-gym-release.mjs",
     "test:gym": "npm test",
     "test:gym:browser": "node tools/verify-gym-browser.mjs",
-    "test:gym:runtime": "node tools/verify-gym-runtime.mjs"
+    "test:gym:runtime": "node tools/verify-gym-runtime.mjs",
+    "check:deployment": "node tools/check-gym-deployment.mjs",
+    "check:cloudflare": "node tools/check-gym-cloudflare.mjs",
+    "test:gym:runtime:empty": "node tools/verify-gym-runtime.mjs --empty"
   },
   "devDependencies": {
     "@babel/parser": "7.28.5",

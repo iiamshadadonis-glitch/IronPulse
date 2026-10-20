@@ -18,7 +18,7 @@ export async function sweepRecentPublishedAuditions(env,{force=false,lookbackMin
     const recent=(data.posts||[]).filter(p=>{const t=ts(p.published_at||p.created_at||p.updated_at);return t&&t>=cutoff;});
     const candidates=[];const limit=Math.max(1,Math.min(5,Number(maxArticles)||3));
     const home=brandHomeUrl(env);
-    for(const post of recent){const key=String(post.blogger_post_id||post.id||post.slug||''),slug=String(post.slug||post.post_slug||post.id||'dance-class-update').replace(/^\/+|\/+$/g,''),articleUrl=`${home}/blog/${encodeURIComponent(slug)}`;const done=await env.DB.prepare("SELECT status FROM social_publish_log WHERE platform='distribution' AND (article_key=? OR article_url=?) ORDER BY updated_at DESC LIMIT 1").bind(key,articleUrl).first().catch(()=>null);if(done?.status==='published')continue;candidates.push(post);if(candidates.length>=limit)break;}
+    for(const post of recent){const key=String(post.blogger_post_id||post.id||post.slug||''),slug=String(post.slug||post.post_slug||post.id||'fitness-update').replace(/^\/+|\/+$/g,''),articleUrl=`${home}/blog/${encodeURIComponent(slug)}`;const done=await env.DB.prepare("SELECT status FROM social_publish_log WHERE platform='distribution' AND (article_key=? OR article_url=?) ORDER BY updated_at DESC LIMIT 1").bind(key,articleUrl).first().catch(()=>null);if(done?.status==='published')continue;candidates.push(post);if(candidates.length>=limit)break;}
     const results=[];
     for(const post of candidates){results.push({id:post.id,slug:post.slug,publishedAt:post.published_at,distribution:await distributePublishedArticle(env,post)});}
     const next={lastStartedAt:startedAt,lastCompletedAt:iso(),checked:candidates.length,lastError:'',lastResults:results.slice(0,3)};

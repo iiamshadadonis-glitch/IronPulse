@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.14
+-- IronPulse Gym V1.14
 -- Additive student/coach accounts, approvals, personal dashboard settings,
 -- notifications and OAuth state. Existing admin, payment and class tables
 -- remain authoritative and are linked by email / coach identifiers.

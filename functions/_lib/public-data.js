@@ -1,5 +1,5 @@
 import { safeJsonParse } from './utils.js';
-import { getProductClassMappings } from './dance-studio.js';
+import { getProductClassMappings } from './fitness-platform.js';
 
 export function bannerHref(b) {
   if (b.link_type === 'url') return b.link_value || '/offers';

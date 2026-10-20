@@ -27,7 +27,7 @@
   function settingsMarkup(){return `<div class="uc-v152-api-stack">
     <details id="ucV152ApiCore" class="card admin-collapsed-card uc-v152-settings-card"><summary class="uc-v152-help-summary">API Base URL &amp; Automation</summary><div class="collapsed-body">
       <div class="field"><label>API Base URL</label><div class="copyline"><input id="apiBaseUrl" readonly><button class="btn secondary small" type="button" onclick="copyValue('apiBaseUrl')">Copy</button></div></div>
-      <div class="field"><label>Vendor User ID</label><input id="vendorUserId" placeholder="dropbeat-dance-studio"></div>
+      <div class="field"><label>Vendor User ID</label><input id="vendorUserId" placeholder="ironpulse-gym"></div>
       <div class="field"><label>Bearer Token</label><div class="copyline"><input id="apiBearerToken" readonly placeholder="Generate token first"><button class="btn secondary small" type="button" onclick="copyValue('apiBearerToken')">Copy</button></div><small class="hint">Use this in automation software as Authorization: Bearer TOKEN.</small></div>
       <div class="field"><label>Authorization Header</label><div class="copyline"><input id="authHeaderExample" readonly><button class="btn secondary small" type="button" onclick="copyValue('authHeaderExample')">Copy</button></div></div>
       <div class="uc-v152-api-actions"><button class="btn compact" type="button" onclick="saveAutomationApiSettings()">Save API Settings</button><button class="btn compact" type="button" onclick="generateApiToken()">Generate Token</button><button class="btn secondary compact" type="button" onclick="revokeApiToken()">Revoke Token</button></div>
@@ -60,7 +60,7 @@
   }
 
   window.saveAutomationApiSettings=async function(){
-    try{await req('/api/admin/api-settings',{method:'POST',body:JSON.stringify({vendorUserId:$('#vendorUserId')?.value||'dropbeat-dance-studio'})});say('#apiMsg','API settings saved.');await window.load_apiSettings?.();}
+    try{await req('/api/admin/api-settings',{method:'POST',body:JSON.stringify({vendorUserId:$('#vendorUserId')?.value||'ironpulse-gym'})});say('#apiMsg','API settings saved.');await window.load_apiSettings?.();}
     catch(e){say('#apiMsg',e.message||'API settings could not be saved.','error');}
   };
   window.saveBloggerConnectionV152=async function(silent=false){

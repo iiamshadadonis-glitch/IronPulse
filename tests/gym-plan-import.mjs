@@ -7,7 +7,7 @@ import {onRequestPost as importPlans} from '../functions/api/admin/import-produc
 import {PLAN_IMPORT_COLUMNS,normalizePlanImportRow} from '../functions/_lib/plan-import.js';
 import {ensureSchema} from '../functions/_lib/schema.js';
 const root=new URL('../',import.meta.url),read=file=>readFile(new URL(file,root),'utf8');
-const context={window:{},console};vm.runInNewContext(await read('public/assets/dropbeat-plan-import-v1-40.js'),context);
+const context={window:{},console};vm.runInNewContext(await read('public/assets/gym-plan-import-v1-40.js'),context);
 const parse=text=>JSON.parse(JSON.stringify(context.window.DropBeatPlanCSV.parseCSV(text)));
 const sample=await read('public/sample-plan-import.csv'),rows=parse(sample);
 assert.deepEqual(Object.keys(rows[0]),PLAN_IMPORT_COLUMNS);

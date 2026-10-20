@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio V16.3 — actual gateway amounts + clear order lifecycle buckets. Additive final override. */
+/* IronPulse Gym V16.3 — actual gateway amounts + clear order lifecycle buckets. Additive final override. */
 (function(){
   'use strict';
   const $=(s,r=document)=>r?.querySelector?.(s)||null, $$=(s,r=document)=>Array.from(r?.querySelectorAll?.(s)||[]);

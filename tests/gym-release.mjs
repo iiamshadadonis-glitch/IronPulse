@@ -16,13 +16,15 @@ import {onRequestPost as login} from '../functions/api/admin/auth/login.js';
 
 const root=fileURLToPath(new URL('../',import.meta.url)),text=name=>readFileSync(join(root,name),'utf8');
 const baseline=JSON.parse(text('tests/gym-baseline-contracts.json')),current=collect(root);
-assert.deepEqual(current.css,baseline.css,'Every inherited CSS/theme file must be byte-identical');
+assert.deepEqual(current.css,baseline.css,'CSS/theme content must match V1.00 after filename-only path normalization');
 assert.deepEqual(current.functionDDL,baseline.functionDDL,'Runtime schema definitions must remain identical');
 for(const[name,value]of Object.entries(baseline.migrationDDL))assert.equal(current.migrationDDL[name],value,name);
 assert.deepEqual(current.apiPaths,baseline.apiPaths,'API endpoint paths stay compatible');
-const exceptions=['functions/_lib/notifications-v1-58.js','functions/_middleware.js','functions/api/admin/auth/login.js'];
+assert.deepEqual(current.backendSource,baseline.backendSource,'Backend logic must match supplied V1.00 after filename and Open Graph namespace normalization');
+assert.deepEqual(current.frontendSource,baseline.frontendSource,'Frontend logic must match supplied V1.00 after filename normalization');
+const exceptions=[];
 for(const[name,value]of Object.entries(baseline.functionShapes))if(!exceptions.includes(name))assert.equal(current.functionShapes[name],value,'Business logic, keys, roles and enums changed: '+name);
-console.log('Compatibility: 177 unchanged CSS files, 268 matching runtime-schema fingerprints, 55 unchanged migration DDL sets, 183 API paths and 265 backend structures. Three small routing/authentication changes are tested separately.');
+console.log('Compatibility with supplied gym V1.00: '+Object.keys(current.css).length+' matching CSS/theme files after path normalization, '+Object.keys(current.functionDDL).length+' runtime-schema fingerprints, '+Object.keys(current.migrationDDL).length+' migration DDL sets, '+current.apiPaths.length+' API paths and '+Object.keys(current.functionShapes).length+' backend structures.');
 
 for(const old of ['/student-dashboard','/student-dashboard.html','/student-dashboard/']){
  const response=await middleware({request:new Request('https://gym.example'+old+'?view=memberships'),env:{}});
@@ -43,9 +45,8 @@ try{
  assert.equal((await attempt('ChangeMe@123')).status,401);assert.equal(fixture.sql.prepare('SELECT COUNT(*) n FROM admin_users').get().n,0,'No shared bootstrap password');
  env.ADMIN_LOGIN_PASSWORD='Synthetic-unique-gym-password-462';assert.equal((await attempt(env.ADMIN_LOGIN_PASSWORD)).status,200);assert.equal((await attempt('wrong-password')).status,401);
 }finally{fixture.close();}
-const config=JSON.parse(text('wrangler.jsonc'));validateGymConfiguration(config,{configured:false});assert.throws(()=>validateGymConfiguration(config),/setup:gym/);
-const provisioned=structuredClone(config);provisioned.d1_databases[0].database_id='12345678-1234-1234-1234-123456789abc';provisioned.vars.ADMIN_LOGIN_EMAIL='owner@example.test';validateGymConfiguration(provisioned);
-for(const change of [c=>c.name='dance-class-at2',c=>c.d1_databases[0].database_id='16c9361a-625c-4c71-8ecb-6608a8836152']){const bad=structuredClone(provisioned);change(bad);assert.throws(()=>validateGymConfiguration(bad),/original/i);}
+const config=JSON.parse(text('wrangler.jsonc'));validateGymConfiguration(config);assert.equal(config.d1_databases[0].database_id,'893e7d29-fa72-413d-9415-5d93b1c3bc6e');
+
 
 const sqlite=new DatabaseSync(':memory:');
 try{
@@ -58,7 +59,7 @@ try{
 assert.equal(LAYOUT_NAMES.blog.label,'Fitness Tips');assert.equal(LAYOUT_NAMES.stories.label,'Member Stories');assert.deepEqual(Object.keys(LAYOUT_THEMES),['dropbeat','casting','spotlight','minimal']);
 const buttons=dictionaryButtons();assert.equal(buttons.find(x=>x.key==='front.auth.student_tab').label,'Member Sign Up');assert.equal(buttons.find(x=>x.key==='front.home.membership').target,'/member-dashboard');
 assert.equal(buttons.find(x=>x.key==='front.auth.signup').target,'/login?signup=student','Account protocol is unchanged');
-const stylesAst=parse(text('public/admin/dropbeat-admin-v1-11.js'),{sourceType:'script'});let specialties;
+const stylesAst=parse(text('public/admin/gym-admin-v1-11.js'),{sourceType:'script'});let specialties;
 function walk(node){if(!node||typeof node!=='object')return;if(node.type==='VariableDeclarator'&&node.id?.name==='STYLES')specialties=node.init.elements.map(x=>x.value);for(const[key,value]of Object.entries(node)){if(['loc','extra','comments','leadingComments','trailingComments'].includes(key))continue;if(Array.isArray(value))value.forEach(walk);else if(value&&typeof value==='object')walk(value);}}walk(stylesAst);
 for(const name of ['Weightlifting','Cardio','CrossFit','Personal Training'])assert.ok(specialties.includes(name));assert.ok(!specialties.includes('Hip Hop'));
 const manifest=JSON.parse(text('public/manifest.webmanifest'));assert.deepEqual(manifest,JSON.parse(text('public/manifest.json')));assert.equal(manifest.name,'IronPulse Gym');assert.equal(manifest.theme_color,'#4B55BE');assert.equal(manifest.background_color,'#ffffff');

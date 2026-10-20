@@ -1,4 +1,4 @@
-/* V15.4 public Dance Tips: remote SEO posts, restored horizontal cards, sidebar empty states and threaded comments.
+/* V15.4 public Fitness Tips: remote SEO posts, restored horizontal cards, sidebar empty states and threaded comments.
    Uses the existing site theme variables. No color palette/theme values are changed. */
 (function(){
   const $=(s,r=document)=>r?.querySelector?.(s)||null;
@@ -35,7 +35,7 @@
     const featuredHtml=featured?`<a class="uc-featured-side" href="${urlFor(featured)}"><img src="${H(imageFor(featured,settings))}" alt="${H(featured.title)}" loading="lazy"><strong>${H(featured.title)}</strong><div class="uc-blog-meta">${postMeta(featured)}</div></a>`:sideEmpty('A featured Fitness Tip will appear here as soon as the admin highlights one. Visit often so you do not miss the next featured opportunity.');
     const recentHtml=recent.length?`<div class="uc-side-list">${recent.map(p=>smallPost(p,settings)).join('')}</div>`:sideEmpty('Fresh Fitness Tips will appear here as soon as they are published.');
     const popularHtml=popular.length?`<div class="uc-side-list">${popular.map(p=>smallPost(p,settings)).join('')}</div>`:sideEmpty('Popular Fitness Tips will appear here as readers discover them. Your next useful update may be one refresh away.');
-    const randomHtml=random.length?`<div class="uc-side-list">${random.map(p=>smallPost(p,settings)).join('')}</div>`:sideEmpty('More Fitness Tips will appear as the dance-tip library grows. Explore the latest updates while we prepare more.');
+    const randomHtml=random.length?`<div class="uc-side-list">${random.map(p=>smallPost(p,settings)).join('')}</div>`:sideEmpty('More Fitness Tips will appear as the fitness-tip library grows. Explore the latest updates while we prepare more.');
     return `<aside class="uc-blog-sidebar">${sideBlock('Featured',featuredHtml,'uc-featured-side-block')}${sideBlock('Recent Posts',recentHtml)}${tagsBlock(data.tags||[])}${sideBlock('Most Popular',popularHtml)}${sideBlock('Random Picks',randomHtml)}</aside>`;
   }
   function pagination(p={}){if(Number(p.pages||1)<=1)return '';const current=Number(p.page||1),pages=Number(p.pages||1),nums=[],suffix=p.tag?`&tag=${encodeURIComponent(p.tag)}`:'';for(let i=Math.max(1,current-2);i<=Math.min(pages,current+2);i++)nums.push(i);return `<nav class="uc-blog-pagination" aria-label="Fitness Tips pages"><a class="${p.hasPrev?'':'disabled'}" href="/blog?page=${Math.max(1,current-1)}${suffix}" aria-label="Previous page">‹</a>${current>3?`<a href="/blog?page=1${suffix}">1</a>`:''}${current>4?'<span>…</span>':''}${nums.map(n=>`<a class="${n===current?'active':''}" href="/blog?page=${n}${suffix}" ${n===current?'aria-current="page"':''}>${n}</a>`).join('')}${current<pages-3?'<span>…</span>':''}${current<pages-2?`<a href="/blog?page=${pages}${suffix}">${pages}</a>`:''}<a class="${p.hasNext?'':'disabled'}" href="/blog?page=${Math.min(pages,current+1)}${suffix}" aria-label="Next page">›</a></nav>`;}

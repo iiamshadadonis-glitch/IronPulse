@@ -2,7 +2,7 @@ import { json, readJson, requireAdmin, normalizePhone, orderId, calcTotalCount, 
 import { calculateTaxBreakdown } from '../../_lib/taxes.js';
 import { createCheckoutWithFallback, getGatewayAvailability } from '../../_lib/payment-gateways.js';
 import { bumpAdminActivity } from '../../_lib/admin-activity.js';
-import { saveOrderClassAssignment } from '../../_lib/dance-studio.js';
+import { saveOrderClassAssignment } from '../../_lib/fitness-platform.js';
 
 export async function onRequestPost({ request, env }) {
   try { await requireAdmin(request, env); } catch(e) { return json({ error:e.message }, 401); }

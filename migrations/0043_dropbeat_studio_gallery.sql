@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.04
+-- IronPulse Gym V1.04
 -- Additive image management for the home-page DropBeat Studio welcome panel.
 CREATE TABLE IF NOT EXISTS studio_gallery_images (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -1,0 +1,241 @@
+/* IronPulse Gym V1.36 — dashboard-only mobile application layout.
+   All structural changes are phone-scoped. Existing desktop layout, saved
+   theme colours and application logic remain authoritative. */
+.db136-carousel-dots,.db136-wizard-progress,.db136-wizard-nav,.db136-calendar-agenda{display:none}
+.db136-metric-carousel{display:contents}
+
+/* Stop decorative attention effects from continuously blinking on desktop or
+   phone. Loading spinners and progress indicators are intentionally excluded. */
+#adminApp :is(.uc-change-star,.uc-zero-pulse,.uc81-recovery-focus){animation:none!important;opacity:1!important;transform:none!important}
+#adminApp :is(.card,.dashboard-block,.table-wrap,.uc-dashboard-client-card,.uc49-grid-card){
+  animation:none!important;transition-property:border-color,box-shadow,background-color,color!important
+}
+
+@media(max-width:760px){
+  html,body{max-width:100%;overflow-x:hidden}
+  body{overscroll-behavior-x:none}
+  #adminApp .main,.portal-main{min-width:0!important}
+
+  /* Metric cards become a snap carousel instead of several dense rows. */
+  #adminApp .db136-card-carousel,.portal-app .db136-card-carousel,
+  #adminApp .dashboard-cards.db136-card-carousel,
+  .portal-app .db136-metric-carousel.db136-card-carousel{
+    display:grid!important;grid-template-columns:none!important;grid-auto-flow:column!important;
+    grid-auto-columns:minmax(78%,1fr)!important;gap:10px!important;width:100%!important;
+    overflow-x:auto!important;overflow-y:hidden!important;padding:3px 8% 10px!important;
+    margin-inline:-8%!important;scroll-snap-type:x mandatory;scroll-padding-inline:8%;
+    overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none
+  }
+  #adminApp .db136-card-carousel::-webkit-scrollbar,.portal-app .db136-card-carousel::-webkit-scrollbar{display:none}
+  #adminApp .db136-carousel-item,.portal-app .db136-carousel-item{
+    min-width:0!important;width:auto!important;scroll-snap-align:center;scroll-snap-stop:always
+  }
+  #adminApp .dashboard-cards.db136-card-carousel>.card,
+  .portal-app .db136-metric-carousel>.portal-card{
+    min-height:126px!important;padding:17px!important;border-radius:18px!important;text-align:left!important;
+    display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important
+  }
+  #adminApp .dashboard-cards.db136-card-carousel>.card .stat,
+  .portal-app .db136-metric-carousel>.portal-card .metric{font-size:30px!important;line-height:1!important;margin-block:8px!important}
+  .db136-carousel-dots{display:flex!important;align-items:center;justify-content:center;gap:7px;margin:1px 0 14px}
+  .db136-carousel-dots button{width:7px;height:7px;min-width:7px;padding:0;border:0;border-radius:50%;background:currentColor;opacity:.28;cursor:pointer;transition:width .16s ease,opacity .16s ease}
+  .db136-carousel-dots button.active{width:20px;opacity:1;border-radius:999px;color:var(--primary,var(--blue,var(--dash-primary,#4B55BE)))}
+  .portal-grid>.db136-metric-carousel{grid-column:1/-1}
+
+  /* Four compact client records fit as a two-by-two app card group. */
+  #adminApp :is(.uc-dashboard-client-grid,.uc-client-stat-grid){grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  #adminApp .uc-dashboard-client-card{min-width:0!important;padding:10px!important;border-radius:14px!important}
+  #adminApp .uc-dashboard-client-card :is(h3,strong){font-size:12px!important;line-height:1.25!important}
+  #adminApp .uc-dashboard-client-card :is(p,small,span){font-size:9px!important;line-height:1.3!important;overflow-wrap:anywhere}
+  #adminApp .uc-dashboard-client-card :is(.uc-card-info-grid,.uc-summary-grid){grid-template-columns:1fr!important;gap:5px!important}
+
+  /* Every dashboard dialog is an app page sheet by default. Short confirms
+     are classified as bottom sheets by the companion finite runtime. */
+  body :is(.modal.open,.db114-modal:not([hidden]),.portal-v122-modal:not([hidden]),.portal-v122-forced-modal:not([hidden]),.uc1705-modal){
+    position:fixed!important;inset:0!important;z-index:12050!important;width:100%!important;height:100dvh!important;
+    padding:0!important;margin:0!important;align-items:stretch!important;justify-content:stretch!important;
+    place-items:stretch!important;overflow:hidden!important
+  }
+  body .db136-page-sheet{align-items:stretch!important;place-items:stretch!important}
+  body .modal.open>.modal-card,
+  body .modal.open>.uc-client-modal-card,
+  body .modal.open .uc-multi-sub-card,
+  body .db114-modal:not([hidden])>.db114-modal-card,
+  body .portal-v122-modal:not([hidden])>.portal-v122-dialog-card,
+  body .portal-v122-forced-modal:not([hidden])>.portal-v122-forced-card,
+  body .uc1705-modal>.uc1705-modal-card{
+    box-sizing:border-box!important;width:100%!important;max-width:none!important;height:100dvh!important;max-height:100dvh!important;
+    margin:0!important;padding:14px!important;padding-top:max(14px,env(safe-area-inset-top,0px))!important;
+    padding-bottom:max(14px,env(safe-area-inset-bottom,0px))!important;border-radius:0!important;
+    overflow:auto!important;overscroll-behavior:contain!important;box-shadow:none!important
+  }
+  body .db136-bottom-sheet{align-items:flex-end!important;place-items:end stretch!important;background:rgba(5,8,15,.62)!important}
+  body .db136-bottom-sheet>.modal-card,
+  body .db136-bottom-sheet>.db114-modal-card,
+  body .db136-bottom-sheet>.portal-v122-dialog-card,
+  body .db136-bottom-sheet>.portal-v122-forced-card,
+  body .db136-bottom-sheet>.uc1705-modal-card{
+    height:auto!important;max-height:76dvh!important;border-radius:24px 24px 0 0!important;
+    box-shadow:0 -20px 60px rgba(0,0,0,.28)!important
+  }
+  body .db136-bottom-sheet>.modal-card:before,
+  body .db136-bottom-sheet>.db114-modal-card:before,
+  body .db136-bottom-sheet>.portal-v122-dialog-card:before,
+  body .db136-bottom-sheet>.portal-v122-forced-card:before{
+    content:"";display:block;width:42px;height:4px;margin:-5px auto 10px;border-radius:999px;background:currentColor;opacity:.25
+  }
+  body :is(.modal.open,.db114-modal:not([hidden]),.portal-v122-modal:not([hidden]),.portal-v122-forced-modal:not([hidden]),.uc1705-modal)
+  :is(.top,.modal-head,.db114-modal-head,.portal-v122-dialog-head,.uc-client-modal-head,.uc-sub-modal-head,header:first-child){
+    position:sticky!important;top:-14px!important;z-index:25!important;margin:0 0 12px!important;padding:12px 2px!important;
+    background:inherit!important;border-bottom:1px solid var(--line,var(--border,#dedfec))!important
+  }
+  body :is(.modal.open,.db114-modal:not([hidden]),.portal-v122-modal:not([hidden]),.portal-v122-forced-modal:not([hidden]),.uc1705-modal)
+  :is([data-close],.db114-close,.uc-v1634-modal-close,.uc-v1635-modal-close,.uc1705-modal-card>header button){
+    min-width:40px!important;width:40px!important;height:40px!important;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center!important
+  }
+
+  /* Semantic tables become labelled, stacked cards while retaining the same
+     rows, controls and event handlers. */
+  #adminApp table.table,#adminApp table.db136-card-table,.portal-app table.db136-card-table{
+    display:block!important;width:100%!important;min-width:0!important;border:0!important;background:transparent!important;overflow:visible!important
+  }
+  #adminApp table.table thead,#adminApp table.db136-card-table thead,.portal-app table.db136-card-table thead{
+    position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;
+    clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important
+  }
+  #adminApp table.table tbody,#adminApp table.db136-card-table tbody,.portal-app table.db136-card-table tbody{
+    display:grid!important;grid-template-columns:1fr!important;gap:10px!important;width:100%!important
+  }
+  #adminApp table.table tbody>tr,#adminApp table.db136-card-table tbody>tr,.portal-app table.db136-card-table tbody>tr{
+    display:grid!important;grid-template-columns:1fr!important;gap:0!important;width:100%!important;min-width:0!important;
+    padding:8px 11px!important;border:1px solid var(--line,var(--border,#dedfec))!important;border-radius:16px!important;
+    background:var(--surface,var(--card,#fff))!important;box-shadow:0 7px 20px rgba(24,22,55,.06)!important
+  }
+  #adminApp table.table tbody>tr>td,#adminApp table.db136-card-table tbody>tr>td,.portal-app table.db136-card-table tbody>tr>td{
+    display:grid!important;grid-template-columns:minmax(94px,35%) minmax(0,1fr)!important;align-items:start!important;gap:10px!important;
+    width:auto!important;min-width:0!important;padding:8px 1px!important;border:0!important;border-bottom:1px solid var(--line,var(--border,#dedfec))!important;
+    text-align:left!important;white-space:normal!important;overflow-wrap:anywhere!important
+  }
+  #adminApp table.table tbody>tr>td:last-child,#adminApp table.db136-card-table tbody>tr>td:last-child,.portal-app table.db136-card-table tbody>tr>td:last-child{border-bottom:0!important}
+  #adminApp table.table tbody>tr>td:before,#adminApp table.db136-card-table tbody>tr>td:before,.portal-app table.db136-card-table tbody>tr>td:before{
+    content:attr(data-db136-label);font-size:10px;font-weight:850;line-height:1.25;text-transform:uppercase;letter-spacing:.035em;color:var(--muted,#6f7280)
+  }
+  #adminApp table.table :is(.action-row,.sort-actions),#adminApp table.db136-card-table :is(.action-row,.sort-actions){display:flex!important;flex-wrap:wrap!important;gap:6px!important}
+  #adminApp table.table img,#adminApp table.db136-card-table img{max-width:76px!important;max-height:76px!important;object-fit:contain!important}
+  #adminApp :is(.table-wrap,.uc-v14-grid-scroll,.uc-multi-sub-grid-wrap,.uc98-visitor-grid-wrap,.uc49-grid-scroll,.uc93-grid-scroll){overflow:visible!important;max-width:100%!important}
+
+  /* Div-based CSS grids receive the same labelled stacked-card treatment. */
+  #adminApp .db136-stacked-head,.portal-app .db136-stacked-head{display:none!important}
+  #adminApp .db136-stacked-row,.portal-app .db136-stacked-row{
+    display:grid!important;grid-template-columns:1fr!important;gap:0!important;width:100%!important;min-width:0!important;
+    margin:0 0 10px!important;padding:8px 11px!important;border:1px solid var(--line,var(--border,#dedfec))!important;
+    border-radius:16px!important;background:var(--surface,var(--card,#fff))!important;overflow:visible!important
+  }
+  #adminApp .db136-stacked-cell,.portal-app .db136-stacked-cell{
+    display:grid!important;grid-template-columns:minmax(94px,35%) minmax(0,1fr)!important;gap:10px!important;align-items:start!important;
+    min-width:0!important;padding:8px 1px!important;border:0!important;border-bottom:1px solid var(--line,var(--border,#dedfec))!important;
+    overflow-wrap:anywhere!important;white-space:normal!important
+  }
+  #adminApp .db136-stacked-cell:last-child,.portal-app .db136-stacked-cell:last-child{border-bottom:0!important}
+  #adminApp .db136-stacked-cell:before,.portal-app .db136-stacked-cell:before{
+    content:attr(data-db136-label);font-size:10px;font-weight:850;line-height:1.25;text-transform:uppercase;letter-spacing:.035em;color:var(--muted,#6f7280)
+  }
+  #adminApp :is(.db107-event-grid,.db107-member-grid,.db111-feature-grid,.db114-approval-grid,.db114-detail-grid,.db119-detail-grid,.uc1700-review-grid,.uc-v1624-help-grid){
+    grid-template-columns:1fr!important;min-width:0!important
+  }
+  #adminApp :is(.db107-event-grid,.db107-member-grid,.db111-feature-grid,.db114-approval-grid,.db114-detail-grid,.db119-detail-grid,.uc1700-review-grid,.uc-v1624-help-grid)>*{
+    min-width:0!important;border-radius:14px!important;overflow-wrap:anywhere
+  }
+
+  /* Large forms become chronological mobile wizards. No fields are renamed or
+     moved, so existing submit handlers and toggles continue to work. */
+  #adminApp form[data-db136-wizard="1"],.portal-app form[data-db136-wizard="1"]{display:block!important;min-width:0!important}
+  #adminApp form[data-db136-wizard="1"] .db136-step-unit:not(.db136-step-active),
+  .portal-app form[data-db136-wizard="1"] .db136-step-unit:not(.db136-step-active),
+  #adminApp form[data-db136-wizard="1"] .db136-step-container-hidden,
+  .portal-app form[data-db136-wizard="1"] .db136-step-container-hidden{display:none!important}
+  #adminApp form[data-db136-wizard="1"] .db136-step-active,
+  .portal-app form[data-db136-wizard="1"] .db136-step-active{animation:none!important}
+  .db136-wizard-progress{
+    display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(88px,1fr);gap:0;width:100%;overflow-x:auto;
+    margin:0 0 16px;padding:4px 2px 10px;scrollbar-width:none
+  }
+  .db136-wizard-progress::-webkit-scrollbar{display:none}
+  .db136-wizard-step{
+    position:relative;display:grid;justify-items:center;align-content:start;gap:6px;min-width:0;padding:0 5px;border:0;background:transparent;
+    color:var(--muted,#6f7280);font:inherit;font-size:9px;font-weight:800;line-height:1.2;text-align:center;cursor:pointer
+  }
+  .db136-wizard-step:before{content:"";position:absolute;left:0;right:0;top:16px;height:3px;background:var(--line,var(--border,#dedfec));z-index:0}
+  .db136-wizard-step:first-child:before{left:50%}.db136-wizard-step:last-child:before{right:50%}
+  .db136-wizard-number{position:relative;z-index:1;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:2px solid var(--line,var(--border,#dedfec));background:var(--surface,var(--card,#fff));font-size:13px;font-weight:900}
+  .db136-wizard-step.active,.db136-wizard-step.complete{color:var(--primary,var(--blue,var(--dash-primary,#4B55BE)))}
+  .db136-wizard-step.active .db136-wizard-number,.db136-wizard-step.complete .db136-wizard-number{border-color:currentColor;background:currentColor;color:#fff}
+  .db136-wizard-step.complete:before{background:var(--primary,var(--blue,var(--dash-primary,#4B55BE)))}
+  .db136-wizard-nav{
+    display:grid!important;grid-template-columns:minmax(84px,1fr) auto minmax(100px,1fr);align-items:center;gap:8px;
+    position:sticky;bottom:-14px;z-index:18;margin:18px -2px -12px;padding:11px 2px max(2px,env(safe-area-inset-bottom,0px));
+    background:var(--surface,var(--card,#fff));border-top:1px solid var(--line,var(--border,#dedfec))
+  }
+  .db136-wizard-nav>span{text-align:center;font-size:10px;font-weight:800;color:var(--muted,#6f7280)}
+  .db136-wizard-back,.db136-wizard-next{min-height:42px;border:1px solid var(--primary,var(--blue,var(--dash-primary,#4B55BE)));border-radius:12px;padding:9px 12px;font:inherit;font-size:12px;font-weight:850;cursor:pointer}
+  .db136-wizard-back{background:transparent;color:var(--primary,var(--blue,var(--dash-primary,#4B55BE)))}
+  .db136-wizard-next{background:var(--primary,var(--blue,var(--dash-primary,#4B55BE)));color:#fff}
+  #adminApp form[data-db136-wizard="1"] :is(.row,.portal-row,.uc-form-grid,.db119-form-grid),
+  .portal-app form[data-db136-wizard="1"] :is(.row,.portal-row,.uc-form-grid,.db119-form-grid){grid-template-columns:1fr!important;gap:11px!important}
+  #adminApp form[data-db136-wizard="1"] :is(input,select,textarea),.portal-app form[data-db136-wizard="1"] :is(input,select,textarea){width:100%!important;max-width:none!important}
+
+  /* Compact month grid: date only, dot/underline indicator and an agenda below. */
+  #adminApp :is(.db107-calendar-grid,.db116-calendar-grid,.uc48-calendar,.uc88-calendar){
+    display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:3px!important;width:100%!important;min-width:0!important;
+    padding:0!important;overflow:visible!important;background:transparent!important;border:0!important
+  }
+  #adminApp :is(.db107-weekdays,.db116-calendar-grid){min-width:0!important}
+  #adminApp .db107-weekdays{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:3px!important}
+  #adminApp :is(.db107-weekdays>span,.db116-calendar-grid>.weekday,.uc48-day-name,.uc88-weekday){
+    min-width:0!important;padding:5px 1px!important;background:transparent!important;border:0!important;font-size:8px!important;text-align:center!important;overflow:hidden
+  }
+  #adminApp :is(.db107-calendar-day,.db116-calendar-day,.uc48-day,.uc88-day){
+    position:relative!important;display:grid!important;place-items:center!important;align-content:center!important;min-width:0!important;width:100%!important;
+    min-height:0!important;aspect-ratio:1/1!important;padding:3px!important;border:1px solid var(--line,var(--border,#dedfec))!important;
+    border-radius:10px!important;text-align:center!important;overflow:hidden!important
+  }
+  #adminApp :is(.db107-calendar-day,.db116-calendar-day,.uc48-day,.uc88-day) :is(.db107-date,strong,.uc48-day-num,.uc88-day-number){
+    display:block!important;margin:0!important;font-size:11px!important;line-height:1!important
+  }
+  #adminApp .db116-calendar-day.has-sessions{border-top-width:1px!important}
+  #adminApp .db136-compact-calendar :is(.db107-cell-stats,.db116-calendar-day>small,.db116-calendar-day>em,.uc48-calendar-post,.uc48-helper,.uc88-day-tags){display:none!important}
+  #adminApp .db136-calendar-day:after{content:"";display:none;position:absolute;left:50%;bottom:4px;width:5px;height:5px;transform:translateX(-50%);border-radius:50%;background:var(--primary,var(--blue,#4B55BE))}
+  #adminApp .db136-calendar-day.db136-has-event:after{display:block}
+  #adminApp .db136-calendar-day.db136-holiday:after{display:block;width:12px;height:3px;border-radius:3px;background:var(--accent,var(--pink,#A469A8))}
+  #adminApp :is(.db107-calendar-head,.db116-calendar-head,.uc48-calendar-toolbar,.uc88-calendar-head){gap:7px!important;margin:8px 0 10px!important}
+  #adminApp :is(.db107-calendar-head,.db116-calendar-head,.uc88-calendar-head) :is(h2,h3,strong){font-size:14px!important;text-align:center!important}
+  #adminApp :is(.db107-calendar-nav,.db116-calendar-head .btn,.uc48-calendar-nav .btn,.uc88-round){width:36px!important;min-width:36px!important;height:36px!important;padding:0!important;border-radius:50%!important}
+  #adminApp :is(.uc48-calendar-shell,.db119-calendar-card){overflow:visible!important;padding:10px!important;border-radius:17px!important}
+  #adminApp .db136-agenda,.db136-calendar-agenda{display:block!important;margin-top:11px!important;padding:11px!important;border:1px solid var(--line,var(--border,#dedfec))!important;border-radius:16px!important;background:var(--surface,var(--card,#fff))!important}
+  .db136-calendar-agenda>header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}.db136-calendar-agenda>header small{color:var(--muted,#6f7280)}
+  .db136-agenda-list{display:grid;gap:8px}.db136-agenda-card{display:grid!important;grid-template-columns:42px minmax(0,1fr)!important;gap:9px!important;width:100%!important;padding:9px!important;border:1px solid var(--line,var(--border,#dedfec))!important;border-radius:13px!important;background:var(--surface,var(--card,#fff))!important;text-align:left!important}
+  .db136-agenda-empty{padding:16px;text-align:center;color:var(--muted,#6f7280)}
+  #adminApp :is(.db107-day-summary,.db119-selected-card,[data-uc88-day-summary]) :is(.db107-event-grid,.db119-selected-grid,.uc88-list){display:grid!important;grid-template-columns:1fr!important;gap:9px!important}
+
+  /* Role dashboards retain their data and handlers but use app-density cards. */
+  .portal-app .portal-grid{grid-template-columns:1fr!important;gap:11px!important}
+  .portal-app :is(.week-list,.notice-list,.portal-availability-list){display:grid!important;grid-template-columns:1fr!important;gap:9px!important}
+  .portal-app :is(.week-item,.notice-item,.portal-availability-list>article){min-width:0!important;padding:11px!important;border-radius:15px!important}
+  .portal-app .portal-v122-modal:not([hidden]) :is(.portal-v122-dialog-card,.portal-v122-forced-card){width:100%!important}
+
+  /* Generated controls inherit the active light/dark dashboard palette. */
+  html[data-color-mode="dark"] :is(.db136-wizard-number,.db136-wizard-nav,.db136-calendar-agenda,#adminApp .db136-stacked-row,#adminApp table.table tbody>tr,.portal-app .db136-stacked-row,.portal-app table.db136-card-table tbody>tr){
+    background:var(--db135-surface,var(--db131-surface,var(--surface,#1b2030)))!important;border-color:var(--db135-line,var(--db131-line,var(--border,#3d455f)))!important;color:var(--db135-text,var(--db131-text,#d7dbea))!important
+  }
+}
+
+@media(max-width:390px){
+  #adminApp .db136-card-carousel,.portal-app .db136-card-carousel{grid-auto-columns:minmax(84%,1fr)!important}
+  #adminApp :is(.uc-dashboard-client-grid,.uc-client-stat-grid){gap:6px!important}
+  #adminApp .uc-dashboard-client-card{padding:8px!important}
+  .db136-wizard-step{font-size:8px}.db136-wizard-progress{grid-auto-columns:minmax(80px,1fr)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #adminApp *,#adminApp *:before,#adminApp *:after,.portal-app *, .portal-app *:before,.portal-app *:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

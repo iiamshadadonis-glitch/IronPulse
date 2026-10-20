@@ -10,7 +10,7 @@ export async function onRequestGet({request,env}){
   const providerError=u.searchParams.get('error');if(providerError){
     const providerDescription=clean(u.searchParams.get('error_description')||providerError,1200),lower=providerDescription.toLowerCase();
     const message=/scope|permission|unauthoriz|access_denied/.test(lower)
-      ?`${providerDescription}. LinkedIn did not grant one or more requested OAuth permissions. Open LinkedIn Developers → your app → Products. If Auth shows “No permissions added”, request Sign in with LinkedIn using OpenID Connect first. Request Share on LinkedIn for member posting, and obtain Community Management API approval for Organization/Page posting or comment management. Then return to DropBeat Dance Studio and click Connect LinkedIn again.`
+      ?`${providerDescription}. LinkedIn did not grant one or more requested OAuth permissions. Open LinkedIn Developers → your app → Products. If Auth shows “No permissions added”, request Sign in with LinkedIn using OpenID Connect first. Request Share on LinkedIn for member posting, and obtain Community Management API approval for Organization/Page posting or comment management. Then return to IronPulse Gym and click Connect LinkedIn again.`
       :providerDescription;
     return go(origin,'error',message);
   }

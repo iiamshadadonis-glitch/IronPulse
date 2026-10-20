@@ -1,5 +1,5 @@
 import {NOTIFICATION_ROLES,NOTIFICATION_CATEGORIES,eventsFor,eventLabel,roleHome} from './notification-registry-v1-58.js';
-import {segmentedControl} from './dropbeat-segmented-v1-57.js';
+import {segmentedControl} from './gym-segmented-v1-57.js';
 import {deviceControls,applyNotificationRules} from './notification-client-v1-58.js';
 const $=(s,r=document)=>r?.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)],phone=matchMedia('(max-width:760px)'),H=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const close='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>',send='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/></svg>';

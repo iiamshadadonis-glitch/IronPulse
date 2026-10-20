@@ -345,7 +345,7 @@ async function syncGoogleMaps(env){
 async function syncYouTube(env,c={}){
   const token=await getYouTubeAccessToken(env),channelId=clean(c.channelId,300);if(!channelId)throw new Error('Connect YouTube and run Test Connection before loading YouTube comments.');
   // V16.47: watch the whole connected channel, not only videos previously created by
-  // DropBeat Dance Studio. The first baseline prevents historical comments from being imported.
+  // IronPulse Gym. The first baseline prevents historical comments from being imported.
   let baseline=Date.parse(c.commentSyncStartedAt||c.lastTestedAt||c.connectedAt||'')||0;
   if(!baseline){
     const social=await getSocialIntegrationSettings(env);social.youtube={...(social.youtube||{}),commentSyncStartedAt:new Date().toISOString()};await setSetting(env,'social_integration_settings',social);

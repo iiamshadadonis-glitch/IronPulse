@@ -6,13 +6,13 @@ import {mkdtemp,rm,mkdir,writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-const root=fileURLToPath(new URL('../',import.meta.url)),cli=join(root,'node_modules/wrangler/bin/wrangler.js'),state=await mkdtemp(join(tmpdir(),'ironpulse-runtime-')),port=8791,results=[];
+const root=fileURLToPath(new URL('../',import.meta.url)),cli=join(root,'node_modules/wrangler/bin/wrangler.js'),state=await mkdtemp(join(tmpdir(),'ironpulse-runtime-')),port=8791,results=[],empty=process.argv.includes('--empty');
 const childEnv={...process.env,CI:'1',WRANGLER_SEND_METRICS:'false',...(process.env.GYM_NETWORK_TEST_SHIM?{NODE_OPTIONS:'--require='+process.env.GYM_NETWORK_TEST_SHIM}:{})};
 async function command(args){return new Promise((resolve,reject)=>{let log='';const child=spawn(process.execPath,[cli,...args],{cwd:root,env:childEnv});child.stdout.on('data',b=>log+=b);child.stderr.on('data',b=>log+=b);child.on('error',reject);child.on('exit',code=>code===0?resolve(log):reject(Error(log.slice(-6000))));});}
 function get(path,{method='GET',body,cookie}={}){return new Promise((resolve,reject)=>{const payload=body?JSON.stringify(body):undefined,req=httpsRequest({hostname:'127.0.0.1',port,path,method,rejectUnauthorized:false,headers:{accept:'application/json',...(payload?{'content-type':'application/json','content-length':Buffer.byteLength(payload)}:{}),...(cookie?{cookie}:{})}},res=>{const parts=[];res.on('data',b=>parts.push(b));res.on('end',()=>resolve({status:res.statusCode,headers:res.headers,text:Buffer.concat(parts).toString('utf8')}));});req.setTimeout(20000,()=>req.destroy(Error('Local runtime request timed out')));req.on('error',reject);if(payload)req.write(payload);req.end();});}
 let server;
 try{
- await command(['d1','migrations','apply','DB','--local','--persist-to',state]);results.push('All 56 migrations on a separate temporary local D1');
+ if(!empty){await command(['d1','migrations','apply','DB','--local','--persist-to',state]);results.push('All 56 migrations on a separate temporary local D1');}else results.push('Start with a completely empty temporary local D1; existing runtime schema initialization prepares it');
  const password=crypto.randomUUID()+'-test-only';
  server=spawn(process.execPath,[cli,'pages','dev','public','--ip','127.0.0.1','--port',String(port),'--inspector-port',String(port+1),'--local-protocol','https','--persist-to',state,'--binding','SITE_URL=https://127.0.0.1:'+port,'--binding','ADMIN_LOGIN_EMAIL=gym-owner@example.test','--binding','ADMIN_LOGIN_PASSWORD='+password],{cwd:root,env:childEnv});
  let log='';await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Local worker startup timed out: '+log.slice(-2000))),30000),read=bytes=>{log+=bytes;if(log.includes('Ready on')){clearTimeout(timer);resolve();}};server.stdout.on('data',read);server.stderr.on('data',read);server.once('exit',code=>{clearTimeout(timer);reject(Error('Local worker exited '+code+': '+log.slice(-2000)));});});
@@ -27,5 +27,5 @@ try{
  response=await get('/api/portal/auth/context?role=admin',{cookie});assert.equal(response.status,200);assert.equal(JSON.parse(response.text).home,'/admin/');results.push('Configured first Admin login, HttpOnly session and authenticated settings/context');
  response=await get('/api/admin/auth/logout',{method:'POST',cookie,body:{}});assert.equal(response.status,200);
  response=await get('/api/admin/settings',{cookie});assert.equal(response.status,401);results.push('Revoked session is rejected after logout');
- const output=join(root,'verification/ironpulse-v1.00');await mkdir(output,{recursive:true});await writeFile(join(output,'runtime-results.json'),JSON.stringify({pass:true,localOnly:true,results},null,2)+'\n');console.log('Real Cloudflare local runtime checks passed: '+results.length+' groups.');
+ const output=join(root,'verification/ironpulse-v1.01');await mkdir(output,{recursive:true});await writeFile(join(output,empty?'runtime-empty-results.json':'runtime-results.json'),JSON.stringify({pass:true,localOnly:true,initialDatabase:empty?'empty':'migrated',results},null,2)+'\n');console.log('Real Cloudflare local runtime checks passed ('+(empty?'empty':'migrated')+' D1): '+results.length+' groups.');
 }finally{server?.kill('SIGTERM');if(server)await new Promise(resolve=>{server.once('exit',resolve);setTimeout(resolve,1000);});await rm(state,{recursive:true,force:true});}

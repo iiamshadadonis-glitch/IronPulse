@@ -1,6 +1,6 @@
 /* V1.40 Bulk Plan Upload. The route is retained for existing admin links. */
 import {json,requireAdmin,readJson} from '../../_lib/utils.js';
-import {ensureDanceStudioSchema,validateProductClassDetails} from '../../_lib/dance-studio.js';
+import {ensureDanceStudioSchema,validateProductClassDetails} from '../../_lib/fitness-platform.js';
 import {normalizePlanImportRow,savedPlanImportDefaults} from '../../_lib/plan-import.js';
 import {onRequestPost as createPlan,onRequestPut as updatePlan} from './products.js';
 import {onRequestPost as addImage} from './media.js';

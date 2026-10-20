@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.22
+-- IronPulse Gym V1.22
 -- Additive account recovery, class-change acknowledgement, per-occurrence
 -- meeting ownership and coach remuneration records. Existing class, payment,
 -- attendance, branding and theme records remain authoritative.

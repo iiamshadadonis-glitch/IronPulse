@@ -1,4 +1,4 @@
--- Initial Cloudflare D1 schema retained for DropBeat Dance Studio compatibility.
+-- Initial Cloudflare D1 schema retained for IronPulse Gym compatibility.
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE IF NOT EXISTS settings (

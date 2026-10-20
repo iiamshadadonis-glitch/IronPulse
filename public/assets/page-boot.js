@@ -3,11 +3,11 @@
   function loadDropBeatV113(){
     if(window.__dropBeatV113Ready)return window.__dropBeatV113Ready;
     if(!document.querySelector('link[data-dropbeat-v113]')){
-      const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/dropbeat-dance-v1-13.css?v=1.13';css.dataset.dropbeatV113='1';document.head.appendChild(css);
+      const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/gym-fitness-v1-13.css?v=1.13';css.dataset.dropbeatV113='1';document.head.appendChild(css);
     }
     window.__dropBeatV113Ready=new Promise(resolve=>{
       const existing=document.querySelector('script[data-dropbeat-v113]');if(existing){if(existing.dataset.loaded==='1')resolve();else existing.addEventListener('load',resolve,{once:true});return;}
-      const script=document.createElement('script');script.src='/assets/dropbeat-dance-v1-13.js?v=1.13';script.dataset.dropbeatV113='1';script.onload=()=>{script.dataset.loaded='1';resolve();};script.onerror=resolve;document.head.appendChild(script);
+      const script=document.createElement('script');script.src='/assets/gym-fitness-v1-13.js?v=1.13';script.dataset.dropbeatV113='1';script.onload=()=>{script.dataset.loaded='1';resolve();};script.onerror=resolve;document.head.appendChild(script);
     });
     return window.__dropBeatV113Ready;
   }

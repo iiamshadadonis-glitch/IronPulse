@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio V13 — additive checkout/payment identity, order UI and client refunds. */
+/* IronPulse Gym V13 — additive checkout/payment identity, order UI and client refunds. */
 (function(){'use strict';
 const $=(s,r=document)=>r?.querySelector?.(s)||null,$$=(s,r=document)=>Array.from(r?.querySelectorAll?.(s)||[]);
 const H=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

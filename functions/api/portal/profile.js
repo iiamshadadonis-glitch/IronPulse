@@ -1,7 +1,7 @@
 import { json } from '../../_lib/utils.js';
 import { deleteGoogleDriveFile, uploadPortalProfileImageToGoogleDrive } from '../../_lib/google-drive-upload.js';
 import { cleanSocialUrl, ensurePortalSchema, hashPortalPassword, isPortalEmail, normalizeAvailabilitySlots, parseJson, portalClean, publicPortalAccount, recordPortalEvent, requirePortalAccount, uniqueList, verifyPortalPassword, COACH_CLASS_TYPES, WEEK_DAYS } from '../../_lib/portal-auth.js';
-import { saveDanceCoach } from '../../_lib/dance-studio.js';
+import { saveDanceCoach } from '../../_lib/fitness-platform.js';
 import { syncAuthoritativeIdentity } from '../../_lib/identity-sync.js';
 
 const clean=portalClean;

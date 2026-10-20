@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.23
+-- IronPulse Gym V1.23
 -- Additive per-coach leave-rule overrides. Existing remuneration, attendance,
 -- payment, class, branding and theme records remain authoritative.
 

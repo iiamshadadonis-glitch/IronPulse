@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.08
+-- IronPulse Gym V1.08
 -- Additive support for manual-payment class assignments, fixed/temporary
 -- public batch dates, one-time access windows and safe coach replacement.
 

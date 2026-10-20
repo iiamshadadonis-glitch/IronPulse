@@ -1,3 +1,2 @@
-IRONPULSE-GYM-V1.00
-Source baseline: DropBeat V1.59
-Backend API/schema compatibility retained.
+IronPulse Gym V1.01
+D1: 893e7d29-fa72-413d-9415-5d93b1c3bc6e

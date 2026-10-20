@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.09
+-- IronPulse Gym V1.09
 -- Coaches now declare the class types they conduct. Existing coach records keep
 -- their previous behavior by supporting every class type until an admin edits
 -- the profile and chooses a narrower set.

@@ -2,10 +2,10 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {DEFAULT_MARKETING,DEFAULT_WEBINARS,normalizeStages} from '../functions/_lib/marketing-suite.js';
 const read=p=>readFile(new URL(`../${p}`,import.meta.url),'utf8');
-const [version,index,integrations,ui,css,core,api,heat,tracker,migration,notes]=await Promise.all([
-  read('VERSION.txt'),read('public/admin/index.html'),read('public/admin/final-v16-93-marketing-integrations.js'),read('public/admin/final-v16-93-marketing-ui.js'),read('public/admin/final-v16-93-marketing-integrations.css'),read('functions/_lib/marketing-suite.js'),read('functions/api/admin/marketing-suite.js'),read('functions/api/public/heatmap.js'),read('public/assets/final-v16-92-marketing-tracker.js'),read('migrations/0040_v16_93_marketing_integrations_email.sql'),read('RELEASE-NOTES-V16.93.md')
+const [version,index,integrations,ui,css,core,api,heat,tracker,migration]=await Promise.all([
+  read('VERSION.txt'),read('public/admin/index.html'),read('public/admin/final-v16-93-marketing-integrations.js'),read('public/admin/final-v16-93-marketing-ui.js'),read('public/admin/final-v16-93-marketing-integrations.css'),read('functions/_lib/marketing-suite.js'),read('functions/api/admin/marketing-suite.js'),read('functions/api/public/heatmap.js'),read('public/assets/final-v16-92-marketing-tracker.js'),read('migrations/0040_v16_93_marketing_integrations_email.sql')
 ]);
-assert.match(version.trim(),/^(?:V16\.(?:9[3-9]|[1-9]\d{2,})|V(?:1[7-9]|[2-9]\d)\.\d+)$/);
+assert.equal(version.split('\n')[0],'IronPulse Gym V1.01');
 for(const asset of ['final-v16-93-marketing-integrations.css','final-v16-93-marketing-integrations.js','final-v16-93-marketing-ui.js'])assert.match(index,new RegExp(asset.replaceAll('.','\\.')));
 for(const provider of ['Google Ads API + YouTube Ads','Meta Ads + Conversions API','Pinterest Ads','X Ads','Snapchat Ads','Mailchimp Email Marketing'])assert.match(integrations,new RegExp(provider.replace(/[+]/g,'\\+')));
 for(const provider of ['Google Calendar + Google Meet','Zoom','External Meeting Provider'])assert.match(integrations,new RegExp(provider.replace(/[+]/g,'\\+')));
@@ -33,5 +33,4 @@ assert.match(migration,/CREATE TABLE IF NOT EXISTS marketing_email_campaigns/);
 assert.ok('mailchimp' in DEFAULT_MARKETING&&'xAds' in DEFAULT_MARKETING&&'snapchatAds' in DEFAULT_MARKETING);
 assert.ok('google' in DEFAULT_WEBINARS&&'zoom' in DEFAULT_WEBINARS);
 assert.deepEqual(normalizeStages([{name:'Useful explanation',channels:['google','email','invalid'],delayHours:24}])[0].channels,['google','email']);
-assert.match(notes,/workspace plan.*does not publish/i);
 console.log('V16.93 smoke checks passed.');

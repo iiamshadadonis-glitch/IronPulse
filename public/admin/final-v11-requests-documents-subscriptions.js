@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio V11 — additive Requests workflow, document guidance, safe subscription controls and Favorites polish. */
+/* IronPulse Gym V11 — additive Requests workflow, document guidance, safe subscription controls and Favorites polish. */
 (function(){
   'use strict';
   const $=(s,r=document)=>r?.querySelector?.(s)||null, $$=(s,r=document)=>Array.from(r?.querySelectorAll?.(s)||[]);

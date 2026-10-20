@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio unified client CRM add-on v3.
+/* IronPulse Gym unified client CRM add-on v3.
    Existing admin pages stay intact; this file only upgrades client/list/profile/search/payment interactions. */
 (function(){
   const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));

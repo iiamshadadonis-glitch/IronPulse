@@ -13,7 +13,7 @@ import {
   setDanceCoachStatus,
   syncDanceMembershipsFromRecentOrders,
   updateScheduledEvent
-} from '../../_lib/dance-studio.js';
+} from '../../_lib/fitness-platform.js';
 import { saveCoachRemuneration } from '../../_lib/coach-remuneration.js';
 
 const clean=(v,n=120)=>String(v??'').trim().slice(0,n);

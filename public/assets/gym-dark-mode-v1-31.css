@@ -1,0 +1,60 @@
+/* DropBeat V1.31 — public/portal dark-mode follow-up.
+   Colour overrides are dark-only. The final session-row rules change spacing
+   only and therefore preserve the existing light-mode colour design. */
+
+/* FAQ and legal page titles inherited transparent gradient text in dark mode. */
+html[data-color-mode="dark"] body[data-uc-load^="page:"] :is(#pageContent,.legal)>h1,
+html[data-color-mode="dark"] body[data-uc-load^="page:"] :is(#pageContent,.legal) h1:first-child{
+  background:none!important;
+  background-image:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  -webkit-text-fill-color:#f7f8fc!important;
+  color:#f7f8fc!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+
+/* Keep the uploaded banner photograph unfiltered when dark mode is selected. */
+html[data-color-mode="dark"] body[data-uc-load="home"] .hero{
+  background-image:var(--hero-bg)!important;
+  background-color:#111521!important;
+}
+html[data-color-mode="dark"] body[data-uc-load="home"] .hero :is(h1,h2,p,.eyebrow){text-shadow:0 2px 5px rgba(0,0,0,.88),0 10px 30px rgba(0,0,0,.48)!important}
+
+/* Student and coach dashboard helper/status surfaces. */
+html[data-color-mode="dark"] .portal-status{
+  background:#302b1e!important;
+  border-color:#8a743e!important;
+  color:#f2dfad!important;
+}
+html[data-color-mode="dark"] .portal-status.active{background:#183126!important;border-color:#356e4c!important;color:#c7f3d5!important}
+html[data-color-mode="dark"] .portal-status.past{background:#382126!important;border-color:#7f3d49!important;color:#ffc8d0!important}
+html[data-color-mode="dark"] .portal-status :is(strong,span,p,small){color:inherit!important}
+html[data-color-mode="dark"] .portal-pill:is(.early,.upcoming,.pending){background:#3a321c!important;color:#f7df9c!important;border:1px solid #766333!important}
+html[data-color-mode="dark"] .portal-pill:is(.available,.active,.scheduled,.approved){background:#183126!important;color:#c7f3d5!important;border:1px solid #356e4c!important}
+html[data-color-mode="dark"] .portal-pill:is(.ended,.leave,.holiday,.cancelled,.denied){background:#382126!important;color:#ffc8d0!important;border:1px solid #7f3d49!important}
+html[data-color-mode="dark"] :is(.week-item,.empty-state,.portal-card,.portal-table-wrap){background:#1b2030!important;border-color:#3d455f!important;color:#d7dbea!important}
+html[data-color-mode="dark"] .week-item :is(strong,.week-date){color:#f7f8fc!important}
+html[data-color-mode="dark"] .week-item :is(small,p,span:not(.portal-pill)){color:#b9bfd0!important}
+
+/* Stable date/session/action columns for both Dashboard and Sessions views. */
+.week-item{
+  grid-template-columns:minmax(190px,220px) minmax(220px,1fr) max-content!important;
+  column-gap:28px!important;
+  row-gap:8px!important;
+  align-items:center!important;
+}
+.week-date{white-space:nowrap!important;line-height:1.35!important}
+.week-date small{display:block!important;margin-top:4px!important;white-space:nowrap!important}
+.week-item>:nth-child(2){min-width:0;padding-inline-start:2px}
+.week-item>.portal-btn{justify-self:end;white-space:nowrap}
+
+@media(max-width:960px){
+  .week-item{grid-template-columns:minmax(175px,205px) minmax(0,1fr)!important;column-gap:22px!important}
+  .week-item>.portal-btn{grid-column:2;justify-self:start}
+}
+@media(max-width:680px){
+  .week-item{grid-template-columns:1fr!important;gap:10px!important}
+  .week-item>.portal-btn{grid-column:1;justify-self:start}
+}

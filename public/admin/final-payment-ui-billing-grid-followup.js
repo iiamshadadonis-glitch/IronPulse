@@ -225,7 +225,7 @@
   }
   function updatePhonePeDefaultCompatibility(){
     const box=$('#ucPhonePePrimaryCompatibility');if(!box)return;
-    // Current DropBeat Dance Studio default: monthly × 252 = 21 years, which is within PhonePe's 30-year expiry limit.
+    // Current IronPulse Gym default: monthly × 252 = 21 years, which is within PhonePe's 30-year expiry limit.
     box.innerHTML='';
   }
   function phonePeHardBlock(form){if(savedPrimary()!=='phonepe')return'';return phonePePlanIssues(form).hard.join(' ');}

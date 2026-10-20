@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio V16 — additive global Taxes control in Brand Settings. */
+/* IronPulse Gym V16 — additive global Taxes control in Brand Settings. */
 (function(){
   'use strict';
   const $=(s,r=document)=>r?.querySelector?.(s)||null;

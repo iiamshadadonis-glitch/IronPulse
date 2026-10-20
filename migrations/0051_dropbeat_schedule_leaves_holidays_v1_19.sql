@@ -1,4 +1,4 @@
--- DropBeat Dance Studio V1.19
+-- IronPulse Gym V1.19
 -- Additive studio schedule controls for coach leave and studio holidays.
 -- Existing class mappings, memberships, attendance and brand settings remain
 -- authoritative; these records only block or annotate affected occurrences.

@@ -111,7 +111,7 @@ async function claimGoogleBusinessPublish(env,articleUrl=''){
 export async function publishGoogleBusinessArticle(env,article={}){
   const s=await getSocialIntegrationSettings(env),c=s.googleBusiness||{};
   if(!c.enabled||!c.autoPublish)return {ok:true,skipped:true,reason:'Google Business Profile automatic publishing is disabled.'};
-  const slug=clean(article.slug||article.post_slug||article.id||'dance-class-update',220).replace(/^\/+|\/+$/g,''),home=brandHomeUrl(env),localUrl=`${home}/blog/${encodeURIComponent(slug)}`;
+  const slug=clean(article.slug||article.post_slug||article.id||'fitness-update',220).replace(/^\/+|\/+$/g,''),home=brandHomeUrl(env),localUrl=`${home}/blog/${encodeURIComponent(slug)}`;
   const title=clean(article.title||'Fitness Tip',240),summary=clean(article.excerpt||article.body_text||stripHtml(article.body_html||''),1200),cover=clean(article.cover_image_url||article.coverImageUrl||'',2000);let logKey=gbPublishKey(localUrl);
   try{
     const claim=await claimGoogleBusinessPublish(env,localUrl);logKey=claim.key;if(!claim.claimed)return {ok:true,skipped:true,reason:claim.reason==='published'?'Already published to Google Business Profile.':'Google Business Profile publishing is already in progress for this fitness tip; duplicate publishing was prevented.',externalId:claim.row?.external_id||''};

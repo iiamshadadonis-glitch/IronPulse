@@ -1,0 +1,124 @@
+/* V1.48 mobile primitives. Theme values and desktop presentation stay authoritative. */
+@media(max-width:760px){
+  body.db138-mobile{
+    --db148-raised:color-mix(in srgb,var(--db138-text) 4%,var(--db138-surface));
+    --db148-danger:var(--danger,#c73535);
+    --db148-status-good:var(--ok,#168346);--db148-status-watch:var(--warning,#f2c84b);--db148-status-warn:var(--warning,#e89633);
+    --db148-chevron-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath transform='rotate(90 12 12)' d='m9 5 7 7-7 7'/%3E%3C/svg%3E");
+  }
+  html[data-color-mode=dark] body.db138-mobile,html[data-theme=dark] body.db138-mobile,body.db138-mobile.dark{
+    --db148-danger:color-mix(in srgb,var(--danger,#c73535) 88%,white);
+  }
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.portal-v122-modal,.portal-v122-forced-modal,.uc1705-modal,#db137ChoiceSheet) input.db148-checkbox[type=checkbox]{
+    appearance:none!important;-webkit-appearance:none!important;display:inline-block!important;
+    position:relative!important;inset:auto!important;flex:0 0 22px!important;
+    width:22px!important;height:22px!important;min-width:22px!important;min-height:22px!important;max-width:22px!important;max-height:22px!important;
+    margin:0!important;padding:0!important;box-sizing:border-box!important;
+    border:1.5px solid color-mix(in srgb,var(--db138-text) 42%,var(--db138-surface))!important;border-radius:50%!important;
+    background-color:var(--db138-surface)!important;background-image:none!important;box-shadow:none!important;
+    vertical-align:middle!important;cursor:pointer!important;opacity:1!important;
+    --db148-check-fill:var(--dropbeat-primary,var(--db138-primary));
+    transition:background-color .15s ease,border-color .15s ease!important;
+  }
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.portal-v122-modal,.portal-v122-forced-modal,.uc1705-modal,#db137ChoiceSheet) input.db148-checkbox-destructive[type=checkbox]{--db148-check-fill:var(--db148-danger)}
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.portal-v122-modal,.portal-v122-forced-modal,.uc1705-modal,#db137ChoiceSheet) input.db148-checkbox:is(:checked,:indeterminate){
+    border-color:var(--db148-check-fill)!important;background-color:var(--db148-check-fill)!important;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 10 3 3 7-7'/%3E%3C/svg%3E")!important;
+    background-position:center!important;background-size:18px 18px!important;background-repeat:no-repeat!important;
+  }
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,.db114-modal,.portal-v122-modal,.portal-v122-forced-modal,.uc1705-modal,#db137ChoiceSheet) input.db148-checkbox:indeterminate{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M5 10h10'/%3E%3C/svg%3E")!important;
+  }
+  html body.db138-mobile input.db148-checkbox:focus-visible{outline:2px solid var(--dropbeat-primary,var(--db138-primary))!important;outline-offset:3px!important}
+  html body.db138-mobile input.db148-checkbox:disabled{opacity:.45!important;cursor:default!important}
+  html body.db138-mobile .db148-checkbox-target:not(.uc-storage-list-row){display:flex!important;align-items:center!important;gap:10px!important;min-height:48px!important;box-sizing:border-box!important;cursor:pointer!important}
+  html body.db138-mobile .db148-compound-checkbox{display:inline-flex!important;align-items:center!important;gap:8px!important;margin-inline-end:12px!important}
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,#db137ChoiceSheet) .db-native-upload{
+    position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+    width:100%!important;max-width:100%!important;min-width:0!important;min-height:104px!important;
+    padding:16px!important;margin:0 0 12px!important;gap:6px!important;box-sizing:border-box!important;
+    border:1px dashed var(--dropbeat-primary,var(--db138-primary))!important;border-radius:12px!important;
+    background:color-mix(in srgb,var(--db138-primary) 4%,var(--db138-surface))!important;color:var(--db138-primary)!important;
+    text-align:center!important;overflow:hidden!important;cursor:pointer!important;
+  }
+  html body.db138-mobile .db-native-upload>svg{width:28px!important;height:28px!important;flex:0 0 28px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important}
+  html body.db138-mobile .db-native-upload>strong{font-size:13px!important;line-height:1.35!important;font-weight:700!important}
+  html body.db138-mobile .db-native-upload>:is(span,small){max-width:100%!important;font-size:11px!important;line-height:1.4!important;white-space:normal!important;overflow-wrap:anywhere!important}
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,#db137ChoiceSheet) .db-native-upload>input[type=file]{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;opacity:0!important;cursor:pointer!important}
+  html body.db138-mobile .db-native-upload:focus-within{outline:2px solid var(--db138-primary);outline-offset:2px}
+  html body.db138-mobile .db-native-upload:has(input:disabled){opacity:.5!important;cursor:default!important}
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,#db137ChoiceSheet) select{
+    appearance:none!important;-webkit-appearance:none!important;-moz-appearance:none!important;
+    background-image:var(--db148-dropdown-icon)!important;background-repeat:no-repeat!important;background-size:20px 20px!important;background-position:right 16px center!important;padding-right:44px!important;
+  }
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,#db137ChoiceSheet) :is(.db137-select-trigger,.db137-choice-trigger):not(.db143-coach-choice){position:relative!important;padding-right:44px!important;background-image:none!important}
+  html body.db138-mobile :is(#adminApp,.portal-app,.modal,.portal-modal,#db137ChoiceSheet) :is(.db137-select-trigger,.db137-choice-trigger):not(.db143-coach-choice):after{
+    content:""!important;position:absolute!important;display:block!important;right:16px!important;top:50%!important;
+    width:20px!important;height:20px!important;transform:translateY(-50%)!important;pointer-events:none!important;
+    -webkit-mask-image:var(--db148-chevron-mask)!important;mask-image:var(--db148-chevron-mask)!important;
+    -webkit-mask-size:20px 20px!important;mask-size:20px 20px!important;
+    background:var(--dropbeat-primary,var(--db138-primary))!important;
+  }
+  html body.db138-mobile .db143-coach-choice:after{content:none!important;display:none!important}
+  html body.db138-mobile .db148-original-refresh{display:none!important}
+  html body.db138-mobile svg[data-db-refresh="open-loop"]{fill:none!important;stroke:currentColor!important;color:var(--dropbeat-primary,var(--db138-primary))!important}
+  html body.db138-mobile #businessCalendar .uc88-list-row{grid-template-columns:minmax(0,1fr) auto 20px!important;gap:8px!important}
+  html body.db138-mobile #businessCalendar .db140-date-chevron{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 20px!important;width:20px!important;min-width:20px!important;max-width:20px!important;height:20px!important;min-height:20px!important;margin:0!important;padding:0!important}
+  html body.db138-mobile #businessCalendar .db140-date-chevron svg{width:20px!important;height:20px!important;stroke-width:1.8!important}
+  html body.db138-mobile #businessCalendar .uc88-list-row:after,html body.db138-mobile #businessCalendar .db140-date-chevron:after{content:none!important;display:none!important}
+  html body.db138-mobile #growthAnalytics .db141-chart-controls{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;justify-content:space-between!important;align-items:center!important;width:100%!important;min-width:0!important;gap:8px!important;margin:0 0 12px!important;padding:0!important;box-sizing:border-box!important}
+  html body.db138-mobile #growthAnalytics .db141-time-segments{flex:0 1 auto!important;min-width:0!important;margin:0!important;padding:3px!important;gap:2px!important}
+  html body.db138-mobile #growthAnalytics .db141-time-segments>button{padding:6px clamp(8px,2.6vw,14px)!important;line-height:1.2!important;white-space:nowrap!important}
+  html body.db138-mobile #growthAnalytics .db141-chart-controls .db141-view-segments{flex:0 0 auto!important;align-items:center!important;justify-content:center!important;margin:0 0 0 auto!important;padding:3px!important;gap:2px!important;border-radius:10px!important}
+  html body.db138-mobile #growthAnalytics .db141-chart-controls .db141-view-segments>button{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 28px!important;width:28px!important;min-width:28px!important;height:32px!important;min-height:32px!important;padding:5px!important}
+  html body.db138-mobile #growthAnalytics .db141-chart-controls .db141-view-segments>button>svg{display:block!important;width:18px!important;height:18px!important;margin:0!important;flex:0 0 18px!important}
+  html body.db138-mobile #storage{--db148-storage-tone:var(--db148-status-good)}
+  html body.db138-mobile #storage:has(#ucStorageBattery.watch){--db148-storage-tone:var(--db148-status-watch)}
+  html body.db138-mobile #storage:has(#ucStorageBattery.warn){--db148-storage-tone:var(--db148-status-warn)}
+  html body.db138-mobile #storage:has(#ucStorageBattery.danger){--db148-storage-tone:var(--db148-danger)}
+  html body.db138-mobile #adminApp #storage :is(.uc-storage-summary>div,.uc-storage-category-meta>span){background:var(--db148-raised)!important;background-image:none!important;border:1px solid var(--db138-line)!important;color:var(--db138-text)!important}
+  html body.db138-mobile #adminApp #storage :is(.uc-storage-summary,.uc-storage-category-meta) strong{color:var(--db138-text)!important}
+  html body.db138-mobile #adminApp #storage :is(.uc-storage-summary,.uc-storage-category-meta) small{color:color-mix(in srgb,var(--db138-text) 75%,var(--db138-surface))!important}
+  html body.db138-mobile #adminApp #storage .uc-storage-hero{background:var(--db138-surface)!important;border-color:var(--db138-line)!important}
+  html body.db138-mobile #adminApp #storage #ucStorageBattery{background:var(--db148-storage-tone)!important;color:white!important;border:0!important}
+  html body.db138-mobile #adminApp #storage #ucStorageBattery :is(strong,span){color:inherit!important}
+  html body.db138-mobile #adminApp #storage #ucStorageBattery.watch{color:var(--dropbeat-title,#1a1a1a)!important}
+  html body.db138-mobile #adminApp #storage #ucStorageBattery .db146-storage-progress{background:currentColor!important;opacity:.12!important}
+  html body.db138-mobile #adminApp #storage .uc-storage-meter-labels>strong{color:var(--db148-storage-tone)!important}
+  html body.db138-mobile #adminApp #storage .uc-storage-mobile-track{background:var(--db148-raised)!important;border:1px solid var(--db138-line)!important}
+  html body.db138-mobile #ucStorageCleanupModal>.modal-card{padding:16px!important;box-sizing:border-box!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-sub-modal-head{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:12px!important;min-width:0!important;margin:0 0 16px!important;padding:0 0 16px!important;border-bottom:1px solid var(--db138-line)!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-sub-modal-head{flex-direction:row!important;flex-wrap:nowrap!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-sub-modal-head>div:first-child{flex:1 1 0!important;width:auto!important;min-width:0!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-sub-modal-head>.db139-header-copy{display:block!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-sub-modal-head>.db138-header-icons{flex:0 0 auto!important;width:auto!important;align-self:flex-start!important;margin:0!important;padding:0!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-sub-modal-head h2{margin:0 0 6px!important;padding:0!important;font-size:17px!important;line-height:1.35!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-sub-modal-head p{margin:0!important;font-size:11px!important;line-height:1.45!important}
+  html body.db138-mobile #ucStorageCleanupWarning{margin:0 0 16px!important;padding:0!important}
+  html body.db138-mobile #ucStorageCleanupWarning .uc-pg-status{margin:0!important;padding:12px!important;font-size:12px!important;line-height:1.45!important}
+  html body.db138-mobile #ucStorageCleanupBody{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-storage-list-row.db148-checkbox-target{cursor:pointer!important;min-height:48px!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-storage-list-row:has(input:checked){background:color-mix(in srgb,var(--db148-danger) 5%,var(--db138-surface))!important}
+  html body.db138-mobile #ucStorageCleanupModal .uc-storage-list-row:focus-visible{outline:2px solid var(--db148-danger)!important;outline-offset:2px!important}
+  html body.db138-mobile #ucStorageCleanupModal .db146-storage-delete-fab{position:fixed!important;right:max(24px,env(safe-area-inset-right,0px))!important;bottom:calc(24px + env(safe-area-inset-bottom,0px))!important;background:var(--db148-danger)!important;color:white!important;box-shadow:0 4px 16px #0004,0 0 0 1px color-mix(in srgb,var(--db138-text) 30%,transparent)!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .uc-sub-grid{display:block!important;margin:0!important;padding:0!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .uc-sub-grid>div{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)!important;align-items:start!important;gap:12px!important;margin:0!important;padding:9px 0!important;min-width:0!important;background:transparent!important;border:0!important;border-bottom:1px solid var(--db138-line)!important;border-radius:0!important;box-shadow:none!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .uc-sub-grid>div>span{min-width:0!important;font-size:12px!important;line-height:1.4!important;overflow-wrap:anywhere!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .uc-sub-grid>div>strong{min-width:0!important;margin:0!important;font-size:13px!important;line-height:1.4!important;text-align:right!important;overflow-wrap:anywhere!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .uc-sub-grid>div>small{grid-column:2!important;text-align:right!important;margin:0!important;font-size:11px!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .uc-sub-actions{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;gap:12px!important;margin-top:12px!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .uc-sub-actions .uc-v11-sub-controls{display:contents!important;margin:0!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .uc-payment-toolbar{flex-wrap:wrap!important;align-items:center!important;gap:12px!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .uc-payment-toolbar>div:first-child{flex:1 1 100%!important;min-width:0!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments :is(.uc-v11-sub-controls,.uc-v9-payment-actions){display:flex!important;align-items:center!important;flex-wrap:nowrap!important;gap:12px!important;margin:0!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .db148-payment-action{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 40px!important;width:40px!important;height:40px!important;min-width:40px!important;max-width:40px!important;min-height:40px!important;max-height:40px!important;padding:9px!important;margin:0!important;border-radius:50%!important;box-sizing:border-box!important}
+  html body.db138-mobile #ucClientModal #ucTabPayments .db148-payment-action>svg{width:20px!important;height:20px!important;min-width:20px!important;margin:0!important}
+}
+@media(max-width:760px){
+  html[data-color-mode=dark] body.db138-mobile #adminApp #storage .uc-storage-meter-labels>strong{color:color-mix(in srgb,var(--db148-storage-tone) 64%,var(--db138-text))!important}
+}
+@media(max-width:360px){
+  html body.db138-mobile #growthAnalytics .db141-time-segments>button{padding:6px!important;font-size:10px!important}
+  html body.db138-mobile #growthAnalytics .db141-chart-controls .db141-view-segments>button{width:26px!important;min-width:26px!important;flex-basis:26px!important}
+}
+@media(max-width:760px) and (prefers-reduced-motion:reduce){html body.db138-mobile input.db148-checkbox{transition:none!important}}

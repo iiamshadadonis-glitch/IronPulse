@@ -1,4 +1,4 @@
-/* DropBeat Dance Studio final source analytics + modal UX polish.
+/* IronPulse Gym final source analytics + modal UX polish.
    Additive only: existing admin data flows remain unchanged. */
 (function(){
   const $=s=>document.querySelector(s);

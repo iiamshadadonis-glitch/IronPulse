@@ -7,13 +7,13 @@
     {
       "binding": "DB",
       "database_name": "ironpulse-gym-db",
-      "database_id": "00000000-0000-0000-0000-000000000000"
+      "database_id": "893e7d29-fa72-413d-9415-5d93b1c3bc6e"
     }
   ],
   "vars": {
     "SITE_URL": "https://ironpulse-gym.pages.dev",
     "SITE_NAME": "IronPulse Gym",
-    "ADMIN_EMAILS": "you@example.com",
+    "ADMIN_EMAILS": "admin@ironpulse-gym.local",
     "ADMIN_DEVELOPMENT_BYPASS": "false",
     "WHATSAPP_ADMIN_NUMBER": "919381521966",
     "GREEN_API_ADMIN_NUMBER": "919381521966",
@@ -26,6 +26,6 @@
     "SUBSCRIPTION_HORIZON_YEARS": "21",
     "STRIPE_FALLBACK_ENABLED": "false",
     "MEDIA_STORAGE_MODE": "d1-pages-no-r2",
-    "ADMIN_LOGIN_EMAIL": "you@example.com"
+    "ADMIN_LOGIN_EMAIL": "admin@ironpulse-gym.local"
   }
 }

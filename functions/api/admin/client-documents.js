@@ -21,7 +21,7 @@ function bytesToBase64Url(bytes){
 function utf8Base64Url(text){return bytesToBase64Url(new TextEncoder().encode(String(text||'')));}
 function safeFilename(v,type='document'){
   let s=clean(v,180).replace(/[\\/:*?"<>|\r\n]+/g,'-').replace(/\s+/g,' ').trim();
-  if(!s)s=`dropbeat-dance-studio-${type}.pdf`;if(!/\.pdf$/i.test(s))s+='.pdf';return s;
+  if(!s)s=`ironpulse-gym-${type}.pdf`;if(!/\.pdf$/i.test(s))s+='.pdf';return s;
 }
 function stripHtml(v){return String(v||'').replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]*>/g,' ').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/\s+\n/g,'\n').replace(/\n\s+/g,'\n').replace(/[ \t]+/g,' ').trim();}
 function headerText(v){return String(v||'').replace(/[\r\n]+/g,' ').trim();}

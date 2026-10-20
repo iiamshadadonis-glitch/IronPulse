@@ -7,11 +7,11 @@ import {resolve,extname,join} from 'node:path';
 import {createRequire} from 'node:module';
 
 const require=createRequire(import.meta.url);
-const {chromium}=require(process.env.DROPBEAT_PLAYWRIGHT_MODULE||'playwright');
-const root=resolve(process.env.DROPBEAT_TEST_ROOT||fileURLToPath(new URL('../',import.meta.url)));
+const {chromium}=require(process.env.GYM_PLAYWRIGHT_MODULE||'playwright');
+const root=resolve(process.env.GYM_TEST_ROOT||fileURLToPath(new URL('../',import.meta.url)));
 const {layoutPayload}=await import(pathToFileURL(join(root,'functions/_lib/layout.js')));
 const {dictionaryButtons}=await import(pathToFileURL(join(root,'public/assets/button-dictionary-defaults-v1-56.js')));
-const output=resolve(process.env.DROPBEAT_TEST_OUTPUT||join(root,'browser-verification'));
+const output=resolve(process.env.GYM_TEST_OUTPUT||join(root,'browser-verification'));
 await mkdir(output,{recursive:true});
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.woff2':'font/woff2'};
 const server=createServer(async(req,res)=>{
@@ -21,7 +21,7 @@ const server=createServer(async(req,res)=>{
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const origin='http://127.0.0.1:'+server.address().port;
-const browser=await chromium.launch({headless:true,...(process.env.DROPBEAT_CHROMIUM_PATH?{executablePath:process.env.DROPBEAT_CHROMIUM_PATH}:{}),args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-software-rasterizer','--no-zygote','--single-process']});
+const browser=await chromium.launch({headless:true,...(process.env.GYM_CHROMIUM_PATH?{executablePath:process.env.GYM_CHROMIUM_PATH}:{}),args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-software-rasterizer','--no-zygote','--single-process']});
 const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1});
 const page=await context.newPage(),errors=[],writes=[];
 page.on('pageerror',error=>errors.push(error.stack||String(error)));
@@ -37,12 +37,12 @@ let navigation={items:[{key:'home',label:'Home',slug:'',href:'/',kind:'builtin'}
 const baseRoute=async route=>{
   const request=route.request(),url=new URL(request.url());
   if(url.origin!==origin){
-    if(url.hostname==='example.test'&&url.pathname.endsWith('.png')){await route.fulfill({status:200,contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100"><rect width="900" height="1100" fill="#4B55BE"/><text x="50" y="200" fill="white" font-size="65">Dance Image</text></svg>'});return;}
+    if(url.hostname==='example.test'&&url.pathname.endsWith('.png')){await route.fulfill({status:200,contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100"><rect width="900" height="1100" fill="#4B55BE"/><text x="50" y="200" fill="white" font-size="65">Fitness Image</text></svg>'});return;}
     await route.abort();return;
   }
   if(url.pathname.startsWith('/api/')){
     if(request.method()!=='GET')writes.push({path:url.pathname,body:request.postData()});
-    if(url.pathname==='/api/admin/settings'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,settings:{...base.settings,siteName:'IronPulse Gym',tagline:'Build strength. Build consistency.',logoUrl:'/assets/ironpulse-logo.svg',faviconUrl:'/assets/ironpulse-logo.svg',whatsappNumber:'919381521966',legalEntityName:'Fixture Studio LLP',legalEntityAddress:'Hyderabad',frontendTheme:'dropbeat'}})});return;}
+    if(url.pathname==='/api/admin/settings'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,settings:{...base.settings,siteName:'IronPulse Gym',tagline:'Build strength. Build consistency.',logoUrl:'/assets/ironpulse-logo.svg',faviconUrl:'/assets/ironpulse-logo.svg',whatsappNumber:'919381521966',legalEntityName:'Fixture Gym LLP',legalEntityAddress:'Hyderabad',frontendTheme:'dropbeat'}})});return;}
     if(url.pathname==='/api/admin/automatic-email-templates'){
       const template={label:'Schedule Confirmation',description:'Sent after a class is scheduled.',subject:'Confirmation for @ClientName',heading:'Your class is booked',eyebrow:'Class details',greeting:'Hi @ClientName',intro:'Thanks for joining.',summaryTitle:'Class Summary',summaryLabels:['Class','Coach'],footerBody:'See you soon.',note:'Keep this email',buttonLabel:'View Class',buttonUrl:'/my-orders'};
       const templates={schedule_confirmation:template,meeting_reminder:{...template,label:'Meeting Reminder',subject:'Your class starts soon'}};
@@ -50,13 +50,13 @@ const baseRoute=async route=>{
       await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,templates,defaults:templates,subject:body.template?.subject||template.subject,html:'<html><body><h1>Fixture email preview</h1></body></html>'})});return;
     }
     if(url.pathname==='/api/admin/storage'){
-      if(url.searchParams.get('mode')==='detail'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,title:'Expired offer details',details:[['Record ID','1'],['Name','Expired Dance Pass'],['Status','expired']],warning:'Only eligible expired data can be removed.'})});return;}
+      if(url.searchParams.get('mode')==='detail'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,title:'Expired offer details',details:[['Record ID','1'],['Name','Expired Gym Membership'],['Status','expired']],warning:'Only eligible expired data can be removed.'})});return;}
       const categories=[{key:'expired_offers',label:'Expired / Inactive Offers',description:'Only expired offers.',count:2,approx_bytes:177,warning:'Deletion is permanent.'},{key:'old_visits',label:'Old anonymous visits',count:3,approx_bytes:250,description:'Eligible anonymous visits.'}];
       await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,allocated_label:'500 MB',used_label:'10 MB',remaining_label:'490 MB',remaining_percent:98,used_percent:2,categories,columns:[{key:'name',label:'Name'},{key:'status',label:'Status'}],key_field:'id',rows:[{id:1,title:'Expired Plan',name:'Expired Plan',detail:'Expired eligible offer',date_value:'2026-09-01',approx_label:'100 B',status:'expired'},{id:2,title:'Old Plan',name:'Old Plan',detail:'Inactive eligible offer',date_value:'2026-09-02',approx_label:'80 B',status:'inactive'}]})});return;
     }
-    if(url.pathname==='/api/admin/studio-gallery'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,images:[{id:31,alt_text:'Studio practice',image_url:'/assets/product-generic.svg',visible:1},{id:32,alt_text:'Stage practice',image_url:'/assets/product-generic.svg',visible:1}]})});return;}
-    if(url.pathname==='/api/admin/banners'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,banners:[1,2,3].map(id=>({id,title:'Dance banner '+id,subtitle:'Learn to dance',desktop_image_url:'/assets/product-generic.svg',mobile_image_url:'/assets/product-generic.svg',link_type:'page',link_value:'/offers',visible:1,sort_order:id}))})});return;}
-    if(url.pathname==='/api/admin/checkout-settings'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,settings:{paymentMode:'subscription',subscriptionYears:21,yearlyEnabled:true,couponsEnabled:true},coupons:[{id:1,code:'DANCE10',name:'Dance discount',discount_type:'percent',discount_value:10,status:'active',enabled:1,max_uses:20,used_count:2}]})});return;}
+    if(url.pathname==='/api/admin/studio-gallery'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,images:[{id:31,alt_text:'Strength training',image_url:'/assets/product-generic.svg',visible:1},{id:32,alt_text:'Group training',image_url:'/assets/product-generic.svg',visible:1}]})});return;}
+    if(url.pathname==='/api/admin/banners'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,banners:[1,2,3].map(id=>({id,title:'Gym banner '+id,subtitle:'Build strength every day',desktop_image_url:'/assets/product-generic.svg',mobile_image_url:'/assets/product-generic.svg',link_type:'page',link_value:'/offers',visible:1,sort_order:id}))})});return;}
+    if(url.pathname==='/api/admin/checkout-settings'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,settings:{paymentMode:'subscription',subscriptionYears:21,yearlyEnabled:true,couponsEnabled:true},coupons:[{id:1,code:'GYM10',name:'Gym discount',discount_type:'percent',discount_value:10,status:'active',enabled:1,max_uses:20,used_count:2}]})});return;}
     if(url.pathname==='/api/admin/api-settings'){await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,apiBaseUrl:origin,vendorUserId:'fixture-studio',endpoints:[{method:'GET',url:origin+'/api/automation/plans',purpose:'List plans'},{method:'POST',url:origin+'/api/automation/orders',purpose:'Create order'}],webhookEndpoints:{events:origin+'/api/webhooks/events'}})});return;}
     if(url.pathname==='/api/admin/navigation-order'){
       if(request.method()==='POST'){const body=JSON.parse(request.postData()||'{}');if(body.action==='save_item'){const item=navigation.items.flatMap(x=>[x,...(x.children||[])]).find(x=>x.key===body.key);if(item){item.label=body.label;item.slug=body.slug;}}if(body.action==='save_order')navigation.items=body.order.map(key=>navigation.items.find(x=>x.key===key));}
@@ -70,7 +70,7 @@ const baseRoute=async route=>{
       await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({ok:true,integrations:items,items,brandName:'IronPulse Gym'})});return;
     }
     if(url.pathname==='/api/admin/social-integrations'){
-      await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,settings:{...base.settings,googleDrive:{enabled:true,uploadReady:true,oauthConnected:true,folderName:'Test Media',imageFolderName:'Images',videoFolderName:'Videos'},telegram:{enabled:true,botUsername:'test_bot',botTokenMasked:'***'},facebook:{enabled:true,pageId:'page-test'},gmail:{enabled:true,senderName:'IronPulse Gym',senderEmail:'support@urgent-casting.com',adminCopyEmail:'urgentcasting33@example.test',connected:true,connectedEmail:'actual@example.test',clientId:'fixture-client',clientSecretMasked:'***'}}})});return;
+      await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...base,settings:{...base.settings,googleDrive:{enabled:true,uploadReady:true,oauthConnected:true,folderName:'Test Media',imageFolderName:'Images',videoFolderName:'Videos'},telegram:{enabled:true,botUsername:'test_bot',botTokenMasked:'***'},facebook:{enabled:true,pageId:'page-test'},gmail:{enabled:true,senderName:'IronPulse Gym',senderEmail:'support@ironpulse.example',adminCopyEmail:'urgentcasting33@example.test',connected:true,connectedEmail:'actual@example.test',clientId:'fixture-client',clientSecretMasked:'***'}}})});return;
     }
     if(url.pathname==='/api/admin/pages'){
       const pages=['about','contact','privacy','404'].map((key,index)=>({id:index+1,page_key:key,title:key==='contact'?'Contact Us':'Example '+key,body_text:'Page content '+key,status:'published',enabled:1}));

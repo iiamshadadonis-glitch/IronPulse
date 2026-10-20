@@ -1,0 +1,127 @@
+/* DropBeat V1.35 — final public/portal dark contrast and phone-layout polish.
+   Every colour override is dark-only. Responsive layout changes are phone-only. */
+
+/* The original dark gradient-heading rule used transparent text with greater
+   specificity than later fixes. Reset the complete paint stack on the exact
+   public headings so they remain visible in every desktop/mobile theme. */
+html[data-color-mode="dark"] body[data-uc-load="home"] :is(
+  .dropbeat-welcome-copy h2,
+  .section .section-head h2,
+  .how-section .section-head h2
+),
+html[data-color-mode="dark"] body[data-uc-load^="page:"] :is(#pageContent,.legal) h1,
+html[data-color-mode="dark"] body[data-uc-load="checkout"] .checkout-section h1{
+  background:none!important;
+  background-image:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  -webkit-text-fill-color:#f7f8fc!important;
+  color:#f7f8fc!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+
+/* Public commerce, contact and plan-detail surfaces that legacy CSS paints
+   after the base dark layer. */
+html[data-color-mode="dark"] :is(
+  .contact-form,.checkout-add-more,.db134-session-details,
+  .db134-class-glance>article,.uc-offer-detail-price,.uc-interest-row,
+  .uc-offer-availability,.db134-sheet-body .notice
+){
+  background:#202638!important;
+  background-image:none!important;
+  border-color:#48516d!important;
+  color:#d7dbea!important;
+}
+html[data-color-mode="dark"] :is(
+  .contact-form,.checkout-form,.summary-card,.basket-item,.db134-detail-sheet
+) :is(label,strong,h1,h2,h3,h4){color:#f7f8fc!important}
+html[data-color-mode="dark"] :is(
+  .contact-form,.checkout-form,.summary-card,.basket-item,.db134-detail-sheet
+) :is(p,span,small,.hint){color:#b9bfd0!important}
+html[data-color-mode="dark"] .qty-controls>span{color:#f7f8fc!important}
+html[data-color-mode="dark"] .checkout-add-more :is(strong,span){color:inherit!important}
+html[data-color-mode="dark"] .summary-row{border-color:#3d455f!important;color:#d7dbea!important}
+html[data-color-mode="dark"] .summary-row strong{color:#f7f8fc!important}
+
+/* Student and coach dashboard fallbacks for dynamic cards and status rows. */
+html[data-color-mode="dark"] .portal-app :is(
+  .portal-status,.portal-callout,.portal-helper,.portal-alert,
+  .portal-card,.portal-plan-card,.week-item,.empty-state,
+  .portal-table-wrap,.attendance-summary-grid>*
+){background:#1b2030!important;background-image:none!important;border-color:#3d455f!important;color:#d7dbea!important}
+html[data-color-mode="dark"] .portal-app :is(h1,h2,h3,h4,strong,.week-date){color:#f7f8fc!important}
+html[data-color-mode="dark"] .portal-app :is(p,small,.muted,.hint){color:#b9bfd0!important}
+
+@media(max-width:760px){
+  /* Readable banner copy in both modes without tinting or stretching the image. */
+  body[data-uc-load="home"] .hero-copy{
+    display:block!important;
+    width:min(92%,430px)!important;
+    padding:14px 15px!important;
+    border:1px solid rgba(75,85,190,.16)!important;
+    background:rgba(255,255,255,.91)!important;
+    color:#242535!important;
+  }
+  body[data-uc-load="home"] .hero-copy :is(h1,h2){color:#1f2232!important;-webkit-text-fill-color:#1f2232!important;text-shadow:none!important}
+  body[data-uc-load="home"] .hero-copy :is(p,.eyebrow){color:#4b4f63!important;text-shadow:none!important}
+  html[data-color-mode="dark"] body[data-uc-load="home"] .hero-copy{background:rgba(15,19,30,.91)!important;border-color:#48516d!important;color:#eef0f7!important}
+  html[data-color-mode="dark"] body[data-uc-load="home"] .hero-copy :is(h1,h2){color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 5px rgba(0,0,0,.74)!important}
+  html[data-color-mode="dark"] body[data-uc-load="home"] .hero-copy :is(p,.eyebrow){color:#d7dbea!important;text-shadow:0 2px 5px rgba(0,0,0,.74)!important}
+
+  /* Keep Book the Class visually equal to the other three compact actions. */
+  .dropbeat-quick-strip-inner>.dropbeat-strip-action{
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    gap:3px!important;padding:8px 4px!important;min-width:0!important
+  }
+  .dropbeat-strip-action>span{flex:0 0 auto!important;margin:0!important;font-size:11px!important;line-height:1!important;letter-spacing:0!important}
+
+  /* Compact welcome card: each numbered item is a proper row, never a narrow
+     three-column word stack. */
+  .dropbeat-welcome-grid{grid-template-columns:92px minmax(0,1fr)!important;gap:11px!important}
+  .dropbeat-feature-list{display:grid!important;grid-template-columns:1fr!important;gap:3px!important;margin:0 0 8px!important}
+  .dropbeat-feature-list>div{display:grid!important;grid-template-columns:20px minmax(0,1fr)!important;align-items:center!important;gap:5px!important;padding:4px 5px!important}
+  .dropbeat-feature-list>div>span{grid-row:auto!important;font-size:7px!important;line-height:1!important;letter-spacing:.04em!important;white-space:nowrap!important}
+  .dropbeat-feature-list>div>strong{font-size:8px!important;line-height:1.2!important;overflow-wrap:normal!important;word-break:normal!important}
+  .dropbeat-welcome-copy>.btn{display:flex!important;width:max-content!important;margin-left:auto!important;justify-self:end!important}
+
+  /* Session Details remains obviously tappable without an oversized arrow that
+     can collide with the expanded class facts. */
+  .db134-session-details>summary{justify-content:flex-start!important;padding-right:8px!important}
+  .db134-session-details>summary::after{display:none!important;content:none!important}
+
+  /* Preserve the uploaded 16:9 plan artwork. Never stretch a manually cropped
+     image into the old square mobile frame. */
+  #offerDetail .uc-offer-detail-media{aspect-ratio:16/9!important;min-height:0!important;background:#f5f6fa!important}
+  #offerDetail .uc-offer-detail-media img,
+  #offerDetail .uc-offer-detail-media img[data-manual-detail-crop="1"]{
+    width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;
+    object-fit:contain!important;object-position:center!important
+  }
+  html[data-color-mode="dark"] #offerDetail .uc-offer-detail-media{background:#121724!important}
+  #offerDetail .uc-offer-book-card>.db107-offer-class{display:none!important}
+  .db134-class-glance{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:8px 0 0}
+  .db134-class-glance>article{min-width:0;padding:7px 5px;border:1px solid var(--dropbeat-line,#dedfec);border-radius:10px;text-align:center;background:#f7f7fb}
+  .db134-class-glance small{display:block;font-size:7px!important;line-height:1.15!important;text-transform:uppercase;letter-spacing:.04em;color:var(--dropbeat-text,#606477)!important}
+  .db134-class-glance strong{display:block;margin-top:3px;font-size:9px!important;line-height:1.2!important;color:var(--dropbeat-title,#252638)!important;overflow-wrap:anywhere}
+  html[data-color-mode="dark"] .db134-class-glance small{color:#b9bfd0!important}
+  html[data-color-mode="dark"] .db134-class-glance strong{color:#f7f8fc!important}
+
+  /* Contact form fields use the complete available width and app-sized type. */
+  .contact-form{grid-template-columns:1fr!important;gap:10px!important}
+  .contact-form>.field,.contact-form>.contact-phone-grid,.contact-form>button,.contact-form>#contactResult{grid-column:1/-1!important;width:100%!important;min-width:0!important}
+  .contact-form :is(input,select,textarea){width:100%!important;box-sizing:border-box!important;font-size:12px!important;line-height:1.35!important}
+  .contact-form .contact-phone-grid{grid-template-columns:105px minmax(0,1fr)!important;gap:9px!important}
+
+  /* Checkout fields remain two compact columns but are visibly separated. */
+  .checkout-form{column-gap:10px!important;row-gap:12px!important;margin-top:12px!important}
+  .checkout-form .field{min-width:0!important}
+  .checkout-form input{width:100%!important;box-sizing:border-box!important;font-size:12px!important;line-height:1.35!important}
+  .checkout-form>button{margin-top:3px!important}
+  .checkout-add-more{margin:10px 0 16px!important}
+}
+
+@media(max-width:390px){
+  .dropbeat-welcome-grid{grid-template-columns:82px minmax(0,1fr)!important}
+  .contact-form .contact-phone-grid{grid-template-columns:98px minmax(0,1fr)!important}
+}

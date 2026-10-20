@@ -1,4 +1,4 @@
-# Local development only. Copy to .dev.vars and replace both values.
-ADMIN_LOGIN_EMAIL=you@example.com
-ADMIN_LOGIN_PASSWORD=choose-a-unique-local-password
-# Configure payment/OAuth credentials in the gym Admin integrations after login.
+# Local development only. Copy to .dev.vars and set your own unique password.
+ADMIN_LOGIN_EMAIL=admin@ironpulse-gym.local
+ADMIN_LOGIN_PASSWORD=
+# Keep real credentials out of Git. Set Production secrets in Cloudflare Pages.

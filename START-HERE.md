@@ -1,100 +1,88 @@
-# Set up IronPulse Gym
+# IronPulse Gym V1.01 — start here
 
-Use a **new repository, new Pages project and new D1 database**. Keep the dance deployment as it is.
+Your existing gym database is already selected in this replacement:
 
-## A. Easiest Windows setup
+- Pages project name: **ironpulse-gym**
+- D1 binding: **DB**
+- D1 database ID: **893e7d29-fa72-413d-9415-5d93b1c3bc6e**
+- Administrator login email: **admin@ironpulse-gym.local**
+- Administrator password: **the unique secret you set in Cloudflare**. There is no shared default password.
 
-1. Install Node.js 24 and extract the ZIP completely.
-2. Open the extracted `IronPulse-Gym-V1.00` folder.
-3. Double-click **SETUP-GYM-WINDOWS.bat**. It installs the tools and opens Cloudflare login. Sign in to your Cloudflare account.
-4. Enter a new Pages project name, a new D1 database name and your administrator email. Suggested names: `ironpulse-gym` and `ironpulse-gym-db`. Choose another Pages name if it is taken.
-5. Enter a unique first-login password when asked for the `ADMIN_LOGIN_PASSWORD` secret. The helper writes the new database ID into `wrangler.jsonc`; the password stays in Cloudflare secrets.
-6. Double-click **DEPLOY-GYM-WINDOWS.bat**. It applies the 56 migrations to the new database and uploads the frontend and Functions.
-7. Open `https://YOUR-PROJECT.pages.dev/login`. Use the administrator email and password from steps 4–5. Open Brand Settings and replace the placeholder gym details.
+The screenshot's failure happened after asset upload, when publishing tried to bind a database that was not present in the selected account. That deployment was using older configuration. Retrying that same old commit will keep the old binding.
 
-This helper creates a Pages Direct Upload project. You can keep its source in a new GitHub repository using GitHub Desktop, and run the deploy helper after changes. For Cloudflare's built-in automatic Git deployments, use option B instead of creating a Direct Upload project.
+## 1. Replace the gym repository contents
 
-Mac/Linux: run `bash SETUP-GYM-MAC-LINUX.sh`, then `bash DEPLOY-GYM-MAC-LINUX.sh` from the extracted folder.
+Use the **gym repository**, separate from your other website.
 
-## B. GitHub Desktop + Cloudflare automatic deployments
+With GitHub Desktop, choose Repository → Show in Explorer/Finder. Move the old project files to a backup folder outside the repository, keeping the repository's .git folder. Copy **the contents of this extracted project folder** into that repository.
 
-1. Create a new GitHub repository, for example `ironpulse-gym`. Copy the **contents** of the ZIP's project folder into it, commit, and publish. Keep that repository's own `.git` folder.
-2. In Cloudflare, open **Storage & databases → D1 SQL database → Create database**. Create `ironpulse-gym-db` or another new name. Copy its database ID.
-3. Edit `wrangler.jsonc` in the new repository:
+At the repository root, you must see wrangler.jsonc, package.json, public/, functions/ and migrations/. Do not leave these files inside an extra nested ZIP folder. Do not keep another wrangler.toml or wrangler.json from the old project.
 
-| Field | Set to |
-|---|---|
-| `name` | New Pages project name |
-| `d1_databases[0].database_name` | New D1 database name |
-| `d1_databases[0].database_id` | New database ID from step 2 |
-| `vars.SITE_URL` | `https://YOUR-PROJECT.pages.dev` |
-| `vars.ADMIN_LOGIN_EMAIL` | Your email |
-| `vars.ADMIN_EMAILS` | Your email |
+Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **IronPulse Gym V1.01 — use existing gym D1**.
 
-Keep the binding **DB**. The all-zero database ID in this ZIP is a setup placeholder; the deploy helpers reject it and the original dance database ID.
+## 2. Set the gym Pages project
 
-4. In a terminal inside the repository, run:
-
-```sh
-npm ci
-npx wrangler login
-npm run d1:migrate:remote
-```
-
-5. In Cloudflare **Workers & Pages**, create a new **Pages** application connected to the new repository:
+Open your gym project in Cloudflare → Workers & Pages. If creating it for the first time, select Pages and connect the gym repository.
 
 | Setting | Value |
-|---|---|
-| Project name | The `name` in `wrangler.jsonc` |
-| Production branch | `main` |
+| --- | --- |
+| Project name | ironpulse-gym |
+| Production branch | main, or the branch you just pushed |
 | Framework preset | None |
-| Root directory | Repository root |
-| Build command | `npm run build` |
-| Build output directory | `public` |
-| Environment variable | `NODE_VERSION` = `24` |
-| Secret | `ADMIN_LOGIN_PASSWORD` = your unique first-login password |
+| Root directory | Repository root; leave blank |
+| Build command | npm run build |
+| Build output directory | public |
+| Node version | 24; also pinned in .nvmrc and .node-version |
+| D1 binding name | DB |
+| D1 database | The existing database with ID 893e7d29-fa72-413d-9415-5d93b1c3bc6e |
 
-The Wrangler configuration supplies the DB binding and non-secret variables. Confirm **DB** points to the new gym database. Use a separate preview database if you enable preview deployments.
+The DB binding is declared in wrangler.jsonc. Select the same existing database if the dashboard displays a binding selector. **Do not create another D1 database.** The UUID identifies your database; database_name is its human-readable label. If your D1 dashboard shows a different name, update database_name to that exact name while retaining this UUID and binding DB.
 
-6. Deploy, then open `/login` with your configured administrator email and password. Existing dance customers, payments and integration tokens are not copied into this new database.
+If your Pages project has a different name, update name and vars.SITE_URL in wrangler.jsonc to match that gym project and its actual website URL before pushing.
 
-## Razorpay connection
+In Pages → Settings → Variables and Secrets → Production, add **ADMIN_LOGIN_PASSWORD** as an encrypted secret. Choose your own unique password. Keep ADMIN_DEVELOPMENT_BYPASS set to false. Repeat the secret in Preview only if you intend to use preview deployments.
 
-1. Save the gym's Razorpay Key ID and Key Secret on its Admin payment integration card, or set Pages secrets `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET`.
-2. In Razorpay, create a **new webhook endpoint** for the gym. Keep the dance endpoint active for the dance site.
-3. URL: `https://YOUR-GYM-DOMAIN/api/webhooks/razorpay`.
-4. Choose a new webhook secret. Save the identical value as Pages secret `RAZORPAY_WEBHOOK_SECRET`, or in the webhook-secret field on the gym's payment settings card.
-5. Enable the existing handler's events where available: `payment.captured`, `payment.failed`, `subscription.authenticated`, `subscription.activated`, `subscription.charged`, `subscription.updated`, `subscription.pending`, `subscription.halted`, `subscription.paused`, `subscription.resumed`, `subscription.cancelled`, `subscription.completed`, `subscription.expired`.
-6. Test in Test mode, then configure Live keys and the Live-mode webhook. Recurring-payment approval belongs to the gym's Razorpay account.
+## 3. Deploy the new commit
 
-Optional Stripe and PhonePe keep their existing integration logic. If enabled, use the gym domain and its own secrets for `/api/webhooks/stripe` and `/api/webhooks/phonepe`.
+Deploy the latest pushed commit. In its build log, confirm these exact lines:
 
-## Google OAuth connection
+    IronPulse Gym V1.01 (package 1.1.0)
+    D1 binding DB: 893e7d29-fa72-413d-9415-5d93b1c3bc6e
 
-Create a Web application OAuth client for the gym, or explicitly add its new callback URLs to a client you own. Enter credentials on the relevant card in the **new gym Admin** and reconnect its accounts. Do not copy refresh tokens from the dance database.
+The log should use Wrangler 4.128.0 and compile the Worker successfully. If it still shows an older project, old login email or different D1 ID, check the connected repository, branch, commit and root directory.
 
-| Feature | Authorized redirect URI |
-|---|---|
-| Member, Coach and Admin Google sign-in | `https://YOUR-GYM-DOMAIN/api/portal/google/callback` |
-| Google Meet / Calendar | `https://YOUR-GYM-DOMAIN/api/admin/webinar-google-oauth/callback` |
-| Google Drive | `https://YOUR-GYM-DOMAIN/api/admin/google-drive-oauth/callback` |
-| Gmail | `https://YOUR-GYM-DOMAIN/api/admin/gmail-oauth/callback` |
-| Search Console | `https://YOUR-GYM-DOMAIN/api/admin/search-console-oauth/callback` |
-| Blogger, if used | `https://YOUR-GYM-DOMAIN/api/admin/blogger-oauth/callback` |
-| YouTube, if used | `https://YOUR-GYM-DOMAIN/api/admin/youtube-oauth/callback` |
+If the new UUID is reported as not found, the Pages project and this D1 database must be placed in the **same Cloudflare account**. A database ID cannot grant access to another account's database.
 
-Google sign-in can use credentials saved under Admin Security or the existing Webinars integration card. Other services retain their existing integration cards. Use the exact callback displayed by each card, add the gym origin where required, complete the OAuth consent screen and enable the APIs/scopes requested by that service.
+A fresh database is prepared by the existing application schema initialization. This was tested with an empty local Cloudflare D1. You do not need to paste SQL or rename tables for the normal Pages deployment.
 
-If you attach a custom domain, update `vars.SITE_URL`, webhooks and authorized redirect URIs to that domain, redeploy, and reconnect services.
+After Cloudflare marks the deployment successful, open its website → /login → Admin and use admin@ironpulse-gym.local with the password secret you set. This local-domain address is a login identifier; configure your real contact and sending email in Admin.
 
-## After setup
+## 4. Finish gym integrations
 
-- Confirm branding on Home, `/login`, Admin, `/member-dashboard` and `/coach-dashboard`.
-- Rename a menu item or button, then check desktop, mobile and a normal reload.
-- Enter real memberships, prices, coaches, specialties, photos and schedules. Demo prices retain the existing pricing logic and are editable.
-- Complete a Test-mode purchase and check the order, membership, attendance and webhook result.
-- Install the PWA and check its name and icon.
+In Admin, set the actual gym name/contact details, real photos, payment credentials and Google integrations. Keep credentials out of Git.
 
-WhatsApp support: **9381521966**. Instautomate footer attribution is retained.
+- Razorpay: use the gym account credentials and set its webhook to your deployed gym origin followed by **/api/webhooks/razorpay**. Use the same webhook secret in Razorpay and this gym's settings.
+- Google member sign-in: register your deployed origin and the exact **/api/portal/google/callback** redirect URL in the gym Google OAuth client.
+- Other Google integrations: copy the callback URL shown in the corresponding Admin integration card. Their existing callback paths are retained.
+- Use your actual gym domain in SITE_URL after attaching a custom domain. Update the provider webhook/OAuth URLs to that domain at the same time.
 
-References: [Cloudflare Pages configuration](https://developers.cloudflare.com/pages/functions/wrangler-configuration/), [Pages commands](https://developers.cloudflare.com/workers/wrangler/commands/pages/), [D1 setup](https://developers.cloudflare.com/d1/get-started/), [Google OAuth redirects](https://developers.google.com/identity/protocols/oauth2/web-server), [Razorpay webhook setup](https://razorpay.com/docs/webhooks/setup-edit-payments), [Razorpay webhook testing](https://razorpay.com/docs/webhooks/validate-test).
+Real payment, webhook and Google account checks require your own provider credentials; local verification uses synthetic data and does not contact those providers.
+
+## Optional computer-assisted deployment
+
+Requires Node 24 and access to the Cloudflare account that owns the database:
+
+    npm ci
+    npm run setup:gym
+    npm run deploy
+
+Setup verifies this existing UUID, resolves its actual database name, and stores your chosen administrator password as a Pages secret. It never creates another database or project. Create/connect the gym Pages project first.
+
+For an account/binding check only:
+
+    npx wrangler login
+    npm run check:cloudflare
+
+For a Git-connected project, commit and push any configuration updates made by setup/check. The Pages deployment uses the committed configuration.
+
+Open RELEASE-VERIFICATION-GYM.md for the exact local test results.
