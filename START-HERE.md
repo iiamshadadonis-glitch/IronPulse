@@ -1,6 +1,8 @@
-# IronPulse Gym V1.05 — start here
+# IronPulse Gym V1.06 — start here
 
-This release fixes the duplicate public Fitness Tips cover image and the desktop/mobile card layouts. It also includes the earlier Admin text/stability fix. No database migration is needed. Read docs/PUBLIC-FITNESS-TIPS-FIX.md. After deployment, close older tabs and use Ctrl+Shift+R once to load the updated assets.
+This release corrects stylesheet delivery on Cloudflare's generated Fitness Tips pages and adds build/content hashes to CSS/JS URLs. It includes all earlier image and Admin fixes. No database migration is needed. Read docs/FITNESS-TIPS-DELIVERY-FIX.md for the exact fix, current pages.dev deployment steps and custom-domain cache purging.
+
+Deploy to your existing Pages project serving https://gym-fitness-3w8.pages.dev. Keep your existing secrets and database. Use npm run build as the Pages build command. The configuration name below is the package's CLI default; set it to your existing project name only if using CLI deployment.
 
 Your existing gym database is already selected in this replacement:
 
@@ -10,7 +12,7 @@ Your existing gym database is already selected in this replacement:
 - Administrator login email: **admin@ironpulse-gym.local**
 - Administrator password: **the unique secret you set in Cloudflare**. There is no shared default password.
 
-The screenshot's failure happened after asset upload, when publishing tried to bind a database that was not present in the selected account. That deployment was using older configuration. Retrying that same old commit will keep the old binding.
+The earlier database-error screenshot's failure happened after asset upload, when publishing tried to bind a database that was not present in the selected account. That deployment was using older configuration. Retrying that same old commit will keep the old binding.
 
 This release includes every original V1.00 file under archive/V1.00/ alongside the complete working project. Copy the archive folder too: the build verifies the complete source package. Use the root configuration and current instructions. COMPARISON.md explains the file counts.
 
@@ -22,7 +24,7 @@ With GitHub Desktop, choose Repository → Show in Explorer/Finder. Move the old
 
 At the repository root, you must see wrangler.jsonc, package.json, public/, functions/ and migrations/. Do not leave these files inside an extra nested ZIP folder. Do not keep another wrangler.toml or wrangler.json from the old project.
 
-Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **V1.05: Fix Fitness Tips images and responsive card layouts**. GITHUB-SUMMARY.txt contains the complete description.
+Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **V1.06: Fix Worker layout delivery and asset cache busting**. GITHUB-SUMMARY.txt contains the complete description.
 
 ## 2. Set the gym Pages project
 
@@ -50,7 +52,7 @@ In Pages → Settings → Variables and Secrets → Production, add **ADMIN_LOGI
 
 Deploy the latest pushed commit. In its build log, confirm these exact lines:
 
-    IronPulse Gym V1.05 (package 1.5.0)
+    IronPulse Gym V1.06 (package 1.6.0)
     D1 binding DB: 893e7d29-fa72-413d-9415-5d93b1c3bc6e
 
 The npm run build step uses the pinned project Wrangler and should compile the Worker successfully. Use the printed release, UUID and commit to identify the source being deployed. If it still shows an older project, old login email or different D1 ID, check the connected repository, branch, commit and root directory.
@@ -89,4 +91,4 @@ For an account/binding check only:
 
 For a Git-connected project, commit and push any configuration updates made by setup/check. The Pages deployment uses the committed configuration.
 
-Open CLOUDFLARE-FIX.md for the earlier deployment-error instructions, PACKAGE-CONTENTS.txt for all included files, and RELEASE-VERIFICATION-GYM.md for the exact local test results. After a successful deployment, /release.json identifies this package as V1.05. Test the public Fitness Tips menu and open a post on both desktop and mobile. Existing /blog URLs and any configured navigation slug continue to work.
+Open CLOUDFLARE-FIX.md for the earlier deployment-error instructions, PACKAGE-CONTENTS.txt for all included files, and RELEASE-VERIFICATION-GYM.md for the exact local test results. After a successful deployment, /release.json identifies this package as V1.06. Test the public Fitness Tips menu and open a post on both desktop and mobile. Existing /blog URLs and any configured navigation slug continue to work.

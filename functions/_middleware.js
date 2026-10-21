@@ -6,6 +6,7 @@ import { json, isTransientDatabaseError, preferredPublicOrigin } from './_lib/ut
 import { runTrafficMaintenance } from './_lib/traffic-maintenance.js';
 import { purgePublicEdgeCaches, DROPBEAT_PUBLIC_CACHE_ENTRIES, dropbeatPublicCacheEntries } from './_lib/edge-response-cache.js';
 import { syncDanceMembershipsFromRecentOrders } from './_lib/fitness-platform.js';
+import {finalizeGymHtml,applyGymAssetHeaders} from './_lib/gym-asset-delivery.js';
 
 const CSP = [
   "default-src 'self' https: data: blob:",
@@ -157,7 +158,8 @@ export async function onRequest(context) {
   headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
   headers.set('Content-Security-Policy', CSP);
   headers.set('X-DropBeat-Release', '1.59.0');
-  headers.set('X-IronPulse-Release', '1.00.0');
+  headers.set('X-IronPulse-Release', '1.6.0');
+  applyGymAssetHeaders(headers,url);
 
   if (url.pathname.startsWith('/admin') || url.pathname.startsWith('/api/') || privateDocument) {
     headers.set('X-Robots-Tag', 'noindex, nofollow');
@@ -268,7 +270,10 @@ export async function onRequest(context) {
     }
     if(!html.includes('/assets/gym-layout-v1-57.js')&&!url.pathname.startsWith('/admin'))html=html.replace(/<\/body>/i,'<script type="module" src="/assets/gym-layout-v1-57.js?build=1.59"></script></body>');
     if(!html.includes('/assets/app-session-v1-58.js'))html=html.replace(/<\/body>/i,'<script src="/assets/app-session-v1-58.js?build=1.58"></script></body>');
-    responseBody=html;
+    responseBody=finalizeGymHtml(html,context.request.url);
+    headers.set('Cache-Control','no-store, no-cache, max-age=0, must-revalidate');
+    headers.set('CDN-Cache-Control','no-store');
+    headers.set('Cloudflare-CDN-Cache-Control','no-store');
     headers.delete('content-length');
   }
 

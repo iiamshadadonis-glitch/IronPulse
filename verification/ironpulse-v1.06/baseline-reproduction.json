@@ -1,0 +1,11 @@
+{
+  "baseline": "V1.05(1).zip",
+  "baselineSha256": "bc152888a606f0d6f8f9222cd0493f4448d6384a4743b6d9ac9fe196116b8927",
+  "realRouterShell": true,
+  "oldWorkerIncludedV105Stylesheet": false,
+  "oldWorkerIncludedV106Stylesheet": false,
+  "newWorkerIncludesV106Stylesheet": true,
+  "newWorkerIncludesVersionedModules": true,
+  "baselineBrowserExpectedFailure": "Timed out waiting for Read More to use the primary colour because the generated page never loaded the card stylesheet",
+  "fixedPublicBrowserGroupsPassed": 8
+}

@@ -1,6 +1,12 @@
 # Why the file counts differ
 
-## Current V1.05 release
+## Current V1.06 release
+
+V1.06 starts from V1.05(1).zip and retains all 2,926 input paths. The working application contains 493 frontend files, 270 backend/delivery files and 56 migrations. One new scoped CSS file fixes the public cards. The two new backend files contain the generated asset manifest and HTML/cache delivery helpers. The existing middleware has a narrowly audited presentation/cache addon. All 267 other inherited backend files, all 178 inherited CSS files, all inherited public JavaScript files and every migration remain byte-identical to V1.05.
+
+The 415 CSS/JS assets receive build/content hash query versions when the Worker serves HTML. Original source filenames and bytes remain available for compatibility. No frontend bundles or application files were removed. PACKAGE-CONTENTS.txt contains the complete recursive inventory and verification/ironpulse-v1.06/source-comparison.json records changed and added paths.
+
+## Historical V1.05 release
 
 V1.05 starts from the complete user-attached V1.04(1).zip and retains all 2,869 input paths. It contains 492 public/frontend files, 268 backend files and 56 migrations, plus all original source archives, documentation and verification tools. The one extra frontend file is the page-scoped Fitness Tips layout stylesheet. Every inherited CSS, backend and migration file is byte-identical to V1.04.
 

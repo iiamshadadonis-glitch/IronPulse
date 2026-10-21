@@ -8,8 +8,8 @@ try{
  }
  const pkg=JSON.parse(readFileSync(join(projectRoot,'package.json'),'utf8'));
  const release=JSON.parse(readFileSync(join(projectRoot,'public/release.json'),'utf8'));
- if(release.name!=='IronPulse Gym'||release.version!=='V1.05'||release.package_version!==pkg.version)throw Error('Release identification does not match this package. Use the complete V1.05 replacement.');
- console.log('IronPulse Gym V1.05 (package '+pkg.version+')');
+ if(release.name!=='IronPulse Gym'||release.version!=='V1.06'||release.package_version!==pkg.version)throw Error('Release identification does not match this package. Use the complete V1.06 replacement.');
+ console.log('IronPulse Gym V1.06 (package '+pkg.version+')');
  console.log('Git commit: '+(process.env.CF_PAGES_COMMIT_SHA||process.env.GITHUB_SHA||'local verification'));
  console.log('Pages project: '+config.name+' | output: public');
  console.log('D1 binding DB: '+db.database_id);

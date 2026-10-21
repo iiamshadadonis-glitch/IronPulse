@@ -1,6 +1,6 @@
 {
   "name": "ironpulse-gym-cloudflare",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "description": "IronPulse Gym fitness membership platform for Cloudflare Pages, Functions and the existing gym D1 database.",
   "scripts": {
@@ -18,7 +18,7 @@
     "secret:greenapi": "wrangler pages secret put GREEN_API_TOKEN --project-name ironpulse-gym",
     "secret:automation": "wrangler pages secret put AUTOMATION_API_KEY --project-name ironpulse-gym",
     "setup:gym": "node tools/setup-gym.mjs",
-    "build": "npm run check:deployment && npm run check:complete && wrangler pages functions build --outdir .build",
+    "build": "npm run check:deployment && npm run build:assets && npm run check:complete && wrangler pages functions build --outdir .build",
     "test": "node tools/verify-gym-release.mjs",
     "test:gym": "npm test",
     "test:gym:browser": "node tools/verify-gym-browser.mjs",
@@ -28,7 +28,11 @@
     "test:gym:runtime:empty": "node tools/verify-gym-runtime.mjs --empty",
     "check:complete": "node tools/verify-gym-completeness.mjs",
     "test:gym:fitness-tips": "node tools/verify-gym-browser.mjs --fitness-tips-only",
-    "test:gym:public-fitness": "node tools/verify-gym-browser.mjs --public-fitness-only"
+    "test:gym:public-fitness": "node tools/verify-gym-browser.mjs --public-fitness-only",
+    "build:assets": "node tools/build-gym-assets.mjs",
+    "test:gym:worker-browser": "node tools/verify-gym-worker-browser.mjs",
+    "purge:css": "node tools/purge-gym-css-cache.mjs",
+    "test:gym:cache-browser": "node tools/verify-gym-cache-browser.mjs"
   },
   "devDependencies": {
     "@babel/parser": "7.28.5",

@@ -4,7 +4,7 @@ import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parse} from '@babel/parser';
 import {DatabaseSync} from 'node:sqlite';
-import {collect,files,sqlStatements} from '../tools/gym-contract-helpers.mjs';
+import {collect,files,sqlStatements,digest} from '../tools/gym-contract-helpers.mjs';
 import {LAYOUT_NAMES,LAYOUT_THEMES} from '../public/assets/layout-registry-v1-57.js';
 import {dictionaryButtons} from '../public/assets/button-dictionary-defaults-v1-56.js';
 import {dashboardFor} from '../functions/_lib/app-session-v1-58.js';
@@ -17,19 +17,22 @@ import {onRequestPost as login} from '../functions/api/admin/auth/login.js';
 const root=fileURLToPath(new URL('../',import.meta.url)),text=name=>readFileSync(join(root,name),'utf8');
 const baseline=JSON.parse(text('tests/gym-baseline-contracts.json')),current=collect(root);
 const publicFixes=JSON.parse(text('verification/ironpulse-v1.05/public-fitness-tips-fixes.json'));
-const expectedCss={...baseline.css,[publicFixes.stylesheet.path]:publicFixes.stylesheet.sha256};
+const deliveryFixes=JSON.parse(text('verification/ironpulse-v1.06/asset-delivery-fixes.json'));
+const expectedCss={...baseline.css,[publicFixes.stylesheet.path]:publicFixes.stylesheet.sha256,[deliveryFixes.stylesheet.path]:deliveryFixes.stylesheet.sha256};
 assert.deepEqual(current.css,expectedCss,'Retain every inherited theme file; only the audited public Fitness Tips stylesheet is added');
-assert.deepEqual(current.functionDDL,baseline.functionDDL,'Runtime schema definitions must remain identical');
+const expectedDDL={...baseline.functionDDL},expectedBackend={...baseline.backendSource};
+for(const fix of deliveryFixes.backendFiles){if(fix.added){assert.equal(fix.ddl,digest('[]'));expectedDDL[fix.path]=digest('[]');}else assert.equal(fix.ddl,baseline.functionDDL[fix.path]);expectedBackend[fix.path]=fix.sha256;}
+assert.deepEqual(current.functionDDL,expectedDDL,'Runtime schema definitions must remain identical; delivery helpers have no schema statements');
 for(const[name,value]of Object.entries(baseline.migrationDDL))assert.equal(current.migrationDDL[name],value,name);
 assert.deepEqual(current.apiPaths,baseline.apiPaths,'API endpoint paths stay compatible');
-assert.deepEqual(current.backendSource,baseline.backendSource,'Backend logic must match supplied V1.00 after filename and Open Graph namespace normalization');
+assert.deepEqual(current.backendSource,expectedBackend,'Backend remains unchanged except the separately audited asset delivery addon');
 const uiFixes=JSON.parse(text('verification/ironpulse-v1.04/frontend-fixes.json'));
 const expectedFrontend={...baseline.frontendSource};
 for(const fix of uiFixes.files){assert.equal(expectedFrontend[fix.path],fix.beforeSha256,'A UI exception must identify its original source');expectedFrontend[fix.path]=fix.afterSha256;}
 assert.equal(expectedFrontend[publicFixes.renderer.path],publicFixes.renderer.beforeSha256);
 expectedFrontend[publicFixes.renderer.path]=publicFixes.renderer.afterSha256;
 assert.deepEqual(current.frontendSource,expectedFrontend,'Frontend must retain compatibility except the explicitly audited V1.04/V1.05 presentation fixes');
-const exceptions=[];
+const exceptions=['functions/_middleware.js'];
 for(const[name,value]of Object.entries(baseline.functionShapes))if(!exceptions.includes(name))assert.equal(current.functionShapes[name],value,'Business logic, keys, roles and enums changed: '+name);
 console.log('Compatibility with supplied gym V1.00: '+Object.keys(current.css).length+' matching CSS/theme files after path normalization, '+Object.keys(current.functionDDL).length+' runtime-schema fingerprints, '+Object.keys(current.migrationDDL).length+' migration DDL sets, '+current.apiPaths.length+' API paths and '+Object.keys(current.functionShapes).length+' backend structures.');
 

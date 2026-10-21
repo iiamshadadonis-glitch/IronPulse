@@ -1,0 +1,35 @@
+{
+  "middleware": {
+    "path": "functions/_middleware.js",
+    "beforeSha256": "f42d070aebf3a2b1380913e519016fa74b6f66a9c7657f534da1337e24ee086f",
+    "afterSha256": "37fcce33955b587be74b9ebfab9fbe6cbc5d972c1c6d9bc98598bf9147251019"
+  },
+  "stylesheet": {
+    "path": "public/assets/gym-fitness-tips-v1-06.css",
+    "sha256": "07d69941055816fcfb8dae2a38804b4762b0bade2da74e02aca9a345cc1b943e"
+  },
+  "backendFiles": [
+    {
+      "path": "functions/_middleware.js",
+      "sha256": "37fcce33955b587be74b9ebfab9fbe6cbc5d972c1c6d9bc98598bf9147251019",
+      "shape": "24650fd8eb0c07175aab814438ee78309627f0664b5352a53d613968bbd0c8c4",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "added": false
+    },
+    {
+      "path": "functions/_lib/gym-asset-delivery.js",
+      "sha256": "a2ac045d68841fd6e509a9251b4cf49650d0e124c6857b21f16133f9b27c4334",
+      "shape": "3220dd8de975801a7d0bbbd63193f347c92d4ab540f8ce12365d26c8eee55350",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "added": true
+    },
+    {
+      "path": "functions/_lib/gym-asset-manifest.js",
+      "sha256": "d48d3d0d0958f61422d1b7989c50de1f1b77833cd2c525e733fe0544256bdd0b",
+      "shape": "9b40f1a0ea9d5d3565dbbd67439cd8fcf7a79818483438666f0a285b092ad73c",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "added": true
+    }
+  ],
+  "businessLogic": "Original middleware restored byte-for-byte by removing only the declared asset delivery addon; all other inherited backend and public JS/CSS bytes retained."
+}

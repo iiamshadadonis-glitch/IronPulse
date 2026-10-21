@@ -1,0 +1,41 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ironpulse-gym-cloudflare@1.6.0 test
+> node tools/verify-gym-release.mjs
+
+PASS gym-release.mjs
+PASS gym-asset-delivery.mjs
+PASS gym-public-fitness-tips.mjs
+PASS gym-fitness-tips.mjs
+PASS gym-deployment.mjs
+PASS gym-sessions.mjs
+PASS gym-buttons-api.mjs
+PASS gym-plan-import.mjs
+PASS gym-v1-58-notifications.mjs
+PASS gym-v1-58-service-worker.mjs
+PASS gym-v1-57-layout-api.mjs
+PASS gym-v1-51-cache.mjs
+PASS gym-v1-51-sync.mjs
+PASS gym-v1-49-schedule.mjs
+PASS gym-v1-27-payment-admin-recovery.mjs
+PASS gym-v1-28-worker-resource-login-recovery.mjs
+PASS v16-88-data-integration.mjs
+PASS v16-89-periods.mjs
+PASS v16-90-d1-read.mjs
+PASS v16-93-smoke.mjs
+PASS v16-95-smoke.mjs
+PASS v16-96-smoke.mjs
+PASS v16-97-smoke.mjs
+PASS v16-98-smoke.mjs
+PASS v16-99-smoke.mjs
+PASS v17-00-smoke.mjs
+PASS v17-01-d1-read-optimization.mjs
+PASS v17-02-visitor-customer-recovery.mjs
+PASS v17-03-visitor-dashboard-freshness.mjs
+PASS v17-04-visitor-read-guard.mjs
+PASS v17-05-email-automations.mjs
+PASS v17-06-email-followup-providers.mjs
+PASS v17-07-webinar-email-ui.mjs
+PASS v17-08-workflows-members-ui.mjs
+PASS v17-09-navigation-email-parity.mjs
+All 35 current gym release/regression suites passed.

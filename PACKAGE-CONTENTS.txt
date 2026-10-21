@@ -1,25 +1,27 @@
-IRONPULSE GYM V1.05 — COMPLETE SOURCE PACKAGE
+IRONPULSE GYM V1.06 — COMPLETE SOURCE PACKAGE
 
-Total files (including all subfolders): 2926
-Every one of the 2,869 paths from the supplied V1.04 ZIP is retained.
-Current application: 492 frontend files, 268 backend files, 56 database migrations.
+Total files (including all subfolders): 2992
+Every one of the 2,926 paths from the supplied V1.05 ZIP is retained.
+Current application: 493 frontend files, 270 backend/delivery files, 56 migrations.
 Original V1.00 archive: all 1,829 files preserved byte-for-byte.
 
 Copy every file AND folder into the existing gym repository and deploy the root project.
+Use npm run build in your existing Cloudflare Pages project.
 GITHUB-SUMMARY.txt contains the commit title and description.
 RELEASE-VERIFICATION-GYM.md contains the verification results.
-No database migration is needed for this UI fix.
+docs/FITNESS-TIPS-DELIVERY-FIX.md explains asset cache busting and post-deployment purging.
+No database migration is needed.
 
 Folder totals:
 (project root): 24 files
 archive: 1876 files
-docs: 5 files
-functions: 268 files
+docs: 6 files
+functions: 270 files
 migrations: 56 files
-public: 492 files
-tests: 36 files
-tools: 16 files
-verification: 153 files
+public: 493 files
+tests: 37 files
+tools: 20 files
+verification: 210 files
 
 Dependencies, build output, temporary databases and browser screenshots are excluded.
 
@@ -1924,6 +1926,7 @@ archive/V1.02-verification/v17-09-navigation-email-parity.mjs.log
 archive/V1.02-verification/verification-summary.json
 docs/API_AUTOMATION.md
 docs/BULK_PRODUCT_TEMPLATE.csv
+docs/FITNESS-TIPS-DELIVERY-FIX.md
 docs/FITNESS-TIPS-FIX.md
 docs/GYM-ASSETS.md
 docs/PUBLIC-FITNESS-TIPS-FIX.md
@@ -1948,6 +1951,8 @@ functions/_lib/fitness-platform.js
 functions/_lib/gmail-mailer.js
 functions/_lib/google-business.js
 functions/_lib/google-drive-upload.js
+functions/_lib/gym-asset-delivery.js
+functions/_lib/gym-asset-manifest.js
 functions/_lib/identity-sync.js
 functions/_lib/integration-diagnostics.js
 functions/_lib/layout.js
@@ -2609,6 +2614,7 @@ public/assets/gym-dynamic-labels-v1-59.css
 public/assets/gym-dynamic-labels-v1-59.js
 public/assets/gym-fitness-language.js
 public/assets/gym-fitness-tips-v1-05.css
+public/assets/gym-fitness-tips-v1-06.css
 public/assets/gym-fitness-v1-07.css
 public/assets/gym-fitness-v1-07.js
 public/assets/gym-fitness-v1-08.css
@@ -2746,6 +2752,7 @@ public/terms-and-conditions.html
 public/uc-notifications-sw.js
 public/yearly-plans.html
 tests/fixtures-v158.mjs
+tests/gym-asset-delivery.mjs
 tests/gym-baseline-contracts.json
 tests/gym-buttons-api.mjs
 tests/gym-deployment.mjs
@@ -2781,6 +2788,7 @@ tests/v17-06-email-followup-providers.mjs
 tests/v17-07-webinar-email-ui.mjs
 tests/v17-08-workflows-members-ui.mjs
 tests/v17-09-navigation-email-parity.mjs
+tools/build-gym-assets.mjs
 tools/check-gym-cloudflare.mjs
 tools/check-gym-deployment.mjs
 tools/deploy-gym.mjs
@@ -2791,12 +2799,15 @@ tools/gym-deployment-config.mjs
 tools/gym-fitness-tips-cases.mjs
 tools/gym-navigation-cases.mjs
 tools/gym-public-fitness-tips-cases.mjs
+tools/purge-gym-css-cache.mjs
 tools/setup-gym.mjs
 tools/verify-gym-browser.mjs
+tools/verify-gym-cache-browser.mjs
 tools/verify-gym-completeness.mjs
 tools/verify-gym-package.mjs
 tools/verify-gym-release.mjs
 tools/verify-gym-runtime.mjs
+tools/verify-gym-worker-browser.mjs
 verification/.gitignore
 verification/ironpulse-v1.03/browser-console.log
 verification/ironpulse-v1.03/build.log
@@ -2950,4 +2961,61 @@ verification/ironpulse-v1.05/v17-07-webinar-email-ui.mjs.log
 verification/ironpulse-v1.05/v17-08-workflows-members-ui.mjs.log
 verification/ironpulse-v1.05/v17-09-navigation-email-parity.mjs.log
 verification/ironpulse-v1.05/verification-summary.json
+verification/ironpulse-v1.06/asset-cache-results.json
+verification/ironpulse-v1.06/asset-delivery-fixes.json
+verification/ironpulse-v1.06/baseline-reproduction.json
+verification/ironpulse-v1.06/build.log
+verification/ironpulse-v1.06/cache-browser-console.log
+verification/ironpulse-v1.06/fitness-tips-results.json
+verification/ironpulse-v1.06/gym-asset-delivery.mjs.log
+verification/ironpulse-v1.06/gym-branding-results.json
+verification/ironpulse-v1.06/gym-buttons-api.mjs.log
+verification/ironpulse-v1.06/gym-deployment.mjs.log
+verification/ironpulse-v1.06/gym-fitness-tips.mjs.log
+verification/ironpulse-v1.06/gym-navigation-schedule-results.json
+verification/ironpulse-v1.06/gym-plan-import.mjs.log
+verification/ironpulse-v1.06/gym-public-fitness-tips.mjs.log
+verification/ironpulse-v1.06/gym-release.mjs.log
+verification/ironpulse-v1.06/gym-sessions.mjs.log
+verification/ironpulse-v1.06/gym-v1-27-payment-admin-recovery.mjs.log
+verification/ironpulse-v1.06/gym-v1-28-worker-resource-login-recovery.mjs.log
+verification/ironpulse-v1.06/gym-v1-49-schedule.mjs.log
+verification/ironpulse-v1.06/gym-v1-51-cache.mjs.log
+verification/ironpulse-v1.06/gym-v1-51-sync.mjs.log
+verification/ironpulse-v1.06/gym-v1-57-layout-api.mjs.log
+verification/ironpulse-v1.06/gym-v1-58-notifications.mjs.log
+verification/ironpulse-v1.06/gym-v1-58-service-worker.mjs.log
+verification/ironpulse-v1.06/package-audit.json
+verification/ironpulse-v1.06/public-fitness-tips-results.json
+verification/ironpulse-v1.06/public-worker-console.log
+verification/ironpulse-v1.06/release-console.log
+verification/ironpulse-v1.06/release-tests.json
+verification/ironpulse-v1.06/runtime-console.log
+verification/ironpulse-v1.06/runtime-empty-console.log
+verification/ironpulse-v1.06/runtime-empty-results.json
+verification/ironpulse-v1.06/runtime-results.json
+verification/ironpulse-v1.06/source-comparison.json
+verification/ironpulse-v1.06/v100-original-files.json
+verification/ironpulse-v1.06/v105-input-files.json
+verification/ironpulse-v1.06/v16-88-data-integration.mjs.log
+verification/ironpulse-v1.06/v16-89-periods.mjs.log
+verification/ironpulse-v1.06/v16-90-d1-read.mjs.log
+verification/ironpulse-v1.06/v16-93-smoke.mjs.log
+verification/ironpulse-v1.06/v16-95-smoke.mjs.log
+verification/ironpulse-v1.06/v16-96-smoke.mjs.log
+verification/ironpulse-v1.06/v16-97-smoke.mjs.log
+verification/ironpulse-v1.06/v16-98-smoke.mjs.log
+verification/ironpulse-v1.06/v16-99-smoke.mjs.log
+verification/ironpulse-v1.06/v17-00-smoke.mjs.log
+verification/ironpulse-v1.06/v17-01-d1-read-optimization.mjs.log
+verification/ironpulse-v1.06/v17-02-visitor-customer-recovery.mjs.log
+verification/ironpulse-v1.06/v17-03-visitor-dashboard-freshness.mjs.log
+verification/ironpulse-v1.06/v17-04-visitor-read-guard.mjs.log
+verification/ironpulse-v1.06/v17-05-email-automations.mjs.log
+verification/ironpulse-v1.06/v17-06-email-followup-providers.mjs.log
+verification/ironpulse-v1.06/v17-07-webinar-email-ui.mjs.log
+verification/ironpulse-v1.06/v17-08-workflows-members-ui.mjs.log
+verification/ironpulse-v1.06/v17-09-navigation-email-parity.mjs.log
+verification/ironpulse-v1.06/verification-summary.json
+verification/ironpulse-v1.06/worker-browser-console.log
 wrangler.jsonc

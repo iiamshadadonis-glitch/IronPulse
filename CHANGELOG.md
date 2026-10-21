@@ -1,5 +1,15 @@
 # Changelog
 
+## V1.06 — Worker Fitness Tips layout delivery and asset cache busting
+
+- Correct the missing stylesheet on Cloudflare's generated /blog shell by appending the scoped card stylesheet after inherited/injected styles.
+- Retain balanced desktop columns with 24px padding/gaps and use mobile full-width images with absolutely positioned text, dark gradients and primary-theme Read More buttons.
+- Fingerprint all 415 CSS/JS sources during the build and version HTML references plus module imports with release/build/content hashes.
+- Keep HTML uncached and make compatibility asset URLs revalidate; retain notification service worker behaviour.
+- Add a custom-domain CSS purge helper and invoke it only after successful CLI deployment. Pages-managed pages.dev cache refresh remains deployment-controlled.
+- Reproduce the V1.05 failure through the actual Worker route; add Worker browser and real warm-cache browser coverage.
+- Preserve all 2,926 input paths, all inherited public JS/CSS bytes, all migrations and original business logic.
+
 ## V1.05 — Public Fitness Tips images and responsive cards
 
 - Render each post's featured image once as its hero; filter matching body copies before inserting adverts.

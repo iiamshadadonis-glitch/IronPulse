@@ -1,70 +1,71 @@
-# IronPulse Gym V1.05 — release verification
+# IronPulse Gym V1.06 — release verification
 
-Verified 21 October 2026. Node 24.19.0, Wrangler 4.128.0, package 1.5.0.
+Verified 21 October 2026. Node 24.19.0, Wrangler 4.128.0, package 1.6.0.
 
 ## Results
 
 | Check | Result |
 | --- | --- |
-| Code/regression suites | 34 / 34 passed |
+| Code/regression suites | 35 / 35 passed |
 | Cloudflare Pages Functions/Worker build | Compiled successfully |
-| Browser workflow groups | 24 / 24 passed; zero page errors |
+| Actual local Worker browser workflows | 24 / 24 groups passed; zero page errors |
+| Real Chromium warm-cache workflows | 2 / 2 groups passed; no request interception |
 | Public Fitness Tips workflows | 8 groups; 10 viewport/mode samples |
-| Public screen widths | 320, 390, 760, 980 and 1440px; light and dark modes |
-| Original duplicate reproduction | V1.04: one hero + one body cover; V1.05: one hero + zero body covers |
-| Admin Fitness Tips regression | 6 groups; 9 stability samples |
-| Navigation label samples | 541 stable frames |
-| Actual local Worker + migrated D1 | 8 / 8 groups passed |
-| Actual local Worker + initially empty D1 | 8 / 8 groups passed |
-| Supplied V1.04 input paths | All 2,869 retained |
+| Public screen widths | 320, 390, 760, 980 and 1440px in light/dark modes |
+| Admin Fitness Tips workflows | 6 groups; earlier label/upload/save fixes retained |
+| Navigation label samples | 494 stable frames |
+| Real local Worker + migrated D1 | 10 / 10 groups passed |
+| Real local Worker + initially empty D1 | 10 / 10 groups passed |
+| Build fingerprint coverage | All 415 CSS/JS assets; 9 literal module dependency URLs |
+| Current asset build | f4e65a8978b36e976b7a |
+| Supplied V1.05 input paths | All 2,926 retained |
 | Original V1.00 archived files | All 1,829 verified byte-for-byte |
-| Active frontend/backend/migrations | 492 / 268 / 56 |
-| Inherited CSS/theme files | All 177 byte-identical to V1.04; one new scoped stylesheet |
-| Backend and migration files | All byte-identical to V1.04 |
-| Existing public renderer functions | 30 retained byte-for-byte |
-| Earlier protected Admin action functions | All 21 retained |
+| Active frontend/backend-delivery/migrations | 493 / 270 / 56 |
+| Inherited CSS/theme files | All 178 byte-identical to V1.05; one added scoped stylesheet |
+| Inherited public JavaScript files | All byte-identical to V1.05 |
+| Inherited backend files | 267 byte-identical; one audited middleware delivery addon |
+| Schema, migrations and API paths | Existing definitions and all 183 API file paths retained |
 | Package | Complete source, file hashes, ZIP CRC and extracted-file verification |
 
-## Root cause and changes
+## Root cause and fix
 
-The existing backend-generated body can retain its leading cover image when its URL contains an escaped ampersand or different wrapper. The public page also adds its hero. The new browser fixture uses the actual content serializer/decorator and reproduces both images in unmodified V1.04 before confirming the fix.
+Cloudflare's functions/blog/[[slug]].js generates a separate HTML shell for /blog and individual posts. V1.05 linked its card stylesheet only in the static public HTML files. The generated shell never requested it, so cache purging alone could not apply those layouts. The earlier static browser harness did not exercise this Worker route. V1.06's baseline reproduction confirms that the original generated shell omits the V1.05 card stylesheet; the original Worker browser test also fails waiting for the primary-colour Read More button.
 
-One public renderer now filters matching cover copies from the detached, sanitized display body before adverts are inserted. Relative/escaped URLs, fragments, wrapped images and supported Google Drive URL variants are covered. Separate illustrations, captions, sponsored images, comments, share controls, stored content and the original post DTO remain intact.
+The new delivery helper runs after existing middleware presentation injections. It appends the current card stylesheet last for a blog-list body, versions local stylesheet/script references and supplies versioned module imports. The build computes release/build/content hash query parameters for all CSS/JS files. Source filenames and all inherited public JS/CSS bytes remain intact.
 
-One new stylesheet is restricted to public Fitness Tips list cards. Desktop cards have balanced image/text columns with 24px spacing and padding. At widths up to 760px, the image fills the card and the title, excerpt and Read More link sit over a dark gradient. Read More follows the saved primary theme colour; custom primary colours and both colour modes are checked. Existing theme declarations and inherited CSS files are unchanged.
+Generated HTML is uncached even for requests without an HTML Accept header. CSS/JS responses revalidate and do not retain the old stale-while-revalidate policy. API-specific cache behaviour and notification service worker logic remain unchanged. The real local runtime checks verify the generated shell, new stylesheet, manifest-backed asset bytes and headers.
 
-The two public HTML files load the added stylesheet and a refreshed renderer URL. Existing /blog routes, configured slugs, filters, pagination, SEO metadata, APIs and business rules are retained. The existing DB binding still selects 893e7d29-fa72-413d-9415-5d93b1c3bc6e. No database migration is needed. All earlier V1.04 Admin fixes are included.
+Desktop cards retain balanced columns with 24px spacing and padding. Mobile cards use full-width images with absolutely positioned text and a dark gradient. Read More follows the active primary theme colour. Long headline/excerpt fixtures fit, buttons remain clickable and the previous duplicate cover, adverts, comments, filters and pagination checks still pass.
 
-## Covered workflows
+## Cache regression and deployment
 
-- Render one post hero; preserve separate images, captions, advertisements and threaded comment payloads.
-- Handle nested picture/anchor covers, Drive variants, query-string distinctions, absent covers and the existing sanitizer.
-- Check desktop column spacing, full-width mobile overlays, long text, primary-colour propagation, link clicks and horizontal overflow at five widths in light/dark mode.
-- Retain page/tag query strings, pagination, empty/error states and missing-post behaviour.
-- Retain Admin delayed initialization, image upload, edit/save payloads, custom labels, filters and Posts tab selection.
-- Retain public branding, signup, Member/Coach routing, PWA, plan editing and mobile payment help.
-- Exercise dictionary/cache skeletons, renamed labels, request deduplication, bounded errors/Retry and Schedule late-response handling.
-- Run the real local Cloudflare Worker against migrated and empty temporary D1 instances, including login/logout and private dashboard headers.
+The dedicated cache test uses Chrome's actual HTTP cache with no Playwright routing. It first loads an old stylesheet with a one-hour lifetime, switches to the new deployment HTML and verifies that the fingerprinted URL fetches the corrected CSS. A force-cache read still retrieves the old CSS without a network request, proving that the fix bypasses rather than merely deletes that cache entry. A further reload verifies current CSS revalidation at 390px and 1440px.
 
-## Evidence and scope
+For the present gym-fitness-3w8.pages.dev address, Pages manages deployment cache refresh. A customer-owned zone purge is not available for pages.dev. A custom-domain purge command is included and the CLI deployment helper calls it after a successful deployment, using environment-provided zone/token credentials. Its batching, URL scope, response validation and pages.dev handling are tested with synthetic API responses. Git-connected Pages deployments use their normal managed cache refresh; the custom-zone purge command is run after deployment when additional custom-domain caching is configured.
 
-verification/ironpulse-v1.05/ contains the code-suite logs, browser result JSONs, runtime results, input inventory, baseline reproduction, source comparison and package audit. public-fitness-tips-fixes.json records the single renderer exception, new CSS and protected functions. The original compatibility baseline and earlier V1.04 verification remain included. PACKAGE-CONTENTS.txt lists every delivered file; FILES.sha256 verifies the complete package.
+No live deployment or cache purge was performed in this verification session. Account credentials were unavailable. No remote database, payment or OAuth account was changed. Push the complete replacement to the existing gym repository and deploy the new commit with npm run build. docs/FITNESS-TIPS-DELIVERY-FIX.md contains the exact deployment and cache instructions.
 
-Browser API/provider responses use synthetic fixtures and runtime checks use temporary local D1 databases. Live payment, publishing, email and OAuth provider accounts were not exercised. Production deployment was not performed by these checks. Push the complete replacement to the existing GitHub branch and deploy the new commit in the existing Cloudflare Pages project.
+## Preservation and evidence
 
-This environment reused pinned dependencies, Chromium and a loopback-interface shim for the local Cloudflare runner. Dependencies, build output, temporary databases and browser screenshots are excluded from the source ZIP.
+asset-delivery-fixes.json records the narrow middleware exception, two new delivery files and scoped CSS. The source audit removes only the declared middleware additions and restores the exact original V1.05 bytes; all remaining inherited business backend files are verified byte-for-byte. Runtime DDL, migration DDL, stored roles, API JSON keys, all API paths and the gym D1 UUID 893e7d29-fa72-413d-9415-5d93b1c3bc6e are retained. No migration is needed.
+
+The V1.05 renderer remains byte-identical, including its 30 protected functions and duplicate-cover fix. The V1.04 Admin fixes and all earlier verification records remain included. Every one of the 2,926 supplied V1.05 paths and all 1,829 original archived files is preserved.
+
+Machine-readable results, logs, the input inventory, baseline reproduction, source comparison and package audit are under verification/ironpulse-v1.06/. PACKAGE-CONTENTS.txt lists every delivered path; FILES.sha256 checks package contents.
+
+Browser provider/API responses use synthetic data. The page delivery, local Worker execution, temporary migrated/empty D1 databases and dedicated HTTP cache checks are real local executions. This environment reused pinned dependencies, Chromium and a loopback-interface shim for the Cloudflare runner. Dependencies, build output, temporary databases and browser screenshots are excluded from the source ZIP.
 
 ## Reproduce
 
     npm ci
     npm test
-    npm run check:complete
     npm run build
     npx playwright install chromium
-    npm run test:gym:public-fitness
-    npm run test:gym:browser
+    npm run test:gym:worker-browser
+    npm run test:gym:cache-browser
     npm run test:gym:runtime
     npm run test:gym:runtime:empty
+    npm run check:complete
     node tools/verify-gym-package.mjs
 
-After deployment, /release.json must report V1.05 and 1.5.0. Reload the public Fitness Tips pages with Ctrl+Shift+R once to fetch the new assets.
+After deployment, /release.json must report V1.06 / 1.6.0. Use the Fitness Tips menu, /fitness-tips or /blog and check desktop/mobile cards. Keep Framework None, root directory blank, output public and Node 24 in the existing Pages project. The complete GitHub title/description is in GITHUB-SUMMARY.txt.

@@ -1,0 +1,24 @@
+{
+  "version": "V1.06",
+  "files": 2992,
+  "inputFilesRetained": 2926,
+  "originalArchiveByteIdentical": 1829,
+  "activeFrontend": 493,
+  "activeBackendDelivery": 270,
+  "migrations": 56,
+  "unchangedInheritedCss": 178,
+  "addedScopedCss": 1,
+  "inheritedBackendFilesByteIdentical": 267,
+  "middleware": "Audited additive presentation/cache delivery only",
+  "checksumManifest": "FILES.sha256",
+  "checksumManifestExcludesItself": true,
+  "archiveLayout": "Complete project at ZIP root",
+  "excludedGeneratedState": [
+    ".build",
+    ".git",
+    ".wrangler",
+    "__pycache__",
+    "browser-verification",
+    "node_modules"
+  ]
+}

@@ -20,10 +20,13 @@ const server=createServer(async(req,res)=>{
   try{const body=await readFile(target);res.writeHead(200,{'Content-Type':types[extname(target)]||'application/octet-stream','Cache-Control':'no-store'});res.end(body);}catch{res.writeHead(404);res.end('Missing fixture asset');}
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-const origin='http://127.0.0.1:'+server.address().port;
+const origin=process.env.GYM_TEST_ORIGIN||'http://127.0.0.1:'+server.address().port;
 const browser=await chromium.launch({headless:true,...(process.env.GYM_CHROMIUM_PATH?{executablePath:process.env.GYM_CHROMIUM_PATH}:{}),args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--disable-software-rasterizer','--no-zygote','--single-process']});
-const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1});
+const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1});
 const page=await context.newPage(),errors=[],writes=[];
+const browserDiagnostics=[];
+page.on('console',message=>{if(message.type()==='error')browserDiagnostics.push({type:'console',text:message.text()});});
+page.on('requestfailed',request=>browserDiagnostics.push({type:'requestfailed',url:request.url(),error:request.failure()?.errorText}));
 page.on('pageerror',error=>errors.push(error.stack||String(error)));
 const coach={id:1,name:'Example Coach',status:'active',designation:'Fitness Coach',dance_styles:['Weightlifting'],availability:['mon','tue','wed'],class_types:['online_class'],availability_slots_json:JSON.stringify([{day:'mon',start:'10:00',end:'11:00',danceStyles:['Weightlifting'],classTypes:['online_class']}])};
 const products=[{id:1,name:'Online Gym Membership',slug:'online-gym-membership',sku:'PASS',status:'active',short_description:'Beginner online classes',regular_price_paise:39900,offer_price_paise:19900,offer_price_enabled:1,payment_type:'subscription',billing_period:'monthly',billing_interval:1,trial_enabled:1,trial_amount_paise:100,trial_value:7,trial_unit:'days',features:['Live classes'],images:[],class_mapping:{enabled:1,class_name:'Beginners Session',coach_id:1,class_type:'online_class',class_days:['mon','tue','wed'],class_time:'10:00',duration_minutes:60,dance_styles:['Weightlifting'],days_per_week:3}},{id:2,name:'Gym Membership',slug:'studio-membership',status:'active',regular_price_paise:59900,offer_price_paise:34900,offer_price_enabled:1,trial_enabled:0,payment_type:'subscription',billing_period:'monthly',billing_interval:1,images:[],features:[]},{id:3,name:'Single Price',slug:'single-price',status:'active',regular_price_paise:50000,offer_price_enabled:0,trial_enabled:0,payment_type:'one_time',images:[],features:[]}];
@@ -168,4 +171,4 @@ try{
  const args={page,context,origin,output,writes,errors,baseRoute};
  if(process.argv.includes('--public-fitness-only'))await runPublicFitnessTipsWorkflows(args);
  else{await runFitnessTipsWorkflows(args);if(!process.argv.includes('--fitness-tips-only')){await runPublicFitnessTipsWorkflows(args);await runWorkflows(args);}}
-}catch(error){await writeFile(join(output,'workflow-failure.html'),await page.content());await page.screenshot({path:join(output,'workflow-failure.png'),fullPage:true});await writeFile(join(output,'workflow-failure-errors.json'),JSON.stringify({errors,writes},null,2));throw error;}finally{await browser.close();await new Promise(resolve=>server.close(resolve));}
+}catch(error){await writeFile(join(output,'workflow-failure.html'),await page.content());await page.screenshot({path:join(output,'workflow-failure.png'),fullPage:true});await writeFile(join(output,'workflow-failure-errors.json'),JSON.stringify({errors,writes,browserDiagnostics,state:await page.evaluate(()=>({url:location.href,attributes:[...document.documentElement.attributes].map(a=>[a.name,a.value]),adminScript:typeof window.startAdmin,adminState:typeof window.A}))},null,2));throw error;}finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

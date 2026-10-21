@@ -1,0 +1,41 @@
+{
+  "realBrowserHttpCache": true,
+  "noNetworkInterception": true,
+  "results": [
+    "Real browser warm cache at 390px: old CSS retained, new build URL fetched, layout corrected and subsequent revalidation confirmed",
+    "Real browser warm cache at 1440px: old CSS retained, new build URL fetched, layout corrected and subsequent revalidation confirmed"
+  ],
+  "requests": [
+    {
+      "path": "/assets/gym-fitness-tips-v1-06.css",
+      "version": "",
+      "deployment": "previous"
+    },
+    {
+      "path": "/assets/gym-fitness-tips-v1-06.css",
+      "version": "V1.06.f4e65a8978b36e976b7a.07d69941055816fcfb8d",
+      "deployment": "current"
+    },
+    {
+      "path": "/assets/gym-fitness-tips-v1-06.css",
+      "version": "V1.06.f4e65a8978b36e976b7a.07d69941055816fcfb8d",
+      "deployment": "current"
+    },
+    {
+      "path": "/assets/gym-fitness-tips-v1-06.css",
+      "version": "",
+      "deployment": "previous"
+    },
+    {
+      "path": "/assets/gym-fitness-tips-v1-06.css",
+      "version": "V1.06.f4e65a8978b36e976b7a.07d69941055816fcfb8d",
+      "deployment": "current"
+    },
+    {
+      "path": "/assets/gym-fitness-tips-v1-06.css",
+      "version": "V1.06.f4e65a8978b36e976b7a.07d69941055816fcfb8d",
+      "deployment": "current"
+    }
+  ],
+  "errors": []
+}

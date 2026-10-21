@@ -1,16 +1,17 @@
 Title:
-V1.05: Fix Fitness Tips images and responsive card layouts
+V1.06: Fix Worker layout delivery and asset cache busting
 
 Description:
-- Display each Fitness Tips featured image once as the post hero by filtering its matching body copy before adverts are inserted.
-- Preserve saved post content, separate illustrations, captions, sponsored images, comments and share controls.
-- Balance desktop post cards with image/text columns, 24px padding and 24px spacing.
-- Add mobile full-width image cards with title, excerpt and Read More over a readable dark gradient.
-- Keep the Read More button linked to the saved primary theme colour, including light/dark mode and custom primary colours.
-- Add one page-scoped stylesheet and refresh the public renderer's cache version.
-- Include all V1.04 Admin stability fixes and every one of the 2,869 input paths in the complete replacement project.
-- Preserve all backend files, migrations, inherited theme stylesheets, API JSON keys, account roles and the existing gym D1 binding.
+- Fix the missing card stylesheet on Cloudflare's generated Fitness Tips pages and append it after inherited styles.
+- Balance desktop image/text columns with 24px padding and gaps.
+- Use full-width mobile images with absolutely positioned titles, excerpts and Read More over a dark gradient.
+- Keep Read More linked to the saved primary theme colour.
+- Generate build/content hashes for all 415 CSS/JS files and version page URLs plus module imports.
+- Keep generated HTML uncached and make CSS/JS compatibility URLs revalidate.
+- Add a custom-domain CSS purge command after successful CLI deployment; retain Pages-managed cache refresh for pages.dev.
+- Test the actual Worker routes and Chrome's real warm cache, retaining previous Admin and duplicate-image checks.
+- Preserve all 2,926 input paths, inherited public JS/CSS bytes, original business logic, migrations, API JSON keys and stored roles and the gym D1 binding.
 
 Validation:
-34 regression suites, 24 browser workflow groups and 16 real local Worker/D1 groups passed. Cloudflare Functions compiled successfully. The duplicate cover was reproduced in V1.04 and verified fixed across five screen widths in light/dark mode. Complete-source, checksum and ZIP integrity checks passed.
-See RELEASE-VERIFICATION-GYM.md and verification/ironpulse-v1.05/.
+35 regression suites, 24 actual Worker browser groups, 2 real warm-cache browser groups and 20 local Worker/D1 groups passed. Cloudflare Functions compiled successfully. The V1.05 generated-shell failure was reproduced before verification of the fix. Complete-source, checksum and ZIP integrity checks passed.
+See RELEASE-VERIFICATION-GYM.md and verification/ironpulse-v1.06/.
