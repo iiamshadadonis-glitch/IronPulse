@@ -161,7 +161,10 @@ await context.route('**/*',baseRoute);
 const visibleNames=id=>page.evaluate(id=>[...document.querySelector('#'+id).querySelectorAll('input,select,textarea')].filter(el=>el.type!=='hidden'&&el.getClientRects().length&&getComputedStyle(el).visibility!=='hidden'&&!el.classList.contains('db137-native-control')).map(el=>el.name),id);
 const layout=()=>page.evaluate(()=>[...document.querySelectorAll('#dashboard .dashboard-cards')].map(container=>({rows:container.dataset.db137Rows,dots:[...container.parentElement.querySelectorAll('.db136-carousel-dots,.db137-carousel-dots')].map(d=>({class:d.className,count:d.querySelectorAll('button').length})),width:container.clientWidth,scrollWidth:container.scrollWidth,classes:container.className,firstWidth:container.firstElementChild?.getBoundingClientRect().width,margin:getComputedStyle(container).marginLeft}))); 
 import {runWorkflows} from './gym-browser-cases.mjs';
+import {runFitnessTipsWorkflows} from './gym-fitness-tips-cases.mjs';
 try{
  await page.goto(origin+'/admin/',{waitUntil:'load'});
- await runWorkflows({page,context,origin,output,writes,errors,baseRoute});
+ const args={page,context,origin,output,writes,errors,baseRoute};
+ await runFitnessTipsWorkflows(args);
+ if(!process.argv.includes('--fitness-tips-only'))await runWorkflows(args);
 }catch(error){await writeFile(join(output,'workflow-failure.html'),await page.content());await page.screenshot({path:join(output,'workflow-failure.png'),fullPage:true});await writeFile(join(output,'workflow-failure-errors.json'),JSON.stringify({errors,writes},null,2));throw error;}finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

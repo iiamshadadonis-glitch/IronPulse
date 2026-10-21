@@ -91,52 +91,34 @@
   window.ucV1652BrandTab=showBrand;
 
   // ----------------------------- Articles UI -----------------------------
-  function articleText(s=''){
-    return String(s)
-      .replace(/Post New Fitness Tip/gi,'Post New Fitness Tips')
-      .replace(/Post Fitness Tip/gi,'Post Fitness Tips')
-      .replace(/Load Fitness Tips/gi,'Load Fitness Tips Updates')
-      .replace(/Add Advertisements to This Fitness Tip/gi,'Add Advertisements to This Fitness Tips')
-      .replace(/Existing Fitness Tips/gi,'Existing Fitness Tips')
-      .replace(/Fitness Tip/gi,'Fitness Tips')
-      .replace(/Fitness Tips/gi,'Fitness Tips')
-      .replace(/Fitness Tip Title/gi,'Fitness Tips Title')
-      .replace(/Fitness Tip Details/gi,'Fitness Tips Details')
-      .replace(/Featured Fitness Tip/gi,'Featured Fitness Tips')
-      .replace(/Fitness Tip publishing/gi,'Fitness Tips publishing')
-      .replace(/Use up to 12 tags, separated with commas\. Example: article, casting, ott, hyderabad\./gi,'Use up to 12 hashtags, separated with commas. Example: #casting, #actors, #hyderabad.')
-      .replace(/Published Fitness Tips should be posted after SEO is configured in API Settings\./gi,'Published Fitness Tips can be posted after SEO is configured in Settings → Integrations → SEO.')
-      .replace(/audition article/gi,'article')
-      .replace(/Fitness Tip article/g,'Fitness Tips')
-      .replace(/\bauditions\b/gi,m=>m[0]===m[0].toUpperCase()?'Fitness Tips':'articles')
-      .replace(/\baudition\b/gi,m=>m[0]===m[0].toUpperCase()?'Fitness Tips':'article');
-  }
+  // V1.04: source templates and the dynamic layout store own display wording.
+  // Never run a broad text replacement over rendered labels or saved post data.
   function patchArticleText(root=$('#blogs')){
     if(!root)return;
-    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement?.closest('script,style,[data-db157-name],[data-db159-name],.db156-ui,.db157-ui')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
-    const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
-    for(const n of nodes){const x=articleText(n.nodeValue);if(x!==n.nodeValue)n.nodeValue=x;}
-    $$('[title],[aria-label]',root).forEach(el=>{for(const a of ['title','aria-label'])if(el.hasAttribute(a))el.setAttribute(a,articleText(el.getAttribute(a)));});
-    const tags=$('#blogForm [name="tags"]');if(tags){const field=tags.closest('.field');const label=$('label',field);if(label)label.textContent='Hashtags';tags.placeholder='casting, actors, hyderabad';let hint=$('small.hint',field);if(hint)hint.textContent='Enter up to 12 comma-separated topics, with or without #. The website stores them as fitness tip tags; supported social platforms publish them as hashtags automatically.';}
+    const tags=$('#blogForm [name="tags"]');if(tags){const field=tags.closest('.field');const label=$('label',field);if(label&&label.textContent!=='Hashtags')label.textContent='Hashtags';if(tags.placeholder!=='strength, cardio, nutrition')tags.placeholder='strength, cardio, nutrition';const hint=$('small.hint',field),text='Enter up to 12 comma-separated topics, with or without #. The website stores them as fitness tip tags; supported social platforms publish them as hashtags automatically.';if(hint&&hint.textContent!==text)hint.textContent=text;}
     $$('#blogTable thead th',root).forEach(th=>{if(/^Tags$/i.test(th.textContent.trim()))th.textContent='Hashtags';});
   }
   function normalizeTagInput(){const el=$('#blogForm [name="tags"]');if(!el)return;el.value=String(el.value||'').split(',').map(x=>x.trim().replace(/^#+/,'')).filter(Boolean).slice(0,12).join(', ');}
 
   function articleImageField(){return $('#blogForm [name="cover_image_url"]')?.closest('.field')||null;}
+  const articleImageStates=new WeakMap();
   function renderArticleImageState(url='',message=''){
     const box=$('#uc54ArticleImageState');if(!box)return;const clean=String(url||'').trim();
-    box.innerHTML=clean?`<div class="uc54-article-image-current"><img src="${H(clean)}" alt="Current fitness tip image"><div><strong>Fitness Tips image ready</strong><small>${H(message||'This Google Drive image URL will be used by the website and connected publishing workflows.')}</small><a href="${H(clean)}" target="_blank" rel="noopener">Open image</a></div></div>`:`<small class="hint">No fitness tip image is selected yet. Uploading creates/uses the <strong>Fitness Tips Images</strong> folder inside your connected Google Drive destination.</small>`;
+    const html=clean?`<div class="uc54-article-image-current"><img src="${H(clean)}" alt="Current fitness tip image"><div><strong>Fitness Tips image ready</strong><small>${H(message||'This Google Drive image URL will be used by the website and connected publishing workflows.')}</small><a href="${H(clean)}" target="_blank" rel="noopener">Open image</a></div></div>`:`<small class="hint">No fitness tip image is selected yet. Uploading creates/uses the <strong>Fitness Tips Images</strong> folder inside your connected Google Drive destination.</small>`;
+    const previous=articleImageStates.get(box);
+    if(previous?.source===html&&previous.rendered===box.innerHTML)return;
+    box.innerHTML=html;articleImageStates.set(box,{source:html,rendered:box.innerHTML});
   }
   function ensureArticleImageUpload(){
     const hidden=$('#blogForm [name="cover_image_url"]'),field=hidden?.closest('.field');if(!hidden||!field)return;
-    hidden.type='hidden';
-    field.classList.add('uc54-article-image-field');
+    if(hidden.type!=='hidden')hidden.type='hidden';
+    if(!field.classList.contains('uc54-article-image-field'))field.classList.add('uc54-article-image-field');
     // The legacy form supplied a visible “Cover Image URL Optional” label. The URL field is still
     // retained internally for the existing article/save/publishing logic, but the admin now sees
     // only the Google Drive upload control requested for V16.54.
     Array.from(field.children).forEach(el=>{
       if(el===hidden||el.id==='uc54ArticleImageUpload')return;
-      if(el.matches?.('label, small.hint, .hint, .blog-limit-hint'))el.classList.add('uc54-legacy-cover-ui');
+      if(el.matches?.('label, small.hint, .hint, .blog-limit-hint')&&!el.classList.contains('uc54-legacy-cover-ui'))el.classList.add('uc54-legacy-cover-ui');
     });
     if(!$('#uc54ArticleImageUpload',field)){
       const box=document.createElement('div');box.id='uc54ArticleImageUpload';box.className='uc54-article-image-upload';
@@ -163,7 +145,7 @@
     const oldReset=window.resetBlogForm;if(typeof oldReset==='function'&&!oldReset.__uc54){const f=function(){const r=oldReset.apply(this,arguments);syncArticleImageFromForm();patchArticleText();return r;};f.__uc54=true;window.resetBlogForm=f;}
     const oldSave=window.saveBlogAudition;if(typeof oldSave==='function'&&!oldSave.__uc54){const f=async function(ev,statusOverride){ev?.preventDefault?.();normalizeTagInput();const file=$('#uc54ArticleImageFile')?.files?.[0];if(file&&!$('#uc54ArticleImageFile')?.dataset.uc54Uploaded)await window.ucV1654UploadArticleImage();return oldSave.call(this,ev,statusOverride);};f.__uc54=true;window.saveBlogAudition=f;window.saveBlog=function(ev){return window.saveBlogAudition(ev,$('#blogForm [name="status"]')?.value||'draft');};}
   }
-  function observeArticles(){const p=$('#blogs');if(!p||articleObserver)return;let queued=0;articleObserver=new MutationObserver(()=>{clearTimeout(queued);queued=setTimeout(()=>{patchArticleText(p);ensureArticleImageUpload();},0);});articleObserver.observe(p,{childList:true,subtree:true,characterData:true});}
+  function observeArticles(){const p=$('#blogs');if(!p||articleObserver)return;let queued=0;const options={childList:true,subtree:true},controls='form,[name="tags"],[name="cover_image_url"],#uc54ArticleImageUpload,th';articleObserver=new MutationObserver(records=>{if(!records.some(record=>[...record.addedNodes,...record.removedNodes].some(node=>node.nodeType===1&&(node.matches(controls)||node.querySelector(controls)))))return;clearTimeout(queued);queued=setTimeout(()=>{articleObserver.disconnect();try{patchArticleText(p);ensureArticleImageUpload();}finally{articleObserver.observe(p,options);}},0);});articleObserver.observe(p,options);}
 
   // ------------------------ Stable Integrations opening ------------------------
   async function warmIntegrations(){

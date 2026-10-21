@@ -1,0 +1,13 @@
+{
+  "baseline": "Unmodified user-attached V1.03(1).zip",
+  "sourceZipSha256": "75f12988aefe2aa2b62e538c7c24e76075c2242ad34debf406aaad20c3214fd3",
+  "expectedFailureReproduced": true,
+  "assertion": "Initial delayed render 1440: no recursive suffixes",
+  "observedExamples": [
+    "Load Fitness Tipss Updatess Updatess Updatess",
+    "Post New Fitness Tipssssssssssssssssssssssssssss"
+  ],
+  "currentVersion": "V1.04",
+  "currentRegressionPassed": true,
+  "synthetic": true
+}

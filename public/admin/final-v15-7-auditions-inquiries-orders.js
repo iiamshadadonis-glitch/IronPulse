@@ -18,7 +18,7 @@
   function setBlogs(posts){try{if(typeof A!=='undefined')A.blogs=posts;}catch{}window.A=window.A||{};window.A.blogs=posts;}
   function collectAds(){return $$('#auditionAdsBox [data-ad-row]').map(row=>({type:row.querySelector('[name="ad_type"]')?.value||'',placement:row.querySelector('[name="ad_placement"]')?.value||'',size:row.querySelector('[name="ad_size"]')?.value||'',code:row.querySelector('[name="ad_code"]')?.value||'',redirect_url:row.querySelector('[name="ad_redirect_url"]')?.value||'',custom:row.dataset.adCustom==='1'||row.querySelector('[name="ad_type"]')?.value==='Custom Advertisement'})).filter(x=>String(x.code||'').trim());}
   function fillAds(ads=[]){const box=$('#auditionAdsBox');if(!box)return;box.innerHTML='';const list=Array.isArray(ads)&&ads.length?ads:[{}];for(const a of list){if(typeof window.addAuditionAdRow==='function')window.addAuditionAdRow(a);}}
-  function ensureFeatured(){const f=$('#blogForm');if(!f||f.querySelector('[name="is_featured"]'))return;const label=document.createElement('label');label.className='uc-v153-featured-control';label.innerHTML='<span><strong>Featured Fitness Tip</strong><small>Show this published audition in the Featured box on the public Fitness Tips page.</small></span><input type="checkbox" name="is_featured" value="1" aria-label="Feature this audition"><i aria-hidden="true"></i>';f.insertBefore(label,f.firstElementChild);}
+  function ensureFeatured(){const f=$('#blogForm');if(!f||f.querySelector('[name="is_featured"]'))return;const label=document.createElement('label');label.className='uc-v153-featured-control';label.innerHTML='<span><strong>Featured Fitness Tip</strong><small>Show this published fitness tip in the Featured box on the public Fitness Tips page.</small></span><input type="checkbox" name="is_featured" value="1" aria-label="Feature this fitness tip"><i aria-hidden="true"></i>';f.insertBefore(label,f.firstElementChild);}
   function ensureScheduleControl(){
     const f=$('#blogForm');if(!f||$('#ucV157ScheduleControl'))return;
     const actions=f.querySelector('.blog-buttons')||f.querySelector('.form-actions');if(!actions)return;
@@ -51,14 +51,14 @@
     const body=details?.querySelector(':scope > .uc-info-back-panel .uc-info-back-body');if(!body)return;
     body.classList.add('uc-v158-audition-info');
     body.innerHTML=`<h3>Post New Fitness Tips — Field Guide</h3>
-      <p class="uc-help-lead">Use these options to publish immediately, prepare a draft, highlight an important casting update, or schedule an fitness tip for later.</p>
+      <p class="uc-help-lead">Use these options to publish immediately, prepare a draft, highlight an important gym update, or schedule an fitness tip for later.</p>
       <ul>
-        <li><strong>Featured Fitness Tips:</strong> turn this on when the fitness tip should be highlighted in the Featured area of the public Fitness Tips page. Use it for priority or important casting opportunities; leave it off for normal listings.</li>
-        <li><strong>Fitness Tips Title:</strong> write a clear heading that tells the reader the role or casting opportunity.</li>
+        <li><strong>Featured Fitness Tips:</strong> turn this on when the fitness tip should be highlighted in the Featured area of the public Fitness Tips page. Use it for priority or important gym announcements; leave it off for normal listings.</li>
+        <li><strong>Fitness Tips Title:</strong> write a clear heading that tells the reader the role or fitness topic.</li>
         <li><strong>Link Extension (Optional):</strong> use a short readable ending with lowercase words separated by hyphens. Leave it blank when you want the website to create the fitness tip link from the title automatically.</li>
         <li><strong>Hashtags:</strong> add up to 12 comma-separated topics, with or without #. The website stores them as fitness tip tags and supported social platforms publish them as hashtags automatically.</li>
         <li><strong>Short Summary:</strong> write one useful preview sentence that explains the opportunity without repeating the full title.</li>
-        <li><strong>Fitness Tips Details:</strong> include role, age range, location, requirements, dates, contact instructions and any important safety information.</li>
+        <li><strong>Fitness Tips Details:</strong> include training focus, session details, dates, requirements, contact instructions and any important safety information.</li>
         <li><strong>Fitness Tips Image:</strong> choose an image and upload it. The website saves it in Google Drive → Fitness Tips Images and reuses the resulting public image for the fitness tip and connected publishing workflows.</li>
         <li><strong>Status:</strong> use Draft when the fitness tip still needs work. Use Published when it is ready to be available immediately.</li>
         <li><strong>Schedule this post:</strong> turn this on when the fitness tip should become available at a future date and time. Choose both Schedule Date and Schedule Time, then use Post Fitness Tips. The fitness tip will wait until the selected time instead of publishing immediately. Save Draft still keeps it as a draft.</li>

@@ -1,0 +1,153 @@
+{
+  "release": "V1.04",
+  "baseline": "User-attached V1.03(1).zip",
+  "files": [
+    {
+      "path": "public/admin/admin-extra.js",
+      "beforeSha256": "7fbbde912c776ac906b07f13e82dac047110254cca1b9c544bb6e56e283c9058",
+      "afterSha256": "b4455accf0b5601f8e2fc9777b69ee35391a590377fc0e3ecc0bda5a358a4bb0",
+      "beforeStructure": "fc8753da7d970a5ae4e7c10db61262c1f7e94684fcafe6b829c200cd16e6a982",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/gym-admin-v1-03.js",
+      "beforeSha256": "f4b6fdf97f4bd4ce9b83de3acbdb4b624edd781d6b346ce69e0822bedb2cc1e6",
+      "afterSha256": "6e53325440ae5ea509c0f23a731e6c532b271b94800a9836805e9d68478748ee",
+      "beforeStructure": "80a8b7f50cec58ccafcb95a57f0074772945af8a7da0ff6c37fb04f8a19ecdb0",
+      "copyOnly": false,
+      "reason": "Remove the obsolete whole-panel text writer; retain Posts tab selection."
+    },
+    {
+      "path": "public/admin/final-ad-blog-feedback-polish.js",
+      "beforeSha256": "416be24c9b8dbe6c6d1d4b529591f544d3ebb742ffe9b7365a543db8217124b9",
+      "afterSha256": "e7067fd2d829425faec9b92434e7d18e624ad604a17f1d9ffe13092716fcbad3",
+      "beforeStructure": "44116df85ebe3428011d199c5f679d4befbe5fe9f7327977b3c94f4df9f7029c",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-current-last-ui-fix.js",
+      "beforeSha256": "ad7a530c3861b4ca3eee47508b97fc61ae9d333d28223f3abcae086163e0dd30",
+      "afterSha256": "a8a57a942e5dffd4cb0f38c0a578dcc383eabc631a370c4169cd6dc29fe78b3e",
+      "beforeStructure": "ef499dd5fcf6ac1d72125668c22cb077648557010dc4db0e49809f3299569fb8",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-current-request-fix.js",
+      "beforeSha256": "f20e041a9e6858775c77353a287869a221f6909f701bb9cdbcc89243c6879926",
+      "afterSha256": "e5e547142cf5a0b763319a06e295afd5ce062e6776f12f890da5dafa524acd85",
+      "beforeStructure": "53ff8fe385b0a6e03b619732abdab7c5e7ff7c9a274e3ea9cebd85b31837d8df",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-v10-documents-brand-polish.js",
+      "beforeSha256": "c63624440638c568ca7040f0d668a6da3944cf37d82431803c803c3a459bd34b",
+      "afterSha256": "b8a89394eb8a537d321dc58037b34f92f6a64268f6c911b21ee7cb129a6cdc75",
+      "beforeStructure": "1cf0935030b5da719b2303844e2e6dfbabf512a72245b2ab0a2ed5623562c7d0",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-v15-3-enquiries-seo-auditions.js",
+      "beforeSha256": "d9bc0164679cc1cbdef994c64d04f0db9f6716cf2e81743b1833fb0d09c5930d",
+      "afterSha256": "ea555934a8df750fb7324eb86b2e2951e9513c8773a4c8eb8cc9dac38d9dd3d8",
+      "beforeStructure": "f306c1bac3d2487163fda36f62d52235d7578d6291f3e1031987145f96c7814c",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-v15-4-seo-direct-comments.js",
+      "beforeSha256": "e4596695a4e229a3717503cd1d3d0ce80b03609e9fc73b9496aa81c586098249",
+      "afterSha256": "f6fe38b5e35e13e4251e6a269b6b41e7b47cc7a3bdb113da3a316810d71e6977",
+      "beforeStructure": "4d65352f14f04f3f7061c71a1e02d7b5bb4aa56d601eddfc4b8117a9956edc16",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-v15-7-auditions-inquiries-orders.js",
+      "beforeSha256": "11b32f7a7463c2b6b22432bde7565ce8fa584040a313f5f9ff45c694ebe696bc",
+      "afterSha256": "79c142f8f2713f33e65946c88321d27601dab98a59b6ba764a8a4f521cc9356c",
+      "beforeStructure": "d0b0958f82fb9d6e0a613eb7f966a7b139c5ee738582258324154dcbb5bd2bd8",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-v16-54-brand-articles-stability.js",
+      "beforeSha256": "29c1f3933242b10fd35d2be8ab9a1e9f7c3dfe7778dd9454a75adc03ebc2e5c2",
+      "afterSha256": "802a27af2ae5898ba60900d26fa480e7c8b81b90cb79e6b50ae584e1d722dcee",
+      "beforeStructure": "fceafdfbba8cf7ec2c0fc3d6adca7677ad04a155967fb12defa35e71c19deb0a",
+      "copyOnly": false,
+      "reason": "Remove recursive label translation; bound observer work and render media only when state changes."
+    },
+    {
+      "path": "public/admin/final-v16-68-automation-flow-workspace.js",
+      "beforeSha256": "184ae3b37b0e62249ad554ad52e21bb8b41fedfba629a991ee9ce0b2991fc029",
+      "afterSha256": "698160f4ef475268a8d62ad1042c211c3de13a18cd3f1006efc5419bfc768ca5",
+      "beforeStructure": "9cf015724a0a9346bcc30e279d033e3188e0811f51bac189c1168d35070d9fd2",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-v5-admin-guidance-theme.js",
+      "beforeSha256": "68747c2bca2f7a539ad02062b86fa66df777b8ba72fda2b80ef11aa92f63ee6d",
+      "afterSha256": "67fe50b86d527749df3cf3a9bcd8bfbff0da4ceab4d832ebb5f76ab899c3babd",
+      "beforeStructure": "99babb3140fba1f840b0386015430645b151a7262a74ed0c76678cb47bbf743c",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-v7-self-learning-ui.js",
+      "beforeSha256": "fccef5c3430fe44215b7e6deaa01b4892fe93fa9b450505bd51dc1d5cc54fd3b",
+      "afterSha256": "c4609f300ed3f7daaa82622007117c6a5a7274be4492828699c88fa2c2556b6d",
+      "beforeStructure": "64937fe518dacf3d7a08b5180db5d6891c8ef7cb0ca2f7b20de0f532bd5e26ce",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/last-touchups.js",
+      "beforeSha256": "0d8e21965344ed608c7471061fc516a33322a30bac6c97c8be00f71d3076ea6e",
+      "afterSha256": "632f4c296586b85f73422026b1cbc62cc57569c9320a795cd82cde3368fa33ca",
+      "beforeStructure": "d54a3f0734addf3705b2ebb4f5d26799984412d40cb67414b2dc8e40dc8eb2fa",
+      "copyOnly": true,
+      "reason": "Replace only obsolete visible examples and field hints in their source templates."
+    },
+    {
+      "path": "public/admin/final-menu-ads-ssl-polish.js",
+      "beforeSha256": "f66ee483d11dd22ee90c2bc0c727b008d7d7ed915da16b5b51b037b81f1eaf20",
+      "afterSha256": "5cf543b7c1f3bba3bdbf1b93b7b6590087b8a51002a12ecfc3a56be6406cf1d8",
+      "beforeStructure": "88b5d1cb22e4e1ec40d6f6fe7df0b83d648dd5627f651cfcc8d915e657530ee4",
+      "copyOnly": false,
+      "reason": "Respect dynamic ownership of panel headings instead of clearing the Fitness Tips title."
+    }
+  ],
+  "preservedFunctions": {
+    "public/admin/gym-admin-v1-03.js": {
+      "selectOnlyPostTab": "460fe13aded2cb44c53431f8a86e6dab04bd4c48be1edd42e45733e3af905308",
+      "syncPostTabs": "ac0ab7300557955da5d26a334bc239d58d53d7a6efef926985cf1a2942ff6809"
+    },
+    "public/admin/final-v16-54-brand-articles-stability.js": {
+      "settingsGroup": "f4d89803ee87a4b78f00e579b48f0cb4e2862a3f98a9addcb4af2ff7a7183817",
+      "setSidebarLabel": "3d87eec6854fe21d8a9bf6e71f9e08daf1e2bfdffdb51ade1e1cc4b0dffe9306",
+      "markBrandSidebar": "ade3e35961b9b7c03ae2b14accceeecafacc4c3255ef32a7d67f67f0feee4d79",
+      "activatePanel": "366632224719411fa217879fa8ae3fc3ea8e0c294b77875fd3d211bbff3bddcb",
+      "brandNavMarkup": "725aab33050902b79c58b85bca13fed518e0388eb4c22491f13e4a34b4959311",
+      "ensureBrandNav": "a23e74137cec0f150474f235feaa59443cbbd8d517bbe2f955818f8222bc6b61",
+      "ensureBrandNavEverywhere": "7cc53272dce5a3c13f6f64c4c711b9c6e9c159fc7e409e8a3e39246438288b2a",
+      "runBrandLoader": "0cff43e44d2c8919699e726371f0c529ed92b93bbf6442615a8eca2955603fa9",
+      "showBrand": "0fb3fd5fd8ce6e4445e0a857cf2081171704cfa7d5b4056ed754e1d04881e963",
+      "normalizeTagInput": "5101ff1c787c688775c368e72f7ef695bed15865168399ac2026510123cbb99b",
+      "articleImageField": "4bfc414e24ef17bf5d70db32c4bef8922aee4845798717e67b30c7eaf2687f41",
+      "window.ucV1654UploadArticleImage": "92f959812c48123156dded86578fe69d422b427b3930c5101733be70c6ac118f",
+      "syncArticleImageFromForm": "189f3dce913d8c2afc4e562ef829f1baa449212849db392767eae7662459057d",
+      "wrapArticleFunctions": "f9f7cd3d8942ca8495ab46d5261b491aae7e120e597f28a94a11970f49878ce0",
+      "warmIntegrations": "368616727628f14754b2e7756118ef3f28885c92cede9ea001f9c6b661ef977c",
+      "openIntegrationsWithoutReload": "4933327265a02c019a06afcb6b557f9d70ca9e834f03227382a296f7018e964f",
+      "openIntegrationsWhenReady": "f2013780be16faaee82d4ffb15fbad34deb5834a5b3045029f0cf755fcd89c4f",
+      "installRouter": "8e4fda818c5808d8c0975110ff4a15029c1ac31746e16561a7625aaafa0d0c08",
+      "init": "ac62d135a974233f5376c34efce9561f9c7aeea7920d9ef15e0ee5f4cb42d2c3"
+    }
+  }
+}

@@ -188,7 +188,7 @@
     const headingMap={
       customSubscription:'Create Subscription', placements:'Product Placements', leads:'Contact Leads', requests:'Requests', unsubscribed:'Unsubscribed', oneTimeUsers:'One-Time Users', favorites:'Favorites', blogs:'', tracking:'Tracking', socialMediaIntegrations:'Integrations', settings:'Brand Settings'
     };
-    Object.entries(headingMap).forEach(([id,title])=>{ const h=$(`#${id} .top h1`); if(h) h.textContent=title; });
+    Object.entries(headingMap).forEach(([id,title])=>{ const h=$(`#${id} .top h1`);if(!h)return;if(h.hasAttribute('data-db159-name')){window.DropBeatDynamicUI?.label(h,h.dataset.db159Name);return;}if(h.textContent!==title)h.textContent=title; });
   }
 
   window.load_banners=async function(){

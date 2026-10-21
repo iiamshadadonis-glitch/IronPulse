@@ -1,0 +1,266 @@
+{
+  "baseline": "V1.03(1).zip",
+  "inputFiles": 2814,
+  "inputFilesRetained": 2814,
+  "removedInputPaths": [],
+  "changedInputPaths": [
+    {
+      "path": "CHANGELOG.md",
+      "beforeSha256": "07a4793ca1fcc3cfb4aad05a720ad619ec7d9d2064724547bc4a0ecb458d7290",
+      "afterSha256": "136cdb89a007bce1bf89a279fee72ce46895d1bc7c0f3d557ed8e3b7ba6cf7aa"
+    },
+    {
+      "path": "CLOUDFLARE-FIX.md",
+      "beforeSha256": "93c74c526992371187a3126c8f0baa504832e4cc5cf5a8c9d8f6522e11f30120",
+      "afterSha256": "ba4ae6c96916f31a14f25fc33cac0301b4c4ed14d2ead0370d7d12a0c66e9069"
+    },
+    {
+      "path": "COMPARISON.md",
+      "beforeSha256": "8743f9722ddb5fb09aa2a6594bd1cf4d09620e58ae5f5820125dab3cd56d12b1",
+      "afterSha256": "65f3d38e845e2c6c917dde89a712ac5fec0f6d2cbb64f4ad6aa61bf6a47eeada"
+    },
+    {
+      "path": "FILES.sha256",
+      "status": "regenerated complete-package checksum manifest",
+      "beforeSha256": "73c2e0e848e354f92e552facc9f3e9b42f171d35e1057c311b3aa61dbf355b17"
+    },
+    {
+      "path": "GITHUB-SUMMARY.txt",
+      "beforeSha256": "e45d44f3df1b64c6cf6ffc7f4be5f8e4fe53e8162bac43f250dc2f7662ec8ac5",
+      "afterSha256": "b1d803c933ea7170f8274972fea31cd8853277368b654a3138e5b7d0fdd218e5"
+    },
+    {
+      "path": "IRONPULSE-GYM-VERSION.txt",
+      "beforeSha256": "12b7bc00257db95ee13ee315a09c1412250c739278af08d6ff622702b30829f6",
+      "afterSha256": "ae922a013cf09e444d1d43eeb25eda253b08f1bdacd7581c1d3f81ae38058201"
+    },
+    {
+      "path": "PACKAGE-CONTENTS.txt",
+      "beforeSha256": "327c663bd5ca0cb459e4465d632e6be8be66f0b46307ad9632a0d9a355762840",
+      "afterSha256": "7ae96b408fe86d36a1fe59f00d9fd8a0c4269659a554a37d5e396c6adbe2e560"
+    },
+    {
+      "path": "README.md",
+      "beforeSha256": "24bf83636c78f3aa29244803ce0267698b74d966eef61472cc38474f35e2cf89",
+      "afterSha256": "082818cd36f1bcbef9db909451a7dbb77676351895a27de8006891c357adb6a0"
+    },
+    {
+      "path": "RELEASE-VERIFICATION-GYM.md",
+      "beforeSha256": "0ad6dfb6c795a8c3f1c1f71c09a166f23806c5af3ebb92147f6169caecbbf0b6",
+      "afterSha256": "affb0406f7aaf1c79013627f0a767fda23ff1e6516248fd7fddbbf8590cfe6a6"
+    },
+    {
+      "path": "START-HERE.md",
+      "beforeSha256": "a83e02d95b03a824773d8c7991f01008bc43c1a9d97ac1a787c9533e2b3c44ca",
+      "afterSha256": "52908bcf6ecb56a53a941e77c25aa578afc90692354cbf629ba21f644e862eca"
+    },
+    {
+      "path": "VERSION.txt",
+      "beforeSha256": "12b7bc00257db95ee13ee315a09c1412250c739278af08d6ff622702b30829f6",
+      "afterSha256": "ae922a013cf09e444d1d43eeb25eda253b08f1bdacd7581c1d3f81ae38058201"
+    },
+    {
+      "path": "package-lock.json",
+      "beforeSha256": "0ec6a7fc79e769b85976026dfd741901a3168d987bb23c838ec10914b10323c9",
+      "afterSha256": "b8eb80bd0efd011ee4492b77366d69c64722d0a6ff493fcc608348fa22729eef"
+    },
+    {
+      "path": "package.json",
+      "beforeSha256": "5ba07441ddf829de1795ebf09fbc95e6c0a7effe41c3a236d890eb38cc634f28",
+      "afterSha256": "4e22a720ee5cfc71f12b98312b052416bca31fe5f8401797e88c33f74ab854ed"
+    },
+    {
+      "path": "public/admin/admin-extra.js",
+      "beforeSha256": "7fbbde912c776ac906b07f13e82dac047110254cca1b9c544bb6e56e283c9058",
+      "afterSha256": "b4455accf0b5601f8e2fc9777b69ee35391a590377fc0e3ecc0bda5a358a4bb0"
+    },
+    {
+      "path": "public/admin/final-ad-blog-feedback-polish.js",
+      "beforeSha256": "416be24c9b8dbe6c6d1d4b529591f544d3ebb742ffe9b7365a543db8217124b9",
+      "afterSha256": "e7067fd2d829425faec9b92434e7d18e624ad604a17f1d9ffe13092716fcbad3"
+    },
+    {
+      "path": "public/admin/final-current-last-ui-fix.js",
+      "beforeSha256": "ad7a530c3861b4ca3eee47508b97fc61ae9d333d28223f3abcae086163e0dd30",
+      "afterSha256": "a8a57a942e5dffd4cb0f38c0a578dcc383eabc631a370c4169cd6dc29fe78b3e"
+    },
+    {
+      "path": "public/admin/final-current-request-fix.js",
+      "beforeSha256": "f20e041a9e6858775c77353a287869a221f6909f701bb9cdbcc89243c6879926",
+      "afterSha256": "e5e547142cf5a0b763319a06e295afd5ce062e6776f12f890da5dafa524acd85"
+    },
+    {
+      "path": "public/admin/final-menu-ads-ssl-polish.js",
+      "beforeSha256": "f66ee483d11dd22ee90c2bc0c727b008d7d7ed915da16b5b51b037b81f1eaf20",
+      "afterSha256": "5cf543b7c1f3bba3bdbf1b93b7b6590087b8a51002a12ecfc3a56be6406cf1d8"
+    },
+    {
+      "path": "public/admin/final-v10-documents-brand-polish.js",
+      "beforeSha256": "c63624440638c568ca7040f0d668a6da3944cf37d82431803c803c3a459bd34b",
+      "afterSha256": "b8a89394eb8a537d321dc58037b34f92f6a64268f6c911b21ee7cb129a6cdc75"
+    },
+    {
+      "path": "public/admin/final-v15-3-enquiries-seo-auditions.js",
+      "beforeSha256": "d9bc0164679cc1cbdef994c64d04f0db9f6716cf2e81743b1833fb0d09c5930d",
+      "afterSha256": "ea555934a8df750fb7324eb86b2e2951e9513c8773a4c8eb8cc9dac38d9dd3d8"
+    },
+    {
+      "path": "public/admin/final-v15-4-seo-direct-comments.js",
+      "beforeSha256": "e4596695a4e229a3717503cd1d3d0ce80b03609e9fc73b9496aa81c586098249",
+      "afterSha256": "f6fe38b5e35e13e4251e6a269b6b41e7b47cc7a3bdb113da3a316810d71e6977"
+    },
+    {
+      "path": "public/admin/final-v15-7-auditions-inquiries-orders.js",
+      "beforeSha256": "11b32f7a7463c2b6b22432bde7565ce8fa584040a313f5f9ff45c694ebe696bc",
+      "afterSha256": "79c142f8f2713f33e65946c88321d27601dab98a59b6ba764a8a4f521cc9356c"
+    },
+    {
+      "path": "public/admin/final-v16-54-brand-articles-stability.js",
+      "beforeSha256": "29c1f3933242b10fd35d2be8ab9a1e9f7c3dfe7778dd9454a75adc03ebc2e5c2",
+      "afterSha256": "802a27af2ae5898ba60900d26fa480e7c8b81b90cb79e6b50ae584e1d722dcee"
+    },
+    {
+      "path": "public/admin/final-v16-68-automation-flow-workspace.js",
+      "beforeSha256": "184ae3b37b0e62249ad554ad52e21bb8b41fedfba629a991ee9ce0b2991fc029",
+      "afterSha256": "698160f4ef475268a8d62ad1042c211c3de13a18cd3f1006efc5419bfc768ca5"
+    },
+    {
+      "path": "public/admin/final-v5-admin-guidance-theme.js",
+      "beforeSha256": "68747c2bca2f7a539ad02062b86fa66df777b8ba72fda2b80ef11aa92f63ee6d",
+      "afterSha256": "67fe50b86d527749df3cf3a9bcd8bfbff0da4ceab4d832ebb5f76ab899c3babd"
+    },
+    {
+      "path": "public/admin/final-v7-self-learning-ui.js",
+      "beforeSha256": "fccef5c3430fe44215b7e6deaa01b4892fe93fa9b450505bd51dc1d5cc54fd3b",
+      "afterSha256": "c4609f300ed3f7daaa82622007117c6a5a7274be4492828699c88fa2c2556b6d"
+    },
+    {
+      "path": "public/admin/gym-admin-v1-03.js",
+      "beforeSha256": "f4b6fdf97f4bd4ce9b83de3acbdb4b624edd781d6b346ce69e0822bedb2cc1e6",
+      "afterSha256": "6e53325440ae5ea509c0f23a731e6c532b271b94800a9836805e9d68478748ee"
+    },
+    {
+      "path": "public/admin/index.html",
+      "beforeSha256": "e6b3dad5318a9bca8df303fc1b096fdf7f791187b789b6581965b09be9f0c88a",
+      "afterSha256": "8a54016f2edf711c4f670265b094f1dae254c7ca75697daf076515a432836424"
+    },
+    {
+      "path": "public/admin/last-touchups.js",
+      "beforeSha256": "0d8e21965344ed608c7471061fc516a33322a30bac6c97c8be00f71d3076ea6e",
+      "afterSha256": "632f4c296586b85f73422026b1cbc62cc57569c9320a795cd82cde3368fa33ca"
+    },
+    {
+      "path": "public/release.json",
+      "beforeSha256": "70b85f3213c1e06f090da98ce03bf0c2f85084aec1066e862f0901abb590eb9a",
+      "afterSha256": "af2387a8a98f7496444b2b2061b6601fccd96a0a93aabaa1a0cf4f48d4459ca5"
+    },
+    {
+      "path": "tests/gym-release.mjs",
+      "beforeSha256": "285f9fa744a8726a27c82f8b74cea5169174b2ad1aeb976c912a0d440c0819e3",
+      "afterSha256": "db298222483b82493b54aac9972d2bd53143f96e6bb4466b0d56706a43c0e230"
+    },
+    {
+      "path": "tests/v16-93-smoke.mjs",
+      "beforeSha256": "fda902bcf66f3d6009fb3684beabab2cc43e016a2414a693b605b38758752f0c",
+      "afterSha256": "66314a2f449c3e954d7337c2b4bf46940c5e7b48fff93465764cd90f90a38cb2"
+    },
+    {
+      "path": "tests/v16-95-smoke.mjs",
+      "beforeSha256": "3c1c693a3eb913053d010a8ac6412f26e6daf782a2f00f3c30c186ff66a358a5",
+      "afterSha256": "93dcffbf2fafd9ad93247a03dd6278d6d2092cde151d611d451c5dfa0a8a3c38"
+    },
+    {
+      "path": "tests/v17-09-navigation-email-parity.mjs",
+      "beforeSha256": "9fdb1db3930f77298a73ce5c52e0afa97fd34466e05b4b0ab578196250a239b0",
+      "afterSha256": "c3d4ad3e957e0d13b8d3ce3f10a32ca7e30247e0515ae2b87407e6e347a059ba"
+    },
+    {
+      "path": "tools/check-gym-deployment.mjs",
+      "beforeSha256": "9a70635166d61a29e18c37706db812797a07cbef2738db3da582492df5659f8d",
+      "afterSha256": "b8877572022fdd2672ea4f1252d137f33cc31d3077e6a96cb29b8b6571c21d48"
+    },
+    {
+      "path": "tools/gym-navigation-cases.mjs",
+      "beforeSha256": "3bbde64ce582b1898a4aeb21e2f0f81e5c405cb31ae07d86820ce6790d87abf5",
+      "afterSha256": "f336759e88c042295ac7a7f45bd38eb6d1b5b5a700e08536b9767c07fce0143a"
+    },
+    {
+      "path": "tools/verify-gym-browser.mjs",
+      "beforeSha256": "25919136cb5eab4274b6fb7225a9192890face882ef9c66ce6342e65627a8208",
+      "afterSha256": "0d9d74a32ce45e5240e6af05e3d39dcccb1c5e697b9c39f4f49079c4cd9a4f8b"
+    },
+    {
+      "path": "tools/verify-gym-completeness.mjs",
+      "beforeSha256": "581fb2bc90abca20734e1b04595db309d40dd7bfa1181c30812806e42ed92e8f",
+      "afterSha256": "3b1e8b153b31222d927ec8a65d16cec6a9c1d895d812e248584ce0cec8244ffe"
+    },
+    {
+      "path": "tools/verify-gym-release.mjs",
+      "beforeSha256": "b60a860ab18da2a3e687fbcbeaa9cf7871246cc448c183d6762dd8408483f622",
+      "afterSha256": "a2e07467bd673589927b9f235adce2d276ff4ccb9fb745cadfb1992974e2e6a2"
+    },
+    {
+      "path": "tools/verify-gym-runtime.mjs",
+      "beforeSha256": "e041fa0028be9c8215ba331a775e9555726f2445179a5909bca3baaa731299d1",
+      "afterSha256": "b0b86c0054e5c3957194a4fdebbce899bc8e58923887f1667382e5ca92814f44"
+    }
+  ],
+  "addedPaths": [
+    "docs/FITNESS-TIPS-FIX.md",
+    "tests/gym-fitness-tips.mjs",
+    "tools/gym-fitness-tips-cases.mjs",
+    "verification/ironpulse-v1.04/browser-console.log",
+    "verification/ironpulse-v1.04/build.log",
+    "verification/ironpulse-v1.04/copy-only-edits.json",
+    "verification/ironpulse-v1.04/fitness-tips-results.json",
+    "verification/ironpulse-v1.04/frontend-fixes.json",
+    "verification/ironpulse-v1.04/gym-branding-results.json",
+    "verification/ironpulse-v1.04/gym-buttons-api.mjs.log",
+    "verification/ironpulse-v1.04/gym-deployment.mjs.log",
+    "verification/ironpulse-v1.04/gym-fitness-tips.mjs.log",
+    "verification/ironpulse-v1.04/gym-navigation-schedule-results.json",
+    "verification/ironpulse-v1.04/gym-plan-import.mjs.log",
+    "verification/ironpulse-v1.04/gym-release.mjs.log",
+    "verification/ironpulse-v1.04/gym-sessions.mjs.log",
+    "verification/ironpulse-v1.04/gym-v1-27-payment-admin-recovery.mjs.log",
+    "verification/ironpulse-v1.04/gym-v1-28-worker-resource-login-recovery.mjs.log",
+    "verification/ironpulse-v1.04/gym-v1-49-schedule.mjs.log",
+    "verification/ironpulse-v1.04/gym-v1-51-cache.mjs.log",
+    "verification/ironpulse-v1.04/gym-v1-51-sync.mjs.log",
+    "verification/ironpulse-v1.04/gym-v1-57-layout-api.mjs.log",
+    "verification/ironpulse-v1.04/gym-v1-58-notifications.mjs.log",
+    "verification/ironpulse-v1.04/gym-v1-58-service-worker.mjs.log",
+    "verification/ironpulse-v1.04/package-audit.json",
+    "verification/ironpulse-v1.04/release-console.log",
+    "verification/ironpulse-v1.04/release-tests.json",
+    "verification/ironpulse-v1.04/runtime-console.log",
+    "verification/ironpulse-v1.04/runtime-empty-console.log",
+    "verification/ironpulse-v1.04/runtime-empty-results.json",
+    "verification/ironpulse-v1.04/runtime-results.json",
+    "verification/ironpulse-v1.04/source-comparison.json",
+    "verification/ironpulse-v1.04/v100-original-files.json",
+    "verification/ironpulse-v1.04/v103-input-files.json",
+    "verification/ironpulse-v1.04/v103-regression-reproduction.json",
+    "verification/ironpulse-v1.04/v16-88-data-integration.mjs.log",
+    "verification/ironpulse-v1.04/v16-89-periods.mjs.log",
+    "verification/ironpulse-v1.04/v16-90-d1-read.mjs.log",
+    "verification/ironpulse-v1.04/v16-93-smoke.mjs.log",
+    "verification/ironpulse-v1.04/v16-95-smoke.mjs.log",
+    "verification/ironpulse-v1.04/v16-96-smoke.mjs.log",
+    "verification/ironpulse-v1.04/v16-97-smoke.mjs.log",
+    "verification/ironpulse-v1.04/v16-98-smoke.mjs.log",
+    "verification/ironpulse-v1.04/v16-99-smoke.mjs.log",
+    "verification/ironpulse-v1.04/v17-00-smoke.mjs.log",
+    "verification/ironpulse-v1.04/v17-01-d1-read-optimization.mjs.log",
+    "verification/ironpulse-v1.04/v17-02-visitor-customer-recovery.mjs.log",
+    "verification/ironpulse-v1.04/v17-03-visitor-dashboard-freshness.mjs.log",
+    "verification/ironpulse-v1.04/v17-04-visitor-read-guard.mjs.log",
+    "verification/ironpulse-v1.04/v17-05-email-automations.mjs.log",
+    "verification/ironpulse-v1.04/v17-06-email-followup-providers.mjs.log",
+    "verification/ironpulse-v1.04/v17-07-webinar-email-ui.mjs.log",
+    "verification/ironpulse-v1.04/v17-08-workflows-members-ui.mjs.log",
+    "verification/ironpulse-v1.04/v17-09-navigation-email-parity.mjs.log",
+    "verification/ironpulse-v1.04/verification-summary.json"
+  ],
+  "completeFiles": 2869
+}

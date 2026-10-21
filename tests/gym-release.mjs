@@ -21,7 +21,10 @@ assert.deepEqual(current.functionDDL,baseline.functionDDL,'Runtime schema defini
 for(const[name,value]of Object.entries(baseline.migrationDDL))assert.equal(current.migrationDDL[name],value,name);
 assert.deepEqual(current.apiPaths,baseline.apiPaths,'API endpoint paths stay compatible');
 assert.deepEqual(current.backendSource,baseline.backendSource,'Backend logic must match supplied V1.00 after filename and Open Graph namespace normalization');
-assert.deepEqual(current.frontendSource,baseline.frontendSource,'Frontend logic must match supplied V1.00 after filename normalization');
+const uiFixes=JSON.parse(text('verification/ironpulse-v1.04/frontend-fixes.json'));
+const expectedFrontend={...baseline.frontendSource};
+for(const fix of uiFixes.files){assert.equal(expectedFrontend[fix.path],fix.beforeSha256,'A UI exception must identify its original source');expectedFrontend[fix.path]=fix.afterSha256;}
+assert.deepEqual(current.frontendSource,expectedFrontend,'Frontend must retain V1.00 compatibility except the explicitly audited V1.04 UI fixes');
 const exceptions=[];
 for(const[name,value]of Object.entries(baseline.functionShapes))if(!exceptions.includes(name))assert.equal(current.functionShapes[name],value,'Business logic, keys, roles and enums changed: '+name);
 console.log('Compatibility with supplied gym V1.00: '+Object.keys(current.css).length+' matching CSS/theme files after path normalization, '+Object.keys(current.functionDDL).length+' runtime-schema fingerprints, '+Object.keys(current.migrationDDL).length+' migration DDL sets, '+current.apiPaths.length+' API paths and '+Object.keys(current.functionShapes).length+' backend structures.');

@@ -1,0 +1,31 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ironpulse-gym-cloudflare@1.4.0 build
+> npm run check:deployment && npm run check:complete && wrangler pages functions build --outdir .build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ironpulse-gym-cloudflare@1.4.0 check:deployment
+> node tools/check-gym-deployment.mjs
+
+IronPulse Gym V1.04 (package 1.4.0)
+Git commit: local verification
+Pages project: ironpulse-gym | output: public
+D1 binding DB: 893e7d29-fa72-413d-9415-5d93b1c3bc6e
+Local configuration check passed. Cloudflare account access is checked separately by npm run check:cloudflare.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ironpulse-gym-cloudflare@1.4.0 check:complete
+> node tools/verify-gym-completeness.mjs
+
+Original V1.00 archive: all 1829 files verified byte-for-byte.
+Active application: 491 frontend files, 268 backend files, 56 migrations.
+All 815 expected application files are present. The archived source is outside the live public/functions folders.
+Every one of the 2814 supplied V1.03 paths is retained; backend, migrations and all CSS are byte-identical.
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProxy environment variables detected. We'll use your proxy for fetch requests.[0m
+
+
+
+ ⛅️ wrangler 4.128.0 (update available 4.151.3)
+───────────────────────────────────────────────
+✨ Compiled Worker successfully

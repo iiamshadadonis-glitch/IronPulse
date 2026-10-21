@@ -162,9 +162,9 @@
       form.dataset.finalAuditionLayout='1';
     }
     if(slug){const lab=slug.closest('.field')?.querySelector('label'); if(lab)lab.childNodes.forEach(n=>{if(n.nodeType===1)n.remove();}); if(lab)lab.textContent='Slug / Link Extension';}
-    labelCounter(title,90); putHint(title,'Maximum 90 characters. Keep the audition title short and clear.');
-    putHint(slug,'Optional. If left blank, the link ending is created from the audition title.');
-    if(tags){tags.maxLength=180; putHint(tags,'Use up to 12 tags, separated with commas. Example: audition, casting, ott, hyderabad.');}
+    labelCounter(title,90); putHint(title,'Maximum 90 characters. Keep the fitness tip title short and clear.');
+    putHint(slug,'Optional. If left blank, the link ending is created from the fitness tip title.');
+    if(tags){tags.maxLength=180; putHint(tags,'Use up to 12 tags, separated with commas. Example: strength, cardio, nutrition.');}
     labelCounter(excerpt,220); putHint(excerpt,'Maximum 220 characters. This appears as the short summary on the Fitness Tips page.');
     labelCounter(body,10000); putHint(body,'Recommended: 150 to 1,500 words. Maximum 10,000 characters. Write normal paragraphs; the website formats them automatically.');
     putHint(cover,'Paste a direct public image URL, website media URL, CDN URL, or direct image link.');

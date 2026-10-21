@@ -12,7 +12,7 @@ const [version,index,base,integrations,upgrade,css,core]=await Promise.all([
   read('functions/_lib/marketing-suite.js')
 ]);
 
-assert.equal(version.split('\n')[0],'IronPulse Gym V1.03');
+assert.equal(version.split('\n')[0],'IronPulse Gym V1.04');
 for(const asset of [
   'final-v16-93-marketing-integrations.js?v=1.23',
   'final-v16-94-integrations-heatmaps-code-reminders.css?v=16.95',

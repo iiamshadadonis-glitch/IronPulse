@@ -12,7 +12,7 @@ export async function runNavigationWorkflows({page,context,origin,output,errors}
  sql.prepare('INSERT INTO settings(key,value) VALUES(?,?)').run('site_settings',JSON.stringify({frontendTheme:'dropbeat'}));
  sql.prepare('INSERT INTO settings(key,value) VALUES(?,?)').run('navigation_overrides',JSON.stringify({offers:{label:'Pricing',slug:'pricing'}}));
  let configMode='pending',configGates=[],scheduleMode='success',scheduleGates=[],scheduleRequests=[];
- const phase=label=>console.log('Gym V1.03: '+label),ready=p=>p.waitForFunction(()=>document.documentElement.dataset.db159Layout==='ready'&&document.documentElement.dataset.db159Buttons==='ready'),sidebar=()=>page.locator('.side .nav [data-tab="blogs"]');
+ const phase=label=>console.log('Gym V1.04: '+label),ready=p=>p.waitForFunction(()=>document.documentElement.dataset.db159Layout==='ready'&&document.documentElement.dataset.db159Buttons==='ready'),sidebar=()=>page.locator('.side .nav [data-tab="blogs"]');
  async function releaseConfig(){configMode='success';const gates=configGates.splice(0);gates.forEach(resolve=>resolve());}
  await context.route('**/api/**',async route=>{
   const incoming=route.request(),path=new URL(incoming.url()).pathname;
@@ -86,6 +86,6 @@ export async function runNavigationWorkflows({page,context,origin,output,errors}
    await page.screenshot({path:join(output,'gym-schedule-'+width+'.png')});results.push((width>760?'Desktop':'Mobile')+' Schedule: responsive tabs during pending fetch; 15-second timeout; HTTP/JSON/nested-data errors; successful Retry; late response isolation'+(width>760?'; 24px header gap':' and original bounded query'));
   }
   assert.ok(scheduleRequests.some(r=>r.query.includes('view=mobile')&&r.query.includes('pageSize=50')));assert.ok(scheduleRequests.some(r=>r.query===''));
-  assert.deepEqual(errors,[]);await writeFile(join(output,'gym-navigation-schedule-results.json'),JSON.stringify({results,frames,dimensions,requests,scheduleRequests,errors,synthetic:true,actualConfigurationHandlersAndSqlite:true},null,2));console.log('Gym V1.03 navigation/Schedule browser regression passed: '+results.length+' workflow groups.');
+  assert.deepEqual(errors,[]);await writeFile(join(output,'gym-navigation-schedule-results.json'),JSON.stringify({results,frames,dimensions,requests,scheduleRequests,errors,synthetic:true,actualConfigurationHandlersAndSqlite:true},null,2));console.log('Gym V1.04 navigation/Schedule browser regression passed: '+results.length+' workflow groups.');
  }catch(error){if(pub&&!pub.isClosed()){await pub.screenshot({path:join(output,'gym-public-failure.png'),fullPage:true});await writeFile(join(output,'gym-public-failure.html'),await pub.content());}throw error;}finally{configGates.splice(0).forEach(resolve=>resolve());scheduleGates.splice(0).forEach(resolve=>resolve());await pub?.close();fixture.close();}
 }

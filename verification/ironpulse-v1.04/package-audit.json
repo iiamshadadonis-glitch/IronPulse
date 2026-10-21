@@ -1,0 +1,21 @@
+{
+  "version": "V1.04",
+  "files": 2869,
+  "inputFilesRetained": 2814,
+  "originalArchiveByteIdentical": 1829,
+  "activeFrontend": 491,
+  "activeBackend": 268,
+  "migrations": 56,
+  "unchangedCss": 177,
+  "checksumManifest": "FILES.sha256",
+  "checksumManifestExcludesItself": true,
+  "archiveLayout": "Complete project at ZIP root",
+  "excludedGeneratedState": [
+    ".build",
+    ".git",
+    ".wrangler",
+    "__pycache__",
+    "browser-verification",
+    "node_modules"
+  ]
+}

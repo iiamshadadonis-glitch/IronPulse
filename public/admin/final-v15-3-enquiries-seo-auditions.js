@@ -74,7 +74,7 @@
   function addFeaturedControl(){
     const f=$('#blogForm');if(!f||f.querySelector('[name="is_featured"]'))return;
     const titleField=f.querySelector('[name="title"]')?.closest('.field');const anchor=titleField?.parentElement?.classList.contains('row')?titleField.parentElement:titleField;
-    if(anchor)anchor.insertAdjacentHTML('beforebegin',`<label class="uc-v153-featured-control"><span><strong>Featured Fitness Tip</strong><small>Show this one published audition in the Featured box on the public Fitness Tip Updates page.</small></span><input type="checkbox" name="is_featured" value="1" aria-label="Feature this audition"><i aria-hidden="true"></i></label>`);
+    if(anchor)anchor.insertAdjacentHTML('beforebegin',`<label class="uc-v153-featured-control"><span><strong>Featured Fitness Tip</strong><small>Show this one published audition in the Featured box on the public Fitness Tip Updates page.</small></span><input type="checkbox" name="is_featured" value="1" aria-label="Feature this fitness tip"><i aria-hidden="true"></i></label>`);
   }
   function parseAds(p){try{return Array.isArray(p?.ads_json)?p.ads_json:JSON.parse(String(p?.ads_json||'[]'));}catch{return [];}}
   function adBadges(p){
@@ -124,7 +124,7 @@
   window.ucV153AuditionFilter=function(filter){window.__ucV153AuditionFilter=filter;renderAuditions();};
   window.ucV153AuditionSort=function(dir){window.__ucV153AuditionSort=dir==='asc'?'asc':'desc';renderAuditions();};
   window.ucV153PostDraft=async function(id){if(!confirm('Post this saved Draft now? It will become visible on the public Fitness Tip Updates page.'))return;try{say('#blogMsg','Posting the saved audition update…');await req('/api/admin/blogs',{method:'POST',body:JSON.stringify({action:'publish',id:Number(id)})});window.__ucV153AuditionFilter='new';say('#blogMsg','Fitness Tip update posted successfully.');await window.load_blogs();}catch(e){say('#blogMsg',e.message||'The audition update could not be posted.','error');}};
-  window.setAuditionDraft=async function(id){if(!confirm('Move this published audition update to Draft? It will be hidden from the public Fitness Tip Updates page.'))return;try{await req('/api/admin/blogs',{method:'POST',body:JSON.stringify({action:'set_draft',id:Number(id)})});window.__ucV153AuditionFilter='drafts';say('#blogMsg','Fitness Tip update moved to Draft.');await window.load_blogs();}catch(e){say('#blogMsg',e.message||'Could not move this audition update to Draft.','error');}};
+  window.setAuditionDraft=async function(id){if(!confirm('Move this published fitness tip update to Draft? It will be hidden from the public Fitness Tip Updates page.'))return;try{await req('/api/admin/blogs',{method:'POST',body:JSON.stringify({action:'set_draft',id:Number(id)})});window.__ucV153AuditionFilter='drafts';say('#blogMsg','Fitness Tip update moved to Draft.');await window.load_blogs();}catch(e){say('#blogMsg',e.message||'Could not move this audition update to Draft.','error');}};
   window.deleteBlog=async function(id){if(!confirm('Move this audition update to Deleted? It will be removed from the public website but kept in the Deleted section for admin history.'))return;try{await req(`/api/admin/blogs?id=${encodeURIComponent(id)}`,{method:'DELETE'});window.__ucV153AuditionFilter='deleted';say('#blogMsg','Fitness Tip update moved to Deleted.');await window.load_blogs();}catch(e){say('#blogMsg',e.message||'Could not delete this audition update.','error');}};
 
   const oldEdit=window.editBlog;

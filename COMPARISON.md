@@ -1,5 +1,10 @@
 # Why the file counts differ
 
+## Current V1.04 release
+
+The historical comparisons below describe the earlier V1.00/V1.02/V1.03 releases. V1.04 starts from the complete user-attached V1.03 ZIP and preserves all 2,814 of its paths. It fixes three frontend presentation handlers and twelve source-copy scripts, refreshes the Admin asset URLs and adds focused tests/evidence. All 491 frontend files, 268 backend files and 56 migrations remain present. Every backend, migration and CSS file is byte-identical to the attached V1.03 version. See verification/ironpulse-v1.04/frontend-fixes.json for the explicit frontend exceptions and PACKAGE-CONTENTS.txt for the final count.
+
+
 The numbers 468 and 25 refer to the items visible at the top of a folder. They do not count every file inside its subfolders.
 
 The two attached ZIPs were inspected directly:

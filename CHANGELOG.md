@@ -1,5 +1,16 @@
 # Changelog
 
+## V1.04 — Fitness Tips text and page stability
+
+- Remove competing whole-panel text translators that appended extra s characters and repeated Updates.
+- Make Fitness Tips image preview/setup idempotent; restrict its observer to relevant inserted/removed controls and table headers.
+- Preserve the dynamic panel-title label instead of clearing its placeholder span.
+- Correct obsolete fitness form examples and helper copy at their source.
+- Refresh only changed Admin script URLs to bypass the previous browser cache.
+- Add delayed-initialization desktop/mobile browser coverage for labels, custom names, filters, saved content, image upload, draft payloads and Posts tab selection.
+- Preserve all 2,814 input paths, all 1,829 original archived files, all backend files, every migration and all CSS/theme bytes.
+
+
 ## V1.03 — Complete source preservation and renewed verification
 
 - Preserve every one of the 1,829 original V1.00 files, without editing its bytes, under archive/V1.00/.

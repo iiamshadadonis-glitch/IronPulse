@@ -1,0 +1,176 @@
+{
+  "public/admin/admin-extra.js": [
+    {
+      "from": "casting update",
+      "to": "gym update",
+      "occurrences": 2
+    }
+  ],
+  "public/admin/final-ad-blog-feedback-polish.js": [
+    {
+      "from": "audition title",
+      "to": "fitness tip title",
+      "occurrences": 2
+    },
+    {
+      "from": "Example: audition, casting, ott, hyderabad.",
+      "to": "Example: strength, cardio, nutrition.",
+      "occurrences": 1
+    }
+  ],
+  "public/admin/final-current-last-ui-fix.js": [
+    {
+      "from": "audition title",
+      "to": "fitness tip title",
+      "occurrences": 2
+    },
+    {
+      "from": "Example: audition, casting, ott, hyderabad.",
+      "to": "Example: strength, cardio, nutrition.",
+      "occurrences": 1
+    }
+  ],
+  "public/admin/final-current-request-fix.js": [
+    {
+      "from": "audition title",
+      "to": "fitness tip title",
+      "occurrences": 2
+    },
+    {
+      "from": "Example: audition, casting, ott, hyderabad.",
+      "to": "Example: strength, cardio, nutrition.",
+      "occurrences": 1
+    }
+  ],
+  "public/admin/final-v10-documents-brand-polish.js": [
+    {
+      "from": "casting opportunities",
+      "to": "gym announcements",
+      "occurrences": 2
+    }
+  ],
+  "public/admin/final-v15-3-enquiries-seo-auditions.js": [
+    {
+      "from": "Feature this audition",
+      "to": "Feature this fitness tip",
+      "occurrences": 1
+    },
+    {
+      "from": "this published audition",
+      "to": "this published fitness tip",
+      "occurrences": 1
+    }
+  ],
+  "public/admin/final-v15-4-seo-direct-comments.js": [
+    {
+      "from": "Feature this audition",
+      "to": "Feature this fitness tip",
+      "occurrences": 1
+    },
+    {
+      "from": "this published audition",
+      "to": "this published fitness tip",
+      "occurrences": 2
+    }
+  ],
+  "public/admin/final-v15-7-auditions-inquiries-orders.js": [
+    {
+      "from": "casting opportunity",
+      "to": "fitness topic",
+      "occurrences": 1
+    },
+    {
+      "from": "casting opportunities",
+      "to": "gym announcements",
+      "occurrences": 1
+    },
+    {
+      "from": "casting update",
+      "to": "gym update",
+      "occurrences": 1
+    },
+    {
+      "from": "Feature this audition",
+      "to": "Feature this fitness tip",
+      "occurrences": 1
+    },
+    {
+      "from": "this published audition",
+      "to": "this published fitness tip",
+      "occurrences": 1
+    },
+    {
+      "from": "role, age range, location, requirements, dates, contact instructions and any important safety information.",
+      "to": "training focus, session details, dates, requirements, contact instructions and any important safety information.",
+      "occurrences": 1
+    }
+  ],
+  "public/admin/final-v16-68-automation-flow-workspace.js": [
+    {
+      "from": "casting opportunities",
+      "to": "gym announcements",
+      "occurrences": 1
+    }
+  ],
+  "public/admin/final-v5-admin-guidance-theme.js": [
+    {
+      "from": "important audition instructions",
+      "to": "important training instructions",
+      "occurrences": 1
+    },
+    {
+      "from": "casting opportunity",
+      "to": "fitness topic",
+      "occurrences": 1
+    },
+    {
+      "from": "Hyderabad Web Series Casting",
+      "to": "Strength Training Basics",
+      "occurrences": 1
+    },
+    {
+      "from": "hyderabad-web-series-casting",
+      "to": "strength-training-basics",
+      "occurrences": 1
+    },
+    {
+      "from": "role, age range, city, requirements, dates, contact instructions and any safety note.",
+      "to": "training focus, session details, dates, requirements, contact instructions and any safety note.",
+      "occurrences": 1
+    }
+  ],
+  "public/admin/final-v7-self-learning-ui.js": [
+    {
+      "from": "casting opportunity",
+      "to": "fitness topic",
+      "occurrences": 1
+    },
+    {
+      "from": "Hyderabad Web Series Casting",
+      "to": "Strength Training Basics",
+      "occurrences": 1
+    },
+    {
+      "from": "hyderabad-web-series-casting",
+      "to": "strength-training-basics",
+      "occurrences": 1
+    },
+    {
+      "from": "casting-call-big-banner-movie",
+      "to": "strength-training-basics",
+      "occurrences": 1
+    },
+    {
+      "from": "role, age range, city, requirements, dates, contact instructions and any safety note.",
+      "to": "training focus, session details, dates, requirements, contact instructions and any safety note.",
+      "occurrences": 1
+    }
+  ],
+  "public/admin/last-touchups.js": [
+    {
+      "from": "dance-rhythm-practice-tips",
+      "to": "strength-training-basics",
+      "occurrences": 1
+    }
+  ]
+}

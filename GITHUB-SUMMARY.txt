@@ -1,13 +1,16 @@
-V1.03: Preserve complete source and verify the gym release
+Title:
+V1.04: Fix Fitness Tips text duplication and page stability
 
-- Include the complete working IronPulse Gym application and preserve all 1,829 supplied V1.00 files byte-for-byte in archive/V1.00/.
-- Add a per-file V1.00/V1.02 comparison, complete package inventory and original-source hash index.
-- Add a completeness check for every original archived file and all 815 expected current application files; run it during the build.
-- Keep the source archive outside the live public/functions folders and verify that archive URLs do not expose its configuration.
-- Retain the D1 binding to existing database 893e7d29-fa72-413d-9415-5d93b1c3bc6e, incorrect-ID guards, existing-database lookup and current Pages deployment instructions.
-- Retain Member/gym terminology, dictionary/cache first paint, skeleton loading, Retry handling, membership routes and compatibility redirects.
-- Retain gym PWA names/icons, local fitness imagery, corrected helper/default/export copy and Open Graph metadata.
-- Preserve business logic, theme colours, stored roles, database schema, migration identities, API paths and JSON keys.
-- Update release identification to V1.03 / package 1.3.0 and rerun regression, browser, real local Worker/D1 and package-integrity checks.
+Description:
+- Remove competing UI text replacements that caused Fitness Tipssss and repeated Updates in Social Media > Fitness Tips.
+- Make image preview/setup update only when its state changes and limit observer work to relevant inserted/removed controls.
+- Preserve dynamically configured Fitness Tips headings and custom menu names.
+- Correct leftover fitness form placeholders and helper examples at their source.
+- Refresh changed Admin script URLs so browsers load the fixed code after deployment.
+- Add desktop/mobile regression coverage for delayed initialization, filters, saved titles, editing, image upload, draft payloads, custom labels, reloads and Posts tab selection.
+- Include the complete project and preserve every V1.03 input path plus the original V1.00 archive.
+- Retain all existing colours, backend logic, database schema, migrations, API JSON keys and stored roles and the existing gym D1 binding.
 
-The smaller V1.02 package removed historical/support material; it retained every original frontend, backend and migration file at an existing or mapped gym path. V1.03 now includes the entire original source as well, with explicit comparison and recovery records.
+Validation:
+33 code/regression suites, 16 desktop/mobile browser workflow groups and 16 real local Worker/D1 groups passed. Cloudflare build compiled successfully. The original V1.03 bug was reproduced before the fix. ZIP/file checks and complete-source preservation are verified.
+See RELEASE-VERIFICATION-GYM.md and verification/ironpulse-v1.04/.

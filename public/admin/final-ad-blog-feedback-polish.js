@@ -128,9 +128,9 @@
     const summary=panel.querySelector('details summary'); if(summary) summary.textContent='Post New Fitness Tip Update';
     const form=$('#blogForm'); if(!form) return;
     form.insertAdjacentHTML('afterbegin','<div class="blogger-required-note"><strong>SEO connection required for posting:</strong> Published fitness updates should be posted after SEO is configured in API Settings. Drafts can be saved for preparation.</div>');
-    const title=form.elements.title; if(title){title.maxLength=90; title.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Maximum 90 characters. Keep the audition title short and clear.</small>');}
-    const slug=form.elements.slug; if(slug){slug.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Optional. If left blank, the link ending is created from the audition title.</small>');}
-    const tags=form.elements.tags; if(tags){tags.maxLength=180; tags.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Use up to 12 tags, separated with commas. Example: audition, casting, ott, hyderabad.</small>');}
+    const title=form.elements.title; if(title){title.maxLength=90; title.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Maximum 90 characters. Keep the fitness tip title short and clear.</small>');}
+    const slug=form.elements.slug; if(slug){slug.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Optional. If left blank, the link ending is created from the fitness tip title.</small>');}
+    const tags=form.elements.tags; if(tags){tags.maxLength=180; tags.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Use up to 12 tags, separated with commas. Example: strength, cardio, nutrition.</small>');}
     const excerpt=form.elements.excerpt; if(excerpt){excerpt.maxLength=220; excerpt.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Maximum 220 characters. This appears as the short summary on the Fitness Tips page.</small>');}
     const body=form.elements.body_text; if(body){body.maxLength=10000; body.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Recommended: 150 to 1,500 words. Maximum 10,000 characters. Write normal paragraphs; the website formats them automatically.</small>');}
     const cover=form.elements.cover_image_url; if(cover){cover.insertAdjacentHTML('afterend','<small class="blog-limit-hint">Paste a direct public image URL, website media URL, CDN URL, or direct image link.</small>');}

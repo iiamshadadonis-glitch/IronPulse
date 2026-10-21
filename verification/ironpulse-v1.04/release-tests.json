@@ -1,0 +1,172 @@
+{
+  "release": "IronPulse Gym V1.04",
+  "baseline": "IronPulse Gym V1.00",
+  "node": "v24.19.0",
+  "results": [
+    {
+      "name": "gym-release.mjs",
+      "pass": true,
+      "durationMs": 2749
+    },
+    {
+      "name": "gym-fitness-tips.mjs",
+      "pass": true,
+      "durationMs": 385
+    },
+    {
+      "name": "gym-deployment.mjs",
+      "pass": true,
+      "durationMs": 85
+    },
+    {
+      "name": "gym-sessions.mjs",
+      "pass": true,
+      "durationMs": 135
+    },
+    {
+      "name": "gym-buttons-api.mjs",
+      "pass": true,
+      "durationMs": 116
+    },
+    {
+      "name": "gym-plan-import.mjs",
+      "pass": true,
+      "durationMs": 403
+    },
+    {
+      "name": "gym-v1-58-notifications.mjs",
+      "pass": true,
+      "durationMs": 206
+    },
+    {
+      "name": "gym-v1-58-service-worker.mjs",
+      "pass": true,
+      "durationMs": 105
+    },
+    {
+      "name": "gym-v1-57-layout-api.mjs",
+      "pass": true,
+      "durationMs": 241
+    },
+    {
+      "name": "gym-v1-51-cache.mjs",
+      "pass": true,
+      "durationMs": 166
+    },
+    {
+      "name": "gym-v1-51-sync.mjs",
+      "pass": true,
+      "durationMs": 115
+    },
+    {
+      "name": "gym-v1-49-schedule.mjs",
+      "pass": true,
+      "durationMs": 531
+    },
+    {
+      "name": "gym-v1-27-payment-admin-recovery.mjs",
+      "pass": true,
+      "durationMs": 458
+    },
+    {
+      "name": "gym-v1-28-worker-resource-login-recovery.mjs",
+      "pass": true,
+      "durationMs": 189
+    },
+    {
+      "name": "v16-88-data-integration.mjs",
+      "pass": true,
+      "durationMs": 98
+    },
+    {
+      "name": "v16-89-periods.mjs",
+      "pass": true,
+      "durationMs": 98
+    },
+    {
+      "name": "v16-90-d1-read.mjs",
+      "pass": true,
+      "durationMs": 97
+    },
+    {
+      "name": "v16-93-smoke.mjs",
+      "pass": true,
+      "durationMs": 112
+    },
+    {
+      "name": "v16-95-smoke.mjs",
+      "pass": true,
+      "durationMs": 114
+    },
+    {
+      "name": "v16-96-smoke.mjs",
+      "pass": true,
+      "durationMs": 114
+    },
+    {
+      "name": "v16-97-smoke.mjs",
+      "pass": true,
+      "durationMs": 83
+    },
+    {
+      "name": "v16-98-smoke.mjs",
+      "pass": true,
+      "durationMs": 72
+    },
+    {
+      "name": "v16-99-smoke.mjs",
+      "pass": true,
+      "durationMs": 72
+    },
+    {
+      "name": "v17-00-smoke.mjs",
+      "pass": true,
+      "durationMs": 104
+    },
+    {
+      "name": "v17-01-d1-read-optimization.mjs",
+      "pass": true,
+      "durationMs": 112
+    },
+    {
+      "name": "v17-02-visitor-customer-recovery.mjs",
+      "pass": true,
+      "durationMs": 140
+    },
+    {
+      "name": "v17-03-visitor-dashboard-freshness.mjs",
+      "pass": true,
+      "durationMs": 113
+    },
+    {
+      "name": "v17-04-visitor-read-guard.mjs",
+      "pass": true,
+      "durationMs": 101
+    },
+    {
+      "name": "v17-05-email-automations.mjs",
+      "pass": true,
+      "durationMs": 117
+    },
+    {
+      "name": "v17-06-email-followup-providers.mjs",
+      "pass": true,
+      "durationMs": 83
+    },
+    {
+      "name": "v17-07-webinar-email-ui.mjs",
+      "pass": true,
+      "durationMs": 96
+    },
+    {
+      "name": "v17-08-workflows-members-ui.mjs",
+      "pass": true,
+      "durationMs": 128
+    },
+    {
+      "name": "v17-09-navigation-email-parity.mjs",
+      "pass": true,
+      "durationMs": 80
+    }
+  ]
+}
