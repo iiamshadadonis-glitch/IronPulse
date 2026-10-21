@@ -1,6 +1,12 @@
 # Why the file counts differ
 
-## Current V1.04 release
+## Current V1.05 release
+
+V1.05 starts from the complete user-attached V1.04(1).zip and retains all 2,869 input paths. It contains 492 public/frontend files, 268 backend files and 56 migrations, plus all original source archives, documentation and verification tools. The one extra frontend file is the page-scoped Fitness Tips layout stylesheet. Every inherited CSS, backend and migration file is byte-identical to V1.04.
+
+The public renderer now filters matching cover copies from its display body before inserting adverts. The existing post DTO and saved body remain unchanged. Thirty existing public-renderer functions are verified byte-for-byte. See docs/PUBLIC-FITNESS-TIPS-FIX.md and verification/ironpulse-v1.05/. PACKAGE-CONTENTS.txt lists the final complete file count and every delivered path.
+
+## Historical V1.04 release
 
 The historical comparisons below describe the earlier V1.00/V1.02/V1.03 releases. V1.04 starts from the complete user-attached V1.03 ZIP and preserves all 2,814 of its paths. It fixes three frontend presentation handlers and twelve source-copy scripts, refreshes the Admin asset URLs and adds focused tests/evidence. All 491 frontend files, 268 backend files and 56 migrations remain present. Every backend, migration and CSS file is byte-identical to the attached V1.03 version. See verification/ironpulse-v1.04/frontend-fixes.json for the explicit frontend exceptions and PACKAGE-CONTENTS.txt for the final count.
 

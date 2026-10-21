@@ -16,7 +16,7 @@ await mkdir(output,{recursive:true});
 const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.woff2':'font/woff2'};
 const server=createServer(async(req,res)=>{
   const path=new URL(req.url,'http://localhost').pathname;
-  const target=join(root,'public',path.endsWith('/')?path+'index.html':(!extname(path)?path+'.html':path));
+  const target=join(root,'public',path.startsWith('/blog/')?'blog-post.html':path.endsWith('/')?path+'index.html':(!extname(path)?path+'.html':path));
   try{const body=await readFile(target);res.writeHead(200,{'Content-Type':types[extname(target)]||'application/octet-stream','Cache-Control':'no-store'});res.end(body);}catch{res.writeHead(404);res.end('Missing fixture asset');}
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
@@ -162,9 +162,10 @@ const visibleNames=id=>page.evaluate(id=>[...document.querySelector('#'+id).quer
 const layout=()=>page.evaluate(()=>[...document.querySelectorAll('#dashboard .dashboard-cards')].map(container=>({rows:container.dataset.db137Rows,dots:[...container.parentElement.querySelectorAll('.db136-carousel-dots,.db137-carousel-dots')].map(d=>({class:d.className,count:d.querySelectorAll('button').length})),width:container.clientWidth,scrollWidth:container.scrollWidth,classes:container.className,firstWidth:container.firstElementChild?.getBoundingClientRect().width,margin:getComputedStyle(container).marginLeft}))); 
 import {runWorkflows} from './gym-browser-cases.mjs';
 import {runFitnessTipsWorkflows} from './gym-fitness-tips-cases.mjs';
+import {runPublicFitnessTipsWorkflows} from './gym-public-fitness-tips-cases.mjs';
 try{
  await page.goto(origin+'/admin/',{waitUntil:'load'});
  const args={page,context,origin,output,writes,errors,baseRoute};
- await runFitnessTipsWorkflows(args);
- if(!process.argv.includes('--fitness-tips-only'))await runWorkflows(args);
+ if(process.argv.includes('--public-fitness-only'))await runPublicFitnessTipsWorkflows(args);
+ else{await runFitnessTipsWorkflows(args);if(!process.argv.includes('--fitness-tips-only')){await runPublicFitnessTipsWorkflows(args);await runWorkflows(args);}}
 }catch(error){await writeFile(join(output,'workflow-failure.html'),await page.content());await page.screenshot({path:join(output,'workflow-failure.png'),fullPage:true});await writeFile(join(output,'workflow-failure-errors.json'),JSON.stringify({errors,writes},null,2));throw error;}finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

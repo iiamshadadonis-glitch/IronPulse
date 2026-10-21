@@ -1,5 +1,16 @@
 # Changelog
 
+## V1.05 — Public Fitness Tips images and responsive cards
+
+- Render each post's featured image once as its hero; filter matching body copies before inserting adverts.
+- Match escaped/relative image URLs, wrapped images and supported Google Drive URL variants while preserving separate illustrations, captions and stored content.
+- Balance desktop image/text columns with 24px padding and spacing.
+- Add mobile full-width image cards with title, excerpt and Read More layered over a dark gradient.
+- Keep Read More linked to the saved primary theme colour and retain light/dark mode compatibility.
+- Refresh the public renderer URL and add one page-scoped stylesheet; preserve all 177 inherited CSS files.
+- Add a public Fitness Tips regression suite and five-width browser coverage, retaining Admin and Cloudflare runtime checks.
+- Retain all 2,869 V1.04 input paths, all 1,829 original archived files, all backend/migration files, API JSON keys and roles.
+
 ## V1.04 — Fitness Tips text and page stability
 
 - Remove competing whole-panel text translators that appended extra s characters and repeated Updates.

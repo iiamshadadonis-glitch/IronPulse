@@ -1,0 +1,2 @@
+V1.51 Edge SWR/read-budget checks passed: warm zero-read hits, 40-way deduplication, bounded stale refresh, error backoff, purge race and origin isolation.
+V1.51 client SWR/read-budget checks passed: 50-way deduplication, one-minute minimum checks, clones, public-only persistence, distinct filters, no focus polling and normalized zero-GET settings saves.

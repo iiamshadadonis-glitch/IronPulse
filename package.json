@@ -1,6 +1,6 @@
 {
   "name": "ironpulse-gym-cloudflare",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "description": "IronPulse Gym fitness membership platform for Cloudflare Pages, Functions and the existing gym D1 database.",
   "scripts": {
@@ -27,7 +27,8 @@
     "check:cloudflare": "node tools/check-gym-cloudflare.mjs",
     "test:gym:runtime:empty": "node tools/verify-gym-runtime.mjs --empty",
     "check:complete": "node tools/verify-gym-completeness.mjs",
-    "test:gym:fitness-tips": "node tools/verify-gym-browser.mjs --fitness-tips-only"
+    "test:gym:fitness-tips": "node tools/verify-gym-browser.mjs --fitness-tips-only",
+    "test:gym:public-fitness": "node tools/verify-gym-browser.mjs --public-fitness-only"
   },
   "devDependencies": {
     "@babel/parser": "7.28.5",

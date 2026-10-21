@@ -1,0 +1,45 @@
+{
+  "release": "V1.05",
+  "renderer": {
+    "path": "public/assets/final-v15-4-seo-comments-blog.js",
+    "beforeSha256": "33a3f406fda8aa5875f8f40ebd7fc69ee95458041b2f6f8880625f0e66e02464",
+    "afterSha256": "99e6483f1fed7177c621faf6200ce3500bceef08c64221bedce386767c6ab0ee",
+    "reason": "Remove featured-image copies from display HTML before injecting existing advertisements."
+  },
+  "stylesheet": {
+    "path": "public/assets/gym-fitness-tips-v1-05.css",
+    "sha256": "eb507e677e4ff379e33aa8979f6e3d192b35df81606946132723cff4086d7320"
+  },
+  "protectedFunctions": {
+    "request": "1eae951d0225fb79b0d9d88151861c98ae0c3ac320a32c13bb88088624352722",
+    "postKey": "2cdfb4b492789754f148d2de6543f7e4c5636a314b426afff1eeab1cea45e693",
+    "postMeta": "d94669e14dcb6eeab8209d2d1265a32fe029981d3a80a3a3bbb0356d52f53a70",
+    "articleCard": "5ccee77ee507c74e8c8458c91bc3b8aecb4a817177a2036f750ab60558b47b24",
+    "smallPost": "fc511e456432578d2d1205114b0eb5a76563e5abf6f6c53f7f2cf6c51646ed37",
+    "sideBlock": "d6cec4c8c1e805d9fdb9db74b1a6e70907e3837da39f43d963089c4c3cacec6b",
+    "tagsBlock": "842494310f036b52117be4803d94edd2a293306080f1e3ca2d1d2ed2ceaf7b94",
+    "pickUnique": "61673e39dd1fb075c85a4905ce41aec6aab43c2c009b66c7cc7ffa91beb0c2bb",
+    "sideEmpty": "b749e5426254e5625c0d40200a11ab8ec6b63387b1419b7b4840dc4bfa75d23d",
+    "pickUniqueV154": "64c65e3e6d998473623ca3c4a3bd6072b5715da6bcc3385938f0b3078f846a39",
+    "sidebar": "e7f3eae8870216b3af4c2b7322533fd4eb04ef52e2856dddf4ac08bbad77a4a9",
+    "pagination": "06957643b602aa748da01c9107bec92209ef9b3f3dcecef7b2c886c420a63035",
+    "pageIntro": "7c95a26e31c55ad3533778ee58e0fc3516b179a21b9a0f8d1f6a351f12546599",
+    "commonSettings": "2c507d27db2c8442426569815f6e29cdc57c8d9517cd30233a8348398b05dbfd",
+    "loadBlogListV153": "d473703480227eea46d13a032b43cf2149f14039735c3554adc262a44742c87d",
+    "sanitizeArticleHtml": "dc00b223f311dffb11d0c6d92bbcd668ce94c53059625f067eaa7cb172a73bc3",
+    "parseAds": "e379251f62e20836f09bfbf9cddc565e7a65def39c8fcf8cd9691c3586f1dc97",
+    "isImage": "3ad7222ff7256682018586b740ad3fc13218ca0bebfd2a21a2242ff3115c2213",
+    "adBox": "2bd1adea85aecc08adcd7f66e2389cf81c071764da9e870080a32fc79de413ac",
+    "injectAds": "01a651052aa5164f69133f243c1fb4b63e8f842001a6d1bfb3fee7c85273110a",
+    "relatedGrid": "27379535d6f4f52c3b41e0dec96351a8531aaad575bab15531d25607b059a708",
+    "visitorId": "65f6a80ebb0d4c9698cb9e62309fdb2e914cadf290f62fef9eecc384b6159989",
+    "commentChildren": "6e24ef177b91fa144cfa0e741a6f7c0a36a296bf6c3216296e620f2ffbb7f9ff",
+    "commentCard": "482f0093b9fbfe8194cc191c0888eaedfe96be598540cde52c572273c064812f",
+    "loadComments": "7981917f6a2b6d6254c207e85ec962a649ed7a76d5e3b03f56761acf8690e379",
+    "submitComment": "13eae6f520614b6ee74e396cedf4473932de30c5cff7b6db631ea6bc497fb1fa",
+    "commentsBlock": "36c1df3035ebee0861710f3d9ca79b9933b1ed608c45ba24f92554eee937559b",
+    "shareIcon": "f74781ce872343494ddfa763b27fe159d9d555d199750e2b4942189a70c24d9d",
+    "shareBlock": "f3ffd8ef3db1712ab096437504ed1b22b7e5ac6043672993be5bf33c4ca87302",
+    "copyShareLink": "219ccbb2026cc92ca3f3fc5a83919454205f18f08c7c846340b5e5adf606e735"
+  }
+}

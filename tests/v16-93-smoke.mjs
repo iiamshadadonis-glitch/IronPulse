@@ -5,7 +5,7 @@ const read=p=>readFile(new URL(`../${p}`,import.meta.url),'utf8');
 const [version,index,integrations,ui,css,core,api,heat,tracker,migration]=await Promise.all([
   read('VERSION.txt'),read('public/admin/index.html'),read('public/admin/final-v16-93-marketing-integrations.js'),read('public/admin/final-v16-93-marketing-ui.js'),read('public/admin/final-v16-93-marketing-integrations.css'),read('functions/_lib/marketing-suite.js'),read('functions/api/admin/marketing-suite.js'),read('functions/api/public/heatmap.js'),read('public/assets/final-v16-92-marketing-tracker.js'),read('migrations/0040_v16_93_marketing_integrations_email.sql')
 ]);
-assert.equal(version.split('\n')[0],'IronPulse Gym V1.04');
+assert.equal(version.split('\n')[0],'IronPulse Gym V1.05');
 for(const asset of ['final-v16-93-marketing-integrations.css','final-v16-93-marketing-integrations.js','final-v16-93-marketing-ui.js'])assert.match(index,new RegExp(asset.replaceAll('.','\\.')));
 for(const provider of ['Google Ads API + YouTube Ads','Meta Ads + Conversions API','Pinterest Ads','X Ads','Snapchat Ads','Mailchimp Email Marketing'])assert.match(integrations,new RegExp(provider.replace(/[+]/g,'\\+')));
 for(const provider of ['Google Calendar + Google Meet','Zoom','External Meeting Provider'])assert.match(integrations,new RegExp(provider.replace(/[+]/g,'\\+')));

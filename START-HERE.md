@@ -1,6 +1,6 @@
-# IronPulse Gym V1.04 — start here
+# IronPulse Gym V1.05 — start here
 
-This release fixes the repeated text in Social Media → Fitness Tips. No database migration is needed for this UI update. Read docs/FITNESS-TIPS-FIX.md. After deployment, close old Admin tabs and use Ctrl+Shift+R once to load the new script URLs.
+This release fixes the duplicate public Fitness Tips cover image and the desktop/mobile card layouts. It also includes the earlier Admin text/stability fix. No database migration is needed. Read docs/PUBLIC-FITNESS-TIPS-FIX.md. After deployment, close older tabs and use Ctrl+Shift+R once to load the updated assets.
 
 Your existing gym database is already selected in this replacement:
 
@@ -22,7 +22,7 @@ With GitHub Desktop, choose Repository → Show in Explorer/Finder. Move the old
 
 At the repository root, you must see wrangler.jsonc, package.json, public/, functions/ and migrations/. Do not leave these files inside an extra nested ZIP folder. Do not keep another wrangler.toml or wrangler.json from the old project.
 
-Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **V1.04: Fix Fitness Tips text duplication and page stability**. GITHUB-SUMMARY.txt contains the complete description.
+Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **V1.05: Fix Fitness Tips images and responsive card layouts**. GITHUB-SUMMARY.txt contains the complete description.
 
 ## 2. Set the gym Pages project
 
@@ -50,7 +50,7 @@ In Pages → Settings → Variables and Secrets → Production, add **ADMIN_LOGI
 
 Deploy the latest pushed commit. In its build log, confirm these exact lines:
 
-    IronPulse Gym V1.04 (package 1.4.0)
+    IronPulse Gym V1.05 (package 1.5.0)
     D1 binding DB: 893e7d29-fa72-413d-9415-5d93b1c3bc6e
 
 The npm run build step uses the pinned project Wrangler and should compile the Worker successfully. Use the printed release, UUID and commit to identify the source being deployed. If it still shows an older project, old login email or different D1 ID, check the connected repository, branch, commit and root directory.
@@ -89,4 +89,4 @@ For an account/binding check only:
 
 For a Git-connected project, commit and push any configuration updates made by setup/check. The Pages deployment uses the committed configuration.
 
-Open CLOUDFLARE-FIX.md for the screenshot-specific fix, PACKAGE-CONTENTS.txt for all included files, and RELEASE-VERIFICATION-GYM.md for the exact local test results. After a successful deployment, /release.json identifies this package as V1.04.
+Open CLOUDFLARE-FIX.md for the earlier deployment-error instructions, PACKAGE-CONTENTS.txt for all included files, and RELEASE-VERIFICATION-GYM.md for the exact local test results. After a successful deployment, /release.json identifies this package as V1.05. Test the public Fitness Tips menu and open a post on both desktop and mobile. Existing /blog URLs and any configured navigation slug continue to work.

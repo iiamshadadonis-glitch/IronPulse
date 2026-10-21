@@ -1,16 +1,16 @@
 Title:
-V1.04: Fix Fitness Tips text duplication and page stability
+V1.05: Fix Fitness Tips images and responsive card layouts
 
 Description:
-- Remove competing UI text replacements that caused Fitness Tipssss and repeated Updates in Social Media > Fitness Tips.
-- Make image preview/setup update only when its state changes and limit observer work to relevant inserted/removed controls.
-- Preserve dynamically configured Fitness Tips headings and custom menu names.
-- Correct leftover fitness form placeholders and helper examples at their source.
-- Refresh changed Admin script URLs so browsers load the fixed code after deployment.
-- Add desktop/mobile regression coverage for delayed initialization, filters, saved titles, editing, image upload, draft payloads, custom labels, reloads and Posts tab selection.
-- Include the complete project and preserve every V1.03 input path plus the original V1.00 archive.
-- Retain all existing colours, backend logic, database schema, migrations, API JSON keys and stored roles and the existing gym D1 binding.
+- Display each Fitness Tips featured image once as the post hero by filtering its matching body copy before adverts are inserted.
+- Preserve saved post content, separate illustrations, captions, sponsored images, comments and share controls.
+- Balance desktop post cards with image/text columns, 24px padding and 24px spacing.
+- Add mobile full-width image cards with title, excerpt and Read More over a readable dark gradient.
+- Keep the Read More button linked to the saved primary theme colour, including light/dark mode and custom primary colours.
+- Add one page-scoped stylesheet and refresh the public renderer's cache version.
+- Include all V1.04 Admin stability fixes and every one of the 2,869 input paths in the complete replacement project.
+- Preserve all backend files, migrations, inherited theme stylesheets, API JSON keys, account roles and the existing gym D1 binding.
 
 Validation:
-33 code/regression suites, 16 desktop/mobile browser workflow groups and 16 real local Worker/D1 groups passed. Cloudflare build compiled successfully. The original V1.03 bug was reproduced before the fix. ZIP/file checks and complete-source preservation are verified.
-See RELEASE-VERIFICATION-GYM.md and verification/ironpulse-v1.04/.
+34 regression suites, 24 browser workflow groups and 16 real local Worker/D1 groups passed. Cloudflare Functions compiled successfully. The duplicate cover was reproduced in V1.04 and verified fixed across five screen widths in light/dark mode. Complete-source, checksum and ZIP integrity checks passed.
+See RELEASE-VERIFICATION-GYM.md and verification/ironpulse-v1.05/.

@@ -1,0 +1,13 @@
+[Fitness Tips] real Admin page at 1440px
+[Fitness Tips] real Admin page at 390px
+Fitness Tips regression passed: 6 workflow groups.
+[Public Fitness Tips] single hero and preserved content/ads
+Public Fitness Tips regression passed: 8 workflow groups.
+[Gym browser] public branding, signup, portals, PWA and fitness specialties
+Gym V1.05: Cold dynamic state and stable default names on mobile/desktop
+Gym V1.05: Renamed labels, public header/footer, dictionary actions and request deduplication
+Gym V1.05: Initial configuration errors, Retry, invalid payloads and bounded timeouts
+Gym V1.05: Schedule lifecycle at 390px
+Gym V1.05: Schedule lifecycle at 1440px
+Gym V1.05 navigation/Schedule browser regression passed: 5 workflow groups.
+Gym branding and portal browser workflows passed.

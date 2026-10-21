@@ -1,0 +1,16 @@
+{
+  "baseline": {
+    "hero": 1,
+    "bodyCover": 1
+  },
+  "baselineSha256": "ef227bb10326aa6f70e7a458a406bc73175696fe46d04174f19b703c6ee13502",
+  "fixture": "Actual buildSeoPostContent/decorateSeoPost output with escaped-ampersand cover URL",
+  "fixed": {
+    "hero": 1,
+    "bodyCover": 0
+  },
+  "expectedBaselineAssertion": "The featured image appears once as the hero, without a body duplicate",
+  "baselineExpectedFailureConfirmed": true,
+  "fixedBrowserSuitePassed": true,
+  "inputSource": "V1.04(1).zip"
+}

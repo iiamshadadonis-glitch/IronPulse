@@ -1,0 +1,639 @@
+{
+  "synthetic": true,
+  "results": [
+    "Actual serialized Blogger DTO: one hero, separate illustration/caption, original post data, custom ad placement and threaded comment payload retained",
+    "Nested picture/anchor covers, Google Drive variants, HTML entities/fragments, distinct query images, absent covers and existing sanitization",
+    "Index/detail at 320px: light/dark, long text, primary-color propagation, clickable overlay link, single cover and no horizontal overflow",
+    "Index/detail at 390px: light/dark, long text, primary-color propagation, clickable overlay link, single cover and no horizontal overflow",
+    "Index/detail at 760px: light/dark, long text, primary-color propagation, clickable overlay link, single cover and no horizontal overflow",
+    "Index/detail at 980px: light/dark, long text, primary-color propagation, clickable overlay link, single cover and no horizontal overflow",
+    "Index/detail at 1440px: light/dark, long text, primary-color propagation, clickable overlay link, single cover and no horizontal overflow",
+    "Existing page/tag query strings, pagination links, empty/error states and missing posts"
+  ],
+  "metrics": [
+    {
+      "width": 320,
+      "colorMode": "light",
+      "card": {
+        "x": 30,
+        "y": 463.453125,
+        "width": 260,
+        "height": 361.6875,
+        "right": 290,
+        "bottom": 825.140625
+      },
+      "media": {
+        "x": 31,
+        "y": 464.453125,
+        "width": 258,
+        "height": 359.6875,
+        "right": 289,
+        "bottom": 824.140625
+      },
+      "image": {
+        "x": 31,
+        "y": 464.453125,
+        "width": 258,
+        "height": 359.6875,
+        "right": 289,
+        "bottom": 824.140625
+      },
+      "copy": {
+        "x": 31,
+        "y": 464.453125,
+        "width": 258,
+        "height": 359.6875,
+        "right": 289,
+        "bottom": 824.140625
+      },
+      "button": {
+        "x": 51,
+        "y": 756.703125,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 141.34375,
+        "bottom": 796.140625
+      },
+      "heading": {
+        "x": 51,
+        "y": 534.59375,
+        "width": 218,
+        "height": 79.3125,
+        "right": 269,
+        "bottom": 613.90625
+      },
+      "padding": 0,
+      "gap": 0,
+      "gradient": "linear-gradient(rgba(12, 12, 22, 0.6), rgba(12, 12, 22, 0.88))",
+      "text": "rgb(255, 255, 255)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "colorMode": "dark",
+      "card": {
+        "x": 30,
+        "y": 463.453125,
+        "width": 260,
+        "height": 361.6875,
+        "right": 290,
+        "bottom": 825.140625
+      },
+      "media": {
+        "x": 31,
+        "y": 464.453125,
+        "width": 258,
+        "height": 359.6875,
+        "right": 289,
+        "bottom": 824.140625
+      },
+      "image": {
+        "x": 31,
+        "y": 464.453125,
+        "width": 258,
+        "height": 359.6875,
+        "right": 289,
+        "bottom": 824.140625
+      },
+      "copy": {
+        "x": 31,
+        "y": 464.453125,
+        "width": 258,
+        "height": 359.6875,
+        "right": 289,
+        "bottom": 824.140625
+      },
+      "button": {
+        "x": 51,
+        "y": 756.703125,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 141.34375,
+        "bottom": 796.140625
+      },
+      "heading": {
+        "x": 51,
+        "y": 534.59375,
+        "width": 218,
+        "height": 79.3125,
+        "right": 269,
+        "bottom": 613.90625
+      },
+      "padding": 0,
+      "gap": 0,
+      "gradient": "linear-gradient(rgba(12, 12, 22, 0.6), rgba(12, 12, 22, 0.88))",
+      "text": "rgb(255, 255, 255)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "colorMode": "light",
+      "card": {
+        "x": 30,
+        "y": 441.8285217285156,
+        "width": 330,
+        "height": 348.7968444824219,
+        "right": 360,
+        "bottom": 790.6253662109375
+      },
+      "media": {
+        "x": 31,
+        "y": 442.8285217285156,
+        "width": 328,
+        "height": 346.7968444824219,
+        "right": 359,
+        "bottom": 789.6253662109375
+      },
+      "image": {
+        "x": 31,
+        "y": 442.8285217285156,
+        "width": 328,
+        "height": 346.7968444824219,
+        "right": 359,
+        "bottom": 789.6253662109375
+      },
+      "copy": {
+        "x": 31,
+        "y": 442.8285217285156,
+        "width": 328,
+        "height": 346.7968444824219,
+        "right": 359,
+        "bottom": 789.6253662109375
+      },
+      "button": {
+        "x": 51,
+        "y": 722.1878662109375,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 141.34375,
+        "bottom": 761.6253662109375
+      },
+      "heading": {
+        "x": 51,
+        "y": 512.9691772460938,
+        "width": 288,
+        "height": 87.421875,
+        "right": 339,
+        "bottom": 600.3910522460938
+      },
+      "padding": 0,
+      "gap": 0,
+      "gradient": "linear-gradient(rgba(12, 12, 22, 0.6), rgba(12, 12, 22, 0.88))",
+      "text": "rgb(255, 255, 255)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "colorMode": "dark",
+      "card": {
+        "x": 30,
+        "y": 441.44439697265625,
+        "width": 330,
+        "height": 348.796875,
+        "right": 360,
+        "bottom": 790.2412719726562
+      },
+      "media": {
+        "x": 31,
+        "y": 442.44439697265625,
+        "width": 328,
+        "height": 346.796875,
+        "right": 359,
+        "bottom": 789.2412719726562
+      },
+      "image": {
+        "x": 31,
+        "y": 442.44439697265625,
+        "width": 328,
+        "height": 346.796875,
+        "right": 359,
+        "bottom": 789.2412719726562
+      },
+      "copy": {
+        "x": 31,
+        "y": 442.44439697265625,
+        "width": 328,
+        "height": 346.796875,
+        "right": 359,
+        "bottom": 789.2412719726562
+      },
+      "button": {
+        "x": 51,
+        "y": 721.8037719726562,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 141.34375,
+        "bottom": 761.2412719726562
+      },
+      "heading": {
+        "x": 51,
+        "y": 512.5850219726562,
+        "width": 288,
+        "height": 87.421875,
+        "right": 339,
+        "bottom": 600.0068969726562
+      },
+      "padding": 0,
+      "gap": 0,
+      "gradient": "linear-gradient(rgba(12, 12, 22, 0.6), rgba(12, 12, 22, 0.88))",
+      "text": "rgb(255, 255, 255)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    },
+    {
+      "width": 760,
+      "colorMode": "light",
+      "card": {
+        "x": 30,
+        "y": 410.6971130371094,
+        "width": 700,
+        "height": 342.0000305175781,
+        "right": 730,
+        "bottom": 752.6971435546875
+      },
+      "media": {
+        "x": 31,
+        "y": 411.6971130371094,
+        "width": 698,
+        "height": 340.0000305175781,
+        "right": 729,
+        "bottom": 751.6971435546875
+      },
+      "image": {
+        "x": 31,
+        "y": 411.6971130371094,
+        "width": 698,
+        "height": 340.0000305175781,
+        "right": 729,
+        "bottom": 751.6971435546875
+      },
+      "copy": {
+        "x": 31,
+        "y": 411.6971130371094,
+        "width": 698,
+        "height": 340.0000305175781,
+        "right": 729,
+        "bottom": 751.6971435546875
+      },
+      "button": {
+        "x": 51,
+        "y": 684.2596435546875,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 141.34375,
+        "bottom": 723.6971435546875
+      },
+      "heading": {
+        "x": 51,
+        "y": 535.4627685546875,
+        "width": 658,
+        "height": 69,
+        "right": 709,
+        "bottom": 604.4627685546875
+      },
+      "padding": 0,
+      "gap": 0,
+      "gradient": "linear-gradient(rgba(12, 12, 22, 0.6), rgba(12, 12, 22, 0.88))",
+      "text": "rgb(255, 255, 255)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    },
+    {
+      "width": 760,
+      "colorMode": "dark",
+      "card": {
+        "x": 30,
+        "y": 410.3124084472656,
+        "width": 700,
+        "height": 341.9999694824219,
+        "right": 730,
+        "bottom": 752.3123779296875
+      },
+      "media": {
+        "x": 31,
+        "y": 411.3124084472656,
+        "width": 698,
+        "height": 339.9999694824219,
+        "right": 729,
+        "bottom": 751.3123779296875
+      },
+      "image": {
+        "x": 31,
+        "y": 411.3124084472656,
+        "width": 698,
+        "height": 339.9999694824219,
+        "right": 729,
+        "bottom": 751.3123779296875
+      },
+      "copy": {
+        "x": 31,
+        "y": 411.3124084472656,
+        "width": 698,
+        "height": 339.9999694824219,
+        "right": 729,
+        "bottom": 751.3123779296875
+      },
+      "button": {
+        "x": 51,
+        "y": 683.8748779296875,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 141.34375,
+        "bottom": 723.3123779296875
+      },
+      "heading": {
+        "x": 51,
+        "y": 535.0780639648438,
+        "width": 658,
+        "height": 68.99993896484375,
+        "right": 709,
+        "bottom": 604.0780029296875
+      },
+      "padding": 0,
+      "gap": 0,
+      "gradient": "linear-gradient(rgba(12, 12, 22, 0.6), rgba(12, 12, 22, 0.88))",
+      "text": "rgb(255, 255, 255)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    },
+    {
+      "width": 980,
+      "colorMode": "light",
+      "card": {
+        "x": 59.1875,
+        "y": 512.7210693359375,
+        "width": 861.625,
+        "height": 282.0625,
+        "right": 920.8125,
+        "bottom": 794.7835693359375
+      },
+      "media": {
+        "x": 84.1875,
+        "y": 537.7210693359375,
+        "width": 340.875,
+        "height": 232.0625,
+        "right": 425.0625,
+        "bottom": 769.7835693359375
+      },
+      "image": {
+        "x": 84.1875,
+        "y": 537.7210693359375,
+        "width": 340.875,
+        "height": 232.0625,
+        "right": 425.0625,
+        "bottom": 769.7835693359375
+      },
+      "copy": {
+        "x": 449.0625,
+        "y": 537.7210693359375,
+        "width": 446.75,
+        "height": 232.0625,
+        "right": 895.8125,
+        "bottom": 769.7835693359375
+      },
+      "button": {
+        "x": 449.0625,
+        "y": 730.3460693359375,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 539.40625,
+        "bottom": 769.7835693359375
+      },
+      "heading": {
+        "x": 449.0625,
+        "y": 579.8616943359375,
+        "width": 446.75,
+        "height": 47.1875,
+        "right": 895.8125,
+        "bottom": 627.0491943359375
+      },
+      "padding": 24,
+      "gap": 24,
+      "gradient": "none",
+      "text": "rgb(26, 26, 26)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    },
+    {
+      "width": 980,
+      "colorMode": "dark",
+      "card": {
+        "x": 59.1875,
+        "y": 512.5693359375,
+        "width": 861.625,
+        "height": 282.0625,
+        "right": 920.8125,
+        "bottom": 794.6318359375
+      },
+      "media": {
+        "x": 84.1875,
+        "y": 537.5693359375,
+        "width": 340.875,
+        "height": 232.0625,
+        "right": 425.0625,
+        "bottom": 769.6318359375
+      },
+      "image": {
+        "x": 84.1875,
+        "y": 537.5693359375,
+        "width": 340.875,
+        "height": 232.0625,
+        "right": 425.0625,
+        "bottom": 769.6318359375
+      },
+      "copy": {
+        "x": 449.0625,
+        "y": 537.5693359375,
+        "width": 446.75,
+        "height": 232.0625,
+        "right": 895.8125,
+        "bottom": 769.6318359375
+      },
+      "button": {
+        "x": 449.0625,
+        "y": 730.1943359375,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 539.40625,
+        "bottom": 769.6318359375
+      },
+      "heading": {
+        "x": 449.0625,
+        "y": 579.7099609375,
+        "width": 446.75,
+        "height": 47.1875,
+        "right": 895.8125,
+        "bottom": 626.8974609375
+      },
+      "padding": 24,
+      "gap": 24,
+      "gradient": "none",
+      "text": "rgb(247, 248, 252)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "colorMode": "light",
+      "card": {
+        "x": 189,
+        "y": 566.5972900390625,
+        "width": 702,
+        "height": 293.875,
+        "right": 891,
+        "bottom": 860.4722900390625
+      },
+      "media": {
+        "x": 214,
+        "y": 591.5972900390625,
+        "width": 273.828125,
+        "height": 243.875,
+        "right": 487.828125,
+        "bottom": 835.4722900390625
+      },
+      "image": {
+        "x": 214,
+        "y": 591.5972900390625,
+        "width": 273.828125,
+        "height": 243.875,
+        "right": 487.828125,
+        "bottom": 835.4722900390625
+      },
+      "copy": {
+        "x": 511.828125,
+        "y": 591.5972900390625,
+        "width": 354.171875,
+        "height": 243.875,
+        "right": 866,
+        "bottom": 835.4722900390625
+      },
+      "button": {
+        "x": 511.828125,
+        "y": 796.0347900390625,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 602.171875,
+        "bottom": 835.4722900390625
+      },
+      "heading": {
+        "x": 511.828125,
+        "y": 633.7379150390625,
+        "width": 354.171875,
+        "height": 59,
+        "right": 866,
+        "bottom": 692.7379150390625
+      },
+      "padding": 24,
+      "gap": 24,
+      "gradient": "none",
+      "text": "rgb(26, 26, 26)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "colorMode": "dark",
+      "card": {
+        "x": 189,
+        "y": 566.095947265625,
+        "width": 702,
+        "height": 293.875,
+        "right": 891,
+        "bottom": 859.970947265625
+      },
+      "media": {
+        "x": 214,
+        "y": 591.095947265625,
+        "width": 273.828125,
+        "height": 243.875,
+        "right": 487.828125,
+        "bottom": 834.970947265625
+      },
+      "image": {
+        "x": 214,
+        "y": 591.095947265625,
+        "width": 273.828125,
+        "height": 243.875,
+        "right": 487.828125,
+        "bottom": 834.970947265625
+      },
+      "copy": {
+        "x": 511.828125,
+        "y": 591.095947265625,
+        "width": 354.171875,
+        "height": 243.875,
+        "right": 866,
+        "bottom": 834.970947265625
+      },
+      "button": {
+        "x": 511.828125,
+        "y": 795.533447265625,
+        "width": 90.34375,
+        "height": 39.4375,
+        "right": 602.171875,
+        "bottom": 834.970947265625
+      },
+      "heading": {
+        "x": 511.828125,
+        "y": 633.236572265625,
+        "width": 354.171875,
+        "height": 59,
+        "right": 866,
+        "bottom": 692.236572265625
+      },
+      "padding": 24,
+      "gap": 24,
+      "gradient": "none",
+      "text": "rgb(247, 248, 252)",
+      "buttonColor": "rgb(75, 85, 190)",
+      "primary": "#4B55BE",
+      "overflow": false
+    }
+  ],
+  "requests": [
+    "?slug=beginner-workout-routine",
+    "?slug=nested",
+    "?slug=drive",
+    "?slug=queries",
+    "?slug=no-cover",
+    "?slug=sanitized",
+    "?page=1",
+    "?slug=beginner-workout-routine",
+    "?page=1",
+    "?slug=beginner-workout-routine",
+    "?page=1",
+    "?slug=beginner-workout-routine",
+    "?page=1",
+    "?slug=beginner-workout-routine",
+    "?page=1",
+    "?slug=beginner-workout-routine",
+    "?page=2&tag=Fitness%20Tips",
+    "?page=1",
+    "?page=1",
+    "?slug=missing"
+  ],
+  "comments": [
+    {
+      "post_id": "post-1",
+      "slug": "beginner-workout-routine",
+      "name": "Fixture Reader",
+      "whatsapp": "",
+      "comment": "A useful fitness tip",
+      "parent_comment_id": "11",
+      "visitor_id": "eb5ebb22-4d9c-425b-b7fd-a1f17c988b39"
+    }
+  ],
+  "errors": []
+}

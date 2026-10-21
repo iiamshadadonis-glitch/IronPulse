@@ -10,7 +10,7 @@ try{
  const archive=resolve(root,'archive/V1.00');
  for(const [name,expected]of Object.entries(manifest.files)){
   const path=resolve(archive,name);
-  if(!path.startsWith(archive+sep)||!existsSync(path))throw Error('Missing preserved original file: '+name+'. Copy the complete V1.04 project, including archive/.');
+  if(!path.startsWith(archive+sep)||!existsSync(path))throw Error('Missing preserved original file: '+name+'. Copy the complete V1.05 project, including archive/.');
   const actual=createHash('sha256').update(readFileSync(path)).digest('hex');
   if(actual!==expected)throw Error('Preserved original file was changed: '+name);
  }
@@ -25,9 +25,17 @@ try{
   const path=resolve(root,name);if(!path.startsWith(resolve(root)+sep)||!existsSync(path))throw Error('Missing supplied V1.03 file: '+name);
   if(name.startsWith('functions/')||name.startsWith('migrations/')||name.endsWith('.css'))if(createHash('sha256').update(readFileSync(path)).digest('hex')!==expected)throw Error('Preserved backend, migration or theme file changed: '+name);
  }
+ const latest=JSON.parse(readFileSync(join(root,'verification/ironpulse-v1.05/v104-input-files.json'),'utf8'));
+ if(latest.fileCount!==2869||Object.keys(latest.files).length!==2869||latest.sourceZipSha256!=='ef227bb10326aa6f70e7a458a406bc73175696fe46d04174f19b703c6ee13502')throw Error('The complete supplied V1.04 source inventory is invalid.');
+ for(const [name,expected]of Object.entries(latest.files)){
+  const path=resolve(root,name);if(!path.startsWith(resolve(root)+sep)||!existsSync(path))throw Error('Missing supplied V1.04 file: '+name);
+  if(name.startsWith('functions/')||name.startsWith('migrations/')||name.endsWith('.css'))if(createHash('sha256').update(readFileSync(path)).digest('hex')!==expected)throw Error('Inherited backend, migration or theme file changed: '+name);
+ }
+ if(!existsSync(join(root,'public/assets/gym-fitness-tips-v1-05.css')))throw Error('Missing public Fitness Tips layout stylesheet.');
  const count=dir=>readdirSync(dir,{withFileTypes:true}).reduce((n,item)=>n+(item.isDirectory()?count(join(dir,item.name)):item.isFile()?1:0),0);
  console.log('Original V1.00 archive: all 1829 files verified byte-for-byte.');
  console.log('Active application: '+count(join(root,'public'))+' frontend files, '+count(join(root,'functions'))+' backend files, '+count(join(root,'migrations'))+' migrations.');
  console.log('All '+manifest.activeApplicationFiles.length+' expected application files are present. The archived source is outside the live public/functions folders.');
- console.log('Every one of the 2814 supplied V1.03 paths is retained; backend, migrations and all CSS are byte-identical.');
+ console.log('Every one of the 2814 supplied V1.03 paths is retained; backend, migrations and all inherited CSS are byte-identical.');
+ console.log('Every one of the 2869 supplied V1.04 paths is retained. The only extra CSS is the public Fitness Tips layout addon.');
 }catch(error){console.error(error.message);process.exitCode=1;}

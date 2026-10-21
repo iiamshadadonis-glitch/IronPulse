@@ -61,6 +61,28 @@
     t.content.querySelectorAll('*').forEach(el=>{[...el.attributes].forEach(a=>{const n=a.name.toLowerCase(),v=String(a.value||'').trim();if(n.startsWith('on')||((n==='href'||n==='src')&&/^javascript:/i.test(v)))el.removeAttribute(a.name);});if(el.tagName==='IFRAME'){const src=String(el.getAttribute('src')||'');if(!/^https:\/\//i.test(src))el.remove();else{el.setAttribute('loading','lazy');el.setAttribute('referrerpolicy','strict-origin-when-cross-origin');}}});
     return t.innerHTML;
   }
+  // V1.05: the page owns the hero. Filter its body copy before advertisements
+  // are inserted, leaving the stored post, inline illustrations and ad images intact.
+  function withoutFeaturedImage(html='',cover=''){
+    if(!String(cover||'').trim())return html;
+    function imageKey(value){
+      try{
+        const url=new URL(String(value||'').trim(),location.href),host=url.hostname.toLowerCase();
+        let driveId='';
+        if(host==='drive.google.com'||host==='docs.google.com')driveId=url.pathname.match(/\/(?:file\/d|d)\/([^/]+)/i)?.[1]||url.searchParams.get('id')||'';
+        else if(host==='lh3.googleusercontent.com')driveId=url.pathname.match(/\/d\/([^/=]+)/)?.[1]||'';
+        if(driveId)return 'drive:'+decodeURIComponent(driveId);
+        url.hash='';return url.href;
+      }catch{return String(value||'').trim();}
+    }
+    const key=imageKey(cover),template=document.createElement('template');template.innerHTML=html;
+    for(const image of template.content.querySelectorAll('img')){
+      if(imageKey(image.getAttribute('src')||image.getAttribute('data-src')||'')!==key)continue;
+      const duplicate=image.closest('picture')||image;let parent=duplicate.parentElement;duplicate.remove();
+      while(parent&&/^(P|DIV|FIGURE|SPAN|A)$/.test(parent.tagName)&&!parent.id&&!parent.textContent.replace(/\u00a0/g,' ').trim()&&!parent.querySelector('img,picture,video,audio,iframe,svg,canvas,table,hr')){const next=parent.parentElement;parent.remove();parent=next;}
+    }
+    return template.innerHTML;
+  }
   function parseAds(raw){try{const v=typeof raw==='string'?JSON.parse(raw):raw;return Array.isArray(v)?v:[];}catch{return [];}}
   function isImage(url){return /^https?:\/\/.+\.(png|jpe?g|webp|gif|svg)(\?.*)?$/i.test(String(url||''));}
   function adBox(ad){
@@ -110,7 +132,7 @@
       if(!p){root.innerHTML='<div class="notice"><strong>Fitness Tip not found.</strong><br><a href="/blog">Return to Fitness Tips</a></div>';return;}
       window.__ucV153CurrentPost=p;window.__ucV154CurrentPost=p;window.__ucArticleAutoAds=!!Number(p.auto_ads_enabled||0);
       const tags=(p.tags||[]).map(t=>`<a class="uc-blog-tag" href="/blog?tag=${encodeURIComponent(t)}">${H(t)}</a>`).join('');
-      const articleHtml=injectAds(sanitizeArticleHtml(p.body_html||''),parseAds(p.ads_json));
+      const articleHtml=injectAds(withoutFeaturedImage(sanitizeArticleHtml(p.body_html||''),p.cover_image_url),parseAds(p.ads_json));
       const body=`<article class="uc-article"><div class="uc-article-breadcrumb"><a href="/blog">Fitness Tips</a> / ${H(firstTag(p))}</div><div class="uc-blog-meta">Posted ${H(fmtDate(p.published_at||p.created_at))}${Number(p.view_count||0)>0?`<span aria-hidden="true">•</span>${Number(p.view_count)} reads`:''}</div><h1>${H(p.title)}</h1>${p.excerpt?`<p class="uc-article-lead">${H(p.excerpt)}</p>`:''}${p.cover_image_url?`<img class="uc-article-cover" src="${H(p.cover_image_url)}" alt="${H(p.title)}" fetchpriority="high">`:''}<div class="uc-article-body">${articleHtml}</div>${tags?`<div class="uc-article-tags">${tags}</div>`:''}${shareBlock(p)}${relatedGrid(data.related||[],settings)}${commentsBlock(p)}</article>`;
       root.innerHTML=`<div class="uc-article-wrap">${body}${sidebar(data,settings,{excludeId:p.id})}</div>`;
       const form=$('#ucCommentForm');if(form)form.addEventListener('submit',ev=>submitComment(ev,p));loadComments(p);
