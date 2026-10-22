@@ -1,0 +1,9 @@
+{
+  "version": "V1.07",
+  "expectedFailure": true,
+  "scenario": "Controlled change callback synchronously re-enters the real drop handler; no live credentials or records used.",
+  "sourceZipSha256": "4c90f41b26f38bdc09304921cfb76b4bf6c90618f4f4c5be74a468d3c66f91f0",
+  "changeCallbacks": 21,
+  "errorCount": 16,
+  "firstError": "RangeError: Maximum call stack size exceeded.\n    at HTMLLabelElement.<anonymous> (https://127.0.0.1:8801/assets/gym-ui-components-v1-49.js?gym=1.00&build=dropbeat-1.51-20261018&ip=V1.07.e62ad53a623a52cbfe16.2b46e9adbdfa85a62d94:65:48)\n    at HTMLInputElement.replay (eval at evaluate (:303:30), <anonymous>:1:255)\n    at HTMLLabelElement.<anonymous> (https://127.0.0.1:8801/assets/gym-ui-components-v1-49.js?gym=1.00&build=dropbeat-1.51-20261018&ip=V1.07.e62ad53a623a52cbfe16.2b46e9adbdfa85a62d94:65:103)\n    at HTMLInputElement.replay (eval at evaluate (:303:30), <anonymous>:1:255)\n    at HTMLLabelElement.<anonymous> (https://127.0.0.1:8801/assets/gym-ui-components-v1-49.js?gym=1.00&build=dropbeat-1.51-20261018&ip=V1.07.e62ad53a623a52cbfe16.2b46e9adbdfa85a62d94:65:103)\n    at HTMLInputElement.replay (eval at evaluate (:303:30), <anonymous>:1:255)\n    at HTMLLabelElement.<anonymous> (https://127.0.0.1:8801/assets/gym-ui-components-v1-49.js?gym=1.00&build=dropbeat-1.51-20261018&ip=V1.07.e62ad53a623a52cbfe16.2b46e9adbdfa85a62d94:65:103)\n    at HTMLInputElement.replay (eval at evaluate (:303:30), <anonymous>:1:255)\n    at HTMLLabelElement.<anonymous> (https://127.0.0.1:8801/assets/gym-ui-components-v1-49.js?gym=1.00&build=dropbeat-1.51-20261018&ip=V1.07.e62ad53a623a52cbfe16.2b46e9adbdfa85a62d94:65:103)\n    at HTMLInputElement.replay (eval at evaluate (:303:30), <anonymous>:1:255)"
+}

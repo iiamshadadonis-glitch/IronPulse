@@ -1,4 +1,4 @@
-# Cloudflare configuration — V1.07
+# Cloudflare configuration — V1.08
 
 The earlier database-error screenshot showed this failure after the assets uploaded successfully:
 
@@ -22,8 +22,8 @@ The UUID selects the existing gym database. If its actual name differs, update d
 
 ## Apply the fix
 
-1. Extract V1.06.zip. Open the V1.06 folder. It contains the complete project, including the public, functions and migrations folders.
-2. Open the gym repository using GitHub Desktop. Move its old project files to a backup location outside the repository, retaining .git. Copy ALL contents from the extracted V1.06 folder into the repository root, including wrangler.jsonc and the folders.
+1. Extract V1.08.zip. Open the V1.08 folder. It contains the complete project, including the public, functions and migrations folders.
+2. Open the gym repository using GitHub Desktop. Move its old project files to a backup location outside the repository, retaining .git. Copy ALL contents from the extracted V1.08 folder into the repository root, including wrangler.jsonc and the folders.
 3. Confirm that there is one active Wrangler configuration: the supplied wrangler.jsonc. Do not retain an old wrangler.toml or wrangler.json alongside it.
 4. Commit the complete replacement and push it to the branch used by the gym Pages project. GITHUB-SUMMARY.txt contains the ready-to-copy commit title and description.
 5. In Cloudflare, use the gym Pages project and the same account that owns database 893e7d29-fa72-413d-9415-5d93b1c3bc6e.
@@ -32,11 +32,11 @@ The UUID selects the existing gym database. If its actual name differs, update d
 8. Deploy the NEW commit you pushed. Retrying the previous failed commit will reuse its old files.
 9. Confirm that the build log prints:
 
-       IronPulse Gym V1.06 (package 1.6.0)
+       IronPulse Gym V1.08 (package 1.8.0)
        D1 binding DB: 893e7d29-fa72-413d-9415-5d93b1c3bc6e
 
    The optional Git commit line prints the commit Cloudflare is building. If the log still shows the old UUID, check the selected repository, branch, root directory and commit.
-10. After Cloudflare marks the deployment successful, open /release.json on the deployed gym website. It should show version V1.06 and package_version 1.6.0. Then test /login and /member-dashboard.
+10. After Cloudflare marks the deployment successful, open /release.json on the deployed gym website. It should show version V1.08 and package_version 1.8.0. Then test /login and /member-dashboard.
 
 If the new UUID is also reported as not found, verify the owning Cloudflare account and the exact ID in D1. The local project cannot grant access to a database owned by another account.
 

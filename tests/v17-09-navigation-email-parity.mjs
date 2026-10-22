@@ -11,7 +11,7 @@ const [version,index,nav,workspaces,guard,css]=await Promise.all([
   read('public/admin/final-v17-09-navigation-email-parity.css')
 ]);
 
-assert.equal(version.split('\n')[0],'IronPulse Gym V1.07');
+assert.equal(version.split('\n')[0],'IronPulse Gym V1.08');
 assert.match(index,/final-v17-09-navigation-email-parity\.css\?v=17\.09/);
 assert.match(index,/final-v17-09-navigation-email-parity\.js\?v=17\.09/);
 assert.doesNotMatch(nav,/\['Marketing & SEO'/,'The retired main navigation group must not be constructed.');

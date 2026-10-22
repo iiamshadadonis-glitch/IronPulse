@@ -1,0 +1,166 @@
+{
+  "synthetic": true,
+  "results": [
+    "Social Media \u2192 Fitness Tips at 1440px: delayed initializers, stable labels/attributes/media, unchanged saved titles and All filter",
+    "Existing edit, Google Drive upload, tag normalization and draft payload preserve customer text, flags, image and advertisement fields",
+    "Custom name containing Fitness Tips remains stable at 1440px",
+    "Social Media \u2192 Fitness Tips at 390px: delayed initializers, stable labels/attributes/media, unchanged saved titles and All filter",
+    "Custom name containing Fitness Tips remains stable at 390px",
+    "Posts tab selection still has one active tab"
+  ],
+  "samples": [
+    {
+      "label": "Initial delayed render 1440",
+      "mutationsIncluding60TestChanges": 60,
+      "labelAndMediaMutations": 0,
+      "labels": [
+        "Fitness TipsLoad Fitness Tips",
+        "Post New Fitness Tip Update \u2014 Field Guide",
+        "Advertisements for This Fitness Tip Fitness Tips",
+        "Existing Fitness Tips",
+        "Fitness Tips publishing: New shows published fitness tips from the last 7 days. Published shows all currently published fitness tips, including New. Scheduled shows fitness tips set to publish at a future date and time. Drafts shows unpublished fitness tips. Deleted shows fitness tips removed from the public website and saved only in the database. All shows every fitness tip available in this admin list, including deleted fitness tips.",
+        "Fitness TipsStatusHashtagsAdsPublishingActions",
+        "No fitness tip image is selected yet. Uploading creates/uses the Fitness Tips Images folder inside your connected Google Drive destination."
+      ]
+    },
+    {
+      "label": "Loaded posts 1440",
+      "mutationsIncluding60TestChanges": 60,
+      "labelAndMediaMutations": 0,
+      "labels": [
+        "Fitness TipsLoad Fitness Tips",
+        "Post New Fitness Tip Update \u2014 Field Guide",
+        "Advertisements for This Fitness Tip Fitness Tips",
+        "Existing Fitness Tips",
+        "Fitness Tips publishing: New shows published fitness tips from the last 7 days. Published shows all currently published fitness tips, including New. Scheduled shows fitness tips set to publish at a future date and time. Drafts shows unpublished fitness tips. Deleted shows fitness tips removed from the public website and saved only in the database. All shows every fitness tip available in this admin list, including deleted fitness tips.",
+        "Fitness TipsStatusHashtagsAdsPublishingActions",
+        "No fitness tip image is selected yet. Uploading creates/uses the Fitness Tips Images folder inside your connected Google Drive destination."
+      ]
+    },
+    {
+      "label": "After upload and draft save",
+      "mutationsIncluding60TestChanges": 62,
+      "labelAndMediaMutations": 0,
+      "labels": [
+        "Fitness TipsLoad Fitness Tips",
+        "Post New Fitness Tips \u2014 Field Guide",
+        "Advertisements for This Fitness Tip Fitness Tips",
+        "Existing Fitness Tips",
+        "Fitness Tips publishing: New shows published fitness tips from the last 7 days. Published shows all currently published fitness tips, including New. Scheduled shows fitness tips set to publish at a future date and time. Drafts shows unpublished fitness tips. Deleted shows fitness tips removed from the public website and saved only in the database. All shows every fitness tip available in this admin list, including deleted fitness tips.",
+        "Fitness TipsStatusHashtagsAdsPublishingActions",
+        "Fitness Tips image readyThis Google Drive image URL will be used by the website and connected publishing workflows.Open image"
+      ]
+    },
+    {
+      "label": "Saved custom name 1440",
+      "mutationsIncluding60TestChanges": 60,
+      "labelAndMediaMutations": 0,
+      "labels": [
+        "Fitness Tips UpdatesLoad Fitness Tips Updates",
+        "Post New Fitness Tips Updates \u2014 Field Guide",
+        "Advertisements for This Fitness Tips Updates Fitness Tips Updates",
+        "Existing Fitness Tips Updates",
+        "Fitness Tips publishing: New shows published fitness tips from the last 7 days. Published shows all currently published fitness tips, including New. Scheduled shows fitness tips set to publish at a future date and time. Drafts shows unpublished fitness tips. Deleted shows fitness tips removed from the public website and saved only in the database. All shows every fitness tip available in this admin list, including deleted fitness tips.",
+        "Fitness TipsStatusHashtagsAdsPublishingActions",
+        "Fitness Tips image readyThis Google Drive image URL will be used by the website and connected publishing workflows.Open image"
+      ]
+    },
+    {
+      "label": "Reload 1440",
+      "mutationsIncluding60TestChanges": 60,
+      "labelAndMediaMutations": 0,
+      "labels": [
+        "Fitness TipsLoad Fitness Tips",
+        "Post New Fitness Tip Update \u2014 Field Guide",
+        "Advertisements for This Fitness Tip Fitness Tips",
+        "Existing Fitness Tips",
+        "Fitness Tips publishing: New shows published fitness tips from the last 7 days. Published shows all currently published fitness tips, including New. Scheduled shows fitness tips set to publish at a future date and time. Drafts shows unpublished fitness tips. Deleted shows fitness tips removed from the public website and saved only in the database. All shows every fitness tip available in this admin list, including deleted fitness tips.",
+        "Fitness TipsStatusHashtagsAdsPublishingActions",
+        "No fitness tip image is selected yet. Uploading creates/uses the Fitness Tips Images folder inside your connected Google Drive destination."
+      ]
+    },
+    {
+      "label": "Initial delayed render 390",
+      "mutationsIncluding60TestChanges": 270,
+      "labelAndMediaMutations": 0,
+      "labels": [
+        "Fitness TipsLoad Fitness Tips",
+        "Post New Fitness Tip Update",
+        "Add Advertisements to This Fitness Tip",
+        "Post New Fitness Tip Update \u2014 Field Guide",
+        "Advertisements for This Fitness Tip Fitness Tips",
+        "Existing Fitness Tips",
+        "Fitness Tips publishing: New shows published fitness tips from the last 7 days. Published shows all currently published fitness tips, including New. Scheduled shows fitness tips set to publish at a future date and time. Drafts shows unpublished fitness tips. Deleted shows fitness tips removed from the public website and saved only in the database. All shows every fitness tip available in this admin list, including deleted fitness tips.",
+        "Fitness TipsStatusHashtagsAdsPublishingActions",
+        "No fitness tip image is selected yet. Uploading creates/uses the Fitness Tips Images folder inside your connected Google Drive destination."
+      ]
+    },
+    {
+      "label": "Loaded posts 390",
+      "mutationsIncluding60TestChanges": 270,
+      "labelAndMediaMutations": 0,
+      "labels": [
+        "Fitness TipsLoad Fitness Tips",
+        "Post New Fitness Tip Update",
+        "Add Advertisements to This Fitness Tip",
+        "Post New Fitness Tip Update \u2014 Field Guide",
+        "Advertisements for This Fitness Tip Fitness Tips",
+        "Existing Fitness Tips",
+        "Fitness Tips publishing: New shows published fitness tips from the last 7 days. Published shows all currently published fitness tips, including New. Scheduled shows fitness tips set to publish at a future date and time. Drafts shows unpublished fitness tips. Deleted shows fitness tips removed from the public website and saved only in the database. All shows every fitness tip available in this admin list, including deleted fitness tips.",
+        "Fitness TipsStatusHashtagsAdsPublishingActions",
+        "No fitness tip image is selected yet. Uploading creates/uses the Fitness Tips Images folder inside your connected Google Drive destination."
+      ]
+    },
+    {
+      "label": "Saved custom name 390",
+      "mutationsIncluding60TestChanges": 240,
+      "labelAndMediaMutations": 0,
+      "labels": [
+        "Fitness Tips UpdatesLoad Fitness Tips Updates",
+        "Post New Fitness Tips Updates Update",
+        "Add Advertisements to This Fitness Tips Updates",
+        "Post New Fitness Tips Updates Update \u2014 Field Guide",
+        "Advertisements for This Fitness Tips Updates Fitness Tips Updates",
+        "Existing Fitness Tips Updates",
+        "Fitness Tips publishing: New shows published fitness tips from the last 7 days. Published shows all currently published fitness tips, including New. Scheduled shows fitness tips set to publish at a future date and time. Drafts shows unpublished fitness tips. Deleted shows fitness tips removed from the public website and saved only in the database. All shows every fitness tip available in this admin list, including deleted fitness tips.",
+        "Fitness TipsStatusHashtagsAdsPublishingActions",
+        "No fitness tip image is selected yet. Uploading creates/uses the Fitness Tips Images folder inside your connected Google Drive destination."
+      ]
+    },
+    {
+      "label": "Reload 390",
+      "mutationsIncluding60TestChanges": 300,
+      "labelAndMediaMutations": 0,
+      "labels": [
+        "Fitness TipsLoad Fitness Tips",
+        "Post New Fitness Tip",
+        "Add Advertisements to This Fitness Tip",
+        "Post New Fitness Tip Update \u2014 Field Guide",
+        "Advertisements for This Fitness Tip Fitness Tips",
+        "Existing Fitness Tips",
+        "Fitness Tips publishing: New shows published fitness tips from the last 7 days. Published shows all currently published fitness tips, including New. Scheduled shows fitness tips set to publish at a future date and time. Drafts shows unpublished fitness tips. Deleted shows fitness tips removed from the public website and saved only in the database. All shows every fitness tip available in this admin list, including deleted fitness tips.",
+        "Fitness TipsStatusHashtagsAdsPublishingActions",
+        "No fitness tip image is selected yet. Uploading creates/uses the Fitness Tips Images folder inside your connected Google Drive destination."
+      ]
+    }
+  ],
+  "draftPayloads": [
+    {
+      "social_first_comment_enabled": "0",
+      "social_first_comment_text": "",
+      "id": "fixture-draft",
+      "title": "Draft Fitness Tips Article",
+      "slug": "draft-fitness-tips",
+      "tags": "strength, cardio",
+      "excerpt": "Draft summary",
+      "body_text": "Keep Fitness Tips, articles and every original sentence exactly as entered.",
+      "cover_image_url": "/assets/product-generic.svg",
+      "status": "draft",
+      "social_poll_json": "{\"enabled\":false,\"question\":\"\",\"options\":[],\"duration\":\"one_day\"}",
+      "is_featured": 0,
+      "auto_ads_enabled": 0,
+      "ads_json": "[]"
+    }
+  ],
+  "errors": []
+}

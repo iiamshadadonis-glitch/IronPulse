@@ -1,0 +1,9 @@
+Testing actual /blog Worker shell at https://127.0.0.1:8801 with a temporary local database.
+[Bulk Import] Sales routing, validation and sample CSV
+[Bulk Import] native picker and idempotent upload rendering
+[Bulk Import] drag boundary updates
+[Bulk Import] drop validation and callback re-entry
+[Bulk Import] real importer creates and updates rows
+[Bulk Import] failed requests, retry and duplicate guard
+[Bulk Import] mobile wizard and viewport transitions
+Bulk Import browser workflows passed: 7 groups.

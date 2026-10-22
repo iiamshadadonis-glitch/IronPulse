@@ -1,0 +1,1 @@
+V1.56 button API/database tests passed: complete inventory, authorization, exact confirmation, URL/text validation, atomic revision conflicts, cache purge, 50-way read deduplication, defaults reset, outage handling and unrelated settings preserved.

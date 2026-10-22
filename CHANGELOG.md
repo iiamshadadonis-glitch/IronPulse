@@ -1,3 +1,12 @@
+# V1.08 — Bulk Import recursion and drag-and-drop stability
+
+- Stop synchronous re-entry into upload rendering and dropped-file change callbacks; release guards after errors so retries work.
+- Update drag highlighting only on state changes, handle child boundaries and clear state on exit, drop, drag end or form reset.
+- Share one Sales pane selection owner across the two existing compatibility controllers, load once per navigation action and install the recovery router once.
+- Preserve native file selection, filename feedback, accepted-file validation, mobile wizard behaviour and the existing import request guard.
+- Keep the CSV parser, importer API, schema, JSON keys, themes and all 179 CSS files unchanged.
+- Regenerate V1.08 asset fingerprints and release metadata, retain all 3,059 V1.07 paths, and include baseline replay, browser/API regression evidence and complete-package checksums.
+
 # V1.07 — Layout, theme synchronization and footer attribution
 
 - Bound Pages workspace activation, prevent duplicate module owners, and preserve compatibility tab buttons.

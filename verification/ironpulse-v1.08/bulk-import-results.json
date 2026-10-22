@@ -1,0 +1,33 @@
+{
+  "pass": true,
+  "realWorker": true,
+  "actualImportHandlerAndSqlite": true,
+  "results": [
+    "Sales/Bulk Import navigation, same-pane loader re-entry, empty-file validation and exact served sample CSV preserve one input/zone",
+    "Native file picker retains the original FileList and filename; 100 repeated renders and recursive label callbacks stay bounded",
+    "200 dragover events cause only entry/exit class changes; child transitions and dragend clear highlighting without importing",
+    "Unsupported/disabled drops preserve the selection; valid single-file drops dispatch one change/input even when a change callback re-enters drop",
+    "Real API/SQLite import creates two plans, updates matching SKUs, preserves string-only JSON and row errors, and rejects malformed/over-limit CSV before requests",
+    "HTTP failure shows retryable feedback; successful retry and concurrent calls keep the existing one-request import guard",
+    "Mobile native picker/review/import, required validation and repeated viewport changes preserve the FileList, single upload control and active colours"
+  ],
+  "observations": [
+    {
+      "inside": true,
+      "outside": false,
+      "mutations": 2,
+      "ended": false
+    },
+    {
+      "changes": 1,
+      "inputs": 1,
+      "files": [
+        "dropped.csv"
+      ],
+      "highlight": false
+    }
+  ],
+  "importRequests": 7,
+  "plans": 2,
+  "errors": []
+}

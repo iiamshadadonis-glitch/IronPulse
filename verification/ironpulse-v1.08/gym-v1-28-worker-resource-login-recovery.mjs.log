@@ -1,0 +1,1 @@
+DropBeat V1.28 verified: the existing-database upgrade uses 11 D1 operations, unified Admin login uses 4, authentication bypasses portal/full-schema maintenance, and private pages do not start public traffic maintenance.

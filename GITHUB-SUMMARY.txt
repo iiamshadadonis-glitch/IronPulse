@@ -1,18 +1,17 @@
 Title:
-V1.07: Stabilize Layout, synchronize themes and fix footer attribution
+V1.08: Fix Bulk Import recursion and stabilize drag-and-drop
 
 Description:
-- Prevent recursive Pages workspace activation and duplicate module owners; preserve compatibility tab buttons without repeated DOM replacement.
-- Validate layout/cache data with bounded cycle, depth and size checks and resolve blocks from the trusted theme registry.
-- Synchronize Layout blocks and Banners gallery controls with all four existing frontend themes; preserve unsaved theme previews across navigation.
-- Keep Desktop and Mobile hide/show constraints independent; the trash icon affects only the selected viewport.
-- Require typing exactly confirm before publishing a new theme or saving a layout, using the existing desktop dialog/mobile bottom sheet styles.
-- Enforce theme confirmation and stale-theme checks in the API, and commit Admin Brand Settings only after successful saves.
-- Keep existing backend cache invalidation and instant public/admin synchronization; deliver canonical fingerprinted module URLs.
-- Fix Website designed by Instautomate with the safe https://instautomate.com outbound link, and keep the global footer outside theme layouts.
-- Retain all 2,992 supplied V1.06 paths, all 179 CSS files, all 56 migrations, all other application bytes outside the explicit 12-file audit, and the existing gym D1 binding/schema/API keys.
+- Guard upload rendering and drop callbacks against synchronous re-entry; release guards after errors so later selection and retry still work.
+- Make drag highlighting update only when its state changes, handle child boundaries, and clear it on exit, drop, drag end and form reset.
+- Share one Sales pane selection owner across both compatibility controllers, install the recovery router once, and load each selected pane once per navigation action.
+- Preserve native file selection, accepted-file validation, filename feedback, mobile review/import, required-field validation and the existing one-request import guard.
+- Keep CSV parsing, importer API, authorization, matching-SKU updates, row errors, schema, JSON keys, stored roles, all 179 CSS files and all 56 migrations byte-identical to V1.07.
+- Regenerate V1.08 asset fingerprints and the release header so newly opened pages load the current scripts.
+- Retain all 3,059 supplied V1.07 paths and the unchanged 1,829-file V1.00 archive. All other inherited application bytes outside the explicit five-file audit remain unchanged.
+- Include complete source, baseline replay evidence, focused regression tests, browser/API results, file comparison, deployment instructions and final package checksums.
 
 Validation:
-36 regression suites, 30 actual Worker browser groups, 2 real browser cache groups and 22 local Worker/D1 groups passed. The router re-entry regression reproduces a RangeError using the exact supplied V1.06 controller and passes using V1.07. All 81 other original core Admin functions retain their source bytes. Cloudflare Functions compiled successfully. Complete-source, checksums, ZIP integrity and fresh-extraction checks passed. No migration is required.
+37 regression suites, 37 actual Worker browser workflow groups, 2 real browser cache groups and 24 local Worker/D1 groups passed. The original V1.07 drop handler reproduces a RangeError under a controlled change-callback replay; the patched handler processes it once. All 89 unrelated named functions in the three affected frontend scripts retain their source bytes. Cloudflare Functions compiled successfully. Complete-source, checksums, ZIP integrity and fresh-extraction checks passed. The existing gym DB binding is retained; no migration is required.
 
-See RELEASE-VERIFICATION-GYM.md, docs/LAYOUT-THEME-SYNC.md and verification/ironpulse-v1.07/.
+See RELEASE-VERIFICATION-GYM.md, docs/BULK-IMPORT-FIX.md and verification/ironpulse-v1.08/.

@@ -1,0 +1,29 @@
+Testing actual /blog Worker shell at https://127.0.0.1:8801 with a temporary local database.
+[Fitness Tips] real Admin page at 1440px
+[Fitness Tips] real Admin page at 390px
+Fitness Tips regression passed: 6 workflow groups.
+[Public Fitness Tips] single hero and preserved content/ads
+Public Fitness Tips regression passed: 8 workflow groups.
+[Gym browser] public branding, signup, portals, PWA and fitness specialties
+Gym V1.08: Cold dynamic state and stable default names on mobile/desktop
+Gym V1.08: Renamed labels, public header/footer, dictionary actions and request deduplication
+Gym V1.08: Initial configuration errors, Retry, invalid payloads and bounded timeouts
+Gym V1.08: Schedule lifecycle at 390px
+Gym V1.08: Schedule lifecycle at 1440px
+Gym V1.08 navigation/Schedule browser regression passed: 5 workflow groups.
+Gym branding and portal browser workflows passed.
+[Layout] stable workspace and guarded re-entry
+[Layout] theme previews and banner capabilities
+[Layout] theme confirmation, cancellation and recovery
+[Layout] independent viewport hide and layout confirmation
+[Layout] public cross-tab sync and immutable footer
+[Layout] responsive confirmations
+Layout/theme browser workflows passed: 6 groups.
+[Bulk Import] Sales routing, validation and sample CSV
+[Bulk Import] native picker and idempotent upload rendering
+[Bulk Import] drag boundary updates
+[Bulk Import] drop validation and callback re-entry
+[Bulk Import] real importer creates and updates rows
+[Bulk Import] failed requests, retry and duplicate guard
+[Bulk Import] mobile wizard and viewport transitions
+Bulk Import browser workflows passed: 7 groups.

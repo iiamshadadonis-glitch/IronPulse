@@ -28,7 +28,7 @@ try{
     else{assert.equal(await page.locator('.uc-blog-card').evaluate(n=>getComputedStyle(n).paddingLeft),'24px');assert.equal(await page.locator('.uc-blog-card').evaluate(n=>getComputedStyle(n).columnGap),'24px');}
     const stillCached=await page.evaluate(path=>fetch(path,{cache:'force-cache'}).then(r=>r.text()),path);assert.equal(stillCached,stale,'Old CSS stays in the real browser cache while the new layout uses a different URL');
     assert.equal(requests.slice(start).filter(r=>!r.version).length,1,'No network request was needed to retrieve the old cached CSS');
-    assert.equal(requests.slice(start).filter(r=>r.version.startsWith('V1.07.'+manifest.build)).length,1);
+    assert.equal(requests.slice(start).filter(r=>r.version.startsWith('V1.08.'+manifest.build)).length,1);
     await page.reload();assert.equal(requests.slice(start).filter(r=>r.version).length,2,'The current stylesheet also obeys revalidation headers');
     results.push('Real browser warm cache at '+width+'px: old CSS retained, new build URL fetched, layout corrected and subsequent revalidation confirmed');
   }

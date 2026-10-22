@@ -1,0 +1,1 @@
+V1.40 real SQLite import checks passed: complete sample, quoted CSV, create/update, one-time class mapping, trial/billing/capacity, placements/images, retries, invalid rows, duplicate SKUs, legacy CSV, authorization and zero remote gateway calls.

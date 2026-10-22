@@ -219,8 +219,21 @@ function installClassHelp(){
 }
 const SALES_PANELS=['customSubscription','products','bulk','placements'];
 const SALES_LABELS={customSubscription:'Create Subscription',products:'Plans & Offers',bulk:'Bulk Import',placements:'Product Placements'};
-let activeSalesPanel='customSubscription';
-function selectSalesPanel(id,{load=true}={}){activeSalesPanel=SALES_PANELS.includes(id)?id:activeSalesPanel;$$('[data-uc84-sales]').forEach(button=>button.classList.toggle('active',button.dataset.uc84Sales===activeSalesPanel));$$('.uc84-sales-pane').forEach(panel=>panel.hidden=panel.id!==activeSalesPanel);if(load)window[`load_${activeSalesPanel}`]?.();}
+let activeSalesPanel='customSubscription',salesRouterInstalled=false,salesRoute=null;
+const selectingSalesPanels=new Set();
+function selectSalesPanel(id,{load=true}={}){
+  const selected=salesRoute?.requested||(SALES_PANELS.includes(id)?id:activeSalesPanel);if(selectingSalesPanels.has(selected))return;
+  selectingSalesPanels.add(selected);
+  try{
+    activeSalesPanel=selected;
+    $$('[data-uc84-sales]').forEach(button=>{const active=button.dataset.uc84Sales===selected;if(button.classList.contains('active')!==active)button.classList.toggle('active',active);});
+    $$('.uc84-sales-pane').forEach(panel=>{const hidden=panel.id!==selected;if(panel.hidden!==hidden)panel.hidden=hidden;});
+    if(load&&(!salesRoute||!salesRoute.loaded.has(selected))){salesRoute?.loaded.add(selected);window[`load_${selected}`]?.();}
+  }finally{selectingSalesPanels.delete(selected);}
+}
+// Both compatibility Sales layers share this selection owner. It retains all
+// original loaders and prevents an older layer from loading the same pane again.
+window.DropBeatSalesWorkspace=Object.freeze({select:selectSalesPanel,current:()=>activeSalesPanel});
 function ensureSalesPanel(){
   const main=$('.main'),nav=$('.side .nav');if(!main||!nav)return null;let hub=$('#salesHub');
   if(!hub){hub=document.createElement('section');hub.id='salesHub';hub.className='panel';hub.innerHTML=`<div class="top"><div><h1>Sales</h1><p class="muted">Create payment links and manage plans, imports and product placement from one workspace.</p></div></div><div class="tabs uc84-sales-tabs">${SALES_PANELS.map((id,index)=>`<button class="pill ${index?'':'active'}" type="button" data-uc84-sales="${id}">${SALES_LABELS[id]}</button>`).join('')}</div><div class="uc84-sales-body"></div>`;const first=$(`#${SALES_PANELS[0]}`);if(first)first.insertAdjacentElement('beforebegin',hub);else main.appendChild(hub);}
@@ -228,8 +241,14 @@ function ensureSalesPanel(){
   $$('[data-uc84-sales]',hub).forEach(button=>button.onclick=()=>selectSalesPanel(button.dataset.uc84Sales));let navButton=$('[data-tab="salesHub"]',nav),legacy=SALES_PANELS.map(id=>$(`[data-tab="${id}"]`,nav)).filter(Boolean);if(!navButton&&legacy.length){navButton=document.createElement('button');navButton.type='button';navButton.dataset.tab='salesHub';navButton.textContent='Sales';legacy[0].insertAdjacentElement('beforebegin',navButton);}if(navButton)navButton.onclick=()=>window.tab?.('salesHub');legacy.forEach(button=>{button.hidden=true;button.setAttribute('aria-hidden','true');});selectSalesPanel(activeSalesPanel,{load:false});return hub;
 }
 function installSalesRecovery(){
-  ensureSalesPanel();if(typeof window.tab==='function'&&!window.tab.__db112Sales){const previous=window.tab;const wrapped=function(id){if(id==='salesHub'||SALES_PANELS.includes(id)){ensureSalesPanel();const requested=SALES_PANELS.includes(id)?id:activeSalesPanel,result=previous.call(this,'salesHub');selectSalesPanel(requested);return result;}return previous.apply(this,arguments);};Object.assign(wrapped,{__db112Sales:true,__db107:previous.__db107,__uc92:previous.__uc92,__uc97Webinars:previous.__uc97Webinars});window.tab=wrapped;}
-  for(const delay of [0,120,650,1900,5600])setTimeout(()=>{ensureSalesPanel();if(typeof window.tab==='function'&&!window.tab.__db112Sales)installSalesRecovery();},delay);
+  ensureSalesPanel();if(typeof window.tab==='function'&&!salesRouterInstalled){salesRouterInstalled=true;const previous=window.tab;const wrapped=function(id){
+    if(id==='salesHub'||SALES_PANELS.includes(id)){
+      if(salesRoute)return;const requested=SALES_PANELS.includes(id)?id:activeSalesPanel;salesRoute={requested,loaded:new Set()};
+      try{ensureSalesPanel();const result=previous.call(this,'salesHub');selectSalesPanel(requested);return result;}finally{salesRoute=null;}
+    }
+    return previous.apply(this,arguments);
+  };Object.assign(wrapped,{__db112Sales:true,__db107:previous.__db107,__uc92:previous.__uc92,__uc97Webinars:previous.__uc97Webinars});window.tab=wrapped;}
+  for(const delay of [0,120,650,1900,5600])setTimeout(()=>{ensureSalesPanel();if(typeof window.tab==='function'&&!salesRouterInstalled)installSalesRecovery();},delay);
 }
 function install(){ensureSalesPanel();installSalesRecovery();ensurePlanFields();installPlanHooks();installWorkspaceHooks();installManualPaymentDetails();installClassHelp();observeScheduleModals();loadCoaches().then(()=>{refreshManualCoachSelects();ensurePagesTeamWorkspace();renderCoaches('pages');}).catch(()=>{});const timer=setInterval(()=>{let ready=0;for(const [id,config] of Object.entries(WORKSPACES))if(enhanceWorkspace(id,config)||$(`#${id}`)?.dataset.db107Enhanced)ready++;ensurePagesTeamWorkspace();if(ready===Object.keys(WORKSPACES).length&&$('#pages > .uc-v1634-pages-tabs'))clearInterval(timer);},300);setTimeout(()=>clearInterval(timer),12000);}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(install,60),{once:true});else setTimeout(install,60);

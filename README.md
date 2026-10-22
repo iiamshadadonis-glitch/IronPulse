@@ -2,7 +2,7 @@
 
 The complete working application is at this project root. All 1,829 original V1.00 files are preserved under archive/V1.00/. Read COMPARISON.md for the audited counts and FILE-COMPARISON.csv for every original file.
 
-Complete Cloudflare Pages, Pages Functions/Workers and D1 replacement project, release **V1.07**, package **1.7.0**.
+Complete Cloudflare Pages, Pages Functions/Workers and D1 replacement project, release **V1.08**, package **1.8.0**.
 
 This folder contains the complete application, rather than changed files only. The frontend, backend, assets and all migrations are included. See PACKAGE-CONTENTS.txt for the full inventory and GITHUB-SUMMARY.txt for the commit title/description.
 
@@ -10,9 +10,15 @@ For the publishing error in the screenshot, open **CLOUDFLARE-FIX.md**.
 
 Start with **START-HERE.md** for the noncoder deployment instructions. The existing D1 binding DB points to **893e7d29-fa72-413d-9415-5d93b1c3bc6e**.
 
-This release retains the existing membership, scheduling, checkout, payment, notifications, CRM, Admin and portal logic. The 177 inherited CSS files retain their theme declarations. Physical filenames and remaining display/default brand text were cleaned up for the gym instance. Historical release notes, deployment scripts and verification files are preserved in archive/ for comparison; the current root project supplies the live gym configuration.
+This release retains the existing membership, scheduling, checkout, payment, notifications, CRM, Admin and portal logic. All 179 inherited CSS files retain their exact bytes. Physical filenames and remaining display/default brand text were cleaned up for the gym instance in earlier releases. Historical release notes, deployment scripts and verification files are preserved for comparison; the current root project supplies the live gym configuration.
 
-## V1.07 Layout, themes and footer
+## V1.08 Bulk Import stability
+
+Read docs/BULK-IMPORT-FIX.md. The upload renderer and drop handler now stop synchronous callback re-entry, drag highlighting changes only at state transitions, and the two compatibility Sales controllers use one selection owner. A Sales navigation action loads its pane once, including when a loader calls the router again. No upload starts until the existing form is submitted.
+
+All 3,059 paths from the attached complete V1.07(1).zip remain included. Only three frontend scripts receive safeguards. Backend changes are limited to the generated asset manifest and release response header. The CSV parser, importer API, all 179 CSS files, all 56 migrations, schema, API JSON keys and D1 binding are byte-identical to V1.07. No migration is required. See verification/ironpulse-v1.08/ for source hashes, the exact baseline replay and current test evidence. GITHUB-SUMMARY.txt contains the copyable commit title and full description.
+
+## Included V1.07 Layout, themes and footer
 
 Read docs/LAYOUT-THEME-SYNC.md. This release stabilizes the Pages workspace, validates layout data, synchronizes supported blocks and Banners controls with the four existing frontend themes, and adds exact typed confirmation before publishing a theme. Layout visibility stays independent for Desktop and Mobile. The global footer is no longer an editable theme block, and its attribution always reads Website designed by Instautomate with a safe outbound link.
 
@@ -57,6 +63,7 @@ Requires Node 24.
     npm run test:gym:public-fitness
     npm run test:gym:browser
     npm run test:gym:worker-browser
+    npm run test:gym:bulk-import
     npm run test:gym:cache-browser
     npm run test:gym:runtime
     npm run test:gym:runtime:empty

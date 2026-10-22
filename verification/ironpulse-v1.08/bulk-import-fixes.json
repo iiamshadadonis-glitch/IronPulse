@@ -1,0 +1,46 @@
+{
+  "version": "V1.08",
+  "inputSha256": "4c90f41b26f38bdc09304921cfb76b4bf6c90618f4f4c5be74a468d3c66f91f0",
+  "inputFileCount": 3059,
+  "frontendFiles": [
+    {
+      "path": "public/assets/gym-ui-components-v1-49.js",
+      "purpose": "Bound upload rendering and drop-event re-entry; update drag highlight only on transitions; reset on exit/drop/end/form reset.",
+      "beforeSha256": "2b46e9adbdfa85a62d94989a4c444c2c40e294ef1dab1d00177850014168eea2",
+      "afterSha256": "e47c0172e087c892a2a9028c856e534c14b1c6c693a1ac401ed834428cf00925"
+    },
+    {
+      "path": "public/admin/final-v16-84-inbox-telegram-sales.js",
+      "purpose": "Delegate legacy Sales selection to the shared current owner while retaining its original fallback.",
+      "beforeSha256": "de52879ca7986ad5fe809223a67ca8c09fa5718b22b37c6e4ebec7ffd00d2e99",
+      "afterSha256": "2c3480e94bb246dee5f045b618a1ddff80edb586bd4d8ec560ada6dfff1f6bb7"
+    },
+    {
+      "path": "public/admin/gym-admin-v1-13.js",
+      "purpose": "Bound same-pane Sales loader re-entry and avoid unchanged tab/visibility writes.",
+      "beforeSha256": "a8efe6747c47b414def200c70020abc7b707e585a12195a0be6d480bdb3c40f0",
+      "afterSha256": "fd303316ffedb0c12731d8c689ad14e348f7ce506a093feaba43e38a3254e267"
+    }
+  ],
+  "backendFiles": [
+    {
+      "path": "functions/_middleware.js",
+      "purpose": "Release response header update to 1.8.0 only.",
+      "beforeSha256": "40bf57bed34e5dbf196bdbb6291785e49f156633fd0cb3ba2789e51f2c5cbac6",
+      "afterSha256": "ffd4a65d14227148bd5a81c66f9886028e6fabf95a2d50812333e083c3b3786b",
+      "shape": "24650fd8eb0c07175aab814438ee78309627f0664b5352a53d613968bbd0c8c4",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "functions/_lib/gym-asset-manifest.js",
+      "purpose": "Generated V1.08 fingerprints for the complete current CSS/JS set.",
+      "beforeSha256": "6cd844195df1b3d364a76fd71a45c92f86a8c50dd4f66c89b9c5c130c33522ec",
+      "afterSha256": "5e3c333489045d6e537bd79cd2feefba41ce4e366f4cde893bb53a637f6b710c",
+      "shape": "9b40f1a0ea9d5d3565dbbd67439cd8fcf7a79818483438666f0a285b092ad73c",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ],
+  "retainedCssFiles": 179,
+  "retainedMigrations": 56,
+  "rule": "All other inherited application bytes, the CSV parser, importer API, schema and themes are unchanged."
+}

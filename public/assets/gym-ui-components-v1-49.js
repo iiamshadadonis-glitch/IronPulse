@@ -9,6 +9,7 @@
   const refresh=()=>'<svg class="db145-refresh-icon" data-db-refresh="open-loop" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>';
   const disclosureDown=()=>disclosure().replace('class="db-disclosure-indicator"','class="db-disclosure-indicator db-down-indicator"').replace('data-db-disclosure','data-db-down-disclosure').replace('<path d="m9 5 7 7-7 7"','<path transform="rotate(90 12 12)" d="m9 5 7 7-7 7"');
   const mobile=()=>window.matchMedia('(max-width:760px)').matches;
+  const renderingUploads=new WeakSet();
   const uploadBindings=new WeakSet(),dropBindings=new WeakSet(),checkboxBindings=new WeakSet(),targetBindings=new WeakSet(),controlTargets=new Map(),compoundLabels=new Map();
   const cloud='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18H5a4 4 0 0 1-.5-7.97A7 7 0 0 1 18 8a5 5 0 0 1 1 9.9h-2M12 20V10m-4 4 4-4 4 4"/></svg>';
   const documentUpload='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H5v20h14V7zM14 2v6h5M8 13h8M8 17h8"/></svg>';
@@ -25,6 +26,9 @@
   }
   function nativeUpload(input,options={}){
     if(!input)return null;
+    if(renderingUploads.has(input))return input.closest('.db-native-upload,.db143-upload-area,.db142-upload-area');
+    renderingUploads.add(input);
+    try{
     // Existing custom desktop upload buttons own hidden programmatic pickers.
     // Preserve those controls without adding a second visible upload surface.
     if(!mobile()&&input.hidden&&!input.closest('.db-native-upload'))return null;
@@ -46,6 +50,7 @@
     if(!uploadBindings.has(input)){uploadBindings.add(input);input.addEventListener('change',()=>syncNativeUpload(input));input.form?.addEventListener('reset',()=>requestAnimationFrame(()=>syncNativeUpload(input)));}
     bindUploadDrop(box,input);
     syncNativeUpload(input);return box;
+    }finally{renderingUploads.delete(input);}
   }
   function acceptsFile(input,file){
     const types=(input.accept||'').toLowerCase().split(',').map(type=>type.trim()).filter(Boolean);
@@ -53,17 +58,26 @@
   }
   function bindUploadDrop(box,input){
     if(dropBindings.has(box))return;dropBindings.add(box);
-    for(const name of ['dragenter','dragover'])box.addEventListener(name,event=>{if(mobile())return;event.preventDefault();event.stopPropagation();if(!input.disabled){box.classList.add('db149-drag-over');if(event.dataTransfer)event.dataTransfer.dropEffect='copy';}});
-    box.addEventListener('dragleave',event=>{if(!box.contains(event.relatedTarget))box.classList.remove('db149-drag-over');});
+    let depth=0,dragging=false,dropping=false;
+    const setDragging=value=>{if(dragging===value)return;dragging=value;box.classList.toggle('db149-drag-over',value);};
+    const resetDrag=()=>{depth=0;setDragging(false);};
+    const allowDrag=event=>{if(mobile())return false;event.preventDefault();event.stopPropagation();if(input.disabled){resetDrag();return false;}if(event.dataTransfer)event.dataTransfer.dropEffect='copy';return true;};
+    box.addEventListener('dragenter',event=>{if(allowDrag(event)){depth++;setDragging(true);}});
+    box.addEventListener('dragover',event=>{if(allowDrag(event))setDragging(true);});
+    box.addEventListener('dragleave',event=>{if(mobile())return;if(event.relatedTarget&&!box.contains(event.relatedTarget)){resetDrag();return;}depth=Math.max(0,depth-1);if(!depth&&!box.contains(event.relatedTarget))setDragging(false);});
+    box.addEventListener('dragend',resetDrag);
+    input.form?.addEventListener('reset',resetDrag);
     box.addEventListener('drop',event=>{
-      if(mobile())return;event.preventDefault();event.stopPropagation();box.classList.remove('db149-drag-over');if(input.disabled)return;
+      if(mobile())return;event.preventDefault();event.stopPropagation();resetDrag();if(input.disabled||dropping)return;
       const files=[...(event.dataTransfer?.files||[])];if(!files.length)return;
       const caption=box.querySelector(':scope>span,:scope>small');
       if(files.some(file=>!acceptsFile(input,file))){if(caption){caption.textContent='Choose a supported file: '+(input.accept||'the required format');caption.setAttribute('role','alert');}return;}
+      dropping=true;
       try{
         const transfer=new DataTransfer();(input.multiple?files:files.slice(0,1)).forEach(file=>transfer.items.add(file));input.files=transfer.files;
         caption?.removeAttribute('role');input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}));syncNativeUpload(input);
       }catch{if(caption){caption.textContent='Click to browse and select your file.';caption.setAttribute('role','alert');}}
+      finally{dropping=false;}
     });
   }
   function switchInput(input){return Boolean(input.closest('.switch,.uc94-switch,.uc49-mini-switch,.uc-switch,.toggle-switch,[role="switch"]')||input.matches('[role="switch"]')||input.nextElementSibling?.matches('.slider,.switch-slider,.uc49-mini-slider'));}

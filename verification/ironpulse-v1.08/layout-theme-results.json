@@ -1,0 +1,16 @@
+{
+  "pass": true,
+  "realWorker": true,
+  "syntheticApiData": true,
+  "results": [
+    "Repeated Layout/Existing Pages transitions, bounded route re-entry and a single workspace owner across module URLs",
+    "All four theme schemas instantly update Layout and Banners; unsaved previews stay read-only and retain their selection",
+    "Theme changes require exact typed confirmation; cancellation makes no request and a failed save preserves the live theme",
+    "Mobile hide preserves Desktop; exact layout confirmation, cancel, failure and retry publish only the intended viewport",
+    "Public theme and viewport visibility update without hard refresh; identical Desktop/Mobile footer DOM/links/socials across all four themes",
+    "Theme confirmation is a mobile bottom sheet and centered desktop dialog"
+  ],
+  "settingsPosts": 5,
+  "layoutPosts": 2,
+  "pageErrors": []
+}

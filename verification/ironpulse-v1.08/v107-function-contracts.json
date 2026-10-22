@@ -1,0 +1,127 @@
+{
+  "files": {
+    "public/admin/gym-admin-v1-13.js": {
+      "sha256": "a8efe6747c47b414def200c70020abc7b707e585a12195a0be6d480bdb3c40f0",
+      "functions": {
+        "coachDateError": "3b09ab32cc7cb0f813e3c2b1d422a2d33ee11e6dc25b68d7f1641fc27a2e3b34",
+        "enforceCoachDate": "a82379e179675b2ca3dced3978b19138e23f63b51c8d766acd2bf60af9a3c92e",
+        "featureValues": "502f9f2377066457e92d014b3e8979de18fbb03b58ed4349cc74bd67667fe294",
+        "syncFeatureEditor": "b7b02138ec22e6b77f5ab7513944159802b347d45397ccb3726357fd012f9f81",
+        "renderFeatureEditor": "b351a9d989c8437213821339a74782b5d7c6056ec7a896287ac46faac143735e",
+        "ensureFeatureEditor": "491930f5dd952cb067733430f8e86efd1a053776afbc8da6dd255c4c3a0296bf",
+        "applyCoachRules": "ac9dd387a617a71ef40f864e2d36de34ac33a0ed1a3f2ae521a252d0dbe80b3e",
+        "toast": "4dd45f16ba59843295279aebc8dc15a6642c0148df6d607594b422b0695e2a79",
+        "loadCoaches": "48f9745f1e47c191c83cd939de72cbe41f45e1c8cc0a5c2011b69d4c9fb889b1",
+        "refreshCoachSelects": "d5ce82f5b76deaec86afeafea1b1b185694a50fd059d4bf79ae34a0139be9563",
+        "choiceButtons": "e4e6500a6984ed92167fa710505ee4793217940aabc8b500cbca06b776edd7a7",
+        "ensurePlanFields": "fbb3e4d6340ded5dd90bdd0f9a9411adfd81b0060aec56148251057984421f35",
+        "selected": "5f23aeafd9b1a73e8a5bfab7189d998b8f98510aee20a27e29e5a8345755c25b",
+        "setChoices": "bc423533e07b69778c0561a3bf85a1633206fd840233db25318edecafa185914",
+        "bindPlanFields": "45f51f398e48e21402601a9cc5740b23600474a7a921d5443c6c6ca4e0a30213",
+        "setPlanMapping": "1819666ce6bf69b697ce59ea889d0dc3144bde62251efa175ff9609a338506fa",
+        "planPayload": "e13e491280cbe289de169cf9c3adb73ebfcd2696cfbeb8505ce48d4f8feddba9",
+        "showPlanResult": "37764c57b8e0461b6e18e48cc7e5532aff52810d727b83a57d1f1713eba6ea85",
+        "installPlanHooks": "b1ab2d8ecd21d43d5f1e2d514355b9f702da390ee34c49aac3ded7e280c40f71",
+        "decorateProductRows": "59c87cfb7b5541b7e1253488569eb3f6649522fab9d2ea9d23abef09fd4324e4",
+        "enhanceWorkspace": "2308f34ac923561cb367cf5a8be1537da93f0cb230decb3353c778dfb13f37ce",
+        "loadWorkspace": "5d2214bc7aaa4036d6d31e7589e8c0bae8f7823f39e85a994cdbbe5a54ad8b3d",
+        "renderCalendar": "397c056feee16e8a3458c9229efa8f2b55e350d59356d1595ed677c6d71b0a92",
+        "changeMonth": "b02d1f048c6c649a9475fe640e9d6f00fc45d4640ad1b9d9652cf376f1fd6744",
+        "dayStep": "f7f4f103bc5d305fb0df40783a0635804cfa816798e7ab7fab82795ff015a573",
+        "sessionMembers": "4ae93c787f1561dad5d51f793822071edf3023ed9cfd5b060c77402e8cd51ee6",
+        "memberPaymentDate": "136452f4164e125ac8817c8f0c6d99548c926b7ff31f5e4f4633dd26380545ad",
+        "openStudentRemoval": "fdd8f7ab33376b19e35a70a19e95b97b2d513ca02a4b091c097ac95f66d9be99",
+        "openSessionStudents": "8b9e8e018f7727dc930775fa597735ab7418363ad4d223cb7e000364297aed03",
+        "renderSelectedDay": "b4f87f29d127374c5b170b7826ae70265471fc7386e79edd150559fae91b6ef6",
+        "renderMembers": "886a38c76fed09e3a574450670b2161f730bc0b59a3a7893d58e0a7b29d349ef",
+        "acknowledgePast": "5751b0ee314e1ce0681e1fff0b2007eade5f0635aee53dc935eaaaaab43f829d",
+        "refreshCoachViews": "30d4e7dd4a5e1bc507e4ab265d5f7df8fa5c5ac210f887d90b20af790607bdca",
+        "reorderCoach": "32af36aebaef7bde0eedd0af2c45b6e3195811e97e582c48e069cb18a753d7ed",
+        "openCoachStatusDialog": "4f801689dd5698c66d4ea92ab377aeefecb03e1ce840b87ff5400d4efe259b1c",
+        "enableCoach": "c9183d7e9a7e4c4630cef86d18b211bd0b2d39ebdfd51b33fad8bb1e49738cb2",
+        "renderCoaches": "e28fb1118be3c99dcea3223113fff9ed538067aa5ad81b6bf1e5a57e990d46f6",
+        "coachModalMarkup": "2cc55b6aae2cd61806ef908b2da04b3f706d53d9ce1b4a578c4b09c12c68ec7e",
+        "openCoachModal": "33afd4a18c09eca0f5723bf45f3c853c5e822f2cd50cb5f40e81db704380a157",
+        "archiveCoach": "f00da52f64dfbf0d34e486309beccdb814c3264428de9dbfc00f050d099f9581",
+        "openSessionModal": "f5a354de718fdb16850a4d50389456395befbf1ac76bc74f7ad70f01299ffe1b",
+        "openSessionModalV107": "b74b565bb7820beefed1bdedeb92620414c3d26b558d1b9d3d665211ea0be09c",
+        "decorateScheduleModal": "c00a9e2ef684865ae04ebec7d510a1242bd391044224825671eb8ddaf56ae21a",
+        "observeScheduleModals": "0077833fa7a055276a4e327613c8f7e783c698b254d6a2906c674ad8040ddc16",
+        "installCoachTypeControls": "e81d57580090937498f6bf01a92b192f725eb5c02432f2c252b23a51c6ec435b",
+        "ensurePagesTeamWorkspace": "75786cfd7affe3fa7d37e788a9b41fe090142a693ba11762c99d235948f386f7",
+        "openPagesTeamWorkspace": "85c8793a274bf74dcdef8738554862074f8728c8470b9da2a67478fe9a624863",
+        "installWorkspaceHooks": "02deab83839d3603e17d892647ac1b108ea5323051cb7c37b9cc005f25b3de84",
+        "manualClassDetailsMarkup": "79cdfc76519b26a98015c55d99ce6abef767b6731955023adf47e201063af1b5",
+        "refreshManualCoachSelects": "d153317e0c62dabe002bd0acfb2d6d7fb813054e120fb0a491307965f4a2431a",
+        "bindManualClassDetails": "a0c73e1b8be3dc3d620c97f5ffbb0ebfc03a07a26d3582e1760b12303275c5c8",
+        "bindManualClassDetailsV109": "be606dfd85debde0c6b8a34afeee0da8e0462b3c59de1b2cdbae8facf93ae118",
+        "validateManualClassForm": "af3ed84532ac14d9bf21d7870e6d35aab0db96249e532b3928cda9ec53e1a390",
+        "installManualPaymentDetails": "fac44d425a2112fd0150820c1d0234cafde64e2b7bb065c665662e85460bc8bb",
+        "classHelpGuide": "7df180d6c3fe3da727bb4d3c9bcc272a050f5cebddb3bf66838af302177d1d72",
+        "upgradeClassHelp": "e34ba2190314b038a15f95d0ed7e1c639cc213cc90d2cd92fa510fe893e29c05",
+        "installClassHelp": "4c101071b32c311c034f5d86141a4587c8b31423397f1f3a8bbfc7e778fb0f9e",
+        "selectSalesPanel": "873d7c188cd5818e82fe367ccd45fe886eb227d95f99c18915e3026ea507ff00",
+        "ensureSalesPanel": "3d32c2ef9c7da4ada7bb7976ecdd0a30354e108e5a07a32493bd57662e01d3d3",
+        "installSalesRecovery": "53cce1c61e2748d20bdfc607e1c2bc8c191c98264a60388e71c48edf1bbab7af",
+        "install": "4461a84972b4a1860a977c06df031fb2190179950892a5e01b316794d49d733c",
+        "db121CoachSlots": "ff9e0aecae0a1cc18ad0624c5330c33943c29db00e56ee71c2c04fbdce763e87",
+        "db121CoachStylePicker": "35690f5348d8ef23557e96925fce997711131721c05e8472c45fbf0b0e34c76e",
+        "db121CoachAvailabilityRow": "dabcd323d6889b0f048c2b4927709935342b7e0523fa0d9cc6f489464dfc60e3",
+        "db121UpdateCoachSlotNumbers": "2e50c46bc44847343fd5fb10b17801e0bd63e7459184c84c8b5fd2b79fbde014",
+        "db121BindCoachSlot": "40f30e3c0f240fe08ac63c8a65efc866c13c9895a6d43dece62e30e276913a56",
+        "db121AddCoachSlot": "7c32e3909becf8031f82cbee1a08362b8833bb7eb0b438930b9ba67360749d4c",
+        "db121CollectCoachSlots": "3e9ab157910bde6a1cbc9cf1cb3ee45421989f714e8808349df0234a352079a0"
+      }
+    },
+    "public/assets/gym-ui-components-v1-49.js": {
+      "sha256": "2b46e9adbdfa85a62d94989a4c444c2c40e294ef1dab1d00177850014168eea2",
+      "functions": {
+        "uploadOptions": "70e121707bee9767b07ade2162f2c1a688275db7341d4a225dc192234683c44f",
+        "syncNativeUpload": "c141991fe8e5ee8b098b1acd625da437377f4270a8faa06dca84a80c477078b7",
+        "nativeUpload": "c2af65c7365afddda1a2ce4f0dd531c8dec6472abe1dcfeb7c86b557c23971b7",
+        "acceptsFile": "5ce47b683fd84644cf08c86a511b5bbe1aea97a2f4a0642fc320af8ca1e5ec9d",
+        "bindUploadDrop": "be86ff35cbdda520e50dfb4c246df53d604f50a74b8e86acc38378d91afed6c3",
+        "switchInput": "445b5863e28e40860ded442c632aa194f87c97ba5ba2e01be1c6f0e893a37521",
+        "bindCheckboxTarget": "75565cb4a070620b043808f34404ba10d154cbc5df58e7345e17cb68e2210d8f",
+        "syncCleanupSelection": "42c98db6892d78bb5deddc63f3251b0534d1694cff7b3b5e28b083644dd89dc9",
+        "softCheckbox": "001b23b3c8c7318da1e1fc18c64778a2302c350b38a7fd3b023dba2700c85ab4",
+        "controls": "ff53d581d925e9cf82bb4abce3aca5ee112fdd43bd1c88354772f1078a2f62c9",
+        "restoreControls": "b1dbefdaed5f801b21a83f904d6f38dba5b8fa0ff71aff56bccea70a723e92a3",
+        "legends": "d281f1f994f06dc4b63b3186466e0fc89cc4e3ffe713962374b74a313ee152e2",
+        "calendar": "d6e277286538c73dddad7f476fdc87e47cabf19279cd565fb96bfbbb8d3010bd"
+      }
+    },
+    "public/admin/final-v16-84-inbox-telegram-sales.js": {
+      "sha256": "de52879ca7986ad5fe809223a67ca8c09fa5718b22b37c6e4ebec7ffd00d2e99",
+      "functions": {
+        "patchInbox": "f25d10da3930d95472b82f72031b8bc2294d128cc0cbb8d9361ffe3ed71eedd9",
+        "telegramMarkup": "32b2441b11298cb1451ebe0d02c8217367abaf8fd81762e82300b3bfe78daabb",
+        "ensureTelegram": "f7734ba17d15a206b0366b8834ac3622074b38c08fc617b43ad52aa066758038",
+        "tgForm": "d4299817631611a320d399f0bbbd3d7c964a3e730fdc5a9f82f46132bfc0a0cc",
+        "payload": "8d312a6be87cdf313a5afa7c41a2496a4ec32a2e40f53ae512a82487dfacac20",
+        "fillTelegram": "99e3a236e7458a441de149c4ef2661d34247ee29e44dd804648b2a1696a5e508",
+        "saveTelegram": "c0cfdf8fa3b7a052d441bd062b2d165a7e18814c8bf192262c3e01cd56699c62",
+        "selectSales": "bc88891538e7ce169b83424fbfd6cbab6863b9cb04a901748b329eca95c224a7",
+        "ensureSales": "6f7922487715124dc55573f30dae5d041b651fceea5354181bd71277b94aacd3",
+        "flattenSalesNav": "6f393192e2f20d076c3506152b1d2347a472fa6bd2e9574a4688b5e4b6ef7693",
+        "wrapLoader": "272f96427e75ece5017da16148146f236580d0305de106eb15436b28889e84eb",
+        "installInboxObserver": "f81506c04424c0d124e2fe20bb16ff7480d4fac5e9f6d58ff1eb5838e0054cd3",
+        "init": "b5bd86688d7923c0fbc1533d53f58ffa99227b8be0c1da119aa88bdb718fa8c4"
+      }
+    }
+  },
+  "salesSource": "const SALES_PANELS=['customSubscription','products','bulk','placements'];\nconst SALES_LABELS={customSubscription:'Create Subscription',products:'Plans & Offers',bulk:'Bulk Import',placements:'Product Placements'};\nlet activeSalesPanel='customSubscription';\nfunction selectSalesPanel(id,{load=true}={}){activeSalesPanel=SALES_PANELS.includes(id)?id:activeSalesPanel;$$('[data-uc84-sales]').forEach(button=>button.classList.toggle('active',button.dataset.uc84Sales===activeSalesPanel));$$('.uc84-sales-pane').forEach(panel=>panel.hidden=panel.id!==activeSalesPanel);if(load)window[`load_${activeSalesPanel}`]?.();}\n",
+  "allowedChanges": {
+    "public/admin/gym-admin-v1-13.js": [
+      "selectSalesPanel",
+      "installSalesRecovery"
+    ],
+    "public/assets/gym-ui-components-v1-49.js": [
+      "nativeUpload",
+      "bindUploadDrop"
+    ],
+    "public/admin/final-v16-84-inbox-telegram-sales.js": [
+      "selectSales"
+    ]
+  }
+}
