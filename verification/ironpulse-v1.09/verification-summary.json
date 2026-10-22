@@ -1,0 +1,31 @@
+{
+  "version": "V1.09",
+  "baselineVersion": "V1.06",
+  "pass": true,
+  "packagingRevision": 2,
+  "regressionSuites": 37,
+  "browserGroups": {
+    "fitness-tips-results.json": 6,
+    "public-fitness-tips-results.json": 8,
+    "gym-branding-results.json": 5,
+    "gym-navigation-schedule-results.json": 5,
+    "selective-rollback-results.json": 8,
+    "bulk-import-results.json": 7
+  },
+  "browserGroupTotal": 39,
+  "v106AppearanceComparisons": 8,
+  "realBrowserCacheGroups": 2,
+  "realWorkerD1Groups": 24,
+  "originalV109PathsRetained": 3198,
+  "applicationFilesIdenticalToOriginalV109": 819,
+  "v106ApplicationFiles": 819,
+  "v106ApplicationFilesUnchanged": 809,
+  "restoredArchitectureFiles": 6,
+  "exactV108BulkScripts": 3,
+  "cssUnchanged": 179,
+  "migrationsUnchanged": 56,
+  "protectedV106Functions": 105,
+  "protectedBulkFunctions": 89,
+  "unchangedCsvParserAndImportApi": true,
+  "liveDeploymentPerformed": false
+}

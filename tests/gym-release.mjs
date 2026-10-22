@@ -20,16 +20,18 @@ const publicFixes=JSON.parse(text('verification/ironpulse-v1.05/public-fitness-t
 const deliveryFixes=JSON.parse(text('verification/ironpulse-v1.06/asset-delivery-fixes.json'));
 const layoutFixes=JSON.parse(text('verification/ironpulse-v1.07/layout-theme-fixes.json'));
 const bulkFixes=JSON.parse(text('verification/ironpulse-v1.08/bulk-import-fixes.json'));
+const rollbackFixes=JSON.parse(text('verification/ironpulse-v1.09/selective-rollback-fixes.json'));
 const expectedCss={...baseline.css,[publicFixes.stylesheet.path]:publicFixes.stylesheet.sha256,[deliveryFixes.stylesheet.path]:deliveryFixes.stylesheet.sha256};
 assert.deepEqual(current.css,expectedCss,'Retain every inherited theme file; only the audited public Fitness Tips stylesheet is added');
 const expectedDDL={...baseline.functionDDL},expectedBackend={...baseline.backendSource};
 for(const fix of deliveryFixes.backendFiles){if(fix.added){assert.equal(fix.ddl,digest('[]'));expectedDDL[fix.path]=digest('[]');}else assert.equal(fix.ddl,baseline.functionDDL[fix.path]);expectedBackend[fix.path]=fix.sha256;}
 for(const fix of layoutFixes.backendFiles){assert.equal(expectedBackend[fix.path],fix.beforeSha256);assert.equal(expectedDDL[fix.path],fix.ddl);expectedBackend[fix.path]=fix.afterSha256;}
 for(const fix of bulkFixes.backendFiles){assert.equal(expectedBackend[fix.path],fix.beforeSha256);assert.equal(expectedDDL[fix.path],fix.ddl);expectedBackend[fix.path]=fix.afterSha256;}
+for(const fix of rollbackFixes.backendFiles){assert.equal(expectedBackend[fix.path],fix.beforeSha256);assert.equal(expectedDDL[fix.path],fix.ddl);expectedBackend[fix.path]=fix.afterSha256;}
 assert.deepEqual(current.functionDDL,expectedDDL,'Runtime schema definitions must remain identical; delivery helpers have no schema statements');
 for(const[name,value]of Object.entries(baseline.migrationDDL))assert.equal(current.migrationDDL[name],value,name);
 assert.deepEqual(current.apiPaths,baseline.apiPaths,'API endpoint paths stay compatible');
-assert.deepEqual(current.backendSource,expectedBackend,'Backend remains unchanged except the separately audited delivery and layout/theme safeguards');
+assert.deepEqual(current.backendSource,expectedBackend,'Backend remains unchanged except the separately audited delivery, rollback and confirmation safeguards');
 const uiFixes=JSON.parse(text('verification/ironpulse-v1.04/frontend-fixes.json'));
 const expectedFrontend={...baseline.frontendSource};
 for(const fix of uiFixes.files){assert.equal(expectedFrontend[fix.path],fix.beforeSha256,'A UI exception must identify its original source');expectedFrontend[fix.path]=fix.afterSha256;}
@@ -37,8 +39,9 @@ assert.equal(expectedFrontend[publicFixes.renderer.path],publicFixes.renderer.be
 expectedFrontend[publicFixes.renderer.path]=publicFixes.renderer.afterSha256;
 for(const fix of layoutFixes.frontendFiles){assert.equal(expectedFrontend[fix.path],fix.beforeSha256);expectedFrontend[fix.path]=fix.afterSha256;}
 for(const fix of bulkFixes.frontendFiles){assert.equal(expectedFrontend[fix.path],fix.beforeSha256);expectedFrontend[fix.path]=fix.afterSha256;}
-assert.deepEqual(current.frontendSource,expectedFrontend,'Frontend must retain compatibility except the explicit V1.04/V1.05/V1.07/V1.08 presentation fixes');
-const auditedBackend=new Map([...layoutFixes.backendFiles,...bulkFixes.backendFiles].map(fix=>[fix.path,fix]));const exceptions=[...auditedBackend.keys()];for(const fix of auditedBackend.values())assert.equal(current.functionShapes[fix.path],fix.shape);
+for(const fix of rollbackFixes.frontendFiles){assert.equal(expectedFrontend[fix.path],fix.beforeSha256);expectedFrontend[fix.path]=fix.afterSha256;}
+assert.deepEqual(current.frontendSource,expectedFrontend,'Frontend must retain compatibility except the explicit current release audit');
+const auditedBackend=new Map([...layoutFixes.backendFiles,...bulkFixes.backendFiles,...rollbackFixes.backendFiles].map(fix=>[fix.path,fix]));const exceptions=[...auditedBackend.keys()];for(const fix of auditedBackend.values())assert.equal(current.functionShapes[fix.path],fix.shape);
 for(const[name,value]of Object.entries(baseline.functionShapes))if(!exceptions.includes(name))assert.equal(current.functionShapes[name],value,'Business logic, keys, roles and enums changed: '+name);
 console.log('Compatibility with supplied gym V1.00: '+Object.keys(current.css).length+' matching CSS/theme files after path normalization, '+Object.keys(current.functionDDL).length+' runtime-schema fingerprints, '+Object.keys(current.migrationDDL).length+' migration DDL sets, '+current.apiPaths.length+' API paths and '+Object.keys(current.functionShapes).length+' backend structures.');
 

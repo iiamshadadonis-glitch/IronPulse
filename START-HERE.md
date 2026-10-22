@@ -1,6 +1,6 @@
-# IronPulse Gym V1.08 — start here
+# IronPulse Gym V1.09 — start here
 
-This complete release fixes Bulk Import callback recursion, repeated Sales pane loading and excessive drag highlight updates. It retains all earlier Layout, theme, footer, Fitness Tips, image and cache fixes, and all 3,059 supplied V1.07 paths. Colours, CSV parsing, import rules and database schema remain unchanged. No database migration is needed. Read docs/BULK-IMPORT-FIX.md for the current change.
+This complete release restores V1.06's appearance, layout architecture and settings/colour flow. It keeps all V1.08 Bulk Import fixes, typed confirm before theme publication or Layout saves, and Website designed by Instautomate with its safe link. All 3,127 supplied V1.08 paths remain included. No stylesheet, colour palette, database schema or import rule changes. No migration is needed. Read docs/SELECTIVE-ROLLBACK.md for the current change.
 
 Deploy to your existing Pages project serving https://gym-fitness-3w8.pages.dev. Keep your existing secrets and database. Use npm run build as the Pages build command. The configuration name below is the package's CLI default; set it to your existing project name only if using CLI deployment.
 
@@ -24,7 +24,7 @@ With GitHub Desktop, choose Repository → Show in Explorer/Finder. Move the old
 
 At the repository root, you must see wrangler.jsonc, package.json, public/, functions/ and migrations/. Do not leave these files inside an extra nested ZIP folder. Do not keep another wrangler.toml or wrangler.json from the old project.
 
-Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **V1.08: Fix Bulk Import recursion and stabilize drag-and-drop**. GITHUB-SUMMARY.txt contains the complete description.
+Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **V1.09: Repair ZIP extraction and preserve the verified release**. GITHUB-SUMMARY.txt contains the complete description.
 
 ## 2. Set the gym Pages project
 
@@ -52,7 +52,7 @@ In Pages → Settings → Variables and Secrets → Production, add **ADMIN_LOGI
 
 Deploy the latest pushed commit. In its build log, confirm these exact lines:
 
-    IronPulse Gym V1.08 (package 1.8.0)
+    IronPulse Gym V1.09 (package 1.9.0)
     D1 binding DB: 893e7d29-fa72-413d-9415-5d93b1c3bc6e
 
 The npm run build step uses the pinned project Wrangler and should compile the Worker successfully. Use the printed release, UUID and commit to identify the source being deployed. If it still shows an older project, old login email or different D1 ID, check the connected repository, branch, commit and root directory.
@@ -91,4 +91,4 @@ For an account/binding check only:
 
 For a Git-connected project, commit and push any configuration updates made by setup/check. The Pages deployment uses the committed configuration.
 
-Open CLOUDFLARE-FIX.md for the earlier deployment-error instructions, PACKAGE-CONTENTS.txt for all included files, and RELEASE-VERIFICATION-GYM.md for the exact local test results. After a successful deployment, /release.json identifies this package as V1.08. Open Business Ops → Sales → Bulk Import, download the sample CSV and select a file. Confirm the filename before importing real records: importing a CSV creates plans or updates matching SKUs. Test the native picker on mobile and drag-and-drop on desktop. Existing Fitness Tips routes and earlier fixes remain included.
+Open CLOUDFLARE-FIX.md for the earlier deployment-error instructions, PACKAGE-CONTENTS.txt for all included files, and RELEASE-VERIFICATION-GYM.md for the exact local test results. After a successful deployment, /release.json identifies this package as V1.09. Open Business Ops → Sales → Bulk Import, download the sample CSV and select a file. Confirm the filename before importing real records: importing a CSV creates plans or updates matching SKUs. Test the native picker on mobile and drag-and-drop on desktop. Existing Fitness Tips routes and earlier fixes remain included.

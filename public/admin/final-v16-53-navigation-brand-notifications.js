@@ -29,8 +29,8 @@
   function setButtonLabel(btn,text){
     if(!btn)return; const badge=$('.nav-badge',btn); const arrow=$('.nav-arrow',btn);
     const other=[...btn.children].filter(x=>x!==badge&&x!==arrow);
-    if(other.length){const candidate=other.find(x=>!x.matches('.nav-badge,.nav-arrow'));if(candidate&&candidate.textContent!==text)candidate.textContent=text;}
-    else if([...btn.childNodes].filter(n=>n.nodeType===3).map(n=>n.nodeValue).join('')!==text){btn.childNodes.forEach(n=>{if(n.nodeType===3)n.remove();});btn.insertBefore(document.createTextNode(text),btn.firstChild||null);}
+    if(other.length){const candidate=other.find(x=>!x.matches('.nav-badge,.nav-arrow'));if(candidate)candidate.textContent=text;}
+    else {btn.childNodes.forEach(n=>{if(n.nodeType===3)n.remove();});btn.insertBefore(document.createTextNode(text),btn.firstChild||null);}
     if(badge&&!badge.isConnected)btn.appendChild(badge); if(arrow&&!arrow.isConnected)btn.appendChild(arrow);
   }
 
@@ -94,16 +94,16 @@
   function ensurePagesHub(){
     const pages=$('#pages'), stories=$('#successStories');
     if(pages){
-      const top=$(':scope > .top',pages);const h=$('h1',top);if(h&&h.textContent!=='Pages')h.textContent='Pages';
+      const top=$(':scope > .top',pages);const h=$('h1',top);if(h)h.textContent='Pages';
       let tabs=$(':scope > .uc-v1634-pages-tabs',pages);if(tabs&&!$('[data-uc53-success-stories]',tabs)){
         const b=document.createElement('button');b.type='button';b.className='pill';b.dataset.uc53SuccessStories='1';b.textContent='Success Stories';b.onclick=()=>window.ucV1653PagesTab('success');tabs.appendChild(b);
       }
       if(tabs)$('[data-uc53-success-stories]',tabs)?.classList.remove('active');
     }
     if(stories){
-      const top=$(':scope > .top',stories);const h=$('h1',top);if(h&&h.textContent!=='Pages')h.textContent='Pages';
+      const top=$(':scope > .top',stories);const h=$('h1',top);if(h)h.textContent='Pages';
       let tabs=$(':scope > .uc-v1653-pages-tabs',stories);if(!tabs){tabs=document.createElement('div');tabs.className='tabs uc-v1634-pages-tabs uc-v1653-pages-tabs';top?.insertAdjacentElement('afterend',tabs);}
-      for(const [key,label] of [['new','New Page'],['existing','Existing Pages'],['success','Success Stories']])if(!$('[data-uc53-pages="'+key+'"]',tabs)){const button=document.createElement('button');button.type='button';button.className='pill'+(key==='success'?' active':'');button.dataset.uc53Pages=key;button.textContent=label;tabs.append(button);}
+      tabs.innerHTML='<button class="pill" type="button" data-uc53-pages="new">New Page</button><button class="pill" type="button" data-uc53-pages="existing">Existing Pages</button><button class="pill active" type="button" data-uc53-pages="success">Success Stories</button>';
       $$('[data-uc53-pages]',tabs).forEach(b=>b.onclick=()=>window.ucV1653PagesTab(b.dataset.uc53Pages));
     }
   }

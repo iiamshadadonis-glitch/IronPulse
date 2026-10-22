@@ -1,8 +1,10 @@
 # IronPulse Gym
 
+This V1.09 ZIP reissue repairs an incomplete saved archive. All application code is unchanged. Read EXTRACTION-HELP.txt before extracting and START-HERE.md before deployment.
+
 The complete working application is at this project root. All 1,829 original V1.00 files are preserved under archive/V1.00/. Read COMPARISON.md for the audited counts and FILE-COMPARISON.csv for every original file.
 
-Complete Cloudflare Pages, Pages Functions/Workers and D1 replacement project, release **V1.08**, package **1.8.0**.
+Complete Cloudflare Pages, Pages Functions/Workers and D1 replacement project, release **V1.09**, package **1.9.0**.
 
 This folder contains the complete application, rather than changed files only. The frontend, backend, assets and all migrations are included. See PACKAGE-CONTENTS.txt for the full inventory and GITHUB-SUMMARY.txt for the commit title/description.
 
@@ -12,17 +14,23 @@ Start with **START-HERE.md** for the noncoder deployment instructions. The exist
 
 This release retains the existing membership, scheduling, checkout, payment, notifications, CRM, Admin and portal logic. All 179 inherited CSS files retain their exact bytes. Physical filenames and remaining display/default brand text were cleaned up for the gym instance in earlier releases. Historical release notes, deployment scripts and verification files are preserved for comparison; the current root project supplies the live gym configuration.
 
-## V1.08 Bulk Import stability
+## V1.09 selective rollback to V1.06
+
+Read docs/SELECTIVE-ROLLBACK.md. This release restores the supplied V1.06 layout renderer, registry, editor, workspace/navigation behaviour, asset-delivery implementation and original settings/colour flow. It retains all V1.08 Bulk Import safeguards, exact typed confirmation before publishing a new theme or saving Layout, and the Website designed by Instautomate attribution/link.
+
+All 3,127 paths from the supplied V1.08(1).zip remain included. All 179 CSS files and all 56 migrations match V1.06 byte-for-byte. The three V1.08 Bulk Import scripts are copied exactly. Six architecture files are restored exactly to V1.06; the remaining exceptions are the isolated confirmation/attribution changes and current release metadata. No database migration is needed. Current evidence is in verification/ironpulse-v1.09/; GITHUB-SUMMARY.txt contains the copyable commit description.
+
+The next sections describe retained fixes or historical releases. V1.07's new preview synchronization, layout normalization, footer immutability and settings commit order are not active in V1.09.
+
+## Retained V1.08 Bulk Import stability
 
 Read docs/BULK-IMPORT-FIX.md. The upload renderer and drop handler now stop synchronous callback re-entry, drag highlighting changes only at state transitions, and the two compatibility Sales controllers use one selection owner. A Sales navigation action loads its pane once, including when a loader calls the router again. No upload starts until the existing form is submitted.
 
-All 3,059 paths from the attached complete V1.07(1).zip remain included. Only three frontend scripts receive safeguards. Backend changes are limited to the generated asset manifest and release response header. The CSV parser, importer API, all 179 CSS files, all 56 migrations, schema, API JSON keys and D1 binding are byte-identical to V1.07. No migration is required. See verification/ironpulse-v1.08/ for source hashes, the exact baseline replay and current test evidence. GITHUB-SUMMARY.txt contains the copyable commit title and full description.
+The three V1.08 frontend safeguard scripts remain exact. The CSV parser, importer API, all 179 CSS files, all 56 migrations, schema, API JSON keys and D1 binding remain unchanged. V1.09 separately restores the V1.06 architecture described above. No migration is required. See verification/ironpulse-v1.08/ for historical source hashes and the baseline replay; verification/ironpulse-v1.09/ contains current evidence. GITHUB-SUMMARY.txt contains the copyable commit title and description.
 
-## Included V1.07 Layout, themes and footer
+## Historical V1.07 Layout/theme update
 
-Read docs/LAYOUT-THEME-SYNC.md. This release stabilizes the Pages workspace, validates layout data, synchronizes supported blocks and Banners controls with the four existing frontend themes, and adds exact typed confirmation before publishing a theme. Layout visibility stays independent for Desktop and Mobile. The global footer is no longer an editable theme block, and its attribution always reads Website designed by Instautomate with a safe outbound link.
-
-All 2,992 paths from the supplied V1.06(1).zip remain included. Every one of the 179 stylesheets and 56 migrations is byte-identical to V1.06. Twelve explicitly audited application files change: seven frontend scripts and five backend/delivery files. Payments, memberships, scheduling, stored roles, API paths and the existing D1 binding stay compatible. No migration is required. See verification/ironpulse-v1.07/layout-theme-fixes.json for the exact source exceptions and GITHUB-SUMMARY.txt for copyable release notes.
+V1.07's additional Layout/Banners synchronization, draft preview, data normalization, workspace changes, canonical module delivery and immutable-footer boundary have been reverted to the V1.06 implementations. Only the requested typed confirmation and protected Instautomate attribution remain. docs/LAYOUT-THEME-SYNC.md and verification/ironpulse-v1.07/ are retained as historical records, rather than current instructions.
 
 ## Included V1.06 Worker layout delivery and cache busting
 
@@ -64,6 +72,7 @@ Requires Node 24.
     npm run test:gym:browser
     npm run test:gym:worker-browser
     npm run test:gym:bulk-import
+    npm run test:gym:rollback
     npm run test:gym:cache-browser
     npm run test:gym:runtime
     npm run test:gym:runtime:empty

@@ -1,3 +1,4 @@
+/* Historical V1.07 engine-only suite. The current npm test uses gym-selective-rollback.mjs for the restored V1.06 architecture. */
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';

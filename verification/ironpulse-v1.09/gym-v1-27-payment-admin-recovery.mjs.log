@@ -1,0 +1,1 @@
+DropBeat V1.27 verified: existing V1.25/V1.26 databases self-repair checkout columns, payment links work with and without a first-payment coupon, and the admin billing observer remains idle after an unchanged render.

@@ -1,0 +1,17 @@
+{
+  "pass": true,
+  "realWorker": true,
+  "results": [
+    "All four public themes match V1.06 computed colours, typography, spacing and section dimensions at 390px and 1440px",
+    "Desktop theme publication requires exact confirm; cancel sends nothing, failure stays retryable and confirmation fields remain transient",
+    "Recommended colour previews apply immediately; colour-only save retains V1.06 local assignment before API completion and requires no theme dialog",
+    "V1.06 Layout/Footer editor returns; an unsaved appearance selection does not inject a V1.07 theme preview into Layout",
+    "Original Layout edits retain exact typed confirmation, cancellation, failed-save feedback and successful retry",
+    "Footer attribution stays Website designed by Instautomate with the safe outbound link on both viewports; the next public load receives saved custom colours",
+    "Mobile theme publication and existing Layout confirmation use the unchanged bottom-sheet styling",
+    "Desktop confirmation remains centered; restored workflows produce no uncaught browser errors"
+  ],
+  "settingsPosts": 4,
+  "layoutPosts": 2,
+  "errors": []
+}

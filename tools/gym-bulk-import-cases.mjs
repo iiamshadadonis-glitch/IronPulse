@@ -24,7 +24,7 @@ export async function runBulkImportWorkflows({page,context,origin,output,errors}
  const ready=()=>page.waitForFunction(()=>document.documentElement.dataset.db159Layout==='ready'&&document.documentElement.dataset.db159Buttons==='ready'&&!document.querySelector('#adminApp').hidden);
  const pane=()=>page.locator('#bulk'),input=()=>page.locator('#bulkFile'),box=()=>page.locator('#bulk .db-native-upload');
  const capture=()=>page.evaluate(()=>{const form=document.querySelector('#db140BulkPlanForm'),input=document.querySelector('#bulkFile'),zone=input.closest('.db-native-upload');return {inputs:document.querySelectorAll('#bulkFile').length,zones:form.querySelectorAll('.db-native-upload').length,files:[...input.files].map(f=>f.name),caption:zone.querySelector(':scope>span,:scope>small')?.textContent,primary:getComputedStyle(document.documentElement).getPropertyValue('--dropbeat-primary').trim(),highlight:zone.classList.contains('db149-drag-over')};});
- const drop=async(items,event='drop')=>page.evaluate(({items,event})=>{const transfer=new DataTransfer();for(const item of items)transfer.items.add(new File([item.text||''],item.name,{type:item.type||''}));document.querySelector('#bulk .db-native-upload').dispatchEvent(new DragEvent(event,{bubbles:true,cancelable:true,dataTransfer:transfer}));},{items,event});
+ const drop=async(items,event='drop')=>page.evaluate(({items,event})=>{const transfer=new DataTransfer();for(const item of items)transfer.items.add(new File([item.text||''],item.name,{type:item.type||''}));const zone=document.querySelector('#bulk .db-native-upload');zone.dispatchEvent(new DragEvent(event,{bubbles:true,cancelable:true,dataTransfer:transfer}));const caption=zone.querySelector(':scope>span,:scope>small');return {caption:caption?.textContent,role:caption?.getAttribute('role')};},{items,event});
  const submit=()=>page.locator('#db140BulkPlanForm button[type="submit"]').click();
  const waitIdle=()=>page.waitForFunction(()=>!document.querySelector('#db140BulkPlanForm button[type="submit"]').disabled);
  const waitResult=text=>page.waitForFunction(text=>document.querySelector('#bulkResult')?.textContent.includes(text),text);
@@ -53,7 +53,9 @@ export async function runBulkImportWorkflows({page,context,origin,output,errors}
   results.push('200 dragover events cause only entry/exit class changes; child transitions and dragend clear highlighting without importing');
 
   console.log('[Bulk Import] drop validation and callback re-entry');
-  const beforeBad=(await capture()).files;await drop([{name:'wrong.exe',text:'not csv',type:'application/octet-stream'}]);assert.deepEqual((await capture()).files,beforeBad);assert.match((await capture()).caption,/Choose a supported file/);
+  // Capture the synchronous rejection before the inherited control refresh
+  // restores the existing selected filename on its next animation frame.
+  const beforeBad=(await capture()).files,rejected=await drop([{name:'wrong.exe',text:'not csv',type:'application/octet-stream'}]);assert.match(rejected.caption,/Choose a supported file/);assert.equal(rejected.role,'alert');assert.deepEqual((await capture()).files,beforeBad);
   await input().evaluate(n=>n.disabled=true);await drop([{name:'disabled.csv',text:sample,type:'text/csv'}]);assert.deepEqual((await capture()).files,beforeBad);await input().evaluate(n=>n.disabled=false);
   const reentry=await page.evaluate(sample=>{
    const zone=document.querySelector('#bulk .db-native-upload'),input=document.querySelector('#bulkFile'),transfer=new DataTransfer();transfer.items.add(new File([sample],'dropped.csv',{type:'text/csv'}));transfer.items.add(new File([sample],'extra.csv',{type:'text/csv'}));let changes=0,inputs=0;

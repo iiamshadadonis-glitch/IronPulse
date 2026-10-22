@@ -1,0 +1,59 @@
+{
+  "baseline": "V1.06(2).zip",
+  "baselineZipSha256": "72508b7cc867579f49b566aeff8e760f61bca6b4b8560f0755037d02e43fbb0b",
+  "applicationFileCount": 819,
+  "unchangedFromV106": 809,
+  "deletedPaths": [],
+  "changed": [
+    {
+      "path": "functions/_lib/gym-asset-manifest.js",
+      "v106Sha256": "d48d3d0d0958f61422d1b7989c50de1f1b77833cd2c525e733fe0544256bdd0b",
+      "v109Sha256": "37ef894d8b4070b146563a854d99e595a7861ac855b73199874ae5235dfa66df"
+    },
+    {
+      "path": "functions/_middleware.js",
+      "v106Sha256": "37fcce33955b587be74b9ebfab9fbe6cbc5d972c1c6d9bc98598bf9147251019",
+      "v109Sha256": "831ff97e7a3f462eb81c02b4941e98dbef4939c1d709e7e4b88ecc9ae9db5546"
+    },
+    {
+      "path": "functions/api/admin/settings.js",
+      "v106Sha256": "7067c51c699ba5fa3a28e2433f02dda2b03d0dd2ff3f527d8408f84d7f2bac0c",
+      "v109Sha256": "5888d599b6e2264cad634fce3c0b5f138ff5b192d41a3643fec53ec54d1077b8"
+    },
+    {
+      "path": "public/admin/admin.js",
+      "v106Sha256": "765f02d084161865d294b3bf8dcfdeb262015e5e8f99ebb1e069b673cae93f0f",
+      "v109Sha256": "f659402875a383b8b51557f33b0dadf8f912e2d960e4d58326671bc26593b3f5"
+    },
+    {
+      "path": "public/admin/final-v16-84-inbox-telegram-sales.js",
+      "v106Sha256": "de52879ca7986ad5fe809223a67ca8c09fa5718b22b37c6e4ebec7ffd00d2e99",
+      "v109Sha256": "2c3480e94bb246dee5f045b618a1ddff80edb586bd4d8ec560ada6dfff1f6bb7"
+    },
+    {
+      "path": "public/admin/gym-admin-v1-13.js",
+      "v106Sha256": "a8efe6747c47b414def200c70020abc7b707e585a12195a0be6d480bdb3c40f0",
+      "v109Sha256": "fd303316ffedb0c12731d8c689ad14e348f7ce506a093feaba43e38a3254e267"
+    },
+    {
+      "path": "public/admin/gym-admin-v1-29.js",
+      "v106Sha256": "cf888bf48b0520758bfa4d7a6e1a5b7d6eea1d220586ab454d4a84a2a606179e",
+      "v109Sha256": "b0fb164e8b201c25ab8ecf4045927383ecc616aad4b1d2c18d4ad261adce1c41"
+    },
+    {
+      "path": "public/assets/gym-layout-v1-57.js",
+      "v106Sha256": "b3d8bf2f1e146756b68443bdcf1c2c93a80ac958bc642d9048cf3245af52353b",
+      "v109Sha256": "e95811c143084d6f70c12c57b90192352d1cab1b2a3520dcfa89fd060ef7aea2"
+    },
+    {
+      "path": "public/assets/gym-ui-components-v1-49.js",
+      "v106Sha256": "2b46e9adbdfa85a62d94989a4c444c2c40e294ef1dab1d00177850014168eea2",
+      "v109Sha256": "e47c0172e087c892a2a9028c856e534c14b1c6c693a1ac401ed834428cf00925"
+    },
+    {
+      "path": "public/release.json",
+      "v106Sha256": "2174946771503c75a7e7496f21238c3ea090436f2c895b73e8a80919a63b62c7",
+      "v109Sha256": "99c0c9a2122fd533fa46d540ab9e82db2158dbbc980b74e492ed06840beebd2a"
+    }
+  ]
+}

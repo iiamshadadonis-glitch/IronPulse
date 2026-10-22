@@ -1,3 +1,5 @@
+> Historical release document. V1.09 restores V1.06 architecture, retains the V1.08 Bulk Import safeguards, and keeps only typed confirmation and Instautomate attribution from V1.07. Read SELECTIVE-ROLLBACK.md and the current root START-HERE.md for this release.
+
 # V1.08 Bulk Import fix
 
 This is a complete replacement of the supplied V1.07(1).zip. All 3,059 supplied paths remain included, along with the unchanged original V1.00 archive. The current application is at the project root; deploy that root rather than an archived release.

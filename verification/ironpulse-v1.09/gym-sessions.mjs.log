@@ -1,0 +1,1 @@
+V1.58 session/API/SQLite tests passed: 300-day HttpOnly password/OAuth/portal sessions, exact role roots, zero-read anonymous checks, short-session opt-out, bounded renewal, rejected/expired/revoked sessions, logout and private outage handling.

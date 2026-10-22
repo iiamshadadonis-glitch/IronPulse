@@ -1,0 +1,9 @@
+Selective rollback stage from the complete fresh browser run:
+[Rollback] compare V1.06 appearance at eight theme/viewport combinations
+[Rollback] desktop typed theme confirmation, cancel and retry
+[Rollback] original colour/settings flow without theme confirmation
+[Rollback] original editor and no unsaved theme-preview coupling
+[Rollback] original Layout typed confirmation, cancel, failure and retry
+[Rollback] protected Instautomate attribution and original colour refresh
+[Rollback] mobile theme and Layout confirmation sheets
+Selective rollback browser workflows passed: 8 groups.

@@ -1,6 +1,12 @@
 # Why the file counts differ
 
-## Current V1.08 release
+## Current V1.09 release
+
+V1.09 starts from the attached complete V1.08(1).zip and retains all 3,127 input paths. The active project still has 493 public/frontend files, 270 backend/delivery files and 56 migrations. It restores V1.06 architecture while preserving the exact V1.08 Bulk Import scripts and the requested confirmation/attribution safeguards. New tests, documentation and verification evidence increase the package count; no application folder is removed.
+
+The three supplied ZIPs were compared directly: V1.06 has 2,992 files, V1.07 has 3,059, and V1.08 has 3,127. Six architecture files now match V1.06 exactly. All 179 CSS files and all 56 migrations match V1.06, V1.07 and V1.08 byte-for-byte. The CSV parser/importer API and existing D1 UUID remain unchanged. See verification/ironpulse-v1.09/selective-rollback-fixes.json for exact changes, source-comparison.json for every path, and PACKAGE-CONTENTS.txt for the final recursive count.
+
+## Historical V1.08 release
 
 V1.08 starts from the attached complete V1.07(1).zip, which contains 3,059 files recursively. Every input path remains in this complete replacement. The active application still contains 493 public/frontend files, 270 backend/delivery files and 56 migrations. New test, documentation and verification files increase the package count; none of the supplied application folders were cut down.
 

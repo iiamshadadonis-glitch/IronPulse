@@ -1,0 +1,17 @@
+IronPulse Gym V1.09 — complete replacement ZIP
+
+The earlier saved ZIP ended before its directory records and could not be extracted.
+This rebuilt package keeps the same verified V1.09 application code and all retained fixes.
+
+1. Remove the old incomplete V1.09.zip from Downloads so you open the new copy.
+2. Download the replacement and wait until the browser says the download is complete.
+3. Right-click the new ZIP and choose Extract All, or WinRAR > Extract to a folder.
+   A short destination such as C:\IronPulse is suitable.
+4. Open the extracted folder. package.json, wrangler.jsonc, public, functions,
+   migrations and archive must be together at the project root.
+5. Follow START-HERE.md to replace the complete gym repository and deploy.
+   Build command: npm run build. Output: public. No database migration is required.
+
+GITHUB-SUMMARY.txt contains the copyable commit title and description.
+PACKAGE-CONTENTS.txt lists every included file. FILES.sha256 checks their contents.
+The application code, colours, existing D1 database and saved configuration are unchanged.

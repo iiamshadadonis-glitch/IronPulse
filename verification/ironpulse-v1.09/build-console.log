@@ -1,0 +1,38 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ironpulse-gym-cloudflare@1.9.0 build
+> npm run check:deployment && npm run build:assets && npm run check:complete && wrangler pages functions build --outdir .build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ironpulse-gym-cloudflare@1.9.0 check:deployment
+> node tools/check-gym-deployment.mjs
+
+IronPulse Gym V1.09 (package 1.9.0)
+Git commit: local verification
+Pages project: ironpulse-gym | output: public
+D1 binding DB: 893e7d29-fa72-413d-9415-5d93b1c3bc6e
+Local configuration check passed. Cloudflare account access is checked separately by npm run check:cloudflare.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ironpulse-gym-cloudflare@1.9.0 build:assets
+> node tools/build-gym-assets.mjs
+
+IronPulse V1.09 asset build 425e86e25acc516ba57f: 415 CSS/JS files fingerprinted; 9 module dependency URLs versioned.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ironpulse-gym-cloudflare@1.9.0 check:complete
+> node tools/verify-gym-completeness.mjs
+
+Original V1.00 archive: all 1829 files verified byte-for-byte.
+Active application: 493 frontend files, 270 backend files, 56 migrations.
+All 815 expected application files are present. The archived source is outside the live public/functions folders.
+All 2814 V1.03, 2869 V1.04, 2926 V1.05, 2992 V1.06, 3059 V1.07 and 3127 V1.08 input paths are retained.
+All inherited CSS, migrations and application files outside the explicit V1.09 confirmation/attribution, retained V1.08 safeguards and restored V1.06 files remain byte-identical.
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProxy environment variables detected. We'll use your proxy for fetch requests.[0m
+
+
+
+ ⛅️ wrangler 4.128.0
+────────────────────
+✨ Compiled Worker successfully

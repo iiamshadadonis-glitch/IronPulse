@@ -1,0 +1,117 @@
+{
+  "version": "V1.09",
+  "baselineVersion": "V1.06",
+  "inputZipSha256": "3bf82b9baa955ccdd488ee7bb163c7e4bd9862c139cba396f851b353618d2064",
+  "baselineZipSha256": "72508b7cc867579f49b566aeff8e760f61bca6b4b8560f0755037d02e43fbb0b",
+  "restoredFiles": [
+    "public/assets/layout-registry-v1-57.js",
+    "public/assets/gym-layout-admin-v1-57.js",
+    "public/assets/gym-pages-workspace-v1-57.js",
+    "public/admin/final-v16-53-navigation-brand-notifications.js",
+    "functions/_lib/layout.js",
+    "functions/_lib/gym-asset-delivery.js"
+  ],
+  "retainedBulkFiles": [
+    {
+      "path": "public/assets/gym-ui-components-v1-49.js",
+      "sha256": "e47c0172e087c892a2a9028c856e534c14b1c6c693a1ac401ed834428cf00925"
+    },
+    {
+      "path": "public/admin/gym-admin-v1-13.js",
+      "sha256": "fd303316ffedb0c12731d8c689ad14e348f7ce506a093feaba43e38a3254e267"
+    },
+    {
+      "path": "public/admin/final-v16-84-inbox-telegram-sales.js",
+      "sha256": "2c3480e94bb246dee5f045b618a1ddff80edb586bd4d8ec560ada6dfff1f6bb7"
+    }
+  ],
+  "frontendFiles": [
+    {
+      "path": "public/assets/layout-registry-v1-57.js",
+      "purpose": "Restore exact V1.06 bytes; remove the V1.07 architecture change.",
+      "beforeSha256": "8d756a3eacb43227d9831690bf158351e412c15280e7bfb9d9db62c466c67806",
+      "afterSha256": "15322f15eb312344114fdda8ed743f51aabc671ce1d519be2a69399e6196a56c"
+    },
+    {
+      "path": "public/assets/gym-layout-admin-v1-57.js",
+      "purpose": "Restore exact V1.06 bytes; remove the V1.07 architecture change.",
+      "beforeSha256": "2a26ed589d2e1d1b3fb02f309b451b0356c78fd14fd83863cc4277121ceed6d6",
+      "afterSha256": "91c894b898e33c29d08723b85c0a4118087c687efcaf0e372dd6a2d01c9b744a"
+    },
+    {
+      "path": "public/assets/gym-pages-workspace-v1-57.js",
+      "purpose": "Restore exact V1.06 bytes; remove the V1.07 architecture change.",
+      "beforeSha256": "dad6a7c0b109add324497e0ce8e88cb928817237d8999e24a58f192a9dbc4c76",
+      "afterSha256": "c69b719ddadf90d2d40c71b7e99714b7ebc558db332afb285ea073c9ed31de13"
+    },
+    {
+      "path": "public/admin/final-v16-53-navigation-brand-notifications.js",
+      "purpose": "Restore exact V1.06 bytes; remove the V1.07 architecture change.",
+      "beforeSha256": "7566b690a2c37604a706365acca38ec663d47b824936f68193f038198ef03005",
+      "afterSha256": "9e35a14b4377459675398450c20538fe0dfbe1857797a6fae4bd6d539495df7f"
+    },
+    {
+      "path": "public/assets/gym-layout-v1-57.js",
+      "purpose": "V1.06 renderer with only attribution label/link protection retained; original layout/style application restored.",
+      "beforeSha256": "551d0a2fc4d41f5e64de0f48b46cd2519b058ed39bb20e448851b8395a5cdb0f",
+      "afterSha256": "e95811c143084d6f70c12c57b90192352d1cab1b2a3520dcfa89fd060ef7aea2"
+    },
+    {
+      "path": "public/admin/gym-admin-v1-29.js",
+      "purpose": "V1.06 appearance, colour and Banners behaviour with an isolated typed theme-publication confirmation.",
+      "beforeSha256": "ce4c582dafb9576fa975b05c981c2ce02e2593db9f0b0a0790d378f250d6363f",
+      "afterSha256": "b0fb164e8b201c25ab8ecf4045927383ecc616aad4b1d2c18d4ad261adce1c41"
+    },
+    {
+      "path": "public/admin/admin.js",
+      "purpose": "V1.06 settings save order with transient theme confirmation fields added to its existing request only.",
+      "beforeSha256": "e7115b1f0bcf66dfc77ff3a1245ab400194444730c73447c8216f94f69e53e21",
+      "afterSha256": "f659402875a383b8b51557f33b0dadf8f912e2d960e4d58326671bc26593b3f5"
+    }
+  ],
+  "backendFiles": [
+    {
+      "path": "functions/_lib/layout.js",
+      "purpose": "Restore exact V1.06 bytes; remove the V1.07 architecture change.",
+      "beforeSha256": "5ce9b9a0c7827fefe62a5930777a23273f455ad8e1dfdb362fb13efc0e153a96",
+      "afterSha256": "3178ef9f26bb36017f1bc7c4fb391d43a1429249542663f5b31553822490f874",
+      "shape": "471f1603f8b6590578f13ff5db59130db5cc57b731dcd888e46d9dc620e24c16",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "functions/_lib/gym-asset-delivery.js",
+      "purpose": "Restore exact V1.06 bytes; remove the V1.07 architecture change.",
+      "beforeSha256": "f242874d71a31be29b19c15847af70ef9aa07e14f32ecb507ef963be43880f69",
+      "afterSha256": "a2ac045d68841fd6e509a9251b4cf49650d0e124c6857b21f16133f9b27c4334",
+      "shape": "3220dd8de975801a7d0bbbd63193f347c92d4ab540f8ce12365d26c8eee55350",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "functions/api/admin/settings.js",
+      "purpose": "Retain exact V1.07 typed theme confirmation and stale-confirmation guard; existing cache invalidation unchanged.",
+      "beforeSha256": "5888d599b6e2264cad634fce3c0b5f138ff5b192d41a3643fec53ec54d1077b8",
+      "afterSha256": "5888d599b6e2264cad634fce3c0b5f138ff5b192d41a3643fec53ec54d1077b8",
+      "shape": "1773897f5a624da8e6aec496ca293221d10d2e63069195c1ee58af0df2040ee7",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "functions/_middleware.js",
+      "purpose": "Release response header 1.9.0 only relative to V1.06.",
+      "beforeSha256": "ffd4a65d14227148bd5a81c66f9886028e6fabf95a2d50812333e083c3b3786b",
+      "afterSha256": "831ff97e7a3f462eb81c02b4941e98dbef4939c1d709e7e4b88ecc9ae9db5546",
+      "shape": "24650fd8eb0c07175aab814438ee78309627f0664b5352a53d613968bbd0c8c4",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "functions/_lib/gym-asset-manifest.js",
+      "purpose": "Generated V1.09 fingerprints using the restored V1.06 delivery implementation.",
+      "beforeSha256": "5e3c333489045d6e537bd79cd2feefba41ce4e366f4cde893bb53a637f6b710c",
+      "afterSha256": "37ef894d8b4070b146563a854d99e595a7861ac855b73199874ae5235dfa66df",
+      "shape": "9b40f1a0ea9d5d3565dbbd67439cd8fcf7a79818483438666f0a285b092ad73c",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ],
+  "unchangedCss": 179,
+  "unchangedMigrations": 56,
+  "rule": "V1.06 application plus exact V1.08 Bulk Import scripts, typed confirmation, protected attribution and current release metadata only."
+}

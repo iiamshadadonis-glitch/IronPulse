@@ -1,3 +1,13 @@
+# V1.09 — Restore V1.06 appearance and retain selected fixes
+
+- Restore V1.06 layout registry, public layout application, Layout editor, Pages workspace/navigation and asset delivery.
+- Restore the V1.06 settings save order and original colour/Banners behaviour; remove V1.07 preview/payload synchronization additions.
+- Keep all three V1.08 Bulk Import scripts byte-for-byte, including render/drop guards, drag-state transitions and shared Sales selection.
+- Keep exact typed confirm for theme publication and the original V1.06 typed Layout save confirmation.
+- Keep Website designed by Instautomate and its safe outbound link, while restoring original Footer editing behaviour.
+- Preserve all 179 stylesheets, 56 migrations, API paths/keys, importer logic and existing gym D1 binding.
+- Retain all 3,127 V1.08 paths and add complete comparison, current tests, verification evidence and V1.09 cache fingerprints.
+
 # V1.08 — Bulk Import recursion and drag-and-drop stability
 
 - Stop synchronous re-entry into upload rendering and dropped-file change callbacks; release guards after errors so retries work.

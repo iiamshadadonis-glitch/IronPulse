@@ -1,0 +1,25 @@
+{
+  "applicationVersion": "V1.09",
+  "packagingRevision": 2,
+  "cause": "Saved ZIP truncated before the central directory and end record.",
+  "damagedDownloadBytes": 14673488,
+  "expectedOriginalLocalBytes": 16839680,
+  "allOriginalV109PathsRetained": 3198,
+  "applicationFilesByteIdentical": 819,
+  "applicationChanges": 0,
+  "cssFilesByteIdentical": 179,
+  "migrationFilesByteIdentical": 56,
+  "format": {
+    "compression": "Deflate",
+    "extractVersion": 20,
+    "platform": "DOS",
+    "encrypted": false,
+    "zip64": false
+  },
+  "regressionSuites": 37,
+  "browserGroups": 39,
+  "workerD1Groups": 24,
+  "cacheGroups": 2,
+  "appearanceComparisons": 8,
+  "savedCopyRoundTripRequiredBeforeDelivery": true
+}

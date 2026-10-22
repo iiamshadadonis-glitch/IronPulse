@@ -1,3 +1,5 @@
+> Historical release document. V1.09 restores V1.06 architecture, retains the V1.08 Bulk Import safeguards, and keeps only typed confirmation and Instautomate attribution from V1.07. Read SELECTIVE-ROLLBACK.md and the current root START-HERE.md for this release.
+
 # V1.07 — Layout, theme sync and fixed footer
 
 This is the complete V1.06 project with a focused V1.07 update. The colours, four existing theme palettes, database schema, API paths, stored roles, membership, payment and scheduling behavior are retained. No migration is required. `DB` still selects D1 `893e7d29-fa72-413d-9415-5d93b1c3bc6e`.

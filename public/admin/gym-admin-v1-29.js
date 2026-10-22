@@ -40,9 +40,8 @@
   function syncThemeCards(){const current=selectedTheme();$$('[data-db129-theme]').forEach(button=>{const active=button.dataset.db129Theme===current;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});syncThemeMedia(current);}
   function selectTheme(key,{reset=false}={}){
     const theme=THEMES[key]||THEMES.dropbeat,form=$('#settings form');if(!form)return;
-    const input=form.elements.frontendTheme;if(input){input.value=key;input.dataset.db145AppearanceDraft='1';}
+    const input=form.elements.frontendTheme;if(input){input.value=key;if(matchMedia('(max-width:760px)').matches)input.dataset.db145AppearanceDraft='1';}
     setColorFields(theme.primary,theme.accent);syncThemeCards();
-    window.dispatchEvent(new CustomEvent('dropbeat:theme-preview',{detail:{theme:key}}));
     window.ucAdminToast?.(reset?'Original IronPulse theme is previewing. Click Save Settings to keep it.':`${theme.name} is previewing. Click Save Settings to publish it.`,'success');
   }
   function themeMarkup(){return `<section class="uc129-theme-panel" data-db129-appearance-panel="theme" hidden>
@@ -53,7 +52,7 @@
   function ensureAppearanceControls(){
     const form=$('#settings form'),builder=$('#settings .uc-theme-builder');if(!form||!builder)return;
     let input=form.elements.frontendTheme;if(!input){input=document.createElement('input');input.type='hidden';input.name='frontendTheme';form.appendChild(input);}
-    if(input.dataset.db145AppearanceDraft!=='1')input.value=THEMES[String(settings().frontendTheme||input.value)]?String(settings().frontendTheme||input.value):'dropbeat';
+    if(!matchMedia('(max-width:760px)').matches||input.dataset.db145AppearanceDraft!=='1')input.value=THEMES[String(settings().frontendTheme||input.value)]?String(settings().frontendTheme||input.value):'dropbeat';
     const details=builder.closest('details.uc-v7-theme-details');
     if(details){details.open=true;details.classList.add('uc129-appearance-shell');const summary=$(':scope>summary',details);if(summary)summary.hidden=true;}
     const host=details||builder.parentElement;if(!host)return;
@@ -78,8 +77,8 @@
     $$('[data-db129-appearance-panel]',host).forEach(panel=>panel.hidden=panel.dataset.db129AppearancePanel!==active);
   }
   function syncThemeMedia(key=selectedTheme()){
-    const theme=window.DropBeatLayout?.themes?.[key]||THEMES[key]||THEMES.dropbeat;
-    $$('[data-studio-gallery-manager]').forEach(manager=>{manager.classList.toggle('uc129-theme-hidden',!theme.gallery);if(manager.hidden===theme.gallery)manager.hidden=!theme.gallery;const hidden=String(!theme.gallery);if(manager.getAttribute('aria-hidden')!==hidden)manager.setAttribute('aria-hidden',hidden);});
+    const theme=THEMES[key]||THEMES.dropbeat;
+    $$('[data-studio-gallery-manager]').forEach(manager=>{manager.classList.toggle('uc129-theme-hidden',!theme.gallery);manager.setAttribute('aria-hidden',String(!theme.gallery));});
     const panel=$('#banners'),message=$('[data-db129-theme-media-message]',panel);
     if(panel&&!message){const anchor=$('#bannerTable',panel)?.closest('.card');if(anchor){const note=document.createElement('div');note.dataset.db129ThemeMediaMessage='1';note.className='notice uc129-theme-media-message';anchor.insertAdjacentElement('afterend',note);}}
     const note=$('[data-db129-theme-media-message]',panel);if(note){note.hidden=theme.gallery;note.innerHTML=`<strong>${theme.name}:</strong> this public theme does not use the IronPulse Gym image gallery, so those controls are hidden. Home Banner controls above remain available.`;}
@@ -87,14 +86,14 @@
 
   window.DropBeatAppearanceUI=Object.freeze({ensure:ensureAppearanceControls});
   const priorLoadSettings=window.load_settings;
-  if(typeof priorLoadSettings==='function')window.load_settings=async function(){const form=$('#settings form'),input=form?.elements.frontendTheme,preview=input?.dataset.db145AppearanceDraft==='1'?{theme:input.value,primary:form.elements.primaryColor?.value,accent:form.elements.accentColor?.value}:null;const result=await priorLoadSettings.apply(this,arguments);if(preview&&input?.isConnected){input.value=preview.theme;input.dataset.db145AppearanceDraft='1';setColorFields(preview.primary,preview.accent);}ensureAppearanceControls();if(!preview)applyAdminBrand();syncThemeCards();return result;};
+  if(typeof priorLoadSettings==='function')window.load_settings=async function(){const result=await priorLoadSettings.apply(this,arguments);ensureAppearanceControls();applyAdminBrand();syncThemeCards();return result;};
   const priorLoadBanners=window.load_banners;
   if(typeof priorLoadBanners==='function')window.load_banners=async function(){if(!window.dropbeatAdminState?.settings&&typeof window.load_settings==='function')await window.load_settings().catch(()=>{});const result=await priorLoadBanners.apply(this,arguments);syncThemeMedia();return result;};
   let themeWarning=null;
   function confirmTheme({key,from,form,trigger,save}){
     if(themeWarning)return themeWarning.promise;
     const root=document.createElement('div');root.className='db156-overlay db156-warning db156-ui db157-theme-warning';
-    root.innerHTML=`<section class="db156-card" role="alertdialog" aria-modal="true" aria-labelledby="db157ThemeWarningTitle"><div class="db156-drag" aria-hidden="true"></div><header><h2 id="db157ThemeWarningTitle">Publish ${THEMES[key].name}?</h2><button type="button" class="db156-icon" data-theme-cancel aria-label="Close theme confirmation">×</button></header><div class="db156-body"><p class="db156-warning-copy">This changes the public website's theme and supported home sections on desktop and mobile. The global footer stays fixed. Review your selection before publishing.</p><label for="db157ThemeConfirm">Type <strong>confirm</strong> to continue</label><input id="db157ThemeConfirm" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="7"><p class="db156-error" data-theme-error role="alert"></p></div><footer><button type="button" class="db156-secondary" data-theme-cancel>Cancel</button><button type="button" class="db156-danger" data-theme-publish disabled>Publish Theme</button></footer></section>`;
+    root.innerHTML=`<section class="db156-card" role="alertdialog" aria-modal="true" aria-labelledby="db157ThemeWarningTitle"><div class="db156-drag" aria-hidden="true"></div><header><h2 id="db157ThemeWarningTitle">Publish ${THEMES[key].name}?</h2><button type="button" class="db156-icon" data-theme-cancel aria-label="Close theme confirmation">×</button></header><div class="db156-body"><p class="db156-warning-copy">This changes the public website's theme and colours on desktop and mobile. Review your selection before publishing.</p><label for="db157ThemeConfirm">Type <strong>confirm</strong> to continue</label><input id="db157ThemeConfirm" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="7"><p class="db156-error" data-theme-error role="alert"></p></div><footer><button type="button" class="db156-secondary" data-theme-cancel>Cancel</button><button type="button" class="db156-danger" data-theme-publish disabled>Publish Theme</button></footer></section>`;
     let resolve;const promise=new Promise(done=>resolve=done),warning={root,promise,busy:false};themeWarning=warning;
     const previousOverflow=document.body.style.overflow,close=(value=false)=>{if(warning.busy)return;root.remove();themeWarning=null;document.body.style.overflow=previousOverflow;if(!document.querySelector('.db156-overlay'))document.documentElement.classList.remove('db156-dialog-open');if(trigger?.isConnected)trigger.focus({preventScroll:true});resolve(value);};
     document.body.append(root);document.body.style.overflow='hidden';document.documentElement.classList.add('db156-dialog-open');
@@ -106,12 +105,19 @@
   }
   const priorSaveSettings=window.saveSettings;
   if(typeof priorSaveSettings==='function')window.saveSettings=async function(event){
-    event?.preventDefault?.();ensureAppearanceControls();const form=event?.currentTarget||event?.target||$('#settings form'),key=String(form?.elements.frontendTheme?.value||'dropbeat'),from=String(settings().frontendTheme||'dropbeat');if(!THEMES[key])return;
-    const save=async()=>{const result=await priorSaveSettings.call(this,{preventDefault(){},target:form,currentTarget:form,themeConfirmation:key!==from?'confirm':'',expectedTheme:from});delete form.elements.frontendTheme.dataset.db145AppearanceDraft;syncThemeCards();return result;};
+    event?.preventDefault?.();
+    const form=event?.currentTarget||event?.target||$('#settings form');if(!form)return;
+    if(!form.elements.frontendTheme)ensureAppearanceControls();
+    const key=String(form.elements.frontendTheme?.value||'dropbeat'),from=String(settings().frontendTheme||'dropbeat');if(!THEMES[key])return;
+    const save=async()=>{
+      const shared=window.dropbeatAdminState;if(shared)shared.settings={...(shared.settings||{}),frontendTheme:key};
+      try{const result=await priorSaveSettings.call(this,{preventDefault(){},target:form,currentTarget:form,themeConfirmation:key!==from?'confirm':'',expectedTheme:from});syncThemeCards();return result;}
+      catch(error){if(key!==from&&shared?.settings?.frontendTheme===key)shared.settings={...shared.settings,frontendTheme:from};throw error;}
+    };
     return key!==from?confirmTheme({key,from,form,trigger:event?.submitter||form.querySelector('[type="submit"]'),save}):save();
   };
 
-  window.addEventListener('uc:brand-updated',event=>{const input=$('#settings [name="frontendTheme"]');if(input)delete input.dataset.db145AppearanceDraft;applyAdminBrand(event.detail||settings());ensureAppearanceControls();syncThemeCards();});
+  window.addEventListener('uc:brand-updated',event=>{applyAdminBrand(event.detail||settings());ensureAppearanceControls();syncThemeCards();});
   function init(){applyAdminBrand();if($('#settings .uc-theme-builder'))ensureAppearanceControls();syncThemeMedia();}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,80),{once:true});else setTimeout(init,80);
 })();

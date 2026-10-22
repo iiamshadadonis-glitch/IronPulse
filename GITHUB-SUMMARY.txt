@@ -1,17 +1,15 @@
 Title:
-V1.08: Fix Bulk Import recursion and stabilize drag-and-drop
+V1.09: Repair ZIP extraction and preserve the verified release
 
 Description:
-- Guard upload rendering and drop callbacks against synchronous re-entry; release guards after errors so later selection and retry still work.
-- Make drag highlighting update only when its state changes, handle child boundaries, and clear it on exit, drop, drag end and form reset.
-- Share one Sales pane selection owner across both compatibility controllers, install the recovery router once, and load each selected pane once per navigation action.
-- Preserve native file selection, accepted-file validation, filename feedback, mobile review/import, required-field validation and the existing one-request import guard.
-- Keep CSV parsing, importer API, authorization, matching-SKU updates, row errors, schema, JSON keys, stored roles, all 179 CSS files and all 56 migrations byte-identical to V1.07.
-- Regenerate V1.08 asset fingerprints and the release header so newly opened pages load the current scripts.
-- Retain all 3,059 supplied V1.07 paths and the unchanged 1,829-file V1.00 archive. All other inherited application bytes outside the explicit five-file audit remain unchanged.
-- Include complete source, baseline replay evidence, focused regression tests, browser/API results, file comparison, deployment instructions and final package checksums.
+- Rebuild the complete archive after confirming the earlier saved download was truncated and missing its ZIP central directory.
+- Preserve every V1.09 application file byte-for-byte: all 493 frontend files, 270 backend/delivery files and 56 migrations. No application logic, palette, schema, API, credential or D1-binding change.
+- Keep the V1.06 appearance/settings flow, all V1.08 Bulk Import safeguards, typed confirm for theme/Layout publication and the Instautomate attribution/link.
+- Retain all 3,198 original V1.09 paths, including the source archive and earlier verification history; regenerate current verification evidence and checksums.
+- Write a standard Windows-compatible ZIP with explicit v2.0 Deflate headers, DOS file attributes, no encryption or ZIP64, complete directory records and atomic file finalization.
+- Add extraction instructions and a packaging audit. Verify the actual saved downloadable copy after upload, including its byte count/hash and complete extraction.
 
 Validation:
-37 regression suites, 37 actual Worker browser workflow groups, 2 real browser cache groups and 24 local Worker/D1 groups passed. The original V1.07 drop handler reproduces a RangeError under a controlled change-callback replay; the patched handler processes it once. All 89 unrelated named functions in the three affected frontend scripts retain their source bytes. Cloudflare Functions compiled successfully. Complete-source, checksums, ZIP integrity and fresh-extraction checks passed. The existing gym DB binding is retained; no migration is required.
+37 current regression suites, 39 browser workflow groups, 24 local Worker/D1 groups, 2 cache groups and 8 V1.06 appearance comparisons pass again. Cloudflare Functions compile. Python ZIP CRC checks, independent unzip checks, every-file checksums and fresh extraction pass. All 819 application files match the original V1.09 checksums. No migration or application-version change is required.
 
-See RELEASE-VERIFICATION-GYM.md, docs/BULK-IMPORT-FIX.md and verification/ironpulse-v1.08/.
+The application remains V1.09 (package 1.9.0). This is a packaging/delivery repair. See EXTRACTION-HELP.txt, RELEASE-VERIFICATION-GYM.md and verification/ironpulse-v1.09/zip-repair-report.json.

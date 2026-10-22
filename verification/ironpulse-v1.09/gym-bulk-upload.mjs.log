@@ -1,0 +1,1 @@
+Bulk upload safeguards passed: supplied Sales/upload re-entry overflows reproduced, patched bounded callbacks and error recovery, circular metadata handled without recursion, and 89 unrelated frontend functions retained byte-for-byte.
