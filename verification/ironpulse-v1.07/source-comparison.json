@@ -1,0 +1,270 @@
+{
+  "release": "V1.07",
+  "inputZip": "V1.06(1).zip",
+  "inputZipSha256": "72508b7cc867579f49b566aeff8e760f61bca6b4b8560f0755037d02e43fbb0b",
+  "inputFileCount": 2992,
+  "retainedInputFileCount": 2992,
+  "deletedPaths": [],
+  "finalFileCount": 3059,
+  "changed": [
+    {
+      "path": "CHANGELOG.md",
+      "beforeSha256": "69308420972f1ec2b0fb0fda9c2af4a477d40d578ea14fc9fc496a04ee8df80c",
+      "afterSha256": "01e70d8ec184178ad178ea6e0384b2dcc5692fcf2991f6bd73ef9779d43d1348"
+    },
+    {
+      "path": "CLOUDFLARE-FIX.md",
+      "beforeSha256": "3022bdb501429631fc8501bf8951b9beaccd0af2e4aae0852b855347b208c8b5",
+      "afterSha256": "816995960823059364398d2917747b905abc94a5ff68624f6b34a958a28c77da"
+    },
+    {
+      "path": "COMPARISON.md",
+      "beforeSha256": "82e784bcb4f300eb702d942d425cac81744f4fd89bd7feb7ca246fe60afb7416",
+      "afterSha256": "edba2c3c9836c8220cc07c8e94a9c49d45ff78d7955be0b846f3e0c5f5ca1259"
+    },
+    {
+      "path": "GITHUB-SUMMARY.txt",
+      "beforeSha256": "f45870e914eb8b0c50c4db3ba50f6e0c8c2442712537e2ffd018eeb4afdfe140",
+      "afterSha256": "24f3ab816f04790caa5f4fe3dd3e1e82d03bf8998a0a7ab9161f94b261325256"
+    },
+    {
+      "path": "IRONPULSE-GYM-VERSION.txt",
+      "beforeSha256": "a1aaa30094a4ea6db60aa7217cb5be87a598acde920a520b55f078e431bde720",
+      "afterSha256": "24a462720d701ee39e5aad6d04c3282b06d6f4c14ab8840537de07b5951144d4"
+    },
+    {
+      "path": "PACKAGE-CONTENTS.txt",
+      "beforeSha256": "db7c1ee88fe3d8a56594032762adba4f0b4c333249099dfe81371445abb2e8e4",
+      "afterSha256": "bc1ab9b57ff3f5d4720d94bf023ffabcd28878388f4b4728866d0287ddee94fe"
+    },
+    {
+      "path": "README.md",
+      "beforeSha256": "bc0f3ce8a121416d1a7c54bb0f49dfd1545e94fc1e061660a066e26967767dc5",
+      "afterSha256": "480eba14e57910258934c2364007bbf4b57ac2ca34c7967421ecf643ca40f495"
+    },
+    {
+      "path": "RELEASE-VERIFICATION-GYM.md",
+      "beforeSha256": "5196f8de7c4175667b6ecc02d4e32b4549c38b92a211383c3e2d4564d03d3ad6",
+      "afterSha256": "83983c7842f45600dbb3235b4126a991966ab20405466520863a04b7182eeffb"
+    },
+    {
+      "path": "START-HERE.md",
+      "beforeSha256": "a968703737319cc636069d899a0e829b7a2463d69fb3d3329944fc5a94e887a5",
+      "afterSha256": "5020b032415f0fe555023cca4531016163b3cc6818bb6bf0ab6e4eb9f04ba787"
+    },
+    {
+      "path": "VERSION.txt",
+      "beforeSha256": "a1aaa30094a4ea6db60aa7217cb5be87a598acde920a520b55f078e431bde720",
+      "afterSha256": "24a462720d701ee39e5aad6d04c3282b06d6f4c14ab8840537de07b5951144d4"
+    },
+    {
+      "path": "functions/_lib/gym-asset-delivery.js",
+      "beforeSha256": "a2ac045d68841fd6e509a9251b4cf49650d0e124c6857b21f16133f9b27c4334",
+      "afterSha256": "f242874d71a31be29b19c15847af70ef9aa07e14f32ecb507ef963be43880f69"
+    },
+    {
+      "path": "functions/_lib/gym-asset-manifest.js",
+      "beforeSha256": "d48d3d0d0958f61422d1b7989c50de1f1b77833cd2c525e733fe0544256bdd0b",
+      "afterSha256": "6cd844195df1b3d364a76fd71a45c92f86a8c50dd4f66c89b9c5c130c33522ec"
+    },
+    {
+      "path": "functions/_lib/layout.js",
+      "beforeSha256": "3178ef9f26bb36017f1bc7c4fb391d43a1429249542663f5b31553822490f874",
+      "afterSha256": "5ce9b9a0c7827fefe62a5930777a23273f455ad8e1dfdb362fb13efc0e153a96"
+    },
+    {
+      "path": "functions/_middleware.js",
+      "beforeSha256": "37fcce33955b587be74b9ebfab9fbe6cbc5d972c1c6d9bc98598bf9147251019",
+      "afterSha256": "40bf57bed34e5dbf196bdbb6291785e49f156633fd0cb3ba2789e51f2c5cbac6"
+    },
+    {
+      "path": "functions/api/admin/settings.js",
+      "beforeSha256": "7067c51c699ba5fa3a28e2433f02dda2b03d0dd2ff3f527d8408f84d7f2bac0c",
+      "afterSha256": "5888d599b6e2264cad634fce3c0b5f138ff5b192d41a3643fec53ec54d1077b8"
+    },
+    {
+      "path": "package-lock.json",
+      "beforeSha256": "53ff124aad3efe0cedd2eef0714310f056b9506a10b1d53f3d7dd63db743045a",
+      "afterSha256": "1655f388bc25221551601ceff556458c24a431b45919fb5454a958d07bebb420"
+    },
+    {
+      "path": "package.json",
+      "beforeSha256": "a5780b7ec968de032609d0b9546ae2a3cc59abc995f4be119bf41cef86ca28ec",
+      "afterSha256": "a9fe95e2e816d5872b6d3cbfd5f3ed231a478f9609be49a40c71a02503185c6a"
+    },
+    {
+      "path": "public/admin/admin.js",
+      "beforeSha256": "765f02d084161865d294b3bf8dcfdeb262015e5e8f99ebb1e069b673cae93f0f",
+      "afterSha256": "e7115b1f0bcf66dfc77ff3a1245ab400194444730c73447c8216f94f69e53e21"
+    },
+    {
+      "path": "public/admin/final-v16-53-navigation-brand-notifications.js",
+      "beforeSha256": "9e35a14b4377459675398450c20538fe0dfbe1857797a6fae4bd6d539495df7f",
+      "afterSha256": "7566b690a2c37604a706365acca38ec663d47b824936f68193f038198ef03005"
+    },
+    {
+      "path": "public/admin/gym-admin-v1-29.js",
+      "beforeSha256": "cf888bf48b0520758bfa4d7a6e1a5b7d6eea1d220586ab454d4a84a2a606179e",
+      "afterSha256": "ce4c582dafb9576fa975b05c981c2ce02e2593db9f0b0a0790d378f250d6363f"
+    },
+    {
+      "path": "public/assets/gym-layout-admin-v1-57.js",
+      "beforeSha256": "91c894b898e33c29d08723b85c0a4118087c687efcaf0e372dd6a2d01c9b744a",
+      "afterSha256": "2a26ed589d2e1d1b3fb02f309b451b0356c78fd14fd83863cc4277121ceed6d6"
+    },
+    {
+      "path": "public/assets/gym-layout-v1-57.js",
+      "beforeSha256": "b3d8bf2f1e146756b68443bdcf1c2c93a80ac958bc642d9048cf3245af52353b",
+      "afterSha256": "551d0a2fc4d41f5e64de0f48b46cd2519b058ed39bb20e448851b8395a5cdb0f"
+    },
+    {
+      "path": "public/assets/gym-pages-workspace-v1-57.js",
+      "beforeSha256": "c69b719ddadf90d2d40c71b7e99714b7ebc558db332afb285ea073c9ed31de13",
+      "afterSha256": "dad6a7c0b109add324497e0ce8e88cb928817237d8999e24a58f192a9dbc4c76"
+    },
+    {
+      "path": "public/assets/layout-registry-v1-57.js",
+      "beforeSha256": "15322f15eb312344114fdda8ed743f51aabc671ce1d519be2a69399e6196a56c",
+      "afterSha256": "8d756a3eacb43227d9831690bf158351e412c15280e7bfb9d9db62c466c67806"
+    },
+    {
+      "path": "public/release.json",
+      "beforeSha256": "2174946771503c75a7e7496f21238c3ea090436f2c895b73e8a80919a63b62c7",
+      "afterSha256": "b166e7b9fa49567f2b5c4e6fc40ca23dec494f91c7ac81602325afae4df2282d"
+    },
+    {
+      "path": "tests/gym-asset-delivery.mjs",
+      "beforeSha256": "0588b8e5eaca6018c9807c1b30a5c317d7a23df4965c4a311097a2ad9a97d556",
+      "afterSha256": "b352471ef86984dda720b22e81d1a8d892575c5aeb11d6317fcd22b282edd08e"
+    },
+    {
+      "path": "tests/gym-release.mjs",
+      "beforeSha256": "bd22d58b5380f2a340ec6c5a7170dcdb0f2600993b877ea04310aa94db9131dc",
+      "afterSha256": "e3827b93d82e4af8855347177841dd6698ae1511d9fc82db2628122cb17aa370"
+    },
+    {
+      "path": "tests/gym-v1-57-layout-api.mjs",
+      "beforeSha256": "8e2ece034c1791982b4299b52eb3ac6a914fc9290641bcea96a5ea49f824440d",
+      "afterSha256": "bf2ee67d3d67b7dc73833e330ad645a9285bf04143732f2342a97203381d5099"
+    },
+    {
+      "path": "tests/v16-93-smoke.mjs",
+      "beforeSha256": "df202aa8b02df016a0a69bcdd856cf2dd113fc05d8ecc3bea91f8c8f54813e87",
+      "afterSha256": "cc79137e80da7d1ba0c5f23308086944ff4af7d70e630791e07f76d7d8e26b72"
+    },
+    {
+      "path": "tests/v16-95-smoke.mjs",
+      "beforeSha256": "a6d46a3ebba6feac64a7813b04a53dcc2bc0138751ebb20408b6cc6de28e645f",
+      "afterSha256": "6d93b62978fe5af98bb91f2d94c9d360ff07605069df4ac96049a1d780ddc43d"
+    },
+    {
+      "path": "tests/v17-09-navigation-email-parity.mjs",
+      "beforeSha256": "06d8ead8f73c531dda46cb6494aa9cce69f9efa62ecd23f62ac806adc2b25db8",
+      "afterSha256": "ea46e00216575ee3934489f7654e783b23297a5abbfdf7434235dbe29d9d9a29"
+    },
+    {
+      "path": "tools/check-gym-deployment.mjs",
+      "beforeSha256": "3e803bc1f752d236e298311e39e724489d954ae65f628d48d535a5d7a9f12de4",
+      "afterSha256": "2a4c7bf41c28d3bab10d85e47c03a3dd06e0c9dbf4fee65b20fad3bba09e8355"
+    },
+    {
+      "path": "tools/gym-navigation-cases.mjs",
+      "beforeSha256": "2ec8162f8fcb4af37764dfa9068a23fbe9e1098a767d23ef6d7cfb5754d1df03",
+      "afterSha256": "13a791d59ca07c3fe83b9323e6255f6ca1223803a8706c5363180effb8ca6657"
+    },
+    {
+      "path": "tools/verify-gym-browser.mjs",
+      "beforeSha256": "55a6f54ebf9efd1c13c5ac0a00c42ba87ff51b790776f82941c1cb38c1647bb0",
+      "afterSha256": "d416984772e65bbf04bb5de45cb3ca105df74aba93afa9256d2c9531d17f4e0a"
+    },
+    {
+      "path": "tools/verify-gym-cache-browser.mjs",
+      "beforeSha256": "806eba3ebafaa5c1008f247d502b236151e8fc13d2939e8346e1a0d0519f08a8",
+      "afterSha256": "fd2610c9d7ae7643f7c4f1ca9b184a401af8ba719bb7fb1af99aebba3e18130b"
+    },
+    {
+      "path": "tools/verify-gym-completeness.mjs",
+      "beforeSha256": "464af3a9a9a15937763c101d32a1a0dc56f39898edabf168135ce5ff541827fe",
+      "afterSha256": "191d76f2a316a99ce408ab7936fce803e84b930071bd663df2396db95a9f605c"
+    },
+    {
+      "path": "tools/verify-gym-release.mjs",
+      "beforeSha256": "99993374a5fde90d293eca52821bc2660a77e0ca7cd79aeab55df78264c8575b",
+      "afterSha256": "7a1601d64abb9297c10c1c815b861ac3a6f2dc9526849af27990608f66b0816d"
+    },
+    {
+      "path": "tools/verify-gym-runtime.mjs",
+      "beforeSha256": "1a73fe1567c273f4e9909271833a4a9e318a3a3abf5f196447dc025e87f08967",
+      "afterSha256": "a2bae908769957019b31a2e4cb851c8a20869e57f4dbfbdcd771230284dbf01a"
+    }
+  ],
+  "addedPaths": [
+    "docs/LAYOUT-THEME-SYNC.md",
+    "tests/fixtures/v106-pages-workspace.js",
+    "tests/gym-layout-themes.mjs",
+    "tools/audit-gym-layout-release.mjs",
+    "tools/gym-layout-theme-cases.mjs",
+    "verification/ironpulse-v1.07/asset-cache-results.json",
+    "verification/ironpulse-v1.07/browser-console.log",
+    "verification/ironpulse-v1.07/build-console.log",
+    "verification/ironpulse-v1.07/cache-browser-console.log",
+    "verification/ironpulse-v1.07/compatibility-focused.log",
+    "verification/ironpulse-v1.07/completeness-console.log",
+    "verification/ironpulse-v1.07/fitness-tips-results.json",
+    "verification/ironpulse-v1.07/gym-asset-delivery.mjs.log",
+    "verification/ironpulse-v1.07/gym-branding-results.json",
+    "verification/ironpulse-v1.07/gym-buttons-api.mjs.log",
+    "verification/ironpulse-v1.07/gym-deployment.mjs.log",
+    "verification/ironpulse-v1.07/gym-fitness-tips.mjs.log",
+    "verification/ironpulse-v1.07/gym-layout-themes.mjs.log",
+    "verification/ironpulse-v1.07/gym-navigation-schedule-results.json",
+    "verification/ironpulse-v1.07/gym-plan-import.mjs.log",
+    "verification/ironpulse-v1.07/gym-public-fitness-tips.mjs.log",
+    "verification/ironpulse-v1.07/gym-release.mjs.log",
+    "verification/ironpulse-v1.07/gym-sessions.mjs.log",
+    "verification/ironpulse-v1.07/gym-v1-27-payment-admin-recovery.mjs.log",
+    "verification/ironpulse-v1.07/gym-v1-28-worker-resource-login-recovery.mjs.log",
+    "verification/ironpulse-v1.07/gym-v1-49-schedule.mjs.log",
+    "verification/ironpulse-v1.07/gym-v1-51-cache.mjs.log",
+    "verification/ironpulse-v1.07/gym-v1-51-sync.mjs.log",
+    "verification/ironpulse-v1.07/gym-v1-57-layout-api.mjs.log",
+    "verification/ironpulse-v1.07/gym-v1-58-notifications.mjs.log",
+    "verification/ironpulse-v1.07/gym-v1-58-service-worker.mjs.log",
+    "verification/ironpulse-v1.07/layout-browser-console.log",
+    "verification/ironpulse-v1.07/layout-theme-fixes.json",
+    "verification/ironpulse-v1.07/layout-theme-results.json",
+    "verification/ironpulse-v1.07/public-fitness-tips-results.json",
+    "verification/ironpulse-v1.07/release-tests.json",
+    "verification/ironpulse-v1.07/runtime-console.log",
+    "verification/ironpulse-v1.07/runtime-empty-console.log",
+    "verification/ironpulse-v1.07/runtime-empty-results.json",
+    "verification/ironpulse-v1.07/runtime-results.json",
+    "verification/ironpulse-v1.07/source-audit-console.log",
+    "verification/ironpulse-v1.07/source-comparison.csv",
+    "verification/ironpulse-v1.07/source-comparison.json",
+    "verification/ironpulse-v1.07/test-console.log",
+    "verification/ironpulse-v1.07/v100-original-files.json",
+    "verification/ironpulse-v1.07/v106-admin-functions.json",
+    "verification/ironpulse-v1.07/v106-input-files.json",
+    "verification/ironpulse-v1.07/v16-88-data-integration.mjs.log",
+    "verification/ironpulse-v1.07/v16-89-periods.mjs.log",
+    "verification/ironpulse-v1.07/v16-90-d1-read.mjs.log",
+    "verification/ironpulse-v1.07/v16-93-smoke.mjs.log",
+    "verification/ironpulse-v1.07/v16-95-smoke.mjs.log",
+    "verification/ironpulse-v1.07/v16-96-smoke.mjs.log",
+    "verification/ironpulse-v1.07/v16-97-smoke.mjs.log",
+    "verification/ironpulse-v1.07/v16-98-smoke.mjs.log",
+    "verification/ironpulse-v1.07/v16-99-smoke.mjs.log",
+    "verification/ironpulse-v1.07/v17-00-smoke.mjs.log",
+    "verification/ironpulse-v1.07/v17-01-d1-read-optimization.mjs.log",
+    "verification/ironpulse-v1.07/v17-02-visitor-customer-recovery.mjs.log",
+    "verification/ironpulse-v1.07/v17-03-visitor-dashboard-freshness.mjs.log",
+    "verification/ironpulse-v1.07/v17-04-visitor-read-guard.mjs.log",
+    "verification/ironpulse-v1.07/v17-05-email-automations.mjs.log",
+    "verification/ironpulse-v1.07/v17-06-email-followup-providers.mjs.log",
+    "verification/ironpulse-v1.07/v17-07-webinar-email-ui.mjs.log",
+    "verification/ironpulse-v1.07/v17-08-workflows-members-ui.mjs.log",
+    "verification/ironpulse-v1.07/v17-09-navigation-email-parity.mjs.log",
+    "verification/ironpulse-v1.07/verification-summary.json"
+  ]
+}

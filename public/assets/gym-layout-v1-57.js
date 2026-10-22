@@ -1,11 +1,12 @@
-import {LAYOUT_THEMES,LAYOUT_NAMES} from './layout-registry-v1-57.js';
+import {LAYOUT_THEMES,LAYOUT_NAMES,cloneLayoutData,normalizeThemeLayout,resolvedBlocks} from './layout-registry-v1-57.js';
 /* Presentation only: keep the original nodes, routes, forms and action handlers. */
 const admin=location.pathname.startsWith('/admin'),portal=/(?:member-dashboard|coach-dashboard|login)(?:\.html)?\/?$/.test(location.pathname),phone=matchMedia('(max-width:760px)');
 let model=null,observer,queued=false,refreshing=null;const styles=new Map(),texts=new Map();
 const date=value=>Date.parse(value||'')||0;
 function textNode(node){const label=node.querySelector(':scope>[data-db159-label]');if(label){if(!label.firstChild)label.append(document.createTextNode(''));return label.firstChild;}const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);while(walker.nextNode()){const n=walker.currentNode;if(n.nodeValue.trim()&&!n.parentElement.closest('svg,[aria-hidden="true"],.nav-badge,.uc86-count-badge,.uc-checkout-count-badge'))return n;}return null;}
 function names(){const values={...(model?.names||{})};const dictionary=window.DropBeatButtons?.snapshot();if(dictionary&&date(dictionary.updatedAt)>=date(model?.buttonDictionary?.updatedAt))for(const [key,definition]of Object.entries(LAYOUT_NAMES)){if(!definition.button)continue;const row=dictionary.buttons.find(row=>row.key===definition.button);if(row)values[key]=row.label;}return values;}
-function heading(desired,node,label,name){if(!node||!label)return;const target=textNode(node);if(target)desired.set(node,{target,label,name});}
+function heading(desired,node,label,name){if(!node||!label||node.closest('.footer .designed,[data-instautomate-attribution]'))return;const target=textNode(node);if(target)desired.set(node,{target,label,name});}
+function agencyAttribution(){for(const link of document.querySelectorAll('.footer .designed a')){let url;try{url=new URL(link.href,location.origin);}catch{continue;}if(url.hostname!=='instautomate.com'&&url.hostname!=='www.instautomate.com')continue;const label=link.querySelector('strong')||link;if(label.textContent!=='Instautomate')label.textContent='Instautomate';if(link.getAttribute('href')!=='https://instautomate.com')link.setAttribute('href','https://instautomate.com');if(link.target!=='_blank')link.target='_blank';if(link.rel!=='noopener noreferrer')link.rel='noopener noreferrer';link.removeAttribute('data-db159-name');link.removeAttribute('data-db157-name');if(link.parentElement&&!link.parentElement.hasAttribute('data-instautomate-attribution'))link.parentElement.setAttribute('data-instautomate-attribution','');}}
 function applyText(desired){
  for(const[node,record]of texts)if(!desired.has(node)||!node.isConnected){if(record.target.isConnected&&record.target.nodeValue===record.last)record.target.nodeValue=record.original;node.removeAttribute('data-db157-name');texts.delete(node);}
  for(const[node,item]of desired){let record=texts.get(node);if(!record||record.target!==item.target){record={target:item.target,original:item.target.nodeValue,last:null};texts.set(node,record);}else if(record.last!==null&&item.target.nodeValue!==record.last)record.original=item.target.nodeValue;
@@ -26,6 +27,7 @@ function render(){
    if(document.body?.dataset.siteTheme!==model.theme)document.body.dataset.siteTheme=model.theme;
    const mainNodes=new Map();
    for(const block of model.blocks){
+    if(block.region==='footer'||block.id==='footer')continue;
     if(block.region==='main'||block.region==='welcome'){if(document.body.dataset.ucLoad!=='home')continue;}
     const node=blockNode(block);if(!node)continue;const config=block.config||{},view=config.viewports?.[device]||{};
     if(config.removed||view.visibility==='hide')style(desired,node,'display','none');
@@ -44,7 +46,7 @@ function render(){
    const order=model.layout?.order?.[device];if(order&&document.body.dataset.ucLoad==='home'){const main=document.querySelector('main');style(desired,main,'display','flex');style(desired,main,'flex-direction','column');for(const[id,node]of mainNodes)style(desired,node,'order',order.indexOf(id));}
    for(const[name,definition]of Object.entries(LAYOUT_NAMES)){
     if(!currentNames[name])continue;
-    for(const link of document.querySelectorAll('.navlinks>a,.navlinks>.nav-dropdown>.nav-top-link,.navlinks>.nav-item>a,.footer a')){const path=new URL(link.href,location.origin).pathname;if([definition.href,model.paths?.[name]].includes(path)||definition.nav&&[link.dataset.ucNavKey,link.dataset.ucFooterNavKey].includes(definition.nav))heading(labels,link,currentNames[name],name);}
+    for(const link of document.querySelectorAll('.navlinks>a,.navlinks>.nav-dropdown>.nav-top-link,.navlinks>.nav-item>a,.footer .footer-grid a')){const url=new URL(link.href,location.origin);if(url.origin!==location.origin)continue;const path=url.pathname;if([definition.href,model.paths?.[name]].includes(path)||definition.nav&&[link.dataset.ucNavKey,link.dataset.ucFooterNavKey].includes(definition.nav))heading(labels,link,currentNames[name],name);}
    }
    if(currentNames.blog!==LAYOUT_NAMES.blog.label&&['blog-list','blog-post'].includes(document.body.dataset.ucLoad))for(const node of document.querySelectorAll('main h1'))heading(labels,node,currentNames.blog,'blog');
   }else if(admin){
@@ -71,7 +73,7 @@ function render(){
    const name=node.dataset.db159Name;
    if(currentNames[name])heading(labels,node,currentNames[name],name);
   }
-  applyStyles(desired);applyText(labels);
+  applyStyles(desired);applyText(labels);if(!admin&&!portal)agencyAttribution();
  }finally{if(model)window.DropBeatDynamicUI?.state('layout','ready');observe();}
 }
 function queue(){if(!queued){queued=true;queueMicrotask(render);}}
@@ -79,15 +81,16 @@ function observe(){observer?.observe(document.body,{childList:true,subtree:true,
 export function applyLayout(next){
  if(!next?.ok||!Array.isArray(next.blocks)||!Object.hasOwn(LAYOUT_THEMES,next.theme)||!next.layout||!next.names||Object.keys(LAYOUT_NAMES).some(key=>typeof next.names[key]!=='string'||!next.names[key].trim()))return false;
  if(model&&date(next.updatedAt)<date(model.updatedAt))return false;
- const changed=!model||model.contextRevision!==next.contextRevision;model=structuredClone(next);delete model.themes;delete model.themePresets;if(model.buttonDictionary)model.buttonDictionary.buttons=model.buttonDictionary.buttons.filter(row=>row.category==='front');
+ let clean;try{clean=cloneLayoutData(next);clean.layout=normalizeThemeLayout(clean.theme,clean.layout);clean.blocks=resolvedBlocks(clean.theme,clean.layout,clean.names);}catch{return false;}
+ const changed=!model||model.contextRevision!==clean.contextRevision||model.theme!==clean.theme;model=clean;delete model.themes;delete model.themePresets;if(model.buttonDictionary)model.buttonDictionary.buttons=model.buttonDictionary.buttons.filter(row=>row.category==='front');
  if(!admin&&next.buttonDictionary)window.DropBeatButtons?.apply(next.buttonDictionary);
- queue();if(changed)window.dispatchEvent(new CustomEvent('dropbeat:layout-updated',{detail:structuredClone(model)}));return true;
+ queue();if(changed)window.dispatchEvent(new CustomEvent('dropbeat:layout-updated',{detail:cloneLayoutData(model)}));return true;
 }
 export function refreshLayout({force=false}={}){
  if(refreshing)return refreshing;window.DropBeatDynamicUI?.state('layout',model?'ready':'loading');
  const load=()=>window.DropBeatDynamicUI.json('/api/public/layout',{cache:'no-cache',credentials:'same-origin',headers:{'X-DropBeat-Revalidate':'1'}});
  refreshing=(async()=>{try{const result=window.DropBeatDataCache?await window.DropBeatDataCache.query('public:/api/public/layout',load,{persist:true,staleTime:60000,maxAge:300000,force,onUpdate:applyLayout}):await load();if(!applyLayout(result))throw Error('Invalid layout configuration.');}catch(error){window.DropBeatDynamicUI?.state('layout','error',error.message||'Navigation could not be loaded.');}return model;})().finally(()=>refreshing=null);return refreshing;
 }
-window.DropBeatLayout=Object.freeze({apply:applyLayout,refresh:refreshLayout,snapshot:()=>model?structuredClone(model):null,render:queue,names});
+window.DropBeatLayout=Object.freeze({apply:applyLayout,refresh:refreshLayout,snapshot:()=>model?cloneLayoutData(model):null,render:queue,names,themes:LAYOUT_THEMES});
 function start(){observer=new MutationObserver(queue);observe();refreshLayout();phone.addEventListener('change',queue);window.addEventListener('dropbeat:buttons-updated',queue);window.addEventListener('dropbeat:site-theme',queue);addEventListener('pageshow',event=>{if(event.persisted)refreshLayout();});addEventListener('popstate',()=>refreshLayout());}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();

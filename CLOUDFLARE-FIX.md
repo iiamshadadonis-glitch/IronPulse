@@ -1,4 +1,4 @@
-# Cloudflare error — V1.06
+# Cloudflare configuration — V1.07
 
 The earlier database-error screenshot showed this failure after the assets uploaded successfully:
 

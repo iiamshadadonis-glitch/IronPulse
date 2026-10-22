@@ -1,0 +1,94 @@
+{
+  "version": "V1.07",
+  "inputSha256": "72508b7cc867579f49b566aeff8e760f61bca6b4b8560f0755037d02e43fbb0b",
+  "inputFileCount": 2992,
+  "frontendFiles": [
+    {
+      "path": "public/assets/layout-registry-v1-57.js",
+      "purpose": "Bounded plain-data cloning, normalized per-theme documents and immutable footer boundary.",
+      "beforeSha256": "15322f15eb312344114fdda8ed743f51aabc671ce1d519be2a69399e6196a56c",
+      "afterSha256": "8d756a3eacb43227d9831690bf158351e412c15280e7bfb9d9db62c466c67806"
+    },
+    {
+      "path": "public/assets/gym-layout-v1-57.js",
+      "purpose": "Validated flat block resolution and same-origin name mapping; permanent Instautomate credit.",
+      "beforeSha256": "b3d8bf2f1e146756b68443bdcf1c2c93a80ac958bc642d9048cf3245af52353b",
+      "afterSha256": "551d0a2fc4d41f5e64de0f48b46cd2519b058ed39bb20e448851b8395a5cdb0f"
+    },
+    {
+      "path": "public/assets/gym-layout-admin-v1-57.js",
+      "purpose": "Theme-aware previews, bounded loads, independent viewport hide and typed layout confirmation.",
+      "beforeSha256": "91c894b898e33c29d08723b85c0a4118087c687efcaf0e372dd6a2d01c9b744a",
+      "afterSha256": "2a26ed589d2e1d1b3fb02f309b451b0356c78fd14fd83863cc4277121ceed6d6"
+    },
+    {
+      "path": "public/assets/gym-pages-workspace-v1-57.js",
+      "purpose": "Single workspace owner, guarded route activation and idempotent workspace synchronization.",
+      "beforeSha256": "c69b719ddadf90d2d40c71b7e99714b7ebc558db332afb285ea073c9ed31de13",
+      "afterSha256": "dad6a7c0b109add324497e0ce8e88cb928817237d8999e24a58f192a9dbc4c76"
+    },
+    {
+      "path": "public/admin/gym-admin-v1-29.js",
+      "purpose": "Theme draft preservation, capability-driven Banners controls and typed publication confirmation.",
+      "beforeSha256": "cf888bf48b0520758bfa4d7a6e1a5b7d6eea1d220586ab454d4a84a2a606179e",
+      "afterSha256": "ce4c582dafb9576fa975b05c981c2ce02e2593db9f0b0a0790d378f250d6363f"
+    },
+    {
+      "path": "public/admin/admin.js",
+      "purpose": "Commit Brand Settings only after successful save; pass transient theme confirmation fields.",
+      "beforeSha256": "765f02d084161865d294b3bf8dcfdeb262015e5e8f99ebb1e069b673cae93f0f",
+      "afterSha256": "e7115b1f0bcf66dfc77ff3a1245ab400194444730c73447c8216f94f69e53e21"
+    },
+    {
+      "path": "public/admin/final-v16-53-navigation-brand-notifications.js",
+      "purpose": "Preserve addon workspace buttons and avoid repeated unchanged navigation DOM writes.",
+      "beforeSha256": "9e35a14b4377459675398450c20538fe0dfbe1857797a6fae4bd6d539495df7f",
+      "afterSha256": "7566b690a2c37604a706365acca38ec663d47b824936f68193f038198ef03005"
+    }
+  ],
+  "backendFiles": [
+    {
+      "path": "functions/_lib/layout.js",
+      "purpose": "Sanitize existing per-theme layout documents through the shared schema without schema changes.",
+      "beforeSha256": "3178ef9f26bb36017f1bc7c4fb391d43a1429249542663f5b31553822490f874",
+      "afterSha256": "5ce9b9a0c7827fefe62a5930777a23273f455ad8e1dfdb362fb13efc0e153a96",
+      "shape": "986356f446381ffafd2713eb7f91c000437c3959d1062308ab4fe5b6f8633d91",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "functions/api/admin/settings.js",
+      "purpose": "Enforce exact confirmation for theme switches and reject a changed expected active theme.",
+      "beforeSha256": "7067c51c699ba5fa3a28e2433f02dda2b03d0dd2ff3f527d8408f84d7f2bac0c",
+      "afterSha256": "5888d599b6e2264cad634fce3c0b5f138ff5b192d41a3643fec53ec54d1077b8",
+      "shape": "1773897f5a624da8e6aec496ca293221d10d2e63069195c1ee58af0df2040ee7",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "functions/_lib/gym-asset-delivery.js",
+      "purpose": "Canonical module build URLs avoid duplicate editor/workspace module instances.",
+      "beforeSha256": "a2ac045d68841fd6e509a9251b4cf49650d0e124c6857b21f16133f9b27c4334",
+      "afterSha256": "f242874d71a31be29b19c15847af70ef9aa07e14f32ecb507ef963be43880f69",
+      "shape": "03b51a8810f2dd92a34eafa076237b8a951324e334f8103453f5eeb5fb013ceb",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "functions/_lib/gym-asset-manifest.js",
+      "purpose": "Generated V1.07 fingerprints for the complete current CSS/JS asset set.",
+      "beforeSha256": "d48d3d0d0958f61422d1b7989c50de1f1b77833cd2c525e733fe0544256bdd0b",
+      "afterSha256": "6cd844195df1b3d364a76fd71a45c92f86a8c50dd4f66c89b9c5c130c33522ec",
+      "shape": "9b40f1a0ea9d5d3565dbbd67439cd8fcf7a79818483438666f0a285b092ad73c",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "functions/_middleware.js",
+      "purpose": "Release response header update to 1.7.0 only.",
+      "beforeSha256": "37fcce33955b587be74b9ebfab9fbe6cbc5d972c1c6d9bc98598bf9147251019",
+      "afterSha256": "40bf57bed34e5dbf196bdbb6291785e49f156633fd0cb3ba2789e51f2c5cbac6",
+      "shape": "24650fd8eb0c07175aab814438ee78309627f0664b5352a53d613968bbd0c8c4",
+      "ddl": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ],
+  "retainedCssFiles": 179,
+  "retainedMigrations": 56,
+  "applicationRule": "All supplied application bytes outside these explicit changes and public/release.json remain identical. No schema, API path, table/key, payment, membership or scheduling change."
+}

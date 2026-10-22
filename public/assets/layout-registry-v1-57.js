@@ -23,8 +23,7 @@ const shared=[
  block('plans','Plans & Offers','main',{selector:'#featuredProducts',closest:'section',heading:'.section-head h2',grid:'#featuredProducts'}),
  block('steps','How It Works','main',{selector:'.how-section',heading:'.section-head h2',grid:'.grid.steps'}),
  block('stories','Member Stories','main',{name:'stories',selector:'#successStoriesGrid',closest:'section',heading:'.section-head h2',grid:'#successStoriesGrid'}),
- block('notice','Class Information','main',{selector:'main>.section:last-child:has(.notice)'}),
- block('footer','Footer Content','footer',{selector:'.footer-grid',description:'Footer links and social profiles. The existing site attribution remains in place.'})
+ block('notice','Class Information','main',{selector:'main>.section:last-child:has(.notice)'})
 ];
 export function themeBlocks(theme='dropbeat'){
  const preset=LAYOUT_THEMES[theme]||LAYOUT_THEMES.dropbeat;return shared.filter(row=>!row.gallery||preset.gallery).map(row=>({...row}));
@@ -32,11 +31,33 @@ export function themeBlocks(theme='dropbeat'){
 export function cleanLayoutTitle(value){const s=String(value??'').trim();if(!s||s.length>80||/[<>\u0000-\u001f\u007f]/.test(s))throw new Error('Use a plain-text name of 1–80 characters.');return s;}
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
 const fail=message=>{throw new Error(message);};
+// A bounded, iterative copy of plain JSON data. Malformed editor/cache input
+// produces a useful validation error instead of recursing through a cycle.
+export function cloneLayoutData(value){
+ if(value===null||typeof value!=='object')return value;
+ const result=Array.isArray(value)?[]:{},ancestors=new WeakSet(),queue=[{source:value,target:result,depth:0}];let count=0;
+ while(queue.length){
+  const {source,target,depth,exit}=queue.pop();if(exit){ancestors.delete(source);continue;}
+  if(++count>10000||depth>16)fail('Layout data exceeds the supported size or nesting depth.');
+  if(ancestors.has(source))fail('Layout data must be a tree without circular references.');ancestors.add(source);queue.push({source,exit:true});
+  if(!Array.isArray(source)&&![Object.prototype,null].includes(Object.getPrototypeOf(source)))fail('Layout data must contain plain JSON objects.');
+  for(const [key,item]of Object.entries(source)){
+   if(['__proto__','prototype','constructor'].includes(key))fail('Invalid layout property.');
+   if(item&&typeof item==='object'){const next=Array.isArray(item)?[]:{};target[key]=next;queue.push({source:item,target:next,depth:depth+1});}
+   else if(item===null||['string','boolean'].includes(typeof item)||typeof item==='number'&&Number.isFinite(item))target[key]=item;
+   else if(item!==undefined)fail('Layout data must contain JSON values.');
+  }
+ }
+ return result;
+}
 export function normalizeThemeLayout(theme,input={}){
  if(!Object.hasOwn(LAYOUT_THEMES,theme)||!object(input))fail('Choose a supported theme.');
  const definitions=themeBlocks(theme),allowed=new Map(definitions.map(row=>[row.id,row]));const result={blocks:{},order:{}};
  if(input.blocks&&!object(input.blocks))fail('Invalid layout blocks.');
  for(const[id,raw]of Object.entries(input.blocks||{})){
+  // Old saved documents can contain footer settings. They are no longer
+  // theme controls and are deliberately ignored when resolving/saving layouts.
+  if(id==='footer')continue;
   const definition=allowed.get(id);if(!definition||!object(raw))fail('This block is not available in the selected theme.');
   if(Object.keys(raw).some(k=>!['title','removed','viewports'].includes(k)))fail('Unknown block setting.');
   const item={};if(raw.title){if(definition.name)fail('Edit shared names using the shared name field.');item.title=cleanLayoutTitle(raw.title);}
@@ -68,4 +89,5 @@ export function normalizeThemeLayout(theme,input={}){
  return result;
 }
 export function resolvedBlocks(theme,layout={},names={}){return themeBlocks(theme).map(row=>({...row,title:row.name?(names[row.name]||row.title):(layout.blocks?.[row.id]?.title||row.title),config:layout.blocks?.[row.id]||{}}));}
+export function normalizedLayoutThemes(input={}){return Object.fromEntries(Object.keys(LAYOUT_THEMES).map(theme=>{try{return [theme,normalizeThemeLayout(theme,input?.[theme]||{})];}catch{return [theme,normalizeThemeLayout(theme)];}}));}
 export const EMPTY_LAYOUT_REVISION='layout-defaults-v157';

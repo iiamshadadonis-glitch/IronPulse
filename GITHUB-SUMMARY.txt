@@ -1,17 +1,18 @@
 Title:
-V1.06: Fix Worker layout delivery and asset cache busting
+V1.07: Stabilize Layout, synchronize themes and fix footer attribution
 
 Description:
-- Fix the missing card stylesheet on Cloudflare's generated Fitness Tips pages and append it after inherited styles.
-- Balance desktop image/text columns with 24px padding and gaps.
-- Use full-width mobile images with absolutely positioned titles, excerpts and Read More over a dark gradient.
-- Keep Read More linked to the saved primary theme colour.
-- Generate build/content hashes for all 415 CSS/JS files and version page URLs plus module imports.
-- Keep generated HTML uncached and make CSS/JS compatibility URLs revalidate.
-- Add a custom-domain CSS purge command after successful CLI deployment; retain Pages-managed cache refresh for pages.dev.
-- Test the actual Worker routes and Chrome's real warm cache, retaining previous Admin and duplicate-image checks.
-- Preserve all 2,926 input paths, inherited public JS/CSS bytes, original business logic, migrations, API JSON keys and stored roles and the gym D1 binding.
+- Prevent recursive Pages workspace activation and duplicate module owners; preserve compatibility tab buttons without repeated DOM replacement.
+- Validate layout/cache data with bounded cycle, depth and size checks and resolve blocks from the trusted theme registry.
+- Synchronize Layout blocks and Banners gallery controls with all four existing frontend themes; preserve unsaved theme previews across navigation.
+- Keep Desktop and Mobile hide/show constraints independent; the trash icon affects only the selected viewport.
+- Require typing exactly confirm before publishing a new theme or saving a layout, using the existing desktop dialog/mobile bottom sheet styles.
+- Enforce theme confirmation and stale-theme checks in the API, and commit Admin Brand Settings only after successful saves.
+- Keep existing backend cache invalidation and instant public/admin synchronization; deliver canonical fingerprinted module URLs.
+- Fix Website designed by Instautomate with the safe https://instautomate.com outbound link, and keep the global footer outside theme layouts.
+- Retain all 2,992 supplied V1.06 paths, all 179 CSS files, all 56 migrations, all other application bytes outside the explicit 12-file audit, and the existing gym D1 binding/schema/API keys.
 
 Validation:
-35 regression suites, 24 actual Worker browser groups, 2 real warm-cache browser groups and 20 local Worker/D1 groups passed. Cloudflare Functions compiled successfully. The V1.05 generated-shell failure was reproduced before verification of the fix. Complete-source, checksum and ZIP integrity checks passed.
-See RELEASE-VERIFICATION-GYM.md and verification/ironpulse-v1.06/.
+36 regression suites, 30 actual Worker browser groups, 2 real browser cache groups and 22 local Worker/D1 groups passed. The router re-entry regression reproduces a RangeError using the exact supplied V1.06 controller and passes using V1.07. All 81 other original core Admin functions retain their source bytes. Cloudflare Functions compiled successfully. Complete-source, checksums, ZIP integrity and fresh-extraction checks passed. No migration is required.
+
+See RELEASE-VERIFICATION-GYM.md, docs/LAYOUT-THEME-SYNC.md and verification/ironpulse-v1.07/.

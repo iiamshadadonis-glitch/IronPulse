@@ -1,6 +1,12 @@
 # Why the file counts differ
 
-## Current V1.06 release
+## Current V1.07 release
+
+V1.07 starts from the attached complete V1.06(1).zip, whose recursive file count is 2,992. Every input path is retained. The active project still has 493 public/frontend files, 270 backend/delivery files and 56 migrations. The increase in the complete package comes from the new tests, release documentation and verification evidence; no application folder is cut down.
+
+All 179 CSS files and all 56 migration files match V1.06 byte-for-byte. Seven frontend scripts receive narrowly scoped Layout/theme/footer fixes. Five backend/delivery files change: layout normalization, the theme-save confirmation guard, canonical module delivery, the generated asset manifest and the middleware release header. All other application bytes match the supplied ZIP. The original 1,829-file V1.00 archive remains unchanged. See verification/ironpulse-v1.07/ for the input hashes, explicit source audit and test results, and PACKAGE-CONTENTS.txt for the final recursive count.
+
+## Historical V1.06 release
 
 V1.06 starts from V1.05(1).zip and retains all 2,926 input paths. The working application contains 493 frontend files, 270 backend/delivery files and 56 migrations. One new scoped CSS file fixes the public cards. The two new backend files contain the generated asset manifest and HTML/cache delivery helpers. The existing middleware has a narrowly audited presentation/cache addon. All 267 other inherited backend files, all 178 inherited CSS files, all inherited public JavaScript files and every migration remain byte-identical to V1.05.
 

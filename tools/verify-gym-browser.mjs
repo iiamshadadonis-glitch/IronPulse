@@ -166,9 +166,11 @@ const layout=()=>page.evaluate(()=>[...document.querySelectorAll('#dashboard .da
 import {runWorkflows} from './gym-browser-cases.mjs';
 import {runFitnessTipsWorkflows} from './gym-fitness-tips-cases.mjs';
 import {runPublicFitnessTipsWorkflows} from './gym-public-fitness-tips-cases.mjs';
+import {runLayoutThemeWorkflows} from './gym-layout-theme-cases.mjs';
 try{
  await page.goto(origin+'/admin/',{waitUntil:'load'});
  const args={page,context,origin,output,writes,errors,baseRoute};
- if(process.argv.includes('--public-fitness-only'))await runPublicFitnessTipsWorkflows(args);
- else{await runFitnessTipsWorkflows(args);if(!process.argv.includes('--fitness-tips-only')){await runPublicFitnessTipsWorkflows(args);await runWorkflows(args);}}
+ if(process.argv.includes('--layout-theme-only'))await runLayoutThemeWorkflows(args);
+ else if(process.argv.includes('--public-fitness-only'))await runPublicFitnessTipsWorkflows(args);
+ else{await runFitnessTipsWorkflows(args);if(!process.argv.includes('--fitness-tips-only')){await runPublicFitnessTipsWorkflows(args);await runWorkflows(args);await runLayoutThemeWorkflows(args);}}
 }catch(error){await writeFile(join(output,'workflow-failure.html'),await page.content());await page.screenshot({path:join(output,'workflow-failure.png'),fullPage:true});await writeFile(join(output,'workflow-failure-errors.json'),JSON.stringify({errors,writes,browserDiagnostics,state:await page.evaluate(()=>({url:location.href,attributes:[...document.documentElement.attributes].map(a=>[a.name,a.value]),adminScript:typeof window.startAdmin,adminState:typeof window.A}))},null,2));throw error;}finally{await browser.close();await new Promise(resolve=>server.close(resolve));}

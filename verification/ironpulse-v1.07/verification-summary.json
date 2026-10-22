@@ -1,0 +1,20 @@
+{
+  "version": "V1.07",
+  "pass": true,
+  "regressionSuites": 36,
+  "browserGroups": {
+    "fitness-tips-results.json": 6,
+    "public-fitness-tips-results.json": 8,
+    "gym-branding-results.json": 5,
+    "gym-navigation-schedule-results.json": 5,
+    "layout-theme-results.json": 6
+  },
+  "browserGroupTotal": 30,
+  "realBrowserCacheGroups": 2,
+  "realWorkerD1Groups": 22,
+  "inputFilesRetained": 2992,
+  "cssUnchanged": 179,
+  "migrationsUnchanged": 56,
+  "protectedAdminFunctions": 81,
+  "liveDeploymentPerformed": false
+}

@@ -1,3 +1,14 @@
+# V1.07 — Layout, theme synchronization and footer attribution
+
+- Bound Pages workspace activation, prevent duplicate module owners, and preserve compatibility tab buttons.
+- Validate/copy layout payloads with cycle, depth and size guards; resolve blocks from the active theme registry.
+- Keep theme previews across navigation and show only supported Layout/Banners controls.
+- Hide/show blocks independently for Desktop and Mobile.
+- Require exact typed `confirm` for theme publication and Layout saves; enforce theme confirmation in the API.
+- Commit Brand Settings after a successful response and retain existing cache invalidation/live synchronization.
+- Keep the global footer outside theme blocks and fix the safe Instautomate outbound credit.
+- Preserve all 2,992 V1.06 paths, 179 CSS files, 56 migrations and the existing gym D1 binding.
+
 # Changelog
 
 ## V1.06 — Worker Fitness Tips layout delivery and asset cache busting

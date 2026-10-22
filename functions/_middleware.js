@@ -158,7 +158,7 @@ export async function onRequest(context) {
   headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
   headers.set('Content-Security-Policy', CSP);
   headers.set('X-DropBeat-Release', '1.59.0');
-  headers.set('X-IronPulse-Release', '1.6.0');
+  headers.set('X-IronPulse-Release', '1.7.0');
   applyGymAssetHeaders(headers,url);
 
   if (url.pathname.startsWith('/admin') || url.pathname.startsWith('/api/') || privateDocument) {

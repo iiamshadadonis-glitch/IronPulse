@@ -1,6 +1,6 @@
-# IronPulse Gym V1.06 — start here
+# IronPulse Gym V1.07 — start here
 
-This release corrects stylesheet delivery on Cloudflare's generated Fitness Tips pages and adds build/content hashes to CSS/JS URLs. It includes all earlier image and Admin fixes. No database migration is needed. Read docs/FITNESS-TIPS-DELIVERY-FIX.md for the exact fix, current pages.dev deployment steps and custom-domain cache purging.
+This complete release fixes the Layout workspace, synchronizes theme-specific Layout/Banners controls, requires typed confirmation before publishing a theme or layout, and fixes the Instautomate footer credit. It retains all earlier Fitness Tips/image/cache fixes and all 2,992 supplied V1.06 paths. No database migration is needed. Read docs/LAYOUT-THEME-SYNC.md for the current change.
 
 Deploy to your existing Pages project serving https://gym-fitness-3w8.pages.dev. Keep your existing secrets and database. Use npm run build as the Pages build command. The configuration name below is the package's CLI default; set it to your existing project name only if using CLI deployment.
 
@@ -24,7 +24,7 @@ With GitHub Desktop, choose Repository → Show in Explorer/Finder. Move the old
 
 At the repository root, you must see wrangler.jsonc, package.json, public/, functions/ and migrations/. Do not leave these files inside an extra nested ZIP folder. Do not keep another wrangler.toml or wrangler.json from the old project.
 
-Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **V1.06: Fix Worker layout delivery and asset cache busting**. GITHUB-SUMMARY.txt contains the complete description.
+Commit the replacement and push it to the branch connected to your gym Pages project. Suggested commit message: **V1.07: Stabilize Layout, synchronize themes and fix footer attribution**. GITHUB-SUMMARY.txt contains the complete description.
 
 ## 2. Set the gym Pages project
 

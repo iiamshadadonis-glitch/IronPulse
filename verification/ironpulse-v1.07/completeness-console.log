@@ -1,0 +1,5 @@
+Original V1.00 archive: all 1829 files verified byte-for-byte.
+Active application: 493 frontend files, 270 backend files, 56 migrations.
+All 815 expected application files are present. The archived source is outside the live public/functions folders.
+All 2814 V1.03, 2869 V1.04, 2926 V1.05 and 2992 V1.06 input paths are retained.
+All inherited CSS, migrations and application files outside the explicit V1.07 layout/theme safeguards remain byte-identical.

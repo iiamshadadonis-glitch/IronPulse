@@ -1,0 +1,18 @@
+{
+  "pass": true,
+  "localOnly": true,
+  "initialDatabase": "empty",
+  "results": [
+    "Start with a completely empty temporary local D1; existing runtime schema initialization prepares it",
+    "Real Worker serves the gym manifest",
+    "Current release identifier served by the actual local Worker",
+    "Actual generated Fitness Tips shell includes the final build-hashed stylesheet and versioned module imports with uncached HTML, even without an HTML Accept header",
+    "Actual local Worker serves fingerprinted CSS/JS source bytes and replaces stale-while-revalidate asset headers",
+    "Preserved source configuration is outside the served application and is not exposed through archive URLs",
+    "Dashboard alias, query retention, private caching and indexing headers",
+    "Real public site, layout and button configuration backed by local D1",
+    "Configured first Admin login, HttpOnly session and authenticated settings/context",
+    "Authenticated theme confirmation, live theme/Layout coupling, cache invalidation and independent mobile visibility through real Worker/D1 APIs",
+    "Revoked session is rejected after logout"
+  ]
+}

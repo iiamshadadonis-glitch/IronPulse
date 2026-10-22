@@ -1,4 +1,4 @@
-import {LAYOUT_THEMES,LAYOUT_NAMES,EMPTY_LAYOUT_REVISION,normalizeThemeLayout,cleanLayoutTitle,resolvedBlocks} from '../../public/assets/layout-registry-v1-57.js';
+import {LAYOUT_THEMES,LAYOUT_NAMES,EMPTY_LAYOUT_REVISION,normalizeThemeLayout,normalizedLayoutThemes,cleanLayoutTitle,resolvedBlocks} from '../../public/assets/layout-registry-v1-57.js';
 import {BUTTON_BY_KEY,dictionaryButtons,normalizeButtonTarget} from '../../public/assets/button-dictionary-defaults-v1-56.js';
 import {sha256Hex} from './utils.js';
 import {configurationGeneration,invalidateConfiguration,LAYOUT_CACHE} from './configuration-cache-v1-57.js';
@@ -26,7 +26,7 @@ export function layoutPayload(context,{admin=false}={}){
  let layout;try{layout=normalizeThemeLayout(theme,document.themes?.[theme]||{});}catch{layout=normalizeThemeLayout(theme);}
  const revision=document.revision||EMPTY_LAYOUT_REVISION;
  const buttonDictionary={ok:true,revision:buttons.revision||'defaults-v156',updatedAt:buttons.updatedAt||'',buttons:dictionary.filter(row=>admin||row.category==='front').map(({selector,...row})=>row)};
- return {ok:true,revision,updatedAt:context.updatedAt,theme,themeName:LAYOUT_THEMES[theme].name,contextRevision:context.contextRevision,names,customNames,paths,layout,blocks:resolvedBlocks(theme,layout,names),buttonDictionary,...(admin?{themes:document.themes||{},themePresets:LAYOUT_THEMES}:{})};
+ return {ok:true,revision,updatedAt:context.updatedAt,theme,themeName:LAYOUT_THEMES[theme].name,contextRevision:context.contextRevision,names,customNames,paths,layout,blocks:resolvedBlocks(theme,layout,names),buttonDictionary,...(admin?{themes:normalizedLayoutThemes(document.themes),themePresets:LAYOUT_THEMES}:{})};
 }
 const flights=new Map();
 export async function freshLayoutPayload(env,origin,prepare){
@@ -51,7 +51,7 @@ export async function saveLayout(env,body){
   const row=dictionaryButtons(buttons).find(row=>row.key===key);buttons[key]={label:row.label,target:normalizeButtonTarget(target,definition)};buttonsChanged=true;
  }
  const updatedAt=new Date(Math.max(Date.now(),timestamp(context.updatedAt)+1)).toISOString();
- const next={version:1,revision:crypto.randomUUID(),updatedAt,names,themes:{...(current.themes||{}),[context.theme]:layout}};
+ const next={version:1,revision:crypto.randomUUID(),updatedAt,names,themes:{...normalizedLayoutThemes(current.themes),[context.theme]:layout}};
  const serialized=JSON.stringify(next);const bindings=[LAYOUT_KEY,serialized,...keys.flatMap(key=>[key,context.raw[key]])];
  // The first conditional write guards every source row. D1 batch executes all
  // statements atomically; the dependent writes run only if that guard succeeds.

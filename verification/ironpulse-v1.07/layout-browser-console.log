@@ -1,0 +1,8 @@
+Testing actual /blog Worker shell at https://127.0.0.1:8801 with a temporary local database.
+[Layout] stable workspace and guarded re-entry
+[Layout] theme previews and banner capabilities
+[Layout] theme confirmation, cancellation and recovery
+[Layout] independent viewport hide and layout confirmation
+[Layout] public cross-tab sync and immutable footer
+[Layout] responsive confirmations
+Layout/theme browser workflows passed: 6 groups.

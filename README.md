@@ -2,7 +2,7 @@
 
 The complete working application is at this project root. All 1,829 original V1.00 files are preserved under archive/V1.00/. Read COMPARISON.md for the audited counts and FILE-COMPARISON.csv for every original file.
 
-Complete Cloudflare Pages, Pages Functions/Workers and D1 replacement project, release **V1.06**, package **1.6.0**.
+Complete Cloudflare Pages, Pages Functions/Workers and D1 replacement project, release **V1.07**, package **1.7.0**.
 
 This folder contains the complete application, rather than changed files only. The frontend, backend, assets and all migrations are included. See PACKAGE-CONTENTS.txt for the full inventory and GITHUB-SUMMARY.txt for the commit title/description.
 
@@ -12,7 +12,13 @@ Start with **START-HERE.md** for the noncoder deployment instructions. The exist
 
 This release retains the existing membership, scheduling, checkout, payment, notifications, CRM, Admin and portal logic. The 177 inherited CSS files retain their theme declarations. Physical filenames and remaining display/default brand text were cleaned up for the gym instance. Historical release notes, deployment scripts and verification files are preserved in archive/ for comparison; the current root project supplies the live gym configuration.
 
-## V1.06 Worker layout delivery and cache busting
+## V1.07 Layout, themes and footer
+
+Read docs/LAYOUT-THEME-SYNC.md. This release stabilizes the Pages workspace, validates layout data, synchronizes supported blocks and Banners controls with the four existing frontend themes, and adds exact typed confirmation before publishing a theme. Layout visibility stays independent for Desktop and Mobile. The global footer is no longer an editable theme block, and its attribution always reads Website designed by Instautomate with a safe outbound link.
+
+All 2,992 paths from the supplied V1.06(1).zip remain included. Every one of the 179 stylesheets and 56 migrations is byte-identical to V1.06. Twelve explicitly audited application files change: seven frontend scripts and five backend/delivery files. Payments, memberships, scheduling, stored roles, API paths and the existing D1 binding stay compatible. No migration is required. See verification/ironpulse-v1.07/layout-theme-fixes.json for the exact source exceptions and GITHUB-SUMMARY.txt for copyable release notes.
+
+## Included V1.06 Worker layout delivery and cache busting
 
 Read docs/FITNESS-TIPS-DELIVERY-FIX.md. Cloudflare's /blog route generates its own HTML shell and did not include the V1.05 card stylesheet. The middleware now adds the new card stylesheet last on every blog-list shell, including generated pages and aliases. Desktop cards use 24px padding/gaps; mobile cards use full-width images with absolutely positioned text, a dark gradient and the saved primary-colour button.
 

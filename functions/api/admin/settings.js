@@ -7,9 +7,13 @@ export async function onRequestGet({ request, env }) {
 }
 export async function onRequestPost({ request, env }) {
   try { await requireAdmin(request, env); } catch (e) { return json({ error: e.message }, 401); }
-  const body = await readJson(request);
+  const {confirmation,expectedTheme,...body} = await readJson(request);
   const current = await getSiteSettings(env);
   const next = mergeSiteSettings({ ...current, ...body, updatedAt: new Date().toISOString() });
+  if(next.frontendTheme!==current.frontendTheme){
+    if(confirmation!=='confirm')return json({error:'Type confirm before publishing a new Frontend Theme.'},400);
+    if(expectedTheme!==undefined&&expectedTheme!==current.frontendTheme)return json({error:'The active theme changed in another window. Reload before publishing.'},409);
+  }
   await setSetting(env, 'site_settings', next);
   invalidateConfiguration();
   // Settings are embedded in both /site and the four standard bootstrap
